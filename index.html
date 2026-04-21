@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tetris</title>
+<title>Nokia Snake</title>
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #0f0f1a;
+    background: #1b1b1b;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #fff;
+    color: #e8e8e8;
     overflow: hidden;
   }
   #wrap {
@@ -20,52 +20,97 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 14px;
+    gap: 16px;
   }
-  #game-area {
+  /* Nokia 3310-ish phone body */
+  #phone {
+    background: linear-gradient(160deg, #2e5a8a 0%, #1d3c5c 60%, #122940 100%);
+    border-radius: 28px;
+    padding: 24px 22px 28px 22px;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      inset 0 2px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.35);
+    width: 340px;
+    position: relative;
+  }
+  #brand {
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: #d4e3f7;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    margin-bottom: 14px;
+  }
+  #screen-frame {
+    background: #0d1018;
+    border-radius: 10px;
+    padding: 14px 12px;
+    box-shadow:
+      inset 0 4px 10px rgba(0, 0, 0, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  }
+  #hud {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    justify-content: space-between;
+    font-family: "Courier New", monospace;
+    color: #1a2a10;
+    background: #9bbc0f;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 2px 2px 0 0;
+    border-bottom: 1px solid #6b8a0a;
   }
   canvas {
-    background: #05050c;
     display: block;
-    border: 3px solid #2a2a44;
-    border-radius: 6px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(80, 120, 255, 0.15) inset;
-    touch-action: manipulation;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background: #9bbc0f;
+    border-radius: 0 0 2px 2px;
+    touch-action: none;
   }
-  #side {
+  #keypad {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-items: center;
+  }
+  .key {
+    width: 64px;
+    height: 36px;
+    background: linear-gradient(180deg, #2b4a70 0%, #15283e 100%);
+    border: 1px solid #0a1624;
+    border-radius: 10px;
+    color: #d4e3f7;
+    font-weight: 700;
+    font-size: 16px;
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-    min-width: 140px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 2px 0 rgba(0, 0, 0, 0.35);
+    transition: transform 0.05s ease;
   }
-  .panel {
-    background: #13132a;
-    border: 2px solid #2a2a44;
-    border-radius: 6px;
-    padding: 10px 12px;
+  .key:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
-  .panel h3 {
-    margin: 0 0 8px 0;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #8ea0ff;
-    font-weight: 700;
-  }
-  .stat {
-    font-size: 22px;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
+  .key.wide { grid-column: span 3; width: 100%; }
+  .row { display: contents; }
+  .spacer { visibility: hidden; }
   .hint {
-    font-size: 13px;
-    opacity: 0.75;
+    font-size: 12px;
+    opacity: 0.7;
     text-align: center;
     max-width: 460px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   kbd {
     background: #2a2a44;
@@ -74,39 +119,37 @@
     font-family: inherit;
     font-size: 11px;
     border-bottom: 2px solid #12122a;
+    color: #fff;
   }
 </style>
 </head>
 <body>
 <div id="wrap">
-  <div id="game-area">
-    <canvas id="game" width="300" height="600"></canvas>
-    <div id="side">
-      <div class="panel">
-        <h3>Score</h3>
-        <div class="stat" id="score">0</div>
+  <div id="phone">
+    <div id="brand">NOKIA</div>
+    <div id="screen-frame">
+      <div id="hud">
+        <span id="score">SCORE 0</span>
+        <span id="hi">HI 0</span>
       </div>
-      <div class="panel">
-        <h3>Lines</h3>
-        <div class="stat" id="lines">0</div>
-      </div>
-      <div class="panel">
-        <h3>Level</h3>
-        <div class="stat" id="level">1</div>
-      </div>
-      <div class="panel">
-        <h3>Next</h3>
-        <canvas id="next" width="120" height="120"></canvas>
-      </div>
+      <canvas id="game" width="240" height="200"></canvas>
+    </div>
+    <div id="keypad">
+      <div class="spacer key"></div>
+      <div class="key" data-dir="up">▲</div>
+      <div class="spacer key"></div>
+      <div class="key" data-dir="left">◀</div>
+      <div class="key" data-action="pause">II</div>
+      <div class="key" data-dir="right">▶</div>
+      <div class="spacer key"></div>
+      <div class="key" data-dir="down">▼</div>
+      <div class="spacer key"></div>
     </div>
   </div>
   <div class="hint">
-    <kbd>←</kbd> <kbd>→</kbd> move &nbsp;·&nbsp;
-    <kbd>↓</kbd> soft drop &nbsp;·&nbsp;
-    <kbd>↑</kbd> / <kbd>X</kbd> rotate &nbsp;·&nbsp;
-    <kbd>Space</kbd> hard drop &nbsp;·&nbsp;
+    <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd> move &nbsp;·&nbsp;
     <kbd>P</kbd> pause &nbsp;·&nbsp;
-    <kbd>R</kbd> restart
+    <kbd>R</kbd> / <kbd>Enter</kbd> restart
   </div>
 </div>
 
@@ -114,420 +157,123 @@
 (() => {
   const canvas = document.getElementById("game");
   const ctx = canvas.getContext("2d");
-  const nextCanvas = document.getElementById("next");
-  const nctx = nextCanvas.getContext("2d");
-
-  const COLS = 10;
-  const ROWS = 20;
-  const CELL = 30;
-
   const scoreEl = document.getElementById("score");
-  const linesEl = document.getElementById("lines");
-  const levelEl = document.getElementById("level");
+  const hiEl = document.getElementById("hi");
 
-  const COLORS = {
-    I: "#00e5ff",
-    J: "#3a7bff",
-    L: "#ff9a1f",
-    O: "#ffd93b",
-    S: "#4ae04a",
-    T: "#b05dff",
-    Z: "#ff4d6d",
+  // Grid configured so pixels stay crisp (240x200 canvas, 10px cells => 24x20 grid)
+  const CELL = 10;
+  const COLS = canvas.width / CELL;   // 24
+  const ROWS = canvas.height / CELL;  // 20
+
+  // Classic Game Boy / Nokia LCD palette
+  const BG_LIGHT = "#9bbc0f";
+  const BG_DIM   = "#8aac0f";
+  const FG_DARK  = "#0f380f";
+  const FG_MID   = "#306230";
+
+  const DIRS = {
+    up:    { x:  0, y: -1 },
+    down:  { x:  0, y:  1 },
+    left:  { x: -1, y:  0 },
+    right: { x:  1, y:  0 },
   };
 
-  const SHAPES = {
-    I: [
-      [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
-      [[0,0,1,0],[0,0,1,0],[0,0,1,0],[0,0,1,0]],
-      [[0,0,0,0],[0,0,0,0],[1,1,1,1],[0,0,0,0]],
-      [[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]],
-    ],
-    J: [
-      [[1,0,0],[1,1,1],[0,0,0]],
-      [[0,1,1],[0,1,0],[0,1,0]],
-      [[0,0,0],[1,1,1],[0,0,1]],
-      [[0,1,0],[0,1,0],[1,1,0]],
-    ],
-    L: [
-      [[0,0,1],[1,1,1],[0,0,0]],
-      [[0,1,0],[0,1,0],[0,1,1]],
-      [[0,0,0],[1,1,1],[1,0,0]],
-      [[1,1,0],[0,1,0],[0,1,0]],
-    ],
-    O: [
-      [[1,1],[1,1]],
-      [[1,1],[1,1]],
-      [[1,1],[1,1]],
-      [[1,1],[1,1]],
-    ],
-    S: [
-      [[0,1,1],[1,1,0],[0,0,0]],
-      [[0,1,0],[0,1,1],[0,0,1]],
-      [[0,0,0],[0,1,1],[1,1,0]],
-      [[1,0,0],[1,1,0],[0,1,0]],
-    ],
-    T: [
-      [[0,1,0],[1,1,1],[0,0,0]],
-      [[0,1,0],[0,1,1],[0,1,0]],
-      [[0,0,0],[1,1,1],[0,1,0]],
-      [[0,1,0],[1,1,0],[0,1,0]],
-    ],
-    Z: [
-      [[1,1,0],[0,1,1],[0,0,0]],
-      [[0,0,1],[0,1,1],[0,1,0]],
-      [[0,0,0],[1,1,0],[0,1,1]],
-      [[0,1,0],[1,1,0],[1,0,0]],
-    ],
-  };
-
-  const TYPES = Object.keys(SHAPES);
+  const STORAGE_KEY = "nokia-snake-hi";
 
   const state = {
-    board: [],
-    current: null,
-    next: null,
-    bag: [],
+    snake: [],
+    dir: DIRS.right,
+    pendingDir: DIRS.right,
+    food: null,
     score: 0,
-    lines: 0,
-    level: 1,
-    dropTimer: 0,
-    dropInterval: 800,
+    hi: Number(localStorage.getItem(STORAGE_KEY) || 0),
+    status: "ready", // ready | playing | paused | over
+    tickMs: 120,
+    accum: 0,
     lastTime: 0,
-    status: "playing", // playing | paused | over
-    flash: null, // {rows:[...], t:0}
+    blink: 0,
   };
 
-  function newBoard() {
-    const b = [];
-    for (let r = 0; r < ROWS; r++) {
-      b.push(new Array(COLS).fill(null));
-    }
-    return b;
-  }
-
-  function refillBag() {
-    const bag = TYPES.slice();
-    for (let i = bag.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [bag[i], bag[j]] = [bag[j], bag[i]];
-    }
-    state.bag.push(...bag);
-  }
-
-  function nextType() {
-    if (state.bag.length === 0) refillBag();
-    return state.bag.shift();
-  }
-
-  function spawnPiece(type) {
-    const t = type || nextType();
-    const shape = SHAPES[t][0];
-    return {
-      type: t,
-      rot: 0,
-      x: Math.floor((COLS - shape[0].length) / 2),
-      y: t === "I" ? -1 : 0,
-    };
-  }
-
-  function cells(piece) {
-    const shape = SHAPES[piece.type][piece.rot];
-    const out = [];
-    for (let r = 0; r < shape.length; r++) {
-      for (let c = 0; c < shape[r].length; c++) {
-        if (shape[r][c]) out.push([piece.x + c, piece.y + r]);
-      }
-    }
-    return out;
-  }
-
-  function collides(piece) {
-    for (const [x, y] of cells(piece)) {
-      if (x < 0 || x >= COLS || y >= ROWS) return true;
-      if (y >= 0 && state.board[y][x]) return true;
-    }
-    return false;
-  }
-
-  function merge(piece) {
-    for (const [x, y] of cells(piece)) {
-      if (y >= 0 && y < ROWS && x >= 0 && x < COLS) {
-        state.board[y][x] = piece.type;
-      }
-    }
-  }
-
-  function clearLines() {
-    const full = [];
-    for (let r = 0; r < ROWS; r++) {
-      if (state.board[r].every(c => c !== null)) full.push(r);
-    }
-    if (full.length === 0) return 0;
-
-    state.flash = { rows: full, t: 0 };
-
-    for (const r of full) {
-      state.board.splice(r, 1);
-      state.board.unshift(new Array(COLS).fill(null));
-    }
-    return full.length;
-  }
-
-  function scoreForLines(n, level) {
-    const base = [0, 100, 300, 500, 800][n] || 0;
-    return base * level;
-  }
-
-  function updateLevel() {
-    const newLevel = Math.floor(state.lines / 10) + 1;
-    if (newLevel !== state.level) {
-      state.level = newLevel;
-      state.dropInterval = Math.max(80, 800 - (state.level - 1) * 65);
-    }
-  }
-
-  function lockPiece() {
-    merge(state.current);
-    const cleared = clearLines();
-    if (cleared > 0) {
-      state.score += scoreForLines(cleared, state.level);
-      state.lines += cleared;
-      updateLevel();
-    }
-    state.current = spawnPiece(state.next);
-    state.next = nextType();
-    if (collides(state.current)) {
-      state.status = "over";
-    }
+  function reset() {
+    const cx = Math.floor(COLS / 2);
+    const cy = Math.floor(ROWS / 2);
+    state.snake = [
+      { x: cx - 2, y: cy },
+      { x: cx - 1, y: cy },
+      { x: cx,     y: cy },
+    ];
+    state.dir = DIRS.right;
+    state.pendingDir = DIRS.right;
+    state.score = 0;
+    state.tickMs = 120;
+    state.accum = 0;
+    state.status = "ready";
+    placeFood();
     updateHUD();
   }
 
-  function move(dx, dy) {
-    if (state.status !== "playing") return false;
-    const p = state.current;
-    const np = { ...p, x: p.x + dx, y: p.y + dy };
-    if (!collides(np)) {
-      state.current = np;
-      return true;
-    }
-    return false;
-  }
-
-  function softDrop() {
-    if (!move(0, 1)) {
-      lockPiece();
-    } else {
-      state.score += 1;
-      updateHUD();
-    }
-    state.dropTimer = 0;
-  }
-
-  function hardDrop() {
-    if (state.status !== "playing") return;
-    let dist = 0;
-    while (move(0, 1)) dist++;
-    state.score += dist * 2;
-    lockPiece();
-    state.dropTimer = 0;
-  }
-
-  function rotate(dir) {
-    if (state.status !== "playing") return;
-    const p = state.current;
-    const nr = (p.rot + dir + 4) % 4;
-    const np = { ...p, rot: nr };
-    // Basic wall kicks: try offsets
-    const kicks = [0, -1, 1, -2, 2];
-    for (const k of kicks) {
-      const test = { ...np, x: np.x + k };
-      if (!collides(test)) {
-        state.current = test;
-        return;
+  function placeFood() {
+    const occupied = new Set(state.snake.map(s => s.x + "," + s.y));
+    const free = [];
+    for (let y = 0; y < ROWS; y++) {
+      for (let x = 0; x < COLS; x++) {
+        if (!occupied.has(x + "," + y)) free.push({ x, y });
       }
     }
-  }
-
-  function ghostY(piece) {
-    let gy = piece.y;
-    while (true) {
-      const test = { ...piece, y: gy + 1 };
-      if (collides(test)) return gy;
-      gy++;
-    }
-  }
-
-  function drawCell(cx, x, y, color, alpha = 1, size = CELL) {
-    const px = x * size;
-    const py = y * size;
-    cx.globalAlpha = alpha;
-    // Main fill
-    cx.fillStyle = color;
-    cx.fillRect(px, py, size, size);
-    // Highlight
-    cx.fillStyle = "rgba(255,255,255,0.22)";
-    cx.fillRect(px, py, size, size * 0.28);
-    // Shadow
-    cx.fillStyle = "rgba(0,0,0,0.28)";
-    cx.fillRect(px, py + size * 0.72, size, size * 0.28);
-    // Border
-    cx.strokeStyle = "rgba(0,0,0,0.45)";
-    cx.lineWidth = 1;
-    cx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
-    cx.globalAlpha = 1;
-  }
-
-  function drawGrid() {
-    ctx.fillStyle = "#05050c";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "rgba(255,255,255,0.04)";
-    ctx.lineWidth = 1;
-    for (let x = 1; x < COLS; x++) {
-      ctx.beginPath();
-      ctx.moveTo(x * CELL + 0.5, 0);
-      ctx.lineTo(x * CELL + 0.5, ROWS * CELL);
-      ctx.stroke();
-    }
-    for (let y = 1; y < ROWS; y++) {
-      ctx.beginPath();
-      ctx.moveTo(0, y * CELL + 0.5);
-      ctx.lineTo(COLS * CELL, y * CELL + 0.5);
-      ctx.stroke();
-    }
-  }
-
-  function drawBoard() {
-    for (let r = 0; r < ROWS; r++) {
-      for (let c = 0; c < COLS; c++) {
-        const t = state.board[r][c];
-        if (t) drawCell(ctx, c, r, COLORS[t]);
-      }
-    }
-    if (state.flash) {
-      const a = Math.max(0, 1 - state.flash.t / 180);
-      ctx.fillStyle = `rgba(255,255,255,${a * 0.8})`;
-      for (const r of state.flash.rows) {
-        ctx.fillRect(0, r * CELL, COLS * CELL, CELL);
-      }
-    }
-  }
-
-  function drawPiece(piece, isGhost = false) {
-    const color = COLORS[piece.type];
-    for (const [x, y] of cells(piece)) {
-      if (y < 0) continue;
-      if (isGhost) {
-        ctx.globalAlpha = 0.22;
-        ctx.fillStyle = color;
-        ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.strokeRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2);
-        ctx.globalAlpha = 1;
-      } else {
-        drawCell(ctx, x, y, color);
-      }
-    }
-  }
-
-  function drawNext() {
-    nctx.fillStyle = "#05050c";
-    nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
-    if (!state.next) return;
-    const shape = SHAPES[state.next][0];
-    const size = 22;
-    // compute bounds
-    let minC = 4, maxC = -1, minR = 4, maxR = -1;
-    for (let r = 0; r < shape.length; r++) {
-      for (let c = 0; c < shape[r].length; c++) {
-        if (shape[r][c]) {
-          if (c < minC) minC = c;
-          if (c > maxC) maxC = c;
-          if (r < minR) minR = r;
-          if (r > maxR) maxR = r;
-        }
-      }
-    }
-    const w = (maxC - minC + 1) * size;
-    const h = (maxR - minR + 1) * size;
-    const ox = (nextCanvas.width - w) / 2;
-    const oy = (nextCanvas.height - h) / 2;
-    for (let r = minR; r <= maxR; r++) {
-      for (let c = minC; c <= maxC; c++) {
-        if (shape[r][c]) {
-          const px = ox + (c - minC) * size;
-          const py = oy + (r - minR) * size;
-          nctx.fillStyle = COLORS[state.next];
-          nctx.fillRect(px, py, size, size);
-          nctx.fillStyle = "rgba(255,255,255,0.22)";
-          nctx.fillRect(px, py, size, size * 0.28);
-          nctx.fillStyle = "rgba(0,0,0,0.28)";
-          nctx.fillRect(px, py + size * 0.72, size, size * 0.28);
-          nctx.strokeStyle = "rgba(0,0,0,0.45)";
-          nctx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
-        }
-      }
-    }
-  }
-
-  function drawOverlay() {
-    if (state.status === "playing") return;
-    ctx.fillStyle = "rgba(0,0,0,0.72)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#fff";
-    if (state.status === "paused") {
-      ctx.font = "bold 40px Helvetica Neue, Arial";
-      ctx.fillText("PAUSED", canvas.width / 2, canvas.height / 2 - 10);
-      ctx.font = "16px Helvetica Neue, Arial";
-      ctx.fillStyle = "#b9c2ff";
-      ctx.fillText("Press P to resume", canvas.width / 2, canvas.height / 2 + 26);
-    } else if (state.status === "over") {
-      ctx.font = "bold 38px Helvetica Neue, Arial";
-      ctx.fillStyle = "#ff5a7a";
-      ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 40);
-      ctx.font = "20px Helvetica Neue, Arial";
-      ctx.fillStyle = "#fff";
-      ctx.fillText("Score: " + state.score, canvas.width / 2, canvas.height / 2);
-      ctx.fillText("Lines: " + state.lines, canvas.width / 2, canvas.height / 2 + 28);
-      ctx.font = "14px Helvetica Neue, Arial";
-      ctx.fillStyle = "#b9c2ff";
-      ctx.fillText("Press R to restart", canvas.width / 2, canvas.height / 2 + 64);
-    }
-  }
-
-  function render() {
-    drawGrid();
-    drawBoard();
-    if (state.current && state.status !== "over") {
-      const ghost = { ...state.current, y: ghostY(state.current) };
-      drawPiece(ghost, true);
-      drawPiece(state.current, false);
-    }
-    drawNext();
-    drawOverlay();
+    if (free.length === 0) { state.food = null; return; }
+    state.food = free[Math.floor(Math.random() * free.length)];
   }
 
   function updateHUD() {
-    scoreEl.textContent = state.score;
-    linesEl.textContent = state.lines;
-    levelEl.textContent = state.level;
+    scoreEl.textContent = "SCORE " + String(state.score).padStart(3, "0");
+    hiEl.textContent    = "HI "    + String(state.hi).padStart(3, "0");
   }
 
-  function reset() {
-    state.board = newBoard();
-    state.bag = [];
-    state.score = 0;
-    state.lines = 0;
-    state.level = 1;
-    state.dropInterval = 800;
-    state.dropTimer = 0;
-    state.status = "playing";
-    state.flash = null;
-    state.next = nextType();
-    state.current = spawnPiece();
-    updateHUD();
+  function setDir(name) {
+    const d = DIRS[name];
+    if (!d) return;
+    // Ignore reverses
+    if (d.x === -state.dir.x && d.y === -state.dir.y) return;
+    state.pendingDir = d;
+    if (state.status === "ready") state.status = "playing";
+  }
+
+  function tick() {
+    if (state.status !== "playing") return;
+    state.dir = state.pendingDir;
+    const head = state.snake[state.snake.length - 1];
+    const nh = { x: head.x + state.dir.x, y: head.y + state.dir.y };
+
+    // Wall collision (classic Nokia = die on wall)
+    if (nh.x < 0 || nh.x >= COLS || nh.y < 0 || nh.y >= ROWS) {
+      gameOver();
+      return;
+    }
+    // Self collision (allow moving into the tail cell that will vacate this turn)
+    const willGrow = state.food && nh.x === state.food.x && nh.y === state.food.y;
+    const body = willGrow ? state.snake : state.snake.slice(1);
+    for (const seg of body) {
+      if (seg.x === nh.x && seg.y === nh.y) { gameOver(); return; }
+    }
+
+    state.snake.push(nh);
+    if (willGrow) {
+      state.score += 10;
+      if (state.score > state.hi) {
+        state.hi = state.score;
+        localStorage.setItem(STORAGE_KEY, String(state.hi));
+      }
+      // Speed up gradually, floor at 55ms
+      state.tickMs = Math.max(55, state.tickMs - 3);
+      placeFood();
+      updateHUD();
+    } else {
+      state.snake.shift();
+    }
+  }
+
+  function gameOver() {
+    state.status = "over";
   }
 
   function togglePause() {
@@ -535,39 +281,175 @@
     else if (state.status === "paused") state.status = "playing";
   }
 
+  // ---------- Rendering ----------
+  function drawPixel(x, y, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+  }
+
+  function drawSnakeSegment(x, y) {
+    // Outer dark square, inner gap for that retro LCD segmented look
+    ctx.fillStyle = FG_DARK;
+    ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2);
+    ctx.fillStyle = BG_LIGHT;
+    ctx.fillRect(x * CELL + 3, y * CELL + 3, CELL - 6, CELL - 6);
+    ctx.fillStyle = FG_DARK;
+    ctx.fillRect(x * CELL + 4, y * CELL + 4, CELL - 8, CELL - 8);
+  }
+
+  function drawFood() {
+    if (!state.food) return;
+    const { x, y } = state.food;
+    // Diamond-ish pixel food
+    const px = x * CELL;
+    const py = y * CELL;
+    ctx.fillStyle = FG_DARK;
+    ctx.fillRect(px + 4, py + 1, 2, 8);
+    ctx.fillRect(px + 1, py + 4, 8, 2);
+    ctx.fillRect(px + 3, py + 2, 4, 6);
+    ctx.fillRect(px + 2, py + 3, 6, 4);
+  }
+
+  function drawBackground() {
+    ctx.fillStyle = BG_LIGHT;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Faint pixel dither to mimic LCD texture
+    ctx.fillStyle = BG_DIM;
+    for (let y = 0; y < ROWS; y++) {
+      for (let x = 0; x < COLS; x++) {
+        if ((x + y) % 2 === 0) {
+          ctx.fillRect(x * CELL, y * CELL, 1, 1);
+        }
+      }
+    }
+    // Border frame inside the playfield
+    ctx.strokeStyle = FG_DARK;
+    ctx.lineWidth = 2;
+    ctx.strokeRect(1, 1, canvas.width - 2, canvas.height - 2);
+  }
+
+  function drawCenteredText(lines, opts = {}) {
+    const {
+      boxPadding = 8,
+      lineHeight = 14,
+      font = "bold 12px 'Courier New', monospace",
+    } = opts;
+    ctx.font = font;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    const widths = lines.map(l => ctx.measureText(l).width);
+    const boxW = Math.min(canvas.width - 20, Math.max(...widths) + boxPadding * 2);
+    const boxH = lines.length * lineHeight + boxPadding * 2;
+    const bx = (canvas.width - boxW) / 2;
+    const by = (canvas.height - boxH) / 2;
+
+    ctx.fillStyle = BG_LIGHT;
+    ctx.fillRect(bx, by, boxW, boxH);
+    ctx.strokeStyle = FG_DARK;
+    ctx.lineWidth = 2;
+    ctx.strokeRect(bx + 1, by + 1, boxW - 2, boxH - 2);
+
+    ctx.fillStyle = FG_DARK;
+    lines.forEach((line, i) => {
+      const y = by + boxPadding + lineHeight / 2 + i * lineHeight;
+      ctx.fillText(line, canvas.width / 2, y);
+    });
+  }
+
+  function render() {
+    drawBackground();
+
+    for (const seg of state.snake) drawSnakeSegment(seg.x, seg.y);
+    drawFood();
+
+    if (state.status === "ready") {
+      drawCenteredText(["SNAKE", "", "PRESS ANY ARROW", "TO START"]);
+    } else if (state.status === "paused") {
+      if (Math.floor(state.blink / 400) % 2 === 0) {
+        drawCenteredText(["PAUSED", "", "PRESS P"]);
+      }
+    } else if (state.status === "over") {
+      drawCenteredText([
+        "GAME OVER",
+        "",
+        "SCORE " + state.score,
+        "HI    " + state.hi,
+        "",
+        "PRESS R",
+      ]);
+    }
+  }
+
   function loop(t) {
     const dt = state.lastTime ? t - state.lastTime : 0;
     state.lastTime = t;
+    state.blink += dt;
+
     if (state.status === "playing") {
-      state.dropTimer += dt;
-      if (state.dropTimer >= state.dropInterval) {
-        state.dropTimer = 0;
-        if (!move(0, 1)) lockPiece();
+      state.accum += dt;
+      while (state.accum >= state.tickMs) {
+        state.accum -= state.tickMs;
+        tick();
       }
     }
-    if (state.flash) {
-      state.flash.t += dt;
-      if (state.flash.t > 180) state.flash = null;
-    }
+
     render();
     requestAnimationFrame(loop);
   }
 
+  // ---------- Input ----------
+  const KEY_TO_DIR = {
+    ArrowUp: "up",    KeyW: "up",
+    ArrowDown: "down",  KeyS: "down",
+    ArrowLeft: "left",  KeyA: "left",
+    ArrowRight: "right", KeyD: "right",
+  };
+
   window.addEventListener("keydown", (e) => {
-    if (e.code === "ArrowLeft")  { e.preventDefault(); move(-1, 0); }
-    else if (e.code === "ArrowRight") { e.preventDefault(); move(1, 0); }
-    else if (e.code === "ArrowDown")  { e.preventDefault(); softDrop(); }
-    else if (e.code === "ArrowUp" || e.key === "x" || e.key === "X") {
-      e.preventDefault(); rotate(1);
-    } else if (e.key === "z" || e.key === "Z") {
-      e.preventDefault(); rotate(-1);
-    } else if (e.code === "Space") {
-      e.preventDefault(); hardDrop();
-    } else if (e.key === "p" || e.key === "P") {
+    if (KEY_TO_DIR[e.code]) {
+      e.preventDefault();
+      if (state.status === "over") return;
+      setDir(KEY_TO_DIR[e.code]);
+    } else if (e.code === "KeyP" || e.code === "Space") {
+      e.preventDefault();
       togglePause();
-    } else if (e.key === "r" || e.key === "R") {
+    } else if (e.code === "KeyR" || e.code === "Enter") {
+      e.preventDefault();
       reset();
     }
+  });
+
+  document.querySelectorAll(".key").forEach(el => {
+    el.addEventListener("click", () => {
+      const dir = el.dataset.dir;
+      const action = el.dataset.action;
+      if (dir) {
+        if (state.status === "over") reset();
+        setDir(dir);
+      } else if (action === "pause") {
+        if (state.status === "over") reset();
+        else togglePause();
+      }
+    });
+  });
+
+  // Swipe on the canvas for mobile
+  let touchStart = null;
+  canvas.addEventListener("touchstart", (e) => {
+    const t = e.changedTouches[0];
+    touchStart = { x: t.clientX, y: t.clientY };
+  }, { passive: true });
+  canvas.addEventListener("touchend", (e) => {
+    if (!touchStart) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.x;
+    const dy = t.clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) < 15 && Math.abs(dy) < 15) return;
+    if (state.status === "over") { reset(); return; }
+    if (Math.abs(dx) > Math.abs(dy)) setDir(dx > 0 ? "right" : "left");
+    else setDir(dy > 0 ? "down" : "up");
   });
 
   reset();
