@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Flappy Bird</title>
+<title>Tetris</title>
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #222;
+    background: #0f0f1a;
     font-family: "Helvetica Neue", Arial, sans-serif;
     color: #fff;
     overflow: hidden;
@@ -20,346 +20,558 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 10px;
+    gap: 14px;
+  }
+  #game-area {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
   }
   canvas {
-    background: #70c5ce;
+    background: #05050c;
     display: block;
-    border: 4px solid #000;
+    border: 3px solid #2a2a44;
     border-radius: 6px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    max-width: 95vw;
-    max-height: 85vh;
-    image-rendering: pixelated;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(80, 120, 255, 0.15) inset;
     touch-action: manipulation;
   }
+  #side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 140px;
+  }
+  .panel {
+    background: #13132a;
+    border: 2px solid #2a2a44;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .panel h3 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8ea0ff;
+    font-weight: 700;
+  }
+  .stat {
+    font-size: 22px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
   .hint {
-    font-size: 14px;
-    opacity: 0.7;
+    font-size: 13px;
+    opacity: 0.75;
+    text-align: center;
+    max-width: 460px;
+    line-height: 1.5;
+  }
+  kbd {
+    background: #2a2a44;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 11px;
+    border-bottom: 2px solid #12122a;
   }
 </style>
 </head>
 <body>
 <div id="wrap">
-  <canvas id="game" width="360" height="640"></canvas>
-  <div class="hint">Press <b>Space</b> / <b>Click</b> / <b>Tap</b> to flap &nbsp;·&nbsp; <b>R</b> to restart</div>
+  <div id="game-area">
+    <canvas id="game" width="300" height="600"></canvas>
+    <div id="side">
+      <div class="panel">
+        <h3>Score</h3>
+        <div class="stat" id="score">0</div>
+      </div>
+      <div class="panel">
+        <h3>Lines</h3>
+        <div class="stat" id="lines">0</div>
+      </div>
+      <div class="panel">
+        <h3>Level</h3>
+        <div class="stat" id="level">1</div>
+      </div>
+      <div class="panel">
+        <h3>Next</h3>
+        <canvas id="next" width="120" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="hint">
+    <kbd>←</kbd> <kbd>→</kbd> move &nbsp;·&nbsp;
+    <kbd>↓</kbd> soft drop &nbsp;·&nbsp;
+    <kbd>↑</kbd> / <kbd>X</kbd> rotate &nbsp;·&nbsp;
+    <kbd>Space</kbd> hard drop &nbsp;·&nbsp;
+    <kbd>P</kbd> pause &nbsp;·&nbsp;
+    <kbd>R</kbd> restart
+  </div>
 </div>
 
 <script>
 (() => {
   const canvas = document.getElementById("game");
   const ctx = canvas.getContext("2d");
-  const W = canvas.width;
-  const H = canvas.height;
+  const nextCanvas = document.getElementById("next");
+  const nctx = nextCanvas.getContext("2d");
 
-  const GROUND_H = 80;
-  const GRAVITY = 0.45;
-  const FLAP = -7.5;
-  const PIPE_W = 60;
-  const PIPE_GAP = 150;
-  const PIPE_SPEED = 2.2;
-  const PIPE_SPAWN_EVERY = 90; // frames
+  const COLS = 10;
+  const ROWS = 20;
+  const CELL = 30;
 
-  const state = {
-    bird: { x: 80, y: H / 2, vy: 0, r: 14, rot: 0 },
-    pipes: [],
-    frame: 0,
-    score: 0,
-    best: Number(localStorage.getItem("flappyBest") || 0),
-    status: "ready", // ready | playing | dead
-    groundX: 0,
+  const scoreEl = document.getElementById("score");
+  const linesEl = document.getElementById("lines");
+  const levelEl = document.getElementById("level");
+
+  const COLORS = {
+    I: "#00e5ff",
+    J: "#3a7bff",
+    L: "#ff9a1f",
+    O: "#ffd93b",
+    S: "#4ae04a",
+    T: "#b05dff",
+    Z: "#ff4d6d",
   };
 
-  function reset() {
-    state.bird.x = 80;
-    state.bird.y = H / 2;
-    state.bird.vy = 0;
-    state.bird.rot = 0;
-    state.pipes = [];
-    state.frame = 0;
-    state.score = 0;
-    state.status = "ready";
-  }
+  const SHAPES = {
+    I: [
+      [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+      [[0,0,1,0],[0,0,1,0],[0,0,1,0],[0,0,1,0]],
+      [[0,0,0,0],[0,0,0,0],[1,1,1,1],[0,0,0,0]],
+      [[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]],
+    ],
+    J: [
+      [[1,0,0],[1,1,1],[0,0,0]],
+      [[0,1,1],[0,1,0],[0,1,0]],
+      [[0,0,0],[1,1,1],[0,0,1]],
+      [[0,1,0],[0,1,0],[1,1,0]],
+    ],
+    L: [
+      [[0,0,1],[1,1,1],[0,0,0]],
+      [[0,1,0],[0,1,0],[0,1,1]],
+      [[0,0,0],[1,1,1],[1,0,0]],
+      [[1,1,0],[0,1,0],[0,1,0]],
+    ],
+    O: [
+      [[1,1],[1,1]],
+      [[1,1],[1,1]],
+      [[1,1],[1,1]],
+      [[1,1],[1,1]],
+    ],
+    S: [
+      [[0,1,1],[1,1,0],[0,0,0]],
+      [[0,1,0],[0,1,1],[0,0,1]],
+      [[0,0,0],[0,1,1],[1,1,0]],
+      [[1,0,0],[1,1,0],[0,1,0]],
+    ],
+    T: [
+      [[0,1,0],[1,1,1],[0,0,0]],
+      [[0,1,0],[0,1,1],[0,1,0]],
+      [[0,0,0],[1,1,1],[0,1,0]],
+      [[0,1,0],[1,1,0],[0,1,0]],
+    ],
+    Z: [
+      [[1,1,0],[0,1,1],[0,0,0]],
+      [[0,0,1],[0,1,1],[0,1,0]],
+      [[0,0,0],[1,1,0],[0,1,1]],
+      [[0,1,0],[1,1,0],[1,0,0]],
+    ],
+  };
 
-  function flap() {
-    if (state.status === "ready") state.status = "playing";
-    if (state.status === "playing") state.bird.vy = FLAP;
-    if (state.status === "dead") reset();
-  }
+  const TYPES = Object.keys(SHAPES);
 
-  function addPipe() {
-    const minTop = 40;
-    const maxTop = H - GROUND_H - PIPE_GAP - 40;
-    const top = Math.random() * (maxTop - minTop) + minTop;
-    state.pipes.push({ x: W, top, passed: false });
-  }
+  const state = {
+    board: [],
+    current: null,
+    next: null,
+    bag: [],
+    score: 0,
+    lines: 0,
+    level: 1,
+    dropTimer: 0,
+    dropInterval: 800,
+    lastTime: 0,
+    status: "playing", // playing | paused | over
+    flash: null, // {rows:[...], t:0}
+  };
 
-  function rectCircleCollide(cx, cy, r, rx, ry, rw, rh) {
-    const nx = Math.max(rx, Math.min(cx, rx + rw));
-    const ny = Math.max(ry, Math.min(cy, ry + rh));
-    const dx = cx - nx;
-    const dy = cy - ny;
-    return dx * dx + dy * dy < r * r;
-  }
-
-  function update() {
-    if (state.status === "ready") {
-      // gentle bob
-      state.bird.y = H / 2 + Math.sin(state.frame / 10) * 6;
-      state.frame++;
-      return;
+  function newBoard() {
+    const b = [];
+    for (let r = 0; r < ROWS; r++) {
+      b.push(new Array(COLS).fill(null));
     }
-    if (state.status === "dead") return;
+    return b;
+  }
 
-    state.frame++;
-    state.bird.vy += GRAVITY;
-    state.bird.y += state.bird.vy;
-    state.bird.rot = Math.max(-0.5, Math.min(1.2, state.bird.vy / 10));
+  function refillBag() {
+    const bag = TYPES.slice();
+    for (let i = bag.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [bag[i], bag[j]] = [bag[j], bag[i]];
+    }
+    state.bag.push(...bag);
+  }
 
-    // Spawn pipes
-    if (state.frame % PIPE_SPAWN_EVERY === 0) addPipe();
+  function nextType() {
+    if (state.bag.length === 0) refillBag();
+    return state.bag.shift();
+  }
 
-    // Move pipes & score
-    for (const p of state.pipes) {
-      p.x -= PIPE_SPEED;
-      if (!p.passed && p.x + PIPE_W < state.bird.x) {
-        p.passed = true;
-        state.score++;
+  function spawnPiece(type) {
+    const t = type || nextType();
+    const shape = SHAPES[t][0];
+    return {
+      type: t,
+      rot: 0,
+      x: Math.floor((COLS - shape[0].length) / 2),
+      y: t === "I" ? -1 : 0,
+    };
+  }
+
+  function cells(piece) {
+    const shape = SHAPES[piece.type][piece.rot];
+    const out = [];
+    for (let r = 0; r < shape.length; r++) {
+      for (let c = 0; c < shape[r].length; c++) {
+        if (shape[r][c]) out.push([piece.x + c, piece.y + r]);
       }
     }
-    state.pipes = state.pipes.filter(p => p.x + PIPE_W > -10);
+    return out;
+  }
 
-    // Ground scroll
-    state.groundX = (state.groundX - PIPE_SPEED) % 24;
-
-    // Collision: ground / ceiling
-    if (state.bird.y + state.bird.r >= H - GROUND_H) {
-      state.bird.y = H - GROUND_H - state.bird.r;
-      die();
+  function collides(piece) {
+    for (const [x, y] of cells(piece)) {
+      if (x < 0 || x >= COLS || y >= ROWS) return true;
+      if (y >= 0 && state.board[y][x]) return true;
     }
-    if (state.bird.y - state.bird.r <= 0) {
-      state.bird.y = state.bird.r;
-      state.bird.vy = 0;
-    }
+    return false;
+  }
 
-    // Collision: pipes
-    for (const p of state.pipes) {
-      const topRect  = { x: p.x, y: 0, w: PIPE_W, h: p.top };
-      const botRect  = { x: p.x, y: p.top + PIPE_GAP, w: PIPE_W, h: H - GROUND_H - (p.top + PIPE_GAP) };
-      if (
-        rectCircleCollide(state.bird.x, state.bird.y, state.bird.r, topRect.x, topRect.y, topRect.w, topRect.h) ||
-        rectCircleCollide(state.bird.x, state.bird.y, state.bird.r, botRect.x, botRect.y, botRect.w, botRect.h)
-      ) {
-        die();
+  function merge(piece) {
+    for (const [x, y] of cells(piece)) {
+      if (y >= 0 && y < ROWS && x >= 0 && x < COLS) {
+        state.board[y][x] = piece.type;
       }
     }
   }
 
-  function die() {
-    if (state.status === "dead") return;
-    state.status = "dead";
-    if (state.score > state.best) {
-      state.best = state.score;
-      localStorage.setItem("flappyBest", String(state.best));
+  function clearLines() {
+    const full = [];
+    for (let r = 0; r < ROWS; r++) {
+      if (state.board[r].every(c => c !== null)) full.push(r);
+    }
+    if (full.length === 0) return 0;
+
+    state.flash = { rows: full, t: 0 };
+
+    for (const r of full) {
+      state.board.splice(r, 1);
+      state.board.unshift(new Array(COLS).fill(null));
+    }
+    return full.length;
+  }
+
+  function scoreForLines(n, level) {
+    const base = [0, 100, 300, 500, 800][n] || 0;
+    return base * level;
+  }
+
+  function updateLevel() {
+    const newLevel = Math.floor(state.lines / 10) + 1;
+    if (newLevel !== state.level) {
+      state.level = newLevel;
+      state.dropInterval = Math.max(80, 800 - (state.level - 1) * 65);
     }
   }
 
-  function drawBackground() {
-    // Sky gradient
-    const g = ctx.createLinearGradient(0, 0, 0, H - GROUND_H);
-    g.addColorStop(0, "#70c5ce");
-    g.addColorStop(1, "#b6e3e8");
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, W, H - GROUND_H);
+  function lockPiece() {
+    merge(state.current);
+    const cleared = clearLines();
+    if (cleared > 0) {
+      state.score += scoreForLines(cleared, state.level);
+      state.lines += cleared;
+      updateLevel();
+    }
+    state.current = spawnPiece(state.next);
+    state.next = nextType();
+    if (collides(state.current)) {
+      state.status = "over";
+    }
+    updateHUD();
+  }
 
-    // Clouds
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    const t = state.frame * 0.3;
-    for (let i = 0; i < 4; i++) {
-      const cx = ((i * 120) - (t % 480) + 480) % 480 - 60;
-      const cy = 60 + (i % 2) * 40;
+  function move(dx, dy) {
+    if (state.status !== "playing") return false;
+    const p = state.current;
+    const np = { ...p, x: p.x + dx, y: p.y + dy };
+    if (!collides(np)) {
+      state.current = np;
+      return true;
+    }
+    return false;
+  }
+
+  function softDrop() {
+    if (!move(0, 1)) {
+      lockPiece();
+    } else {
+      state.score += 1;
+      updateHUD();
+    }
+    state.dropTimer = 0;
+  }
+
+  function hardDrop() {
+    if (state.status !== "playing") return;
+    let dist = 0;
+    while (move(0, 1)) dist++;
+    state.score += dist * 2;
+    lockPiece();
+    state.dropTimer = 0;
+  }
+
+  function rotate(dir) {
+    if (state.status !== "playing") return;
+    const p = state.current;
+    const nr = (p.rot + dir + 4) % 4;
+    const np = { ...p, rot: nr };
+    // Basic wall kicks: try offsets
+    const kicks = [0, -1, 1, -2, 2];
+    for (const k of kicks) {
+      const test = { ...np, x: np.x + k };
+      if (!collides(test)) {
+        state.current = test;
+        return;
+      }
+    }
+  }
+
+  function ghostY(piece) {
+    let gy = piece.y;
+    while (true) {
+      const test = { ...piece, y: gy + 1 };
+      if (collides(test)) return gy;
+      gy++;
+    }
+  }
+
+  function drawCell(cx, x, y, color, alpha = 1, size = CELL) {
+    const px = x * size;
+    const py = y * size;
+    cx.globalAlpha = alpha;
+    // Main fill
+    cx.fillStyle = color;
+    cx.fillRect(px, py, size, size);
+    // Highlight
+    cx.fillStyle = "rgba(255,255,255,0.22)";
+    cx.fillRect(px, py, size, size * 0.28);
+    // Shadow
+    cx.fillStyle = "rgba(0,0,0,0.28)";
+    cx.fillRect(px, py + size * 0.72, size, size * 0.28);
+    // Border
+    cx.strokeStyle = "rgba(0,0,0,0.45)";
+    cx.lineWidth = 1;
+    cx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
+    cx.globalAlpha = 1;
+  }
+
+  function drawGrid() {
+    ctx.fillStyle = "#05050c";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "rgba(255,255,255,0.04)";
+    ctx.lineWidth = 1;
+    for (let x = 1; x < COLS; x++) {
       ctx.beginPath();
-      ctx.arc(cx,      cy,      18, 0, Math.PI * 2);
-      ctx.arc(cx + 18, cy - 6,  16, 0, Math.PI * 2);
-      ctx.arc(cx + 32, cy + 2,  20, 0, Math.PI * 2);
-      ctx.arc(cx + 50, cy - 2,  14, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.moveTo(x * CELL + 0.5, 0);
+      ctx.lineTo(x * CELL + 0.5, ROWS * CELL);
+      ctx.stroke();
     }
-
-    // Distant hills
-    ctx.fillStyle = "#5ba36b";
-    ctx.beginPath();
-    ctx.moveTo(0, H - GROUND_H);
-    for (let x = 0; x <= W; x += 40) {
-      const y = H - GROUND_H - 30 - Math.sin(x * 0.05) * 10;
-      ctx.lineTo(x, y);
-    }
-    ctx.lineTo(W, H - GROUND_H);
-    ctx.closePath();
-    ctx.fill();
-  }
-
-  function drawPipes() {
-    for (const p of state.pipes) {
-      const capH = 20;
-      // Top pipe
-      ctx.fillStyle = "#74bf2e";
-      ctx.fillRect(p.x, 0, PIPE_W, p.top);
-      ctx.fillStyle = "#558b1c";
-      ctx.fillRect(p.x - 3, p.top - capH, PIPE_W + 6, capH);
-      ctx.fillStyle = "#8fd84a";
-      ctx.fillRect(p.x + 6, 4, 6, p.top - capH - 8);
-
-      // Bottom pipe
-      const by = p.top + PIPE_GAP;
-      const bh = H - GROUND_H - by;
-      ctx.fillStyle = "#74bf2e";
-      ctx.fillRect(p.x, by, PIPE_W, bh);
-      ctx.fillStyle = "#558b1c";
-      ctx.fillRect(p.x - 3, by, PIPE_W + 6, capH);
-      ctx.fillStyle = "#8fd84a";
-      ctx.fillRect(p.x + 6, by + capH + 4, 6, bh - capH - 8);
+    for (let y = 1; y < ROWS; y++) {
+      ctx.beginPath();
+      ctx.moveTo(0, y * CELL + 0.5);
+      ctx.lineTo(COLS * CELL, y * CELL + 0.5);
+      ctx.stroke();
     }
   }
 
-  function drawGround() {
-    // Ground base
-    ctx.fillStyle = "#ded895";
-    ctx.fillRect(0, H - GROUND_H, W, GROUND_H);
-    // Grass stripe
-    ctx.fillStyle = "#73bf2e";
-    ctx.fillRect(0, H - GROUND_H, W, 12);
-    ctx.fillStyle = "#558b1c";
-    ctx.fillRect(0, H - GROUND_H + 12, W, 4);
-    // Ground pattern
-    ctx.fillStyle = "#c9c283";
-    for (let x = state.groundX; x < W; x += 24) {
-      ctx.fillRect(x, H - GROUND_H + 20, 12, 6);
-      ctx.fillRect(x + 6, H - GROUND_H + 40, 12, 6);
+  function drawBoard() {
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        const t = state.board[r][c];
+        if (t) drawCell(ctx, c, r, COLORS[t]);
+      }
+    }
+    if (state.flash) {
+      const a = Math.max(0, 1 - state.flash.t / 180);
+      ctx.fillStyle = `rgba(255,255,255,${a * 0.8})`;
+      for (const r of state.flash.rows) {
+        ctx.fillRect(0, r * CELL, COLS * CELL, CELL);
+      }
     }
   }
 
-  function drawBird() {
-    const b = state.bird;
-    ctx.save();
-    ctx.translate(b.x, b.y);
-    ctx.rotate(b.rot);
-
-    // Body
-    ctx.fillStyle = "#ffdc3b";
-    ctx.beginPath();
-    ctx.ellipse(0, 0, 16, 13, 0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = "#333";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Wing (flap anim based on vy)
-    const flapPhase = Math.sin(state.frame / 4);
-    const wingY = b.vy < 0 ? -4 + flapPhase * 2 : 3 + flapPhase * 2;
-    ctx.fillStyle = "#f5b400";
-    ctx.beginPath();
-    ctx.ellipse(-3, wingY, 8, 5, -0.2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Eye white
-    ctx.fillStyle = "#fff";
-    ctx.beginPath();
-    ctx.arc(6, -4, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-    // Pupil
-    ctx.fillStyle = "#000";
-    ctx.beginPath();
-    ctx.arc(7, -4, 2.2, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Beak
-    ctx.fillStyle = "#ff8c1a";
-    ctx.beginPath();
-    ctx.moveTo(12, -2);
-    ctx.lineTo(22, 0);
-    ctx.lineTo(12, 4);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.restore();
+  function drawPiece(piece, isGhost = false) {
+    const color = COLORS[piece.type];
+    for (const [x, y] of cells(piece)) {
+      if (y < 0) continue;
+      if (isGhost) {
+        ctx.globalAlpha = 0.22;
+        ctx.fillStyle = color;
+        ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2);
+        ctx.globalAlpha = 1;
+      } else {
+        drawCell(ctx, x, y, color);
+      }
+    }
   }
 
-  function drawText(text, x, y, size, color, align = "center", stroke = true) {
-    ctx.font = `bold ${size}px "Helvetica Neue", Arial, sans-serif`;
-    ctx.textAlign = align;
+  function drawNext() {
+    nctx.fillStyle = "#05050c";
+    nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+    if (!state.next) return;
+    const shape = SHAPES[state.next][0];
+    const size = 22;
+    // compute bounds
+    let minC = 4, maxC = -1, minR = 4, maxR = -1;
+    for (let r = 0; r < shape.length; r++) {
+      for (let c = 0; c < shape[r].length; c++) {
+        if (shape[r][c]) {
+          if (c < minC) minC = c;
+          if (c > maxC) maxC = c;
+          if (r < minR) minR = r;
+          if (r > maxR) maxR = r;
+        }
+      }
+    }
+    const w = (maxC - minC + 1) * size;
+    const h = (maxR - minR + 1) * size;
+    const ox = (nextCanvas.width - w) / 2;
+    const oy = (nextCanvas.height - h) / 2;
+    for (let r = minR; r <= maxR; r++) {
+      for (let c = minC; c <= maxC; c++) {
+        if (shape[r][c]) {
+          const px = ox + (c - minC) * size;
+          const py = oy + (r - minR) * size;
+          nctx.fillStyle = COLORS[state.next];
+          nctx.fillRect(px, py, size, size);
+          nctx.fillStyle = "rgba(255,255,255,0.22)";
+          nctx.fillRect(px, py, size, size * 0.28);
+          nctx.fillStyle = "rgba(0,0,0,0.28)";
+          nctx.fillRect(px, py + size * 0.72, size, size * 0.28);
+          nctx.strokeStyle = "rgba(0,0,0,0.45)";
+          nctx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
+        }
+      }
+    }
+  }
+
+  function drawOverlay() {
+    if (state.status === "playing") return;
+    ctx.fillStyle = "rgba(0,0,0,0.72)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    if (stroke) {
-      ctx.lineWidth = Math.max(3, size / 8);
-      ctx.strokeStyle = "#000";
-      ctx.strokeText(text, x, y);
-    }
-    ctx.fillStyle = color;
-    ctx.fillText(text, x, y);
-  }
-
-  function drawUI() {
-    // Score during play
-    if (state.status !== "dead") {
-      drawText(String(state.score), W / 2, 70, 52, "#fff");
-    }
-
-    if (state.status === "ready") {
-      drawText("Flappy Bird", W / 2, H / 2 - 120, 40, "#fff");
-      drawText("Tap / Space to start", W / 2, H / 2 + 90, 20, "#fff");
-    }
-
-    if (state.status === "dead") {
-      // Panel
-      const pw = 240, ph = 180;
-      const px = (W - pw) / 2, py = (H - ph) / 2 - 20;
-      ctx.fillStyle = "rgba(0,0,0,0.55)";
-      ctx.fillRect(px, py, pw, ph);
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
-      ctx.strokeRect(px, py, pw, ph);
-
-      drawText("Game Over", W / 2, py + 38, 30, "#ff5252");
-      drawText("Score: " + state.score, W / 2, py + 85, 22, "#fff");
-      drawText("Best:  " + state.best,  W / 2, py + 115, 22, "#ffd54a");
-      drawText("Tap / Space / R to retry", W / 2, py + 155, 14, "#fff");
+    ctx.fillStyle = "#fff";
+    if (state.status === "paused") {
+      ctx.font = "bold 40px Helvetica Neue, Arial";
+      ctx.fillText("PAUSED", canvas.width / 2, canvas.height / 2 - 10);
+      ctx.font = "16px Helvetica Neue, Arial";
+      ctx.fillStyle = "#b9c2ff";
+      ctx.fillText("Press P to resume", canvas.width / 2, canvas.height / 2 + 26);
+    } else if (state.status === "over") {
+      ctx.font = "bold 38px Helvetica Neue, Arial";
+      ctx.fillStyle = "#ff5a7a";
+      ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 40);
+      ctx.font = "20px Helvetica Neue, Arial";
+      ctx.fillStyle = "#fff";
+      ctx.fillText("Score: " + state.score, canvas.width / 2, canvas.height / 2);
+      ctx.fillText("Lines: " + state.lines, canvas.width / 2, canvas.height / 2 + 28);
+      ctx.font = "14px Helvetica Neue, Arial";
+      ctx.fillStyle = "#b9c2ff";
+      ctx.fillText("Press R to restart", canvas.width / 2, canvas.height / 2 + 64);
     }
   }
 
   function render() {
-    drawBackground();
-    drawPipes();
-    drawGround();
-    drawBird();
-    drawUI();
+    drawGrid();
+    drawBoard();
+    if (state.current && state.status !== "over") {
+      const ghost = { ...state.current, y: ghostY(state.current) };
+      drawPiece(ghost, true);
+      drawPiece(state.current, false);
+    }
+    drawNext();
+    drawOverlay();
   }
 
-  function loop() {
-    update();
+  function updateHUD() {
+    scoreEl.textContent = state.score;
+    linesEl.textContent = state.lines;
+    levelEl.textContent = state.level;
+  }
+
+  function reset() {
+    state.board = newBoard();
+    state.bag = [];
+    state.score = 0;
+    state.lines = 0;
+    state.level = 1;
+    state.dropInterval = 800;
+    state.dropTimer = 0;
+    state.status = "playing";
+    state.flash = null;
+    state.next = nextType();
+    state.current = spawnPiece();
+    updateHUD();
+  }
+
+  function togglePause() {
+    if (state.status === "playing") state.status = "paused";
+    else if (state.status === "paused") state.status = "playing";
+  }
+
+  function loop(t) {
+    const dt = state.lastTime ? t - state.lastTime : 0;
+    state.lastTime = t;
+    if (state.status === "playing") {
+      state.dropTimer += dt;
+      if (state.dropTimer >= state.dropInterval) {
+        state.dropTimer = 0;
+        if (!move(0, 1)) lockPiece();
+      }
+    }
+    if (state.flash) {
+      state.flash.t += dt;
+      if (state.flash.t > 180) state.flash = null;
+    }
     render();
     requestAnimationFrame(loop);
   }
 
-  // Input
   window.addEventListener("keydown", (e) => {
-    if (e.code === "Space" || e.code === "ArrowUp") {
-      e.preventDefault();
-      flap();
+    if (e.code === "ArrowLeft")  { e.preventDefault(); move(-1, 0); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); move(1, 0); }
+    else if (e.code === "ArrowDown")  { e.preventDefault(); softDrop(); }
+    else if (e.code === "ArrowUp" || e.key === "x" || e.key === "X") {
+      e.preventDefault(); rotate(1);
+    } else if (e.key === "z" || e.key === "Z") {
+      e.preventDefault(); rotate(-1);
+    } else if (e.code === "Space") {
+      e.preventDefault(); hardDrop();
+    } else if (e.key === "p" || e.key === "P") {
+      togglePause();
     } else if (e.key === "r" || e.key === "R") {
       reset();
     }
   });
-  canvas.addEventListener("mousedown", flap);
-  canvas.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    flap();
-  }, { passive: false });
 
   reset();
-  loop();
+  requestAnimationFrame(loop);
 })();
 </script>
 </body>
