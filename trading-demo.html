@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crypto Short Demo — Paper Trading</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    padding: 12px;
+    line-height: 1.4;
+  }
+  h1 { font-size: 18px; margin-bottom: 4px; }
+  .subtitle { font-size: 12px; color: #8b949e; margin-bottom: 12px; }
+  .panel {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .panel-title {
+    font-size: 12px;
+    color: #8b949e;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .stat-item {
+    background: #0d1117;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+  }
+  .stat-label { font-size: 11px; color: #8b949e; }
+  .stat-value { font-size: 16px; font-weight: 600; margin-top: 2px; }
+  .green { color: #3fb950; }
+  .red { color: #f85149; }
+  .blue { color: #58a6ff; }
+
+  #chart-container {
+    width: 100%;
+    height: 360px;
+    position: relative;
+    background: #0d1117;
+    border-radius: 6px;
+  }
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #8b949e;
+    font-size: 13px;
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .control label {
+    font-size: 11px;
+    color: #8b949e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .control input {
+    width: 100%;
+    padding: 10px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: #e6edf3;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  button {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    min-width: 110px;
+    font-family: inherit;
+  }
+  .btn-short { background: #da3633; color: white; }
+  .btn-close { background: #1f6feb; color: white; }
+  .btn-next  { background: #238636; color: white; }
+  .btn-reset { background: #6e7681; color: white; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .position-card {
+    font-size: 13px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+  }
+  .position-empty { color: #8b949e; font-style: italic; font-size: 13px; }
+
+  .history-item {
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .history-item:last-child { border-bottom: none; }
+  .history-empty { color: #8b949e; font-style: italic; font-size: 13px; }
+
+  .info-tip {
+    background: #0c2d6b;
+    border: 1px solid #1f6feb;
+    color: #cae8ff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+    max-width: 90%;
+    text-align: center;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<h1>Crypto Short Demo</h1>
+<div class="subtitle">BTC/USDT · 4H · Paper trading dengan saldo virtual $10,000</div>
+
+<div class="info-tip">
+  <strong>Cara pakai:</strong> Klik <em>Open Short</em> untuk buka posisi short di harga sekarang.
+  Klik <em>Next Candle</em> untuk maju ke candle berikutnya. Posisi akan ditutup otomatis
+  kalau harga sentuh Stop Loss atau Take Profit. Tujuan: latih insting baca grafik tanpa risiko.
+</div>
+
+<div class="panel">
+  <div class="panel-title">Stats</div>
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-label">Saldo Virtual</div>
+      <div class="stat-value" id="balance">$10,000.00</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Total PnL</div>
+      <div class="stat-value" id="total-pnl">$0.00</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Total Trade</div>
+      <div class="stat-value" id="trade-count">0</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value" id="win-rate">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-title">Chart (EMA20 = kuning)</div>
+  <div id="chart-container">
+    <div class="loading" id="loading">Mengunduh data BTC dari Binance...</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-title">Trading Panel</div>
+  <div class="stats" style="margin-bottom: 12px;">
+    <div class="stat-item">
+      <div class="stat-label">Harga Saat Ini</div>
+      <div class="stat-value blue" id="current-price">—</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Tanggal Replay</div>
+      <div class="stat-value" id="current-date" style="font-size: 12px;">—</div>
+    </div>
+  </div>
+
+  <div class="controls-grid">
+    <div class="control">
+      <label>Position Size (USD)</label>
+      <input type="number" id="position-size" value="1000" min="50" />
+    </div>
+    <div class="control">
+      <label>Leverage</label>
+      <input type="number" id="leverage" value="2" min="1" max="20" />
+    </div>
+    <div class="control">
+      <label>Stop Loss (% di atas entry)</label>
+      <input type="number" id="stop-loss" value="2" step="0.5" min="0.5" />
+    </div>
+    <div class="control">
+      <label>Take Profit (% di bawah entry)</label>
+      <input type="number" id="take-profit" value="3" step="0.5" min="0.5" />
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-short" id="btn-short">Open Short</button>
+    <button class="btn-next" id="btn-next">Next Candle ▶</button>
+    <button class="btn-close" id="btn-close" disabled>Close Manual</button>
+    <button class="btn-reset" id="btn-reset">Reset</button>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-title">Posisi Aktif</div>
+  <div id="active-position" class="position-empty">Tidak ada posisi terbuka.</div>
+</div>
+
+<div class="panel">
+  <div class="panel-title">Riwayat Trade</div>
+  <div id="trade-history" class="history-empty">Belum ada trade.</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+const SYMBOL = "BTCUSDT";
+const INTERVAL = "4h";
+const TOTAL_CANDLES = 500;
+const REPLAY_START = 200;
+
+const state = {
+  candles: [],
+  visibleEnd: REPLAY_START,
+  balance: 10000,
+  position: null,
+  history: [],
+};
+
+let chart, candleSeries, emaSeries;
+let entryLine = null, slLine = null, tpLine = null;
+
+async function fetchData() {
+  const url = `https://api.binance.com/api/v3/klines?symbol=${SYMBOL}&interval=${INTERVAL}&limit=${TOTAL_CANDLES}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Binance API error ${res.status}`);
+  const data = await res.json();
+  state.candles = data.map(d => ({
+    time: Math.floor(d[0] / 1000),
+    open: +d[1], high: +d[2], low: +d[3], close: +d[4], volume: +d[5],
+  }));
+}
+
+function calcEMA(candles, period) {
+  const k = 2 / (period + 1);
+  let ema = candles[0].close;
+  return candles.map((c, i) => {
+    if (i === 0) ema = c.close;
+    else ema = c.close * k + ema * (1 - k);
+    return { time: c.time, value: ema };
+  });
+}
+
+function initChart() {
+  document.getElementById('loading').remove();
+  const container = document.getElementById('chart-container');
+  chart = LightweightCharts.createChart(container, {
+    width: container.clientWidth,
+    height: 360,
+    layout: { background: { color: '#0d1117' }, textColor: '#e6edf3' },
+    grid: { vertLines: { color: '#21262d' }, horzLines: { color: '#21262d' } },
+    timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#30363d' },
+    rightPriceScale: { borderColor: '#30363d' },
+    crosshair: { mode: 1 },
+  });
+  candleSeries = chart.addCandlestickSeries({
+    upColor: '#3fb950', downColor: '#f85149',
+    borderVisible: false,
+    wickUpColor: '#3fb950', wickDownColor: '#f85149',
+  });
+  emaSeries = chart.addLineSeries({ color: '#d29922', lineWidth: 2 });
+  redrawChart();
+}
+
+function redrawChart() {
+  const visible = state.candles.slice(0, state.visibleEnd);
+  candleSeries.setData(visible);
+  emaSeries.setData(calcEMA(visible, 20));
+  drawPositionLines();
+  chart.timeScale().fitContent();
+  updateUI();
+}
+
+function clearPositionLines() {
+  if (entryLine) { candleSeries.removePriceLine(entryLine); entryLine = null; }
+  if (slLine)    { candleSeries.removePriceLine(slLine);    slLine = null; }
+  if (tpLine)    { candleSeries.removePriceLine(tpLine);    tpLine = null; }
+}
+
+function drawPositionLines() {
+  clearPositionLines();
+  if (!state.position) return;
+  const p = state.position;
+  entryLine = candleSeries.createPriceLine({
+    price: p.entryPrice, color: '#58a6ff', lineWidth: 2, lineStyle: 0, title: 'ENTRY',
+  });
+  slLine = candleSeries.createPriceLine({
+    price: p.sl, color: '#f85149', lineWidth: 1, lineStyle: 2, title: 'SL',
+  });
+  tpLine = candleSeries.createPriceLine({
+    price: p.tp, color: '#3fb950', lineWidth: 1, lineStyle: 2, title: 'TP',
+  });
+}
+
+function fmtMoney(n) {
+  return (n < 0 ? '-$' : '$') + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function updateUI() {
+  const cur = state.candles[state.visibleEnd - 1];
+  document.getElementById('current-price').textContent = '$' + cur.close.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  document.getElementById('current-date').textContent = new Date(cur.time * 1000).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
+  document.getElementById('balance').textContent = fmtMoney(state.balance);
+
+  const totalPnl = state.history.reduce((s, t) => s + t.pnl, 0);
+  const pnlEl = document.getElementById('total-pnl');
+  pnlEl.textContent = (totalPnl >= 0 ? '+' : '') + fmtMoney(totalPnl);
+  pnlEl.className = 'stat-value ' + (totalPnl >= 0 ? 'green' : 'red');
+
+  document.getElementById('trade-count').textContent = state.history.length;
+  if (state.history.length > 0) {
+    const wins = state.history.filter(t => t.pnl > 0).length;
+    document.getElementById('win-rate').textContent = Math.round(wins / state.history.length * 100) + '%';
+  } else {
+    document.getElementById('win-rate').textContent = '—';
+  }
+
+  const posEl = document.getElementById('active-position');
+  if (state.position) {
+    const p = state.position;
+    const upnl = (p.entryPrice - cur.close) / p.entryPrice * p.size * p.leverage;
+    posEl.className = 'position-card';
+    posEl.innerHTML = `
+      <div>Entry: <strong>$${p.entryPrice.toFixed(2)}</strong></div>
+      <div>Now: <strong>$${cur.close.toFixed(2)}</strong></div>
+      <div>SL: <strong class="red">$${p.sl.toFixed(2)}</strong></div>
+      <div>TP: <strong class="green">$${p.tp.toFixed(2)}</strong></div>
+      <div>Size: <strong>$${p.size.toFixed(0)} × ${p.leverage}x</strong></div>
+      <div>uPnL: <strong class="${upnl >= 0 ? 'green' : 'red'}">${upnl >= 0 ? '+' : ''}${fmtMoney(upnl)}</strong></div>
+    `;
+  } else {
+    posEl.className = 'position-empty';
+    posEl.textContent = 'Tidak ada posisi terbuka.';
+  }
+
+  const histEl = document.getElementById('trade-history');
+  if (state.history.length === 0) {
+    histEl.className = 'history-empty';
+    histEl.textContent = 'Belum ada trade.';
+  } else {
+    histEl.className = '';
+    histEl.innerHTML = state.history.slice().reverse().map(t => `
+      <div class="history-item">
+        <span>SHORT $${t.entryPrice.toFixed(2)} → $${t.exitPrice.toFixed(2)} <span style="color:#8b949e">(${t.reason})</span></span>
+        <span class="${t.pnl >= 0 ? 'green' : 'red'}">${t.pnl >= 0 ? '+' : ''}${fmtMoney(t.pnl)}</span>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('btn-short').disabled = state.position !== null;
+  document.getElementById('btn-close').disabled = state.position === null;
+  document.getElementById('btn-next').disabled = state.visibleEnd >= state.candles.length;
+}
+
+function showToast(msg, type = 'info') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = type === 'success' ? '#238636' : type === 'error' ? '#da3633' : '#1f6feb';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function openShort() {
+  if (state.position) return;
+  const cur = state.candles[state.visibleEnd - 1];
+  const size = +document.getElementById('position-size').value;
+  const leverage = +document.getElementById('leverage').value;
+  const slPct = +document.getElementById('stop-loss').value / 100;
+  const tpPct = +document.getElementById('take-profit').value / 100;
+  if (!size || size <= 0) { showToast('Position size invalid', 'error'); return; }
+  if (size > state.balance) { showToast('Size > saldo', 'error'); return; }
+
+  state.position = {
+    entryPrice: cur.close,
+    sl: cur.close * (1 + slPct),
+    tp: cur.close * (1 - tpPct),
+    size, leverage,
+  };
+  showToast(`SHORT @ $${cur.close.toFixed(2)} · SL $${state.position.sl.toFixed(2)} · TP $${state.position.tp.toFixed(2)}`, 'success');
+  drawPositionLines();
+  updateUI();
+}
+
+function closePosition(reason, exitPrice) {
+  if (!state.position) return;
+  const p = state.position;
+  const pnl = (p.entryPrice - exitPrice) / p.entryPrice * p.size * p.leverage;
+  state.balance += pnl;
+  state.history.push({ entryPrice: p.entryPrice, exitPrice, pnl, reason });
+  state.position = null;
+  clearPositionLines();
+  showToast(`Closed (${reason}): ${pnl >= 0 ? '+' : ''}${fmtMoney(pnl)}`, pnl >= 0 ? 'success' : 'error');
+  updateUI();
+}
+
+function nextCandle() {
+  if (state.visibleEnd >= state.candles.length) {
+    showToast('Sudah candle terakhir.', 'error'); return;
+  }
+  state.visibleEnd++;
+  if (state.position) {
+    const c = state.candles[state.visibleEnd - 1];
+    if (c.high >= state.position.sl)      closePosition('Stop Loss', state.position.sl);
+    else if (c.low <= state.position.tp)  closePosition('Take Profit', state.position.tp);
+  }
+  redrawChart();
+}
+
+function reset() {
+  state.balance = 10000;
+  state.position = null;
+  state.history = [];
+  state.visibleEnd = REPLAY_START;
+  clearPositionLines();
+  redrawChart();
+  showToast('Reset.', 'info');
+}
+
+(async () => {
+  try {
+    await fetchData();
+    initChart();
+  } catch (err) {
+    document.getElementById('loading').textContent = 'Error: ' + err.message + ' — refresh atau cek koneksi.';
+  }
+})();
+
+document.getElementById('btn-short').addEventListener('click', openShort);
+document.getElementById('btn-next').addEventListener('click', nextCandle);
+document.getElementById('btn-close').addEventListener('click', () => {
+  if (state.position) closePosition('Manual', state.candles[state.visibleEnd - 1].close);
+});
+document.getElementById('btn-reset').addEventListener('click', reset);
+window.addEventListener('resize', () => {
+  if (chart) chart.applyOptions({ width: document.getElementById('chart-container').clientWidth });
+});
+</script>
+</body>
+</html>
