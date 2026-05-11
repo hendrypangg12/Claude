@@ -64,13 +64,22 @@
   .toolbar .btn { flex: 1; padding: 12px 12px; font-size: 14px; }
   .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
   .btn.ghost:active { background: rgba(255, 196, 0, 0.15); }
+  .btn[disabled] { opacity: 0.55; pointer-events: none; }
   .help-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
   .help-modal-bg.show { display: flex; }
-  .help-modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; max-width: 420px; width: 100%; max-height: 80vh; overflow-y: auto; }
+  .help-modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; max-width: 460px; width: 100%; max-height: 86vh; overflow-y: auto; }
   .help-modal h2 { margin: 0 0 12px; font-size: 18px; }
-  .help-modal p { color: var(--text-muted); line-height: 1.5; font-size: 14px; }
-  .help-modal ol { padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--text-muted); }
+  .help-modal p { color: var(--text-muted); line-height: 1.55; font-size: 14px; margin: 8px 0; }
+  .help-modal ol { padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--text-muted); margin: 8px 0; }
   .help-modal .btn { width: 100%; margin-top: 14px; }
+  .help-modal input[type="password"], .help-modal input[type="text"] { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 14px; font-family: ui-monospace, Menlo, monospace; }
+  .help-modal a { color: var(--accent); }
+  .status-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 0 0 16px; display: none; align-items: center; gap: 12px; font-size: 14px; }
+  .status-bar.show { display: flex; }
+  .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex: 0 0 auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .gear-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; font-size: 16px; cursor: pointer; margin-left: 8px; }
+  .gear-btn:active { background: var(--surface-2); }
 </style>
 </head>
 <body>
@@ -79,31 +88,53 @@
     <span class="brand-chip">BERSTOCK.ID</span>
     <span class="brand-title">Daily Generator</span>
   </div>
-  <select id="datePicker" class="date-picker" aria-label="Pilih tanggal post"></select>
+  <div style="display:flex; align-items:center;">
+    <select id="datePicker" class="date-picker" aria-label="Pilih tanggal post"></select>
+    <button id="settingsBtn" class="gear-btn" aria-label="Pengaturan">⚙︎</button>
+  </div>
 </header>
 
 <main id="main">
   <div class="toolbar">
-    <a class="btn ghost" id="genBtn" target="_blank" rel="noopener">⚡ Generate Post Baru</a>
+    <button class="btn ghost" id="genBtn">⚡ Generate Post Baru</button>
     <button class="btn ghost" id="refreshBtn">↻ Refresh</button>
+  </div>
+  <div class="status-bar" id="statusBar">
+    <div class="spinner"></div>
+    <div id="statusText">Memproses…</div>
   </div>
   <div id="postArea">
     <div id="loading" class="loading">Memuat post terbaru…</div>
   </div>
 </main>
 
-<div class="help-modal-bg" id="genHelp">
+<div class="help-modal-bg" id="setupModal">
   <div class="help-modal">
-    <h2>Generate post baru?</h2>
-    <p>Tombol di bawah akan buka halaman GitHub Actions. Di sana:</p>
+    <h2>Setup sekali saja</h2>
+    <p>Supaya tombol <b>Generate Post Baru</b> bisa langsung trigger workflow tanpa buka GitHub, perlu Personal Access Token (PAT) dari akun GitHub Anda. PAT disimpan hanya di HP ini (localStorage).</p>
     <ol>
-      <li>Tap dropdown <b>"Run workflow"</b> di kanan atas</li>
-      <li>Tap tombol hijau <b>"Run workflow"</b></li>
-      <li>Tunggu ~1 menit sampai status ✅ hijau</li>
-      <li>Balik ke app ini, tap <b>↻ Refresh</b> untuk lihat post baru</li>
+      <li>Tap tombol di bawah → halaman GitHub akan terbuka</li>
+      <li>Login kalau diminta</li>
+      <li>Scope <b>workflow</b> sudah otomatis tercentang</li>
+      <li>Set Expiration <b>"No expiration"</b> atau 1 tahun</li>
+      <li>Klik <b>Generate token</b> di bawah halaman</li>
+      <li>Copy token yang muncul (mulai dengan <code>ghp_…</code>)</li>
+      <li>Balik ke app, paste di kolom di bawah</li>
     </ol>
-    <button class="btn" id="openGen">Buka GitHub Actions →</button>
-    <button class="btn secondary" id="closeGen" style="margin-top:8px;">Batal</button>
+    <a class="btn" id="openPatPage" target="_blank" rel="noopener">Buka halaman buat PAT →</a>
+    <p style="margin-top:14px;">Paste PAT di sini:</p>
+    <input type="password" id="patInput" placeholder="ghp_..." autocapitalize="off" autocomplete="off" spellcheck="false" />
+    <button class="btn" id="savePat">Simpan & Generate</button>
+    <button class="btn secondary" id="closeSetup" style="margin-top:8px;">Batal</button>
+  </div>
+</div>
+
+<div class="help-modal-bg" id="settingsModal">
+  <div class="help-modal">
+    <h2>Pengaturan</h2>
+    <p>Personal Access Token tersimpan di HP ini saja. Hapus kalau Anda mau setup ulang atau pindah device.</p>
+    <button class="btn" id="resetPat">Hapus PAT</button>
+    <button class="btn secondary" id="closeSettings" style="margin-top:8px;">Tutup</button>
   </div>
 </div>
 
@@ -117,11 +148,28 @@
   const BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
   const MANIFEST_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
 
+  const WORKFLOW_FILE = "daily-post.yml";
+  const PAT_KEY = "berstock_gh_pat";
+  const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
+
   const $main = document.getElementById("main");
   const $postArea = document.getElementById("postArea");
   const $picker = document.getElementById("datePicker");
   const $toast = document.getElementById("toast");
-  const ACTIONS_URL = `https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/workflows/daily-post.yml`;
+  const $statusBar = document.getElementById("statusBar");
+  const $statusText = document.getElementById("statusText");
+  const $setupModal = document.getElementById("setupModal");
+  const $settingsModal = document.getElementById("settingsModal");
+
+  function getPAT() { try { return localStorage.getItem(PAT_KEY) || ""; } catch { return ""; } }
+  function setPAT(v) { try { localStorage.setItem(PAT_KEY, v); } catch {} }
+  function clearPAT() { try { localStorage.removeItem(PAT_KEY); } catch {} }
+  function showStatus(text) { $statusText.textContent = text; $statusBar.classList.add("show"); }
+  function hideStatus() { $statusBar.classList.remove("show"); }
+  function setGenBusy(busy) {
+    document.getElementById("genBtn").disabled = busy;
+    document.getElementById("refreshBtn").disabled = busy;
+  }
 
   function toast(text) {
     $toast.textContent = text;
@@ -245,22 +293,115 @@
     }
   }
 
+  async function ghDispatch(pat) {
+    const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${WORKFLOW_FILE}/dispatches`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": `Bearer ${pat}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ref: BRANCH }),
+    });
+    if (r.status === 204) return true;
+    const body = await r.text().catch(() => "");
+    throw new Error(`Dispatch failed (${r.status}): ${body.slice(0, 200)}`);
+  }
+
+  async function ghLatestRun(pat) {
+    const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${WORKFLOW_FILE}/runs?per_page=1`, {
+      headers: { "Accept": "application/vnd.github+json", "Authorization": `Bearer ${pat}` },
+    });
+    if (!r.ok) throw new Error(`List runs failed ${r.status}`);
+    const data = await r.json();
+    return (data.workflow_runs || [])[0] || null;
+  }
+
+  async function triggerGenerate() {
+    const pat = getPAT();
+    if (!pat) { $setupModal.classList.add("show"); return; }
+
+    setGenBusy(true);
+    showStatus("Mengirim perintah ke GitHub…");
+    try {
+      const before = await ghLatestRun(pat);
+      const beforeId = before ? before.id : 0;
+      await ghDispatch(pat);
+
+      showStatus("Workflow dimulai. Menunggu run baru…");
+      let newRun = null;
+      for (let i = 0; i < 30; i++) {
+        await new Promise(r => setTimeout(r, 2000));
+        const latest = await ghLatestRun(pat).catch(() => null);
+        if (latest && latest.id !== beforeId) { newRun = latest; break; }
+      }
+      if (!newRun) throw new Error("Run baru tidak terdeteksi. Coba refresh manual.");
+
+      showStatus("Menyusun berita & gambar… (~40 detik)");
+      let done = null;
+      for (let i = 0; i < 90; i++) {
+        await new Promise(r => setTimeout(r, 3000));
+        const cur = await ghLatestRun(pat).catch(() => null);
+        if (cur && cur.status === "completed") { done = cur; break; }
+        if (cur && cur.status === "in_progress") showStatus(`Menyusun berita & gambar… (${Math.min(i * 3, 60)}s)`);
+      }
+      if (!done) throw new Error("Run tidak selesai dalam batas waktu.");
+      if (done.conclusion !== "success") throw new Error(`Run gagal: ${done.conclusion}`);
+
+      showStatus("Selesai! Memuat post baru…");
+      await new Promise(r => setTimeout(r, 1500));
+      await init();
+      hideStatus();
+      toast("Post baru siap ✓");
+    } catch (err) {
+      hideStatus();
+      const msg = String(err && err.message || err);
+      if (/401|403/.test(msg)) {
+        toast("Token ditolak. Setup ulang.");
+        clearPAT();
+        $setupModal.classList.add("show");
+      } else {
+        toast("Gagal: " + msg.slice(0, 60));
+      }
+    } finally {
+      setGenBusy(false);
+    }
+  }
+
   function bindToolbar() {
-    const $genHelp = document.getElementById("genHelp");
-    document.getElementById("genBtn").addEventListener("click", e => {
+    document.getElementById("genBtn").addEventListener("click", triggerGenerate);
+
+    document.getElementById("settingsBtn").addEventListener("click", () => {
+      $settingsModal.classList.add("show");
+    });
+
+    document.getElementById("openPatPage").addEventListener("click", e => {
       e.preventDefault();
-      $genHelp.classList.add("show");
+      window.open(PAT_NEW_URL, "_blank", "noopener");
     });
-    document.getElementById("openGen").addEventListener("click", () => {
-      window.open(ACTIONS_URL, "_blank", "noopener");
-      $genHelp.classList.remove("show");
+
+    document.getElementById("savePat").addEventListener("click", () => {
+      const v = document.getElementById("patInput").value.trim();
+      if (!v) { toast("Paste token dulu"); return; }
+      setPAT(v);
+      $setupModal.classList.remove("show");
+      document.getElementById("patInput").value = "";
+      triggerGenerate();
     });
-    document.getElementById("closeGen").addEventListener("click", () => {
-      $genHelp.classList.remove("show");
+
+    document.getElementById("closeSetup").addEventListener("click", () => $setupModal.classList.remove("show"));
+    document.getElementById("resetPat").addEventListener("click", () => {
+      clearPAT();
+      toast("Token dihapus");
+      $settingsModal.classList.remove("show");
     });
-    $genHelp.addEventListener("click", e => {
-      if (e.target === $genHelp) $genHelp.classList.remove("show");
+    document.getElementById("closeSettings").addEventListener("click", () => $settingsModal.classList.remove("show"));
+
+    [$setupModal, $settingsModal].forEach(m => {
+      m.addEventListener("click", e => { if (e.target === m) m.classList.remove("show"); });
     });
+
     document.getElementById("refreshBtn").addEventListener("click", () => {
       toast("Memuat ulang…");
       init();
