@@ -317,8 +317,18 @@
       body: JSON.stringify({ ref: BRANCH }),
     });
     if (r.status === 204) return true;
-    const body = await r.text().catch(() => "");
-    throw new Error(`Dispatch failed (${r.status}): ${body.slice(0, 200)}`);
+    let body = "";
+    try { const j = await r.json(); body = j.message || JSON.stringify(j); }
+    catch { body = await r.text().catch(() => ""); }
+    throw new Error(`Dispatch ${r.status}: ${body.slice(0, 240)}`);
+  }
+
+  async function ghWhoAmI(pat) {
+    const r = await fetch("https://api.github.com/user", {
+      headers: { "Accept": "application/vnd.github+json", "Authorization": `Bearer ${pat}` },
+    });
+    if (!r.ok) throw new Error(`auth ${r.status}`);
+    return r.json();
   }
 
   async function ghLatestRun(pat) {
@@ -335,8 +345,19 @@
     if (!pat) { $setupModal.classList.add("show"); return; }
 
     setGenBusy(true);
-    showStatus("Mengirim perintah ke GitHub…");
+    showStatus("Memverifikasi token…");
     try {
+      let me;
+      try {
+        me = await ghWhoAmI(pat);
+      } catch (e) {
+        throw new Error(`Token invalid (${String(e.message||e)}). Generate token baru.`);
+      }
+      if (me && me.login && me.login.toLowerCase() !== REPO_OWNER.toLowerCase()) {
+        throw new Error(`Token milik akun '${me.login}', bukan '${REPO_OWNER}'. Login GitHub sebagai ${REPO_OWNER} lalu generate token.`);
+      }
+
+      showStatus("Mengirim perintah ke GitHub…");
       const before = await ghLatestRun(pat);
       const beforeId = before ? before.id : 0;
       await ghDispatch(pat);
@@ -369,12 +390,16 @@
     } catch (err) {
       hideStatus();
       const msg = String(err && err.message || err);
-      if (/401|403/.test(msg)) {
-        toast("Token ditolak. Setup ulang.");
+      if (/Token invalid|akun '/.test(msg)) {
+        alert(msg);
+        clearPAT();
+        $setupModal.classList.add("show");
+      } else if (/401|403/.test(msg)) {
+        alert("GitHub menolak: " + msg);
         clearPAT();
         $setupModal.classList.add("show");
       } else {
-        toast("Gagal: " + msg.slice(0, 60));
+        toast("Gagal: " + msg.slice(0, 80));
       }
     } finally {
       setGenBusy(false);
