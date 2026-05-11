@@ -16,15 +16,28 @@ Rules:
 - Do NOT include the article URL
 - Do NOT use emoji unless it genuinely fits the topic (max 2)"""
 
-PICK_SYSTEM_PROMPT = """You are an editor for an Indonesian news Instagram account. Given several candidate articles, pick the ONE most likely to perform well on Instagram today.
+PICK_SYSTEM_PROMPT_BASE = """You are an editor for the Indonesian Instagram account @berstock.id, focused on bisnis, saham, ekonomi, dan investasi. Given several candidate articles, pick the ONE most likely to perform well on Instagram for this slot.
 
-Selection criteria, in priority order:
-1. Genuinely interesting/surprising/important to a general Indonesian audience
-2. Visually concrete (something that can be illustrated with a real image)
-3. Avoid: pure politics-bait, gore, deeply local news outside Indonesia, paywalled-feeling teasers
-4. Prefer: human interest, tech, science, sports, entertainment, business with clear impact
+General criteria:
+1. Relevan untuk audiens Indonesia yang tertarik bisnis/saham/finance
+2. Visually concrete (bisa di-illustrasikan dengan foto nyata)
+3. Avoid: hoaks, gore, politik partisan, berita lokal sangat sempit, teaser tanpa substansi
+4. Prefer angka konkret, nama emiten/tokoh, momentum hari ini
 
 Respond with ONLY a JSON object: {"index": <integer 0-based>, "reason": "<short why, in Bahasa Indonesia>"}"""
+
+NICHE_PICK_HINTS = {
+    "pagi": "Slot khusus: BRIEFING PAGI. Pilih berita ekonomi/bisnis umum yang penting untuk membuka hari pelaku pasar — kebijakan moneter, BI, makro Indonesia, prospek IHSG/rupiah hari ini, atau aksi korporasi besar yang lagi hangat.",
+    "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham.",
+    "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers.",
+    "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
+}
+
+
+def _pick_prompt(niche: str | None = None) -> str:
+    if niche and niche.lower() in NICHE_PICK_HINTS:
+        return PICK_SYSTEM_PROMPT_BASE + "\n\n" + NICHE_PICK_HINTS[niche.lower()]
+    return PICK_SYSTEM_PROMPT_BASE
 
 
 def _client() -> Anthropic:
@@ -38,6 +51,7 @@ def pick_best_article(candidates: list[dict]) -> tuple[dict, str]:
     if len(candidates) == 1:
         return candidates[0], "satu-satunya kandidat"
 
+    niche = os.environ.get("NICHE", "").strip().lower() or None
     listing = "\n\n".join(
         f"[{i}] Sumber: {c['source']}\nJudul: {c['title']}\nRingkasan: {c['description'][:300]}"
         for i, c in enumerate(candidates)
@@ -45,7 +59,7 @@ def pick_best_article(candidates: list[dict]) -> tuple[dict, str]:
     message = _client().messages.create(
         model=MODEL,
         max_tokens=300,
-        system=PICK_SYSTEM_PROMPT,
+        system=_pick_prompt(niche),
         messages=[{"role": "user", "content": f"Kandidat hari ini:\n\n{listing}"}],
     )
     raw = message.content[0].text.strip()

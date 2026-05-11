@@ -118,6 +118,7 @@ def main() -> int:
         "time": now.strftime("%H:%M"),
         "headline": headline_id,
         "source": article["source"],
+        "niche": os.environ.get("NICHE", "").strip().lower() or None,
     }
     (out_dir / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"

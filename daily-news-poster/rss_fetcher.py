@@ -1,18 +1,48 @@
 """Fetch the top trending Indonesian headline from RSS feeds."""
 import feedparser
 import html
+import os
 import re
 
-FEEDS = [
+DEFAULT_FEEDS = [
     "https://rss.detik.com/index.php/detikcom",
     "https://www.antaranews.com/rss/terkini.xml",
     "https://www.cnnindonesia.com/nasional/rss",
 ]
 
+NICHE_FEEDS = {
+    "pagi": [
+        "https://rss.detik.com/index.php/finance",
+        "https://www.antaranews.com/rss/ekonomi.xml",
+        "https://www.cnnindonesia.com/ekonomi/rss",
+    ],
+    "saham": [
+        "https://rss.detik.com/index.php/finance",
+        "https://www.antaranews.com/rss/ekonomi.xml",
+        "https://www.cnnindonesia.com/ekonomi/rss",
+    ],
+    "market": [
+        "https://rss.detik.com/index.php/finance",
+        "https://www.cnnindonesia.com/ekonomi/rss",
+        "https://www.antaranews.com/rss/ekonomi.xml",
+    ],
+    "startup": [
+        "https://rss.detik.com/index.php/finance",
+        "https://rss.detik.com/index.php/inet",
+        "https://www.antaranews.com/rss/ekonomi.xml",
+        "https://www.cnnindonesia.com/teknologi/rss",
+    ],
+}
+
+
+def _feeds_for_niche() -> list[str]:
+    niche = os.environ.get("NICHE", "").strip().lower()
+    return NICHE_FEEDS.get(niche, DEFAULT_FEEDS)
+
 
 def _clean(text: str) -> str:
     text = html.unescape(text or "")
-    text = re.sub(r"<[^>]+>", "", text)  # strip HTML tags from RSS summaries
+    text = re.sub(r"<[^>]+>", "", text)
     return text.strip()
 
 
@@ -34,7 +64,7 @@ def _extract_image(entry) -> str:
 def fetch_candidates_rss(limit_per_feed: int = 5) -> list[dict]:
     """Return a list of recent candidate articles from Indonesian feeds."""
     candidates = []
-    for url in FEEDS:
+    for url in _feeds_for_niche():
         try:
             parsed = feedparser.parse(url)
         except Exception:

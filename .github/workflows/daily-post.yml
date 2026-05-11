@@ -7,12 +7,23 @@ name: Daily News Post (semi-manual)
 
 on:
   schedule:
-    # All times in WIB (UTC+7), translated to UTC for cron.
-    - cron: "0 0 * * *"   # 07:00 WIB — morning commute
-    - cron: "0 5 * * *"   # 12:00 WIB — lunch break
-    - cron: "0 11 * * *"  # 18:00 WIB — after-work evening
-    - cron: "0 14 * * *"  # 21:00 WIB — primetime
-  workflow_dispatch:  # also allow manual trigger from the Actions tab
+    # All times in WIB (UTC+7). Each slot uses a different niche (see NICHE step).
+    - cron: "0 0 * * *"   # 07:00 WIB — pagi (briefing bisnis)
+    - cron: "0 5 * * *"   # 12:00 WIB — saham (IDX)
+    - cron: "0 11 * * *"  # 18:00 WIB — market (IHSG/crypto)
+    - cron: "0 14 * * *"  # 21:00 WIB — startup (bisnis viral)
+  workflow_dispatch:
+    inputs:
+      niche:
+        description: "Niche untuk run manual"
+        required: false
+        default: "pagi"
+        type: choice
+        options:
+          - pagi
+          - saham
+          - market
+          - startup
 
 jobs:
   post:
@@ -33,13 +44,25 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Resolve niche for this run
+        id: niche
+        run: |
+          case "${{ github.event.schedule }}" in
+            "0 0 * * *")  echo "value=pagi"    >> "$GITHUB_OUTPUT" ;;
+            "0 5 * * *")  echo "value=saham"   >> "$GITHUB_OUTPUT" ;;
+            "0 11 * * *") echo "value=market"  >> "$GITHUB_OUTPUT" ;;
+            "0 14 * * *") echo "value=startup" >> "$GITHUB_OUTPUT" ;;
+            *)            echo "value=${{ github.event.inputs.niche || 'pagi' }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
       - run: python daily_post.py
         env:
           DRY_RUN: "true"
           NEWS_SOURCE: auto
+          NICHE: ${{ steps.niche.outputs.value }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           NEWS_COUNTRY_INTL: us
-          NEWS_CATEGORY: general
+          NEWS_CATEGORY: business
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
