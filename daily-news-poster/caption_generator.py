@@ -29,19 +29,26 @@ Respond with ONLY a JSON object: {"index": <integer 0-based>, "reason": "<short 
 
 NICHE_PICK_HINTS = {
     "pagi": (
-        "Slot khusus: BERITA NAIK DAUN PAGI INI. Tugas Anda adalah identifikasi berita yang "
-        "BENAR-BENAR sedang viral / trending pagi ini, lintas topik (bisa politik, hiburan, "
-        "olahraga, tech, kriminal, atau apapun yang lagi rame).\n\n"
-        "Sinyal trending yang harus Anda perhatikan:\n"
-        "• Topik/nama/peristiwa yang muncul di BEBERAPA sumber sekaligus (Detik + Antara + CNN, dst.) "
-        "→ ini indikator kuat berita itu lagi dibahas banyak orang.\n"
-        "• Pakai angka konkret/peristiwa segar (kemarin malam atau pagi ini), bukan analisis lama.\n"
-        "• Hindari berita yang sumbernya cuma satu outlet — biasanya bukan yang trending.\n\n"
-        "Catat di 'reason': sebutkan kenapa Anda anggap berita itu lagi naik daun (mis. 'muncul di "
-        "3 outlet sekaligus', 'breaking semalam', 'sedang viral di media sosial')."
+        "Slot khusus: KEBIJAKAN EKONOMI PEMERINTAH (PAGI). Pilih berita tentang kebijakan "
+        "pemerintah Indonesia yang langsung mempengaruhi keuangan rakyat atau pasar.\n\n"
+        "Yang DIPRIORITASKAN:\n"
+        "• Bank Indonesia (BI rate, suku bunga acuan, kebijakan moneter)\n"
+        "• Kementerian Keuangan / Sri Mulyani (APBN, pajak, subsidi, utang negara)\n"
+        "• OJK (aturan perbankan, asuransi, pinjol, IPO)\n"
+        "• Pemerintah pusat soal ekonomi (BBM, listrik, sembako, UMP, gaji PNS, BLT, bansos)\n"
+        "• Dampak konkret ke wallet rakyat (cicilan, harga, take-home pay)\n\n"
+        "WAJIB:\n"
+        "• FRESHNESS: makin baru terbit makin baik (utamakan <2 jam, drop yang >4 jam).\n"
+        "• Sebutkan angka konkret kalau ada (Rp xxx triliun, naik X%, dst.).\n"
+        "• Cross-source signal: bonus kalau muncul di beberapa outlet sekaligus.\n\n"
+        "HINDARI:\n"
+        "• Politik partisan / pilpres / DPR ribut\n"
+        "• Berita pejabat tidak terkait ekonomi\n"
+        "• Analisis lama tanpa peristiwa baru\n\n"
+        "Di 'reason' tulis: kenapa kebijakan ini penting buat audiens Berstock, dan umur berita."
     ),
-    "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham.",
-    "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers.",
+    "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham. Prioritaskan freshness (<3 jam).",
+    "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers. Prioritaskan freshness (<3 jam).",
     "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
 }
 

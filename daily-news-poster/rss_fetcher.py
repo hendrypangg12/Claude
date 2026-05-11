@@ -17,17 +17,13 @@ DEFAULT_FEEDS = [
 
 NICHE_FEEDS = {
     "pagi": [
-        # Broad coverage so cross-source signal can reveal what is actually trending.
-        "https://rss.detik.com/index.php/detikcom",
-        "https://rss.detik.com/index.php/hot",
+        # Government economic policy: kebijakan BI / Kemenkeu / OJK / harga BBM / subsidi / pajak.
         "https://rss.detik.com/index.php/finance",
-        "https://rss.detik.com/index.php/inet",
-        "https://rss.detik.com/index.php/sport",
-        "https://www.antaranews.com/rss/terkini.xml",
+        "https://rss.detik.com/index.php/detikcom",
         "https://www.antaranews.com/rss/ekonomi.xml",
-        "https://www.cnnindonesia.com/nasional/rss",
+        "https://www.antaranews.com/rss/terkini.xml",
         "https://www.cnnindonesia.com/ekonomi/rss",
-        "https://www.cnnindonesia.com/hiburan/rss",
+        "https://www.cnnindonesia.com/nasional/rss",
     ],
     "saham": [
         "https://rss.detik.com/index.php/finance",
