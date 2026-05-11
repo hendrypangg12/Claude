@@ -16,18 +16,30 @@ Rules:
 - Do NOT include the article URL
 - Do NOT use emoji unless it genuinely fits the topic (max 2)"""
 
-PICK_SYSTEM_PROMPT_BASE = """You are an editor for the Indonesian Instagram account @berstock.id, focused on bisnis, saham, ekonomi, dan investasi. Given several candidate articles, pick the ONE most likely to perform well on Instagram for this slot.
+PICK_SYSTEM_PROMPT_BASE = """You are an editor for the Indonesian Instagram account @berstock.id, focused on bisnis, saham, ekonomi, dan investasi. Given several candidate articles (each shown with how recently it was published), pick the ONE most likely to perform well on Instagram for this slot.
 
 General criteria:
-1. Relevan untuk audiens Indonesia yang tertarik bisnis/saham/finance
-2. Visually concrete (bisa di-illustrasikan dengan foto nyata)
-3. Avoid: hoaks, gore, politik partisan, berita lokal sangat sempit, teaser tanpa substansi
-4. Prefer angka konkret, nama emiten/tokoh, momentum hari ini
+1. FRESHNESS WAJIB: prioritaskan berita yang baru terbit (semakin sedikit menit/jam lalu, semakin baik). Hindari berita lebih dari beberapa jam kecuali memang masih sangat relevan.
+2. Relevan untuk audiens Indonesia
+3. Visually concrete (bisa di-illustrasikan dengan foto nyata)
+4. Avoid: hoaks, gore, politik partisan, berita lokal sangat sempit, teaser tanpa substansi
+5. Prefer angka konkret, nama emiten/tokoh, momentum hari ini
 
-Respond with ONLY a JSON object: {"index": <integer 0-based>, "reason": "<short why, in Bahasa Indonesia>"}"""
+Respond with ONLY a JSON object: {"index": <integer 0-based>, "reason": "<short why, in Bahasa Indonesia. Sebutkan umur berita dan kenapa Anda pilih.>"}"""
 
 NICHE_PICK_HINTS = {
-    "pagi": "Slot khusus: BRIEFING PAGI. Pilih berita ekonomi/bisnis umum yang penting untuk membuka hari pelaku pasar — kebijakan moneter, BI, makro Indonesia, prospek IHSG/rupiah hari ini, atau aksi korporasi besar yang lagi hangat.",
+    "pagi": (
+        "Slot khusus: BERITA NAIK DAUN PAGI INI. Tugas Anda adalah identifikasi berita yang "
+        "BENAR-BENAR sedang viral / trending pagi ini, lintas topik (bisa politik, hiburan, "
+        "olahraga, tech, kriminal, atau apapun yang lagi rame).\n\n"
+        "Sinyal trending yang harus Anda perhatikan:\n"
+        "• Topik/nama/peristiwa yang muncul di BEBERAPA sumber sekaligus (Detik + Antara + CNN, dst.) "
+        "→ ini indikator kuat berita itu lagi dibahas banyak orang.\n"
+        "• Pakai angka konkret/peristiwa segar (kemarin malam atau pagi ini), bukan analisis lama.\n"
+        "• Hindari berita yang sumbernya cuma satu outlet — biasanya bukan yang trending.\n\n"
+        "Catat di 'reason': sebutkan kenapa Anda anggap berita itu lagi naik daun (mis. 'muncul di "
+        "3 outlet sekaligus', 'breaking semalam', 'sedang viral di media sosial')."
+    ),
     "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham.",
     "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers.",
     "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
@@ -52,10 +64,22 @@ def pick_best_article(candidates: list[dict]) -> tuple[dict, str]:
         return candidates[0], "satu-satunya kandidat"
 
     niche = os.environ.get("NICHE", "").strip().lower() or None
-    listing = "\n\n".join(
-        f"[{i}] Sumber: {c['source']}\nJudul: {c['title']}\nRingkasan: {c['description'][:300]}"
-        for i, c in enumerate(candidates)
-    )
+
+    def _fmt(i, c):
+        age = c.get("age_minutes")
+        if age is None:
+            age_str = "umur tidak diketahui"
+        elif age < 60:
+            age_str = f"{age} menit lalu"
+        else:
+            age_str = f"{age // 60} jam {age % 60} menit lalu"
+        return (
+            f"[{i}] Sumber: {c['source']} ({age_str})\n"
+            f"Judul: {c['title']}\n"
+            f"Ringkasan: {c['description'][:300]}"
+        )
+
+    listing = "\n\n".join(_fmt(i, c) for i, c in enumerate(candidates))
     message = _client().messages.create(
         model=MODEL,
         max_tokens=300,
