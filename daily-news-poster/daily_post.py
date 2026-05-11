@@ -74,10 +74,11 @@ def main() -> int:
     compose(raw_image_path, article["title"], article["source"], final_image_path)
     print(f"      → {final_image_path}")
 
-    if os.environ.get("DRY_RUN", "").lower() == "true":
-        print("[5/5] DRY_RUN=true → skipping Instagram upload.")
-        print(f"\nPreview the post at: {final_image_path}")
-        print(f"Caption saved to:    {out_dir / 'caption.txt'}")
+    if os.environ.get("DRY_RUN", "true").lower() == "true":
+        print("[5/5] Semi-manual mode (DRY_RUN=true) → skipping Instagram upload.")
+        print(f"\n  Image:   {final_image_path}")
+        print(f"  Caption: {out_dir / 'caption.txt'}")
+        print("\n  Download these files and upload manually via Instagram app.")
         return 0
 
     print("[5/5] Publishing to Instagram...")
