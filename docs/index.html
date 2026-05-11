@@ -485,9 +485,9 @@
       <div class="thumb-strip">
         ${list.map(p => `
           <div class="thumb ${p.id === activeId ? 'active' : ''}" data-id="${p.id}">
-            <img src="${BASE}/${p.id}/post_1.jpg" alt="" loading="lazy" />
-            <div class="thumb-time">${p.time || ""}</div>
-            <div class="thumb-overlay">${escapeHtml((p.headline || "").slice(0, 60))}</div>
+            <img src="${BASE}/${p.id}/post_1.jpg" alt="" loading="lazy" onerror="this.style.display='none'" />
+            ${p.time ? `<div class="thumb-time">${p.time}</div>` : ''}
+            ${p.headline ? `<div class="thumb-overlay">${escapeHtml(p.headline.slice(0, 60))}</div>` : ''}
           </div>
         `).join("")}
       </div>
