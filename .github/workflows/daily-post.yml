@@ -8,7 +8,7 @@ name: Daily News Post (semi-manual)
 on:
   schedule:
     # All times in WIB (UTC+7). Each slot uses a different niche (see NICHE step).
-    - cron: "0 0 * * *"   # 07:00 WIB — pagi (briefing bisnis)
+    - cron: "30 23 * * *" # 06:30 WIB — pagi (trending pemerintahan)
     - cron: "0 5 * * *"   # 12:00 WIB — saham (IDX)
     - cron: "0 11 * * *"  # 18:00 WIB — market (IHSG/crypto)
     - cron: "0 14 * * *"  # 21:00 WIB — startup (bisnis viral)
@@ -48,11 +48,11 @@ jobs:
         id: niche
         run: |
           case "${{ github.event.schedule }}" in
-            "0 0 * * *")  echo "value=pagi"    >> "$GITHUB_OUTPUT" ;;
-            "0 5 * * *")  echo "value=saham"   >> "$GITHUB_OUTPUT" ;;
-            "0 11 * * *") echo "value=market"  >> "$GITHUB_OUTPUT" ;;
-            "0 14 * * *") echo "value=startup" >> "$GITHUB_OUTPUT" ;;
-            *)            echo "value=${{ github.event.inputs.niche || 'pagi' }}" >> "$GITHUB_OUTPUT" ;;
+            "30 23 * * *") echo "value=pagi"    >> "$GITHUB_OUTPUT" ;;
+            "0 5 * * *")   echo "value=saham"   >> "$GITHUB_OUTPUT" ;;
+            "0 11 * * *")  echo "value=market"  >> "$GITHUB_OUTPUT" ;;
+            "0 14 * * *")  echo "value=startup" >> "$GITHUB_OUTPUT" ;;
+            *)             echo "value=${{ github.event.inputs.niche || 'pagi' }}" >> "$GITHUB_OUTPUT" ;;
           esac
 
       - run: python daily_post.py

@@ -17,13 +17,14 @@ DEFAULT_FEEDS = [
 
 NICHE_FEEDS = {
     "pagi": [
-        # Government economic policy: kebijakan BI / Kemenkeu / OJK / harga BBM / subsidi / pajak.
-        "https://rss.detik.com/index.php/finance",
+        # Trending pemerintahan Indonesia: politik, kabinet, BI/OJK, plus ekonomi sebagai fallback.
         "https://rss.detik.com/index.php/detikcom",
-        "https://www.antaranews.com/rss/ekonomi.xml",
+        "https://rss.detik.com/index.php/finance",
         "https://www.antaranews.com/rss/terkini.xml",
-        "https://www.cnnindonesia.com/ekonomi/rss",
+        "https://www.antaranews.com/rss/politik.xml",
+        "https://www.antaranews.com/rss/ekonomi.xml",
         "https://www.cnnindonesia.com/nasional/rss",
+        "https://www.cnnindonesia.com/ekonomi/rss",
     ],
     "saham": [
         "https://rss.detik.com/index.php/finance",
