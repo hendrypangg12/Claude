@@ -80,3 +80,24 @@ def generate_caption(title: str, description: str, source: str) -> str:
         messages=[{"role": "user", "content": user_prompt}],
     )
     return message.content[0].text.strip()
+
+
+HEADLINE_SYSTEM_PROMPT = """You translate news headlines to Bahasa Indonesia for an Instagram news post overlay.
+
+Rules:
+- Output ONLY the translated headline, no quotes, no extra commentary
+- Maximum 14 words, ideally 8-12
+- Punchy and readable on a square image
+- Keep proper nouns (names, places, organizations) as-is
+- If the headline is already in good Bahasa Indonesia, lightly tighten it but don't translate"""
+
+
+def generate_headline_id(title: str) -> str:
+    """Return a short Indonesian headline suitable for the image overlay."""
+    message = _client().messages.create(
+        model=MODEL,
+        max_tokens=80,
+        system=HEADLINE_SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": title}],
+    )
+    return message.content[0].text.strip().strip('"').strip("'")

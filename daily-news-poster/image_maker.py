@@ -3,9 +3,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps
 
 CANVAS = 1080
 PADDING = 60
-HEADLINE_BOX_HEIGHT = 360
-HEADLINE_FONT_SIZE = 56
+HEADLINE_BOX_HEIGHT = 380
+HEADLINE_FONT_SIZE = 58
 SOURCE_FONT_SIZE = 28
+BRAND_FONT_SIZE = 32
+BRAND_TEXT = "BERSTOCK.ID"
+BRAND_ACCENT = (255, 196, 0)
 
 
 def _load_font(size: int) -> ImageFont.FreeTypeFont:
@@ -45,16 +48,34 @@ def compose(background_path: str, headline: str, source: str, out_path: str) -> 
     bg = Image.open(background_path).convert("RGB")
     bg = ImageOps.fit(bg, (CANVAS, CANVAS), method=Image.LANCZOS)
 
-    # Dim the bottom portion so text is always readable.
     overlay = Image.new("RGBA", (CANVAS, CANVAS), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
     draw.rectangle(
         [(0, CANVAS - HEADLINE_BOX_HEIGHT), (CANVAS, CANVAS)],
-        fill=(0, 0, 0, 170),
+        fill=(0, 0, 0, 180),
     )
-    composed = Image.alpha_composite(bg.convert("RGBA"), overlay)
 
+    brand_font = _load_font(BRAND_FONT_SIZE)
+    brand_w = brand_font.getlength(BRAND_TEXT)
+    brand_pad_x, brand_pad_y = 18, 10
+    brand_box = (
+        PADDING,
+        PADDING,
+        PADDING + brand_w + 2 * brand_pad_x,
+        PADDING + BRAND_FONT_SIZE + 2 * brand_pad_y,
+    )
+    draw.rectangle(brand_box, fill=BRAND_ACCENT)
+
+    composed = Image.alpha_composite(bg.convert("RGBA"), overlay)
     draw = ImageDraw.Draw(composed)
+
+    draw.text(
+        (PADDING + brand_pad_x, PADDING + brand_pad_y - 2),
+        BRAND_TEXT,
+        font=brand_font,
+        fill=(20, 20, 20),
+    )
+
     headline_font = _load_font(HEADLINE_FONT_SIZE)
     source_font = _load_font(SOURCE_FONT_SIZE)
 

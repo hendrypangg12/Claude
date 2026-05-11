@@ -10,7 +10,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from caption_generator import generate_caption, pick_best_article
+from caption_generator import generate_caption, generate_headline_id, pick_best_article
 from image_fetcher import fetch_image, fetch_image_from_url
 from image_maker import compose
 from news_fetcher import fetch_candidates_intl
@@ -85,8 +85,10 @@ def main() -> int:
             )
 
     print("[4/5] Composing post...")
+    headline_id = generate_headline_id(article["title"])
+    print(f"      Headline ID: {headline_id}")
     final_image_path = str(out_dir / "post.jpg")
-    compose(raw_image_path, article["title"], article["source"], final_image_path)
+    compose(raw_image_path, headline_id, article["source"], final_image_path)
     print(f"      → {final_image_path}")
 
     if os.environ.get("DRY_RUN", "true").lower() == "true":
