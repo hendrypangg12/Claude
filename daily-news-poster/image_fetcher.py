@@ -1,6 +1,19 @@
-"""Fetch a relevant image via Google Custom Search API."""
+"""Fetch a relevant image: prefer the article's own image, optionally fall back to Google."""
 import os
 import requests
+
+
+def fetch_image_from_url(image_url: str, out_path: str) -> str:
+    """Download the article's own image directly. Raises on failure."""
+    resp = requests.get(
+        image_url,
+        timeout=30,
+        headers={"User-Agent": "Mozilla/5.0"},
+    )
+    resp.raise_for_status()
+    with open(out_path, "wb") as fp:
+        fp.write(resp.content)
+    return out_path
 
 
 def fetch_image(query: str, out_path: str) -> str:

@@ -30,6 +30,7 @@ def fetch_candidates_intl(page_size: int = 10) -> list[dict]:
                 "description": article["description"],
                 "url": article.get("url", ""),
                 "source": (article.get("source") or {}).get("name", ""),
+                "image_url": article.get("urlToImage") or "",
             })
     return out
 

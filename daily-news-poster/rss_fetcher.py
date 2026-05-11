@@ -16,6 +16,21 @@ def _clean(text: str) -> str:
     return text.strip()
 
 
+def _extract_image(entry) -> str:
+    """Pull the best available image URL from an RSS entry."""
+    for key in ("media_content", "media_thumbnail"):
+        media = entry.get(key) or []
+        for item in media:
+            if item.get("url"):
+                return item["url"]
+    for enc in entry.get("enclosures", []) or []:
+        if str(enc.get("type", "")).startswith("image/") and enc.get("href"):
+            return enc["href"]
+    summary = entry.get("summary", "") or entry.get("description", "") or ""
+    m = re.search(r'<img[^>]+src="([^"]+)"', summary)
+    return m.group(1) if m else ""
+
+
 def fetch_candidates_rss(limit_per_feed: int = 5) -> list[dict]:
     """Return a list of recent candidate articles from Indonesian feeds."""
     candidates = []
@@ -34,6 +49,7 @@ def fetch_candidates_rss(limit_per_feed: int = 5) -> list[dict]:
                 "description": summary[:500],
                 "url": entry.get("link", ""),
                 "source": parsed.feed.get("title", url),
+                "image_url": _extract_image(entry),
             })
     return candidates
 

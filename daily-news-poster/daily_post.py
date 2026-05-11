@@ -11,7 +11,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from caption_generator import generate_caption, pick_best_article
-from image_fetcher import fetch_image
+from image_fetcher import fetch_image, fetch_image_from_url
 from image_maker import compose
 from news_fetcher import fetch_candidates_intl
 from rss_fetcher import fetch_candidates_rss
@@ -63,11 +63,26 @@ def main() -> int:
     )
     (out_dir / "caption.txt").write_text(caption, encoding="utf-8")
 
-    print("[3/5] Searching Google Images...")
+    print("[3/5] Fetching article image...")
     raw_image_path = str(out_dir / "raw.jpg")
-    # Use first ~6 meaningful words of the title as the search query.
-    query = " ".join(article["title"].split()[:6])
-    fetch_image(query, raw_image_path)
+    article_image_url = article.get("image_url") or ""
+    fetched = False
+    if article_image_url:
+        try:
+            fetch_image_from_url(article_image_url, raw_image_path)
+            print(f"      → from article: {article_image_url[:80]}")
+            fetched = True
+        except Exception as exc:
+            print(f"      (article image failed: {exc})")
+    if not fetched:
+        if os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_CSE_ID"):
+            print("      Falling back to Google Images...")
+            query = " ".join(article["title"].split()[:6])
+            fetch_image(query, raw_image_path)
+        else:
+            raise RuntimeError(
+                "No article image_url available and Google Images fallback not configured"
+            )
 
     print("[4/5] Composing post...")
     final_image_path = str(out_dir / "post.jpg")
