@@ -80,6 +80,15 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   .gear-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; font-size: 16px; cursor: pointer; margin-left: 8px; }
   .gear-btn:active { background: var(--surface-2); }
+  .thumb-strip-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 6px 0 8px; }
+  .thumb-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 20px; }
+  .thumb { position: relative; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; border: 2px solid var(--border); cursor: pointer; background: #000; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(255, 196, 0, 0.3); }
+  .thumb-time { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+  .thumb-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 8px 8px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; font-size: 11px; font-weight: 600; line-height: 1.3; }
+  .thumb-empty { aspect-ratio: 1 / 1; border-radius: 12px; border: 2px dashed var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 12px; text-align: center; padding: 8px; }
+  .detail-divider { border-top: 1px solid var(--border); margin: 22px 0 18px; }
 </style>
 </head>
 <body>
@@ -103,8 +112,9 @@
     <div class="spinner"></div>
     <div id="statusText">Memproses…</div>
   </div>
+  <div id="thumbStripContainer"></div>
   <div id="postArea">
-    <div id="loading" class="loading">Memuat post terbaru…</div>
+    <div id="loading" class="loading">Memuat post…</div>
   </div>
 </main>
 
@@ -446,6 +456,65 @@
   }
 
   let POSTS = [];
+  let CURRENT_DATE = "";
+
+  function postsForDate(date) {
+    return POSTS.filter(p => p.date === date).sort((a, b) => (a.id || "").localeCompare(b.id || ""));
+  }
+
+  function uniqueDates() {
+    const seen = new Set();
+    const out = [];
+    for (const p of POSTS) {
+      if (!seen.has(p.date)) { seen.add(p.date); out.push(p.date); }
+    }
+    return out;
+  }
+
+  function renderThumbStrip(date) {
+    const list = postsForDate(date);
+    const container = document.getElementById("thumbStripContainer");
+    if (!container) return;
+    if (list.length === 0) {
+      container.innerHTML = `<div class="empty"><p>Belum ada post untuk ${formatDateId(date)}.</p></div>`;
+      return;
+    }
+    const activeId = container.dataset.activeId || list[list.length - 1].id;
+    container.innerHTML = `
+      <p class="thumb-strip-label">${list.length} pilihan untuk ${formatDateId(date)}</p>
+      <div class="thumb-strip">
+        ${list.map(p => `
+          <div class="thumb ${p.id === activeId ? 'active' : ''}" data-id="${p.id}">
+            <img src="${BASE}/${p.id}/post_1.jpg" alt="" loading="lazy" />
+            <div class="thumb-time">${p.time || ""}</div>
+            <div class="thumb-overlay">${escapeHtml((p.headline || "").slice(0, 60))}</div>
+          </div>
+        `).join("")}
+      </div>
+      <div class="detail-divider"></div>
+    `;
+    container.querySelectorAll(".thumb").forEach(el => {
+      el.addEventListener("click", () => {
+        const id = el.dataset.id;
+        container.dataset.activeId = id;
+        const post = POSTS.find(p => p.id === id);
+        if (post) {
+          renderThumbStrip(date);
+          loadPost(post);
+        }
+      });
+    });
+    const activePost = list.find(p => p.id === activeId) || list[list.length - 1];
+    loadPost(activePost);
+  }
+
+  function selectDate(date) {
+    CURRENT_DATE = date;
+    const container = document.getElementById("thumbStripContainer");
+    if (container) delete container.dataset.activeId;
+    renderThumbStrip(date);
+  }
+
   async function init() {
     let manifest;
     try {
@@ -457,17 +526,22 @@
     }
     POSTS = (manifest.posts || []).slice().sort((a, b) => (b.id || b.date).localeCompare(a.id || a.date));
     if (POSTS.length === 0) {
-      renderEmpty("Belum ada post yang ter-generate. Jalankan workflow di GitHub Actions dulu.");
+      $postArea.innerHTML = "";
+      const container = document.getElementById("thumbStripContainer");
+      if (container) container.innerHTML = `
+        <div class="empty">
+          <div class="empty-emoji">📭</div>
+          <p>Belum ada post yang ter-generate.<br/>Tap <b>⚡ Generate Post Baru</b> untuk mulai, atau tunggu cron jam 07:00 / 12:00 / 18:00 / 21:00 WIB.</p>
+        </div>`;
       $picker.style.display = "none";
       return;
     }
-    $picker.innerHTML = POSTS.map(p => `<option value="${p.id}">${postLabel(p)}</option>`).join("");
-    $picker.onchange = e => {
-      const post = POSTS.find(p => p.id === e.target.value);
-      if (post) loadPost(post);
-    };
+    const dates = uniqueDates();
+    $picker.innerHTML = dates.map(d => `<option value="${d}">${formatDateId(d)}</option>`).join("");
+    $picker.onchange = e => selectDate(e.target.value);
     $picker.style.display = "";
-    loadPost(POSTS[0]);
+    $picker.value = dates[0];
+    selectDate(dates[0]);
   }
 
   bindToolbar();
