@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#12161c" />
+<title>Berstock Daily — Content Generator</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffc400'/%3E%3Ctext x='50' y='62' font-size='34' font-weight='900' text-anchor='middle' font-family='system-ui' fill='%23121620'%3EB%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #12161c;
+    --surface: #1c2230;
+    --surface-2: #252c3c;
+    --text: #f5f5f5;
+    --text-muted: #98a0b3;
+    --accent: #ffc400;
+    --accent-pressed: #e6b000;
+    --border: #2a3344;
+    --success: #34d399;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  header { padding: 18px 20px 14px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: var(--bg); z-index: 10; border-bottom: 1px solid var(--border); }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-chip { background: var(--accent); color: #121620; font-weight: 900; font-size: 13px; letter-spacing: 0.5px; padding: 5px 10px; border-radius: 6px; }
+  .brand-title { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+  .date-picker { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 14px; font-weight: 600; min-width: 0; max-width: 160px; }
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+  .post-date { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px; }
+  .post-headline { font-size: 22px; font-weight: 800; line-height: 1.25; margin: 0 0 18px; }
+  .carousel { position: relative; background: #000; border-radius: 14px; overflow: hidden; aspect-ratio: 1 / 1; box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+  .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .slides::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; height: 100%; }
+  .slide img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; }
+  .dots { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; gap: 6px; justify-content: center; pointer-events: none; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); transition: background 0.2s; }
+  .dot.active { background: var(--accent); }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #121620; border: 0; padding: 14px 16px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit; touch-action: manipulation; }
+  .btn:active { background: var(--accent-pressed); transform: scale(0.98); }
+  .btn.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn.secondary:active { background: var(--surface-2); }
+  .btn.full { grid-column: 1 / -1; }
+  .btn.success { background: var(--success); color: #052e1f; }
+  .caption-section { margin-top: 22px; }
+  .caption-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .caption-label h3 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+  .caption-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; font-size: 15px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  .ig-instructions { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .ig-instructions summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+  .ig-instructions summary::-webkit-details-marker { display: none; }
+  .ig-instructions summary::after { content: '▾'; margin-left: auto; color: var(--text-muted); transition: transform 0.2s; }
+  .ig-instructions[open] summary::after { transform: rotate(180deg); }
+  .ig-instructions ol { padding-left: 20px; line-height: 1.7; margin: 12px 0 0; font-size: 14px; color: var(--text-muted); }
+  .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .empty-emoji { font-size: 48px; margin-bottom: 12px; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--success); color: #052e1f; padding: 12px 18px; border-radius: 12px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,0.4); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 100; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+  .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+  .source-pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="brand-chip">BERSTOCK.ID</span>
+    <span class="brand-title">Daily Generator</span>
+  </div>
+  <select id="datePicker" class="date-picker" aria-label="Pilih tanggal post"></select>
+</header>
+
+<main id="main">
+  <div id="loading" class="loading">Memuat post terbaru…</div>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  const REPO_OWNER = "hendrypangg12";
+  const REPO_NAME = "Claude";
+  const BRANCH = "claude/halo-bYUsl";
+  const BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
+  const MANIFEST_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
+
+  const $main = document.getElementById("main");
+  const $picker = document.getElementById("datePicker");
+  const $toast = document.getElementById("toast");
+
+  function toast(text) {
+    $toast.textContent = text;
+    $toast.classList.add("show");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => $toast.classList.remove("show"), 1800);
+  }
+
+  function formatDateId(iso) {
+    const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+    const d = new Date(iso + "T00:00:00");
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast("Caption tersalin ✓");
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); toast("Caption tersalin ✓"); }
+      catch { toast("Gagal menyalin — pilih manual"); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  async function downloadImage(url, filename) {
+    try {
+      const r = await fetch(url);
+      const blob = await r.blob();
+      const objUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = objUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(objUrl), 5000);
+      toast("Gambar terunduh ✓");
+    } catch {
+      window.open(url, "_blank");
+    }
+  }
+
+  function renderEmpty(message) {
+    $main.innerHTML = `
+      <div class="empty">
+        <div class="empty-emoji">📭</div>
+        <p>${message}</p>
+      </div>`;
+  }
+
+  function renderPost(date, captionText) {
+    const slides = [1, 2, 3].map(i => `${BASE}/${date}/post_${i}.jpg`);
+    const niceDate = formatDateId(date);
+    $main.innerHTML = `
+      <p class="post-date">Post ${niceDate}</p>
+      <div class="carousel" id="carousel">
+        <div class="slides" id="slides">
+          ${slides.map((src, i) => `
+            <div class="slide"><img src="${src}" alt="Slide ${i+1}" loading="${i===0?'eager':'lazy'}" /></div>
+          `).join("")}
+        </div>
+        <div class="dots">
+          ${slides.map((_, i) => `<div class="dot ${i===0?'active':''}" data-i="${i}"></div>`).join("")}
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn full" id="copyBtn">📋 Salin Caption</button>
+        <button class="btn secondary" id="dl1">⬇︎ Slide 1</button>
+        <button class="btn secondary" id="dl2">⬇︎ Slide 2</button>
+        <button class="btn secondary full" id="dl3">⬇︎ Slide 3</button>
+      </div>
+      <div class="caption-section">
+        <div class="caption-label"><h3>Caption</h3></div>
+        <div class="caption-box" id="captionBox">${escapeHtml(captionText)}</div>
+      </div>
+      <details class="ig-instructions">
+        <summary>📱 Cara upload ke Instagram</summary>
+        <ol>
+          <li>Tap setiap tombol ⬇︎ untuk simpan ketiga slide ke Photos</li>
+          <li>Tap "Salin Caption" untuk copy caption</li>
+          <li>Buka Instagram → tombol + → Post</li>
+          <li>Tap icon multi-select (kotak menumpuk) → pilih slide 1, 2, 3 berurutan</li>
+          <li>Skip filter → Next → paste caption → Share</li>
+        </ol>
+      </details>
+    `;
+
+    document.getElementById("copyBtn").addEventListener("click", () => copyText(captionText));
+    document.getElementById("dl1").addEventListener("click", () => downloadImage(slides[0], `berstock-${date}-1.jpg`));
+    document.getElementById("dl2").addEventListener("click", () => downloadImage(slides[1], `berstock-${date}-2.jpg`));
+    document.getElementById("dl3").addEventListener("click", () => downloadImage(slides[2], `berstock-${date}-3.jpg`));
+
+    const $slides = document.getElementById("slides");
+    const $dots = document.querySelectorAll(".dot");
+    $slides.addEventListener("scroll", () => {
+      const i = Math.round($slides.scrollLeft / $slides.clientWidth);
+      $dots.forEach((d, k) => d.classList.toggle("active", k === i));
+    }, { passive: true });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+  }
+
+  async function loadDate(date) {
+    document.getElementById("main").innerHTML = '<div class="loading">Memuat post…</div>';
+    try {
+      const captionRes = await fetch(`${BASE}/${date}/caption.txt?_=${Date.now()}`);
+      if (!captionRes.ok) throw new Error("caption missing");
+      const caption = await captionRes.text();
+      renderPost(date, caption);
+    } catch {
+      renderEmpty(`Post untuk ${formatDateId(date)} belum tersedia. Workflow harian jalan jam 07:00 WIB.`);
+    }
+  }
+
+  async function init() {
+    let manifest;
+    try {
+      const r = await fetch(MANIFEST_URL);
+      if (!r.ok) throw new Error();
+      manifest = await r.json();
+    } catch {
+      manifest = { posts: [] };
+    }
+    const posts = (manifest.posts || []).sort((a, b) => b.date.localeCompare(a.date));
+    if (posts.length === 0) {
+      renderEmpty("Belum ada post yang ter-generate. Jalankan workflow di GitHub Actions dulu.");
+      $picker.style.display = "none";
+      return;
+    }
+    $picker.innerHTML = posts.map(p => `<option value="${p.date}">${formatDateId(p.date)}</option>`).join("");
+    $picker.addEventListener("change", e => loadDate(e.target.value));
+    loadDate(posts[0].date);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
