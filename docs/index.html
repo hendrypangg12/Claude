@@ -25,7 +25,7 @@
   .brand { display: flex; align-items: center; gap: 10px; }
   .brand-chip { background: var(--accent); color: #121620; font-weight: 900; font-size: 13px; letter-spacing: 0.5px; padding: 5px 10px; border-radius: 6px; }
   .brand-title { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-  .date-picker { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 14px; font-weight: 600; min-width: 0; max-width: 160px; }
+  .date-picker { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; min-width: 0; max-width: 220px; }
   main { max-width: 640px; margin: 0 auto; padding: 16px; }
   .post-date { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px; }
   .post-headline { font-size: 22px; font-weight: 800; line-height: 1.25; margin: 0 0 18px; }
@@ -183,6 +183,17 @@
     const d = new Date(iso + "T00:00:00");
     return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
   }
+  function formatDateShort(iso) {
+    const months = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+    const d = new Date(iso + "T00:00:00");
+    return `${d.getDate()} ${months[d.getMonth()]}`;
+  }
+  function postLabel(p) {
+    const head = (p.headline || "").trim();
+    const headShort = head.length > 36 ? head.slice(0, 34) + "…" : head;
+    if (p.time) return `${formatDateShort(p.date)} ${p.time} — ${headShort || "(no headline)"}`;
+    return formatDateId(p.date);
+  }
 
   async function copyText(text) {
     try {
@@ -227,9 +238,10 @@
       </div>`;
   }
 
-  function renderPost(date, captionText) {
-    const slides = [1, 2, 3].map(i => `${BASE}/${date}/post_${i}.jpg`);
-    const niceDate = formatDateId(date);
+  function renderPost(post, captionText) {
+    const id = post.id;
+    const slides = [1, 2, 3].map(i => `${BASE}/${id}/post_${i}.jpg`);
+    const niceDate = formatDateId(post.date) + (post.time ? ` · ${post.time}` : "");
     $postArea.innerHTML = `
       <p class="post-date">Post ${niceDate}</p>
       <div class="carousel" id="carousel">
@@ -265,9 +277,9 @@
     `;
 
     document.getElementById("copyBtn").addEventListener("click", () => copyText(captionText));
-    document.getElementById("dl1").addEventListener("click", () => downloadImage(slides[0], `berstock-${date}-1.jpg`));
-    document.getElementById("dl2").addEventListener("click", () => downloadImage(slides[1], `berstock-${date}-2.jpg`));
-    document.getElementById("dl3").addEventListener("click", () => downloadImage(slides[2], `berstock-${date}-3.jpg`));
+    document.getElementById("dl1").addEventListener("click", () => downloadImage(slides[0], `berstock-${id}-1.jpg`));
+    document.getElementById("dl2").addEventListener("click", () => downloadImage(slides[1], `berstock-${id}-2.jpg`));
+    document.getElementById("dl3").addEventListener("click", () => downloadImage(slides[2], `berstock-${id}-3.jpg`));
 
     const $slides = document.getElementById("slides");
     const $dots = document.querySelectorAll(".dot");
@@ -281,15 +293,15 @@
     return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
   }
 
-  async function loadDate(date) {
+  async function loadPost(post) {
     $postArea.innerHTML = '<div class="loading">Memuat post…</div>';
     try {
-      const captionRes = await fetch(`${BASE}/${date}/caption.txt?_=${Date.now()}`);
+      const captionRes = await fetch(`${BASE}/${post.id}/caption.txt?_=${Date.now()}`);
       if (!captionRes.ok) throw new Error("caption missing");
       const caption = await captionRes.text();
-      renderPost(date, caption);
+      renderPost(post, caption);
     } catch {
-      renderEmpty(`Post untuk ${formatDateId(date)} belum tersedia. Workflow harian jalan jam 07:00 WIB.`);
+      renderEmpty(`Post ${post.id} belum tersedia. Coba refresh sebentar.`);
     }
   }
 
@@ -408,6 +420,7 @@
     });
   }
 
+  let POSTS = [];
   async function init() {
     let manifest;
     try {
@@ -417,16 +430,19 @@
     } catch {
       manifest = { posts: [] };
     }
-    const posts = (manifest.posts || []).sort((a, b) => b.date.localeCompare(a.date));
-    if (posts.length === 0) {
+    POSTS = (manifest.posts || []).slice().sort((a, b) => (b.id || b.date).localeCompare(a.id || a.date));
+    if (POSTS.length === 0) {
       renderEmpty("Belum ada post yang ter-generate. Jalankan workflow di GitHub Actions dulu.");
       $picker.style.display = "none";
       return;
     }
-    $picker.innerHTML = posts.map(p => `<option value="${p.date}">${formatDateId(p.date)}</option>`).join("");
-    $picker.onchange = e => loadDate(e.target.value);
+    $picker.innerHTML = POSTS.map(p => `<option value="${p.id}">${postLabel(p)}</option>`).join("");
+    $picker.onchange = e => {
+      const post = POSTS.find(p => p.id === e.target.value);
+      if (post) loadPost(post);
+    };
     $picker.style.display = "";
-    loadDate(posts[0].date);
+    loadPost(POSTS[0]);
   }
 
   bindToolbar();

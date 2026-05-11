@@ -3,12 +3,15 @@
 Usage:  python daily_post.py
 Reads configuration from .env (or the surrounding environment).
 """
+import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+WIB = timezone(timedelta(hours=7))
 
 from caption_generator import (
     generate_caption,
@@ -50,7 +53,9 @@ def _gather_candidates() -> list[dict]:
 def main() -> int:
     load_dotenv()
 
-    out_dir = Path("out") / datetime.now().strftime("%Y-%m-%d")
+    now = datetime.now(WIB)
+    folder_id = now.strftime("%Y-%m-%d_%H-%M-%S")
+    out_dir = Path("out") / folder_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("[1/5] Gathering candidate articles...")
@@ -106,6 +111,17 @@ def main() -> int:
     print(f"      → {final_image_path}")
     print(f"      → {slide2_path}")
     print(f"      → {slide3_path}")
+
+    meta = {
+        "id": folder_id,
+        "date": now.strftime("%Y-%m-%d"),
+        "time": now.strftime("%H:%M"),
+        "headline": headline_id,
+        "source": article["source"],
+    }
+    (out_dir / "meta.json").write_text(
+        json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
     if os.environ.get("DRY_RUN", "true").lower() == "true":
         print("[5/5] Semi-manual mode (DRY_RUN=true) → skipping Instagram upload.")

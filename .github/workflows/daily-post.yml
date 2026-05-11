@@ -46,15 +46,30 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           python - <<'PY'
-          import json, os
+          import json
           from pathlib import Path
           out = Path("daily-news-poster/out")
           posts = []
-          for d in sorted(out.iterdir()) if out.exists() else []:
-              if d.is_dir() and (d / "post_1.jpg").exists() and (d / "caption.txt").exists():
-                  posts.append({"date": d.name})
+          if out.exists():
+              for d in sorted(out.iterdir(), reverse=True):
+                  if not d.is_dir(): continue
+                  if not (d / "post_1.jpg").exists(): continue
+                  if not (d / "caption.txt").exists(): continue
+                  meta_p = d / "meta.json"
+                  if meta_p.exists():
+                      try:
+                          meta = json.loads(meta_p.read_text(encoding="utf-8"))
+                          meta.setdefault("id", d.name)
+                          posts.append(meta)
+                          continue
+                      except Exception:
+                          pass
+                  posts.append({"id": d.name, "date": d.name, "time": "", "headline": ""})
           Path("docs").mkdir(exist_ok=True)
-          Path("docs/manifest.json").write_text(json.dumps({"posts": posts}, indent=2))
+          Path("docs/manifest.json").write_text(
+              json.dumps({"posts": posts}, ensure_ascii=False, indent=2),
+              encoding="utf-8",
+          )
           PY
 
       - name: Commit generated post to repo
