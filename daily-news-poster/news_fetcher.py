@@ -1,12 +1,12 @@
-"""Fetch top trending news from NewsAPI."""
+"""Fetch top trending international news from NewsAPI."""
 import os
 import requests
 
 
-def fetch_top_headline() -> dict:
-    """Return the top trending article: {title, description, url, source}."""
+def fetch_candidates_intl(page_size: int = 10) -> list[dict]:
+    """Return a list of NewsAPI top-headline candidates."""
     api_key = os.environ["NEWSAPI_KEY"]
-    country = os.environ.get("NEWS_COUNTRY", "id")
+    country = os.environ.get("NEWS_COUNTRY_INTL", "us")
     category = os.environ.get("NEWS_CATEGORY", "general")
 
     resp = requests.get(
@@ -14,23 +14,29 @@ def fetch_top_headline() -> dict:
         params={
             "country": country,
             "category": category,
-            "pageSize": 10,
+            "pageSize": page_size,
             "apiKey": api_key,
         },
         timeout=20,
     )
     resp.raise_for_status()
     articles = resp.json().get("articles", [])
-    if not articles:
-        raise RuntimeError(f"No articles returned for country={country} category={category}")
 
-    # Pick the first article that has both a title and a description.
+    out = []
     for article in articles:
         if article.get("title") and article.get("description"):
-            return {
+            out.append({
                 "title": article["title"],
                 "description": article["description"],
                 "url": article.get("url", ""),
                 "source": (article.get("source") or {}).get("name", ""),
-            }
-    raise RuntimeError("No article with both title and description found")
+            })
+    return out
+
+
+def fetch_top_headline_intl() -> dict:
+    """Return just the first usable international headline (fallback path)."""
+    candidates = fetch_candidates_intl()
+    if not candidates:
+        raise RuntimeError("No articles returned from NewsAPI")
+    return candidates[0]

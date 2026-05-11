@@ -10,10 +10,36 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from caption_generator import generate_caption
+from caption_generator import generate_caption, pick_best_article
 from image_fetcher import fetch_image
 from image_maker import compose
-from news_fetcher import fetch_top_headline
+from news_fetcher import fetch_candidates_intl
+from rss_fetcher import fetch_candidates_rss
+
+
+def _gather_candidates() -> list[dict]:
+    """Pull articles from configured sources.
+
+    NEWS_SOURCE env var: "auto" (both, default), "rss_id", or "newsapi_intl".
+    """
+    mode = os.environ.get("NEWS_SOURCE", "auto").lower()
+    candidates: list[dict] = []
+
+    if mode in ("auto", "rss_id"):
+        try:
+            candidates.extend(fetch_candidates_rss())
+        except Exception as exc:
+            print(f"      (RSS source failed: {exc})")
+
+    if mode in ("auto", "newsapi_intl"):
+        try:
+            candidates.extend(fetch_candidates_intl())
+        except Exception as exc:
+            print(f"      (NewsAPI source failed: {exc})")
+
+    if not candidates:
+        raise RuntimeError("All news sources returned no candidates")
+    return candidates
 
 
 def main() -> int:
@@ -22,9 +48,14 @@ def main() -> int:
     out_dir = Path("out") / datetime.now().strftime("%Y-%m-%d")
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    print("[1/5] Fetching top headline...")
-    article = fetch_top_headline()
-    print(f"      → {article['title']}")
+    print("[1/5] Gathering candidate articles...")
+    candidates = _gather_candidates()
+    print(f"      → {len(candidates)} candidates collected")
+
+    print("      Asking Claude to pick the best one...")
+    article, reason = pick_best_article(candidates)
+    print(f"      → [{article['source']}] {article['title']}")
+    print(f"      Reason: {reason}")
 
     print("[2/5] Generating caption with Claude...")
     caption = generate_caption(
