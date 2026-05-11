@@ -101,3 +101,46 @@ def generate_headline_id(title: str) -> str:
         messages=[{"role": "user", "content": title}],
     )
     return message.content[0].text.strip().strip('"').strip("'")
+
+
+CAROUSEL_SYSTEM_PROMPT = """You produce text for an Indonesian news Instagram carousel post (3 slides).
+
+Output STRICT JSON with this exact shape:
+{
+  "points": ["...", "...", "..."],
+  "takeaway": "..."
+}
+
+Rules:
+- "points": exactly 3 short bullets in Bahasa Indonesia, each 8-16 words, factual, no fluff
+- Each bullet should stand alone (assume reader didn't see the others)
+- "takeaway": 1 sentence summary / why-it-matters in Bahasa Indonesia, 10-20 words
+- Tone: neutral, informative, slightly punchy (not sensational)
+- No emoji, no hashtags, no quotes around values"""
+
+
+def generate_carousel_content(title: str, description: str, source: str) -> dict:
+    """Return {'points': [3 bullets], 'takeaway': str} for slides 2 and 3."""
+    user_prompt = (
+        f"Berita:\nJudul: {title}\nRingkasan: {description}\nSumber: {source}"
+    )
+    message = _client().messages.create(
+        model=MODEL,
+        max_tokens=400,
+        system=CAROUSEL_SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+    raw = message.content[0].text.strip()
+    if raw.startswith("```"):
+        raw = raw.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0].strip()
+        if raw.startswith("json"):
+            raw = raw[4:].strip()
+    try:
+        data = json.loads(raw)
+        points = [str(p).strip() for p in data.get("points", []) if str(p).strip()][:3]
+        takeaway = str(data.get("takeaway", "")).strip()
+    except (json.JSONDecodeError, KeyError, TypeError):
+        points, takeaway = [], ""
+    while len(points) < 3:
+        points.append("")
+    return {"points": points, "takeaway": takeaway or "Simak berita lengkapnya di feed kami."}

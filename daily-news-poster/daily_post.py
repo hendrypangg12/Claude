@@ -10,9 +10,14 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from caption_generator import generate_caption, generate_headline_id, pick_best_article
+from caption_generator import (
+    generate_caption,
+    generate_carousel_content,
+    generate_headline_id,
+    pick_best_article,
+)
 from image_fetcher import fetch_image, fetch_image_from_url
-from image_maker import compose
+from image_maker import compose, compose_slide_points, compose_slide_takeaway
 from news_fetcher import fetch_candidates_intl
 from rss_fetcher import fetch_candidates_rss
 
@@ -84,12 +89,23 @@ def main() -> int:
                 "No article image_url available and Google Images fallback not configured"
             )
 
-    print("[4/5] Composing post...")
+    print("[4/5] Composing carousel slides...")
     headline_id = generate_headline_id(article["title"])
     print(f"      Headline ID: {headline_id}")
-    final_image_path = str(out_dir / "post.jpg")
+    carousel = generate_carousel_content(
+        article["title"], article["description"], article["source"]
+    )
+    final_image_path = str(out_dir / "post_1.jpg")
+    slide2_path = str(out_dir / "post_2.jpg")
+    slide3_path = str(out_dir / "post_3.jpg")
     compose(raw_image_path, headline_id, article["source"], final_image_path)
+    compose_slide_points(raw_image_path, carousel["points"], slide2_path)
+    compose_slide_takeaway(
+        raw_image_path, carousel["takeaway"], article["source"], slide3_path
+    )
     print(f"      → {final_image_path}")
+    print(f"      → {slide2_path}")
+    print(f"      → {slide3_path}")
 
     if os.environ.get("DRY_RUN", "true").lower() == "true":
         print("[5/5] Semi-manual mode (DRY_RUN=true) → skipping Instagram upload.")
