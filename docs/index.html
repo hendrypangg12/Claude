@@ -60,6 +60,17 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
   .loading { text-align: center; padding: 40px; color: var(--text-muted); }
   .source-pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+  .toolbar { display: flex; gap: 8px; margin: 0 0 16px; }
+  .toolbar .btn { flex: 1; padding: 12px 12px; font-size: 14px; }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.ghost:active { background: rgba(255, 196, 0, 0.15); }
+  .help-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
+  .help-modal-bg.show { display: flex; }
+  .help-modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; max-width: 420px; width: 100%; max-height: 80vh; overflow-y: auto; }
+  .help-modal h2 { margin: 0 0 12px; font-size: 18px; }
+  .help-modal p { color: var(--text-muted); line-height: 1.5; font-size: 14px; }
+  .help-modal ol { padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--text-muted); }
+  .help-modal .btn { width: 100%; margin-top: 14px; }
 </style>
 </head>
 <body>
@@ -72,8 +83,29 @@
 </header>
 
 <main id="main">
-  <div id="loading" class="loading">Memuat post terbaru…</div>
+  <div class="toolbar">
+    <a class="btn ghost" id="genBtn" target="_blank" rel="noopener">⚡ Generate Post Baru</a>
+    <button class="btn ghost" id="refreshBtn">↻ Refresh</button>
+  </div>
+  <div id="postArea">
+    <div id="loading" class="loading">Memuat post terbaru…</div>
+  </div>
 </main>
+
+<div class="help-modal-bg" id="genHelp">
+  <div class="help-modal">
+    <h2>Generate post baru?</h2>
+    <p>Tombol di bawah akan buka halaman GitHub Actions. Di sana:</p>
+    <ol>
+      <li>Tap dropdown <b>"Run workflow"</b> di kanan atas</li>
+      <li>Tap tombol hijau <b>"Run workflow"</b></li>
+      <li>Tunggu ~1 menit sampai status ✅ hijau</li>
+      <li>Balik ke app ini, tap <b>↻ Refresh</b> untuk lihat post baru</li>
+    </ol>
+    <button class="btn" id="openGen">Buka GitHub Actions →</button>
+    <button class="btn secondary" id="closeGen" style="margin-top:8px;">Batal</button>
+  </div>
+</div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
@@ -86,8 +118,10 @@
   const MANIFEST_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
 
   const $main = document.getElementById("main");
+  const $postArea = document.getElementById("postArea");
   const $picker = document.getElementById("datePicker");
   const $toast = document.getElementById("toast");
+  const ACTIONS_URL = `https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/workflows/daily-post.yml`;
 
   function toast(text) {
     $toast.textContent = text;
@@ -138,7 +172,7 @@
   }
 
   function renderEmpty(message) {
-    $main.innerHTML = `
+    $postArea.innerHTML = `
       <div class="empty">
         <div class="empty-emoji">📭</div>
         <p>${message}</p>
@@ -148,7 +182,7 @@
   function renderPost(date, captionText) {
     const slides = [1, 2, 3].map(i => `${BASE}/${date}/post_${i}.jpg`);
     const niceDate = formatDateId(date);
-    $main.innerHTML = `
+    $postArea.innerHTML = `
       <p class="post-date">Post ${niceDate}</p>
       <div class="carousel" id="carousel">
         <div class="slides" id="slides">
@@ -200,7 +234,7 @@
   }
 
   async function loadDate(date) {
-    document.getElementById("main").innerHTML = '<div class="loading">Memuat post…</div>';
+    $postArea.innerHTML = '<div class="loading">Memuat post…</div>';
     try {
       const captionRes = await fetch(`${BASE}/${date}/caption.txt?_=${Date.now()}`);
       if (!captionRes.ok) throw new Error("caption missing");
@@ -209,6 +243,28 @@
     } catch {
       renderEmpty(`Post untuk ${formatDateId(date)} belum tersedia. Workflow harian jalan jam 07:00 WIB.`);
     }
+  }
+
+  function bindToolbar() {
+    const $genHelp = document.getElementById("genHelp");
+    document.getElementById("genBtn").addEventListener("click", e => {
+      e.preventDefault();
+      $genHelp.classList.add("show");
+    });
+    document.getElementById("openGen").addEventListener("click", () => {
+      window.open(ACTIONS_URL, "_blank", "noopener");
+      $genHelp.classList.remove("show");
+    });
+    document.getElementById("closeGen").addEventListener("click", () => {
+      $genHelp.classList.remove("show");
+    });
+    $genHelp.addEventListener("click", e => {
+      if (e.target === $genHelp) $genHelp.classList.remove("show");
+    });
+    document.getElementById("refreshBtn").addEventListener("click", () => {
+      toast("Memuat ulang…");
+      init();
+    });
   }
 
   async function init() {
@@ -227,10 +283,12 @@
       return;
     }
     $picker.innerHTML = posts.map(p => `<option value="${p.date}">${formatDateId(p.date)}</option>`).join("");
-    $picker.addEventListener("change", e => loadDate(e.target.value));
+    $picker.onchange = e => loadDate(e.target.value);
+    $picker.style.display = "";
     loadDate(posts[0].date);
   }
 
+  bindToolbar();
   init();
 })();
 </script>
