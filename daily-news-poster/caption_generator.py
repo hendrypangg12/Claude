@@ -28,7 +28,7 @@ Respond with ONLY a JSON object: {"index": <integer 0-based>, "reason": "<short 
 
 
 def _client() -> Anthropic:
-    return Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    return Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
 
 
 def pick_best_article(candidates: list[dict]) -> tuple[dict, str]:

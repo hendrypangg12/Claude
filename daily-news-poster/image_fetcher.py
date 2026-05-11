@@ -6,12 +6,12 @@ import requests
 def fetch_image(query: str, out_path: str) -> str:
     """Search Google Images for `query`, download first result to `out_path`.
     Returns the saved file path. Filters to CC-licensed images by default."""
-    api_key = os.environ["GOOGLE_API_KEY"]
-    cse_id = os.environ["GOOGLE_CSE_ID"]
+    api_key = os.environ["GOOGLE_API_KEY"].strip()
+    cse_id = os.environ["GOOGLE_CSE_ID"].strip()
     license_filter = os.environ.get(
         "IMAGE_LICENSE_FILTER",
         "cc_publicdomain,cc_attribute,cc_sharealike",
-    )
+    ).strip()
 
     params = {
         "key": api_key,
