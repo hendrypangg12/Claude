@@ -7,8 +7,11 @@ name: Daily News Post (semi-manual)
 
 on:
   schedule:
-    # 00:00 UTC = 07:00 WIB (Jakarta). Adjust as needed.
-    - cron: "0 0 * * *"
+    # All times in WIB (UTC+7), translated to UTC for cron.
+    - cron: "0 0 * * *"   # 07:00 WIB — morning commute
+    - cron: "0 5 * * *"   # 12:00 WIB — lunch break
+    - cron: "0 11 * * *"  # 18:00 WIB — after-work evening
+    - cron: "0 14 * * *"  # 21:00 WIB — primetime
   workflow_dispatch:  # also allow manual trigger from the Actions tab
 
 jobs:
