@@ -7,13 +7,29 @@ name: Daily News Post (semi-manual)
 
 on:
   schedule:
-    # 00:00 UTC = 07:00 WIB (Jakarta). Adjust as needed.
-    - cron: "0 0 * * *"
-  workflow_dispatch:  # also allow manual trigger from the Actions tab
+    # All times in WIB (UTC+7). Each slot uses a different niche (see NICHE step).
+    - cron: "30 23 * * *" # 06:30 WIB — pagi (trending pemerintahan)
+    - cron: "0 5 * * *"   # 12:00 WIB — saham (IDX)
+    - cron: "0 11 * * *"  # 18:00 WIB — market (IHSG/crypto)
+    - cron: "0 14 * * *"  # 21:00 WIB — startup (bisnis viral)
+  workflow_dispatch:
+    inputs:
+      niche:
+        description: "Niche untuk run manual"
+        required: false
+        default: "pagi"
+        type: choice
+        options:
+          - pagi
+          - saham
+          - market
+          - startup
 
 jobs:
   post:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     defaults:
       run:
         working-directory: daily-news-poster
@@ -28,17 +44,72 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Resolve niche for this run
+        id: niche
+        run: |
+          case "${{ github.event.schedule }}" in
+            "30 23 * * *") echo "value=pagi"    >> "$GITHUB_OUTPUT" ;;
+            "0 5 * * *")   echo "value=saham"   >> "$GITHUB_OUTPUT" ;;
+            "0 11 * * *")  echo "value=market"  >> "$GITHUB_OUTPUT" ;;
+            "0 14 * * *")  echo "value=startup" >> "$GITHUB_OUTPUT" ;;
+            *)             echo "value=${{ github.event.inputs.niche || 'pagi' }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
       - run: python daily_post.py
         env:
           DRY_RUN: "true"
           NEWS_SOURCE: auto
+          NICHE: ${{ steps.niche.outputs.value }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           NEWS_COUNTRY_INTL: us
-          NEWS_CATEGORY: general
+          NEWS_CATEGORY: business
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
           IMAGE_LICENSE_FILTER: any
+
+      - name: Update site manifest
+        working-directory: ${{ github.workspace }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out = Path("daily-news-poster/out")
+          posts = []
+          if out.exists():
+              for d in sorted(out.iterdir(), reverse=True):
+                  if not d.is_dir(): continue
+                  if not (d / "post_1.jpg").exists(): continue
+                  if not (d / "caption.txt").exists(): continue
+                  meta_p = d / "meta.json"
+                  if meta_p.exists():
+                      try:
+                          meta = json.loads(meta_p.read_text(encoding="utf-8"))
+                          meta.setdefault("id", d.name)
+                          posts.append(meta)
+                          continue
+                      except Exception:
+                          pass
+                  posts.append({"id": d.name, "date": d.name, "time": "", "headline": ""})
+          Path("docs").mkdir(exist_ok=True)
+          Path("docs/manifest.json").write_text(
+              json.dumps({"posts": posts}, ensure_ascii=False, indent=2),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit generated post to repo
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add daily-news-poster/out/ docs/manifest.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily post for $(date -u +%Y-%m-%d)"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
 
       - name: Upload generated post as artifact
         if: always()

@@ -1,0 +1,99 @@
+name: Daily Quote (Lalu)
+
+on:
+  schedule:
+    # All times in WIB (UTC+7).
+    - cron: "30 0 * * *"  # 07:30 WIB — pagi
+    - cron: "30 5 * * *"  # 12:30 WIB — siang
+    - cron: "30 11 * * *" # 18:30 WIB — sore
+    - cron: "30 14 * * *" # 21:30 WIB — malam
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Slot/mood"
+        required: false
+        default: "pagi"
+        type: choice
+        options:
+          - pagi
+          - siang
+          - sore
+          - malam
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: daily-quote-poster
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: daily-quote-poster/requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - name: Resolve slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "30 0 * * *")  echo "value=pagi"  >> "$GITHUB_OUTPUT" ;;
+            "30 5 * * *")  echo "value=siang" >> "$GITHUB_OUTPUT" ;;
+            "30 11 * * *") echo "value=sore"  >> "$GITHUB_OUTPUT" ;;
+            "30 14 * * *") echo "value=malam" >> "$GITHUB_OUTPUT" ;;
+            *)             echo "value=${{ github.event.inputs.slot || 'pagi' }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - run: python daily_quote.py
+        env:
+          SLOT: ${{ steps.slot.outputs.value }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Update Lalu manifest
+        working-directory: ${{ github.workspace }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out = Path("daily-quote-poster/out")
+          posts = []
+          if out.exists():
+              for d in sorted(out.iterdir(), reverse=True):
+                  if not d.is_dir(): continue
+                  if not (d / "post_1.jpg").exists(): continue
+                  if not (d / "caption.txt").exists(): continue
+                  meta_p = d / "meta.json"
+                  if meta_p.exists():
+                      try:
+                          meta = json.loads(meta_p.read_text(encoding="utf-8"))
+                          meta.setdefault("id", d.name)
+                          posts.append(meta)
+                          continue
+                      except Exception:
+                          pass
+                  posts.append({"id": d.name, "date": d.name, "time": "", "headline": ""})
+          Path("docs").mkdir(exist_ok=True)
+          Path("docs/lalu-manifest.json").write_text(
+              json.dumps({"posts": posts}, ensure_ascii=False, indent=2),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit Lalu post
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add daily-quote-poster/out/ docs/lalu-manifest.json
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Lalu quote $(date -u +%Y-%m-%d)"
+            git push origin HEAD:${{ github.ref_name }}
+          fi

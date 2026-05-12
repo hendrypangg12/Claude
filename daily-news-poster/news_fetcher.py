@@ -5,9 +5,9 @@ import requests
 
 def fetch_candidates_intl(page_size: int = 10) -> list[dict]:
     """Return a list of NewsAPI top-headline candidates."""
-    api_key = os.environ["NEWSAPI_KEY"]
-    country = os.environ.get("NEWS_COUNTRY_INTL", "us")
-    category = os.environ.get("NEWS_CATEGORY", "general")
+    api_key = os.environ["NEWSAPI_KEY"].strip()
+    country = os.environ.get("NEWS_COUNTRY_INTL", "us").strip()
+    category = os.environ.get("NEWS_CATEGORY", "general").strip()
 
     resp = requests.get(
         "https://newsapi.org/v2/top-headlines",
@@ -30,6 +30,7 @@ def fetch_candidates_intl(page_size: int = 10) -> list[dict]:
                 "description": article["description"],
                 "url": article.get("url", ""),
                 "source": (article.get("source") or {}).get("name", ""),
+                "image_url": article.get("urlToImage") or "",
             })
     return out
 

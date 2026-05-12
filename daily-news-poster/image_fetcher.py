@@ -1,17 +1,30 @@
-"""Fetch a relevant image via Google Custom Search API."""
+"""Fetch a relevant image: prefer the article's own image, optionally fall back to Google."""
 import os
 import requests
+
+
+def fetch_image_from_url(image_url: str, out_path: str) -> str:
+    """Download the article's own image directly. Raises on failure."""
+    resp = requests.get(
+        image_url,
+        timeout=30,
+        headers={"User-Agent": "Mozilla/5.0"},
+    )
+    resp.raise_for_status()
+    with open(out_path, "wb") as fp:
+        fp.write(resp.content)
+    return out_path
 
 
 def fetch_image(query: str, out_path: str) -> str:
     """Search Google Images for `query`, download first result to `out_path`.
     Returns the saved file path. Filters to CC-licensed images by default."""
-    api_key = os.environ["GOOGLE_API_KEY"]
-    cse_id = os.environ["GOOGLE_CSE_ID"]
+    api_key = os.environ["GOOGLE_API_KEY"].strip()
+    cse_id = os.environ["GOOGLE_CSE_ID"].strip()
     license_filter = os.environ.get(
         "IMAGE_LICENSE_FILTER",
         "cc_publicdomain,cc_attribute,cc_sharealike",
-    )
+    ).strip()
 
     params = {
         "key": api_key,

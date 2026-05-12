@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#12161c" />
+<title>Berstock.ID — Daily Generator</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffc400'/%3E%3Ctext x='50' y='62' font-size='34' font-weight='900' text-anchor='middle' font-family='system-ui' fill='%23121620'%3EB%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #12161c;
+    --surface: #1c2230;
+    --surface-2: #252c3c;
+    --text: #f5f5f5;
+    --text-muted: #98a0b3;
+    --accent: #ffc400;
+    --accent-pressed: #e6b000;
+    --border: #2a3344;
+    --success: #34d399;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  header { padding: 18px 20px 0; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: var(--bg); z-index: 10; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-chip { background: var(--accent); color: #121620; font-weight: 900; font-size: 13px; letter-spacing: 0.5px; padding: 5px 10px; border-radius: 6px; }
+  .brand-title { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+  .date-picker { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; min-width: 0; max-width: 220px; }
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+  .tabs { display: flex; gap: 0; max-width: 640px; margin: 14px auto 0; padding: 0 16px; border-bottom: 1px solid var(--border); position: sticky; top: 64px; background: var(--bg); z-index: 9; }
+  .tab { flex: 1; padding: 14px 8px; text-align: center; color: var(--text-muted); font-weight: 700; font-size: 14px; cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; user-select: none; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab:active { background: var(--surface); }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  .post-date { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px; }
+  .post-headline { font-size: 22px; font-weight: 800; line-height: 1.25; margin: 0 0 18px; }
+  .carousel { position: relative; background: #000; border-radius: 14px; overflow: hidden; aspect-ratio: 1 / 1; box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+  .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .slides::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; height: 100%; }
+  .slide img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; }
+  .dots { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; gap: 6px; justify-content: center; pointer-events: none; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); transition: background 0.2s; }
+  .dot.active { background: var(--accent); }
+  .single-image { width: 100%; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+  .single-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #121620; border: 0; padding: 14px 16px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit; touch-action: manipulation; }
+  .btn:active { background: var(--accent-pressed); transform: scale(0.98); }
+  .btn.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn.secondary:active { background: var(--surface-2); }
+  .btn.full { grid-column: 1 / -1; }
+  .btn.success { background: var(--success); color: #052e1f; }
+  .caption-section { margin-top: 22px; }
+  .caption-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .caption-label h3 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+  .caption-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; font-size: 15px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  .ig-instructions { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .ig-instructions summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+  .ig-instructions summary::-webkit-details-marker { display: none; }
+  .ig-instructions summary::after { content: '▾'; margin-left: auto; color: var(--text-muted); transition: transform 0.2s; }
+  .ig-instructions[open] summary::after { transform: rotate(180deg); }
+  .ig-instructions ol { padding-left: 20px; line-height: 1.7; margin: 12px 0 0; font-size: 14px; color: var(--text-muted); }
+  .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .empty-emoji { font-size: 48px; margin-bottom: 12px; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--success); color: #052e1f; padding: 12px 18px; border-radius: 12px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,0.4); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 100; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+  .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+  .toolbar { display: flex; gap: 8px; margin: 0 0 12px; }
+  .toolbar .btn { flex: 1; padding: 12px 12px; font-size: 14px; }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.ghost:active { background: rgba(255, 196, 0, 0.15); }
+  .btn[disabled] { opacity: 0.55; pointer-events: none; }
+  select.picker { width: 100%; padding: 12px 14px; font-size: 14px; border: 2px solid var(--accent); background: var(--surface); border-radius: 10px; margin: 0 0 12px; color: var(--text); font-weight: 700; font-family: inherit; }
+  .picker-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px; font-weight: 700; }
+  .help-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
+  .help-modal-bg.show { display: flex; }
+  .help-modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; max-width: 460px; width: 100%; max-height: 86vh; overflow-y: auto; }
+  .help-modal h2 { margin: 0 0 12px; font-size: 18px; }
+  .help-modal p { color: var(--text-muted); line-height: 1.55; font-size: 14px; margin: 8px 0; }
+  .help-modal ol { padding-left: 20px; line-height: 1.7; font-size: 14px; color: var(--text-muted); margin: 8px 0; }
+  .help-modal .btn { width: 100%; margin-top: 14px; }
+  .help-modal input[type="password"], .help-modal input[type="text"] { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 14px; font-family: ui-monospace, Menlo, monospace; }
+  .help-modal a { color: var(--accent); }
+  .status-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 0 0 16px; display: none; align-items: center; gap: 12px; font-size: 14px; }
+  .status-bar.show { display: flex; }
+  .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex: 0 0 auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .gear-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; font-size: 16px; cursor: pointer; margin-left: 8px; }
+  .gear-btn:active { background: var(--surface-2); }
+  .thumb-strip-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 6px 0 8px; }
+  .thumb-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 20px; }
+  .thumb { position: relative; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; border: 2px solid var(--border); cursor: pointer; background: #000; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(255, 196, 0, 0.3); }
+  .thumb-time { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+  .thumb-niche { position: absolute; top: 8px; right: 8px; background: var(--accent); color: #121620; font-size: 10px; font-weight: 800; padding: 3px 7px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .thumb-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 8px 8px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; font-size: 11px; font-weight: 600; line-height: 1.3; }
+  .detail-divider { border-top: 1px solid var(--border); margin: 22px 0 18px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="brand-chip">BERSTOCK.ID</span>
+    <span class="brand-title">Daily Generator</span>
+  </div>
+  <div style="display:flex; align-items:center;">
+    <select id="datePicker" class="date-picker" aria-label="Pilih tanggal post"></select>
+    <button id="settingsBtn" class="gear-btn" aria-label="Pengaturan">⚙︎</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <div class="tab active" data-mode="news" role="tab" aria-selected="true">📰 Berita</div>
+  <div class="tab" data-mode="quote" role="tab" aria-selected="false">💬 Quote</div>
+</nav>
+
+<main id="main">
+
+  <section class="tab-pane active" data-mode="news">
+    <p class="picker-label">Niche untuk berita berikutnya:</p>
+    <select id="nichePicker" class="picker">
+      <option value="pagi">🇮🇩 PAGI — Trending Pemerintahan / Ekonomi ID</option>
+      <option value="saham">📊 SAHAM — IDX & Bursa</option>
+      <option value="market">💹 MARKET — IHSG, USD/IDR, Crypto</option>
+      <option value="startup">🚀 STARTUP — Bisnis Viral & Tech</option>
+    </select>
+    <div class="toolbar">
+      <button class="btn ghost" id="genBtnNews">⚡ Generate Berita</button>
+      <button class="btn ghost" id="refreshBtnNews">↻ Refresh</button>
+    </div>
+    <div class="status-bar" id="statusBarNews">
+      <div class="spinner"></div>
+      <div id="statusTextNews">Memproses…</div>
+    </div>
+    <div id="thumbStripContainerNews"></div>
+    <div id="postAreaNews">
+      <div class="loading">Memuat post…</div>
+    </div>
+  </section>
+
+  <section class="tab-pane" data-mode="quote">
+    <p class="picker-label">Slot untuk quote berikutnya:</p>
+    <select id="slotPicker" class="picker">
+      <option value="pagi">🌅 PAGI — Mulai hari</option>
+      <option value="siang">☀️ SIANG — Hustle</option>
+      <option value="sore">🌇 SORE — Casual</option>
+      <option value="malam">🌙 MALAM — Refleksi</option>
+    </select>
+    <div class="toolbar">
+      <button class="btn ghost" id="genBtnQuote">⚡ Generate Quote</button>
+      <button class="btn ghost" id="refreshBtnQuote">↻ Refresh</button>
+    </div>
+    <div class="status-bar" id="statusBarQuote">
+      <div class="spinner"></div>
+      <div id="statusTextQuote">Memproses…</div>
+    </div>
+    <div id="thumbStripContainerQuote"></div>
+    <div id="postAreaQuote">
+      <div class="loading">Memuat quote…</div>
+    </div>
+  </section>
+
+</main>
+
+<div class="help-modal-bg" id="setupModal">
+  <div class="help-modal">
+    <h2>Setup sekali saja</h2>
+    <p>Supaya tombol <b>Generate</b> bisa langsung trigger workflow tanpa buka GitHub, perlu Personal Access Token (PAT) dari akun GitHub Anda. PAT disimpan hanya di HP ini (localStorage).</p>
+    <ol>
+      <li>Tap tombol di bawah → halaman GitHub akan terbuka</li>
+      <li>Login kalau diminta</li>
+      <li>Scope <b>workflow</b> sudah otomatis tercentang</li>
+      <li>Set Expiration <b>"No expiration"</b> atau 1 tahun</li>
+      <li>Klik <b>Generate token</b> di bawah halaman</li>
+      <li>Copy token yang muncul (mulai dengan <code>ghp_…</code>)</li>
+      <li>Balik ke app, paste di kolom di bawah</li>
+    </ol>
+    <a class="btn" id="openPatPage" target="_blank" rel="noopener">Buka halaman buat PAT →</a>
+    <p style="margin-top:14px;">Paste PAT di sini:</p>
+    <input type="password" id="patInput" placeholder="ghp_..." autocapitalize="off" autocomplete="off" spellcheck="false" />
+    <button class="btn" id="savePat">Simpan & Generate</button>
+    <button class="btn secondary" id="closeSetup" style="margin-top:8px;">Batal</button>
+  </div>
+</div>
+
+<div class="help-modal-bg" id="settingsModal">
+  <div class="help-modal">
+    <h2>Pengaturan</h2>
+    <p>Personal Access Token tersimpan di HP ini saja. Hapus kalau Anda mau setup ulang atau pindah device.</p>
+    <button class="btn" id="resetPat">Hapus PAT</button>
+    <button class="btn secondary" id="closeSettings" style="margin-top:8px;">Tutup</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  const REPO_OWNER = "hendrypangg12";
+  const REPO_NAME = "Claude";
+  const BRANCH = "claude/halo-bYUsl";
+  const PAT_KEY = "berstock_gh_pat";
+  const TAB_KEY = "berstock_active_tab";
+  const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
+
+  const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
+  const NEWS_MANIFEST = () => `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
+  const NEWS_WORKFLOW = "daily-post.yml";
+
+  const QUOTE_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-quote-poster/out`;
+  const QUOTE_MANIFEST = () => `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/lalu-manifest.json?_=${Date.now()}`;
+  const QUOTE_WORKFLOW = "daily-quote.yml";
+
+  const $toast = document.getElementById("toast");
+  const $picker = document.getElementById("datePicker");
+  const $setupModal = document.getElementById("setupModal");
+  const $settingsModal = document.getElementById("settingsModal");
+
+  function getPAT() { try { return localStorage.getItem(PAT_KEY) || ""; } catch { return ""; } }
+  function setPAT(v) { try { localStorage.setItem(PAT_KEY, v); } catch {} }
+  function clearPAT() { try { localStorage.removeItem(PAT_KEY); } catch {} }
+  function getActiveTab() { try { return localStorage.getItem(TAB_KEY) || "news"; } catch { return "news"; } }
+  function setActiveTab(v) { try { localStorage.setItem(TAB_KEY, v); } catch {} }
+
+  function toast(text) {
+    $toast.textContent = text;
+    $toast.classList.add("show");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => $toast.classList.remove("show"), 1800);
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+  }
+  function formatDateId(iso) {
+    const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+    const d = new Date(iso + "T00:00:00");
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); toast("Caption tersalin ✓"); }
+    catch {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); toast("Caption tersalin ✓"); }
+      catch { toast("Gagal menyalin"); }
+      document.body.removeChild(ta);
+    }
+  }
+  async function downloadImage(url, filename) {
+    try {
+      const r = await fetch(url); const blob = await r.blob();
+      const u = URL.createObjectURL(blob);
+      const a = document.createElement("a"); a.href = u; a.download = filename;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(u), 5000);
+      toast("Gambar terunduh ✓");
+    } catch { window.open(url, "_blank"); }
+  }
+
+  async function ghWhoAmI(pat) {
+    const r = await fetch("https://api.github.com/user", {
+      headers: { "Accept": "application/vnd.github+json", "Authorization": `Bearer ${pat}` },
+    });
+    if (!r.ok) throw new Error(`auth ${r.status}`);
+    return r.json();
+  }
+  async function ghDispatch(pat, workflowFile, inputs) {
+    const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${workflowFile}/dispatches`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": `Bearer ${pat}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ref: BRANCH, inputs: inputs || {} }),
+    });
+    if (r.status === 204) return true;
+    let body = "";
+    try { const j = await r.json(); body = j.message || JSON.stringify(j); }
+    catch { body = await r.text().catch(() => ""); }
+    throw new Error(`Dispatch ${r.status}: ${body.slice(0, 240)}`);
+  }
+  async function ghLatestRun(pat, workflowFile) {
+    const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${workflowFile}/runs?per_page=1`, {
+      headers: { "Accept": "application/vnd.github+json", "Authorization": `Bearer ${pat}` },
+    });
+    if (!r.ok) throw new Error(`List runs failed ${r.status}`);
+    const data = await r.json();
+    return (data.workflow_runs || [])[0] || null;
+  }
+
+  // ============================================================
+  //  GENERIC TAB CONTROLLER — used for both Berita & Quote
+  // ============================================================
+  function createTab(opts) {
+    // opts: mode ('news'|'quote'), workflowFile, manifestUrl (fn), base, inputName, inputPicker (el), renderPost, statusBarId, statusTextId, thumbContainerId, postAreaId, genBtnId, refreshBtnId, runDuration ('news'|'quote')
+    const $statusBar = document.getElementById(opts.statusBarId);
+    const $statusText = document.getElementById(opts.statusTextId);
+    const $thumbContainer = document.getElementById(opts.thumbContainerId);
+    const $postArea = document.getElementById(opts.postAreaId);
+    const $genBtn = document.getElementById(opts.genBtnId);
+    const $refreshBtn = document.getElementById(opts.refreshBtnId);
+
+    function showStatus(t) { $statusText.textContent = t; $statusBar.classList.add("show"); }
+    function hideStatus() { $statusBar.classList.remove("show"); }
+    function setBusy(b) { $genBtn.disabled = b; $refreshBtn.disabled = b; }
+
+    let POSTS = [];
+
+    function postsForDate(date) {
+      return POSTS.filter(p => p.date === date).sort((a, b) => (a.id || "").localeCompare(b.id || ""));
+    }
+    function uniqueDates() {
+      const seen = new Set(); const out = [];
+      for (const p of POSTS) if (!seen.has(p.date)) { seen.add(p.date); out.push(p.date); }
+      return out;
+    }
+
+    async function loadPost(post) {
+      $postArea.innerHTML = '<div class="loading">Memuat…</div>';
+      try {
+        const r = await fetch(`${opts.base}/${post.id}/caption.txt?_=${Date.now()}`);
+        const caption = r.ok ? await r.text() : "";
+        opts.renderPost($postArea, post, caption, opts.base);
+      } catch {
+        $postArea.innerHTML = `<div class="empty"><div class="empty-emoji">📭</div><p>Gagal memuat ${post.id}.</p></div>`;
+      }
+    }
+
+    function renderThumbStrip(date) {
+      const list = postsForDate(date);
+      if (list.length === 0) {
+        $thumbContainer.innerHTML = `<div class="empty"><p>Belum ada post untuk ${formatDateId(date)}.</p></div>`;
+        $postArea.innerHTML = "";
+        return;
+      }
+      const activeId = $thumbContainer.dataset.activeId || list[list.length - 1].id;
+      $thumbContainer.innerHTML = `
+        <p class="thumb-strip-label">${list.length} pilihan untuk ${formatDateId(date)}</p>
+        <div class="thumb-strip">
+          ${list.map(p => `
+            <div class="thumb ${p.id === activeId ? 'active' : ''}" data-id="${p.id}">
+              <img src="${opts.base}/${p.id}/post_1.jpg" alt="" loading="lazy" onerror="this.style.display='none'" />
+              ${p.time ? `<div class="thumb-time">${p.time}</div>` : ''}
+              ${p.niche ? `<div class="thumb-niche">${escapeHtml(p.niche)}</div>` : ''}
+              ${p.headline ? `<div class="thumb-overlay">${escapeHtml(p.headline.slice(0, 60))}</div>` : ''}
+            </div>
+          `).join("")}
+        </div>
+        <div class="detail-divider"></div>
+      `;
+      $thumbContainer.querySelectorAll(".thumb").forEach(el => {
+        el.addEventListener("click", () => {
+          const id = el.dataset.id;
+          $thumbContainer.dataset.activeId = id;
+          const post = POSTS.find(p => p.id === id);
+          if (post) { renderThumbStrip(date); loadPost(post); }
+        });
+      });
+      const activePost = list.find(p => p.id === activeId) || list[list.length - 1];
+      loadPost(activePost);
+    }
+
+    function selectDate(date) {
+      delete $thumbContainer.dataset.activeId;
+      renderThumbStrip(date);
+    }
+
+    async function refresh() {
+      let manifest;
+      try {
+        const r = await fetch(opts.manifestUrl());
+        if (!r.ok) throw new Error();
+        manifest = await r.json();
+      } catch { manifest = { posts: [] }; }
+      POSTS = (manifest.posts || []).slice().sort((a, b) => (b.id || b.date).localeCompare(a.id || a.date));
+      if (POSTS.length === 0) {
+        $thumbContainer.innerHTML = `
+          <div class="empty">
+            <div class="empty-emoji">${opts.mode === 'news' ? '📭' : '✍️'}</div>
+            <p>Belum ada ${opts.mode === 'news' ? 'berita' : 'quote'} ter-generate.<br/>Tap <b>⚡ Generate</b> di atas, atau tunggu schedule.</p>
+          </div>`;
+        $postArea.innerHTML = "";
+        return [];
+      }
+      return uniqueDates();
+    }
+
+    async function trigger() {
+      const pat = getPAT();
+      if (!pat) { $setupModal.classList.add("show"); return; }
+      setBusy(true);
+      const chosen = opts.inputPicker.value;
+      const chosenLabel = opts.inputPicker.options[opts.inputPicker.selectedIndex].text;
+      const tag = `[${opts.inputName.toUpperCase()}: ${chosen.toUpperCase()}]`;
+      showStatus(`${tag} Memverifikasi token…`);
+      try {
+        let me;
+        try { me = await ghWhoAmI(pat); }
+        catch (e) { throw new Error(`Token invalid (${String(e.message||e)}).`); }
+        if (me && me.login && me.login.toLowerCase() !== REPO_OWNER.toLowerCase()) {
+          throw new Error(`Token milik akun '${me.login}', bukan '${REPO_OWNER}'.`);
+        }
+        const inputs = {};
+        inputs[opts.inputName] = chosen;
+        showStatus(`${tag} Mengirim perintah ke GitHub…`);
+        const before = await ghLatestRun(pat, opts.workflowFile);
+        const beforeId = before ? before.id : 0;
+        await ghDispatch(pat, opts.workflowFile, inputs);
+        showStatus(`${tag} Workflow dimulai. Menunggu run baru…`);
+        let newRun = null;
+        for (let i = 0; i < 30; i++) {
+          await new Promise(r => setTimeout(r, 2000));
+          const latest = await ghLatestRun(pat, opts.workflowFile).catch(() => null);
+          if (latest && latest.id !== beforeId) { newRun = latest; break; }
+        }
+        if (!newRun) throw new Error("Run baru tidak terdeteksi.");
+        const expectedDur = opts.mode === 'news' ? 40 : 30;
+        showStatus(`${tag} Generating… (~${expectedDur} detik)`);
+        let done = null;
+        for (let i = 0; i < 90; i++) {
+          await new Promise(r => setTimeout(r, 3000));
+          const cur = await ghLatestRun(pat, opts.workflowFile).catch(() => null);
+          if (cur && cur.status === "completed") { done = cur; break; }
+          if (cur && cur.status === "in_progress") showStatus(`${tag} Generating… (${Math.min(i * 3, 60)}s)`);
+        }
+        if (!done) throw new Error("Run tidak selesai dalam batas waktu.");
+        if (done.conclusion !== "success") throw new Error(`Run gagal: ${done.conclusion}`);
+        showStatus(`${tag} Memuat post baru…`);
+        await new Promise(r => setTimeout(r, 1500));
+        await reloadFromManifest();
+        hideStatus();
+        toast(`${chosenLabel.split(' ')[0]} ${opts.mode === 'news' ? 'berita' : 'quote'} baru siap ✓`);
+      } catch (err) {
+        hideStatus();
+        const msg = String(err && err.message || err);
+        if (/Token invalid|akun '/.test(msg)) { alert(msg); clearPAT(); $setupModal.classList.add("show"); }
+        else if (/401|403/.test(msg)) { alert("GitHub menolak: " + msg); clearPAT(); $setupModal.classList.add("show"); }
+        else toast("Gagal: " + msg.slice(0, 80));
+      } finally { setBusy(false); }
+    }
+
+    let availableDates = [];
+    async function reloadFromManifest() {
+      availableDates = await refresh();
+      if (availableDates.length === 0) return;
+      // populate the global date picker if this is the active tab
+      if (state.activeMode === opts.mode) {
+        populateDatePicker(availableDates, selectDate);
+      }
+    }
+
+    $genBtn.addEventListener("click", trigger);
+    $refreshBtn.addEventListener("click", () => { toast("Memuat ulang…"); reloadFromManifest(); });
+
+    return {
+      mode: opts.mode,
+      reload: reloadFromManifest,
+      getDates: () => availableDates,
+      selectDate,
+    };
+  }
+
+  function renderNewsPost($area, post, captionText, base) {
+    const id = post.id;
+    const slides = [1, 2, 3].map(i => `${base}/${id}/post_${i}.jpg`);
+    const niceDate = formatDateId(post.date) + (post.time ? ` · ${post.time}` : "");
+    $area.innerHTML = `
+      <p class="post-date">Berita ${niceDate}</p>
+      <div class="carousel">
+        <div class="slides" id="newsSlides">
+          ${slides.map((src, i) => `<div class="slide"><img src="${src}" alt="Slide ${i+1}" loading="${i===0?'eager':'lazy'}" /></div>`).join("")}
+        </div>
+        <div class="dots">
+          ${slides.map((_, i) => `<div class="dot ${i===0?'active':''}" data-i="${i}"></div>`).join("")}
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn full" id="copyBtnN">📋 Salin Caption</button>
+        <button class="btn secondary" id="dl1N">⬇︎ Slide 1</button>
+        <button class="btn secondary" id="dl2N">⬇︎ Slide 2</button>
+        <button class="btn secondary full" id="dl3N">⬇︎ Slide 3</button>
+      </div>
+      <div class="caption-section">
+        <div class="caption-label"><h3>Caption</h3></div>
+        <div class="caption-box">${escapeHtml(captionText)}</div>
+      </div>
+      <details class="ig-instructions">
+        <summary>📱 Cara upload ke Instagram</summary>
+        <ol>
+          <li>Tap setiap tombol ⬇︎ untuk simpan ketiga slide ke Photos</li>
+          <li>Tap "Salin Caption" untuk copy caption</li>
+          <li>Buka Instagram → tombol + → Post</li>
+          <li>Tap icon multi-select → pilih slide 1, 2, 3 berurutan</li>
+          <li>Skip filter → Next → paste caption → Share</li>
+        </ol>
+      </details>
+    `;
+    document.getElementById("copyBtnN").addEventListener("click", () => copyText(captionText));
+    document.getElementById("dl1N").addEventListener("click", () => downloadImage(slides[0], `berstock-${id}-1.jpg`));
+    document.getElementById("dl2N").addEventListener("click", () => downloadImage(slides[1], `berstock-${id}-2.jpg`));
+    document.getElementById("dl3N").addEventListener("click", () => downloadImage(slides[2], `berstock-${id}-3.jpg`));
+
+    const $slides = document.getElementById("newsSlides");
+    const $dots = $area.querySelectorAll(".dot");
+    $slides.addEventListener("scroll", () => {
+      const i = Math.round($slides.scrollLeft / $slides.clientWidth);
+      $dots.forEach((d, k) => d.classList.toggle("active", k === i));
+    }, { passive: true });
+  }
+
+  function renderQuotePost($area, post, captionText, base) {
+    const id = post.id;
+    const url = `${base}/${id}/post_1.jpg`;
+    $area.innerHTML = `
+      <p class="post-date">Quote ${formatDateId(post.date)}${post.time ? ' · ' + post.time : ''}</p>
+      <div class="single-image"><img src="${url}" alt="" loading="eager" /></div>
+      <div class="actions">
+        <button class="btn full" id="copyBtnQ">📋 Salin Caption</button>
+        <button class="btn secondary full" id="dlBtnQ">⬇︎ Download Image</button>
+      </div>
+      <div class="caption-section">
+        <div class="caption-label"><h3>Caption</h3></div>
+        <div class="caption-box">${escapeHtml(captionText)}</div>
+      </div>
+    `;
+    document.getElementById("copyBtnQ").addEventListener("click", () => copyText(captionText));
+    document.getElementById("dlBtnQ").addEventListener("click", () => downloadImage(url, `berstock-quote-${id}.jpg`));
+  }
+
+  const state = { activeMode: "news" };
+  let dateChangeHandler = null;
+  function populateDatePicker(dates, onChange) {
+    $picker.innerHTML = dates.map(d => `<option value="${d}">${formatDateId(d)}</option>`).join("");
+    $picker.style.display = dates.length ? "" : "none";
+    if (dateChangeHandler) $picker.removeEventListener("change", dateChangeHandler);
+    dateChangeHandler = e => onChange(e.target.value);
+    $picker.addEventListener("change", dateChangeHandler);
+    if (dates.length) {
+      $picker.value = dates[0];
+      onChange(dates[0]);
+    }
+  }
+
+  // Build tab controllers
+  const newsTab = createTab({
+    mode: "news",
+    workflowFile: NEWS_WORKFLOW,
+    manifestUrl: NEWS_MANIFEST,
+    base: NEWS_BASE,
+    inputName: "niche",
+    inputPicker: document.getElementById("nichePicker"),
+    renderPost: renderNewsPost,
+    statusBarId: "statusBarNews",
+    statusTextId: "statusTextNews",
+    thumbContainerId: "thumbStripContainerNews",
+    postAreaId: "postAreaNews",
+    genBtnId: "genBtnNews",
+    refreshBtnId: "refreshBtnNews",
+  });
+  const quoteTab = createTab({
+    mode: "quote",
+    workflowFile: QUOTE_WORKFLOW,
+    manifestUrl: QUOTE_MANIFEST,
+    base: QUOTE_BASE,
+    inputName: "slot",
+    inputPicker: document.getElementById("slotPicker"),
+    renderPost: renderQuotePost,
+    statusBarId: "statusBarQuote",
+    statusTextId: "statusTextQuote",
+    thumbContainerId: "thumbStripContainerQuote",
+    postAreaId: "postAreaQuote",
+    genBtnId: "genBtnQuote",
+    refreshBtnId: "refreshBtnQuote",
+  });
+  const tabs = { news: newsTab, quote: quoteTab };
+
+  function switchTab(mode) {
+    state.activeMode = mode;
+    setActiveTab(mode);
+    document.querySelectorAll(".tab").forEach(el => {
+      const isActive = el.dataset.mode === mode;
+      el.classList.toggle("active", isActive);
+      el.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+    document.querySelectorAll(".tab-pane").forEach(el => {
+      el.classList.toggle("active", el.dataset.mode === mode);
+    });
+    const t = tabs[mode];
+    const dates = t.getDates();
+    if (dates && dates.length) populateDatePicker(dates, t.selectDate);
+    else { $picker.innerHTML = ""; $picker.style.display = "none"; }
+  }
+
+  document.querySelectorAll(".tab").forEach(el => {
+    el.addEventListener("click", () => switchTab(el.dataset.mode));
+  });
+
+  // Settings & PAT modal
+  document.getElementById("settingsBtn").addEventListener("click", () => $settingsModal.classList.add("show"));
+  document.getElementById("openPatPage").addEventListener("click", e => {
+    e.preventDefault();
+    window.open(PAT_NEW_URL, "_blank", "noopener");
+  });
+  document.getElementById("savePat").addEventListener("click", () => {
+    const v = document.getElementById("patInput").value.trim();
+    if (!v) { toast("Paste token dulu"); return; }
+    setPAT(v);
+    $setupModal.classList.remove("show");
+    document.getElementById("patInput").value = "";
+    // re-trigger the active tab's generate
+    const btnId = state.activeMode === "news" ? "genBtnNews" : "genBtnQuote";
+    document.getElementById(btnId).click();
+  });
+  document.getElementById("closeSetup").addEventListener("click", () => $setupModal.classList.remove("show"));
+  document.getElementById("resetPat").addEventListener("click", () => {
+    clearPAT(); toast("Token dihapus"); $settingsModal.classList.remove("show");
+  });
+  document.getElementById("closeSettings").addEventListener("click", () => $settingsModal.classList.remove("show"));
+  [$setupModal, $settingsModal].forEach(m => {
+    m.addEventListener("click", e => { if (e.target === m) m.classList.remove("show"); });
+  });
+
+  // Boot: load both manifests, then switch to last-used tab
+  (async () => {
+    await Promise.all([newsTab.reload(), quoteTab.reload()]);
+    switchTab(getActiveTab());
+  })();
+})();
+</script>
+</body>
+</html>

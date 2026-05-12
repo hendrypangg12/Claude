@@ -3,16 +3,24 @@
 Usage:  python daily_post.py
 Reads configuration from .env (or the surrounding environment).
 """
+import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-from caption_generator import generate_caption, pick_best_article
-from image_fetcher import fetch_image
-from image_maker import compose
+WIB = timezone(timedelta(hours=7))
+
+from caption_generator import (
+    generate_caption,
+    generate_carousel_content,
+    generate_headline_id,
+    pick_best_article,
+)
+from image_fetcher import fetch_image, fetch_image_from_url
+from image_maker import compose, compose_slide_points, compose_slide_takeaway
 from news_fetcher import fetch_candidates_intl
 from rss_fetcher import fetch_candidates_rss
 
@@ -45,7 +53,9 @@ def _gather_candidates() -> list[dict]:
 def main() -> int:
     load_dotenv()
 
-    out_dir = Path("out") / datetime.now().strftime("%Y-%m-%d")
+    now = datetime.now(WIB)
+    folder_id = now.strftime("%Y-%m-%d_%H-%M-%S")
+    out_dir = Path("out") / folder_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("[1/5] Gathering candidate articles...")
@@ -63,16 +73,56 @@ def main() -> int:
     )
     (out_dir / "caption.txt").write_text(caption, encoding="utf-8")
 
-    print("[3/5] Searching Google Images...")
+    print("[3/5] Fetching article image...")
     raw_image_path = str(out_dir / "raw.jpg")
-    # Use first ~6 meaningful words of the title as the search query.
-    query = " ".join(article["title"].split()[:6])
-    fetch_image(query, raw_image_path)
+    article_image_url = article.get("image_url") or ""
+    fetched = False
+    if article_image_url:
+        try:
+            fetch_image_from_url(article_image_url, raw_image_path)
+            print(f"      → from article: {article_image_url[:80]}")
+            fetched = True
+        except Exception as exc:
+            print(f"      (article image failed: {exc})")
+    if not fetched:
+        if os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_CSE_ID"):
+            print("      Falling back to Google Images...")
+            query = " ".join(article["title"].split()[:6])
+            fetch_image(query, raw_image_path)
+        else:
+            raise RuntimeError(
+                "No article image_url available and Google Images fallback not configured"
+            )
 
-    print("[4/5] Composing post...")
-    final_image_path = str(out_dir / "post.jpg")
-    compose(raw_image_path, article["title"], article["source"], final_image_path)
+    print("[4/5] Composing carousel slides...")
+    headline_id = generate_headline_id(article["title"])
+    print(f"      Headline ID: {headline_id}")
+    carousel = generate_carousel_content(
+        article["title"], article["description"], article["source"]
+    )
+    final_image_path = str(out_dir / "post_1.jpg")
+    slide2_path = str(out_dir / "post_2.jpg")
+    slide3_path = str(out_dir / "post_3.jpg")
+    compose(raw_image_path, headline_id, article["source"], final_image_path)
+    compose_slide_points(raw_image_path, carousel["points"], slide2_path)
+    compose_slide_takeaway(
+        raw_image_path, carousel["takeaway"], article["source"], slide3_path
+    )
     print(f"      → {final_image_path}")
+    print(f"      → {slide2_path}")
+    print(f"      → {slide3_path}")
+
+    meta = {
+        "id": folder_id,
+        "date": now.strftime("%Y-%m-%d"),
+        "time": now.strftime("%H:%M"),
+        "headline": headline_id,
+        "source": article["source"],
+        "niche": os.environ.get("NICHE", "").strip().lower() or None,
+    }
+    (out_dir / "meta.json").write_text(
+        json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
     if os.environ.get("DRY_RUN", "true").lower() == "true":
         print("[5/5] Semi-manual mode (DRY_RUN=true) → skipping Instagram upload.")
