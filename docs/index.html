@@ -219,7 +219,7 @@
   const PAT_KEY = "berstock_gh_pat";
   const TAB_KEY = "berstock_active_tab";
   const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
-  const BUILD = "2026-05-12T06:00:00Z";
+  const BUILD = "2026-05-12T07:00:00Z";
   const VERSION_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/version.json`;
 
   const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
@@ -415,6 +415,7 @@
       const chosen = opts.inputPicker.value;
       const chosenLabel = opts.inputPicker.options[opts.inputPicker.selectedIndex].text;
       const tag = `[${opts.inputName.toUpperCase()}: ${chosen.toUpperCase()}]`;
+      const beforeIds = new Set(POSTS.map(p => p.id));
       showStatus(`${tag} Memverifikasi token…`);
       try {
         let me;
@@ -427,32 +428,51 @@
         inputs[opts.inputName] = chosen;
         showStatus(`${tag} Mengirim perintah ke GitHub…`);
         const before = await ghLatestRun(pat, opts.workflowFile);
-        const beforeId = before ? before.id : 0;
+        const beforeRunId = before ? before.id : 0;
         await ghDispatch(pat, opts.workflowFile, inputs);
         showStatus(`${tag} Workflow dimulai. Menunggu run baru…`);
         let newRun = null;
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 45; i++) {
           await new Promise(r => setTimeout(r, 2000));
           const latest = await ghLatestRun(pat, opts.workflowFile).catch(() => null);
-          if (latest && latest.id !== beforeId) { newRun = latest; break; }
+          if (latest && latest.id !== beforeRunId) { newRun = latest; break; }
         }
-        if (!newRun) throw new Error("Run baru tidak terdeteksi.");
-        const expectedDur = opts.mode === 'news' ? 40 : 30;
+        if (!newRun) throw new Error("Run baru tidak terdeteksi dalam 90 detik. Cek Actions tab.");
+        const expectedDur = opts.mode === 'news' ? 60 : 30;
+        const runUrl = newRun.html_url || `https://github.com/${REPO_OWNER}/${REPO_NAME}/actions`;
         showStatus(`${tag} Generating… (~${expectedDur} detik)`);
         let done = null;
-        for (let i = 0; i < 90; i++) {
+        for (let i = 0; i < 120; i++) {
           await new Promise(r => setTimeout(r, 3000));
           const cur = await ghLatestRun(pat, opts.workflowFile).catch(() => null);
-          if (cur && cur.status === "completed") { done = cur; break; }
-          if (cur && cur.status === "in_progress") showStatus(`${tag} Generating… (${Math.min(i * 3, 60)}s)`);
+          if (cur && cur.id === newRun.id && cur.status === "completed") { done = cur; break; }
+          if (cur && cur.status === "in_progress") showStatus(`${tag} Generating… (${Math.min(i * 3, 180)}s)`);
         }
-        if (!done) throw new Error("Run tidak selesai dalam batas waktu.");
-        if (done.conclusion !== "success") throw new Error(`Run gagal: ${done.conclusion}`);
-        showStatus(`${tag} Memuat post baru…`);
-        await new Promise(r => setTimeout(r, 1500));
-        await reloadFromManifest();
+        if (!done) throw new Error(`Run tidak selesai dalam 6 menit. Cek: ${runUrl}`);
+        if (done.conclusion !== "success") {
+          throw new Error(`Pipeline ${done.conclusion}. Cek log: ${runUrl}`);
+        }
+        showStatus(`${tag} Sukses. Menunggu manifest sync…`);
+        // Poll manifest until a brand-new post appears (workflow commits + Pages CDN can lag ~10-30s)
+        let foundNew = false;
+        for (let i = 0; i < 15; i++) {
+          await new Promise(r => setTimeout(r, 2000));
+          const fresh = await refresh();
+          const hasNew = POSTS.some(p => !beforeIds.has(p.id));
+          if (hasNew) { foundNew = true; break; }
+        }
+        if (!foundNew) {
+          hideStatus();
+          alert(`Workflow sukses tapi tidak ada commit baru.\n\nKemungkinan:\n• Pool RSS tidak punya konten baru\n• LLM tolak semua kandidat\n• Pipeline produce hasil duplikat\n\nCek detail: ${runUrl}`);
+          return;
+        }
+        // Sync date picker if dates changed
+        if (state.activeMode === opts.mode) {
+          const dates = uniqueDates();
+          if (dates.length) populateDatePicker(dates, selectDate);
+        }
         hideStatus();
-        toast(`${chosenLabel.split(' ')[0]} ${opts.mode === 'news' ? 'berita' : 'quote'} baru siap ✓`);
+        toast(`${chosenLabel.split(' ')[1] || chosenLabel.split(' ')[0]} ${opts.mode === 'news' ? 'berita' : 'quote'} baru siap ✓`);
       } catch (err) {
         hideStatus();
         const msg = String(err && err.message || err);
