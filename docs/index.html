@@ -219,15 +219,17 @@
   const PAT_KEY = "berstock_gh_pat";
   const TAB_KEY = "berstock_active_tab";
   const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
-  const BUILD = "2026-05-12T07:00:00Z";
+  const BUILD = "2026-05-12T07:30:00Z";
   const VERSION_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/version.json`;
 
   const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
   const NEWS_MANIFEST = () => `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
+  const NEWS_MANIFEST_PATH = "docs/manifest.json";
   const NEWS_WORKFLOW = "daily-post.yml";
 
   const QUOTE_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-quote-poster/out`;
   const QUOTE_MANIFEST = () => `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/lalu-manifest.json?_=${Date.now()}`;
+  const QUOTE_MANIFEST_PATH = "docs/lalu-manifest.json";
   const QUOTE_WORKFLOW = "daily-quote.yml";
 
   const $toast = document.getElementById("toast");
@@ -301,6 +303,19 @@
     try { const j = await r.json(); body = j.message || JSON.stringify(j); }
     catch { body = await r.text().catch(() => ""); }
     throw new Error(`Dispatch ${r.status}: ${body.slice(0, 240)}`);
+  }
+  async function ghManifestViaApi(pat, path) {
+    // Hits the GitHub Contents API which always reads from the branch HEAD
+    // (raw.githubusercontent.com lags up to ~2 min behind a fresh commit).
+    const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${encodeURIComponent(BRANCH)}`, {
+      headers: {
+        "Accept": "application/vnd.github.raw",
+        "Authorization": `Bearer ${pat}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    });
+    if (!r.ok) throw new Error(`manifest api ${r.status}`);
+    return r.json();
   }
   async function ghLatestRun(pat, workflowFile) {
     const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${workflowFile}/runs?per_page=1`, {
@@ -453,17 +468,27 @@
           throw new Error(`Pipeline ${done.conclusion}. Cek log: ${runUrl}`);
         }
         showStatus(`${tag} Sukses. Menunggu manifest sync…`);
-        // Poll manifest until a brand-new post appears (workflow commits + Pages CDN can lag ~10-30s)
+        // Use the GitHub Contents API (always reads branch HEAD) — bypasses the
+        // raw.githubusercontent.com CDN which can lag ~1–2 min after a commit.
         let foundNew = false;
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 45; i++) {
           await new Promise(r => setTimeout(r, 2000));
-          const fresh = await refresh();
-          const hasNew = POSTS.some(p => !beforeIds.has(p.id));
-          if (hasNew) { foundNew = true; break; }
+          try {
+            const fresh = await ghManifestViaApi(pat, opts.manifestPath);
+            const posts = (fresh.posts || []);
+            const hasNew = posts.some(p => p.id && !beforeIds.has(p.id));
+            if (hasNew) {
+              POSTS = posts.slice().sort((a, b) => (b.id || b.date).localeCompare(a.id || a.date));
+              foundNew = true;
+              break;
+            }
+          } catch {
+            // fall through to next attempt
+          }
         }
         if (!foundNew) {
           hideStatus();
-          alert(`Workflow sukses tapi tidak ada commit baru.\n\nKemungkinan:\n• Pool RSS tidak punya konten baru\n• LLM tolak semua kandidat\n• Pipeline produce hasil duplikat\n\nCek detail: ${runUrl}`);
+          alert(`Workflow sukses tapi tidak ada commit baru setelah 90 detik.\n\nKemungkinan:\n• Pool RSS tidak punya konten baru\n• LLM tolak semua kandidat\n• Pipeline produce hasil duplikat\n\nCek detail: ${runUrl}`);
           return;
         }
         // Sync date picker if dates changed
@@ -589,6 +614,7 @@
     mode: "news",
     workflowFile: NEWS_WORKFLOW,
     manifestUrl: NEWS_MANIFEST,
+    manifestPath: NEWS_MANIFEST_PATH,
     base: NEWS_BASE,
     inputName: "niche",
     inputPicker: document.getElementById("nichePicker"),
@@ -604,6 +630,7 @@
     mode: "quote",
     workflowFile: QUOTE_WORKFLOW,
     manifestUrl: QUOTE_MANIFEST,
+    manifestPath: QUOTE_MANIFEST_PATH,
     base: QUOTE_BASE,
     inputName: "slot",
     inputPicker: document.getElementById("slotPicker"),
