@@ -49,7 +49,7 @@ def main() -> int:
         "date": now.strftime("%Y-%m-%d"),
         "time": now.strftime("%H:%M"),
         "headline": text,
-        "source": "lalu",
+        "source": "berstock-quote",
         "niche": slot,
         "theme": theme,
     }
