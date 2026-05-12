@@ -42,6 +42,11 @@ NICHE_FEEDS = {
         "https://www.antaranews.com/rss/ekonomi.xml",
         "https://www.cnnindonesia.com/teknologi/rss",
     ],
+    "ai": [
+        "https://rss.detik.com/index.php/inet",
+        "https://www.cnnindonesia.com/teknologi/rss",
+        "https://www.antaranews.com/rss/tekno.xml",
+    ],
 }
 
 

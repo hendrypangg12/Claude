@@ -57,6 +57,7 @@ NICHE_PICK_HINTS = {
     "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham. Prioritaskan freshness (<3 jam).",
     "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers. Prioritaskan freshness (<3 jam).",
     "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
+    "ai": "Slot khusus: AI & TEKNOLOGI MODEL. Pilih berita tentang artificial intelligence, large language models, atau penerapan AI yang lagi viral. PRIORITAS: rilis/update model besar (OpenAI/ChatGPT, Anthropic/Claude, Google/Gemini, Meta/Llama, DeepSeek), tools AI baru, akuisisi/funding perusahaan AI, AI di perusahaan Indonesia (BUMN, bank, startup lokal pakai AI), regulasi AI di Indonesia, dampak AI ke pekerjaan/profesi, atau drama/kontroversi AI yang lagi rame. Hindari berita gadget biasa, smartphone launch tanpa elemen AI, atau opini tanpa peristiwa konkret. Prioritaskan freshness (<6 jam) dan angka konkret (jumlah user, valuasi, benchmark)."
 }
 
 

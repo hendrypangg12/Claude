@@ -24,6 +24,7 @@ on:
           - saham
           - market
           - startup
+          - ai
 
 jobs:
   post:
