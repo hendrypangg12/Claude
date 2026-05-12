@@ -58,9 +58,9 @@ NICHE_PICK_HINTS = {
     "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers. Prioritaskan freshness (<3 jam).",
     "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
     "ai": (
-        "Slot khusus: AI & TEKNOLOGI MODEL.\n\n"
-        "WAJIB: berita harus ADA elemen AI / machine learning / LLM secara eksplisit. "
-        "Berita tokoh ngomongin Trump/politik/saham TANPA menyebut AI = TOLAK.\n\n"
+        "Slot khusus: AI & TEKNOLOGI.\n\n"
+        "PREFERENSI: pilih berita yang menyebut AI / machine learning / LLM / chatbot / "
+        "automation secara EKSPLISIT (di judul atau substansi).\n\n"
         "PRIORITAS TOPIK (urut):\n"
         "1. Rilis/update model: OpenAI (ChatGPT/GPT-5/Sora), Anthropic (Claude), Google (Gemini/Veo), "
         "Meta (Llama), DeepSeek, xAI (Grok), Mistral, Alibaba (Qwen)\n"
@@ -69,15 +69,16 @@ NICHE_PICK_HINTS = {
         "4. AI di perusahaan Indonesia (BUMN, bank, e-commerce, startup lokal pakai AI)\n"
         "5. Regulasi AI di Indonesia (Kominfo, RUU AI, EU AI Act dampaknya ke ID)\n"
         "6. AI vs jobs / layoff karena AI / profesi yang berubah\n"
-        "7. Drama/kontroversi AI (lawsuit, deepfake viral, kebocoran data model)\n\n"
-        "TOLAK:\n"
+        "7. Drama/kontroversi AI (lawsuit, deepfake viral, kebocoran data model)\n"
+        "8. Data center / chip AI (NVIDIA, AMD, TSMC) — kalau angka funding besar\n\n"
+        "PREFER TOLAK (kecuali pool benar-benar sepi):\n"
         "• Gadget/smartphone launch tanpa fitur AI menonjol\n"
-        "• Tokoh tech (Altman, Musk, dll.) yang ngomongin TOPIK NON-AI (politik, saham, ekonomi)\n"
-        "• Opini umum tentang teknologi tanpa peristiwa konkret\n"
-        "• Berita >12 jam kalau ada yang lebih fresh\n\n"
-        "Kalau pool tidak ada berita AI murni, pilih dari international feed (TechCrunch/Verge/VentureBeat). "
-        "Jangan paksa pilih berita non-AI hanya karena pool sepi.\n\n"
-        "Di 'reason' SEBUTKAN: model/produk/perusahaan AI apa yang dibahas, dan kenapa berita ini lagi rame."
+        "• Tokoh tech ngomongin POLITIK murni tanpa kaitan AI/tech\n"
+        "• Opini umum tentang teknologi tanpa peristiwa konkret\n\n"
+        "FALLBACK: kalau pool benar-benar tidak ada AI-spesifik, pilih berita TECH/STARTUP yang "
+        "paling fresh dan substansial. Jangan return error — selalu pilih SESUATU.\n\n"
+        "Di 'reason' SEBUTKAN: model/produk/perusahaan AI apa yang dibahas, atau kalau fallback "
+        "jelaskan kenapa tidak ada berita AI murni di pool."
     )
 }
 

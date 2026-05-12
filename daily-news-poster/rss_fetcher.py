@@ -47,10 +47,14 @@ NICHE_FEEDS = {
         "https://rss.detik.com/index.php/inet",
         "https://www.cnnindonesia.com/teknologi/rss",
         "https://www.antaranews.com/rss/tekno.xml",
-        # International AI/tech fallback when Indonesian pool is thin
+        # International AI fallback when Indonesian pool is thin
         "https://techcrunch.com/category/artificial-intelligence/feed/",
         "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
         "https://venturebeat.com/category/ai/feed/",
+        "https://arstechnica.com/ai/feed/",
+        "https://www.technologyreview.com/feed/",
+        "https://www.wired.com/feed/tag/ai/latest/rss",
+        "https://feeds.arstechnica.com/arstechnica/technology-lab",
     ],
 }
 
