@@ -74,7 +74,8 @@
   .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
   .btn.ghost:active { background: rgba(255, 196, 0, 0.15); }
   .btn[disabled] { opacity: 0.55; pointer-events: none; }
-  select.picker { width: 100%; padding: 10px 12px; font-size: 13px; border: 1px solid var(--border); background: var(--surface); border-radius: 10px; margin: 0 0 14px; color: var(--text); font-weight: 600; font-family: inherit; }
+  select.picker { width: 100%; padding: 12px 14px; font-size: 14px; border: 2px solid var(--accent); background: var(--surface); border-radius: 10px; margin: 0 0 12px; color: var(--text); font-weight: 700; font-family: inherit; }
+  .picker-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 6px; font-weight: 700; }
   .help-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
   .help-modal-bg.show { display: flex; }
   .help-modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; max-width: 460px; width: 100%; max-height: 86vh; overflow-y: auto; }
@@ -121,16 +122,17 @@
 <main id="main">
 
   <section class="tab-pane active" data-mode="news">
+    <p class="picker-label">Niche untuk berita berikutnya:</p>
+    <select id="nichePicker" class="picker">
+      <option value="pagi">🇮🇩 PAGI — Trending Pemerintahan / Ekonomi ID</option>
+      <option value="saham">📊 SAHAM — IDX & Bursa</option>
+      <option value="market">💹 MARKET — IHSG, USD/IDR, Crypto</option>
+      <option value="startup">🚀 STARTUP — Bisnis Viral & Tech</option>
+    </select>
     <div class="toolbar">
       <button class="btn ghost" id="genBtnNews">⚡ Generate Berita</button>
       <button class="btn ghost" id="refreshBtnNews">↻ Refresh</button>
     </div>
-    <select id="nichePicker" class="picker">
-      <option value="pagi">📈 Pagi — Briefing Bisnis</option>
-      <option value="saham">📊 Siang — Saham IDX</option>
-      <option value="market">💹 Sore — Market Update</option>
-      <option value="startup">🚀 Malam — Startup & Viral</option>
-    </select>
     <div class="status-bar" id="statusBarNews">
       <div class="spinner"></div>
       <div id="statusTextNews">Memproses…</div>
@@ -142,16 +144,17 @@
   </section>
 
   <section class="tab-pane" data-mode="quote">
+    <p class="picker-label">Slot untuk quote berikutnya:</p>
+    <select id="slotPicker" class="picker">
+      <option value="pagi">🌅 PAGI — Mulai hari</option>
+      <option value="siang">☀️ SIANG — Hustle</option>
+      <option value="sore">🌇 SORE — Casual</option>
+      <option value="malam">🌙 MALAM — Refleksi</option>
+    </select>
     <div class="toolbar">
       <button class="btn ghost" id="genBtnQuote">⚡ Generate Quote</button>
       <button class="btn ghost" id="refreshBtnQuote">↻ Refresh</button>
     </div>
-    <select id="slotPicker" class="picker">
-      <option value="pagi">🌅 Pagi — Mulai hari</option>
-      <option value="siang">☀️ Siang — Hustle</option>
-      <option value="sore">🌇 Sore — Casual</option>
-      <option value="malam">🌙 Malam — Refleksi</option>
-    </select>
     <div class="status-bar" id="statusBarQuote">
       <div class="spinner"></div>
       <div id="statusTextQuote">Memproses…</div>
@@ -395,7 +398,10 @@
       const pat = getPAT();
       if (!pat) { $setupModal.classList.add("show"); return; }
       setBusy(true);
-      showStatus("Memverifikasi token…");
+      const chosen = opts.inputPicker.value;
+      const chosenLabel = opts.inputPicker.options[opts.inputPicker.selectedIndex].text;
+      const tag = `[${opts.inputName.toUpperCase()}: ${chosen.toUpperCase()}]`;
+      showStatus(`${tag} Memverifikasi token…`);
       try {
         let me;
         try { me = await ghWhoAmI(pat); }
@@ -404,12 +410,12 @@
           throw new Error(`Token milik akun '${me.login}', bukan '${REPO_OWNER}'.`);
         }
         const inputs = {};
-        inputs[opts.inputName] = opts.inputPicker.value;
-        showStatus(`Mengirim perintah (${opts.inputName}: ${inputs[opts.inputName]})…`);
+        inputs[opts.inputName] = chosen;
+        showStatus(`${tag} Mengirim perintah ke GitHub…`);
         const before = await ghLatestRun(pat, opts.workflowFile);
         const beforeId = before ? before.id : 0;
         await ghDispatch(pat, opts.workflowFile, inputs);
-        showStatus("Workflow dimulai. Menunggu run baru…");
+        showStatus(`${tag} Workflow dimulai. Menunggu run baru…`);
         let newRun = null;
         for (let i = 0; i < 30; i++) {
           await new Promise(r => setTimeout(r, 2000));
@@ -418,21 +424,21 @@
         }
         if (!newRun) throw new Error("Run baru tidak terdeteksi.");
         const expectedDur = opts.mode === 'news' ? 40 : 30;
-        showStatus(`Generating… (~${expectedDur} detik)`);
+        showStatus(`${tag} Generating… (~${expectedDur} detik)`);
         let done = null;
         for (let i = 0; i < 90; i++) {
           await new Promise(r => setTimeout(r, 3000));
           const cur = await ghLatestRun(pat, opts.workflowFile).catch(() => null);
           if (cur && cur.status === "completed") { done = cur; break; }
-          if (cur && cur.status === "in_progress") showStatus(`Generating… (${Math.min(i * 3, 60)}s)`);
+          if (cur && cur.status === "in_progress") showStatus(`${tag} Generating… (${Math.min(i * 3, 60)}s)`);
         }
         if (!done) throw new Error("Run tidak selesai dalam batas waktu.");
         if (done.conclusion !== "success") throw new Error(`Run gagal: ${done.conclusion}`);
-        showStatus("Memuat post baru…");
+        showStatus(`${tag} Memuat post baru…`);
         await new Promise(r => setTimeout(r, 1500));
         await reloadFromManifest();
         hideStatus();
-        toast(opts.mode === 'news' ? "Berita baru siap ✓" : "Quote baru siap ✓");
+        toast(`${chosenLabel.split(' ')[0]} ${opts.mode === 'news' ? 'berita' : 'quote'} baru siap ✓`);
       } catch (err) {
         hideStatus();
         const msg = String(err && err.message || err);
