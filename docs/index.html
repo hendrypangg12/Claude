@@ -100,6 +100,10 @@
   .thumb-niche { position: absolute; top: 8px; right: 8px; background: var(--accent); color: #121620; font-size: 10px; font-weight: 800; padding: 3px 7px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
   .thumb-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 8px 8px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; font-size: 11px; font-weight: 600; line-height: 1.3; }
   .detail-divider { border-top: 1px solid var(--border); margin: 22px 0 18px; }
+  .update-banner { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #121620; padding: 10px 14px; border-radius: 999px; display: none; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 99; }
+  .update-banner.show { display: flex; }
+  .update-banner button { background: #121620; color: var(--accent); border: 0; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; }
+  .update-banner button:active { transform: scale(0.96); }
 </style>
 </head>
 <body>
@@ -200,6 +204,11 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+<div class="update-banner" id="updateBanner" role="status">
+  <span>🔄 Versi baru tersedia</span>
+  <button id="reloadBtn">Reload</button>
+</div>
+
 <script>
 (function () {
   const REPO_OWNER = "hendrypangg12";
@@ -208,6 +217,8 @@
   const PAT_KEY = "berstock_gh_pat";
   const TAB_KEY = "berstock_active_tab";
   const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
+  const BUILD = "2026-05-12T05:30:00Z";
+  const VERSION_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/version.json`;
 
   const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
   const NEWS_MANIFEST = () => `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/manifest.json?_=${Date.now()}`;
@@ -628,6 +639,27 @@
   document.getElementById("closeSettings").addEventListener("click", () => $settingsModal.classList.remove("show"));
   [$setupModal, $settingsModal].forEach(m => {
     m.addEventListener("click", e => { if (e.target === m) m.classList.remove("show"); });
+  });
+
+  // Version check — show banner when a newer build is deployed
+  const $updateBanner = document.getElementById("updateBanner");
+  document.getElementById("reloadBtn").addEventListener("click", () => {
+    location.reload();
+  });
+  async function checkVersion() {
+    try {
+      const r = await fetch(`${VERSION_URL}?_=${Date.now()}`, { cache: "no-store" });
+      if (!r.ok) return;
+      const v = await r.json();
+      if (v.build && v.build > BUILD) {
+        $updateBanner.classList.add("show");
+      }
+    } catch {}
+  }
+  checkVersion();
+  setInterval(checkVersion, 5 * 60 * 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") checkVersion();
   });
 
   // Boot: load both manifests, then switch to last-used tab
