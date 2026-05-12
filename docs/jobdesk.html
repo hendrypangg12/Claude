@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pengingat Jobdesk</title>
+<style>
+  :root {
+    --bg: #0f1218;
+    --panel: #181c25;
+    --panel-2: #20252f;
+    --border: #2a313d;
+    --text: #e7ecf3;
+    --muted: #8b94a3;
+    --accent: #4f8cff;
+    --accent-2: #7aa9ff;
+    --done: #3ddc84;
+    --warn: #ffb547;
+    --danger: #ff6b6b;
+    --chip: #2a313d;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: radial-gradient(1200px 800px at 80% -10%, #1a2236 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 18px 80px;
+  }
+  header.top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0.2px;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .stat b { color: var(--text); margin-right: 4px; }
+
+  form.add {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 14px;
+  }
+  input[type="text"], input[type="date"], select, textarea {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+  }
+  input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+  }
+  button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+  button.ghost:hover { color: var(--text); }
+  button:hover { background: var(--accent-2); }
+  button.danger { background: transparent; color: var(--danger); border: 1px solid transparent; padding: 6px 8px; }
+  button.danger:hover { background: rgba(255,107,107,0.08); }
+
+  .filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .filters button {
+    background: var(--panel);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .filters button.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+
+  ul.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  li.task {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: start;
+    transition: border-color 0.15s;
+  }
+  li.task.done {
+    opacity: 0.55;
+  }
+  li.task.done .title { text-decoration: line-through; }
+  li.task.overdue { border-color: rgba(255,107,107,0.4); }
+
+  .check {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 2px;
+    background: var(--panel-2);
+    position: relative;
+  }
+  .check:checked {
+    background: var(--done);
+    border-color: var(--done);
+  }
+  .check:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .body { min-width: 0; }
+  .title {
+    font-size: 14.5px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .notes {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 4px;
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+  .meta {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 11px;
+    background: var(--chip);
+    color: var(--muted);
+    padding: 3px 8px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .chip.due { color: var(--text); }
+  .chip.overdue { background: rgba(255,107,107,0.15); color: var(--danger); }
+  .chip.soon { background: rgba(255,181,71,0.15); color: var(--warn); }
+  .chip.prio-high { background: rgba(255,107,107,0.15); color: var(--danger); }
+  .chip.prio-med { background: rgba(255,181,71,0.15); color: var(--warn); }
+  .chip.prio-low { background: rgba(77,170,255,0.15); color: var(--accent-2); }
+
+  .actions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .icon-btn {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .icon-btn:hover { background: var(--panel-2); color: var(--text); }
+
+  .empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 20px;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+  }
+
+  /* Edit modal */
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 50;
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal h2 { margin: 0 0 6px; font-size: 16px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
+
+  @media (max-width: 600px) {
+    form.add { grid-template-columns: 1fr 1fr; }
+    form.add input[type="text"] { grid-column: 1 / -1; }
+    form.add button { grid-column: 1 / -1; }
+    li.task { grid-template-columns: auto 1fr; }
+    .actions { grid-column: 2; justify-content: flex-end; }
+  }
+</style>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div>
+        <h1>Pengingat Jobdesk</h1>
+        <div class="sub">Catat & ceklis tugas kerjaan kamu.</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="stat-open">0</b>belum</div>
+        <div class="stat"><b id="stat-done">0</b>selesai</div>
+        <div class="stat"><b id="stat-overdue">0</b>lewat tempo</div>
+      </div>
+    </header>
+
+    <form class="add" id="add-form" autocomplete="off">
+      <input type="text" id="add-title" placeholder="Tambah tugas baru…" required />
+      <input type="date" id="add-due" title="Tenggat" />
+      <select id="add-prio" title="Prioritas">
+        <option value="low">Rendah</option>
+        <option value="med" selected>Sedang</option>
+        <option value="high">Tinggi</option>
+      </select>
+      <button type="submit">Tambah</button>
+    </form>
+
+    <div class="filters" id="filters">
+      <button data-f="all" class="active">Semua</button>
+      <button data-f="open">Belum</button>
+      <button data-f="done">Selesai</button>
+      <button data-f="overdue">Lewat tempo</button>
+      <span style="flex:1"></span>
+      <button class="ghost" id="clear-done">Hapus yang selesai</button>
+    </div>
+
+    <ul class="list" id="list"></ul>
+  </div>
+
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <h2>Edit tugas</h2>
+      <input type="text" id="edit-title" />
+      <textarea id="edit-notes" rows="3" placeholder="Catatan / detail…"></textarea>
+      <div class="row">
+        <input type="date" id="edit-due" />
+        <select id="edit-prio">
+          <option value="low">Prioritas: Rendah</option>
+          <option value="med">Prioritas: Sedang</option>
+          <option value="high">Prioritas: Tinggi</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="ghost" id="edit-cancel" type="button">Batal</button>
+        <button id="edit-save" type="button">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const STORAGE_KEY = "jobdesk-reminder-v1";
+  const SEED_KEY = "jobdesk-reminder-seeded-v1";
+
+  const SEED_TASKS = [
+    {
+      title: "Buat Surat Simer Sijo",
+      notes: "2 krt Singaraja, extra 1 krt.",
+      prio: "high",
+    },
+    {
+      title: "Surat Batavia Black 6+1",
+      notes: "Pasu + Rafaela + Surya. Cek juga program gol C Surya.",
+      prio: "high",
+    },
+    {
+      title: "Klaim Newport Batavia (Nov – Mar 26)",
+      notes: "Periode klaim November sampai Maret 2026.",
+      prio: "med",
+    },
+    {
+      title: "Klaim Gol C (Jan – Mar)",
+      notes: "Diajukan bulan April.",
+      prio: "med",
+    },
+    {
+      title: "Deal khusus Cocktail Sepeda → Reginal",
+      notes: "Follow up deal khusus untuk Reginal.",
+      prio: "med",
+    },
+  ];
+
+  /** @type {{id:string,title:string,notes:string,due:string|null,prio:'low'|'med'|'high',done:boolean,createdAt:number}[]} */
+  let tasks = load();
+  let filter = "all";
+  let editingId = null;
+
+  function uid() {
+    return Math.random().toString(36).slice(2, 10);
+  }
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    if (!localStorage.getItem(SEED_KEY)) {
+      localStorage.setItem(SEED_KEY, "1");
+      return SEED_TASKS.map((t) => ({
+        id: uid(),
+        title: t.title,
+        notes: t.notes || "",
+        due: null,
+        prio: t.prio || "med",
+        done: false,
+        createdAt: Date.now(),
+      }));
+    }
+    return [];
+  }
+
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }
+
+  function todayISO() {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function isOverdue(t) {
+    if (!t.due || t.done) return false;
+    return t.due < todayISO();
+  }
+
+  function daysUntil(dateStr) {
+    if (!dateStr) return null;
+    const d = new Date(dateStr + "T00:00:00");
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return Math.round((d - today) / (1000 * 60 * 60 * 24));
+  }
+
+  function fmtDue(dateStr) {
+    if (!dateStr) return "";
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" });
+  }
+
+  function prioLabel(p) {
+    return p === "high" ? "Tinggi" : p === "low" ? "Rendah" : "Sedang";
+  }
+
+  function sortTasks(list) {
+    const prioRank = { high: 0, med: 1, low: 2 };
+    return [...list].sort((a, b) => {
+      if (a.done !== b.done) return a.done ? 1 : -1;
+      const ad = a.due || "9999-12-31";
+      const bd = b.due || "9999-12-31";
+      if (ad !== bd) return ad < bd ? -1 : 1;
+      if (prioRank[a.prio] !== prioRank[b.prio]) return prioRank[a.prio] - prioRank[b.prio];
+      return a.createdAt - b.createdAt;
+    });
+  }
+
+  function filtered() {
+    if (filter === "open") return tasks.filter((t) => !t.done);
+    if (filter === "done") return tasks.filter((t) => t.done);
+    if (filter === "overdue") return tasks.filter(isOverdue);
+    return tasks;
+  }
+
+  function render() {
+    const list = document.getElementById("list");
+    const data = sortTasks(filtered());
+    list.innerHTML = "";
+    if (data.length === 0) {
+      const li = document.createElement("li");
+      li.className = "empty";
+      li.textContent =
+        filter === "done" ? "Belum ada tugas yang diselesaikan." :
+        filter === "overdue" ? "Tidak ada tugas yang lewat tempo. " :
+        filter === "open" ? "Semua tugas sudah selesai. " :
+        "Belum ada tugas. Tambah satu di atas.";
+      list.appendChild(li);
+    } else {
+      for (const t of data) list.appendChild(renderTask(t));
+    }
+
+    // stats
+    document.getElementById("stat-open").textContent = tasks.filter((t) => !t.done).length;
+    document.getElementById("stat-done").textContent = tasks.filter((t) => t.done).length;
+    document.getElementById("stat-overdue").textContent = tasks.filter(isOverdue).length;
+  }
+
+  function renderTask(t) {
+    const li = document.createElement("li");
+    li.className = "task" + (t.done ? " done" : "") + (isOverdue(t) ? " overdue" : "");
+    li.dataset.id = t.id;
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "check";
+    cb.checked = t.done;
+    cb.addEventListener("change", () => {
+      t.done = cb.checked;
+      save();
+      render();
+    });
+
+    const body = document.createElement("div");
+    body.className = "body";
+
+    const title = document.createElement("div");
+    title.className = "title";
+    title.textContent = t.title;
+    body.appendChild(title);
+
+    if (t.notes) {
+      const notes = document.createElement("div");
+      notes.className = "notes";
+      notes.textContent = t.notes;
+      body.appendChild(notes);
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+
+    const prioChip = document.createElement("span");
+    prioChip.className = "chip prio-" + t.prio;
+    prioChip.textContent = prioLabel(t.prio);
+    meta.appendChild(prioChip);
+
+    if (t.due) {
+      const days = daysUntil(t.due);
+      const dueChip = document.createElement("span");
+      let cls = "chip due";
+      let label = fmtDue(t.due);
+      if (!t.done) {
+        if (days < 0) { cls = "chip overdue"; label += ` (${Math.abs(days)} hr lewat)`; }
+        else if (days === 0) { cls = "chip soon"; label += " (hari ini)"; }
+        else if (days <= 3) { cls = "chip soon"; label += ` (${days} hr lagi)`; }
+        else { label += ` (${days} hr lagi)`; }
+      }
+      dueChip.className = cls;
+      dueChip.textContent = label;
+      meta.appendChild(dueChip);
+    }
+    body.appendChild(meta);
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const editBtn = document.createElement("button");
+    editBtn.className = "icon-btn";
+    editBtn.title = "Edit";
+    editBtn.textContent = "Edit";
+    editBtn.addEventListener("click", () => openEdit(t.id));
+    actions.appendChild(editBtn);
+
+    const delBtn = document.createElement("button");
+    delBtn.className = "danger";
+    delBtn.title = "Hapus";
+    delBtn.textContent = "Hapus";
+    delBtn.addEventListener("click", () => {
+      if (confirm("Hapus tugas ini?")) {
+        tasks = tasks.filter((x) => x.id !== t.id);
+        save();
+        render();
+      }
+    });
+    actions.appendChild(delBtn);
+
+    li.appendChild(cb);
+    li.appendChild(body);
+    li.appendChild(actions);
+    return li;
+  }
+
+  // Add form
+  document.getElementById("add-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("add-title").value.trim();
+    if (!title) return;
+    const due = document.getElementById("add-due").value || null;
+    const prio = document.getElementById("add-prio").value;
+    tasks.push({
+      id: uid(),
+      title,
+      notes: "",
+      due,
+      prio,
+      done: false,
+      createdAt: Date.now(),
+    });
+    save();
+    e.target.reset();
+    document.getElementById("add-prio").value = "med";
+    render();
+  });
+
+  // Filters
+  document.getElementById("filters").addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-f]");
+    if (!btn) return;
+    filter = btn.dataset.f;
+    document.querySelectorAll("#filters button[data-f]").forEach((b) =>
+      b.classList.toggle("active", b === btn)
+    );
+    render();
+  });
+
+  document.getElementById("clear-done").addEventListener("click", () => {
+    const n = tasks.filter((t) => t.done).length;
+    if (n === 0) return;
+    if (!confirm(`Hapus ${n} tugas yang sudah selesai?`)) return;
+    tasks = tasks.filter((t) => !t.done);
+    save();
+    render();
+  });
+
+  // Edit modal
+  function openEdit(id) {
+    const t = tasks.find((x) => x.id === id);
+    if (!t) return;
+    editingId = id;
+    document.getElementById("edit-title").value = t.title;
+    document.getElementById("edit-notes").value = t.notes || "";
+    document.getElementById("edit-due").value = t.due || "";
+    document.getElementById("edit-prio").value = t.prio;
+    document.getElementById("modal-bg").classList.add("open");
+    document.getElementById("edit-title").focus();
+  }
+  function closeEdit() {
+    editingId = null;
+    document.getElementById("modal-bg").classList.remove("open");
+  }
+  document.getElementById("edit-cancel").addEventListener("click", closeEdit);
+  document.getElementById("modal-bg").addEventListener("click", (e) => {
+    if (e.target.id === "modal-bg") closeEdit();
+  });
+  document.getElementById("edit-save").addEventListener("click", () => {
+    const t = tasks.find((x) => x.id === editingId);
+    if (!t) return closeEdit();
+    const title = document.getElementById("edit-title").value.trim();
+    if (!title) return;
+    t.title = title;
+    t.notes = document.getElementById("edit-notes").value.trim();
+    t.due = document.getElementById("edit-due").value || null;
+    t.prio = document.getElementById("edit-prio").value;
+    save();
+    closeEdit();
+    render();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && editingId) closeEdit();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
