@@ -43,9 +43,14 @@ NICHE_FEEDS = {
         "https://www.cnnindonesia.com/teknologi/rss",
     ],
     "ai": [
+        # Indonesian tech feeds first
         "https://rss.detik.com/index.php/inet",
         "https://www.cnnindonesia.com/teknologi/rss",
         "https://www.antaranews.com/rss/tekno.xml",
+        # International AI/tech fallback when Indonesian pool is thin
+        "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "https://venturebeat.com/category/ai/feed/",
     ],
 }
 

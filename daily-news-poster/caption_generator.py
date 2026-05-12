@@ -57,7 +57,28 @@ NICHE_PICK_HINTS = {
     "saham": "Slot khusus: SAHAM IDX. Pilih berita yang SPESIFIK tentang saham di Bursa Efek Indonesia — emiten BEI, IPO baru, dividend, RUPS, rights issue, stock split, aksi korporasi, kinerja keuangan emiten. Hindari berita ekonomi makro umum tanpa kaitan saham. Prioritaskan freshness (<3 jam).",
     "market": "Slot khusus: MARKET UPDATE SORE. Pilih berita pergerakan pasar hari ini — penutupan IHSG, kurs rupiah, harga emas, BBM, komoditas, atau crypto. Fokus angka konkret, sentimen pasar global yang mempengaruhi Indonesia, dan top gainers/losers. Prioritaskan freshness (<3 jam).",
     "startup": "Slot khusus: STARTUP & BISNIS VIRAL. Pilih berita yang inspiratif/menarik tentang startup Indonesia, founder story, fundraise/investasi, unicorn, UMKM sukses, atau e-commerce. Hindari berita politik atau makro ekonomi yang membosankan.",
-    "ai": "Slot khusus: AI & TEKNOLOGI MODEL. Pilih berita tentang artificial intelligence, large language models, atau penerapan AI yang lagi viral. PRIORITAS: rilis/update model besar (OpenAI/ChatGPT, Anthropic/Claude, Google/Gemini, Meta/Llama, DeepSeek), tools AI baru, akuisisi/funding perusahaan AI, AI di perusahaan Indonesia (BUMN, bank, startup lokal pakai AI), regulasi AI di Indonesia, dampak AI ke pekerjaan/profesi, atau drama/kontroversi AI yang lagi rame. Hindari berita gadget biasa, smartphone launch tanpa elemen AI, atau opini tanpa peristiwa konkret. Prioritaskan freshness (<6 jam) dan angka konkret (jumlah user, valuasi, benchmark)."
+    "ai": (
+        "Slot khusus: AI & TEKNOLOGI MODEL.\n\n"
+        "WAJIB: berita harus ADA elemen AI / machine learning / LLM secara eksplisit. "
+        "Berita tokoh ngomongin Trump/politik/saham TANPA menyebut AI = TOLAK.\n\n"
+        "PRIORITAS TOPIK (urut):\n"
+        "1. Rilis/update model: OpenAI (ChatGPT/GPT-5/Sora), Anthropic (Claude), Google (Gemini/Veo), "
+        "Meta (Llama), DeepSeek, xAI (Grok), Mistral, Alibaba (Qwen)\n"
+        "2. Tools/produk AI baru yang viral (Cursor, Perplexity, Suno, Midjourney, dll.)\n"
+        "3. Funding/akuisisi/IPO perusahaan AI (valuasi konkret)\n"
+        "4. AI di perusahaan Indonesia (BUMN, bank, e-commerce, startup lokal pakai AI)\n"
+        "5. Regulasi AI di Indonesia (Kominfo, RUU AI, EU AI Act dampaknya ke ID)\n"
+        "6. AI vs jobs / layoff karena AI / profesi yang berubah\n"
+        "7. Drama/kontroversi AI (lawsuit, deepfake viral, kebocoran data model)\n\n"
+        "TOLAK:\n"
+        "• Gadget/smartphone launch tanpa fitur AI menonjol\n"
+        "• Tokoh tech (Altman, Musk, dll.) yang ngomongin TOPIK NON-AI (politik, saham, ekonomi)\n"
+        "• Opini umum tentang teknologi tanpa peristiwa konkret\n"
+        "• Berita >12 jam kalau ada yang lebih fresh\n\n"
+        "Kalau pool tidak ada berita AI murni, pilih dari international feed (TechCrunch/Verge/VentureBeat). "
+        "Jangan paksa pilih berita non-AI hanya karena pool sepi.\n\n"
+        "Di 'reason' SEBUTKAN: model/produk/perusahaan AI apa yang dibahas, dan kenapa berita ini lagi rame."
+    )
 }
 
 

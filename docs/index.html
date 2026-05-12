@@ -196,8 +196,10 @@
 <div class="help-modal-bg" id="settingsModal">
   <div class="help-modal">
     <h2>Pengaturan</h2>
-    <p>Personal Access Token tersimpan di HP ini saja. Hapus kalau Anda mau setup ulang atau pindah device.</p>
-    <button class="btn" id="resetPat">Hapus PAT</button>
+    <p>Auto-refresh aktif setiap 60 detik — post baru muncul otomatis tanpa Anda perlu tap Refresh.</p>
+    <button class="btn" id="hardReload">🧹 Clear Cache & Reload</button>
+    <p style="margin-top:14px;">Personal Access Token tersimpan di HP ini saja. Hapus kalau Anda mau setup ulang atau pindah device.</p>
+    <button class="btn secondary" id="resetPat">Hapus PAT</button>
     <button class="btn secondary" id="closeSettings" style="margin-top:8px;">Tutup</button>
   </div>
 </div>
@@ -217,7 +219,7 @@
   const PAT_KEY = "berstock_gh_pat";
   const TAB_KEY = "berstock_active_tab";
   const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
-  const BUILD = "2026-05-12T05:30:00Z";
+  const BUILD = "2026-05-12T06:00:00Z";
   const VERSION_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/version.json`;
 
   const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
@@ -636,6 +638,19 @@
   document.getElementById("resetPat").addEventListener("click", () => {
     clearPAT(); toast("Token dihapus"); $settingsModal.classList.remove("show");
   });
+  document.getElementById("hardReload").addEventListener("click", () => {
+    try {
+      // Preserve PAT, wipe everything else
+      const pat = getPAT();
+      localStorage.clear();
+      if (pat) setPAT(pat);
+    } catch {}
+    if ("caches" in window) {
+      caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))).finally(() => location.reload());
+    } else {
+      location.reload();
+    }
+  });
   document.getElementById("closeSettings").addEventListener("click", () => $settingsModal.classList.remove("show"));
   [$setupModal, $settingsModal].forEach(m => {
     m.addEventListener("click", e => { if (e.target === m) m.classList.remove("show"); });
@@ -660,6 +675,22 @@
   setInterval(checkVersion, 5 * 60 * 1000);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") checkVersion();
+  });
+
+  // Auto-refresh manifests every 60s so new posts surface without manual refresh.
+  // Also re-fetch when user switches back to the tab from another app.
+  async function silentRefreshAll() {
+    try {
+      await Promise.all([newsTab.reload(), quoteTab.reload()]);
+      // Repopulate date picker for the active tab in case dates changed
+      const t = tabs[state.activeMode];
+      const dates = t.getDates();
+      if (dates && dates.length) populateDatePicker(dates, t.selectDate);
+    } catch {}
+  }
+  setInterval(silentRefreshAll, 60 * 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") silentRefreshAll();
   });
 
   // Boot: load both manifests, then switch to last-used tab
