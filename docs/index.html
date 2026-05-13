@@ -219,7 +219,7 @@
   const PAT_KEY = "berstock_gh_pat";
   const TAB_KEY = "berstock_active_tab";
   const PAT_NEW_URL = `https://github.com/settings/tokens/new?description=Berstock+Daily+Generator&scopes=workflow`;
-  const BUILD = "2026-05-12T07:30:00Z";
+  const BUILD = "2026-05-13T00:20:00Z";
   const VERSION_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/docs/version.json`;
 
   const NEWS_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/daily-news-poster/out`;
@@ -405,11 +405,26 @@
 
     async function refresh() {
       let manifest;
+      const pat = getPAT();
       try {
-        const r = await fetch(opts.manifestUrl());
-        if (!r.ok) throw new Error();
-        manifest = await r.json();
-      } catch { manifest = { posts: [] }; }
+        // Prefer the GitHub Contents API when a PAT is configured — it always
+        // reflects the branch HEAD and bypasses the raw.githubusercontent.com
+        // CDN, which can serve a stale manifest for 1-2 min after a commit
+        // and was causing freshly-generated posts to vanish on the next tick.
+        if (pat) {
+          manifest = await ghManifestViaApi(pat, opts.manifestPath);
+        } else {
+          const r = await fetch(opts.manifestUrl());
+          if (!r.ok) throw new Error();
+          manifest = await r.json();
+        }
+      } catch {
+        try {
+          const r = await fetch(opts.manifestUrl());
+          if (!r.ok) throw new Error();
+          manifest = await r.json();
+        } catch { manifest = { posts: [] }; }
+      }
       POSTS = (manifest.posts || []).slice().sort((a, b) => (b.id || b.date).localeCompare(a.id || a.date));
       if (POSTS.length === 0) {
         $thumbContainer.innerHTML = `
