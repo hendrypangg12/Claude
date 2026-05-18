@@ -1,0 +1,149 @@
+import { Router } from 'express';
+import Anthropic from '@anthropic-ai/sdk';
+import db from '../db.js';
+
+const router = Router();
+
+router.get('/', (req, res) => {
+  const rows = db.prepare(`
+    SELECT c.id, c.contact_id, c.channel, c.ai_enabled, c.updated_at,
+           ct.name AS contact_name, ct.phone AS contact_phone, ct.tag AS contact_tag,
+           (SELECT body FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_message,
+           (SELECT sender FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_sender,
+           (SELECT created_at FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_at
+    FROM conversations c
+    JOIN contacts ct ON ct.id = c.contact_id
+    WHERE c.user_id = ?
+    ORDER BY COALESCE(last_at, c.updated_at) DESC
+  `).all(req.userId);
+  res.json(rows);
+});
+
+router.post('/', (req, res) => {
+  const { contact_id } = req.body || {};
+  if (!contact_id) return res.status(400).json({ error: 'contact_id wajib diisi' });
+  const contact = db.prepare(
+    'SELECT id FROM contacts WHERE id = ? AND user_id = ?'
+  ).get(contact_id, req.userId);
+  if (!contact) return res.status(404).json({ error: 'Kontak tidak ditemukan' });
+
+  const existing = db.prepare(
+    'SELECT id FROM conversations WHERE user_id = ? AND contact_id = ?'
+  ).get(req.userId, contact_id);
+  if (existing) return res.json({ id: existing.id });
+
+  const info = db.prepare(
+    'INSERT INTO conversations (user_id, contact_id) VALUES (?, ?)'
+  ).run(req.userId, contact_id);
+  res.json({ id: info.lastInsertRowid });
+});
+
+router.get('/:id/messages', (req, res) => {
+  const conv = db.prepare(
+    'SELECT id FROM conversations WHERE id = ? AND user_id = ?'
+  ).get(req.params.id, req.userId);
+  if (!conv) return res.status(404).json({ error: 'Percakapan tidak ditemukan' });
+  const rows = db.prepare(
+    'SELECT id, sender, body, created_at FROM messages WHERE conversation_id = ? ORDER BY id ASC'
+  ).all(req.params.id);
+  res.json(rows);
+});
+
+router.post('/:id/messages', async (req, res) => {
+  const { body, sender } = req.body || {};
+  if (!body || !sender) return res.status(400).json({ error: 'body dan sender wajib diisi' });
+  if (!['customer', 'agent'].includes(sender)) {
+    return res.status(400).json({ error: 'sender harus "customer" atau "agent"' });
+  }
+
+  const conv = db.prepare(
+    'SELECT * FROM conversations WHERE id = ? AND user_id = ?'
+  ).get(req.params.id, req.userId);
+  if (!conv) return res.status(404).json({ error: 'Percakapan tidak ditemukan' });
+
+  db.prepare(
+    'INSERT INTO messages (conversation_id, sender, body) VALUES (?, ?, ?)'
+  ).run(conv.id, sender, body);
+  db.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conv.id);
+
+  let aiReply = null;
+  if (sender === 'customer' && conv.ai_enabled) {
+    try {
+      aiReply = await generateAIReply(req.userId, conv.id);
+      if (aiReply) {
+        db.prepare(
+          'INSERT INTO messages (conversation_id, sender, body) VALUES (?, ?, ?)'
+        ).run(conv.id, 'ai', aiReply);
+      }
+    } catch (e) {
+      console.error('AI reply error:', e.message);
+      const fallback = '[AI gagal merespons: ' + e.message + ']';
+      db.prepare(
+        'INSERT INTO messages (conversation_id, sender, body) VALUES (?, ?, ?)'
+      ).run(conv.id, 'ai', fallback);
+      aiReply = fallback;
+    }
+  }
+
+  res.json({ ok: true, ai_reply: aiReply });
+});
+
+router.patch('/:id', (req, res) => {
+  const { ai_enabled } = req.body || {};
+  const result = db.prepare(
+    'UPDATE conversations SET ai_enabled = ? WHERE id = ? AND user_id = ?'
+  ).run(ai_enabled ? 1 : 0, req.params.id, req.userId);
+  if (!result.changes) return res.status(404).json({ error: 'Percakapan tidak ditemukan' });
+  res.json({ ok: true });
+});
+
+async function generateAIReply(userId, conversationId) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return '[AI belum aktif — admin perlu mengisi ANTHROPIC_API_KEY di server/.env]';
+  }
+
+  const knowledge = db.prepare('SELECT content FROM knowledge WHERE user_id = ?').get(userId);
+  const recentMessages = db.prepare(`
+    SELECT sender, body FROM messages
+    WHERE conversation_id = ?
+    ORDER BY id DESC LIMIT 20
+  `).all(conversationId).reverse();
+
+  const systemBlocks = [
+    {
+      type: 'text',
+      text: [
+        'Kamu adalah AI customer service untuk bisnis ini.',
+        'Jawab dengan ramah, singkat, dan menggunakan Bahasa Indonesia yang natural.',
+        'Jika tidak tahu jawabannya, akui jujur dan tawarkan untuk diteruskan ke admin manusia.',
+        'Jangan mengarang harga, jadwal, atau kebijakan yang tidak ada di knowledge base.',
+        '',
+        'KNOWLEDGE BASE / SOP BISNIS:',
+        knowledge?.content?.trim() || '(Belum ada knowledge base. Beritahu pelanggan bahwa admin akan segera membantu.)',
+      ].join('\n'),
+      cache_control: { type: 'ephemeral' },
+    },
+  ];
+
+  const formatted = recentMessages.map((m) => ({
+    role: m.sender === 'customer' ? 'user' : 'assistant',
+    content: m.body,
+  }));
+
+  if (formatted.length === 0 || formatted[0].role !== 'user') {
+    return null;
+  }
+
+  const client = new Anthropic();
+  const response = await client.messages.create({
+    model: 'claude-haiku-4-5',
+    max_tokens: 512,
+    system: systemBlocks,
+    messages: formatted,
+  });
+
+  const textBlock = response.content.find((b) => b.type === 'text');
+  return textBlock?.text || null;
+}
+
+export default router;
