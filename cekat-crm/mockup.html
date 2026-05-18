@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cekat CRM — Mockup Tampilan</title>
+<style>
+:root {
+  --primary: #2d7ff9;
+  --primary-dark: #1f63d2;
+  --primary-light: #eaf2ff;
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --border: #e3e8ef;
+  --text: #1a2233;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* === Top screen-switcher bar === */
+.demo-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: #1a2233; color: white;
+  padding: 10px 20px;
+  display: flex; gap: 6px; align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.demo-bar strong { margin-right: 16px; font-size: 16px; }
+.demo-bar small { color: #9ca3af; margin-right: 16px; }
+.demo-bar button {
+  background: transparent;
+  color: white;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.demo-bar button:hover { background: #374151; }
+.demo-bar button.active { background: var(--primary); border-color: var(--primary); }
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* === App layout === */
+.app-shell { display: grid; grid-template-columns: 240px 1fr; height: calc(100vh - 44px); }
+.sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; }
+.sidebar .brand { padding: 0 20px 20px; font-size: 20px; font-weight: 700; color: var(--primary); border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.nav-link { padding: 10px 20px; color: var(--text); font-weight: 500; border-left: 3px solid transparent; }
+.nav-link.active { background: var(--primary-light); color: var(--primary); border-left-color: var(--primary); }
+
+.user-box { margin-top: auto; padding: 16px 20px; border-top: 1px solid var(--border); }
+.user-box .uname { font-weight: 500; }
+.user-box .uemail { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+button.btn { font-family: inherit; font-size: 14px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); padding: 8px 14px; border-radius: var(--radius); }
+button.btn.primary { background: var(--primary); color: white; border-color: var(--primary); }
+button.btn.full { width: 100%; }
+
+.main { overflow: auto; padding: 24px; }
+.main h2 { margin: 0 0 18px; font-size: 22px; font-weight: 600; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.card + .card { margin-top: 14px; }
+.card h3 { margin: 0 0 12px; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; margin-bottom: 6px; font-weight: 500; }
+.form-row input, .form-row textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 14px; }
+
+/* === Login === */
+.auth-wrap { min-height: calc(100vh - 44px); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #eaf2ff 0%, #f7f9fc 100%); padding: 20px; }
+.auth-card { background: var(--surface); border-radius: 14px; box-shadow: 0 10px 30px rgba(16,24,40,0.08); padding: 36px; width: 100%; max-width: 400px; }
+.auth-card h1 { margin: 0 0 6px; font-size: 24px; color: var(--primary); }
+.auth-card .subtitle { color: var(--muted); margin-bottom: 24px; }
+
+/* === Inbox === */
+.inbox-grid { display: grid; grid-template-columns: 320px 1fr 280px; gap: 14px; height: calc(100vh - 44px - 48px); }
+.inbox-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden; }
+.panel-header { padding: 14px 16px; border-bottom: 1px solid var(--border); font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+.panel-body { flex: 1; overflow-y: auto; }
+.panel-footer { padding: 12px; border-top: 1px solid var(--border); }
+
+.filter-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 8px; background: #fafbfc; }
+.filter-tab { background: transparent; border: none; border-bottom: 2px solid transparent; padding: 10px 14px; font-size: 13px; color: var(--muted); font-weight: 500; cursor: pointer; }
+.filter-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+.conv-row { padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; }
+.conv-row.active { background: var(--primary-light); }
+.conv-row .name { font-weight: 600; margin-bottom: 3px; }
+.conv-row .preview { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tag { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; background: var(--primary-light); color: var(--primary); }
+.tag.ai { background: #ecfdf5; color: var(--success); }
+.tag.done { background: #ecfdf5; color: var(--success); }
+
+.toggle-row { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); background: #f9fafb; font-size: 13px; }
+
+.chat-messages { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.msg { max-width: 75%; padding: 9px 13px; border-radius: 12px; word-wrap: break-word; }
+.msg.customer { background: #f1f3f5; align-self: flex-start; }
+.msg.agent { background: var(--primary); color: white; align-self: flex-end; }
+.msg.ai { background: #ecfdf5; border: 1px solid #a7f3d0; align-self: flex-end; }
+.msg .meta { font-size: 10px; opacity: 0.7; margin-top: 4px; }
+.ai-badge { display: inline-block; background: var(--success); color: white; font-size: 9px; padding: 1px 5px; border-radius: 3px; margin-bottom: 4px; font-weight: 600; }
+
+.quick-reply-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.quick-reply-btn { font-size: 12px; padding: 4px 10px; border-radius: 14px; background: #f3f4f6; border: 1px solid var(--border); cursor: pointer; }
+.quick-reply-btn.ai-suggest { background: #ecfdf5; border-color: #a7f3d0; color: var(--success); font-weight: 500; }
+
+.chat-input-row { display: flex; gap: 8px; }
+.chat-input-row textarea { flex: 1; min-height: 40px; max-height: 120px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; resize: vertical; }
+
+/* === Table === */
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+th { background: #f9fafb; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.toolbar { display: flex; gap: 8px; margin-bottom: 14px; align-items: center; }
+.toolbar input { flex: 1; max-width: 320px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); }
+
+/* === Stats === */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat .value { font-size: 28px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+
+/* === Day buttons === */
+.day-btn { padding: 6px 12px; font-size: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: white; cursor: pointer; }
+.day-btn.on { background: var(--primary); color: white; border-color: var(--primary); }
+
+textarea { font-family: inherit; }
+.kb-textarea { width: 100%; min-height: 380px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <strong>📱 Cekat CRM Mockup</strong>
+  <small>Klik tombol untuk pindah tampilan ↓</small>
+  <button onclick="show('login')" data-screen="login">Login</button>
+  <button onclick="show('dashboard')" data-screen="dashboard">Dashboard</button>
+  <button onclick="show('inbox')" data-screen="inbox" class="active">Inbox</button>
+  <button onclick="show('contacts')" data-screen="contacts">Kontak</button>
+  <button onclick="show('knowledge')" data-screen="knowledge">Knowledge</button>
+  <button onclick="show('settings')" data-screen="settings">Pengaturan</button>
+</div>
+
+<!-- ====== LOGIN ====== -->
+<div id="login" class="screen">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h1>Cekat CRM</h1>
+      <div class="subtitle">Masuk ke akun Anda</div>
+      <div class="form-row">
+        <label>Email</label>
+        <input type="email" value="hendry@bisnis.id" />
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input type="password" value="••••••••" />
+      </div>
+      <button class="btn primary full">Masuk</button>
+      <div style="text-align:center;margin-top:18px;color:var(--muted);font-size:13px;">
+        Belum punya akun? <a href="#" style="color:var(--primary)">Daftar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== DASHBOARD ====== -->
+<div id="dashboard" class="screen">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Cekat CRM</div>
+      <a class="nav-link">💬 Inbox</a>
+      <a class="nav-link">👥 Kontak</a>
+      <a class="nav-link">📚 Knowledge Base</a>
+      <a class="nav-link active">📊 Dashboard</a>
+      <a class="nav-link">⚙️ Pengaturan</a>
+      <div class="user-box">
+        <div class="uname">Toko Maju Jaya</div>
+        <div class="uemail">hendry@bisnis.id</div>
+        <button class="btn full">Keluar</button>
+      </div>
+    </aside>
+    <main class="main">
+      <h2>Dashboard</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="label">Total Kontak</div><div class="value">87</div></div>
+        <div class="stat"><div class="label">Percakapan Aktif</div><div class="value">12</div></div>
+        <div class="stat"><div class="label">Selesai</div><div class="value" style="color:var(--success)">34</div></div>
+        <div class="stat"><div class="label">AI Agent Aktif</div><div class="value">12</div></div>
+      </div>
+      <div class="card">
+        <h3>Selamat datang di Cekat CRM 👋</h3>
+        <p>Langkah cepat untuk mulai:</p>
+        <ol>
+          <li>Buka <strong>Knowledge Base</strong>, isi SOP & info bisnis Anda.</li>
+          <li>Tambahkan kontak pelanggan di menu <strong>Kontak</strong>.</li>
+          <li>Buka <strong>Inbox</strong>, mulai percakapan, dan aktifkan AI Agent.</li>
+          <li>Coba kirim pesan dari panel "Simulasi Pelanggan" — AI akan membalas otomatis.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ====== INBOX ====== -->
+<div id="inbox" class="screen active">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Cekat CRM</div>
+      <a class="nav-link active">💬 Inbox</a>
+      <a class="nav-link">👥 Kontak</a>
+      <a class="nav-link">📚 Knowledge Base</a>
+      <a class="nav-link">📊 Dashboard</a>
+      <a class="nav-link">⚙️ Pengaturan</a>
+      <div class="user-box">
+        <div class="uname">Toko Maju Jaya</div>
+        <div class="uemail">hendry@bisnis.id</div>
+        <button class="btn full">Keluar</button>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="inbox-grid">
+        <!-- Conversation list -->
+        <div class="inbox-panel">
+          <div class="panel-header"><span>Percakapan</span><button class="btn primary" style="padding:5px 10px;font-size:12px">+ Baru</button></div>
+          <div class="filter-tabs">
+            <button class="filter-tab active">Aktif</button>
+            <button class="filter-tab">Selesai</button>
+            <button class="filter-tab">Semua</button>
+          </div>
+          <div class="panel-body">
+            <div class="conv-row active">
+              <div class="name">Siti Aminah <span class="tag">VIP</span> <span class="tag ai">AI</span></div>
+              <div class="preview">Pelanggan: Halo, sepatu yang merah masih ada?</div>
+            </div>
+            <div class="conv-row">
+              <div class="name">Budi Santoso</div>
+              <div class="preview">AI: Bisa kak, total Rp 350.000 plus ongkir...</div>
+            </div>
+            <div class="conv-row">
+              <div class="name">Dewi Rahma <span class="tag">Hot Lead</span></div>
+              <div class="preview">Admin: Boleh kak, kapan pengiriman?</div>
+            </div>
+            <div class="conv-row">
+              <div class="name">Andi Wijaya <span class="tag ai">AI</span></div>
+              <div class="preview">Pelanggan: Berapa harga jaket cowoknya?</div>
+            </div>
+            <div class="conv-row">
+              <div class="name">Maya Putri</div>
+              <div class="preview">Pelanggan: Sudah saya transfer ya kak</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat -->
+        <div class="inbox-panel">
+          <div class="panel-header">
+            <span>Siti Aminah <small style="color:var(--muted);font-weight:400">· 628123456789</small></span>
+            <button class="btn" style="padding:5px 10px;font-size:12px;border-color:var(--success);color:var(--success)">✓ Tandai Selesai</button>
+          </div>
+          <div class="toggle-row">
+            <input type="checkbox" checked style="width:auto" />
+            <span>AI Agent aktif (otomatis balas pesan pelanggan)</span>
+          </div>
+          <div class="panel-body chat-messages">
+            <div class="msg ai">
+              <div class="ai-badge">AI</div>
+              <div>Halo! Selamat datang di Toko Maju Jaya. Ada yang bisa kami bantu? 😊</div>
+              <div class="meta">AI · 14:22</div>
+            </div>
+            <div class="msg customer">
+              <div>Halo, sepatu yang merah masih ada?</div>
+              <div class="meta">Pelanggan · 14:25</div>
+            </div>
+            <div class="msg ai">
+              <div class="ai-badge">AI</div>
+              <div>Masih ada kak! Sepatu sneakers merah harga Rp 350.000. Tersedia ukuran 36-42. Kakak mau ukuran berapa?</div>
+              <div class="meta">AI · 14:25</div>
+            </div>
+            <div class="msg customer">
+              <div>Ukuran 38 ada? Pengirimannya ke Bandung berapa hari?</div>
+              <div class="meta">Pelanggan · 14:27</div>
+            </div>
+            <div class="msg ai">
+              <div class="ai-badge">AI</div>
+              <div>Ukuran 38 ready kak. Pengiriman ke Bandung 1-2 hari via JNE. Ongkir sekitar Rp 15.000. Mau langsung pesan? 🛍️</div>
+              <div class="meta">AI · 14:27</div>
+            </div>
+            <div class="msg customer">
+              <div>Boleh kak, gimana cara bayarnya?</div>
+              <div class="meta">Pelanggan · 14:29</div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="quick-reply-row">
+              <button class="quick-reply-btn ai-suggest">🤖 Saran AI</button>
+              <button class="quick-reply-btn">Sapaan</button>
+              <button class="quick-reply-btn">Info Rekening</button>
+              <button class="quick-reply-btn">Cek Resi</button>
+              <button class="quick-reply-btn">Terima Kasih</button>
+            </div>
+            <div class="chat-input-row">
+              <textarea placeholder="Ketik balasan admin..."></textarea>
+              <button class="btn primary">Kirim</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator -->
+        <div class="inbox-panel">
+          <div class="panel-header">Simulasi Pelanggan</div>
+          <div class="panel-body" style="padding:16px">
+            <p style="font-size:12px;color:var(--muted);margin-top:0">
+              Belum integrasi WhatsApp? Ketik di sini untuk simulasi pesan dari pelanggan. Jika AI aktif, balasan otomatis akan muncul.
+            </p>
+            <textarea rows="4" placeholder="Pesan sebagai Siti Aminah..." style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);font-family:inherit"></textarea>
+            <button class="btn primary full" style="margin-top:8px">Kirim Pesan Pelanggan</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ====== CONTACTS ====== -->
+<div id="contacts" class="screen">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Cekat CRM</div>
+      <a class="nav-link">💬 Inbox</a>
+      <a class="nav-link active">👥 Kontak</a>
+      <a class="nav-link">📚 Knowledge Base</a>
+      <a class="nav-link">📊 Dashboard</a>
+      <a class="nav-link">⚙️ Pengaturan</a>
+      <div class="user-box">
+        <div class="uname">Toko Maju Jaya</div>
+        <div class="uemail">hendry@bisnis.id</div>
+        <button class="btn full">Keluar</button>
+      </div>
+    </aside>
+    <main class="main">
+      <h2>Kontak Pelanggan</h2>
+      <div class="toolbar">
+        <input placeholder="Cari nama, no HP, email..." />
+        <div style="flex:1"></div>
+        <button class="btn">📥 Import CSV</button>
+        <button class="btn primary">+ Tambah Kontak</button>
+      </div>
+      <div class="card" style="padding:0">
+        <table>
+          <thead><tr><th>Nama</th><th>Telepon</th><th>Email</th><th>Tag</th><th style="width:140px">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Siti Aminah</strong><div style="font-size:12px;color:var(--muted)">Suka belanja online</div></td><td>628123456789</td><td>siti@email.com</td><td><span class="tag">VIP</span></td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Budi Santoso</strong></td><td>628111222333</td><td>budi@email.com</td><td>-</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Dewi Rahma</strong></td><td>628999888777</td><td>dewi@email.com</td><td><span class="tag">Hot Lead</span></td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Andi Wijaya</strong></td><td>628777666555</td><td>-</td><td>-</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Maya Putri</strong></td><td>628555444333</td><td>maya@email.com</td><td><span class="tag">VIP</span></td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ====== KNOWLEDGE ====== -->
+<div id="knowledge" class="screen">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Cekat CRM</div>
+      <a class="nav-link">💬 Inbox</a>
+      <a class="nav-link">👥 Kontak</a>
+      <a class="nav-link active">📚 Knowledge Base</a>
+      <a class="nav-link">📊 Dashboard</a>
+      <a class="nav-link">⚙️ Pengaturan</a>
+      <div class="user-box">
+        <div class="uname">Toko Maju Jaya</div>
+        <div class="uemail">hendry@bisnis.id</div>
+        <button class="btn full">Keluar</button>
+      </div>
+    </aside>
+    <main class="main">
+      <h2>Knowledge Base (SOP AI Agent)</h2>
+      <p style="color:var(--muted);margin-top:-10px">Tulis SOP, harga, jam buka, kebijakan, dan info bisnis lainnya. AI akan menjawab pelanggan berdasarkan isi di sini.</p>
+      <div class="card">
+        <textarea class="kb-textarea">== Informasi Bisnis ==
+Nama: Toko Maju Jaya
+Jam buka: Senin-Sabtu 09.00-21.00, Minggu tutup
+Lokasi: Jl. Merdeka No. 10, Jakarta Pusat
+
+== Produk & Harga ==
+- Kemeja pria katun: Rp 150.000
+- Celana jeans slim fit: Rp 200.000
+- Sepatu sneakers (semua warna): Rp 350.000
+- Jaket cowok parka: Rp 275.000
+- Tas selempang kanvas: Rp 125.000
+
+== Pengiriman ==
+Pengiriman pakai JNE/J&T. Ongkir ditanggung pembeli.
+Estimasi: Jakarta 1 hari, Bandung 1-2 hari, luar Jawa 3-5 hari.
+
+== Pembayaran ==
+Transfer BCA 1234567890 a.n. Toko Maju Jaya
+Boleh COD untuk area Jakarta saja.
+
+== Kebijakan ==
+- Retur barang dalam 3 hari kalau ada kerusakan dari kami.
+- Tukar ukuran boleh, biaya ongkir ditanggung pembeli.
+- Tidak menerima retur untuk barang yang sudah dipakai.</textarea>
+        <div style="display:flex;align-items:center;margin-top:12px">
+          <div style="flex:1;color:var(--muted);font-size:12px">Terakhir disimpan: 18 Mei 2026, 23:15 <span style="color:var(--success);margin-left:10px">✓ Tersimpan</span></div>
+          <button class="btn primary">Simpan</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ====== SETTINGS ====== -->
+<div id="settings" class="screen">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Cekat CRM</div>
+      <a class="nav-link">💬 Inbox</a>
+      <a class="nav-link">👥 Kontak</a>
+      <a class="nav-link">📚 Knowledge Base</a>
+      <a class="nav-link">📊 Dashboard</a>
+      <a class="nav-link active">⚙️ Pengaturan</a>
+      <div class="user-box">
+        <div class="uname">Toko Maju Jaya</div>
+        <div class="uemail">hendry@bisnis.id</div>
+        <button class="btn full">Keluar</button>
+      </div>
+    </aside>
+    <main class="main">
+      <h2>Pengaturan</h2>
+
+      <div class="card">
+        <h3>Informasi Bisnis</h3>
+        <div class="form-row"><label>Nama bisnis (untuk salam AI)</label><input value="Toko Maju Jaya" /></div>
+        <div class="form-row"><label>Pesan sambutan (otomatis dikirim ke pelanggan baru)</label><textarea rows="3">Halo! Selamat datang di Toko Maju Jaya. Ada yang bisa kami bantu? 😊</textarea></div>
+      </div>
+
+      <div class="card">
+        <h3>Jam Kerja AI</h3>
+        <p style="color:var(--muted);margin-top:0">Saat aktif: <strong>dalam jam kerja</strong> chat dibalas tim admin manual. <strong>Di luar jam kerja</strong> AI otomatis membalas.</p>
+        <div class="form-row" style="display:flex;align-items:center;gap:10px"><input type="checkbox" checked style="width:auto" /> <span>Aktifkan jam kerja AI</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="form-row"><label>Jam mulai kerja</label><input type="time" value="09:00" /></div>
+          <div class="form-row"><label>Jam selesai kerja</label><input type="time" value="17:00" /></div>
+        </div>
+        <div class="form-row">
+          <label>Hari kerja</label>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="day-btn on">Senin</button>
+            <button class="day-btn on">Selasa</button>
+            <button class="day-btn on">Rabu</button>
+            <button class="day-btn on">Kamis</button>
+            <button class="day-btn on">Jumat</button>
+            <button class="day-btn">Sabtu</button>
+            <button class="day-btn">Minggu</button>
+          </div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">Zona waktu: WIB (Asia/Jakarta)</div>
+        </div>
+        <button class="btn primary">Simpan Pengaturan</button>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;align-items:center;margin-bottom:12px">
+          <h3 style="margin:0;flex:1">Template Balasan Cepat</h3>
+          <button class="btn primary">+ Template Baru</button>
+        </div>
+        <p style="color:var(--muted);margin-top:0">Template muncul sebagai tombol di atas kotak balasan admin di Inbox.</p>
+        <table>
+          <thead><tr><th>Label</th><th>Isi Pesan</th><th style="width:140px">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sapaan</strong></td><td style="color:var(--muted);font-size:12px">Halo kak! Terima kasih sudah menghubungi Toko Maju Jaya...</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Info Rekening</strong></td><td style="color:var(--muted);font-size:12px">Transfer ke BCA 1234567890 a.n. Toko Maju Jaya...</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Cek Resi</strong></td><td style="color:var(--muted);font-size:12px">Boleh minta nama dan tanggal pesan kak? Saya cek resinya...</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+            <tr><td><strong>Terima Kasih</strong></td><td style="color:var(--muted);font-size:12px">Terima kasih sudah belanja di Toko Maju Jaya! Jangan lupa rating ya 🙏</td><td><button class="btn" style="padding:4px 8px;font-size:12px">Edit</button> <button class="btn" style="padding:4px 8px;font-size:12px;color:var(--danger);border-color:var(--danger)">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.screen').forEach((s) => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.demo-bar button').forEach((b) => {
+    b.classList.toggle('active', b.dataset.screen === id);
+  });
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
