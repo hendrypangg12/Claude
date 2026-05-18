@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cekat CRM — Pitch Deck</title>
+<style>
+:root {
+  --primary: #2d7ff9;
+  --primary-dark: #1f63d2;
+  --primary-light: #eaf2ff;
+  --bg: #f7f9fc;
+  --text: #1a2233;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.deck { position: relative; height: 100vh; overflow: hidden; }
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  overflow-y: auto;
+}
+.slide.active { opacity: 1; pointer-events: auto; }
+.slide-inner { width: 100%; max-width: 900px; }
+
+h1 { font-size: 48px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+h2 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 28px; color: var(--text); }
+h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+p { font-size: 18px; line-height: 1.6; color: var(--text); margin-bottom: 16px; }
+.lead { font-size: 22px; color: var(--muted); margin-bottom: 28px; }
+.muted { color: var(--muted); }
+.accent { color: var(--primary); }
+.danger { color: var(--danger); }
+.success { color: var(--success); }
+
+/* === Slide-specific === */
+.slide.cover {
+  background: linear-gradient(135deg, #0b3b9c 0%, #2d7ff9 50%, #5fa8ff 100%);
+  color: white;
+  text-align: center;
+}
+.slide.cover h1 { color: white; font-size: 56px; }
+.slide.cover .lead { color: rgba(255,255,255,0.9); }
+.slide.cover .cta-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 24px;
+  border-radius: 999px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.brand-mark {
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 28px;
+}
+
+.pain-list { display: grid; gap: 20px; margin-top: 20px; }
+.pain-item {
+  display: flex; gap: 18px; padding: 22px;
+  background: white;
+  border-left: 4px solid var(--danger);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.pain-icon { font-size: 32px; flex-shrink: 0; }
+.pain-text strong { display: block; font-size: 18px; margin-bottom: 4px; }
+.pain-text { font-size: 15px; color: var(--muted); }
+
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0; }
+.big-stat { text-align: center; padding: 20px; }
+.big-stat .num { font-size: 56px; font-weight: 800; color: var(--primary); line-height: 1; }
+.big-stat .label { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+.benefit-list { display: grid; gap: 14px; margin-top: 16px; }
+.benefit {
+  display: flex; gap: 14px; padding: 16px 18px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.benefit-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--primary-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.benefit-text strong { display: block; margin-bottom: 2px; }
+.benefit-text { color: var(--muted); font-size: 14px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+.step {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.step-num {
+  width: 40px; height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+}
+.step h3 { font-size: 16px; }
+.step p { font-size: 14px; color: var(--muted); margin: 0; }
+
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.compare-table th, .compare-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+.compare-table thead th {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.tick { color: var(--success); font-weight: 700; }
+.cross { color: var(--danger); }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+.pricing-card {
+  background: white;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  display: flex; flex-direction: column;
+}
+.pricing-card.popular {
+  border-color: var(--primary);
+  background: linear-gradient(180deg, #eef5ff 0%, white 100%);
+  transform: scale(1.04);
+}
+.pricing-card .tier {
+  font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+}
+.pricing-card .price {
+  font-size: 36px; font-weight: 800; margin: 8px 0 4px;
+  color: var(--primary);
+}
+.pricing-card .price small { font-size: 14px; color: var(--muted); font-weight: 400; }
+.pricing-card .features { list-style: none; text-align: left; margin: 18px 0; }
+.pricing-card .features li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+.pricing-card .features li::before { content: "✓ "; color: var(--success); font-weight: 700; }
+.pricing-card .badge {
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 16px; }
+.case-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.case-emoji { font-size: 36px; margin-bottom: 8px; }
+.case-card h3 { font-size: 17px; margin-bottom: 8px; }
+.case-result {
+  background: #ecfdf5;
+  color: var(--success);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.faq-list { display: grid; gap: 14px; margin-top: 14px; }
+.faq-item {
+  background: white;
+  padding: 18px 22px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.faq-q { font-weight: 600; margin-bottom: 6px; color: var(--text); font-size: 16px; }
+.faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+.cta-section { text-align: center; }
+.cta-section h2 { color: var(--primary); font-size: 42px; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+.cta-btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--primary);
+}
+.cta-btn.primary { background: var(--primary); color: white; }
+.cta-btn.secondary { background: white; color: var(--primary); }
+
+/* === Demo screenshot mockup === */
+.screen-mockup {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  margin-top: 14px;
+  width: 100%;
+  max-height: 380px;
+}
+.mockup-bar {
+  background: #f3f4f6;
+  padding: 8px 14px;
+  font-size: 11px;
+  color: var(--muted);
+  border-bottom: 1px solid #e5e7eb;
+}
+.mockup-dots { display: inline-flex; gap: 6px; margin-right: 10px; }
+.mockup-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.mockup-dots span:nth-child(1) { background: #ff5f57; }
+.mockup-dots span:nth-child(2) { background: #ffbd2e; }
+.mockup-dots span:nth-child(3) { background: #28c940; }
+
+.chat-mockup { display: flex; flex-direction: column; gap: 8px; padding: 20px; background: #f9fafb; }
+.chat-bubble { max-width: 70%; padding: 10px 14px; border-radius: 14px; font-size: 14px; }
+.chat-bubble.cust { background: white; border: 1px solid #e5e7eb; align-self: flex-start; }
+.chat-bubble.ai { background: #ecfdf5; border: 1px solid #a7f3d0; align-self: flex-end; }
+.ai-tag { font-size: 10px; background: var(--success); color: white; padding: 1px 5px; border-radius: 3px; font-weight: 600; margin-bottom: 4px; display: inline-block; }
+.bubble-meta { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* === Navigation === */
+.nav-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--text);
+  border-radius: 6px;
+}
+.nav-btn:hover { background: var(--primary-light); }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.dots { display: flex; gap: 6px; }
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dot.active { background: var(--primary); width: 20px; border-radius: 4px; }
+.slide-counter { font-size: 12px; color: var(--muted); padding: 0 8px; min-width: 50px; text-align: center; }
+
+/* === Side nav clickable areas === */
+.click-left, .click-right {
+  position: fixed;
+  top: 0; bottom: 0;
+  width: 25%;
+  z-index: 50;
+  cursor: pointer;
+}
+.click-left { left: 0; }
+.click-right { right: 0; }
+
+@media (max-width: 768px) {
+  .slide { padding: 30px 20px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  p { font-size: 16px; }
+  .lead { font-size: 17px; }
+  .stat-row { grid-template-columns: 1fr; gap: 14px; }
+  .big-stat .num { font-size: 36px; }
+  .steps, .pricing-grid, .case-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pricing-card.popular { transform: scale(1); }
+  .compare-table th, .compare-table td { padding: 10px 12px; font-size: 13px; }
+  .slide.cover h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="click-left" onclick="prev()"></div>
+<div class="click-right" onclick="next()"></div>
+
+<div class="deck">
+
+  <!-- === 1: COVER === -->
+  <div class="slide cover active">
+    <div class="slide-inner">
+      <div class="brand-mark">CEKAT CRM</div>
+      <h1>Asisten AI untuk Layanan Pelanggan Bisnis Anda</h1>
+      <p class="lead">Balas WhatsApp pelanggan 24/7 tanpa nambah CS. Hemat biaya, tingkatkan closing rate.</p>
+      <div class="cta-tag">✨ Demo gratis 30 menit</div>
+    </div>
+  </div>
+
+  <!-- === 2: THE PROBLEM === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Tim CS Anda kewalahan?</h2>
+      <p class="muted">Ini yang biasanya terjadi di bisnis online Indonesia:</p>
+      <div class="pain-list">
+        <div class="pain-item">
+          <div class="pain-icon">🌙</div>
+          <div class="pain-text">
+            <strong>Chat masuk subuh tidak terbalas</strong>
+            Pelanggan tanya tengah malam → besok pagi sudah pindah ke kompetitor yang respon cepat.
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">⏱️</div>
+          <div class="pain-text">
+            <strong>1 admin handle 200+ chat per hari</strong>
+            Respon lambat 30 menit – 2 jam. Pertanyaan sederhana butuh waktu lama dijawab.
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">🔁</div>
+          <div class="pain-text">
+            <strong>Pertanyaan yang sama berulang setiap hari</strong>
+            "Berapa harga?" "Ongkir kemana?" "Jam buka?" — 80% pertanyaan punya jawaban yang sama.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 3: COST OF SLOW REPLY === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Berapa kerugian dari lambatnya respon?</h2>
+      <div class="stat-row">
+        <div class="big-stat">
+          <div class="num">65%</div>
+          <div class="label">customer pindah ke kompetitor jika respon &gt; 5 menit</div>
+        </div>
+        <div class="big-stat">
+          <div class="num danger">Rp 5jt</div>
+          <div class="label">biaya 1 staff CS per bulan (gaji + tunjangan)</div>
+        </div>
+        <div class="big-stat">
+          <div class="num danger">~30%</div>
+          <div class="label">prospek hangat hilang karena follow-up lambat</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top: 20px; font-size: 17px;">
+        Kalau Anda kehilangan <strong>10 customer/bulan</strong> karena respon lambat, dan rata-rata transaksi Rp 200.000 →
+        <span class="danger">kerugian Rp 2 juta/bulan</span> atau <span class="danger">Rp 24 juta/tahun</span>.
+      </p>
+    </div>
+  </div>
+
+  <!-- === 4: SOLUTION === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Solusinya: AI yang belajar dari SOP bisnis Anda</h2>
+      <p class="lead">Cekat CRM adalah asisten AI yang siap menjawab pelanggan kapan saja, persis seperti admin terlatih Anda.</p>
+      <div class="benefit-list">
+        <div class="benefit">
+          <div class="benefit-icon">🤖</div>
+          <div class="benefit-text">
+            <strong>Auto-jawab 24/7 pakai Bahasa Indonesia natural</strong>
+            AI memahami konteks chat dan menjawab seperti admin manusia, lengkap dengan sapaan ramah.
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">📱</div>
+          <div class="benefit-text">
+            <strong>Integrasi WhatsApp resmi</strong>
+            Pelanggan kirim WA seperti biasa, AI yang balas. Tidak perlu aplikasi baru untuk customer.
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">🕐</div>
+          <div class="benefit-text">
+            <strong>Hand-off cerdas ke admin saat jam kerja</strong>
+            Dalam jam kerja → admin handle untuk closing. Di luar jam → AI yang back-up. Tidak ada chat terlewat.
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">📚</div>
+          <div class="benefit-text">
+            <strong>Training 10 menit, tanpa coding</strong>
+            Cukup salin SOP, daftar harga, dan FAQ bisnis Anda. AI langsung bisa jawab dengan akurat.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 5: HOW IT WORKS === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Cukup 3 Langkah, Live dalam Sehari</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Setup &amp; Training</h3>
+          <p>Anda tulis info bisnis (jam buka, harga, kebijakan retur). Kami training AI-nya. 10 menit selesai.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Hubungkan WhatsApp</h3>
+          <p>Kami bantu integrasi WhatsApp Business Anda. Nomor existing tetap dipakai, customer tidak bingung.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Live &amp; Monitor</h3>
+          <p>AI mulai balas otomatis. Anda pantau dari dashboard, ambil alih chat penting kapan saja.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 6: PREVIEW CHAT === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Tampilan AI Saat Membalas</h2>
+      <p class="muted">Contoh percakapan AI dengan pelanggan toko sepatu:</p>
+      <div class="screen-mockup" style="max-width: 480px; margin: 0 auto;">
+        <div class="mockup-bar">
+          <span class="mockup-dots"><span></span><span></span><span></span></span>
+          WhatsApp · Toko Maju Jaya
+        </div>
+        <div class="chat-mockup">
+          <div class="chat-bubble cust">
+            Halo, sepatu sneakers merah masih ada ga ya?
+            <div class="bubble-meta">14:22</div>
+          </div>
+          <div class="chat-bubble ai">
+            <div class="ai-tag">AI</div>
+            Halo kak! Masih ready 🙌 Sepatu sneakers merah harga Rp 350.000. Tersedia ukuran 36-42. Kakak mau ukuran berapa?
+            <div class="bubble-meta">AI · 14:22</div>
+          </div>
+          <div class="chat-bubble cust">
+            Ukuran 38. Pengiriman ke Bandung berapa hari?
+            <div class="bubble-meta">14:23</div>
+          </div>
+          <div class="chat-bubble ai">
+            <div class="ai-tag">AI</div>
+            Ukuran 38 ready kak. Pengiriman Bandung 1-2 hari pakai JNE, ongkir ±Rp 15rb. Mau langsung order? 🛍️
+            <div class="bubble-meta">AI · 14:23</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 7: COMPARISON === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Tanpa Cekat vs Dengan Cekat</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Tim CS Biasa</th>
+            <th>Cekat CRM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jam operasional</td><td>9 jam/hari</td><td class="tick">24/7</td></tr>
+          <tr><td>Waktu respon</td><td>15 menit – 2 jam</td><td class="tick">&lt; 5 detik</td></tr>
+          <tr><td>Kapasitas chat/hari</td><td>~300 (1 admin)</td><td class="tick">Tidak terbatas</td></tr>
+          <tr><td>Biaya per bulan</td><td>Rp 5-15 juta (2-3 admin)</td><td class="tick">Mulai Rp 299rb</td></tr>
+          <tr><td>Konsistensi jawaban</td><td>Tergantung admin</td><td class="tick">Selalu sama, sesuai SOP</td></tr>
+          <tr><td>Libur / cuti / sakit</td><td>Chat tertahan</td><td class="tick">Tetap jalan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === 8: BENEFITS NUMBERS === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Manfaat Konkret yang Bisa Anda Harapkan</h2>
+      <div class="stat-row">
+        <div class="big-stat">
+          <div class="num success">78%</div>
+          <div class="label">chat di-handle otomatis oleh AI</div>
+        </div>
+        <div class="big-stat">
+          <div class="num success">↓ 60%</div>
+          <div class="label">biaya operasional CS</div>
+        </div>
+        <div class="big-stat">
+          <div class="num success">↑ 30%</div>
+          <div class="label">closing rate karena respon cepat</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:20px; font-size:17px;">
+        <strong>Studi kasus internal:</strong> bisnis F&amp;B dengan 500 chat/hari → setelah 1 bulan pakai Cekat CRM,
+        bisa kurangi 2 staff CS, customer tetap puas, omzet naik karena no chat hilang.
+      </p>
+    </div>
+  </div>
+
+  <!-- === 9: USE CASES === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Cocok untuk Banyak Tipe Bisnis</h2>
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-emoji">🛒</div>
+          <h3>Toko Online</h3>
+          <p style="font-size:14px; color:var(--muted);">AI jawab harga, ketersediaan stok, ongkir, cara order. Admin fokus closing &amp; packing.</p>
+          <div class="case-result">Respon &lt; 5 detik di WhatsApp</div>
+        </div>
+        <div class="case-card">
+          <div class="case-emoji">🏥</div>
+          <h3>Klinik &amp; Kesehatan</h3>
+          <p style="font-size:14px; color:var(--muted);">AI handle pertanyaan jadwal dokter, tarif, prosedur. Booking jadwal langsung di chat.</p>
+          <div class="case-result">3 CS bisa handle 1000 chat/hari</div>
+        </div>
+        <div class="case-card">
+          <div class="case-emoji">🍔</div>
+          <h3>F&amp;B / Restoran</h3>
+          <p style="font-size:14px; color:var(--muted);">AI jawab menu, harga, jam buka, lokasi cabang, area delivery. Reservasi via chat.</p>
+          <div class="case-result">Conversion order naik 30%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 10: PRICING === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Harga yang Masuk Akal untuk SMB Indonesia</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="tier">Starter</div>
+          <div class="price">Rp 299rb<small>/bln</small></div>
+          <div class="muted" style="font-size:13px;">Cocok untuk bisnis baru</div>
+          <ul class="features">
+            <li>1 nomor WhatsApp</li>
+            <li>1 user admin</li>
+            <li>500 chat/bulan</li>
+            <li>AI Agent + Knowledge Base</li>
+            <li>Dashboard analytics</li>
+            <li>Support via WhatsApp</li>
+          </ul>
+        </div>
+        <div class="pricing-card popular">
+          <span class="badge">PALING POPULAR</span>
+          <div class="tier">Growth</div>
+          <div class="price">Rp 799rb<small>/bln</small></div>
+          <div class="muted" style="font-size:13px;">Untuk bisnis aktif</div>
+          <ul class="features">
+            <li>2 nomor WhatsApp</li>
+            <li>3 user admin</li>
+            <li>2.000 chat/bulan</li>
+            <li>Semua fitur Starter</li>
+            <li>Personalisasi tone AI</li>
+            <li>Quick reply templates</li>
+            <li>Auto-greeting</li>
+            <li>Support prioritas</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="tier">Pro</div>
+          <div class="price">Rp 1.999rb<small>/bln</small></div>
+          <div class="muted" style="font-size:13px;">Untuk volume tinggi</div>
+          <ul class="features">
+            <li>Unlimited nomor WhatsApp</li>
+            <li>Unlimited user admin</li>
+            <li>Unlimited chat</li>
+            <li>Semua fitur Growth</li>
+            <li>API integration</li>
+            <li>Custom training AI</li>
+            <li>Dedicated success manager</li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:20px; font-size:14px; color:var(--muted);">
+        💡 Setup &amp; training gratis. Trial 14 hari, no kartu kredit.
+      </p>
+    </div>
+  </div>
+
+  <!-- === 11: FAQ === -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>Pertanyaan yang Sering Ditanyakan</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Apa pelanggan saya akan tahu ini AI?</div>
+          <div class="faq-a">AI kami pakai bahasa Indonesia natural dengan tone sesuai brand Anda. Sebagian besar pelanggan tidak menyadari ini AI — yang mereka rasakan: respon cepat dan informatif. Anda juga bisa atur agar AI memperkenalkan diri sebagai "asisten" kalau mau transparan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Bagaimana kalau AI menjawab salah?</div>
+          <div class="faq-a">AI hanya menjawab berdasarkan knowledge base yang Anda isi. Untuk pertanyaan di luar itu, AI jujur bilang "akan diteruskan ke admin" daripada mengarang. Anda juga bisa pantau semua chat dan ambil alih kapan saja.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Berapa lama setup-nya?</div>
+          <div class="faq-a">Setup teknis 1 hari kerja. Training AI (mengisi knowledge base) ±10-30 menit tergantung kompleksitas bisnis. Bisa live di hari yang sama.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Apa beda dengan chatbot biasa atau competitor lain?</div>
+          <div class="faq-a">Chatbot biasa pakai if-else / flow kaku — kalau pelanggan ngomong di luar flow, mentok. Cekat pakai Claude AI yang paham konteks bahasa Indonesia. Plus kami fokus ke UMKM Indonesia: harga terjangkau, support bahasa lokal, setup tanpa coding.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 12: CTA === -->
+  <div class="slide">
+    <div class="slide-inner cta-section">
+      <h2>Siap untuk Mengubah Cara Anda Melayani Pelanggan?</h2>
+      <p class="lead">Konsultasi gratis 30 menit. Kami akan tunjukkan demo langsung di WhatsApp bisnis Anda.</p>
+
+      <div class="cta-buttons">
+        <a href="https://wa.me/628XXXXXXXXXX" class="cta-btn primary">💬 Chat WhatsApp Kami</a>
+        <a href="mailto:hello@cekatcrm.id" class="cta-btn secondary">📧 Email</a>
+      </div>
+
+      <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+        <p style="font-weight:600; margin-bottom: 8px;">Yang Anda dapat di sesi konsultasi:</p>
+        <ul style="text-align: left; max-width: 480px; margin: 0 auto; list-style: none; padding: 0;">
+          <li style="padding: 4px 0;">✓ Demo langsung AI menjawab pertanyaan bisnis Anda</li>
+          <li style="padding: 4px 0;">✓ Estimasi penghematan biaya CS untuk bisnis Anda</li>
+          <li style="padding: 4px 0;">✓ Rekomendasi tier yang paling cocok</li>
+          <li style="padding: 4px 0;">✓ Tidak ada komitmen — kalau cocok lanjut, kalau tidak ya sudah</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- === NAVIGATION BAR === -->
+<div class="nav-bar">
+  <button class="nav-btn" onclick="prev()" id="prevBtn">◀</button>
+  <div class="dots" id="dots"></div>
+  <div class="slide-counter" id="counter">1 / 12</div>
+  <button class="nav-btn" onclick="next()" id="nextBtn">▶</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+const counter = document.getElementById('counter');
+let current = 0;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => go(i);
+  dotsContainer.appendChild(dot);
+});
+
+function go(i) {
+  if (i < 0 || i >= slides.length) return;
+  slides[current].classList.remove('active');
+  dotsContainer.children[current].classList.remove('active');
+  current = i;
+  slides[current].classList.add('active');
+  dotsContainer.children[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + slides.length;
+  document.getElementById('prevBtn').disabled = current === 0;
+  document.getElementById('nextBtn').disabled = current === slides.length - 1;
+}
+
+function next() { go(current + 1); }
+function prev() { go(current - 1); }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') prev();
+  if (e.key === 'Home') go(0);
+  if (e.key === 'End') go(slides.length - 1);
+});
+
+// Swipe on mobile
+let touchStart = 0;
+document.addEventListener('touchstart', (e) => touchStart = e.touches[0].clientX);
+document.addEventListener('touchend', (e) => {
+  const diff = touchStart - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+});
+
+go(0);
+</script>
+
+</body>
+</html>
