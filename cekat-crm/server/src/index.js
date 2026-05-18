@@ -7,11 +7,18 @@ import contactsRoutes from './routes/contacts.js';
 import conversationsRoutes from './routes/conversations.js';
 import knowledgeRoutes from './routes/knowledge.js';
 import settingsRoutes from './routes/settings.js';
+import quickRepliesRoutes from './routes/quick-replies.js';
+import twilioWebhookRoutes from './routes/twilio-webhook.js';
 import './db.js';
 
 const app = express();
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
-app.use(express.json({ limit: '1mb' }));
+
+// Twilio webhooks send application/x-www-form-urlencoded
+app.use('/api/webhooks/twilio', express.urlencoded({ extended: false }), twilioWebhookRoutes);
+
+// All other routes use JSON
+app.use(express.json({ limit: '2mb' }));
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 app.use('/api/auth', authRoutes);
@@ -19,6 +26,7 @@ app.use('/api/contacts', requireAuth, contactsRoutes);
 app.use('/api/conversations', requireAuth, conversationsRoutes);
 app.use('/api/knowledge', requireAuth, knowledgeRoutes);
 app.use('/api/settings', requireAuth, settingsRoutes);
+app.use('/api/quick-replies', requireAuth, quickRepliesRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

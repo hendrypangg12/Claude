@@ -31,8 +31,12 @@ export default function Inbox() {
     setMessages(list);
   }
 
+  const [templates, setTemplates] = useState([]);
+  const [suggesting, setSuggesting] = useState(false);
+
   useEffect(() => {
     api('/contacts').then(setContacts);
+    api('/quick-replies').then(setTemplates);
   }, []);
 
   useEffect(() => {
@@ -79,6 +83,20 @@ export default function Inbox() {
       body: { status: newStatus },
     });
     await loadConversations();
+  }
+
+  async function getAISuggestion() {
+    if (!activeId) return;
+    setSuggesting(true);
+    try {
+      const { suggestion, note } = await api(`/conversations/${activeId}/ai-suggest`, { method: 'POST' });
+      if (suggestion) setDraftAgent(suggestion);
+      else if (note) alert(note);
+    } catch (err) {
+      alert('Gagal minta saran AI: ' + err.message);
+    } finally {
+      setSuggesting(false);
+    }
   }
 
   async function startConversation(contactId) {
@@ -184,7 +202,28 @@ export default function Inbox() {
                 <div ref={bottomRef} />
               </div>
               <div className="panel-footer">
-                <div style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 6 }}>Kirim sebagai admin/agent:</div>
+                {(templates.length > 0 || true) && (
+                  <div className="quick-reply-row">
+                    <button
+                      className="quick-reply-btn ai-suggest"
+                      onClick={getAISuggestion}
+                      disabled={suggesting}
+                      title="AI menulis saran balasan berdasarkan riwayat chat"
+                    >
+                      {suggesting ? '...' : '🤖 Saran AI'}
+                    </button>
+                    {templates.map((t) => (
+                      <button
+                        key={t.id}
+                        className="quick-reply-btn"
+                        onClick={() => setDraftAgent((cur) => cur ? cur + '\n' + t.body : t.body)}
+                        title={t.body}
+                      >
+                        {t.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <div className="chat-input-row">
                   <textarea
                     value={draftAgent}

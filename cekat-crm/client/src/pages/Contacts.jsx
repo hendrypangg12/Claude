@@ -9,6 +9,9 @@ export default function Contacts() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState('');
+  const [showImport, setShowImport] = useState(false);
+  const [csvText, setCsvText] = useState('');
+  const [importResult, setImportResult] = useState(null);
 
   async function load() {
     setContacts(await api('/contacts'));
@@ -49,6 +52,51 @@ export default function Contacts() {
     await load();
   }
 
+  function parseCSV(text) {
+    const lines = text.split(/\r?\n/).filter((l) => l.trim());
+    if (lines.length === 0) return [];
+    const header = lines[0].split(',').map((h) => h.trim().toLowerCase());
+    const idxName = header.indexOf('name');
+    const idxPhone = header.indexOf('phone');
+    const idxEmail = header.indexOf('email');
+    const idxTag = header.indexOf('tag');
+    const idxNotes = header.indexOf('notes');
+    if (idxName === -1) throw new Error('CSV harus punya kolom "name" di baris pertama');
+    return lines.slice(1).map((line) => {
+      const cols = line.split(',').map((c) => c.trim());
+      return {
+        name: cols[idxName] || '',
+        phone: idxPhone >= 0 ? cols[idxPhone] : '',
+        email: idxEmail >= 0 ? cols[idxEmail] : '',
+        tag: idxTag >= 0 ? cols[idxTag] : '',
+        notes: idxNotes >= 0 ? cols[idxNotes] : '',
+      };
+    }).filter((c) => c.name);
+  }
+
+  async function doImport() {
+    try {
+      const parsed = parseCSV(csvText);
+      if (parsed.length === 0) {
+        setImportResult({ error: 'Tidak ada baris valid ditemukan' });
+        return;
+      }
+      const result = await api('/contacts/bulk', { method: 'POST', body: { contacts: parsed } });
+      setImportResult({ ok: true, ...result });
+      await load();
+    } catch (err) {
+      setImportResult({ error: err.message });
+    }
+  }
+
+  function handleFileSelect(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setCsvText(ev.target.result);
+    reader.readAsText(file);
+  }
+
   const filtered = contacts.filter((c) => {
     const q = query.toLowerCase();
     return !q || c.name.toLowerCase().includes(q) || (c.phone || '').includes(q) || (c.email || '').toLowerCase().includes(q);
@@ -60,6 +108,7 @@ export default function Contacts() {
       <div className="toolbar">
         <input placeholder="Cari nama, no HP, email..." value={query} onChange={(e) => setQuery(e.target.value)} />
         <div className="spacer" />
+        <button onClick={() => { setShowImport(true); setCsvText(''); setImportResult(null); }}>📥 Import CSV</button>
         <button className="primary" onClick={openNew}>+ Tambah Kontak</button>
       </div>
 
@@ -100,6 +149,41 @@ export default function Contacts() {
           </table>
         )}
       </div>
+
+      {showImport && (
+        <div className="modal-backdrop" onClick={() => setShowImport(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 600 }}>
+            <h3>Import Kontak dari CSV</h3>
+            <p style={{ color: 'var(--muted)', marginTop: 0, fontSize: 13 }}>
+              Format CSV: baris pertama header. Kolom wajib: <code>name</code>. Opsional: <code>phone, email, tag, notes</code>.
+            </p>
+            <pre style={{ background: '#f3f4f6', padding: 10, fontSize: 12, borderRadius: 6, overflow: 'auto' }}>{`name,phone,email,tag
+Budi Santoso,628111222333,budi@email.com,VIP
+Siti Aminah,628444555666,,Hot Lead`}</pre>
+
+            <div className="form-row">
+              <label>Pilih file CSV</label>
+              <input type="file" accept=".csv,text/csv" onChange={handleFileSelect} />
+            </div>
+            <div className="form-row">
+              <label>Atau paste isi CSV di sini</label>
+              <textarea value={csvText} onChange={(e) => setCsvText(e.target.value)} rows={8} style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12 }} />
+            </div>
+
+            {importResult?.ok && (
+              <div style={{ background: '#ecfdf5', color: 'var(--success)', padding: 10, borderRadius: 6, marginTop: 8 }}>
+                ✓ Berhasil import {importResult.inserted} kontak. {importResult.skipped > 0 && `(${importResult.skipped} dilewati karena tidak ada nama)`}
+              </div>
+            )}
+            {importResult?.error && <div className="error-banner">{importResult.error}</div>}
+
+            <div className="modal-actions">
+              <button onClick={() => setShowImport(false)}>Tutup</button>
+              <button className="primary" onClick={doImport} disabled={!csvText.trim()}>Import</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {editing !== null && (
         <div className="modal-backdrop" onClick={() => setEditing(null)}>
