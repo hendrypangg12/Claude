@@ -26,6 +26,9 @@ export default function AppLayout() {
         <NavLink to="/dashboard" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
           📊 Dashboard
         </NavLink>
+        <NavLink to="/settings" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+          ⚙️ Pengaturan
+        </NavLink>
         <div className="user-box">
           <div className="uname">{user?.name}</div>
           <div className="uemail">{user?.email}</div>

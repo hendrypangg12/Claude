@@ -10,14 +10,20 @@ export default function Inbox() {
   const [draftAgent, setDraftAgent] = useState('');
   const [sending, setSending] = useState(false);
   const [showNew, setShowNew] = useState(false);
+  const [statusFilter, setStatusFilter] = useState('open'); // 'open' | 'resolved' | 'all'
   const bottomRef = useRef(null);
 
   const active = conversations.find((c) => c.id === activeId);
 
   async function loadConversations() {
-    const list = await api('/conversations');
+    const query = statusFilter === 'all' ? '' : `?status=${statusFilter}`;
+    const list = await api('/conversations' + query);
     setConversations(list);
-    if (list.length && !activeId) setActiveId(list[0].id);
+    if (list.length && !list.find((c) => c.id === activeId)) {
+      setActiveId(list[0].id);
+    } else if (!list.length) {
+      setActiveId(null);
+    }
   }
 
   async function loadMessages(id) {
@@ -26,9 +32,12 @@ export default function Inbox() {
   }
 
   useEffect(() => {
-    loadConversations();
     api('/contacts').then(setContacts);
   }, []);
+
+  useEffect(() => {
+    loadConversations();
+  }, [statusFilter]);
 
   useEffect(() => {
     if (activeId) loadMessages(activeId);
@@ -64,6 +73,14 @@ export default function Inbox() {
     await loadConversations();
   }
 
+  async function updateStatus(newStatus) {
+    await api(`/conversations/${activeId}`, {
+      method: 'PATCH',
+      body: { status: newStatus },
+    });
+    await loadConversations();
+  }
+
   async function startConversation(contactId) {
     const { id } = await api('/conversations', { method: 'POST', body: { contact_id: contactId } });
     setShowNew(false);
@@ -80,6 +97,21 @@ export default function Inbox() {
             <button onClick={() => setShowNew(true)} className="primary" style={{ padding: '5px 10px', fontSize: 12 }}>
               + Baru
             </button>
+          </div>
+          <div className="filter-tabs">
+            {[
+              { v: 'open', l: 'Aktif' },
+              { v: 'resolved', l: 'Selesai' },
+              { v: 'all', l: 'Semua' },
+            ].map((t) => (
+              <button
+                key={t.v}
+                className={'filter-tab' + (statusFilter === t.v ? ' active' : '')}
+                onClick={() => setStatusFilter(t.v)}
+              >
+                {t.l}
+              </button>
+            ))}
           </div>
           <div className="panel-body">
             {conversations.length === 0 ? (
@@ -113,7 +145,20 @@ export default function Inbox() {
           {active ? (
             <>
               <div className="panel-header">
-                <span>{active.contact_name} {active.contact_phone && <small style={{ color: 'var(--muted)', fontWeight: 400 }}>· {active.contact_phone}</small>}</span>
+                <span>
+                  {active.contact_name}
+                  {active.contact_phone && <small style={{ color: 'var(--muted)', fontWeight: 400 }}>· {active.contact_phone}</small>}
+                  {active.status === 'resolved' && <span className="tag" style={{ background: '#ecfdf5', color: 'var(--success)', marginLeft: 8 }}>Selesai</span>}
+                </span>
+                {active.status === 'resolved' ? (
+                  <button onClick={() => updateStatus('open')} style={{ padding: '5px 10px', fontSize: 12 }}>
+                    Buka Kembali
+                  </button>
+                ) : (
+                  <button onClick={() => updateStatus('resolved')} style={{ padding: '5px 10px', fontSize: 12, borderColor: 'var(--success)', color: 'var(--success)' }}>
+                    ✓ Tandai Selesai
+                  </button>
+                )}
               </div>
               <div className="toggle-row">
                 <input

@@ -5,17 +5,24 @@ import db from '../db.js';
 const router = Router();
 
 router.get('/', (req, res) => {
+  const status = req.query.status; // 'open' | 'resolved' | undefined (all)
+  const params = [req.userId];
+  let where = 'WHERE c.user_id = ?';
+  if (status === 'open' || status === 'resolved') {
+    where += ' AND c.status = ?';
+    params.push(status);
+  }
   const rows = db.prepare(`
-    SELECT c.id, c.contact_id, c.channel, c.ai_enabled, c.updated_at,
+    SELECT c.id, c.contact_id, c.channel, c.ai_enabled, c.status, c.updated_at,
            ct.name AS contact_name, ct.phone AS contact_phone, ct.tag AS contact_tag,
            (SELECT body FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_message,
            (SELECT sender FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_sender,
            (SELECT created_at FROM messages WHERE conversation_id = c.id ORDER BY id DESC LIMIT 1) AS last_at
     FROM conversations c
     JOIN contacts ct ON ct.id = c.contact_id
-    WHERE c.user_id = ?
+    ${where}
     ORDER BY COALESCE(last_at, c.updated_at) DESC
-  `).all(req.userId);
+  `).all(...params);
   res.json(rows);
 });
 
@@ -67,7 +74,7 @@ router.post('/:id/messages', async (req, res) => {
   db.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conv.id);
 
   let aiReply = null;
-  if (sender === 'customer' && conv.ai_enabled) {
+  if (sender === 'customer' && conv.ai_enabled && shouldAIRespond(req.userId)) {
     try {
       aiReply = await generateAIReply(req.userId, conv.id);
       if (aiReply) {
@@ -89,13 +96,47 @@ router.post('/:id/messages', async (req, res) => {
 });
 
 router.patch('/:id', (req, res) => {
-  const { ai_enabled } = req.body || {};
+  const fields = [];
+  const values = [];
+  if ('ai_enabled' in (req.body || {})) {
+    fields.push('ai_enabled = ?');
+    values.push(req.body.ai_enabled ? 1 : 0);
+  }
+  if ('status' in (req.body || {})) {
+    if (!['open', 'resolved'].includes(req.body.status)) {
+      return res.status(400).json({ error: 'status harus "open" atau "resolved"' });
+    }
+    fields.push('status = ?');
+    values.push(req.body.status);
+  }
+  if (fields.length === 0) return res.status(400).json({ error: 'Tidak ada field untuk diubah' });
+  values.push(req.params.id, req.userId);
   const result = db.prepare(
-    'UPDATE conversations SET ai_enabled = ? WHERE id = ? AND user_id = ?'
-  ).run(ai_enabled ? 1 : 0, req.params.id, req.userId);
+    `UPDATE conversations SET ${fields.join(', ')} WHERE id = ? AND user_id = ?`
+  ).run(...values);
   if (!result.changes) return res.status(404).json({ error: 'Percakapan tidak ditemukan' });
   res.json({ ok: true });
 });
+
+function shouldAIRespond(userId) {
+  const s = db.prepare('SELECT * FROM settings WHERE user_id = ?').get(userId);
+  if (!s || !s.working_hours_enabled) return true;
+
+  // Working hours enabled = AI only responds OUTSIDE work hours
+  // (humans handle during work hours, like Cekat.AI's flow)
+  const now = new Date();
+  // Convert to Asia/Jakarta time (WIB, UTC+7) since target market is Indonesia
+  const wibMs = now.getTime() + (now.getTimezoneOffset() + 7 * 60) * 60_000;
+  const wib = new Date(wibMs);
+  const day = wib.getDay(); // 0 = Sunday, 1 = Monday, etc.
+  const hhmm = wib.toTimeString().slice(0, 5);
+
+  const workDays = (s.work_days || '1,2,3,4,5').split(',').map((d) => parseInt(d, 10));
+  const isWorkDay = workDays.includes(day);
+  const inWorkHours = isWorkDay && hhmm >= s.work_start && hhmm < s.work_end;
+
+  return !inWorkHours; // AI replies only when humans aren't on shift
+}
 
 async function generateAIReply(userId, conversationId) {
   if (!process.env.ANTHROPIC_API_KEY) {

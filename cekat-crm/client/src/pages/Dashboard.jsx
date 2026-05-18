@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { api } from '../api.js';
 
 export default function Dashboard() {
-  const [stats, setStats] = useState({ contacts: 0, conversations: 0, aiActive: 0 });
+  const [stats, setStats] = useState({ contacts: 0, conversations: 0, open: 0, resolved: 0, aiActive: 0 });
 
   useEffect(() => {
     Promise.all([api('/contacts'), api('/conversations')]).then(([contacts, conversations]) => {
       setStats({
         contacts: contacts.length,
         conversations: conversations.length,
+        open: conversations.filter((c) => c.status === 'open').length,
+        resolved: conversations.filter((c) => c.status === 'resolved').length,
         aiActive: conversations.filter((c) => c.ai_enabled).length,
       });
     });
@@ -23,8 +25,12 @@ export default function Dashboard() {
           <div className="value">{stats.contacts}</div>
         </div>
         <div className="stat">
-          <div className="label">Percakapan</div>
-          <div className="value">{stats.conversations}</div>
+          <div className="label">Percakapan Aktif</div>
+          <div className="value">{stats.open}</div>
+        </div>
+        <div className="stat">
+          <div className="label">Selesai</div>
+          <div className="value" style={{ color: 'var(--success)' }}>{stats.resolved}</div>
         </div>
         <div className="stat">
           <div className="label">AI Agent Aktif</div>

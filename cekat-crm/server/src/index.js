@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.js';
 import contactsRoutes from './routes/contacts.js';
 import conversationsRoutes from './routes/conversations.js';
 import knowledgeRoutes from './routes/knowledge.js';
+import settingsRoutes from './routes/settings.js';
 import './db.js';
 
 const app = express();
@@ -17,6 +18,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/contacts', requireAuth, contactsRoutes);
 app.use('/api/conversations', requireAuth, conversationsRoutes);
 app.use('/api/knowledge', requireAuth, knowledgeRoutes);
+app.use('/api/settings', requireAuth, settingsRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

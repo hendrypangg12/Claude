@@ -187,6 +187,25 @@ label { display: block; margin-bottom: 6px; font-weight: 500; color: var(--text)
 .inbox-panel .panel-body { flex: 1; overflow-y: auto; }
 .inbox-panel .panel-footer { padding: 12px; border-top: 1px solid var(--border); }
 
+.filter-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 8px;
+  background: #fafbfc;
+}
+.filter-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 0;
+  font-weight: 500;
+}
+.filter-tab:hover { background: transparent; color: var(--text); }
+.filter-tab.active { color: var(--primary); border-bottom-color: var(--primary); background: transparent; }
+
 .conv-row {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);

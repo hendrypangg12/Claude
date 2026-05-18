@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import Inbox from './pages/Inbox.jsx';
 import Contacts from './pages/Contacts.jsx';
 import Knowledge from './pages/Knowledge.jsx';
+import Settings from './pages/Settings.jsx';
 
 function RequireAuth({ children }) {
   return getToken() ? children : <Navigate to="/login" replace />;
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="inbox" element={<Inbox />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="knowledge" element={<Knowledge />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
