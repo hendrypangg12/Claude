@@ -10,6 +10,7 @@ const DEFAULTS = {
   work_days: '1,2,3,4,5',
   business_name: '',
   greeting: '',
+  ai_tone: 'friendly',
 };
 
 router.get('/', (req, res) => {
@@ -25,7 +26,7 @@ router.put('/', (req, res) => {
     db.prepare(`
       UPDATE settings
       SET working_hours_enabled = ?, work_start = ?, work_end = ?, work_days = ?,
-          business_name = ?, greeting = ?, updated_at = datetime('now')
+          business_name = ?, greeting = ?, ai_tone = ?, updated_at = datetime('now')
       WHERE user_id = ?
     `).run(
       merged.working_hours_enabled ? 1 : 0,
@@ -34,12 +35,13 @@ router.put('/', (req, res) => {
       merged.work_days,
       merged.business_name,
       merged.greeting,
+      merged.ai_tone,
       req.userId
     );
   } else {
     db.prepare(`
-      INSERT INTO settings (user_id, working_hours_enabled, work_start, work_end, work_days, business_name, greeting)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO settings (user_id, working_hours_enabled, work_start, work_end, work_days, business_name, greeting, ai_tone)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
       req.userId,
       merged.working_hours_enabled ? 1 : 0,
@@ -47,7 +49,8 @@ router.put('/', (req, res) => {
       merged.work_end,
       merged.work_days,
       merged.business_name,
-      merged.greeting
+      merged.greeting,
+      merged.ai_tone
     );
   }
   res.json({ ok: true });

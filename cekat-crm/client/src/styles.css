@@ -313,7 +313,100 @@ tr:hover { background: #f9fafb; }
 }
 .toggle-row input[type="checkbox"] { width: auto; }
 
-.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
 .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 .stat .value { font-size: 28px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+
+/* === Dashboard grid + charts === */
+.dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-top: 14px; }
+.dash-grid > .card:nth-child(3) { grid-column: 1 / 2; }
+.dash-grid > .card:nth-child(4) { grid-column: 2 / 3; }
+
+.chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 180px; padding: 0 4px; }
+.chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.bar-stack { width: 100%; height: 100%; display: flex; flex-direction: column-reverse; gap: 1px; align-items: stretch; }
+.bar { width: 100%; min-height: 0; border-radius: 2px 2px 0 0; transition: opacity 0.15s; }
+.bar:hover { opacity: 0.85; }
+.bar-customer { background: #94a3b8; }
+.bar-ai { background: #10b981; }
+.bar-agent { background: var(--primary); }
+.chart-label { font-size: 10px; color: var(--muted); margin-top: 4px; white-space: nowrap; }
+
+.chart-legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--muted); justify-content: center; }
+.chart-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+
+.reply-dist { display: flex; flex-direction: column; gap: 10px; }
+.dist-row { display: grid; grid-template-columns: 90px 1fr 80px; gap: 10px; align-items: center; font-size: 13px; }
+.dist-label { color: var(--text); }
+.dist-bar-wrap { background: #f3f4f6; border-radius: 4px; height: 14px; overflow: hidden; }
+.dist-bar { height: 100%; transition: width 0.3s; }
+.dist-num { text-align: right; font-weight: 600; }
+.dist-num small { font-weight: 400; color: var(--muted); }
+
+.ai-share-highlight { margin-top: 18px; padding: 16px; background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-radius: var(--radius); text-align: center; }
+.ai-share-num { font-size: 36px; font-weight: 800; color: var(--success); line-height: 1; }
+.ai-share-label { font-weight: 600; margin-top: 4px; }
+.ai-share-sublabel { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+.insight-card { background: linear-gradient(135deg, #eef2ff, #f7f9fc); }
+.insight-list { list-style: none; padding: 0; margin: 0; }
+.insight-list li { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.insight-list li:last-child { border-bottom: none; }
+.insight-icon { font-size: 18px; margin-right: 8px; vertical-align: middle; }
+
+/* === Customer panel (inbox right) === */
+.customer-panel { display: flex; flex-direction: column; }
+.cust-header { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--border); }
+.cust-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; margin: 0 auto 10px; }
+.cust-name { font-weight: 600; font-size: 15px; }
+.cust-section { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.cust-section:last-child { border-bottom: none; }
+.cust-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px; }
+.cust-label { color: var(--muted); }
+.cust-notes { font-size: 13px; color: var(--text); background: #f9fafb; padding: 10px; border-radius: 6px; white-space: pre-wrap; }
+.sim-toggle { width: 100%; padding: 8px; background: #f3f4f6; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; text-align: left; cursor: pointer; font-weight: 500; }
+.sim-toggle:hover { background: #e5e7eb; }
+.btn-full { width: 100%; }
+
+/* === Tone selector === */
+.tone-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.tone-card { padding: 14px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: all 0.15s; background: white; }
+.tone-card:hover { border-color: var(--primary); }
+.tone-card.active { border-color: var(--primary); background: var(--primary-light); }
+.tone-emoji { font-size: 26px; margin-bottom: 4px; }
+.tone-label { font-weight: 600; margin-bottom: 4px; }
+.tone-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* === Mobile responsive === */
+@media (max-width: 900px) {
+  .app-shell { grid-template-columns: 1fr; height: auto; }
+  .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .sidebar .brand { padding: 16px; border-bottom: none; margin: 0; white-space: nowrap; }
+  .nav-link { padding: 16px 12px; border-left: none; border-bottom: 3px solid transparent; white-space: nowrap; flex-shrink: 0; }
+  .nav-link.active { border-left: none; border-bottom-color: var(--primary); }
+  .user-box { display: none; }
+
+  .main { padding: 14px; height: auto; }
+  .inbox-grid { grid-template-columns: 1fr; height: auto; gap: 12px; }
+  .inbox-panel { max-height: 70vh; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-grid > .card:nth-child(3),
+  .dash-grid > .card:nth-child(4) { grid-column: 1; }
+  .tone-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat .value { font-size: 22px; }
+
+  .chat-messages { padding: 12px; }
+  .msg { max-width: 85%; }
+}

@@ -138,6 +138,65 @@ th { background: #f9fafb; color: var(--muted); font-size: 12px; text-transform: 
 
 textarea { font-family: inherit; }
 .kb-textarea { width: 100%; min-height: 380px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); }
+
+/* Dashboard charts */
+.dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+.chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 180px; }
+.chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.bar-stack { width: 100%; height: 100%; display: flex; flex-direction: column-reverse; gap: 1px; }
+.bar { width: 100%; border-radius: 2px 2px 0 0; }
+.bar-customer { background: #94a3b8; }
+.bar-ai { background: #10b981; }
+.bar-agent { background: var(--primary); }
+.chart-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.chart-legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--muted); justify-content: center; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+.dist-row { display: grid; grid-template-columns: 90px 1fr 80px; gap: 10px; align-items: center; font-size: 13px; margin-bottom: 8px; }
+.dist-bar-wrap { background: #f3f4f6; border-radius: 4px; height: 14px; overflow: hidden; }
+.dist-bar { height: 100%; }
+.dist-num { text-align: right; font-weight: 600; }
+.dist-num small { font-weight: 400; color: var(--muted); }
+.ai-share-highlight { margin-top: 18px; padding: 16px; background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-radius: var(--radius); text-align: center; }
+.ai-share-num { font-size: 36px; font-weight: 800; color: var(--success); line-height: 1; }
+.ai-share-label { font-weight: 600; margin-top: 4px; }
+.ai-share-sublabel { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.insight-card { background: linear-gradient(135deg, #eef2ff, #f7f9fc); }
+.insight-list { list-style: none; padding: 0; margin: 0; }
+.insight-list li { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.insight-list li:last-child { border-bottom: none; }
+
+/* Customer panel */
+.cust-header { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--border); }
+.cust-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; margin: 0 auto 10px; }
+.cust-name { font-weight: 600; font-size: 15px; }
+.cust-section { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.cust-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px; }
+.cust-label { color: var(--muted); }
+.cust-notes { font-size: 13px; color: var(--text); background: #f9fafb; padding: 10px; border-radius: 6px; }
+.sim-toggle { width: 100%; padding: 8px; background: #f3f4f6; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; text-align: left; cursor: pointer; font-weight: 500; }
+
+/* Tone selector */
+.tone-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.tone-card { padding: 14px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer; background: white; }
+.tone-card.active { border-color: var(--primary); background: var(--primary-light); }
+.tone-emoji { font-size: 26px; margin-bottom: 4px; }
+.tone-label { font-weight: 600; margin-bottom: 4px; }
+.tone-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .app-shell { grid-template-columns: 1fr; height: auto; }
+  .sidebar { flex-direction: row; overflow-x: auto; padding: 0; border-right: none; border-bottom: 1px solid var(--border); }
+  .sidebar .brand { padding: 16px; border-bottom: none; margin: 0; white-space: nowrap; }
+  .nav-link { padding: 16px 12px; border-left: none; border-bottom: 3px solid transparent; white-space: nowrap; flex-shrink: 0; }
+  .nav-link.active { border-left: none; border-bottom-color: var(--primary); }
+  .user-box { display: none; }
+  .main { padding: 14px; height: auto; }
+  .inbox-grid { grid-template-columns: 1fr; height: auto; gap: 12px; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .tone-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -194,20 +253,72 @@ textarea { font-family: inherit; }
     <main class="main">
       <h2>Dashboard</h2>
       <div class="stat-grid">
-        <div class="stat"><div class="label">Total Kontak</div><div class="value">87</div></div>
-        <div class="stat"><div class="label">Percakapan Aktif</div><div class="value">12</div></div>
-        <div class="stat"><div class="label">Selesai</div><div class="value" style="color:var(--success)">34</div></div>
-        <div class="stat"><div class="label">AI Agent Aktif</div><div class="value">12</div></div>
+        <div class="stat"><div class="label">👥 Total Kontak</div><div class="value">87</div></div>
+        <div class="stat"><div class="label">💬 Percakapan Aktif</div><div class="value">12</div></div>
+        <div class="stat"><div class="label">✅ Selesai</div><div class="value" style="color:var(--success)">34</div></div>
+        <div class="stat"><div class="label">📨 Total Pesan</div><div class="value">1,247</div></div>
       </div>
-      <div class="card">
-        <h3>Selamat datang di Cekat CRM 👋</h3>
-        <p>Langkah cepat untuk mulai:</p>
-        <ol>
-          <li>Buka <strong>Knowledge Base</strong>, isi SOP & info bisnis Anda.</li>
-          <li>Tambahkan kontak pelanggan di menu <strong>Kontak</strong>.</li>
-          <li>Buka <strong>Inbox</strong>, mulai percakapan, dan aktifkan AI Agent.</li>
-          <li>Coba kirim pesan dari panel "Simulasi Pelanggan" — AI akan membalas otomatis.</li>
-        </ol>
+
+      <div class="dash-grid">
+        <div class="card">
+          <h3 style="margin-top:0">Aktivitas Pesan (14 Hari Terakhir)</h3>
+          <div class="chart-bars">
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:18%"></div><div class="bar bar-ai" style="height:25%"></div><div class="bar bar-agent" style="height:8%"></div></div><div class="chart-label">5/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:30%"></div><div class="bar bar-ai" style="height:35%"></div><div class="bar bar-agent" style="height:12%"></div></div><div class="chart-label">6/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:22%"></div><div class="bar bar-ai" style="height:28%"></div><div class="bar bar-agent" style="height:10%"></div></div><div class="chart-label">7/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:40%"></div><div class="bar bar-ai" style="height:45%"></div><div class="bar bar-agent" style="height:15%"></div></div><div class="chart-label">8/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:55%"></div><div class="bar bar-ai" style="height:60%"></div><div class="bar bar-agent" style="height:18%"></div></div><div class="chart-label">9/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:32%"></div><div class="bar bar-ai" style="height:40%"></div><div class="bar bar-agent" style="height:14%"></div></div><div class="chart-label">10/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:15%"></div><div class="bar bar-ai" style="height:20%"></div><div class="bar bar-agent" style="height:5%"></div></div><div class="chart-label">11/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:45%"></div><div class="bar bar-ai" style="height:55%"></div><div class="bar bar-agent" style="height:18%"></div></div><div class="chart-label">12/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:60%"></div><div class="bar bar-ai" style="height:65%"></div><div class="bar bar-agent" style="height:22%"></div></div><div class="chart-label">13/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:50%"></div><div class="bar bar-ai" style="height:58%"></div><div class="bar bar-agent" style="height:20%"></div></div><div class="chart-label">14/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:70%"></div><div class="bar bar-ai" style="height:78%"></div><div class="bar bar-agent" style="height:25%"></div></div><div class="chart-label">15/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:65%"></div><div class="bar bar-ai" style="height:72%"></div><div class="bar bar-agent" style="height:24%"></div></div><div class="chart-label">16/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:80%"></div><div class="bar bar-ai" style="height:85%"></div><div class="bar bar-agent" style="height:30%"></div></div><div class="chart-label">17/5</div></div>
+            <div class="chart-col"><div class="bar-stack"><div class="bar bar-customer" style="height:75%"></div><div class="bar bar-ai" style="height:82%"></div><div class="bar bar-agent" style="height:28%"></div></div><div class="chart-label">18/5</div></div>
+          </div>
+          <div class="chart-legend">
+            <span><i class="dot bar-customer"></i>Pelanggan</span>
+            <span><i class="dot bar-ai"></i>AI</span>
+            <span><i class="dot bar-agent"></i>Admin</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Distribusi Balasan</h3>
+          <div class="dist-row"><div>Pelanggan</div><div class="dist-bar-wrap"><div class="dist-bar bar-customer" style="width:42%"></div></div><div class="dist-num">524 <small>(42%)</small></div></div>
+          <div class="dist-row"><div>AI Agent</div><div class="dist-bar-wrap"><div class="dist-bar bar-ai" style="width:45%"></div></div><div class="dist-num">561 <small>(45%)</small></div></div>
+          <div class="dist-row"><div>Admin Manual</div><div class="dist-bar-wrap"><div class="dist-bar bar-agent" style="width:13%"></div></div><div class="dist-num">162 <small>(13%)</small></div></div>
+          <div class="ai-share-highlight">
+            <div class="ai-share-num">78%</div>
+            <div class="ai-share-label">balasan otomatis oleh AI</div>
+            <div class="ai-share-sublabel">✨ AI handle mayoritas — tim CS bisa fokus ke kasus kompleks</div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column:1/2">
+          <h3 style="margin-top:0">Pelanggan Paling Aktif</h3>
+          <table>
+            <thead><tr><th>Nama</th><th>Telepon</th><th style="text-align:right">Pesan</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Siti Aminah</strong> <span class="tag">VIP</span></td><td>628123456789</td><td style="text-align:right;font-weight:600">87</td></tr>
+              <tr><td><strong>Dewi Rahma</strong> <span class="tag">Hot Lead</span></td><td>628999888777</td><td style="text-align:right;font-weight:600">62</td></tr>
+              <tr><td><strong>Maya Putri</strong> <span class="tag">VIP</span></td><td>628555444333</td><td style="text-align:right;font-weight:600">54</td></tr>
+              <tr><td><strong>Budi Santoso</strong></td><td>628111222333</td><td style="text-align:right;font-weight:600">41</td></tr>
+              <tr><td><strong>Andi Wijaya</strong></td><td>628777666555</td><td style="text-align:right;font-weight:600">38</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card insight-card" style="grid-column:2/3">
+          <h3 style="margin-top:0">💡 Insight & Saran</h3>
+          <ul class="insight-list">
+            <li>🎉 AI handle 78% — tim Anda bisa fokus closing & kasus rumit.</li>
+            <li>⚠️ Ada 12 percakapan aktif. Jangan lupa tandai "Selesai" yang sudah tuntas.</li>
+            <li>✅ Knowledge base lengkap — pertahankan kualitas dengan update berkala.</li>
+          </ul>
+        </div>
       </div>
     </main>
   </div>
@@ -317,15 +428,28 @@ textarea { font-family: inherit; }
           </div>
         </div>
 
-        <!-- Simulator -->
+        <!-- Customer info panel -->
         <div class="inbox-panel">
-          <div class="panel-header">Simulasi Pelanggan</div>
-          <div class="panel-body" style="padding:16px">
-            <p style="font-size:12px;color:var(--muted);margin-top:0">
-              Belum integrasi WhatsApp? Ketik di sini untuk simulasi pesan dari pelanggan. Jika AI aktif, balasan otomatis akan muncul.
-            </p>
-            <textarea rows="4" placeholder="Pesan sebagai Siti Aminah..." style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius);font-family:inherit"></textarea>
-            <button class="btn primary full" style="margin-top:8px">Kirim Pesan Pelanggan</button>
+          <div class="panel-header">Info Pelanggan</div>
+          <div class="panel-body" style="padding:0">
+            <div class="cust-header">
+              <div class="cust-avatar">S</div>
+              <div class="cust-name">Siti Aminah</div>
+              <span class="tag" style="display:inline-block;margin-top:4px">VIP</span>
+            </div>
+            <div class="cust-section">
+              <div class="cust-row"><span class="cust-label">📱 Telepon</span><span>628123456789</span></div>
+              <div class="cust-row"><span class="cust-label">✉️ Email</span><span>siti@email.com</span></div>
+              <div class="cust-row"><span class="cust-label">📡 Channel</span><span>WhatsApp</span></div>
+              <div class="cust-row"><span class="cust-label">📊 Status</span><span>Aktif</span></div>
+            </div>
+            <div class="cust-section">
+              <div class="cust-label" style="margin-bottom:6px">📝 Catatan</div>
+              <div class="cust-notes">Pelanggan setia, suka sepatu sneakers. Total order: 8 kali.</div>
+            </div>
+            <div class="cust-section">
+              <button class="sim-toggle">▸ Simulasi Pesan Pelanggan</button>
+            </div>
           </div>
         </div>
       </div>
@@ -449,6 +573,17 @@ Boleh COD untuk area Jakarta saja.
         <h3>Informasi Bisnis</h3>
         <div class="form-row"><label>Nama bisnis (untuk salam AI)</label><input value="Toko Maju Jaya" /></div>
         <div class="form-row"><label>Pesan sambutan (otomatis dikirim ke pelanggan baru)</label><textarea rows="3">Halo! Selamat datang di Toko Maju Jaya. Ada yang bisa kami bantu? 😊</textarea></div>
+      </div>
+
+      <div class="card">
+        <h3>Karakter / Tone AI Agent</h3>
+        <p style="color:var(--muted);margin-top:0">Pilih gaya bicara AI saat membalas pelanggan.</p>
+        <div class="tone-grid">
+          <div class="tone-card active"><div class="tone-emoji">😊</div><div class="tone-label">Ramah</div><div class="tone-desc">Sapaan "kak", santai, sesekali emoji. Cocok untuk toko online, F&B.</div></div>
+          <div class="tone-card"><div class="tone-emoji">🎩</div><div class="tone-label">Formal</div><div class="tone-desc">Sapaan "Bapak/Ibu", profesional. Cocok untuk B2B, jasa hukum, finansial.</div></div>
+          <div class="tone-card"><div class="tone-emoji">🎉</div><div class="tone-label">Santai & Hangat</div><div class="tone-desc">Sedikit humor, banyak emoji. Cocok untuk fashion anak muda, lifestyle.</div></div>
+          <div class="tone-card"><div class="tone-emoji">⚡</div><div class="tone-label">Singkat</div><div class="tone-desc">Jawab to the point, maks 2 kalimat. Cocok untuk klinik, jadwal booking.</div></div>
+        </div>
       </div>
 
       <div class="card">

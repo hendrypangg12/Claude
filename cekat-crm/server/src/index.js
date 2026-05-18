@@ -8,6 +8,7 @@ import conversationsRoutes from './routes/conversations.js';
 import knowledgeRoutes from './routes/knowledge.js';
 import settingsRoutes from './routes/settings.js';
 import quickRepliesRoutes from './routes/quick-replies.js';
+import analyticsRoutes from './routes/analytics.js';
 import twilioWebhookRoutes from './routes/twilio-webhook.js';
 import './db.js';
 
@@ -27,6 +28,7 @@ app.use('/api/conversations', requireAuth, conversationsRoutes);
 app.use('/api/knowledge', requireAuth, knowledgeRoutes);
 app.use('/api/settings', requireAuth, settingsRoutes);
 app.use('/api/quick-replies', requireAuth, quickRepliesRoutes);
+app.use('/api/analytics', requireAuth, analyticsRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

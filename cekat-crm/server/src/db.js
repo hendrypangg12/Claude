@@ -65,6 +65,7 @@ db.exec(`
     work_days TEXT DEFAULT '1,2,3,4,5',
     business_name TEXT DEFAULT '',
     greeting TEXT DEFAULT '',
+    ai_tone TEXT DEFAULT 'friendly',
     updated_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
   );
@@ -79,10 +80,14 @@ db.exec(`
   );
 `);
 
-// Migration: add status column to conversations if it doesn't exist (for older DB files)
+// Migrations for existing DB files
 const convCols = db.prepare('PRAGMA table_info(conversations)').all();
 if (!convCols.some((c) => c.name === 'status')) {
   db.exec("ALTER TABLE conversations ADD COLUMN status TEXT DEFAULT 'open'");
+}
+const settingsCols = db.prepare('PRAGMA table_info(settings)').all();
+if (settingsCols.length > 0 && !settingsCols.some((c) => c.name === 'ai_tone')) {
+  db.exec("ALTER TABLE settings ADD COLUMN ai_tone TEXT DEFAULT 'friendly'");
 }
 
 export default db;

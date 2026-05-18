@@ -27,19 +27,27 @@ export async function generateAIReply(userId, conversationId) {
   }
 
   const knowledge = db.prepare('SELECT content FROM knowledge WHERE user_id = ?').get(userId);
-  const settings = db.prepare('SELECT business_name FROM settings WHERE user_id = ?').get(userId);
+  const settings = db.prepare('SELECT business_name, ai_tone FROM settings WHERE user_id = ?').get(userId);
   const recentMessages = db.prepare(`
     SELECT sender, body FROM messages
     WHERE conversation_id = ?
     ORDER BY id DESC LIMIT 20
   `).all(conversationId).reverse();
 
+  const toneInstruction = {
+    friendly: 'Pakai gaya bahasa ramah dan santai, sapaan "kak". Boleh pakai emoji sesekali.',
+    formal: 'Pakai gaya bahasa formal dan profesional, sapaan "Bapak/Ibu". Hindari singkatan dan emoji.',
+    playful: 'Pakai gaya bahasa santai, hangat, dengan sedikit humor. Pakai emoji untuk membuat suasana enak.',
+    concise: 'Jawab sangat singkat dan to the point. Maksimal 2 kalimat per balasan kecuali harus menjelaskan detail.',
+  }[settings?.ai_tone || 'friendly'];
+
   const systemBlocks = [
     {
       type: 'text',
       text: [
         `Kamu adalah AI customer service untuk ${settings?.business_name || 'bisnis ini'}.`,
-        'Jawab dengan ramah, singkat, dan menggunakan Bahasa Indonesia yang natural.',
+        'Jawab menggunakan Bahasa Indonesia yang natural.',
+        toneInstruction,
         'Jika tidak tahu jawabannya, akui jujur dan tawarkan untuk diteruskan ke admin manusia.',
         'Jangan mengarang harga, jadwal, atau kebijakan yang tidak ada di knowledge base.',
         '',

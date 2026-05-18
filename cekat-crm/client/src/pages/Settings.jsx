@@ -29,6 +29,7 @@ export default function Settings() {
         work_days: (data.work_days || '1,2,3,4,5').split(',').map((d) => parseInt(d, 10)),
         business_name: data.business_name || '',
         greeting: data.greeting || '',
+        ai_tone: data.ai_tone || 'friendly',
       });
     });
     loadTemplates();
@@ -104,6 +105,29 @@ export default function Settings() {
           <small style={{ color: 'var(--muted)' }}>
             Pesan ini muncul otomatis saat percakapan baru dibuat (dari WhatsApp atau dari menu Inbox).
           </small>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3 style={{ marginTop: 0 }}>Karakter / Tone AI Agent</h3>
+        <p style={{ color: 'var(--muted)', marginTop: 0 }}>Pilih gaya bicara AI saat membalas pelanggan.</p>
+        <div className="tone-grid">
+          {[
+            { v: 'friendly', emoji: '😊', label: 'Ramah', desc: 'Sapaan "kak", santai, sesekali emoji. Cocok untuk toko online, F&B.' },
+            { v: 'formal', emoji: '🎩', label: 'Formal', desc: 'Sapaan "Bapak/Ibu", profesional. Cocok untuk B2B, jasa hukum, finansial.' },
+            { v: 'playful', emoji: '🎉', label: 'Santai & Hangat', desc: 'Sedikit humor, banyak emoji. Cocok untuk fashion anak muda, lifestyle.' },
+            { v: 'concise', emoji: '⚡', label: 'Singkat', desc: 'Jawab to the point, maks 2 kalimat. Cocok untuk klinik, jadwal booking.' },
+          ].map((opt) => (
+            <div
+              key={opt.v}
+              className={'tone-card' + (s.ai_tone === opt.v ? ' active' : '')}
+              onClick={() => setS({ ...s, ai_tone: opt.v })}
+            >
+              <div className="tone-emoji">{opt.emoji}</div>
+              <div className="tone-label">{opt.label}</div>
+              <div className="tone-desc">{opt.desc}</div>
+            </div>
+          ))}
         </div>
       </div>
 

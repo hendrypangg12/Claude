@@ -255,31 +255,19 @@ export default function Inbox() {
         </div>
 
         <div className="inbox-panel">
-          <div className="panel-header">Simulasi Pelanggan</div>
-          <div className="panel-body" style={{ padding: 16 }}>
-            <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 0 }}>
-              Karena belum ada integrasi WhatsApp/Instagram, ketik di sini untuk simulasi pesan dari pelanggan.
-              Jika AI aktif, balasan otomatis akan muncul.
-            </p>
+          <div className="panel-header">Info Pelanggan</div>
+          <div className="panel-body" style={{ padding: 0 }}>
             {active ? (
-              <>
-                <textarea
-                  value={draftCustomer}
-                  onChange={(e) => setDraftCustomer(e.target.value)}
-                  placeholder={`Pesan sebagai ${active.contact_name}...`}
-                  rows={4}
-                />
-                <button
-                  className="primary"
-                  style={{ width: '100%', marginTop: 8 }}
-                  disabled={sending || !draftCustomer.trim()}
-                  onClick={() => send('customer', draftCustomer, setDraftCustomer)}
-                >
-                  {sending ? 'Mengirim...' : 'Kirim Pesan Pelanggan'}
-                </button>
-              </>
+              <CustomerPanel
+                conversation={active}
+                fullContact={contacts.find((c) => c.id === active.contact_id)}
+                draftCustomer={draftCustomer}
+                setDraftCustomer={setDraftCustomer}
+                onSendCustomer={() => send('customer', draftCustomer, setDraftCustomer)}
+                sending={sending}
+              />
             ) : (
-              <div style={{ color: 'var(--muted)', fontSize: 13 }}>Pilih percakapan dulu.</div>
+              <div style={{ color: 'var(--muted)', fontSize: 13, padding: 16 }}>Pilih percakapan dulu.</div>
             )}
           </div>
         </div>
@@ -327,4 +315,81 @@ function formatTime(iso) {
   } catch {
     return iso;
   }
+}
+
+function CustomerPanel({ conversation, fullContact, draftCustomer, setDraftCustomer, onSendCustomer, sending }) {
+  const [showSim, setShowSim] = useState(false);
+  const c = fullContact || {
+    name: conversation.contact_name,
+    phone: conversation.contact_phone,
+    tag: conversation.contact_tag,
+  };
+  const initial = (c.name || '?').trim()[0]?.toUpperCase() || '?';
+
+  return (
+    <div className="customer-panel">
+      <div className="cust-header">
+        <div className="cust-avatar">{initial}</div>
+        <div className="cust-name">{c.name}</div>
+        {c.tag && <span className="tag" style={{ display: 'inline-block', marginTop: 4 }}>{c.tag}</span>}
+      </div>
+
+      <div className="cust-section">
+        <div className="cust-row">
+          <span className="cust-label">📱 Telepon</span>
+          <span>{c.phone || '-'}</span>
+        </div>
+        <div className="cust-row">
+          <span className="cust-label">✉️ Email</span>
+          <span>{c.email || '-'}</span>
+        </div>
+        <div className="cust-row">
+          <span className="cust-label">📡 Channel</span>
+          <span>{conversation.channel === 'whatsapp' ? 'WhatsApp' : 'Simulator'}</span>
+        </div>
+        <div className="cust-row">
+          <span className="cust-label">📊 Status</span>
+          <span>{conversation.status === 'resolved' ? 'Selesai' : 'Aktif'}</span>
+        </div>
+      </div>
+
+      {c.notes && (
+        <div className="cust-section">
+          <div className="cust-label" style={{ marginBottom: 6 }}>📝 Catatan</div>
+          <div className="cust-notes">{c.notes}</div>
+        </div>
+      )}
+
+      <div className="cust-section">
+        <button
+          className="btn-full sim-toggle"
+          onClick={() => setShowSim(!showSim)}
+        >
+          {showSim ? '▾' : '▸'} Simulasi Pesan Pelanggan
+        </button>
+        {showSim && (
+          <div style={{ marginTop: 10 }}>
+            <p style={{ fontSize: 11, color: 'var(--muted)', marginTop: 0 }}>
+              Ketik pesan untuk simulasi pelanggan. Jika AI aktif, balasan otomatis muncul.
+            </p>
+            <textarea
+              value={draftCustomer}
+              onChange={(e) => setDraftCustomer(e.target.value)}
+              placeholder={`Pesan sebagai ${c.name}...`}
+              rows={3}
+              style={{ width: '100%', padding: 8, border: '1px solid var(--border)', borderRadius: 6, fontFamily: 'inherit', fontSize: 13 }}
+            />
+            <button
+              className="primary btn-full"
+              style={{ marginTop: 6, padding: '8px 14px', border: '1px solid var(--primary)', background: 'var(--primary)', color: 'white', borderRadius: 6, cursor: 'pointer' }}
+              disabled={sending || !draftCustomer.trim()}
+              onClick={onSendCustomer}
+            >
+              {sending ? 'Mengirim...' : 'Kirim'}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

@@ -15,7 +15,9 @@ Aplikasi CRM omnichannel + AI Agent mini, inspired by Cekat.AI. AI Agent pakai C
 - 🕐 **Jam Kerja AI** — AI hanya balas di luar jam kerja, dalam jam kerja admin handle
 - 👋 **Auto-greeting** — sapaan otomatis untuk pelanggan baru
 - 📱 **Integrasi WhatsApp** via Twilio Sandbox (opsional)
-- 📊 Dashboard ringkasan
+- 📊 **Dashboard analytics** — grafik aktivitas 14 hari, distribusi balasan, top pelanggan, insight otomatis
+- 🎭 **Personalisasi tone AI** — 4 karakter (Ramah/Formal/Santai/Singkat) per bisnis
+- 📱 **Mobile responsive** — bisa demo dari HP
 
 ## Stack
 
