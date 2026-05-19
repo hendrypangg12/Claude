@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <div className="auth-wrap">
       <form className="auth-card" onSubmit={handleSubmit}>
-        <h1>Cekat CRM</h1>
+        <h1>BerBisnis</h1>
         <div className="subtitle">Masuk ke akun Anda</div>
         {error && <div className="error-banner">{error}</div>}
         <div className="form-row">

@@ -13,7 +13,7 @@ export default function AppLayout() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <div className="brand">Cekat CRM</div>
+        <div className="brand">BerBisnis</div>
         <NavLink to="/inbox" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
           💬 Inbox
         </NavLink>

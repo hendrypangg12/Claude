@@ -1,4 +1,4 @@
-# Cekat CRM (MVP)
+# BerBisnis (MVP)
 
 Aplikasi CRM omnichannel + AI Agent mini, inspired by Cekat.AI. AI Agent pakai Claude Haiku 4.5 dengan prompt caching untuk knowledge base.
 

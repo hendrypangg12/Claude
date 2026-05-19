@@ -1,5 +1,5 @@
-const TOKEN_KEY = 'cekat_token';
-const USER_KEY = 'cekat_user';
+const TOKEN_KEY = 'berbisnis_token';
+const USER_KEY = 'berbisnis_user';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);

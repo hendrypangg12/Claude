@@ -1,6 +1,6 @@
-# Sales Kit — Cekat CRM
+# Sales Kit — BerBisnis
 
-Panduan praktis untuk jualan jasa Cekat CRM ke UMKM Indonesia. Berisi script WhatsApp, pertanyaan validasi, objection handler, dan pricing rationale.
+Panduan praktis untuk jualan jasa BerBisnis ke UMKM Indonesia. Berisi script WhatsApp, pertanyaan validasi, objection handler, dan pricing rationale.
 
 ---
 
@@ -32,7 +32,7 @@ Bukan minta uang dulu — tapi dapat **komitmen verbal** + **deposit kecil** (Rp
 ```
 Halo kak [nama bisnis]! 👋
 
-Saya [nama] dari Cekat CRM. Saya lagi bantu beberapa
+Saya [nama] dari BerBisnis. Saya lagi bantu beberapa
 [industry — mis. toko online fashion] untuk balas chat WhatsApp
 otomatis pakai AI, biar tim CS gak kewalahan.
 
@@ -64,7 +64,7 @@ balas chat WhatsApp pelanggan, kabari aja — aku bisa setup-in.
 ### Script C — Existing customer (kalau sudah ada 1-2 klien)
 
 ```
-Halo kak, saya [nama] dari Cekat CRM. Saya lihat [nama bisnis]
+Halo kak, saya [nama] dari BerBisnis. Saya lihat [nama bisnis]
 aktif banget di WhatsApp.
 
 Kami baru bantu [nama klien existing — sebut industri kalau bisa]
@@ -150,7 +150,7 @@ Saya paham. Tapi coba bandingkan:
 - 1 staff CS = Rp 4-6 juta/bulan
 - 1 hari lewat tanpa balas = kehilangan ~5 customer = Rp 500rb-1jt
 
-Cekat Starter Rp 299rb itu lebih murah dari 1 hari kehilangan
+BerBisnis Starter Rp 299rb itu lebih murah dari 1 hari kehilangan
 customer. Plus jalan 24/7 tanpa libur.
 
 Saya bisa hitung ROI khusus untuk bisnis kakak kalau mau.
@@ -161,7 +161,7 @@ Jumlah chat kakak per hari berapa?
 
 ```
 Bener bisa kelihatan kalau AI-nya gak di-training dengan baik.
-Tapi yang Cekat pakai itu AI Claude (sama yang dipakai Anthropic) —
+Tapi yang BerBisnis pakai itu AI Claude (sama yang dipakai Anthropic) —
 bukan chatbot if-else jadul.
 
 Kalau dilatih dengan SOP bisnis kakak, AI bisa pakai bahasa
@@ -199,7 +199,7 @@ Kakak tetap pegang kontrol penuh.
 Iya kak, chatbot lama yang flow if-else memang sering frustrating.
 Pelanggan ketik bebas, bot mentok karena gak ada di menu.
 
-Cekat beda — pakai AI Claude yang bisa nangkep maksud dari kalimat
+BerBisnis beda — pakai AI Claude yang bisa nangkep maksud dari kalimat
 bebas. Customer ngetik "harga sepatu yg merah brp?" atau
 "hrg sepatu warna merah berapa ya kak" — sama-sama dipahami.
 
@@ -211,7 +211,7 @@ Mau saya tunjukin perbedaannya live?
 ```
 3 hal yang membedakan:
 
-1. Harga: Cekat CRM mulai Rp 299rb. Kompetitor besar mulai Rp 700rb-2jt.
+1. Harga: BerBisnis mulai Rp 299rb. Kompetitor besar mulai Rp 700rb-2jt.
    Kami fokus ke UMKM Indonesia.
 
 2. Setup pakai bahasa Indonesia, support via WhatsApp dengan tim lokal.
@@ -340,7 +340,7 @@ Margin kasar:
 - [ ] **Sales script ini** — print atau bookmark
 - [ ] **WhatsApp Business account** dengan profile lengkap
 - [ ] **Instagram bisnis** (opsional tapi membantu credibility)
-- [ ] **Domain + email** misalnya `nama@cekatcrm.id` (lebih credible dari gmail)
+- [ ] **Domain + email** misalnya `nama@berbisnis.id` (lebih credible dari gmail)
 - [ ] **Invoice template** untuk klien pertama
 - [ ] **Kontrak SaaS template** (Google "template SaaS agreement Indonesia")
 
