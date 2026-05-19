@@ -1,6 +1,6 @@
 # BerBisnis (MVP)
 
-Aplikasi CRM omnichannel + AI Agent mini, inspired by Cekat.AI. AI Agent pakai Claude Haiku 4.5 dengan prompt caching untuk knowledge base.
+Aplikasi CRM omnichannel + AI Agent mini untuk UMKM Indonesia. AI Agent pakai Claude Haiku 4.5 dengan prompt caching untuk knowledge base.
 
 ## Fitur
 
@@ -156,5 +156,5 @@ Estimasi: 1 chat (10 turn) ≈ Rp 50-200 tergantung panjang KB.
 
 Sebelum scaling fitur:
 1. **Validasi dulu ke 3-5 bisnis pilot** — apakah mau bayar?
-2. **Bedakan dari Cekat.AI** — pilih niche (mis. khusus dental clinic) atau harga lebih murah
+2. **Bedakan dari SaaS chatbot besar** — pilih niche (mis. khusus dental clinic) atau harga lebih murah
 3. **WhatsApp resmi (Meta Business API)** butuh verifikasi bisnis + setup tidak instan

@@ -6,7 +6,7 @@ export function shouldAIRespond(userId) {
   if (!s || !s.working_hours_enabled) return true;
 
   // Working hours enabled = AI only responds OUTSIDE work hours
-  // (humans handle during work hours, like Cekat.AI's flow)
+  // (humans handle during work hours)
   const now = new Date();
   // Convert to Asia/Jakarta time (WIB, UTC+7)
   const wibMs = now.getTime() + (now.getTimezoneOffset() + 7 * 60) * 60_000;

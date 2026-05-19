@@ -53,8 +53,8 @@ buat lihat cara kerjanya.
 
 ```
 Halo [nama], ini [namamu]. Lagi ada side project bikin AI customer
-service buat bisnis Indonesia (kompetitor Cekat.AI tapi lebih
-terjangkau untuk UMKM).
+service khusus untuk UMKM Indonesia — harga terjangkau dan
+support pakai bahasa lokal.
 
 Lagi cari 3 bisnis untuk early access gratis 14 hari, sebagai
 feedback partner. Kalau pas [nama bisnis dia] lagi struggle dengan
@@ -206,7 +206,7 @@ bebas. Customer ngetik "harga sepatu yg merah brp?" atau
 Mau saya tunjukin perbedaannya live?
 ```
 
-### "Apa bedanya dengan Cekat.AI / WATI / sejenisnya?"
+### "Apa bedanya dengan SaaS chatbot lain?"
 
 ```
 3 hal yang membedakan:
