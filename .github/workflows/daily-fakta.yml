@@ -25,14 +25,14 @@ on:
           - luarangkasa
           - teknologi
       post_mode:
-        description: "Mau post apa?"
+        description: "Mau post apa? (auto harian = carousel; reel post manual + trending audio)"
         required: false
-        default: "both"
+        default: "carousel"
         type: choice
         options:
-          - both
-          - reel
           - carousel
+          - reel
+          - both
 
 jobs:
   post:
@@ -102,7 +102,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          POST_MODE: ${{ github.event.inputs.post_mode || 'both' }}
+          POST_MODE: ${{ github.event.inputs.post_mode || 'carousel' }}
           PUB_DIR: published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
