@@ -4,6 +4,44 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
+This repo holds two unrelated things — don't assume one when working on the other:
+
+1. **`index.html`** — a single-file browser game (Nokia 3310-style Snake). See "Snake game" below.
+2. **Berstock.ID content systems** — Python pipelines + a PWA that auto-generate daily
+   Instagram content (news carousels, quotes) and brand viral clips. This is the bulk of
+   the repo and what is actively run via GitHub Actions. See "Content systems" below.
+
+(Also `trading-demo.html` = a standalone "Crypto Short — Paper Trading" demo page.)
+
+## Content systems (Berstock.ID) — the active project
+
+Auto-posts daily IG content for **@berstock.id** (bisnis / saham / ekonomi / teknologi).
+
+| Subsystem | Folder | Pipeline |
+|---|---|---|
+| **Daily news carousel** | `daily-news-poster/` | NewsAPI/RSS → Claude (`caption_generator.py`: pick + caption + headline + 3 points + takeaway) → article/Google image → `image_maker.py` (Pillow, 1080×1080 ×3 slides) → `out/<ts>/` → IG Graph API (`instagram_uploader.py`) |
+| **Daily quote ("Lalu")** | `daily-quote-poster/` | Claude (`quote_generator.py`) → `quote_image_maker.py` → `out/<ts>/` |
+| **Viral clipper** | `viral-clipper/` | `clip_viral.py`: yt-dlp download → Pillow overlay (brand chip + `via @creator` credit) → ffmpeg burn-in → `out/<ts>/branded.mp4` |
+| **Frontend PWA** | `docs/` | "Daily Generator" UI (`index.html` = Berita, `lalu.html` = Quote). Reads `manifest.json` / `lalu-manifest.json`. Hosted on GitHub Pages. |
+| **Automation** | `.github/workflows/` | `daily-post.yml` (4 niche slots/day) + `daily-quote.yml` (4 mood slots/day). Run `DRY_RUN=true` (semi-manual): generate → commit to repo → upload artifact; no auto-IG. |
+
+Key facts:
+- **Model:** `claude-sonnet-4-6` (in `caption_generator.py` / `quote_generator.py`).
+- **News niches** (cron, WIB): `pagi` (pemerintahan, 06:30), `saham` (12:00), `market` (18:00), `startup` (21:00), `ai` (manual). Niche hints live in `NICHE_PICK_HINTS`.
+- **Design system:** navy+gold editorial, **Poppins** bundled in `daily-news-poster/fonts/`
+  (shared by the clipper). `image_maker.py` renders at 2× then downscales (supersampling)
+  for crisp type; slides 2 & 3 use a clean branded background (no muddy photo reuse).
+  Palette: navy `(20,26,38)` / deep `(11,15,23)`, gold `(255,196,0)`, ink-on-gold `(15,18,26)`.
+- **Secrets (GH Actions):** `NEWSAPI_KEY`, `ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, `GOOGLE_CSE_ID`
+  (+ `IG_USER_ID`/`IG_ACCESS_TOKEN` only for real auto-upload). See `daily-news-poster/README.md`.
+- **`out/`** is committed for news/quote (drives the PWA) but **gitignored** for `viral-clipper/`
+  (don't commit third-party video into the repo).
+- **Rights caveat (clipper):** reposting others' content raw can infringe copyright / violate IG
+  ToS (takedown/strike/ban). The clipper adds a credit by default, but credit ≠ permission —
+  prefer own/permitted content or transform it, and keep sources on-niche.
+
+## Snake game
+
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
 
 History note: the repo previously hosted Flappy Bird, then Tetris, then was replaced by Snake (see `git log`). When asked to swap the game, replace `index.html` wholesale rather than layering games side-by-side.
