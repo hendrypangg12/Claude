@@ -74,6 +74,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
       - name: Siapkan media publik + commit
+        if: ${{ github.event.inputs.post_mode != 'none' }}
         working-directory: ${{ github.workspace }}
         run: |
           TS=$(ls -t fakta-poster/out | head -1)
@@ -104,6 +105,7 @@ jobs:
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Publish ke Instagram (carousel + reel)
+        if: ${{ github.event.inputs.post_mode != 'none' }}
         run: |
           sleep 12   # beri waktu raw.githubusercontent serve file baru
           python publish_ig.py
