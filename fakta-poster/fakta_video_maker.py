@@ -52,7 +52,9 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
     max_w = RW - 2 * s(PAD)
 
     hook_lines = _wrap(hook, hf, max_w)
-    fact_lines = _wrap(fact, ff, max_w)
+    fact_lines = []  # respect explicit newlines (buat daftar dampak/bullet)
+    for raw in fact.split("\n"):
+        fact_lines.extend(_wrap(raw, ff, max_w) if raw.strip() else [""])
     hook_lh = int(hf.size * 1.07)
     fact_lh = int(ff.size * 1.26)
 
