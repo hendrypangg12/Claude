@@ -20,15 +20,18 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 }
 
 Aturan konten:
+- VIRAL DULUAN: pilih fakta dengan potensi viral TINGGI — yang bikin orang langsung "HAH, SERIUS?!", pengen tag temen, share, atau save. DILARANG fakta kering/textbook yang ngebosenin.
+- Yang paling nampol (prioritaskan): counterintuitive (kebalik dari yang orang kira) · relatable ke kebiasaan sehari-hari ("hal yang lo lakuin tiap hari ternyata...") · bikin merinding/ngakak/kagum · angka yang gak masuk akal · mitos populer yang ternyata SALAH.
 - BEBAS dari SEGALA bidang: sains, sejarah, tubuh manusia, hewan, luar angkasa, teknologi, geografi, makanan, ekonomi/uang, rekor dunia, budaya, alam — apa aja yang bikin "wah".
-- WAJIB benar & bisa diverifikasi. DILARANG mitos, hoaks, atau 'fakta' palsu yang beredar di internet.
+- WAJIB benar & bisa diverifikasi. DILARANG mitos, hoaks, atau 'fakta' palsu yang beredar di internet. (Viral TAPI tetap akurat — jangan korbankan kebenaran demi sensasi.)
 - WAJIB EVERGREEN (tetap benar kapan pun). DILARANG fakta yang butuh angka real-time / berubah-ubah — mis. kurs/harga "hari ini", "saat ini", rekor "terbaru", skor terkini. Kamu TIDAK punya data live, jadi angka begitu bisa salah/kadaluarsa. (Boleh: fakta sejarah/permanen, mis. "mata uang dengan inflasi tertinggi dalam sejarah", "kota terpadat di dunia".)
 - Pilih yang benar-benar bikin 'wah', BUKAN yang umum diketahui (hindari hal yang semua orang sudah tahu).
 - Bahasa Indonesia santai, gaya anak muda, jelas. Istilah teknis berat harus dijelaskan singkat.
 - Kalau ada angka/nama/tahun spesifik (yang sifatnya tetap), sebutkan — lebih kredibel.
 
 Aturan caption:
-- Baris 1 = hook. Lalu jelaskan faktanya 2-3 kalimat. Tutup dengan 1 pertanyaan yang ngajak komen.
+- Baris 1 = hook yang scroll-stopping (bikin penasaran/kaget). Lalu jelaskan faktanya 2-3 kalimat.
+- Tutup dengan ajakan ENGAGEMENT: tag temen / komen / save — pilih yang paling pas (mis. "Tag temen yang belum tau ini 👇", "Save dulu, ntar lupa", "Percaya gak?").
 - Baris terakhir = tepat 8 hashtag dalam 1 baris: campur #faktaunik #taugaksih #faktamenarik dengan tag spesifik topik.
 - Maks ~700 karakter sebelum hashtag. Emoji maks 2."""
 
