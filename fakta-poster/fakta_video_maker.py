@@ -36,13 +36,15 @@ def _reel_scrim() -> Image.Image:
     return scrim
 
 
-def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
-    canvas = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
-    canvas = Image.alpha_composite(canvas, _reel_scrim())
-    draw = ImageDraw.Draw(canvas, "RGBA")
-    draw.rectangle([0, 0, RW, s(6)], fill=CYAN)
+def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fact: str):
+    """Two layers: `main` (chrome + hook + CTA, shown from t=0) and `fact` (the
+    explanation text, faded in later by ffmpeg). Returns (main_png, fact_png)."""
+    main = Image.alpha_composite(Image.new("RGBA", (RW, RH), (0, 0, 0, 0)), _reel_scrim())
+    dmain = ImageDraw.Draw(main, "RGBA")
+    fact_layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    dfact = ImageDraw.Draw(fact_layer, "RGBA")
 
-    _brand_chip(draw)
+    _brand_chip(dmain)
 
     kf = _font("extrabold", 38)
     hf = _font("extrabold", 60)
@@ -54,7 +56,6 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
     hook_lh = int(hf.size * 1.07)
     fact_lh = int(ff.size * 1.26)
 
-    # bottom CTA
     cf = _font("bold", 32)
     subf = _font("medium", 26)
     sub_y = RH - s(PAD) - subf.size - s(2)
@@ -62,7 +63,6 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
     pill_h = cf.size + 2 * py_
     pill_y = sub_y - s(22) - pill_h
 
-    # text block sits above the CTA
     block_bottom = pill_y - s(70)
     block_h = (len(hook_lines) * hook_lh) + s(30) + (len(fact_lines) * fact_lh)
     cat_h = _font("bold", 22).size + 2 * s(9)
@@ -71,27 +71,28 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
     start_y = block_bottom - block_h - top_extra
 
     label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
-    _category_pill(draw, label, s(PAD), start_y)
-    _tracked(draw, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
+    _category_pill(dmain, label, s(PAD), start_y)
+    _tracked(dmain, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
 
     y = start_y + cat_h + s(22) + kicker_h + s(28)
     for ln in hook_lines:
-        draw.text((s(PAD), y), ln, font=hf, fill=WHITE)
+        dmain.text((s(PAD), y), ln, font=hf, fill=WHITE)
         y += hook_lh
     y += s(30)
-    for ln in fact_lines:
-        draw.text((s(PAD), y), ln, font=ff, fill=(214, 220, 240))
+    for ln in fact_lines:  # fact text on its own layer → ffmpeg fades it in later
+        dfact.text((s(PAD), y), ln, font=ff, fill=(220, 225, 242))
         y += fact_lh
 
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
-    draw.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px_, pill_y + pill_h],
-                           radius=s(14), fill=CYAN)
-    draw.text((s(PAD) + px_, pill_y + py_ - s(4)), ct, font=cf, fill=CYAN_INK)
-    draw.text((s(PAD), sub_y), "1 fakta unik tiap hari", font=subf, fill=MUTED)
+    dmain.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px_, pill_y + pill_h],
+                            radius=s(14), fill=CYAN)
+    dmain.text((s(PAD) + px_, pill_y + py_ - s(4)), ct, font=cf, fill=CYAN_INK)
+    dmain.text((s(PAD), sub_y), "1 fakta unik tiap hari", font=subf, fill=MUTED)
 
-    canvas.resize((VW, VH), Image.LANCZOS).save(out_png)
-    return out_png
+    main.resize((VW, VH), Image.LANCZOS).save(out_main)
+    fact_layer.resize((VW, VH), Image.LANCZOS).save(out_fact)
+    return out_main, out_fact
 
 
 def _duration(path: str) -> float:
@@ -118,12 +119,12 @@ def _segment(src: str, dst: str, seconds: int) -> str:
     return dst
 
 
-def render_reel(bg_videos, overlay_png: str, out_mp4: str,
-                seg: int = 15, max_segments: int = 3) -> str:
-    """Build the reel from DISTINCT clips, each shown EXACTLY `seg` seconds.
+def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
+                seg: int = 15, max_segments: int = 3, fact_at: float = 2.5) -> str:
+    """Reel dari klip BEDA tiap `seg` detik + progress bar + teks bertahap.
 
     3 klip → 45 detik (ganti video tiap 15 detik). 2 klip → 30 detik.
-    1 klip → 30 detik (di-loop, gak ada pergantian)."""
+    1 klip → 30 detik (loop). Hook tampil dari awal; penjelasan fade-in di `fact_at`."""
     if isinstance(bg_videos, str):
         bg_videos = [bg_videos]
     workdir = os.path.dirname(out_mp4) or "."
@@ -131,7 +132,6 @@ def render_reel(bg_videos, overlay_png: str, out_mp4: str,
     clips = bg_videos[:max_segments]
     segs: list[str] = []
     if len(clips) <= 1:
-        # only one clip available → single 2×seg segment (min duration, no variety)
         try:
             segs.append(_segment(clips[0], os.path.join(workdir, "_seg_0.mp4"), 2 * seg))
         except Exception as exc:
@@ -140,12 +140,14 @@ def render_reel(bg_videos, overlay_png: str, out_mp4: str,
         for i, src in enumerate(clips):
             dst = os.path.join(workdir, f"_seg_{i}.mp4")
             try:
-                _segment(src, dst, seg)  # each EXACTLY `seg` seconds
+                _segment(src, dst, seg)
                 segs.append(dst)
             except Exception:
                 continue
     if not segs:
         raise RuntimeError("No usable background video")
+
+    dur = 2 * seg if len(clips) <= 1 else len(segs) * seg
 
     list_file = os.path.join(workdir, "_concat.txt")
     with open(list_file, "w") as f:
@@ -155,11 +157,18 @@ def render_reel(bg_videos, overlay_png: str, out_mp4: str,
     subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", list_file,
                     "-c", "copy", concat], check=True, stdout=_DEVNULL, stderr=_DEVNULL)
 
-    # overlay text on the exact-length concat (no extra loop needed)
+    # main overlay from t=0; fact overlay fades in at fact_at; cyan progress bar on top
+    fc = (
+        "[0:v][1:v]overlay=0:0[a];"
+        f"[2:v]fade=t=in:st={fact_at}:d=0.6:alpha=1[f];"
+        f"[a][f]overlay=0:0:enable='gte(t,{fact_at})'[b];"
+        "[b]drawbox=x=0:y=0:w=iw:h=12:color=0x60E0FF@0.22:t=fill,"
+        f"drawbox=x=0:y=0:w='iw*t/{dur}':h=12:color=0x60E0FF:t=fill[v]"
+    )
     cmd = [
-        FFMPEG, "-y", "-i", concat, "-i", overlay_png,
-        "-filter_complex", "[0:v][1:v]overlay=0:0:format=auto[v]",
-        "-map", "[v]", "-r", "30",
+        FFMPEG, "-y", "-i", concat,
+        "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png,
+        "-filter_complex", fc, "-map", "[v]", "-t", str(dur), "-r", "30",
         "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
         "-an", "-movflags", "+faststart", out_mp4,
     ]
