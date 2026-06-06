@@ -87,12 +87,19 @@ jobs:
           ls -dt fakta-poster/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add fakta-poster/published fakta-poster/history.json
+          git add fakta-poster/published
           if git diff --staged --quiet; then
             echo "Nothing to commit."
           else
             git commit -m "Fakta publish $TS"
-            git push origin HEAD:${{ github.ref_name }}
+            # branch bisa udah maju (re-run / push lain) → sync dulu, retry
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              echo "push ditolak, sync ulang ($i)..."
+              git fetch origin ${{ github.ref_name }}
+              git rebase origin/${{ github.ref_name }} || git rebase --abort
+              sleep 2
+            done
           fi
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
