@@ -16,7 +16,7 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
   "detail": "...",    // 1-2 kalimat kenapa/bagaimana, bahasa simpel
   "takeaway": "...",  // 1 kalimat penutup ringan/witty/relatable
   "caption": "...",   // caption IG lengkap (lihat aturan caption)
-  "query": "..."      // 1-3 kata kunci BAHASA INGGRIS untuk cari foto/video stock yang relevan & visual (mis. "honey", "honeycomb jar", "galaxy stars"). Pilih yang gampang ada di stock + sesuai topik.
+  "query": "..."      // 1-2 kata BAHASA INGGRIS = SUBJEK VISUAL UTAMA fakta, yang umum ada di stock (mis. "octopus", "honey", "human brain", "volcano"). HINDARI frase panjang/abstrak — makin simpel & konkret, makin pas videonya.
 }
 
 Aturan konten:
