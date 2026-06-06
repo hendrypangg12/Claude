@@ -72,14 +72,14 @@ def main() -> int:
     _save_history(_load_history() + [fakta["hook"]])
 
     # Optional topic media from Pexels (free, legal). Falls back to cosmic bg.
-    photo_path = None
+    photos: list[str] = []
     video_paths: list[str] = []
     query = fakta.get("query") or fakta["category"]
     if os.environ.get("PEXELS_API_KEY"):
-        from media_fetcher import fetch_photo, fetch_videos
+        from media_fetcher import fetch_photos, fetch_videos
         try:
-            photo_path = fetch_photo(query, str(out_dir / "bg.jpg"))
-            print(f"      photo bg: {query}")
+            photos = fetch_photos(query, str(out_dir), count=3)
+            print(f"      photo bg: {len(photos)} foto ({query})")
         except Exception as exc:
             print(f"      (photo fetch gagal: {exc}) → pakai kosmik")
         try:
@@ -90,10 +90,15 @@ def main() -> int:
     else:
         print("      (PEXELS_API_KEY belum di-set → background kosmik, no reel)")
 
+    # 1 foto per slide (kalau kurang, pakai foto yang ada / fallback kosmik)
+    p1 = photos[0] if len(photos) > 0 else None
+    p2 = photos[1] if len(photos) > 1 else p1
+    p3 = photos[2] if len(photos) > 2 else p1
+
     print("[2/3] Composing carousel...")
-    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=photo_path)
-    compose_fact(fakta["fact"], fakta["detail"], str(out_dir / "post_2.jpg"))
-    compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"))
+    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=p1)
+    compose_fact(fakta["fact"], fakta["detail"], str(out_dir / "post_2.jpg"), bg_path=p2)
+    compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"), bg_path=p3)
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
 
     if video_paths:

@@ -143,23 +143,22 @@ def _bg() -> Image.Image:
     return canvas
 
 
-def _photo_cover(path: str) -> Image.Image:
-    """Topic photo fitted to the square, with an indigo-tinted scrim for legible text."""
+def _photo_bg(path: str, base: float = 0.14, peak: float = 0.93) -> Image.Image:
+    """Topic photo fitted to the square + indigo scrim for legible text.
+
+    base = darkening floor (low = photo prominent for cover; high = text-heavy slides)."""
     img = Image.open(path).convert("RGB")
     img = ImageOps.exif_transpose(img)
-    img = ImageOps.fit(img, (R, R), method=Image.LANCZOS, centering=(0.5, 0.4))
-    img = ImageEnhance.Color(img).enhance(1.08)
+    img = ImageOps.fit(img, (R, R), method=Image.LANCZOS, centering=(0.5, 0.42))
+    img = ImageEnhance.Color(img).enhance(1.06)
     img = img.convert("RGBA")
 
     a = Image.new("L", (1, R), 0)
     px = a.load()
-    start = int(R * 0.30)
     for y in range(R):
-        if y <= start:
-            px[0, y] = int(235 * 0.18 * (y / max(start, 1)))
-        else:
-            t = (y - start) / max(R - start, 1)
-            px[0, y] = int(235 * (0.18 + 0.82 * (t ** 1.4)))
+        t = y / (R - 1)
+        v = base + (peak - base) * (t ** 1.4)
+        px[0, y] = int(255 * min(v, 0.96))
     scrim = Image.new("RGBA", (R, R), (*INDIGO_DEEP, 255))
     scrim.putalpha(a.resize((R, R)))
     out = Image.alpha_composite(img, scrim).convert("RGB")
@@ -234,7 +233,7 @@ def _save(canvas, out_path) -> str:
 def compose_cover(hook, category, out_path, bg_path=None) -> str:
     if bg_path:
         try:
-            canvas = _photo_cover(bg_path)
+            canvas = _photo_bg(bg_path, base=0.12)
         except Exception:
             canvas = _bg()
     else:
@@ -266,8 +265,15 @@ def compose_cover(hook, category, out_path, bg_path=None) -> str:
     return _save(canvas, out_path)
 
 
-def compose_fact(fact, detail, out_path) -> str:
-    canvas = _bg()
+def compose_fact(fact, detail, out_path, bg_path=None) -> str:
+    canvas = None
+    if bg_path:
+        try:
+            canvas = _photo_bg(bg_path, base=0.55)
+        except Exception:
+            canvas = None
+    if canvas is None:
+        canvas = _bg()
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
     _dots(draw, 1)
@@ -281,6 +287,7 @@ def compose_fact(fact, detail, out_path) -> str:
 
     ff = _font("semibold", 44)
     df = _font("medium", 34)
+    detail_col = (216, 222, 240) if bg_path else MUTED
     max_w = R - 2 * s(PAD)
 
     y = uy + s(60)
@@ -291,7 +298,7 @@ def compose_fact(fact, detail, out_path) -> str:
     if detail:
         y += s(26)
         for ln in _wrap(detail, df, max_w):
-            draw.text((s(PAD), y), ln, font=df, fill=MUTED)
+            draw.text((s(PAD), y), ln, font=df, fill=detail_col)
             y += int(df.size * 1.32)
 
     swf = _font("semibold", 24)
@@ -299,8 +306,15 @@ def compose_fact(fact, detail, out_path) -> str:
     return _save(canvas, out_path)
 
 
-def compose_outro(takeaway, out_path) -> str:
-    canvas = _bg()
+def compose_outro(takeaway, out_path, bg_path=None) -> str:
+    canvas = None
+    if bg_path:
+        try:
+            canvas = _photo_bg(bg_path, base=0.55)
+        except Exception:
+            canvas = None
+    if canvas is None:
+        canvas = _bg()
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
     _dots(draw, 2)
