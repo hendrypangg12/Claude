@@ -39,6 +39,35 @@ def fetch_photo(query: str, out_path: str) -> str:
     return _download(src.get("large2x") or src.get("large") or src["original"], out_path)
 
 
+def fetch_photos(query: str, out_dir: str, count: int = 3) -> list[str]:
+    """Download up to `count` relevant photos → out_dir/bgp_N.jpg (1 per slide)."""
+    r = requests.get(
+        PHOTO_URL,
+        headers={"Authorization": _key()},
+        params={"query": query, "per_page": 15},
+        timeout=20,
+    )
+    r.raise_for_status()
+    photos = r.json().get("photos", [])
+    paths: list[str] = []
+    for p in photos:
+        if len(paths) >= count:
+            break
+        src = p.get("src", {})
+        url = src.get("large2x") or src.get("large") or src.get("original")
+        if not url:
+            continue
+        try:
+            out = os.path.join(out_dir, f"bgp_{len(paths)}.jpg")
+            _download(url, out)
+            paths.append(out)
+        except Exception:
+            continue
+    if not paths:
+        raise RuntimeError(f"No Pexels photo for {query!r}")
+    return paths
+
+
 def _best_video_link(v: dict, min_h: int = 720) -> str | None:
     """Pick a decent-resolution file (any orientation) ~1280px tall; we crop to 9:16."""
     best = None
