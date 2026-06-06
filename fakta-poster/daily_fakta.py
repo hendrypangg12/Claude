@@ -96,14 +96,14 @@ def main() -> int:
     compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"))
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
 
-    if video_path:
+    if video_paths:
         print("      Composing reel...")
         try:
             from fakta_video_maker import make_reel_overlay, render_reel
             overlay = make_reel_overlay(
                 fakta["hook"], fakta["category"], fakta["fact"], str(out_dir / "reel_overlay.png")
             )
-            render_reel(video_path, overlay, str(out_dir / "reel.mp4"))
+            render_reel(video_paths, overlay, str(out_dir / "reel.mp4"))
             print("      → reel.mp4")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
