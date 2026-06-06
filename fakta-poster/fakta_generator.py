@@ -10,7 +10,7 @@ SYSTEM_PROMPT = """Kamu bikin SATU 'fakta unik' yang mengejutkan TAPI BENAR, dal
 
 Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 {
-  "category": salah satu dari: sains | sejarah | tubuh | hewan | luarangkasa | teknologi,
+  "category": salah satu dari: sains | sejarah | tubuh | hewan | luarangkasa | teknologi | geografi | makanan | ekonomi | rekor | budaya | alam,
   "hook": "...",      // teaser cover — klaim mengejutkannya, 5-11 kata, bikin orang berhenti scroll. JANGAN pakai 'Tau gak sih' (sudah ada di template).
   "fact": "...",      // 1 kalimat inti fakta, jelas & spesifik (boleh pakai angka)
   "detail": "...",    // 1-2 kalimat kenapa/bagaimana, bahasa simpel
@@ -20,10 +20,12 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 }
 
 Aturan konten:
+- BEBAS dari SEGALA bidang: sains, sejarah, tubuh manusia, hewan, luar angkasa, teknologi, geografi, makanan, ekonomi/uang, rekor dunia, budaya, alam — apa aja yang bikin "wah".
 - WAJIB benar & bisa diverifikasi. DILARANG mitos, hoaks, atau 'fakta' palsu yang beredar di internet.
+- WAJIB EVERGREEN (tetap benar kapan pun). DILARANG fakta yang butuh angka real-time / berubah-ubah — mis. kurs/harga "hari ini", "saat ini", rekor "terbaru", skor terkini. Kamu TIDAK punya data live, jadi angka begitu bisa salah/kadaluarsa. (Boleh: fakta sejarah/permanen, mis. "mata uang dengan inflasi tertinggi dalam sejarah", "kota terpadat di dunia".)
 - Pilih yang benar-benar bikin 'wah', BUKAN yang umum diketahui (hindari hal yang semua orang sudah tahu).
 - Bahasa Indonesia santai, gaya anak muda, jelas. Istilah teknis berat harus dijelaskan singkat.
-- Kalau ada angka/nama/tahun spesifik, sebutkan — lebih kredibel.
+- Kalau ada angka/nama/tahun spesifik (yang sifatnya tetap), sebutkan — lebih kredibel.
 
 Aturan caption:
 - Baris 1 = hook. Lalu jelaskan faktanya 2-3 kalimat. Tutup dengan 1 pertanyaan yang ngajak komen.
