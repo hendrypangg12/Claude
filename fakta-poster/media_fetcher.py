@@ -23,11 +23,12 @@ def _download(url: str, out_path: str) -> str:
     return out_path
 
 
-def fetch_photo(query: str, out_path: str, orientation: str = "landscape") -> str:
+def fetch_photo(query: str, out_path: str) -> str:
+    # no orientation restriction → most RELEVANT photo first (we crop to square anyway)
     r = requests.get(
         PHOTO_URL,
         headers={"Authorization": _key()},
-        params={"query": query, "per_page": 12, "orientation": orientation},
+        params={"query": query, "per_page": 15},
         timeout=20,
     )
     r.raise_for_status()
@@ -38,33 +39,32 @@ def fetch_photo(query: str, out_path: str, orientation: str = "landscape") -> st
     return _download(src.get("large2x") or src.get("large") or src["original"], out_path)
 
 
-def _best_video_link(v: dict, min_h: int = 960) -> str | None:
-    """Pick a portrait-ish file (height >= min_h) closest to 1920 tall."""
+def _best_video_link(v: dict, min_h: int = 720) -> str | None:
+    """Pick a decent-resolution file (any orientation) ~1280px tall; we crop to 9:16."""
     best = None
     for f in v.get("video_files", []):
         w, h = f.get("width") or 0, f.get("height") or 0
-        if not f.get("link") or not h:
+        if not f.get("link") or h < min_h:
             continue
-        portrait = h >= w
-        score = (0 if portrait else 1, abs(h - 1920))
-        if h >= min_h and (best is None or score < best[0]):
+        score = abs(h - 1280)  # prefer ~HD, not 4K-huge nor tiny
+        if best is None or score < best[0]:
             best = (score, f["link"])
     if best is None:
         files = v.get("video_files", [])
         if files and files[0].get("link"):
-            best = ((9, 9), files[0]["link"])
+            best = (99999, files[0]["link"])
     return best[1] if best else None
 
 
-def fetch_videos(query: str, out_dir: str, count: int = 5,
-                 orientation: str = "portrait") -> list[str]:
-    """Download up to `count` distinct stock clips for `query` → out_dir/bg_N.mp4.
+def fetch_videos(query: str, out_dir: str, count: int = 3) -> list[str]:
+    """Download up to `count` of the MOST RELEVANT stock clips for `query`.
 
-    Multiple clips let us build a varied 30-45s reel (vs looping one short clip)."""
+    No orientation filter (octopus/etc. clips are mostly landscape) — we crop to
+    9:16 in ffmpeg. Pexels ranks by relevance, so the top few stay on-topic."""
     r = requests.get(
         VIDEO_URL,
         headers={"Authorization": _key()},
-        params={"query": query, "per_page": 15, "orientation": orientation, "size": "medium"},
+        params={"query": query, "per_page": 15, "size": "medium"},
         timeout=20,
     )
     r.raise_for_status()
