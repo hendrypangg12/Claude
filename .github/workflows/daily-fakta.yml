@@ -24,6 +24,11 @@ on:
           - hewan
           - luarangkasa
           - teknologi
+      topic:
+        description: "Topik spesifik (opsional, mis. 'hiu lebih tua dari pohon'). Kosong = Claude pilih"
+        required: false
+        default: ""
+        type: string
       post_mode:
         description: "Mau post apa? (auto harian = carousel; reel post manual + trending audio)"
         required: false
@@ -70,6 +75,7 @@ jobs:
         env:
           DRY_RUN: "true"
           CATEGORY: ${{ steps.cat.outputs.value }}
+          TOPIC: ${{ github.event.inputs.topic }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 

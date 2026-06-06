@@ -66,9 +66,10 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     category = os.environ.get("CATEGORY", "").strip().lower() or None
+    topic = os.environ.get("TOPIC", "").strip() or None
 
     print("[1/3] Generating fakta with Claude...")
-    fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root))
+    fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic)
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
 
