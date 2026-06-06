@@ -21,6 +21,7 @@ Auto-posts daily IG content for **@berstock.id** (bisnis / saham / ekonomi / tek
 |---|---|---|
 | **Daily news carousel** | `daily-news-poster/` | NewsAPI/RSS → Claude (`caption_generator.py`: pick + caption + headline + 3 points + takeaway) → article/Google image → `image_maker.py` (Pillow, 1080×1080 ×3 slides) → `out/<ts>/` → IG Graph API (`instagram_uploader.py`) |
 | **Daily quote ("Lalu")** | `daily-quote-poster/` | Claude (`quote_generator.py`) → `quote_image_maker.py` → `out/<ts>/` |
+| **Fakta unik (faceless page)** | `fakta-poster/` | Claude (`fakta_generator.py`) → `fakta_image_maker.py` (3-slide, cosmic indigo+cyan, brand `FAKTANYA` placeholder) → `out/<ts>/`. Original content, zero copyright. `history.json` = cross-run dedup. Separate IG account from BERSTOCK. |
 | **Viral clipper** | `viral-clipper/` | `clip_viral.py`: yt-dlp download → Pillow overlay (brand chip + `via @creator` credit) → ffmpeg burn-in → `out/<ts>/branded.mp4` |
 | **Frontend PWA** | `docs/` | "Daily Generator" UI (`index.html` = Berita, `lalu.html` = Quote). Reads `manifest.json` / `lalu-manifest.json`. Hosted on GitHub Pages. |
 | **Automation** | `.github/workflows/` | `daily-post.yml` (4 niche slots/day) + `daily-quote.yml` (4 mood slots/day). Run `DRY_RUN=true` (semi-manual): generate → commit to repo → upload artifact; no auto-IG. |
