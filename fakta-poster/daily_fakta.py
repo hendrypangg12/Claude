@@ -73,18 +73,18 @@ def main() -> int:
 
     # Optional topic media from Pexels (free, legal). Falls back to cosmic bg.
     photo_path = None
-    video_path = None
+    video_paths: list[str] = []
     query = fakta.get("query") or fakta["category"]
     if os.environ.get("PEXELS_API_KEY"):
-        from media_fetcher import fetch_photo, fetch_video
+        from media_fetcher import fetch_photo, fetch_videos
         try:
             photo_path = fetch_photo(query, str(out_dir / "bg.jpg"))
             print(f"      photo bg: {query}")
         except Exception as exc:
             print(f"      (photo fetch gagal: {exc}) → pakai kosmik")
         try:
-            video_path = fetch_video(query, str(out_dir / "bg.mp4"))
-            print(f"      video bg: {query}")
+            video_paths = fetch_videos(query, str(out_dir))
+            print(f"      video bg: {len(video_paths)} klip ({query})")
         except Exception as exc:
             print(f"      (video fetch gagal: {exc}) → skip reel")
     else:

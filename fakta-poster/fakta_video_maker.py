@@ -19,6 +19,8 @@ VW, VH = 1080, 1920
 RW, RH = VW * 2, VH * 2  # 2x render space (matches fakta_image_maker SS=2)
 
 FFMPEG = os.environ.get("FFMPEG") or shutil.which("ffmpeg") or "ffmpeg"
+FFPROBE = os.environ.get("FFPROBE") or shutil.which("ffprobe") or "ffprobe"
+_DEVNULL = subprocess.DEVNULL
 
 
 def _reel_scrim() -> Image.Image:
@@ -92,15 +94,73 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
     return out_png
 
 
-def render_reel(bg_video: str, overlay_png: str, out_mp4: str, duration: int = 12) -> str:
+def _duration(path: str) -> float:
+    try:
+        out = subprocess.check_output(
+            [FFPROBE, "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path]
+        ).decode().strip()
+        return float(out)
+    except Exception:
+        return 0.0
+
+
+def _normalize(src: str, dst: str, max_sec: int = 10) -> str:
+    """Crop/scale a clip to 1080x1920 @30fps, capped at max_sec, uniform codec."""
     cmd = [
-        FFMPEG, "-y", "-i", bg_video, "-i", overlay_png,
-        "-filter_complex",
-        "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        "crop=1080:1920,setsar=1[bg];[bg][1:v]overlay=0:0:format=auto[v]",
-        "-map", "[v]", "-t", str(duration), "-r", "30",
+        FFMPEG, "-y", "-i", src, "-t", str(max_sec),
+        "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,"
+               "crop=1080:1920,setsar=1,fps=30",
+        "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
+        "-pix_fmt", "yuv420p", dst,
+    ]
+    subprocess.run(cmd, check=True, stdout=_DEVNULL, stderr=_DEVNULL)
+    return dst
+
+
+def render_reel(bg_videos, overlay_png: str, out_mp4: str,
+                min_dur: int = 30, max_dur: int = 45, per_clip: int = 15) -> str:
+    """Build a 30-45s reel: normalize + concat clips, loop to fill, then overlay text."""
+    if isinstance(bg_videos, str):
+        bg_videos = [bg_videos]
+    workdir = os.path.dirname(out_mp4) or "."
+
+    norm, total = [], 0.0
+    for i, src in enumerate(bg_videos):
+        dst = os.path.join(workdir, f"_norm_{i}.mp4")
+        try:
+            _normalize(src, dst, max_sec=per_clip)
+        except Exception:
+            continue
+        d = _duration(dst)
+        if d > 0:
+            norm.append(dst)
+            total += d
+    if not norm:
+        raise RuntimeError("No usable background video")
+
+    list_file = os.path.join(workdir, "_concat.txt")
+    with open(list_file, "w") as f:
+        for p in norm:
+            f.write(f"file '{os.path.abspath(p)}'\n")
+    concat = os.path.join(workdir, "_bg.mp4")
+    subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", list_file,
+                    "-c", "copy", concat], check=True, stdout=_DEVNULL, stderr=_DEVNULL)
+
+    # target within [min_dur, max_dur]; loop the concat to fill if footage is short
+    target = int(max(min_dur, min(max_dur, round(total)))) if total >= min_dur else min_dur
+    cmd = [
+        FFMPEG, "-y", "-stream_loop", "-1", "-i", concat, "-i", overlay_png,
+        "-filter_complex", "[0:v][1:v]overlay=0:0:format=auto[v]",
+        "-map", "[v]", "-t", str(target), "-r", "30",
         "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
         "-an", "-movflags", "+faststart", out_mp4,
     ]
-    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(cmd, check=True, stdout=_DEVNULL, stderr=_DEVNULL)
+
+    for p in norm + [list_file, concat]:
+        try:
+            os.remove(p)
+        except OSError:
+            pass
     return out_mp4

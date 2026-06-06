@@ -38,32 +38,50 @@ def fetch_photo(query: str, out_path: str, orientation: str = "landscape") -> st
     return _download(src.get("large2x") or src.get("large") or src["original"], out_path)
 
 
-def fetch_video(query: str, out_path: str, orientation: str = "portrait") -> str:
+def _best_video_link(v: dict, min_h: int = 960) -> str | None:
+    """Pick a portrait-ish file (height >= min_h) closest to 1920 tall."""
+    best = None
+    for f in v.get("video_files", []):
+        w, h = f.get("width") or 0, f.get("height") or 0
+        if not f.get("link") or not h:
+            continue
+        portrait = h >= w
+        score = (0 if portrait else 1, abs(h - 1920))
+        if h >= min_h and (best is None or score < best[0]):
+            best = (score, f["link"])
+    if best is None:
+        files = v.get("video_files", [])
+        if files and files[0].get("link"):
+            best = ((9, 9), files[0]["link"])
+    return best[1] if best else None
+
+
+def fetch_videos(query: str, out_dir: str, count: int = 5,
+                 orientation: str = "portrait") -> list[str]:
+    """Download up to `count` distinct stock clips for `query` → out_dir/bg_N.mp4.
+
+    Multiple clips let us build a varied 30-45s reel (vs looping one short clip)."""
     r = requests.get(
         VIDEO_URL,
         headers={"Authorization": _key()},
-        params={"query": query, "per_page": 12, "orientation": orientation, "size": "medium"},
+        params={"query": query, "per_page": 15, "orientation": orientation, "size": "medium"},
         timeout=20,
     )
     r.raise_for_status()
     videos = r.json().get("videos", [])
-    if not videos:
-        raise RuntimeError(f"No Pexels video for {query!r}")
-
-    # Prefer a portrait-ish file with height >= 1080, smallest that qualifies.
-    best = None
+    paths: list[str] = []
     for v in videos:
-        for f in v.get("video_files", []):
-            w, h = f.get("width") or 0, f.get("height") or 0
-            if not f.get("link") or not h:
-                continue
-            portrait = h >= w
-            score = (0 if portrait else 1, abs(h - 1920))
-            if h >= 960 and (best is None or score < best[0]):
-                best = (score, f["link"])
-    if best is None:  # fall back to whatever the first video offers
-        files = videos[0].get("video_files", [])
-        if not files:
-            raise RuntimeError("Pexels video had no downloadable files")
-        best = ((0, 0), files[0]["link"])
-    return _download(best[1], out_path)
+        if len(paths) >= count:
+            break
+        link = _best_video_link(v)
+        if not link:
+            continue
+        try:
+            p = os.path.join(out_dir, f"bg_{len(paths)}.mp4")
+            _download(link, p)
+            paths.append(p)
+        except Exception:
+            continue
+    if not paths:
+        raise RuntimeError(f"No Pexels video for {query!r}")
+    return paths
