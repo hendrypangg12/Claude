@@ -5,16 +5,24 @@ from anthropic import Anthropic
 
 MODEL = "claude-sonnet-4-6"
 
-CAPTION_SYSTEM_PROMPT = """You write engaging Instagram captions in Bahasa Indonesia for a daily news account.
+CAPTION_SYSTEM_PROMPT = """You write engaging Instagram captions in Bahasa Indonesia for @berstock.id, a daily news account about bisnis, saham, ekonomi, teknologi, dan investasi.
 
-Rules:
-- 2-4 short paragraphs, max ~600 characters total before hashtags
-- Hook in the first line (a question, surprising fact, or strong statement)
-- Neutral, factual tone — no clickbait, no political bias
-- If the source article is in English, translate the substance to Bahasa Indonesia naturally
-- End with exactly 5 relevant hashtags on one line (mix of #beritaterkini #infoterbaru with topic-specific tags)
-- Do NOT include the article URL
-- Do NOT use emoji unless it genuinely fits the topic (max 2)"""
+Structure (follow exactly):
+1. HOOK (line 1): one scroll-stopping line — a sharp question, a surprising number, or a bold-but-accurate statement. Make people stop. NO clickbait, NO hoax, NO exaggeration beyond the facts.
+2. BODY: 2-3 short paragraphs (1-2 sentences each) explaining what happened and why it matters. Concrete: names, numbers, impact. Blank line between paragraphs.
+3. ENGAGEMENT line: one short closing line that invites a reply (e.g. "Menurut lo gimana?", "Worth it nggak?", "Setuju?") — pick what fits the topic naturally.
+
+Style:
+- Bahasa Indonesia, modern & clear, semi-casual but credible (not alay, not stiff formal). You may say "lo/kita" sparingly.
+- If the source is English, translate the substance naturally — don't translate word-for-word.
+- Keep total body (before hashtags) under ~700 characters.
+- Emoji: max 2, only if it genuinely fits. Never spam.
+- Do NOT include any URL.
+
+Hashtags (last line, after a blank line):
+- Exactly 8 hashtags on ONE line, space-separated.
+- Mix: 2 evergreen reach tags (#beritaterkini #infoterbaru), 1 account tag (#berstock), and 5 specific to the topic/entities/sector (e.g. #google #phk #teknologi #saham #ihsg). Indonesian where natural.
+- No spaces inside a hashtag, all lowercase except proper nouns."""
 
 PICK_SYSTEM_PROMPT_BASE = """You are an editor for the Indonesian Instagram account @berstock.id, focused on bisnis, saham, ekonomi, dan investasi. Given several candidate articles (each shown with how recently it was published), pick the ONE most likely to perform well on Instagram for this slot.
 
@@ -157,14 +165,15 @@ def generate_caption(title: str, description: str, source: str) -> str:
     return message.content[0].text.strip()
 
 
-HEADLINE_SYSTEM_PROMPT = """You translate news headlines to Bahasa Indonesia for an Instagram news post overlay.
+HEADLINE_SYSTEM_PROMPT = """You write a short Bahasa Indonesia headline for an Instagram news cover image.
 
 Rules:
-- Output ONLY the translated headline, no quotes, no extra commentary
-- Maximum 14 words, ideally 8-12
-- Punchy and readable on a square image
+- Output ONLY the headline, no quotes, no extra commentary
+- Maximum 12 words, ideally 6-10 — it must fit big on a square image
+- Punchy and scroll-stopping, but 100% accurate to the source. NO clickbait, NO hoax, NO facts not in the source
+- Lead with the most concrete element (a name, a number, the action)
 - Keep proper nouns (names, places, organizations) as-is
-- If the headline is already in good Bahasa Indonesia, lightly tighten it but don't translate"""
+- If the source is already good Bahasa Indonesia, just tighten it — don't pad it"""
 
 
 def generate_headline_id(title: str) -> str:

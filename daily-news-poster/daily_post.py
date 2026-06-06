@@ -103,10 +103,11 @@ def main() -> int:
     final_image_path = str(out_dir / "post_1.jpg")
     slide2_path = str(out_dir / "post_2.jpg")
     slide3_path = str(out_dir / "post_3.jpg")
-    compose(raw_image_path, headline_id, article["source"], final_image_path)
-    compose_slide_points(raw_image_path, carousel["points"], slide2_path)
+    niche = os.environ.get("NICHE", "").strip().lower() or None
+    compose(raw_image_path, headline_id, article["source"], final_image_path, niche=niche)
+    compose_slide_points(raw_image_path, carousel["points"], slide2_path, niche=niche)
     compose_slide_takeaway(
-        raw_image_path, carousel["takeaway"], article["source"], slide3_path
+        raw_image_path, carousel["takeaway"], article["source"], slide3_path, niche=niche
     )
     print(f"      → {final_image_path}")
     print(f"      → {slide2_path}")
