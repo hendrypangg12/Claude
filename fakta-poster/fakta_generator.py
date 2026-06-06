@@ -49,13 +49,20 @@ def _parse_json(raw: str) -> dict:
     return json.loads(raw)
 
 
-def generate_fakta(category: str | None = None, avoid: list[str] | None = None) -> dict:
-    """Return {category, hook, fact, detail, takeaway, caption}."""
-    cat_line = (
-        f"Kategori: {category}."
-        if category
-        else "Kategori: bebas — pilih yang paling menarik & beragam."
-    )
+def generate_fakta(category: str | None = None, avoid: list[str] | None = None,
+                   topic: str | None = None) -> dict:
+    """Return {category, hook, fact, detail, takeaway, caption, query}."""
+    if topic:
+        cat_line = (
+            f"Buat fakta unik SPESIFIK tentang: {topic}. "
+            f"Cari sudut yang paling mengejutkan/viral dari topik itu, tetap 100% benar."
+        )
+    else:
+        cat_line = (
+            f"Kategori: {category}."
+            if category
+            else "Kategori: bebas — pilih yang paling menarik & beragam."
+        )
     avoid_line = ""
     if avoid:
         joined = "; ".join(a for a in avoid if a)[:1200]
