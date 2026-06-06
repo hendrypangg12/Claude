@@ -24,6 +24,15 @@ on:
           - hewan
           - luarangkasa
           - teknologi
+      post_mode:
+        description: "Mau post apa?"
+        required: false
+        default: "both"
+        type: choice
+        options:
+          - both
+          - reel
+          - carousel
 
 jobs:
   post:
@@ -93,7 +102,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          POST_MODE: both
+          POST_MODE: ${{ github.event.inputs.post_mode || 'both' }}
           PUB_DIR: published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
