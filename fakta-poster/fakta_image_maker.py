@@ -15,8 +15,9 @@ SS = 2
 R = SIZE * SS
 PAD = 74
 
-# ---- brand (ganti nama di sini / lewat env BRAND saat akun udah ada) ----
-BRAND_TEXT = os.environ.get("BRAND", "FAKTANYA")
+# ---- brand (ganti via env BRAND / HANDLE kalau perlu) ----
+BRAND_TEXT = os.environ.get("BRAND", "FAKTAVIRAL")   # logo chip
+HANDLE = os.environ.get("HANDLE", "faktaviral.idn")   # @username buat CTA
 
 # ---- palette (cosmic indigo + cyan) ----
 INDIGO = (32, 27, 64)
@@ -321,7 +322,7 @@ def compose_outro(takeaway, out_path) -> str:
     px, py = s(26), s(16)
     pill_h = cf.size + 2 * py
     pill_y = sub_y - s(22) - pill_h
-    ct = f"Follow @{BRAND_TEXT.lower()}"
+    ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
     draw.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px, pill_y + pill_h],
                            radius=s(14), fill=CYAN)

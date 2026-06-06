@@ -11,7 +11,7 @@ import subprocess
 from PIL import Image, ImageDraw
 
 from fakta_image_maker import (
-    BRAND_TEXT, CYAN, CYAN_INK, INDIGO_DEEP, MUTED, NICHE_LABELS, PAD, WHITE,
+    BRAND_TEXT, CYAN, CYAN_INK, HANDLE, INDIGO_DEEP, MUTED, NICHE_LABELS, PAD, WHITE,
     _brand_chip, _category_pill, _font, _tracked, _wrap, s,
 )
 
@@ -83,7 +83,7 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_png: str) -> str:
         draw.text((s(PAD), y), ln, font=ff, fill=(214, 220, 240))
         y += fact_lh
 
-    ct = f"Follow @{BRAND_TEXT.lower()}"
+    ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
     draw.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px_, pill_y + pill_h],
                            radius=s(14), fill=CYAN)
