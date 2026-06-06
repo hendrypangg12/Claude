@@ -63,18 +63,39 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
-      - name: Commit history (dedup memory)
+      - name: Siapkan media publik + commit
         working-directory: ${{ github.workspace }}
         run: |
+          TS=$(ls -t fakta-poster/out | head -1)
+          echo "TS=$TS" >> "$GITHUB_ENV"
+          mkdir -p "fakta-poster/published/$TS"
+          cp fakta-poster/out/$TS/post_*.jpg "fakta-poster/published/$TS/" 2>/dev/null || true
+          cp fakta-poster/out/$TS/reel.mp4 "fakta-poster/published/$TS/" 2>/dev/null || true
+          cp fakta-poster/out/$TS/caption.txt "fakta-poster/published/$TS/" 2>/dev/null || true
+          cp fakta-poster/out/$TS/meta.json "fakta-poster/published/$TS/" 2>/dev/null || true
+          # keep only the 14 most-recent published folders
+          ls -dt fakta-poster/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add fakta-poster/history.json
+          git add fakta-poster/published fakta-poster/history.json
           if git diff --staged --quiet; then
-            echo "No history change."
+            echo "Nothing to commit."
           else
-            git commit -m "Fakta history $(date -u +%Y-%m-%d)"
+            git commit -m "Fakta publish $TS"
             git push origin HEAD:${{ github.ref_name }}
           fi
+          echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Publish ke Instagram (carousel + reel)
+        run: |
+          sleep 12   # beri waktu raw.githubusercontent serve file baru
+          python publish_ig.py
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          POST_MODE: both
+          PUB_DIR: published/${{ env.TS }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
       - name: Upload generated carousel
         if: always()
