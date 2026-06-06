@@ -34,10 +34,13 @@ def _save_history(hooks: list[str]) -> None:
 
 
 def _recent_hooks(out_root: Path, limit: int = 40) -> list[str]:
-    """Recent hooks/facts so Claude doesn't repeat itself (local out/ + history.json)."""
+    """Recent hooks so Claude doesn't repeat itself (history.json + out/ + published/)."""
     hooks: list[str] = list(_load_history())
-    if out_root.exists():
-        for d in sorted(out_root.iterdir(), reverse=True):
+    # committed published metas = persistent cross-run dedup (survives CI fresh checkout)
+    for root in (Path("published"), out_root):
+        if not root.exists():
+            continue
+        for d in sorted(root.iterdir(), reverse=True):
             meta = d / "meta.json"
             if not meta.is_file():
                 continue
@@ -46,15 +49,13 @@ def _recent_hooks(out_root: Path, limit: int = 40) -> list[str]:
                 hooks.append(m.get("hook") or m.get("fact") or "")
             except Exception:
                 continue
-            if len(hooks) >= limit + len(_load_history()):
-                break
     # de-dup, keep order, drop empties
     seen, out = set(), []
     for h in hooks:
         if h and h not in seen:
             seen.add(h)
             out.append(h)
-    return out
+    return out[:60]
 
 
 def main() -> int:
