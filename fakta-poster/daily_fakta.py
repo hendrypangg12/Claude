@@ -71,11 +71,42 @@ def main() -> int:
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
 
-    print("[2/3] Composing slides...")
-    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"))
+    # Optional topic media from Pexels (free, legal). Falls back to cosmic bg.
+    photo_path = None
+    video_path = None
+    query = fakta.get("query") or fakta["category"]
+    if os.environ.get("PEXELS_API_KEY"):
+        from media_fetcher import fetch_photo, fetch_video
+        try:
+            photo_path = fetch_photo(query, str(out_dir / "bg.jpg"))
+            print(f"      photo bg: {query}")
+        except Exception as exc:
+            print(f"      (photo fetch gagal: {exc}) → pakai kosmik")
+        try:
+            video_path = fetch_video(query, str(out_dir / "bg.mp4"))
+            print(f"      video bg: {query}")
+        except Exception as exc:
+            print(f"      (video fetch gagal: {exc}) → skip reel")
+    else:
+        print("      (PEXELS_API_KEY belum di-set → background kosmik, no reel)")
+
+    print("[2/3] Composing carousel...")
+    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=photo_path)
     compose_fact(fakta["fact"], fakta["detail"], str(out_dir / "post_2.jpg"))
     compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"))
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
+
+    if video_path:
+        print("      Composing reel...")
+        try:
+            from fakta_video_maker import make_reel_overlay, render_reel
+            overlay = make_reel_overlay(
+                fakta["hook"], fakta["category"], fakta["fact"], str(out_dir / "reel_overlay.png")
+            )
+            render_reel(video_path, overlay, str(out_dir / "reel.mp4"))
+            print("      → reel.mp4")
+        except Exception as exc:
+            print(f"      (reel gagal: {exc})")
 
     meta = {
         "id": out_dir.name,

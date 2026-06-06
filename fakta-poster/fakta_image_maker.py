@@ -4,11 +4,10 @@ Separate brand from BERSTOCK.ID — cosmic indigo + cyan look. Rendered at 2x th
 downscaled (supersampling) for crisp type. Reuses the Poppins fonts bundled with
 the news poster (../daily-news-poster/fonts).
 """
-import math
 import os
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 
 # ---- geometry ----
 SIZE = 1080
@@ -137,6 +136,31 @@ def _bg() -> Image.Image:
     return canvas
 
 
+def _photo_cover(path: str) -> Image.Image:
+    """Topic photo fitted to the square, with an indigo-tinted scrim for legible text."""
+    img = Image.open(path).convert("RGB")
+    img = ImageOps.exif_transpose(img)
+    img = ImageOps.fit(img, (R, R), method=Image.LANCZOS, centering=(0.5, 0.4))
+    img = ImageEnhance.Color(img).enhance(1.08)
+    img = img.convert("RGBA")
+
+    a = Image.new("L", (1, R), 0)
+    px = a.load()
+    start = int(R * 0.30)
+    for y in range(R):
+        if y <= start:
+            px[0, y] = int(235 * 0.18 * (y / max(start, 1)))
+        else:
+            t = (y - start) / max(R - start, 1)
+            px[0, y] = int(235 * (0.18 + 0.82 * (t ** 1.4)))
+    scrim = Image.new("RGBA", (R, R), (*INDIGO_DEEP, 255))
+    scrim.putalpha(a.resize((R, R)))
+    out = Image.alpha_composite(img, scrim).convert("RGB")
+    draw = ImageDraw.Draw(out, "RGBA")
+    draw.rectangle([0, 0, R, s(6)], fill=CYAN)
+    return out
+
+
 def _brand_chip(draw, x=PAD, y=PAD) -> int:
     f = _font("extrabold", 26)
     tw = f.getlength(BRAND_TEXT)
@@ -200,8 +224,14 @@ def _save(canvas, out_path) -> str:
 
 # --------------------------------------------------------------------------
 
-def compose_cover(hook, category, out_path) -> str:
-    canvas = _bg()
+def compose_cover(hook, category, out_path, bg_path=None) -> str:
+    if bg_path:
+        try:
+            canvas = _photo_cover(bg_path)
+        except Exception:
+            canvas = _bg()
+    else:
+        canvas = _bg()
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
     _dots(draw, 0)

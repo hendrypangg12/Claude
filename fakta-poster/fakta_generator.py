@@ -15,7 +15,8 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
   "fact": "...",      // 1 kalimat inti fakta, jelas & spesifik (boleh pakai angka)
   "detail": "...",    // 1-2 kalimat kenapa/bagaimana, bahasa simpel
   "takeaway": "...",  // 1 kalimat penutup ringan/witty/relatable
-  "caption": "..."    // caption IG lengkap (lihat aturan caption)
+  "caption": "...",   // caption IG lengkap (lihat aturan caption)
+  "query": "..."      // 1-3 kata kunci BAHASA INGGRIS untuk cari foto/video stock yang relevan & visual (mis. "honey", "honeycomb jar", "galaxy stars"). Pilih yang gampang ada di stock + sesuai topik.
 }
 
 Aturan konten:
@@ -71,4 +72,5 @@ def generate_fakta(category: str | None = None, avoid: list[str] | None = None) 
         "detail": str(data.get("detail", "")).strip(),
         "takeaway": str(data.get("takeaway", "")).strip(),
         "caption": str(data.get("caption", "")).strip(),
+        "query": str(data.get("query", "")).strip(),
     }

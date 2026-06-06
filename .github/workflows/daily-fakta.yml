@@ -44,6 +44,9 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Install ffmpeg (untuk reel video)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - name: Resolve category for this run
         id: cat
         run: |
@@ -58,6 +61,7 @@ jobs:
           DRY_RUN: "true"
           CATEGORY: ${{ steps.cat.outputs.value }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
       - name: Commit history (dedup memory)
         working-directory: ${{ github.workspace }}
