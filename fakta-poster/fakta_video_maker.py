@@ -105,10 +105,10 @@ def _duration(path: str) -> float:
         return 0.0
 
 
-def _normalize(src: str, dst: str, max_sec: int = 10) -> str:
-    """Crop/scale a clip to 1080x1920 @30fps, capped at max_sec, uniform codec."""
+def _segment(src: str, dst: str, seconds: int) -> str:
+    """Make a segment of EXACTLY `seconds` (loop if clip shorter, trim if longer)."""
     cmd = [
-        FFMPEG, "-y", "-i", src, "-t", str(max_sec),
+        FFMPEG, "-y", "-stream_loop", "-1", "-i", src, "-t", str(seconds),
         "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,"
                "crop=1080:1920,setsar=1,fps=30",
         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
@@ -119,46 +119,53 @@ def _normalize(src: str, dst: str, max_sec: int = 10) -> str:
 
 
 def render_reel(bg_videos, overlay_png: str, out_mp4: str,
-                min_dur: int = 30, max_dur: int = 45, per_clip: int = 15) -> str:
-    """Build a 30-45s reel: normalize + concat clips, loop to fill, then overlay text."""
+                seg: int = 15, max_segments: int = 3) -> str:
+    """Build the reel from DISTINCT clips, each shown EXACTLY `seg` seconds.
+
+    3 klip → 45 detik (ganti video tiap 15 detik). 2 klip → 30 detik.
+    1 klip → 30 detik (di-loop, gak ada pergantian)."""
     if isinstance(bg_videos, str):
         bg_videos = [bg_videos]
     workdir = os.path.dirname(out_mp4) or "."
 
-    norm, total = [], 0.0
-    for i, src in enumerate(bg_videos):
-        dst = os.path.join(workdir, f"_norm_{i}.mp4")
+    clips = bg_videos[:max_segments]
+    segs: list[str] = []
+    if len(clips) <= 1:
+        # only one clip available → single 2×seg segment (min duration, no variety)
         try:
-            _normalize(src, dst, max_sec=per_clip)
-        except Exception:
-            continue
-        d = _duration(dst)
-        if d > 0:
-            norm.append(dst)
-            total += d
-    if not norm:
+            segs.append(_segment(clips[0], os.path.join(workdir, "_seg_0.mp4"), 2 * seg))
+        except Exception as exc:
+            raise RuntimeError(f"No usable background video: {exc}")
+    else:
+        for i, src in enumerate(clips):
+            dst = os.path.join(workdir, f"_seg_{i}.mp4")
+            try:
+                _segment(src, dst, seg)  # each EXACTLY `seg` seconds
+                segs.append(dst)
+            except Exception:
+                continue
+    if not segs:
         raise RuntimeError("No usable background video")
 
     list_file = os.path.join(workdir, "_concat.txt")
     with open(list_file, "w") as f:
-        for p in norm:
+        for p in segs:
             f.write(f"file '{os.path.abspath(p)}'\n")
     concat = os.path.join(workdir, "_bg.mp4")
     subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", list_file,
                     "-c", "copy", concat], check=True, stdout=_DEVNULL, stderr=_DEVNULL)
 
-    # target within [min_dur, max_dur]; loop the concat to fill if footage is short
-    target = int(max(min_dur, min(max_dur, round(total)))) if total >= min_dur else min_dur
+    # overlay text on the exact-length concat (no extra loop needed)
     cmd = [
-        FFMPEG, "-y", "-stream_loop", "-1", "-i", concat, "-i", overlay_png,
+        FFMPEG, "-y", "-i", concat, "-i", overlay_png,
         "-filter_complex", "[0:v][1:v]overlay=0:0:format=auto[v]",
-        "-map", "[v]", "-t", str(target), "-r", "30",
+        "-map", "[v]", "-r", "30",
         "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
         "-an", "-movflags", "+faststart", out_mp4,
     ]
     subprocess.run(cmd, check=True, stdout=_DEVNULL, stderr=_DEVNULL)
 
-    for p in norm + [list_file, concat]:
+    for p in segs + [list_file, concat]:
         try:
             os.remove(p)
         except OSError:
