@@ -33,6 +33,7 @@ on:
           - carousel
           - reel
           - both
+          - none
 
 jobs:
   post:

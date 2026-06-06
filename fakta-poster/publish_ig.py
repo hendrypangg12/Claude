@@ -26,6 +26,9 @@ def main() -> int:
     pub = Path(os.environ["PUB_DIR"])
     raw = os.environ["RAW_DIR"].rstrip("/")
     mode = os.environ.get("POST_MODE", "both").strip().lower()
+    if mode == "none":
+        print("POST_MODE=none → generate aja, gak auto-post (upload manual).")
+        return 0
     caption = (pub / "caption.txt").read_text(encoding="utf-8") if (pub / "caption.txt").exists() else ""
 
     posted = []
