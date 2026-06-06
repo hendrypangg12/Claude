@@ -34,6 +34,12 @@ NICHE_LABELS = {
     "hewan": "DUNIA HEWAN",
     "luarangkasa": "LUAR ANGKASA",
     "teknologi": "TEKNOLOGI",
+    "geografi": "GEOGRAFI",
+    "makanan": "MAKANAN",
+    "ekonomi": "EKONOMI",
+    "rekor": "REKOR DUNIA",
+    "budaya": "BUDAYA",
+    "alam": "ALAM",
 }
 
 _FONT_DIRS = [Path(__file__).resolve().parent / "fonts",
