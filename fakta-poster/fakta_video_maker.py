@@ -171,7 +171,8 @@ def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
         FFMPEG, "-y", "-i", concat,
         "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png,
         "-filter_complex", fc, "-map", "[v]", "-t", str(dur), "-r", "30",
-        "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
+        "-maxrate", "6M", "-bufsize", "12M",
         "-an", "-movflags", "+faststart", out_mp4,
     ]
     subprocess.run(cmd, check=True, stdout=_DEVNULL, stderr=_DEVNULL)

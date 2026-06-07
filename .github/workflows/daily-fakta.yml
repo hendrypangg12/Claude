@@ -87,7 +87,13 @@ jobs:
           echo "TS=$TS" >> "$GITHUB_ENV"
           mkdir -p "fakta-poster/published/$TS"
           cp fakta-poster/out/$TS/post_*.jpg "fakta-poster/published/$TS/" 2>/dev/null || true
-          cp fakta-poster/out/$TS/reel.mp4 "fakta-poster/published/$TS/" 2>/dev/null || true
+          # reel: skip kalau >99MB (limit GitHub 100MB) — carousel tetap ke-commit
+          REEL="fakta-poster/out/$TS/reel.mp4"
+          if [ -f "$REEL" ] && [ "$(stat -c%s "$REEL")" -lt 99000000 ]; then
+            cp "$REEL" "fakta-poster/published/$TS/"
+          else
+            echo "reel skip (kegedean/ga ada)"
+          fi
           cp fakta-poster/out/$TS/caption.txt "fakta-poster/published/$TS/" 2>/dev/null || true
           cp fakta-poster/out/$TS/meta.json "fakta-poster/published/$TS/" 2>/dev/null || true
           # keep only the 14 most-recent published folders

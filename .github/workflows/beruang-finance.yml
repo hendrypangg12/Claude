@@ -57,7 +57,12 @@ jobs:
           TS=$(ls -t beruang-finance/out | head -1)
           mkdir -p "beruang-finance/published/$TS"
           cp beruang-finance/out/$TS/post_*.jpg "beruang-finance/published/$TS/" 2>/dev/null || true
-          cp beruang-finance/out/$TS/reel.mp4 "beruang-finance/published/$TS/" 2>/dev/null || true
+          REEL="beruang-finance/out/$TS/reel.mp4"
+          if [ -f "$REEL" ] && [ "$(stat -c%s "$REEL")" -lt 99000000 ]; then
+            cp "$REEL" "beruang-finance/published/$TS/"
+          else
+            echo "reel skip (kegedean/ga ada)"
+          fi
           cp beruang-finance/out/$TS/caption.txt "beruang-finance/published/$TS/" 2>/dev/null || true
           cp beruang-finance/out/$TS/meta.json "beruang-finance/published/$TS/" 2>/dev/null || true
           ls -dt beruang-finance/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
