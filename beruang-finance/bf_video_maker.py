@@ -57,24 +57,34 @@ def make_reel_overlay(hook, kicker, lines, out_main, out_fact):
     bw = s(190); b = b.resize((bw, int(b.height * bw / b.width)), Image.LANCZOS)
     main.alpha_composite(b, (RW - s(PAD) - bw, s(56)))
 
-    # kicker + hook (upper-mid)
+    # kicker + hook + bullets — anchor upper-mid + panel gelap di belakang (biar kebaca)
     kf = _font("extrabold", 44)
     hf = _font("extrabold", 78)
+    lf = _font("semibold", 46)
     max_w = RW - 2 * s(PAD)
     hlines = _wrap(hook, hf, max_w)
-    y = s(560)
+    bullets = [_wrap(item, lf, max_w - s(50)) for item in lines]
+
+    y0 = s(540)
+    kick_h = int(kf.size * 1.2) + s(10)
+    bul_h = sum(len(bl) * int(lf.size * 1.24) + s(20) for bl in bullets)
+    block_end = y0 + kick_h + len(hlines) * int(hf.size * 1.05) + s(50) + bul_h
+    pad_p = s(40)
+    dm.rounded_rectangle([s(PAD) - pad_p, y0 - pad_p, RW - s(PAD) + pad_p, block_end + pad_p],
+                         radius=s(30), fill=(18, 12, 6, 188))
+
+    y = y0
     dm.text((s(PAD), y), (kicker or "TIPS KEUANGAN").upper(), font=kf, fill=YELLOW)
-    y += int(kf.size * 1.2) + s(10)
+    y += kick_h
     for ln in hlines:
         dm.text((s(PAD), y), ln, font=hf, fill=WHITE)
         y += int(hf.size * 1.05)
 
-    # fact bullets (own layer)
-    lf = _font("semibold", 46)
+    # fact bullets (own layer → fade-in)
     y += s(50)
-    for item in lines:
+    for bl in bullets:
         df.ellipse([s(PAD), y + s(14), s(PAD) + s(18), y + s(32)], fill=YELLOW)
-        for i, ln in enumerate(_wrap(item, lf, max_w - s(50))):
+        for ln in bl:
             df.text((s(PAD) + s(50), y), ln, font=lf, fill=WHITE)
             y += int(lf.size * 1.24)
         y += s(20)

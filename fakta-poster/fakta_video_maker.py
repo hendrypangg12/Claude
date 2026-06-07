@@ -71,6 +71,21 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
 
     # ANCHOR di tengah-atas (≈ 30% dari atas) — bukan mepet bawah
     start_y = int(RH * 0.30)
+    hook_block = len(hook_lines) * hook_lh
+    fact_block = len(fact_lines) * fact_lh
+    fact_top = start_y + cat_h + s(22) + kf.size + s(28) + hook_block + s(28)
+    fact_end = fact_top + fact_block
+    d_top = fact_end + s(28)
+    detail_block = len(detail_lines) * detail_lh if detail_lines else 0
+    content_end = (d_top + detail_block) if detail_lines else fact_end
+    pad_p = s(36)
+    PANEL = (10, 12, 24, 180)  # 1 kartu gelap semi-transparan → teks selalu kebaca
+
+    # SATU panel utuh (incl. area penjelasan/slide-2) di main → no seam, selalu kebaca
+    dmain.rounded_rectangle([s(PAD) - pad_p, start_y - pad_p,
+                             RW - s(PAD) + pad_p, content_end + pad_p],
+                            radius=s(30), fill=PANEL)
+
     label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
     _category_pill(dmain, label, s(PAD), start_y)
     _tracked(dmain, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
@@ -79,14 +94,14 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
     for ln in hook_lines:
         dmain.text((s(PAD), y), ln, font=hf, fill=WHITE)
         y += hook_lh
-    y += s(28)
+    y = fact_top
     for ln in fact_lines:        # fakta inti → fade-in awal
         dfact.text((s(PAD), y), ln, font=ff, fill=WHITE)
         y += fact_lh
-    if detail_lines:             # penjelasan KENAPA → 'slide 2' (muncul belakangan)
-        y += s(26)
+    if detail_lines:             # penjelasan KENAPA → 'slide 2' (teks di detail layer)
+        y = d_top
         for ln in detail_lines:
-            ddet.text((s(PAD), y), ln, font=df, fill=(214, 220, 240))
+            ddet.text((s(PAD), y), ln, font=df, fill=(228, 232, 247))
             y += detail_lh
 
     # CTA bawah (selalu tampil)
