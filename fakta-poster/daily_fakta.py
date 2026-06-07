@@ -107,14 +107,15 @@ def main() -> int:
         print("      Composing reel...")
         try:
             from fakta_video_maker import make_reel_overlay, render_reel
-            main_ov, fact_ov = make_reel_overlay(
+            main_ov, fact_ov, detail_ov = make_reel_overlay(
                 fakta["hook"], fakta["category"], fakta["fact"],
                 str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"),
-                detail=fakta.get("detail", ""),
+                str(out_dir / "reel_detail.png"), detail=fakta.get("detail", ""),
             )
             render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
-                        seg=10, max_segments=2, fact_at=2.0)
-            print("      → reel.mp4 (20s)")
+                        seg=10, max_segments=2, fact_at=1.5,
+                        detail_png=detail_ov, detail_at=10)
+            print("      → reel.mp4 (20s, slide-2 di detik 10)")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
 

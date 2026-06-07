@@ -37,24 +37,27 @@ def _reel_scrim() -> Image.Image:
 
 
 def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fact: str,
-                      detail: str = ""):
-    """Two layers: `main` (chrome + hook + CTA, shown from t=0) and `fact` (the
-    explanation text, faded in later by ffmpeg). Returns (main_png, fact_png)."""
+                      out_detail: str, detail: str = ""):
+    """Tiga layer: `main` (chrome + kicker + hook + CTA, t=0), `fact` (fakta inti,
+    fade-in awal), `detail` (penjelasan KENAPA — muncul belakangan = 'slide 2').
+    Teks di-anchor agak ke ATAS (tengah-atas) biar eye-catching. Return 3 png."""
     main = Image.alpha_composite(Image.new("RGBA", (RW, RH), (0, 0, 0, 0)), _reel_scrim())
     dmain = ImageDraw.Draw(main, "RGBA")
     fact_layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     dfact = ImageDraw.Draw(fact_layer, "RGBA")
+    detail_layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    ddet = ImageDraw.Draw(detail_layer, "RGBA")
 
     _brand_chip(dmain)
 
     kf = _font("extrabold", 38)
-    hf = _font("extrabold", 58)
+    hf = _font("extrabold", 60)
     ff = _font("semibold", 40)
-    df = _font("medium", 33)
+    df = _font("medium", 34)
     max_w = RW - 2 * s(PAD)
 
     hook_lines = _wrap(hook, hf, max_w)
-    fact_lines = []  # respect explicit newlines (buat daftar dampak/bullet)
+    fact_lines = []
     for raw in fact.split("\n"):
         fact_lines.extend(_wrap(raw, ff, max_w) if raw.strip() else [""])
     detail_lines = []
@@ -62,42 +65,37 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
         detail_lines.extend(_wrap(raw, df, max_w) if raw.strip() else [""])
     hook_lh = int(hf.size * 1.07)
     fact_lh = int(ff.size * 1.24)
-    detail_lh = int(df.size * 1.3)
+    detail_lh = int(df.size * 1.32)
 
+    cat_h = _font("bold", 22).size + 2 * s(9)
+
+    # ANCHOR di tengah-atas (≈ 30% dari atas) — bukan mepet bawah
+    start_y = int(RH * 0.30)
+    label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
+    _category_pill(dmain, label, s(PAD), start_y)
+    _tracked(dmain, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
+
+    y = start_y + cat_h + s(22) + kf.size + s(28)
+    for ln in hook_lines:
+        dmain.text((s(PAD), y), ln, font=hf, fill=WHITE)
+        y += hook_lh
+    y += s(28)
+    for ln in fact_lines:        # fakta inti → fade-in awal
+        dfact.text((s(PAD), y), ln, font=ff, fill=WHITE)
+        y += fact_lh
+    if detail_lines:             # penjelasan KENAPA → 'slide 2' (muncul belakangan)
+        y += s(26)
+        for ln in detail_lines:
+            ddet.text((s(PAD), y), ln, font=df, fill=(214, 220, 240))
+            y += detail_lh
+
+    # CTA bawah (selalu tampil)
     cf = _font("bold", 32)
     subf = _font("medium", 26)
     sub_y = RH - s(PAD) - subf.size - s(2)
     px_, py_ = s(26), s(16)
     pill_h = cf.size + 2 * py_
     pill_y = sub_y - s(22) - pill_h
-
-    block_bottom = pill_y - s(70)
-    block_h = (len(hook_lines) * hook_lh) + s(30) + (len(fact_lines) * fact_lh)
-    if detail_lines:
-        block_h += s(22) + len(detail_lines) * detail_lh
-    cat_h = _font("bold", 22).size + 2 * s(9)
-    kicker_h = kf.size
-    top_extra = cat_h + s(22) + kicker_h + s(28)
-    start_y = block_bottom - block_h - top_extra
-
-    label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
-    _category_pill(dmain, label, s(PAD), start_y)
-    _tracked(dmain, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
-
-    y = start_y + cat_h + s(22) + kicker_h + s(28)
-    for ln in hook_lines:
-        dmain.text((s(PAD), y), ln, font=hf, fill=WHITE)
-        y += hook_lh
-    y += s(30)
-    for ln in fact_lines:  # fact text on its own layer → ffmpeg fades it in later
-        dfact.text((s(PAD), y), ln, font=ff, fill=WHITE)
-        y += fact_lh
-    if detail_lines:  # penjelasan KENAPA-nya, lebih kecil & muted
-        y += s(22)
-        for ln in detail_lines:
-            dfact.text((s(PAD), y), ln, font=df, fill=(206, 212, 232))
-            y += detail_lh
-
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
     dmain.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px_, pill_y + pill_h],
@@ -107,7 +105,8 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
 
     main.resize((VW, VH), Image.LANCZOS).save(out_main)
     fact_layer.resize((VW, VH), Image.LANCZOS).save(out_fact)
-    return out_main, out_fact
+    detail_layer.resize((VW, VH), Image.LANCZOS).save(out_detail)
+    return out_main, out_fact, out_detail
 
 
 def _duration(path: str) -> float:
@@ -135,11 +134,12 @@ def _segment(src: str, dst: str, seconds: int) -> str:
 
 
 def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
-                seg: int = 15, max_segments: int = 3, fact_at: float = 2.5) -> str:
+                seg: int = 15, max_segments: int = 3, fact_at: float = 2.5,
+                detail_png: str | None = None, detail_at: float | None = None) -> str:
     """Reel dari klip BEDA tiap `seg` detik + progress bar + teks bertahap.
 
-    3 klip → 45 detik (ganti video tiap 15 detik). 2 klip → 30 detik.
-    1 klip → 30 detik (loop). Hook tampil dari awal; penjelasan fade-in di `fact_at`."""
+    Hook tampil dari awal; fakta inti fade-in di `fact_at`; penjelasan (detail_png)
+    muncul belakangan di `detail_at` (default = awal klip ke-2 = 'slide 2')."""
     if isinstance(bg_videos, str):
         bg_videos = [bg_videos]
     workdir = os.path.dirname(out_mp4) or "."
@@ -172,17 +172,31 @@ def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
     subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", list_file,
                     "-c", "copy", concat], check=True, stdout=_DEVNULL, stderr=_DEVNULL)
 
-    # main overlay from t=0; fact overlay fades in at fact_at; cyan progress bar on top
+    has_detail = bool(detail_png)
+    if detail_at is None:
+        detail_at = seg if len(segs) > 1 else dur * 0.55  # default = mulai klip ke-2
+    # main (t=0) → fact fade-in (fact_at) → detail 'slide 2' (detail_at) → progress bar
     fc = (
         "[0:v][1:v]overlay=0:0[a];"
         f"[2:v]fade=t=in:st={fact_at}:d=0.6:alpha=1[f];"
         f"[a][f]overlay=0:0:enable='gte(t,{fact_at})'[b];"
-        "[b]drawbox=x=0:y=0:w=iw:h=12:color=0x60E0FF@0.22:t=fill,"
+    )
+    if has_detail:
+        fc += (
+            f"[3:v]fade=t=in:st={detail_at}:d=0.6:alpha=1[g];"
+            f"[b][g]overlay=0:0:enable='gte(t,{detail_at})'[c];"
+        )
+        prog_src = "[c]"
+    else:
+        prog_src = "[b]"
+    fc += (
+        f"{prog_src}drawbox=x=0:y=0:w=iw:h=12:color=0x60E0FF@0.22:t=fill,"
         f"drawbox=x=0:y=0:w='iw*t/{dur}':h=12:color=0x60E0FF:t=fill[v]"
     )
-    cmd = [
-        FFMPEG, "-y", "-i", concat,
-        "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png,
+    cmd = [FFMPEG, "-y", "-i", concat, "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png]
+    if has_detail:
+        cmd += ["-loop", "1", "-i", detail_png]
+    cmd += [
         "-filter_complex", fc, "-map", "[v]", "-t", str(dur), "-r", "30",
         "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
         "-maxrate", "6M", "-bufsize", "12M",
