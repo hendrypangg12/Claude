@@ -1,13 +1,21 @@
-name: Beruang Finance (carousel)
+name: Beruang Finance (auto-post)
 
-# Generate 1 carousel Beruang Finance (tips/berita/lucu) pakai foto Pexels.
-# Hasil di-commit ke repo (beruang-finance/published) + artifact. Post manual ke IG.
+# Generate 1 konten Beruang Finance (tips/berita/lucu) → carousel + reel berlagu.
+# Auto-post ke IG @beruangfinance (pakai secret IG_USER_ID_BF / IG_ACCESS_TOKEN_BF).
+# Jadwal SENGAJA beda jam dari faktaviral biar gak nabrakan.
 
 on:
+  schedule:
+    # WIB = UTC+7. 5 slot/hari, jam beda dari Daily Fakta.
+    - cron: "0 0 * * *"   # 07:00 WIB → REEL
+    - cron: "0 4 * * *"   # 11:00 WIB → carousel
+    - cron: "0 8 * * *"   # 15:00 WIB → carousel
+    - cron: "0 11 * * *"  # 18:00 WIB → REEL
+    - cron: "0 14 * * *"  # 21:00 WIB → carousel
   workflow_dispatch:
     inputs:
       ctype:
-        description: "Jenis konten"
+        description: "Jenis konten (kosong = Claude pilih)"
         required: false
         default: ""
         type: choice
@@ -21,6 +29,16 @@ on:
         required: false
         default: ""
         type: string
+      post_mode:
+        description: "Mau post apa?"
+        required: false
+        default: "carousel"
+        type: choice
+        options:
+          - carousel
+          - reel
+          - both
+          - none
 
 jobs:
   build:
@@ -44,17 +62,33 @@ jobs:
       - name: Install ffmpeg (untuk reel)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
+      - name: Resolve slot (jenis + mode) untuk run ini
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "0 0 * * *")  ct="tips";   mode="reel" ;;      # 07:00 WIB
+            "0 4 * * *")  ct="berita"; mode="carousel" ;;  # 11:00 WIB
+            "0 8 * * *")  ct="tips";   mode="carousel" ;;  # 15:00 WIB
+            "0 11 * * *") ct="lucu";   mode="reel" ;;      # 18:00 WIB
+            "0 14 * * *") ct="berita"; mode="carousel" ;;  # 21:00 WIB
+            *)            ct="${{ github.event.inputs.ctype }}"; mode="" ;;  # manual
+          esac
+          echo "ct=$ct"     >> "$GITHUB_OUTPUT"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+
       - run: python bf_daily.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          CTYPE: ${{ github.event.inputs.ctype }}
+          CTYPE: ${{ steps.slot.outputs.ct }}
           TOPIC: ${{ github.event.inputs.topic }}
 
-      - name: Commit hasil ke repo
+      - name: Siapkan media + commit
+        if: ${{ github.event.inputs.post_mode != 'none' }}
         working-directory: ${{ github.workspace }}
         run: |
           TS=$(ls -t beruang-finance/out | head -1)
+          echo "TS=$TS" >> "$GITHUB_ENV"
           mkdir -p "beruang-finance/published/$TS"
           cp beruang-finance/out/$TS/post_*.jpg "beruang-finance/published/$TS/" 2>/dev/null || true
           REEL="beruang-finance/out/$TS/reel.mp4"
@@ -64,6 +98,7 @@ jobs:
             echo "reel skip (kegedean/ga ada)"
           fi
           cp beruang-finance/out/$TS/caption.txt "beruang-finance/published/$TS/" 2>/dev/null || true
+          cp beruang-finance/out/$TS/caption_reel.txt "beruang-finance/published/$TS/" 2>/dev/null || true
           cp beruang-finance/out/$TS/meta.json "beruang-finance/published/$TS/" 2>/dev/null || true
           ls -dt beruang-finance/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
           git config user.name "github-actions[bot]"
@@ -72,7 +107,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Nothing to commit."
           else
-            git commit -m "Beruang Finance carousel $TS"
+            git commit -m "Beruang Finance $TS"
             for i in 1 2 3 4 5; do
               if git push origin HEAD:${{ github.ref_name }}; then break; fi
               git fetch origin ${{ github.ref_name }}
@@ -80,6 +115,20 @@ jobs:
               sleep 2
             done
           fi
+          echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Publish ke Instagram (@beruangfinance)
+        if: ${{ github.event.inputs.post_mode != 'none' }}
+        working-directory: fakta-poster
+        run: |
+          sleep 12   # beri waktu raw.githubusercontent serve file baru
+          python publish_ig.py
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID_BF }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_BF }}
+          POST_MODE: ${{ github.event.inputs.post_mode || steps.slot.outputs.mode }}
+          PUB_DIR: ${{ github.workspace }}/beruang-finance/published/${{ env.TS }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/beruang-finance/published/${{ env.TS }}
 
       - name: Upload artifact
         if: always()
