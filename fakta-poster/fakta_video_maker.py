@@ -150,11 +150,15 @@ def _segment(src: str, dst: str, seconds: int) -> str:
 
 def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
                 seg: int = 15, max_segments: int = 3, fact_at: float = 2.5,
-                detail_png: str | None = None, detail_at: float | None = None) -> str:
+                detail_png: str | None = None, detail_at: float | None = None,
+                music: str | None = None, music_vol: float = 0.55) -> str:
     """Reel dari klip BEDA tiap `seg` detik + progress bar + teks bertahap.
 
     Hook tampil dari awal; fakta inti fade-in di `fact_at`; penjelasan (detail_png)
-    muncul belakangan di `detail_at` (default = awal klip ke-2 = 'slide 2')."""
+    muncul belakangan di `detail_at` (default = awal klip ke-2 = 'slide 2').
+
+    `music` (opsional): path lagu royalty-free → di-loop/trim ke durasi reel, di-fade-out
+    di akhir, volume diturunin (`music_vol`). Kalau None → reel tetap senyap (-an)."""
     if isinstance(bg_videos, str):
         bg_videos = [bg_videos]
     workdir = os.path.dirname(out_mp4) or "."
@@ -211,11 +215,25 @@ def render_reel(bg_videos, main_png: str, fact_png: str, out_mp4: str,
     cmd = [FFMPEG, "-y", "-i", concat, "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png]
     if has_detail:
         cmd += ["-loop", "1", "-i", detail_png]
+
+    use_music = bool(music) and os.path.isfile(music or "")
+    if use_music:
+        music_idx = 4 if has_detail else 3  # 0=bg,1=main,2=fact,(3=detail) → musik nyusul
+        # loop lagu (kalau lebih pendek dari reel), turunin volume, fade-out 2s di akhir
+        fade_st = max(0.0, dur - 2.0)
+        fc += (
+            f";[{music_idx}:a]volume={music_vol},"
+            f"afade=t=out:st={fade_st}:d=2,atrim=0:{dur},asetpts=PTS-STARTPTS[aud]"
+        )
+        cmd += ["-stream_loop", "-1", "-i", music]
+
+    cmd += ["-filter_complex", fc, "-map", "[v]"]
+    cmd += (["-map", "[aud]", "-c:a", "aac", "-b:a", "128k"] if use_music else ["-an"])
     cmd += [
-        "-filter_complex", fc, "-map", "[v]", "-t", str(dur), "-r", "30",
+        "-t", str(dur), "-r", "30",
         "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
         "-maxrate", "6M", "-bufsize", "12M",
-        "-an", "-movflags", "+faststart", out_mp4,
+        "-movflags", "+faststart", out_mp4,
     ]
     subprocess.run(cmd, check=True, stdout=_DEVNULL, stderr=_DEVNULL)
 

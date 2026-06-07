@@ -6,9 +6,12 @@ name: Daily Fakta (semi-manual)
 
 on:
   schedule:
-    # WIB = UTC+7. Two slots/day, rotating category for variety.
-    - cron: "0 0 * * *"   # 07:00 WIB
-    - cron: "0 12 * * *"  # 19:00 WIB
+    # WIB = UTC+7. 5 slot/hari. Reel pagi & sore, carousel jam 10/13/20.
+    - cron: "0 23 * * *"  # 06:00 WIB → REEL
+    - cron: "0 3 * * *"   # 10:00 WIB → carousel
+    - cron: "0 6 * * *"   # 13:00 WIB → carousel
+    - cron: "0 10 * * *"  # 17:00 WIB → REEL
+    - cron: "0 13 * * *"  # 20:00 WIB → carousel
   workflow_dispatch:
     inputs:
       category:
@@ -62,19 +65,25 @@ jobs:
       - name: Install ffmpeg (untuk reel video)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
-      - name: Resolve category for this run
-        id: cat
+      - name: Resolve slot (kategori + mode) untuk run ini
+        id: slot
         run: |
+          # tiap cron → kategori (variasi) + post_mode (reel/carousel)
           case "${{ github.event.schedule }}" in
-            "0 0 * * *")  echo "value=sains"   >> "$GITHUB_OUTPUT" ;;
-            "0 12 * * *") echo "value=sejarah" >> "$GITHUB_OUTPUT" ;;
-            *)            echo "value=${{ github.event.inputs.category }}" >> "$GITHUB_OUTPUT" ;;
+            "0 23 * * *") cat="hewan";       mode="reel" ;;      # 06:00 WIB
+            "0 3 * * *")  cat="sains";       mode="carousel" ;;  # 10:00 WIB
+            "0 6 * * *")  cat="sejarah";     mode="carousel" ;;  # 13:00 WIB
+            "0 10 * * *") cat="luarangkasa"; mode="reel" ;;      # 17:00 WIB
+            "0 13 * * *") cat="tubuh";       mode="carousel" ;;  # 20:00 WIB
+            *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual
           esac
+          echo "cat=$cat"   >> "$GITHUB_OUTPUT"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
 
       - run: python daily_fakta.py
         env:
           DRY_RUN: "true"
-          CATEGORY: ${{ steps.cat.outputs.value }}
+          CATEGORY: ${{ steps.slot.outputs.cat }}
           TOPIC: ${{ github.event.inputs.topic }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
@@ -95,6 +104,7 @@ jobs:
             echo "reel skip (kegedean/ga ada)"
           fi
           cp fakta-poster/out/$TS/caption.txt "fakta-poster/published/$TS/" 2>/dev/null || true
+          cp fakta-poster/out/$TS/caption_reel.txt "fakta-poster/published/$TS/" 2>/dev/null || true
           cp fakta-poster/out/$TS/meta.json "fakta-poster/published/$TS/" 2>/dev/null || true
           # keep only the 14 most-recent published folders
           ls -dt fakta-poster/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
@@ -125,7 +135,7 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_ACCOUNTS: ${{ secrets.IG_ACCOUNTS }}
-          POST_MODE: ${{ github.event.inputs.post_mode || 'carousel' }}
+          POST_MODE: ${{ github.event.inputs.post_mode || steps.slot.outputs.mode }}
           PUB_DIR: published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
