@@ -42,7 +42,7 @@ Aturan umum:
 Aturan caption:
 - Baris 1 = hook. Lalu jelasin isinya 2-3 kalimat (boleh sebut poin-poinnya).
 - Tutup dengan ajakan engagement (tag temen / komen / save).
-- Baris terakhir = 8 hashtag 1 baris: campur #keuangan #financialfreedom #tipskeuangan #melekfinansial dengan tag spesifik.
+- Baris terakhir = MAKSIMAL 5 hashtag 1 baris (JANGAN lebih dari 5): campur #keuangan #tipskeuangan #melekfinansial dengan tag spesifik.
 - Maks ~700 karакter sebelum hashtag. Emoji maks 3."""
 
 
