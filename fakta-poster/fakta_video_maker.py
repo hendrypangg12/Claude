@@ -36,7 +36,8 @@ def _reel_scrim() -> Image.Image:
     return scrim
 
 
-def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fact: str):
+def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fact: str,
+                      detail: str = ""):
     """Two layers: `main` (chrome + hook + CTA, shown from t=0) and `fact` (the
     explanation text, faded in later by ffmpeg). Returns (main_png, fact_png)."""
     main = Image.alpha_composite(Image.new("RGBA", (RW, RH), (0, 0, 0, 0)), _reel_scrim())
@@ -47,16 +48,21 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
     _brand_chip(dmain)
 
     kf = _font("extrabold", 38)
-    hf = _font("extrabold", 60)
+    hf = _font("extrabold", 58)
     ff = _font("semibold", 40)
+    df = _font("medium", 33)
     max_w = RW - 2 * s(PAD)
 
     hook_lines = _wrap(hook, hf, max_w)
     fact_lines = []  # respect explicit newlines (buat daftar dampak/bullet)
     for raw in fact.split("\n"):
         fact_lines.extend(_wrap(raw, ff, max_w) if raw.strip() else [""])
+    detail_lines = []
+    for raw in (detail or "").split("\n"):
+        detail_lines.extend(_wrap(raw, df, max_w) if raw.strip() else [""])
     hook_lh = int(hf.size * 1.07)
-    fact_lh = int(ff.size * 1.26)
+    fact_lh = int(ff.size * 1.24)
+    detail_lh = int(df.size * 1.3)
 
     cf = _font("bold", 32)
     subf = _font("medium", 26)
@@ -67,6 +73,8 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
 
     block_bottom = pill_y - s(70)
     block_h = (len(hook_lines) * hook_lh) + s(30) + (len(fact_lines) * fact_lh)
+    if detail_lines:
+        block_h += s(22) + len(detail_lines) * detail_lh
     cat_h = _font("bold", 22).size + 2 * s(9)
     kicker_h = kf.size
     top_extra = cat_h + s(22) + kicker_h + s(28)
@@ -82,8 +90,13 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
         y += hook_lh
     y += s(30)
     for ln in fact_lines:  # fact text on its own layer → ffmpeg fades it in later
-        dfact.text((s(PAD), y), ln, font=ff, fill=(220, 225, 242))
+        dfact.text((s(PAD), y), ln, font=ff, fill=WHITE)
         y += fact_lh
+    if detail_lines:  # penjelasan KENAPA-nya, lebih kecil & muted
+        y += s(22)
+        for ln in detail_lines:
+            dfact.text((s(PAD), y), ln, font=df, fill=(206, 212, 232))
+            y += detail_lh
 
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
