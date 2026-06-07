@@ -7,6 +7,7 @@ Env:
 """
 import json
 import os
+import random
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -20,6 +21,21 @@ from bf_image_maker import compose_cover, compose_points, compose_outro, TYPE_LA
 WIB = timezone(timedelta(hours=7))
 
 HEADER = {"tips": "CARANYA", "berita": "FAKTANYA", "lucu": "RELATE GAK?"}
+# lagu royalty-free dipakai bareng faktaviral (Kevin MacLeod, CC BY 4.0)
+MUSIC_DIR = Path(__file__).resolve().parent.parent / "fakta-poster" / "music"
+
+
+def _pick_music() -> str | None:
+    if not MUSIC_DIR.is_dir():
+        return None
+    tracks = [p for p in MUSIC_DIR.iterdir()
+              if p.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")]
+    return str(random.choice(tracks)) if tracks else None
+
+
+def _music_credit(path: str) -> str:
+    title = Path(path).stem.replace("-", " ").replace("_", " ").title()
+    return f"🎵 Musik: \"{title}\" — Kevin MacLeod (incompetech.com) · Lisensi CC BY 4.0"
 
 
 def _recent_hooks(out_root: Path, limit: int = 40) -> list[str]:
@@ -90,9 +106,14 @@ def main() -> int:
             from bf_video_maker import make_reel_overlay, render_reel
             mo, fo = make_reel_overlay(c["hook"], c["kicker"], c["points"],
                                        str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"))
+            music = _pick_music()
             render_reel(videos, mo, fo, str(out_dir / "reel.mp4"),
-                        seg=10, max_segments=2, fact_at=2.0)
-            print("      → reel.mp4 (20s)")
+                        seg=10, max_segments=2, fact_at=2.0, music=music)
+            if music:
+                (out_dir / "caption_reel.txt").write_text(
+                    c["caption"] + "\n\n" + _music_credit(music), encoding="utf-8")
+            tag = f", musik: {Path(music).name}" if music else ", senyap"
+            print(f"      → reel.mp4 (20s{tag})")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
 

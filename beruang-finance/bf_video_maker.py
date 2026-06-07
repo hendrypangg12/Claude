@@ -108,8 +108,12 @@ def make_reel_overlay(hook, kicker, lines, out_main, out_fact):
     return out_main, out_fact
 
 
-def render_reel(bg_videos, main_png, fact_png, out_mp4, seg=15, max_segments=3, fact_at=2.5):
-    """Sama seperti fakta render tapi progress bar KUNING (brand Beruang Finance)."""
+def render_reel(bg_videos, main_png, fact_png, out_mp4, seg=15, max_segments=3, fact_at=2.5,
+                music=None, music_vol=0.55):
+    """Sama seperti fakta render tapi progress bar KUNING (brand Beruang Finance).
+
+    `music` (opsional): path lagu royalty-free → di-loop/trim ke durasi reel + fade-out.
+    None → reel senyap (-an)."""
     if isinstance(bg_videos, str):
         bg_videos = [bg_videos]
     workdir = os.path.dirname(out_mp4) or "."
@@ -140,11 +144,18 @@ def render_reel(bg_videos, main_png, fact_png, out_mp4, seg=15, max_segments=3, 
         "[b]drawbox=x=0:y=0:w=iw:h=12:color=0xFFC600@0.25:t=fill,"
         f"drawbox=x=0:y=0:w='iw*t/{dur}':h=12:color=0xFFC600:t=fill[v]"
     )
-    subprocess.run([fv.FFMPEG, "-y", "-i", concat, "-loop", "1", "-i", main_png,
-                    "-loop", "1", "-i", fact_png, "-filter_complex", fc, "-map", "[v]",
-                    "-t", str(dur), "-r", "30", "-c:v", "libx264", "-preset", "medium",
-                    "-crf", "21", "-pix_fmt", "yuv420p", "-an", "-movflags", "+faststart", out_mp4],
-                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    cmd = [fv.FFMPEG, "-y", "-i", concat, "-loop", "1", "-i", main_png, "-loop", "1", "-i", fact_png]
+    use_music = bool(music) and os.path.isfile(music or "")
+    if use_music:
+        fade_st = max(0.0, dur - 2.0)
+        fc += (f";[3:a]volume={music_vol},"
+               f"afade=t=out:st={fade_st}:d=2,atrim=0:{dur},asetpts=PTS-STARTPTS[aud]")
+        cmd += ["-stream_loop", "-1", "-i", music]
+    cmd += ["-filter_complex", fc, "-map", "[v]"]
+    cmd += (["-map", "[aud]", "-c:a", "aac", "-b:a", "128k"] if use_music else ["-an"])
+    cmd += ["-t", str(dur), "-r", "30", "-c:v", "libx264", "-preset", "medium",
+            "-crf", "21", "-pix_fmt", "yuv420p", "-movflags", "+faststart", out_mp4]
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     for p in segs + [lst, concat]:
         try:
             os.remove(p)
