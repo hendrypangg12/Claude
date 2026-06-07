@@ -41,6 +41,9 @@ jobs:
 
       - run: pip install -r ../fakta-poster/requirements.txt
 
+      - name: Install ffmpeg (untuk reel)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - run: python bf_daily.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -54,6 +57,7 @@ jobs:
           TS=$(ls -t beruang-finance/out | head -1)
           mkdir -p "beruang-finance/published/$TS"
           cp beruang-finance/out/$TS/post_*.jpg "beruang-finance/published/$TS/" 2>/dev/null || true
+          cp beruang-finance/out/$TS/reel.mp4 "beruang-finance/published/$TS/" 2>/dev/null || true
           cp beruang-finance/out/$TS/caption.txt "beruang-finance/published/$TS/" 2>/dev/null || true
           cp beruang-finance/out/$TS/meta.json "beruang-finance/published/$TS/" 2>/dev/null || true
           ls -dt beruang-finance/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true

@@ -56,15 +56,21 @@ def main() -> int:
     print(f"      → [{c['type']}] {c['hook']}")
 
     photos: list[str] = []
+    videos: list[str] = []
     if os.environ.get("PEXELS_API_KEY"):
-        from media_fetcher import fetch_photos
+        from media_fetcher import fetch_photos, fetch_videos
         try:
             photos = fetch_photos(c["query"] or "money", str(out_dir), count=3)
             print(f"      foto: {len(photos)} ({c['query']})")
         except Exception as exc:
             print(f"      (foto gagal: {exc}) → background kuning polos")
+        try:
+            videos = fetch_videos(c["query"] or "money", str(out_dir), count=2)
+            print(f"      video: {len(videos)} klip ({c['query']})")
+        except Exception as exc:
+            print(f"      (video gagal: {exc}) → skip reel")
     else:
-        print("      (PEXELS_API_KEY kosong → background kuning polos)")
+        print("      (PEXELS_API_KEY kosong → background kuning polos, no reel)")
 
     p1 = photos[0] if len(photos) > 0 else None
     p2 = photos[1] if len(photos) > 1 else p1
@@ -76,6 +82,19 @@ def main() -> int:
                    str(out_dir / "post_2.jpg"), bg_path=p2)
     compose_outro(c["takeaway"], str(out_dir / "post_3.jpg"), bg_path=p3)
     (out_dir / "caption.txt").write_text(c["caption"], encoding="utf-8")
+
+    # reel 20 detik (2 klip x 10s) kalau ada video Pexels
+    if videos:
+        print("      Compose reel 20 detik...")
+        try:
+            from bf_video_maker import make_reel_overlay, render_reel
+            mo, fo = make_reel_overlay(c["hook"], c["kicker"], c["points"],
+                                       str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"))
+            render_reel(videos, mo, fo, str(out_dir / "reel.mp4"),
+                        seg=10, max_segments=2, fact_at=2.0)
+            print("      → reel.mp4 (20s)")
+        except Exception as exc:
+            print(f"      (reel gagal: {exc})")
 
     meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"), "type": c["type"],
             "hook": c["hook"], "label": TYPE_LABELS.get(c["type"], "")}
