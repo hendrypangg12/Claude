@@ -6,12 +6,12 @@ name: Beruang Finance (auto-post)
 
 on:
   schedule:
-    # WIB = UTC+7. 5 slot/hari, jam beda dari Daily Fakta.
-    - cron: "0 0 * * *"   # 07:00 WIB → REEL
-    - cron: "0 4 * * *"   # 11:00 WIB → carousel
-    - cron: "0 8 * * *"   # 15:00 WIB → carousel
-    - cron: "0 11 * * *"  # 18:00 WIB → REEL
-    - cron: "0 14 * * *"  # 21:00 WIB → carousel
+    # WIB = UTC+7. 5 slot/hari, jam beda dari Daily Fakta. Menit :17 (hindari jam bulat).
+    - cron: "17 0 * * *"   # 07:17 WIB → REEL
+    - cron: "17 4 * * *"   # 11:17 WIB → carousel
+    - cron: "17 8 * * *"   # 15:17 WIB → carousel
+    - cron: "17 11 * * *"  # 18:17 WIB → REEL
+    - cron: "17 14 * * *"  # 21:17 WIB → carousel
   workflow_dispatch:
     inputs:
       ctype:
@@ -66,11 +66,11 @@ jobs:
         id: slot
         run: |
           case "${{ github.event.schedule }}" in
-            "0 0 * * *")  ct="tips";   mode="reel" ;;      # 07:00 WIB
-            "0 4 * * *")  ct="berita"; mode="carousel" ;;  # 11:00 WIB
-            "0 8 * * *")  ct="tips";   mode="carousel" ;;  # 15:00 WIB
-            "0 11 * * *") ct="lucu";   mode="reel" ;;      # 18:00 WIB
-            "0 14 * * *") ct="berita"; mode="carousel" ;;  # 21:00 WIB
+            "17 0 * * *")  ct="tips";   mode="reel" ;;      # 07:17 WIB
+            "17 4 * * *")  ct="berita"; mode="carousel" ;;  # 11:17 WIB
+            "17 8 * * *")  ct="tips";   mode="carousel" ;;  # 15:17 WIB
+            "17 11 * * *") ct="lucu";   mode="reel" ;;      # 18:17 WIB
+            "17 14 * * *") ct="berita"; mode="carousel" ;;  # 21:17 WIB
             *)            ct="${{ github.event.inputs.ctype }}"; mode="" ;;  # manual
           esac
           echo "ct=$ct"     >> "$GITHUB_OUTPUT"
