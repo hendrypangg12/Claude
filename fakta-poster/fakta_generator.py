@@ -32,7 +32,7 @@ Aturan konten:
 Aturan caption:
 - Baris 1 = hook yang scroll-stopping (bikin penasaran/kaget). Lalu jelaskan faktanya 2-3 kalimat.
 - Tutup dengan ajakan ENGAGEMENT: tag temen / komen / save — pilih yang paling pas (mis. "Tag temen yang belum tau ini 👇", "Save dulu, ntar lupa", "Percaya gak?").
-- Baris terakhir = tepat 8 hashtag dalam 1 baris: campur #faktaunik #taugaksih #faktamenarik dengan tag spesifik topik.
+- Baris terakhir = MAKSIMAL 5 hashtag dalam 1 baris (JANGAN lebih dari 5): campur #faktaunik #taugaksih #faktamenarik dengan tag spesifik topik.
 - Maks ~700 karakter sebelum hashtag. Emoji maks 2."""
 
 
