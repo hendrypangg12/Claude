@@ -67,8 +67,12 @@ def _publish_one(acc: dict, pub: Path, raw: str, mode: str, caption: str) -> lis
             posted.append(("carousel", pid))
     if mode in ("both", "reel") and (pub / "reel.mp4").exists():
         print(f"  [{name}] reel...")
+        # reel pakai caption ber-kredit musik kalau ada (carousel tetap caption biasa)
+        reel_caption = caption
+        if (pub / "caption_reel.txt").exists():
+            reel_caption = (pub / "caption_reel.txt").read_text(encoding="utf-8")
         cover = f"{raw}/post_1.jpg" if (pub / "post_1.jpg").exists() else None
-        rid = publish_reel(ig_id, token, f"{raw}/reel.mp4", caption, cover_url=cover)
+        rid = publish_reel(ig_id, token, f"{raw}/reel.mp4", reel_caption, cover_url=cover)
         print(f"  [{name}] ✅ reel id: {rid}")
         posted.append(("reel", rid))
     return posted

@@ -1,5 +1,9 @@
 # 🎵 Lagu buat reel (auto-mix)
 
+> **Udah diisi 5 lagu** (Kevin MacLeod, CC BY 4.0 — lihat `CREDITS.txt`).
+> Kredit otomatis ditempel ke caption **reel** (carousel tetap bersih).
+> Mau nambah/ganti? Ikutin panduan di bawah.
+
 Taruh file lagu **royalty-free** di folder ini. Tiap kali bikin reel, pipeline
 (`daily_fakta.py`) **pilih satu lagu acak** dari sini, lalu di-tempel ke video
 otomatis (di-loop/trim ke 20 detik, volume diturunin, fade-out di akhir).

@@ -31,6 +31,12 @@ def _pick_music() -> str | None:
     return str(random.choice(tracks)) if tracks else None
 
 
+def _music_credit(path: str) -> str:
+    """Baris kredit CC-BY buat track Kevin MacLeod (wajib di caption reel)."""
+    title = Path(path).stem.replace("-", " ").replace("_", " ").title()
+    return f"🎵 Musik: \"{title}\" — Kevin MacLeod (incompetech.com) · Lisensi CC BY 4.0"
+
+
 def _load_history() -> list[str]:
     if HISTORY.exists():
         try:
@@ -127,6 +133,10 @@ def main() -> int:
             render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
                         seg=10, max_segments=2, fact_at=1.5,
                         detail_png=detail_ov, detail_at=10, music=music)
+            if music:
+                # caption khusus reel = caption + kredit musik (carousel pakai caption.txt biasa)
+                (out_dir / "caption_reel.txt").write_text(
+                    fakta["caption"] + "\n\n" + _music_credit(music), encoding="utf-8")
             tag = f", musik: {Path(music).name}" if music else ", senyap (folder music/ kosong)"
             print(f"      → reel.mp4 (20s, slide-2 di detik 10{tag})")
         except Exception as exc:
