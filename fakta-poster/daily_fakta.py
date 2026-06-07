@@ -7,6 +7,7 @@ Reads ANTHROPIC_API_KEY from .env / environment. Optional env:
 """
 import json
 import os
+import random
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -18,6 +19,16 @@ from fakta_image_maker import compose_cover, compose_fact, compose_outro
 
 WIB = timezone(timedelta(hours=7))
 HISTORY = Path("history.json")  # persisted hooks for cross-run dedup (out/ is gitignored)
+MUSIC_DIR = Path("music")       # lagu royalty-free (taruh sendiri) → di-acak per reel
+
+
+def _pick_music() -> str | None:
+    """Acak 1 lagu dari music/ (mp3/m4a/wav). None kalau folder kosong → reel senyap."""
+    if not MUSIC_DIR.is_dir():
+        return None
+    tracks = [p for p in MUSIC_DIR.iterdir()
+              if p.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")]
+    return str(random.choice(tracks)) if tracks else None
 
 
 def _load_history() -> list[str]:
@@ -112,10 +123,12 @@ def main() -> int:
                 str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"),
                 str(out_dir / "reel_detail.png"), detail=fakta.get("detail", ""),
             )
+            music = _pick_music()
             render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
                         seg=10, max_segments=2, fact_at=1.5,
-                        detail_png=detail_ov, detail_at=10)
-            print("      → reel.mp4 (20s, slide-2 di detik 10)")
+                        detail_png=detail_ov, detail_at=10, music=music)
+            tag = f", musik: {Path(music).name}" if music else ", senyap (folder music/ kosong)"
+            print(f"      → reel.mp4 (20s, slide-2 di detik 10{tag})")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
 
