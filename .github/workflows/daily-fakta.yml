@@ -6,12 +6,12 @@ name: Daily Fakta (semi-manual)
 
 on:
   schedule:
-    # WIB = UTC+7. 5 slot/hari. Reel pagi & sore, carousel jam 10/13/20.
-    - cron: "0 23 * * *"  # 06:00 WIB → REEL
-    - cron: "0 3 * * *"   # 10:00 WIB → carousel
-    - cron: "0 6 * * *"   # 13:00 WIB → carousel
-    - cron: "0 10 * * *"  # 17:00 WIB → REEL
-    - cron: "0 13 * * *"  # 20:00 WIB → carousel
+    # WIB = UTC+7. 5 slot/hari. Menit :09 (bukan jam bulat) → kurangi delay antrian GitHub.
+    - cron: "9 23 * * *"  # 06:09 WIB → REEL
+    - cron: "9 3 * * *"   # 10:09 WIB → carousel
+    - cron: "9 6 * * *"   # 13:09 WIB → carousel
+    - cron: "9 10 * * *"  # 17:09 WIB → REEL
+    - cron: "9 13 * * *"  # 20:09 WIB → carousel
   workflow_dispatch:
     inputs:
       category:
@@ -70,11 +70,11 @@ jobs:
         run: |
           # tiap cron → kategori (variasi) + post_mode (reel/carousel)
           case "${{ github.event.schedule }}" in
-            "0 23 * * *") cat="hewan";       mode="reel" ;;      # 06:00 WIB
-            "0 3 * * *")  cat="sains";       mode="carousel" ;;  # 10:00 WIB
-            "0 6 * * *")  cat="sejarah";     mode="carousel" ;;  # 13:00 WIB
-            "0 10 * * *") cat="luarangkasa"; mode="reel" ;;      # 17:00 WIB
-            "0 13 * * *") cat="tubuh";       mode="carousel" ;;  # 20:00 WIB
+            "9 23 * * *") cat="hewan";       mode="reel" ;;      # 06:09 WIB
+            "9 3 * * *")  cat="sains";       mode="carousel" ;;  # 10:09 WIB
+            "9 6 * * *")  cat="sejarah";     mode="carousel" ;;  # 13:09 WIB
+            "9 10 * * *") cat="luarangkasa"; mode="reel" ;;      # 17:09 WIB
+            "9 13 * * *") cat="tubuh";       mode="carousel" ;;  # 20:09 WIB
             *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual
           esac
           echo "cat=$cat"   >> "$GITHUB_OUTPUT"
