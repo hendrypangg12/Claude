@@ -111,8 +111,9 @@ def main() -> int:
                 fakta["hook"], fakta["category"], fakta["fact"],
                 str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"),
             )
-            render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"))
-            print("      → reel.mp4")
+            render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
+                        seg=10, max_segments=2, fact_at=2.0)
+            print("      → reel.mp4 (20s)")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
 
