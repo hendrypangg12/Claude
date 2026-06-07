@@ -1,0 +1,81 @@
+name: Beruang Finance (carousel)
+
+# Generate 1 carousel Beruang Finance (tips/berita/lucu) pakai foto Pexels.
+# Hasil di-commit ke repo (beruang-finance/published) + artifact. Post manual ke IG.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ctype:
+        description: "Jenis konten"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - tips
+          - berita
+          - lucu
+      topic:
+        description: "Topik spesifik (opsional, mis. 'dana darurat')"
+        required: false
+        default: ""
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: beruang-finance
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: fakta-poster/requirements.txt
+
+      - run: pip install -r ../fakta-poster/requirements.txt
+
+      - run: python bf_daily.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          CTYPE: ${{ github.event.inputs.ctype }}
+          TOPIC: ${{ github.event.inputs.topic }}
+
+      - name: Commit hasil ke repo
+        working-directory: ${{ github.workspace }}
+        run: |
+          TS=$(ls -t beruang-finance/out | head -1)
+          mkdir -p "beruang-finance/published/$TS"
+          cp beruang-finance/out/$TS/post_*.jpg "beruang-finance/published/$TS/" 2>/dev/null || true
+          cp beruang-finance/out/$TS/caption.txt "beruang-finance/published/$TS/" 2>/dev/null || true
+          cp beruang-finance/out/$TS/meta.json "beruang-finance/published/$TS/" 2>/dev/null || true
+          ls -dt beruang-finance/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beruang-finance/published
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Beruang Finance carousel $TS"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              git fetch origin ${{ github.ref_name }}
+              git rebase origin/${{ github.ref_name }} || git rebase --abort
+              sleep 2
+            done
+          fi
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beruang-finance-${{ github.run_id }}
+          path: beruang-finance/out/
+          retention-days: 14
