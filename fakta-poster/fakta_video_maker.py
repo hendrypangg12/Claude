@@ -107,7 +107,7 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
     # CTA bawah (selalu tampil)
     cf = _font("bold", 32)
     subf = _font("medium", 26)
-    sub_y = RH - s(PAD) - subf.size - s(2)
+    sub_y = RH - s(PAD) - subf.size - s(170)  # diangkat — hindari ketutup UI Reels IG
     px_, py_ = s(26), s(16)
     pill_h = cf.size + 2 * py_
     pill_y = sub_y - s(22) - pill_h
