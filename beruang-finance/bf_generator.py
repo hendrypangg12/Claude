@@ -1,10 +1,20 @@
 """Pakai Claude buat bikin 1 konten 'Beruang Finance' (tips / berita / lucu keuangan)."""
 import json
 import os
+import re
 
 from anthropic import Anthropic
 
 MODEL = "claude-sonnet-4-6"
+
+# Poppins gak punya glyph emoji → bersihin dari teks yang DIGAMBAR (caption tetap boleh)
+_EMOJI = re.compile(
+    "[\U0001F000-\U0001FAFF\U00002600-\U000027BF\U0001F1E6-\U0001F1FF←-⇿⌀-⏿️]"
+)
+
+
+def _no_emoji(t: str) -> str:
+    return re.sub(r"\s{2,}", " ", _EMOJI.sub("", t)).strip()
 
 SYSTEM_PROMPT = """Kamu content creator untuk halaman Instagram keuangan Indonesia "Beruang Finance" (gaya santai, relatable, anak muda — tagline "Melek duit, pelan-pelan").
 
@@ -71,13 +81,13 @@ def generate_content(ctype: str | None = None, topic: str | None = None,
         messages=[{"role": "user", "content": f"Buat satu konten baru. {line}{avoid_line}"}],
     )
     data = _parse_json(msg.content[0].text)
-    pts = [str(p).strip() for p in (data.get("points") or []) if str(p).strip()]
+    pts = [_no_emoji(str(p)) for p in (data.get("points") or []) if str(p).strip()]
     return {
         "type": str(data.get("type", "tips")).strip().lower() or "tips",
-        "kicker": str(data.get("kicker", "")).strip() or "BERUANG FINANCE",
-        "hook": str(data.get("hook", "")).strip(),
-        "points": pts[:3],
-        "takeaway": str(data.get("takeaway", "")).strip(),
-        "caption": str(data.get("caption", "")).strip(),
+        "kicker": _no_emoji(str(data.get("kicker", ""))) or "BERUANG FINANCE",
+        "hook": _no_emoji(str(data.get("hook", ""))),
+        "points": [p for p in pts if p][:3],
+        "takeaway": _no_emoji(str(data.get("takeaway", ""))),
+        "caption": str(data.get("caption", "")).strip(),  # caption boleh emoji
         "query": str(data.get("query", "")).strip() or "money",
     }
