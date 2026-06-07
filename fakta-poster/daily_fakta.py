@@ -110,6 +110,7 @@ def main() -> int:
             main_ov, fact_ov = make_reel_overlay(
                 fakta["hook"], fakta["category"], fakta["fact"],
                 str(out_dir / "reel_main.png"), str(out_dir / "reel_fact.png"),
+                detail=fakta.get("detail", ""),
             )
             render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
                         seg=10, max_segments=2, fact_at=2.0)
