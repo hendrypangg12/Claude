@@ -139,6 +139,18 @@ jobs:
           PUB_DIR: published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
+      - name: Publish ke Facebook Page
+        if: ${{ github.event.inputs.post_mode != 'none' }}
+        continue-on-error: true   # FB sekunder — kalau token belum siap, IG tetap jalan
+        run: python publish_fb.py
+        env:
+          FB_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          POST_MODE: ${{ github.event.inputs.post_mode || steps.slot.outputs.mode }}
+          PUB_DIR: published/${{ env.TS }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
+
       - name: Upload generated carousel
         if: always()
         uses: actions/upload-artifact@v4

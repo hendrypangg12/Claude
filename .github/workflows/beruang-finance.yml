@@ -130,6 +130,19 @@ jobs:
           PUB_DIR: ${{ github.workspace }}/beruang-finance/published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/beruang-finance/published/${{ env.TS }}
 
+      - name: Publish ke Facebook Page (Beruang)
+        if: ${{ github.event.inputs.post_mode != 'none' }}
+        continue-on-error: true
+        working-directory: fakta-poster
+        run: python publish_fb.py
+        env:
+          FB_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_BF }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID_BF }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID_BF }}
+          POST_MODE: ${{ github.event.inputs.post_mode || steps.slot.outputs.mode }}
+          PUB_DIR: ${{ github.workspace }}/beruang-finance/published/${{ env.TS }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/beruang-finance/published/${{ env.TS }}
+
       - name: Upload artifact
         if: always()
         uses: actions/upload-artifact@v4
