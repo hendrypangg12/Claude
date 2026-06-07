@@ -92,7 +92,7 @@ def make_reel_overlay(hook, kicker, lines, out_main, out_fact):
     # CTA bottom
     cf = _font("bold", 36)
     subf = _font("medium", 30)
-    sub_y = RH - s(PAD) - subf.size - s(4)
+    sub_y = RH - s(PAD) - subf.size - s(170)  # diangkat — hindari ketutup UI Reels IG
     px_, py_ = s(28), s(18)
     pill_h = cf.size + 2 * py_
     pill_y = sub_y - s(24) - pill_h
