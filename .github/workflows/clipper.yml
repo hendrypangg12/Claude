@@ -47,7 +47,6 @@ jobs:
           cache-dependency-path: clipper/requirements.txt
 
       - run: pip install -r clipper/requirements.txt
-        working-directory: clipper
 
       - name: Install ffmpeg + Poppins font
         run: |
