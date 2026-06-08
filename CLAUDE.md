@@ -121,6 +121,61 @@ Ambil klip+foto Pexels mentah per query, commit ke `fakta-poster/footage/<slug>/
 - Bikin konten berita gempa M7,7/7,8 Mindanao (8 Juni) pakai template news Berstock + faktaviral cosmic (cover foto Pexels + slide shakemap BMKG). Render slide custom = import helper dari `fakta_image_maker` (_bg/_photo_bg/_brand_chip/_dots/_font/_save, R=2160, SIZE=1080, PAD=74).
 - Title-card overlay reel (kotak putih + hashtag highlight cyan) + watermark "Follow @faktaviral.idn" → burn ke video pakai ffmpeg overlay PNG. Owner suka format ini.
 
+## SESSION MEMORY — update 9 Juni 2026 (dini hari) — BERITA HANGAT + FOTO ASLI
+
+> Lanjutan langsung dari sesi 8 Juni. Branch dev = `claude/new-session-7ysra`, semua di-merge ke default
+> `claude/halo-bYUsl`. Owner mau konten BERITA viral yang HANGAT + visual SESUAI berita. SUDAH JADI & DITES.
+
+### Masalah yang dibereskan: "berita trending selalu nyangkut ke 'tubuh manusia'"
+- Penyebab: kategori berita (trending/keuangan/aktor) gagal verifikasi (Google CSE **403 terus**) → fallback ke fakta evergreen, dan fallback lama manggil `generate_fakta(category="trending")` = kategori palsu → bypass logika variasi → "tubuh terus".
+- Fix #1 (`daily_fakta.py`): fallback pakai `fb_cat = None if category in NEWS_CATEGORIES else category` → mode Bebas + `avoid_categories` → gak ngulang topik.
+- Fix #2 (UTAMA): **`web_search` jadi sumber berita UTAMA** (lihat bawah) → gak gantung ke Google Cloud lagi.
+
+### Mesin berita BARU — `fakta-poster/fakta_news.py` (`generate_news`)
+Urutan sumber: **(1) web_search Claude → (2) Google CSE + NewsAPI snippet → (3) fakta evergreen**.
+1. **`_claude_web_news(category, avoid)`** = SUMBER UTAMA. Pakai server-side tool Anthropic
+   `{"type":"web_search_20260209","name":"web_search","max_uses":5}`, model `claude-sonnet-4-6`,
+   pakai `ANTHROPIC_API_KEY` (yg udah jalan) — **TANPA Google Cloud/NewsAPI**. Loop `stop_reason=="pause_turn"`
+   (append `resp.content` ke messages, ulang). Ambil JSON dari text block terakhir (`_parse_json` punya
+   fallback regex `\{.*\}`). Server-side tools cukup di-pass sbg dict mentah → SDK versi apa pun jalan.
+2. **FRESHNESS = di bawah 4 JAM** (target utama; owner minta makin ketat: 1-3 hari → 6 jam → **4 jam**).
+   Fallback ladder ke maks ~8 jam kalau <4 jam belum rame. KUNCI prompt: "di antara kandidat yang
+   SAMA-SAMA rame & kredibel, PILIH YANG PALING BARU (umur jam terkecil)". Inject tanggal hari ini (WIB).
+   ⚠️ TENSION nyata: <4 jam + "diberitakan 20+ media besar" sering bentrok (berita baru blm dikutip banyak).
+   Owner udah dikasih tau; sistem ambil yg paling fresh-tapi-terverifikasi.
+3. **SYARAT VIRAL** (logika owner): <4-6 jam, udah muncul 20+ kali di search, dari media terkenal
+   (detik, Kompas, CNN/CNBC Indonesia, BBC, Tempo). BUKAN rumor pribadi/fitnah (UU ITE — stance lama tetap).
+
+### FOTO ASLI berita (carousel + reel) — fitur besar sesi ini ✅ DITES JALAN
+Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pidato itu), bukan stok generik.
+- web_search wajib balikin **`source_urls`** (2-4 URL artikel asli) di JSON output (field ditambah ke `SYSTEM`).
+- **`_og_image(url)` + `_resolve_news_image(urls)`** di `fakta_news.py`: fetch artikel → ambil
+  `og:image`/`twitter:image` = **foto yang dipakai outlet beritanya**. Return `_image_url`, `_image_article`,
+  `_source_urls` di dict hasil. (snippet-path juga: fallback ke `it["link"]`.)
+- **`media_fetcher.download_image(url, out)`**: download via Pillow → simpan JPG, **tolak <400px** (anti logo/ikon).
+- **`fakta_video_maker.image_to_clip(img, out, dur=20)`**: ffmpeg `zoompan` Ken Burns 1080×1920 → 1 foto jadi
+  klip reel bergerak (biar reel berita nampilin foto asli, bukan stok).
+- **`daily_fakta.py`**: download `hero` dari `_image_url` (di LUAR gate PEXELS). Carousel cover (p1) WAJIB hero;
+  p2/p3 prefer stok→hero. Reel: kalau ada hero → `reel_bg=[image_to_clip(hero)]` (else stok video). `meta.json`
+  nyimpen `sumber` + `foto_asli` (bool). DITES: KPK OTT Bupati Muara Enim → `"foto_asli": true` ✅.
+- ⚠️ **VIDEO klip viral mentah TIDAK di-download** (copyright/ToS — strike). Jalan tengah = foto asli + kredit
+  sumber (di caption + meta). Owner setuju pakai foto-asli+kredit (keputusan editorial dia, risiko dia).
+
+### Jadwal & verifikasi
+- **daily-fakta.yml**: tambah cron **`0 3 * * *` (10:00 WIB)** selain 06:09 & 07:09. Semua → cat=trending,
+  **mode=none (PREVIEW, gak auto-post)** masuk dashboard buat review manual. (faktaviral tetap NO auto-post.)
+- **Tes sukses (run #32)**: web_search nemu "baling-baling Wings Air diikat cable tie" (real, sumber CNN/Okezone/RRI),
+  lalu "KPK OTT Bupati Muara Enim Edison" (sumber Kompas/Detik/ANTARA/VIVA, foto_asli=true). Log nunjukin
+  `via web_search` + `✓ pakai FOTO ASLI berita`.
+- og:image extraction udah dites lokal (network OK): berhasil narik gambar dari detik.com & cnnindonesia.com.
+
+### TODO lanjutan (besok)
+- Tes generate sekali lagi buat liat hasil <4 jam + foto asli barengan (owner blm sempat, mau tidur jam 1).
+- (Opsional) opsi "keras: <4 jam atau skip" kalau owner mau.
+- (Belum kelar dari 8 Juni) Token IG #10 faktaviral + set `IG_USER_ID_BF`/`IG_ACCESS_TOKEN_BF` beruang.
+- (Opsional polish) label cover berita masih "TAU GAK SIH?" — buat berita mending "LAGI VIRAL"/"BREAKING".
+- Google CSE 403 masih ada tapi gak ngeganggu lagi (web_search jadi sumber utama). Boleh diabaikan / fix nanti.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
