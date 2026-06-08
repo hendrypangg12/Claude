@@ -257,6 +257,8 @@ async function openPost(p){
   document.getElementById("ovti").textContent=`${p.label||""} · ${p.date} ${p.time}`;
   let sl=""; for(let i=1;i<=p.slides;i++) sl+=`<img src="${c.base}/${p.id}/post_${i}.jpg">`;
   if(p.reel) sl+=`<video src="${c.base}/${p.id}/reel.mp4" controls playsinline></video>`;
+  let dl=""; for(let i=1;i<=p.slides;i++) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/post_${i}.jpg" download target="_blank">⬇️ Slide ${i}</a>`;
+  if(p.reel) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download target="_blank">⬇️ Reel</a>`;
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
     <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
@@ -265,8 +267,8 @@ async function openPost(p){
     <div class="genmsg" id="postMsg"></div>
     <div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="copyCap()">📋 Salin caption</button>
       ${p.reel?'<button class="btn ghost" onclick="copyCap(true)">📋 Caption reel (+kredit)</button>':''}</div>
-    <div class="btnrow"><a class="btn ghost" href="${c.base}/${p.id}/post_1.jpg" download>⬇️ Slide 1</a>
-      ${p.reel?`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download>⬇️ Reel</a>`:''}</div>`;
+    <div class="btnrow">${dl}</div>
+    <div class="sub" style="margin-top:8px">💡 Di iPad/HP: tap slide buat kebuka, terus tahan (long-press) → "Save to Photos"</div>`;
   document.getElementById("ov").classList.add("open");
   window._cur={c,p,cap:"",capReel:""}; fetchCap(false); if(p.reel) fetchCap(true);
 }
