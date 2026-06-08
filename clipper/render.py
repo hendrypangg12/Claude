@@ -55,14 +55,42 @@ def make_brand_png(out_png: Path, brand: str = "BERSTOCK.ID") -> Path:
     return out_png
 
 
+def build_pan_script(face: dict, out_path: Path) -> tuple[Path, int] | None:
+    """Turn a face track into a sendcmd script that pans crop x to keep the face
+    centered. Returns (script_path, init_x) or None when there's no room to pan
+    (portrait/near-vertical source) or no track."""
+    track = (face or {}).get("track") or []
+    sw, sh = (face or {}).get("src_w", 0), (face or {}).get("src_h", 0)
+    if not track or sw <= 0 or sh <= 0:
+        return None
+    scale_factor = max(W / sw, H / sh)
+    scaled_w = sw * scale_factor
+    max_x = scaled_w - W
+    if max_x < 4:                       # already ~9:16 wide → nothing to pan
+        return None
+
+    def _x(frac: float) -> int:
+        return int(max(0.0, min(max_x, frac * scaled_w - W / 2.0)))
+
+    lines = [f"{t:.2f} crop x {_x(frac)};" for t, frac in track]
+    out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return out_path, _x(track[0][1])
+
+
 def render_clip(source: Path, start: float, end: float, ass_path: Path,
-                brand_png: Path, out_mp4: Path) -> Path:
+                brand_png: Path, out_mp4: Path, face: dict | None = None) -> Path:
     dur = max(0.5, end - start)
     fonts_dir = next((str(d) for d in FONT_DIRS if d.exists()), str(FONT_DIRS[0]))
+    pan = build_pan_script(face, out_mp4.with_suffix(".pan.txt")) if face else None
     # subtitles + fontsdir paths: our paths have no ':' so plain single-quoting is safe
+    if pan:
+        script, init_x = pan
+        crop = f"sendcmd=f='{script}',crop={W}:{H}:x={init_x}:y=0"
+    else:
+        crop = f"crop={W}:{H}"          # static center crop (fallback)
     vf = (
-        f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,"
-        f"crop={W}:{H},setsar=1,"
+        f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,"
+        f"{crop},"
         f"subtitles='{ass_path}':fontsdir='{fonts_dir}'[v];"
         f"[v][1:v]overlay=0:0:format=auto[o]"
     )
