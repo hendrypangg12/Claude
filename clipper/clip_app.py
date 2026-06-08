@@ -35,8 +35,11 @@ def main() -> int:
     ap.add_argument("--brand", default=os.environ.get("BRAND", "FAKTAVIRAL.IDN"))
     ap.add_argument("--no-track", action="store_true",
                     help="matikan face-tracking (pakai center-crop statis)")
+    ap.add_argument("--no-caption", action="store_true",
+                    help="matikan caption karaoke (kalau video ori udah ada teks)")
     args = ap.parse_args()
     track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
+    cap_on = not args.no_caption and os.environ.get("CAPTIONS", "1") != "0"
 
     if not args.url:
         print("ERROR: kasih link video. Contoh: python clip_app.py \"https://...\"")
@@ -65,7 +68,8 @@ def main() -> int:
     print("[4/4] Render clip 9:16 + caption + title HOOK...")
     rendered = []
     for i, c in enumerate(clips, 1):
-        ass = build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
+        ass = (build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
+               if cap_on else None)
         out_mp4 = out_dir / f"clip-{i}.mp4"
         overlay = make_overlay_png(out_dir / f"overlay-{i}.png", brand=args.brand,
                                    title=c["title"], credit=creator)

@@ -2,11 +2,21 @@
 crop, works for any source aspect), burn in the karaoke captions, and stamp a brand
 chip. Uses ffmpeg (path from FFMPEG env or PATH)."""
 import os
+import re
 import shutil
 import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
+
+# Poppins can't render colour emoji → strip them from burned text (keep in caption).
+_EMOJI = re.compile(
+    "[\U0001F000-\U0001FAFF\U00002600-\U000027BF\U0001F1E6-\U0001F1FF"
+    "\U00002B00-\U00002BFF\U00002190-\U000021FF️‍]")
+
+
+def _clean(s: str) -> str:
+    return _EMOJI.sub("", s or "").strip()
 
 HERE = Path(__file__).resolve().parent
 FONT_DIRS = [HERE / "fonts", HERE.parent / "daily-news-poster" / "fonts"]
@@ -76,34 +86,35 @@ def make_overlay_png(out_png: Path, brand: str = "FAKTAVIRAL.IDN",
                         radius=26, fill=CYAN)
     d.text((bx + bpx, by + bpy - 5), brand, font=bf, fill=INK)
 
-    # HOOK title card — auto-fit font so it wraps to <=5 lines
-    if title:
-        max_w = 900
-        for size in (64, 60, 56, 52, 48, 44, 40):
+    # HOOK title — CapCut style: black bold UPPERCASE on white boxes, lower-middle.
+    if _clean(title):
+        ttl = _clean(title).upper()
+        max_w = 840
+        for size in (62, 58, 54, 50, 46, 42):
             tf = _font("Poppins-ExtraBold.ttf", size)
-            lines, space = _wrap_tokens(d, title, tf, max_w)
-            if len(lines) <= 5:
+            lines, _ = _wrap_tokens(d, ttl, tf, max_w)
+            if len(lines) <= 4:
                 break
-        line_h = tf.size * 1.18
-        block_h = line_h * len(lines)
-        pad = 26
-        y0 = int(by + bf.size + 2 * bpy + 30)
-        card_top, card_bot = y0 - pad, y0 + block_h + pad - (line_h - tf.size)
-        d.rounded_rectangle([(W - max_w) / 2 - pad, card_top,
-                             (W + max_w) / 2 + pad, card_bot],
-                            radius=28, fill=(0, 0, 0, 170))
-        y = y0
+        bpx2, bpy2 = 22, 10
+        gap = int(tf.size * 0.16)
+        row_h = tf.size + 2 * bpy2
+        block_h = len(lines) * row_h + (len(lines) - 1) * gap
+        y = int(H * 0.60) - block_h // 2          # center block around 60% height
+
+        # small teal quote accent, top-left of the block
+        qf = _font("Poppins-ExtraBold.ttf", 48)
+        qx = (W - max_w) / 2 - 6
+        d.rounded_rectangle([qx, y - 58, qx + 60, y - 6], radius=12, fill=CYAN)
+        d.text((qx + 14, y - 78), "”", font=qf, fill=INK)
+
         for toks in lines:
-            widths = [d.textlength(t, font=tf) for t in toks]
-            total = sum(widths) + space * (len(toks) - 1)
-            x = (W - total) / 2
-            for t, w in zip(toks, widths):
-                # outline for readability
-                fill = (CYAN[0], CYAN[1], CYAN[2], 255) if t.startswith("@") else WHITE
-                d.text((x, y), t, font=tf, fill=fill,
-                       stroke_width=3, stroke_fill=(0, 0, 0, 220))
-                x += w + space
-            y += line_h
+            text = " ".join(toks)
+            tw = d.textlength(text, font=tf)
+            bx0, bx1 = (W - tw) / 2 - bpx2, (W + tw) / 2 + bpx2
+            d.rounded_rectangle([bx0, y, bx1, y + row_h], radius=14,
+                                fill=(255, 255, 255, 236))
+            d.text(((W - tw) / 2, y + bpy2 - 4), text, font=tf, fill=(15, 18, 26, 255))
+            y += row_h + gap
 
     # creator credit chip, lower-left (above the Reels caption zone)
     if credit:
@@ -149,7 +160,7 @@ def build_pan_script(face: dict, out_path: Path) -> tuple[Path, int] | None:
     return out_path, _x(track[0][1])
 
 
-def render_clip(source: Path, start: float, end: float, ass_path: Path,
+def render_clip(source: Path, start: float, end: float, ass_path: Path | None,
                 brand_png: Path, out_mp4: Path, face: dict | None = None) -> Path:
     dur = max(0.5, end - start)
     fonts_dir = next((str(d) for d in FONT_DIRS if d.exists()), str(FONT_DIRS[0]))
@@ -160,10 +171,11 @@ def render_clip(source: Path, start: float, end: float, ass_path: Path,
         crop = f"sendcmd=f='{script}',crop={W}:{H}:x={init_x}:y=0"
     else:
         crop = f"crop={W}:{H}"          # static center crop (fallback)
+    # karaoke caption is optional (off when source video already has burned-in text)
+    subs = f",subtitles='{ass_path}':fontsdir='{fonts_dir}'" if ass_path else ""
     vf = (
         f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,"
-        f"{crop},"
-        f"subtitles='{ass_path}':fontsdir='{fonts_dir}'[v];"
+        f"{crop}{subs}[v];"
         f"[v][1:v]overlay=0:0:format=auto[o]"
     )
     cmd = [
