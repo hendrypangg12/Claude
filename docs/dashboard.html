@@ -132,8 +132,9 @@ const BRANDS={
   faktaviral:{ base:`${RAW}/fakta-poster/published`, manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a", wf:"daily-fakta.yml", catKey:"category", cats:FV_CATS },
   beruang:{ base:`${RAW}/beruang-finance/published`, manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
 };
-let brand="faktaviral", cache={};
+let brand="faktaviral", cache={}, sigs={};
 const pat=()=>localStorage.getItem("gh_pat")||"";
+const sigOf=j=>JSON.stringify((j.posts||[]).map(p=>p.id));
 
 function setTab(b){
   brand=b;
@@ -141,14 +142,26 @@ function setTab(b){
   const c=BRANDS[b]; document.documentElement.style.setProperty("--accent",c.accent); document.documentElement.style.setProperty("--ink",c.ink);
   document.getElementById("genCat").innerHTML=c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
   document.getElementById("genMsg").textContent="";
-  render();
+  load(true);   // fetch ulang manifest brand ini (jangan tampilin konten brand lain)
 }
 async function load(force){
-  document.getElementById("loading").style.display="block";
-  try{ const r=await fetch(BRANDS[brand].manifest+"?_="+Date.now()); cache[brand]=await r.json(); }
-  catch(e){ cache[brand]={posts:[]}; }
-  render();
+  const grid=document.getElementById("grid"), b=brand;
+  if(force || !cache[b]) grid.innerHTML='<div class="empty">Memuat konten…</div>';
+  try{ const r=await fetch(BRANDS[b].manifest+"?_="+Date.now()); cache[b]=await r.json(); sigs[b]=sigOf(cache[b]); }
+  catch(e){ if(!cache[b]) cache[b]={posts:[]}; }
+  if(b===brand) render();   // hanya render kalau tab belum keburu ganti
 }
+// auto-sync tiap 10 detik: kalau ada konten baru → render sendiri (gak perlu refresh manual)
+async function autoSync(){
+  if(document.hidden) return;
+  const b=brand;
+  try{
+    const r=await fetch(BRANDS[b].manifest+"?_="+Date.now());
+    const j=await r.json(); const sig=sigOf(j);
+    if(sig!==sigs[b]){ sigs[b]=sig; cache[b]=j; if(b===brand) render(); }
+  }catch(e){}
+}
+setInterval(autoSync, 10000);
 function render(){
   const c=BRANDS[brand], data=cache[brand], grid=document.getElementById("grid");
   if(!data){ return; }
@@ -238,7 +251,7 @@ function toast(m){ const t=document.getElementById("toast"); if(typeof m==="stri
 function esc(s){ return (s||"").replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m])); }
 document.getElementById("ov").addEventListener("click",e=>{ if(e.target.id==="ov") closeOv(); });
 document.getElementById("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeSettings(); });
-setTab("faktaviral"); load();
+setTab("faktaviral");
 </script>
 </body>
 </html>
