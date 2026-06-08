@@ -74,6 +74,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
 
       - name: Siapkan media publik + commit
         # selalu commit (biar muncul di dashboard utk preview); publish-nya yg digate post_mode
