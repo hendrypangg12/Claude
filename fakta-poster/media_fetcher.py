@@ -23,6 +23,22 @@ def _download(url: str, out_path: str) -> str:
     return out_path
 
 
+def download_image(url: str, out_path: str) -> str:
+    """Download foto ASLI berita (dari og:image artikel) → simpan sbg JPG.
+    Lewat Pillow biar format apa pun jadi JPG yang aman buat image maker. Raise kalau gagal."""
+    from io import BytesIO
+
+    from PIL import Image
+
+    r = requests.get(url, timeout=40, headers={"User-Agent": "Mozilla/5.0"})
+    r.raise_for_status()
+    img = Image.open(BytesIO(r.content)).convert("RGB")
+    if min(img.size) < 400:  # foto kekecilan (ikon/placeholder) → tolak
+        raise RuntimeError(f"foto berita kekecilan {img.size}")
+    img.save(out_path, "JPEG", quality=92)
+    return out_path
+
+
 def fetch_photo(query: str, out_path: str) -> str:
     # no orientation restriction → most RELEVANT photo first (we crop to square anyway)
     r = requests.get(
