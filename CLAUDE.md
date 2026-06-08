@@ -91,6 +91,36 @@ Ambil klip+foto Pexels mentah per query, commit ke `fakta-poster/footage/<slug>/
 - ⚠️ Token expired tiap ~60 hari → perlu refresh manual (TODO: auto-refresh / System User token biar permanen). JANGAN pernah commit token/App Secret ke repo — Secrets only.
 - 7 Juni: owner udah ganti password FB + lagi proses set token 60 hari (lanjutan: pasang ke GH Secret → test run `post_mode: both`).
 
+## SESSION MEMORY — update 8 Juni 2026 (BACA INI buat lanjutan terbaru)
+
+> Banyak fitur besar dibangun sesi ini. Branch dev sesi ini = `claude/new-session-7ysra`, semua di-merge ke
+> default `claude/halo-bYUsl` (wajib di default branch biar schedule + workflow_dispatch jalan).
+
+### Strategi konten (keputusan owner)
+- **@beruangfinance = AUTO-POST** (5 slot/hari: 07:17, 11:17, 15:17, 18:17, 21:17 WIB — sengaja beda menit dari faktaviral biar gak nabrak antrian GitHub).
+- **@faktaviral.idn = TIDAK auto-post.** Tiap pagi (06:09 & 07:09 WIB) sistem auto-generate **2 konten "trending" terverifikasi** → commit ke dashboard sebagai PREVIEW (mode=none, gak ke-post). Owner review pagi → post manual. Owner mau konten BERKUALITAS (berita hangat / fakta yg lagi rame), bukan kuantitas.
+- Owner suka momen viral; SUDAH BERKALI-KALI minta repost gosip/defamasi (rumor Prabowo–Teddy) + hapus watermark → SELALU DITOLAK (UU ITE, banned, brand "FAKTA" ancur). Tawarin alternatif aman tiap kali.
+
+### Token IG — status PENTING
+- ⚠️ **Error `(#10) Application does not have permission`** muncul di publish IG faktaviral (8 Juni), padahal #19/#20 sebelumnya sukses. Pemicu: owner ganti password FB → izin token ke-reset. **FIX: regenerate token** (centang SEMUA scope: `instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement, business_management, pages_manage_posts`), pastiin akun **Bisnis** (bukan Creator), grant Page, tukar long-lived, update Secret `IG_ACCESS_TOKEN`. **Token belum di-fix per akhir sesi.**
+- **@beruangfinance** butuh Secrets BARU: `IG_USER_ID_BF` + `IG_ACCESS_TOKEN_BF`. Owner sempat dapat `me/accounts` → `data: []` (Page belum ke-grant / akun belum Professional+link Page). **Belum beres per akhir sesi.**
+- Token wajib ada `pages_manage_posts` biar auto-post FB jalan.
+
+### Fitur baru yang DIBANGUN (semua di repo, branch default)
+1. **Reel auto-musik** — `fakta-poster/music/` = 5 lagu Kevin MacLeod (CC-BY, lihat `CREDITS.txt`). `render_reel(...,music=)` di `fakta_video_maker.py` & `bf_video_maker.py` mixing lagu acak + fade-out. `daily_fakta.py`/`bf_daily.py` tulis `caption_reel.txt` (=caption + kredit musik); `publish_ig.py` pakai caption_reel buat reel. Owner mau reel manual (biar bisa lagu trending) — auto-musik buat yang auto.
+2. **Auto-post Facebook Page** — `fakta-poster/facebook_uploader.py` + `publish_fb.py`. Carousel→album, reel→video. Page ke-deteksi otomatis dari `IG_USER_ID` (match instagram_business_account). Step "Publish ke Facebook" di kedua workflow, `continue-on-error: true` (IG tetap jalan kalau token FB belum siap). Secrets: reuse `IG_ACCESS_TOKEN`/`IG_ACCESS_TOKEN_BF` + opsional `FB_PAGE_ID`/`FB_PAGE_ID_BF`. NB: post via IG API TIDAK auto-crosspost ke FB — makanya butuh publisher ini.
+3. **Mesin BERITA terverifikasi** — `fakta-poster/fakta_news.py`. Google CSE search (web) → verifikasi `totalResults >= NEWS_MIN_COVERAGE` (default 20, = "udah muncul 20+ kali / rame") + `dateRestrict` (trending=w1, keuangan/aktor=w2) biar fresh → Claude tulis carousel GROUNDED ke headline asli + sumber. `NEWS_CATEGORIES={trending,keuangan,aktor}` di `daily_fakta.py` (route ke fakta_news, fallback ke generate_fakta). DILARANG rumor pribadi/defamasi. Butuh Secrets `GOOGLE_API_KEY`+`GOOGLE_CSE_ID` (udah ditambah ke env workflow daily-fakta). **BELUM dites real** — minta owner Run `category:trending, post_mode:none` lalu cek log.
+4. **30+ kategori faktaviral** — `NICHE_LABELS` di `fakta_image_maker.py` diperluas (sains…militer + keuangan/aktor/trending). Input `category` workflow diubah `choice`→`string` (bebas).
+5. **Dashboard "Content Studio"** — `docs/dashboard.html` (PWA, 2 tab faktaviral/beruang). MONITOR (baca manifest) + GENERATE (workflow_dispatch via GitHub PAT yg disimpan di localStorage HP, tap ⚙️). Pilih kategori + aksi (Preview/Post). URL: **https://hendrypangg12.github.io/Claude/dashboard.html** (GitHub Pages dari docs/). `build_manifest.py` scan `*/published/` → `docs/faktaviral-manifest.json` + `docs/beruang-manifest.json`, dipanggil di commit-step kedua workflow (auto-update).
+6. **Gating workflow** — step "Siapkan media + commit" SEKARANG selalu jalan (ungated) → konten selalu ke dashboard buat preview. Step publish digate `(github.event.inputs.post_mode || steps.slot.outputs.mode) != 'none'` (mode efektif). Schedule faktaviral pakai mode=none → preview doang.
+
+### Catatan teknis lokal (sesi ini)
+- **ffmpeg lokal**: `pip install imageio-ffmpeg` → `python -c "import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())"` (container fresh, `/tmp/ffmpeg` gak ada).
+- **Pexels foto** bisa di-download langsung via URL `images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg` (hotlink, tanpa API key). PEXELS_API_KEY cuma di Secrets.
+- **BMKG**: data resmi gempa real-time di `https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json` (+ `gempaterkini.json`); shakemap di `https://static.bmkg.go.id/<Shakemap>` (field "Shakemap" dari JSON).
+- Bikin konten berita gempa M7,7/7,8 Mindanao (8 Juni) pakai template news Berstock + faktaviral cosmic (cover foto Pexels + slide shakemap BMKG). Render slide custom = import helper dari `fakta_image_maker` (_bg/_photo_bg/_brand_chip/_dots/_font/_save, R=2160, SIZE=1080, PAD=74).
+- Title-card overlay reel (kotak putih + hashtag highlight cyan) + watermark "Follow @faktaviral.idn" → burn ke video pakai ffmpeg overlay PNG. Owner suka format ini.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
