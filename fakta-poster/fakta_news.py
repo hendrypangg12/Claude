@@ -189,16 +189,106 @@ def _parse_json(raw: str) -> dict:
         raw = raw.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0].strip()
         if raw.startswith("json"):
             raw = raw[4:].strip()
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except Exception:
+        # ambil objek JSON pertama yang ada di teks (web_search kadang nambah prosa)
+        import re
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        if not m:
+            raise
+        return json.loads(m.group(0))
+
+
+# query "cari apa" buat Claude pas pakai web_search (sumber UTAMA, gak butuh Google Cloud)
+_WEB_SEARCH_BRIEF = {
+    "trending": "berita & topik yang LAGI VIRAL / trending di Indonesia HARI INI (medsos, peristiwa, fenomena)",
+    "keuangan": "berita keuangan/ekonomi Indonesia yang lagi RAMAI minggu ini (rupiah, saham, crypto, kebijakan)",
+    "aktor": "berita selebriti/aktor (Indonesia & dunia) yang lagi VIRAL & banyak diberitakan minggu ini",
+}
+
+
+def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
+    """SUMBER UTAMA: Claude search web sendiri (server-side web_search) → tulis carousel.
+    Pakai ANTHROPIC_API_KEY (yang udah jalan) — TANPA Google Cloud / NewsAPI sama sekali.
+    Raises kalau gagal (caller fallback ke _gather/CSE)."""
+    brief = _WEB_SEARCH_BRIEF.get(category, f"berita '{category}' yang lagi viral & banyak diberitakan di Indonesia")
+    avoid_line = ""
+    if avoid:
+        joined = "; ".join(a for a in avoid if a)[:800]
+        if joined:
+            avoid_line = f"\n\nHINDARI topik yang mirip ini (sudah pernah dibahas): {joined}"
+
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 5}]
+    user = (
+        f"Cari di internet: {brief}.\n"
+        f"Lakukan beberapa kali pencarian, lalu PILIH SATU topik yang paling viral & paling banyak "
+        f"diberitakan dari banyak sumber kredibel (BUKAN rumor pribadi/fitnah). "
+        f"Pastikan FRESH (beberapa hari/minggu terakhir) dan beneran rame.{avoid_line}\n\n"
+        f"Setelah yakin, keluarkan HANYA STRICT JSON sesuai format di system. "
+        f"Kategori: {category}."
+    )
+    messages = [{"role": "user", "content": user}]
+
+    final_text = ""
+    for _ in range(6):  # batasi loop pause_turn
+        try:
+            resp = client.messages.create(
+                model=MODEL, max_tokens=1500, system=SYSTEM, tools=tools, messages=messages,
+            )
+        except Exception as exc:
+            raise RuntimeError(f"web_search call gagal: {exc}")
+        # kumpulkan teks dari block terakhir
+        texts = [b.text for b in resp.content if getattr(b, "type", "") == "text"]
+        if texts:
+            final_text = texts[-1]
+        if resp.stop_reason == "pause_turn":
+            # lanjutkan: kirim balik konten assistant biar tool jalan terus
+            messages.append({"role": "assistant", "content": resp.content})
+            continue
+        break
+
+    if not final_text.strip():
+        raise RuntimeError("web_search tidak mengembalikan teks JSON")
+    data = _parse_json(final_text)
+
+    return {
+        "category": str(data.get("category", category)).strip().lower() or category,
+        "hook": str(data.get("hook", "")).strip(),
+        "fact": str(data.get("fact", "")).strip(),
+        "detail": str(data.get("detail", "")).strip(),
+        "takeaway": str(data.get("takeaway", "")).strip(),
+        "caption": str(data.get("caption", "")).strip(),
+        "query": str(data.get("query", "")).strip() or category,
+        "_coverage": MIN_COVERAGE,  # web_search = Claude udah verifikasi lintas-sumber
+        "_sumber": str(data.get("sumber", "")).strip(),
+        "_via": "web_search",
+    }
 
 
 def generate_news(category: str, avoid: list[str] | None = None) -> dict:
     """Return {category, hook, fact, detail, takeaway, caption, query} grounded ke berita asli.
-    Raises RuntimeError kalau search kosong / API tak tersedia (caller boleh fallback)."""
+    Raises RuntimeError kalau search kosong / API tak tersedia (caller boleh fallback).
+
+    Urutan sumber:
+      1. web_search (Claude search web sendiri, pakai ANTHROPIC_API_KEY) = UTAMA, paling fresh.
+      2. Google CSE + NewsAPI (snippet) = fallback kalau web_search mati/limit."""
+    # 1) SUMBER UTAMA — Claude search web langsung (gak butuh Google Cloud/NewsAPI)
+    try:
+        res = _claude_web_news(category, avoid=avoid)
+        if res.get("hook") and res.get("fact"):
+            print(f"      via web_search (Claude cari web sendiri) — sumber: {res.get('_sumber', '?')}")
+            return res
+        print("      (web_search balik tapi kosong) → fallback ke CSE/NewsAPI")
+    except Exception as exc:
+        print(f"      (web_search gagal: {exc}) → fallback ke CSE/NewsAPI")
+
+    # 2) FALLBACK — snippet dari Google CSE / NewsAPI
     has_google = bool(os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_CSE_ID"))
     has_news = bool(os.environ.get("NEWSAPI_KEY"))
     if not (has_google or has_news):
-        raise RuntimeError("GOOGLE_API_KEY/CSE & NEWSAPI_KEY semua kosong → tak bisa verifikasi berita")
+        raise RuntimeError("web_search gagal & GOOGLE_API_KEY/CSE & NEWSAPI_KEY semua kosong → tak bisa verifikasi berita")
 
     items = _gather(category)
     if not items:
