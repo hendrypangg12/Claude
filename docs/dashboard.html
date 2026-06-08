@@ -144,10 +144,21 @@ function setTab(b){
   document.getElementById("genMsg").textContent="";
   load(true);   // fetch ulang manifest brand ini (jangan tampilin konten brand lain)
 }
+// ambil manifest: lewat GitHub API (FRESH, bypass cache) kalau ada token; else raw (bisa lag ~menit)
+async function fetchManifest(b){
+  const path = b==="beruang" ? "docs/beruang-manifest.json" : "docs/faktaviral-manifest.json";
+  if(pat()){
+    try{
+      const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${encodeURIComponent(BRANCH)}&_=${Date.now()}`,{headers:ghH()});
+      if(r.ok){ const j=await r.json(); return JSON.parse(decodeURIComponent(escape(atob((j.content||"").replace(/\s/g,""))))); }
+    }catch(e){}
+  }
+  return await (await fetch(BRANDS[b].manifest+"?_="+Date.now())).json();
+}
 async function load(force){
   const grid=document.getElementById("grid"), b=brand;
   if(force || !cache[b]) grid.innerHTML='<div class="empty">Memuat konten…</div>';
-  try{ const r=await fetch(BRANDS[b].manifest+"?_="+Date.now()); cache[b]=await r.json(); sigs[b]=sigOf(cache[b]); }
+  try{ cache[b]=await fetchManifest(b); sigs[b]=sigOf(cache[b]); }
   catch(e){ if(!cache[b]) cache[b]={posts:[]}; }
   if(b===brand) render();   // hanya render kalau tab belum keburu ganti
 }
@@ -156,8 +167,7 @@ async function autoSync(){
   if(document.hidden) return;
   const b=brand;
   try{
-    const r=await fetch(BRANDS[b].manifest+"?_="+Date.now());
-    const j=await r.json(); const sig=sigOf(j);
+    const j=await fetchManifest(b); const sig=sigOf(j);
     if(sig!==sigs[b]){ sigs[b]=sig; cache[b]=j; if(b===brand) render(); }
   }catch(e){}
 }
