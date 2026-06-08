@@ -121,7 +121,9 @@ def main() -> int:
         except Exception as exc:
             print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
     if fakta is None:
-        fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic,
+        # kalau kategori 'berita' (trending/keuangan/aktor) gagal → fallback ke BEBAS (bukan kategori palsu)
+        fb_cat = None if category in NEWS_CATEGORIES else category
+        fakta = generate_fakta(category=fb_cat, avoid=_recent_hooks(out_root), topic=topic,
                                avoid_categories=_recent_categories(out_root))
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
