@@ -12,12 +12,15 @@ Output sama persis dgn generate_fakta → bisa dirender pakai image maker yang s
 """
 import json
 import os
+from datetime import datetime, timedelta
 
 import requests
 from anthropic import Anthropic
 
 MODEL = "claude-sonnet-4-6"
 MIN_COVERAGE = int(os.environ.get("NEWS_MIN_COVERAGE", "20"))
+# fresh window (Google dateRestrict) → hari (buat NewsAPI)
+_FRESH_DAYS = {"w1": 7, "w2": 14, "m1": 30}
 
 # query pencarian per kategori berita (Bahasa Indonesia, bias konteks ID)
 CATEGORY_QUERIES = {
@@ -95,16 +98,52 @@ def _cse_web(query: str, num: int = 10, date_restrict: str | None = None) -> tup
     return total, items
 
 
+def _newsapi(query: str, num: int = 8, fresh: str = "w2") -> tuple[int, list[dict]]:
+    """NewsAPI.org /everything. Return (totalResults, items[]). Sumber ke-2 biar makin pinter."""
+    key = os.environ.get("NEWSAPI_KEY", "").strip()
+    if not key:
+        raise RuntimeError("NEWSAPI_KEY kosong")
+    frm = (datetime.utcnow() - timedelta(days=_FRESH_DAYS.get(fresh, 14))).strftime("%Y-%m-%d")
+    params = {"q": query, "sortBy": "publishedAt", "pageSize": num, "from": frm,
+              "language": "id", "apiKey": key}
+    r = requests.get("https://newsapi.org/v2/everything", params=params, timeout=20)
+    if not r.ok:
+        # NewsAPI free tier kadang gak support 'language=id' → coba tanpa filter bahasa
+        params.pop("language", None)
+        r = requests.get("https://newsapi.org/v2/everything", params=params, timeout=20)
+        if not r.ok:
+            raise RuntimeError(f"NewsAPI {r.status_code}: {r.text[:120]}")
+    j = r.json()
+    total = int(j.get("totalResults", 0) or 0)
+    items = [{
+        "title": a.get("title", "") or "",
+        "snippet": a.get("description", "") or "",
+        "source": (a.get("source") or {}).get("name", ""),
+        "link": a.get("url", ""),
+    } for a in j.get("articles", [])]
+    return total, items
+
+
+def _search_any(query: str, num: int, fresh: str) -> tuple[int, list[dict]]:
+    """Gabung 2 sumber: Google CSE + NewsAPI. Pakai yang jalan, gak error walau salah satu mati."""
+    total, items = 0, []
+    for label, fn in (("Google", lambda: _cse_web(query, num, fresh)),
+                      ("NewsAPI", lambda: _newsapi(query, num, fresh))):
+        try:
+            t, its = fn()
+            total = max(total, t)
+            items += its
+        except Exception as exc:
+            print(f"      ({label} '{query}' gagal: {exc})")
+    return total, items
+
+
 def _gather(category: str) -> list[dict]:
     seen, out = set(), []
     fresh = RECENCY.get(category, "m1")  # default: 1 bulan terakhir
-    # cukup 2 query teratas (hemat kuota Custom Search yg cuma 100/hari)
+    # cukup 2 query teratas (hemat kuota); tiap query gabung Google + NewsAPI
     for q in CATEGORY_QUERIES.get(category, [f"berita {category} viral terbaru"])[:2]:
-        try:
-            _, items = _cse_web(q, num=8, date_restrict=fresh)
-        except Exception as exc:
-            print(f"      (cari '{q}' gagal: {exc})")
-            continue
+        _, items = _search_any(q, 8, fresh)
         for it in items:
             key = it["title"][:60].lower()
             if it["title"] and key not in seen:
@@ -125,8 +164,10 @@ def _parse_json(raw: str) -> dict:
 def generate_news(category: str, avoid: list[str] | None = None) -> dict:
     """Return {category, hook, fact, detail, takeaway, caption, query} grounded ke berita asli.
     Raises RuntimeError kalau search kosong / API tak tersedia (caller boleh fallback)."""
-    if not (os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_CSE_ID")):
-        raise RuntimeError("GOOGLE_API_KEY/GOOGLE_CSE_ID belum di-set → tak bisa verifikasi berita")
+    has_google = bool(os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_CSE_ID"))
+    has_news = bool(os.environ.get("NEWSAPI_KEY"))
+    if not (has_google or has_news):
+        raise RuntimeError("GOOGLE_API_KEY/CSE & NEWSAPI_KEY semua kosong → tak bisa verifikasi berita")
 
     items = _gather(category)
     if not items:
@@ -150,14 +191,11 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
     )
     data = _parse_json(msg.content[0].text)
 
-    # VERIFIKASI RAMAI: cek topik terpilih muncul >= MIN_COVERAGE kali di search engine
+    # VERIFIKASI RAMAI: cek topik terpilih muncul >= MIN_COVERAGE kali di search engine (2 sumber)
     coverage = 0
     vq = str(data.get("verify_query", "")).strip()
     if vq:
-        try:
-            coverage, _ = _cse_web(vq, num=3)
-        except Exception:
-            coverage = 0
+        coverage, _ = _search_any(vq, 3, RECENCY.get(category, "w2"))
     status = "OK" if coverage >= MIN_COVERAGE else "RENDAH"
     print(f"      verifikasi: '{vq}' → ~{coverage} hasil (target {MIN_COVERAGE}) [{status}]")
 
