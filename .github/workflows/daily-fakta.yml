@@ -6,9 +6,10 @@ name: Daily Fakta (semi-manual)
 
 on:
   schedule:
-    # 06:09 & 07:09 WIB = 2 pilihan konten viral tiap pagi (preview, nggak auto-post).
+    # Tiap pagi cari konten viral terverifikasi (preview, nggak auto-post).
     - cron: "9 23 * * *"  # 06:09 WIB → trending (preview)
     - cron: "9 0 * * *"   # 07:09 WIB → trending (preview)
+    - cron: "0 3 * * *"   # 10:00 WIB → trending (preview) — berita pagi udah banyak yg fresh (<4 jam)
   workflow_dispatch:
     inputs:
       category:
@@ -59,7 +60,7 @@ jobs:
         run: |
           # PAGI (terjadwal) → cari konten 'trending' viral, mode=none (preview, NGGAK auto-post)
           case "${{ github.event.schedule }}" in
-            "9 23 * * *"|"9 0 * * *") cat="trending"; mode="none" ;;  # 06:09 & 07:09 WIB
+            "9 23 * * *"|"9 0 * * *"|"0 3 * * *") cat="trending"; mode="none" ;;  # 06:09 / 07:09 / 10:00 WIB
             *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual (dashboard)
           esac
           echo "cat=$cat"   >> "$GITHUB_OUTPUT"
