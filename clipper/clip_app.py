@@ -22,7 +22,7 @@ from captions import build_ass
 from face_track import track_face
 from pick_clips import pick_clips
 from render import make_brand_png, render_clip
-from transcribe import download, transcribe
+from transcribe import download, pick_handle, transcribe
 
 WIB = timezone(timedelta(hours=7))
 
@@ -32,7 +32,7 @@ def main() -> int:
     ap.add_argument("url", nargs="?", default=os.environ.get("VIDEO_URL", ""))
     ap.add_argument("--num", type=int, default=int(os.environ.get("NUM_CLIPS", "4")))
     ap.add_argument("--lang", default=os.environ.get("LANG_CODE", "id"))
-    ap.add_argument("--brand", default=os.environ.get("BRAND", "BERSTOCK.ID"))
+    ap.add_argument("--brand", default=os.environ.get("BRAND", "FAKTAVIRAL.IDN"))
     ap.add_argument("--no-track", action="store_true",
                     help="matikan face-tracking (pakai center-crop statis)")
     args = ap.parse_args()
@@ -49,7 +49,8 @@ def main() -> int:
     print(f"[1/4] Download: {args.url}")
     src, info = download(args.url, out_dir)
     title = info.get("title") or ""
-    print(f"      {src.name} | {title[:60]} | {info.get('duration')}s")
+    creator = pick_handle(info)
+    print(f"      {src.name} | {title[:60]} | by {creator or '?'} | {info.get('duration')}s")
 
     print(f"[2/4] Transcribe (lang={args.lang}, model={os.environ.get('WHISPER_MODEL', 'small')})...")
     transcript = transcribe(src, language=args.lang)
@@ -58,11 +59,11 @@ def main() -> int:
     print(f"      {len(transcript['words'])} kata, {len(transcript['segments'])} segmen")
 
     print(f"[3/4] Pilih {args.num} momen viral pakai Claude...")
-    clips = pick_clips(transcript, num_clips=args.num, video_title=title)
+    clips = pick_clips(transcript, num_clips=args.num, video_title=title, creator=creator)
     print(f"      dapet {len(clips)} momen")
 
     print("[4/4] Render clip 9:16 + caption...")
-    brand_png = make_brand_png(out_dir / "brand.png", brand=args.brand)
+    brand_png = make_brand_png(out_dir / "brand.png", brand=args.brand, credit=creator)
     rendered = []
     for i, c in enumerate(clips, 1):
         ass = build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
@@ -85,6 +86,7 @@ def main() -> int:
         "time": now.strftime("%H:%M"),
         "url": args.url,
         "title": title,
+        "creator": creator,
         "language": transcript.get("language"),
         "duration": transcript.get("duration"),
         "brand": args.brand,

@@ -282,7 +282,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, brand:"BERSTOCK.ID" };
+  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{

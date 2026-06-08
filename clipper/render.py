@@ -13,7 +13,8 @@ FONT_DIRS = [HERE / "fonts", HERE.parent / "daily-news-poster" / "fonts"]
 SYS_FONTS = ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
 
 GOLD = (255, 196, 0, 255)
-INK = (15, 18, 26, 255)
+CYAN = (34, 211, 238, 255)        # faktaviral accent
+INK = (8, 18, 26, 255)
 WHITE = (245, 247, 251, 255)
 
 W, H = 1080, 1920
@@ -39,18 +40,44 @@ def _font(file: str, size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.load_default()
 
 
-def make_brand_png(out_png: Path, brand: str = "BERSTOCK.ID") -> Path:
-    """A transparent 1080x1920 overlay with a gold brand chip near the top."""
+def make_brand_png(out_png: Path, brand: str = "FAKTAVIRAL.IDN",
+                   credit: str | None = None) -> Path:
+    """Transparent 1080x1920 overlay: faktaviral brand chip up top, a 'via @creator'
+    credit chip lower-left, and a small 'Follow @faktaviral.idn' line under the brand."""
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
+
+    # brand chip (cyan), top-center
     f = _font("Poppins-ExtraBold.ttf", 46)
     tw = f.getlength(brand)
     px, py = 28, 16
     x = (W - (tw + 2 * px)) / 2
     y = 96
     d.rounded_rectangle([x, y, x + tw + 2 * px, y + f.size + 2 * py],
-                        radius=30, fill=GOLD)
+                        radius=30, fill=CYAN)
     d.text((x + px, y + py - 6), brand, font=f, fill=INK)
+
+    # follow tagline under the brand
+    sf = _font("Poppins-SemiBold.ttf", 30)
+    sub = "Follow buat momen viral tiap hari"
+    sw = sf.getlength(sub)
+    sy = y + f.size + 2 * py + 14
+    d.rounded_rectangle([(W - sw) / 2 - 16, sy, (W + sw) / 2 + 16, sy + sf.size + 16],
+                        radius=22, fill=(0, 0, 0, 140))
+    d.text(((W - sw) / 2, sy + 6), sub, font=sf, fill=WHITE)
+
+    # creator credit chip, lower-left (above the Reels caption zone)
+    if credit:
+        handle = credit if str(credit).startswith("@") else f"@{credit}"
+        cf = _font("Poppins-SemiBold.ttf", 32)
+        text = f"via {handle}"
+        ctw = cf.getlength(text)
+        cx, cy = 70, int(H * 0.80)
+        cpx, cpy = 18, 12
+        d.rounded_rectangle([cx, cy, cx + ctw + 2 * cpx, cy + cf.size + 2 * cpy],
+                            radius=24, fill=(0, 0, 0, 150))
+        d.text((cx + cpx, cy + cpy - 4), text, font=cf, fill=WHITE)
+
     img.save(out_png)
     return out_png
 
