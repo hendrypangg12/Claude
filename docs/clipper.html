@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Clipper · Berstock</title>
+<style>
+  :root{ --navy:#141a26; --deep:#0b0f17; --gold:#ffc400; --ink:#0f121a; --line:#26303f; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:var(--deep); color:#eaf0f8; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  header{ position:sticky; top:0; z-index:5; background:rgba(11,15,23,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); padding:14px 16px; display:flex; align-items:center; gap:10px; }
+  .badge{ background:var(--gold); color:var(--ink); font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; }
+  h1{ font-size:16px; margin:0; font-weight:700; }
+  .sub{ color:#9fb0c5; font-size:12px; margin-top:2px; }
+  main{ max-width:760px; margin:0 auto; padding:14px; }
+  .empty{ text-align:center; color:#9fb0c5; padding:60px 20px; line-height:1.6; }
+  .job{ border:1px solid var(--line); border-radius:16px; margin-bottom:18px; overflow:hidden; background:#10151f; }
+  .job-head{ padding:12px 14px; border-bottom:1px solid var(--line); }
+  .job-head .t{ font-weight:700; font-size:14px; }
+  .job-head .m{ color:#9fb0c5; font-size:12px; margin-top:3px; word-break:break-all; }
+  .clips{ display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px; }
+  @media(max-width:520px){ .clips{ grid-template-columns:1fr; } }
+  .clip{ border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--navy); display:flex; flex-direction:column; }
+  .clip video{ width:100%; aspect-ratio:9/16; background:#000; display:block; }
+  .clip .body{ padding:10px; display:flex; flex-direction:column; gap:8px; }
+  .row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .score{ background:rgba(255,196,0,.16); color:var(--gold); font-weight:800; font-size:12px; padding:2px 8px; border-radius:999px; }
+  .len{ color:#9fb0c5; font-size:12px; }
+  .title{ font-weight:600; font-size:13px; line-height:1.4; }
+  .cap{ color:#c4d0e0; font-size:12px; line-height:1.5; white-space:pre-wrap;
+    max-height:96px; overflow:auto; background:#0c1018; border:1px solid var(--line); border-radius:8px; padding:8px; }
+  .btns{ display:flex; gap:8px; }
+  button,a.btn{ flex:1; text-align:center; text-decoration:none; cursor:pointer; border:0; border-radius:9px;
+    padding:9px; font-weight:700; font-size:12px; }
+  .copy{ background:#1f2937; color:#eaf0f8; }
+  .dl{ background:var(--gold); color:var(--ink); }
+  .refresh{ margin-left:auto; background:#1f2937; color:#eaf0f8; border:0; border-radius:9px; padding:7px 12px; font-weight:700; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">CLIP</span>
+  <div>
+    <h1>AI Video Clipper</h1>
+    <div class="sub">Momen viral · 9:16 · auto-caption</div>
+  </div>
+  <button class="refresh" onclick="load()">↻</button>
+</header>
+<main id="main">
+  <div class="empty">Memuat…</div>
+</main>
+
+<script>
+const MF = "clipper-manifest.json?t=" + Date.now();
+
+function fmtLen(a, b){
+  if (a == null || b == null) return "";
+  const s = Math.round(b - a);
+  return s + "s";
+}
+function esc(s){ return (s||"").replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+async function load(){
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="empty">Memuat…</div>';
+  let data;
+  try { data = await (await fetch(MF)).json(); }
+  catch(e){ main.innerHTML = '<div class="empty">Belum ada data. Jalanin workflow <b>AI Video Clipper</b> dulu di GitHub Actions.</div>'; return; }
+  const posts = data.posts || [];
+  if (!posts.length){ main.innerHTML = '<div class="empty">Belum ada clip.<br>Buka GitHub → Actions → <b>AI Video Clipper</b> → Run, paste link video.</div>'; return; }
+  main.innerHTML = posts.map(p => `
+    <div class="job">
+      <div class="job-head">
+        <div class="t">${esc(p.title) || '(tanpa judul)'}</div>
+        <div class="m">${esc(p.date)} ${esc(p.time)} · ${p.clips.length} clip · ${esc(p.source_url)}</div>
+      </div>
+      <div class="clips">
+        ${p.clips.map((c, i) => `
+          <div class="clip">
+            <video src="${c.url}" controls preload="metadata" playsinline></video>
+            <div class="body">
+              <div class="row">
+                <span class="score">🔥 ${c.score||0}</span>
+                <span class="len">${fmtLen(c.start, c.end)}</span>
+              </div>
+              <div class="title">${esc(c.title) || esc(c.hook)}</div>
+              <div class="cap" id="cap-${p.id}-${i}">${esc(c.caption)}</div>
+              <div class="btns">
+                <button class="copy" onclick="copyCap('cap-${p.id}-${i}', this)">Salin caption</button>
+                <a class="btn dl" href="${c.url}" download>Download</a>
+              </div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function copyCap(id, btn){
+  const t = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(t).then(() => {
+    const old = btn.textContent; btn.textContent = '✓ Tersalin';
+    setTimeout(() => btn.textContent = old, 1400);
+  });
+}
+load();
+</script>
+</body>
+</html>

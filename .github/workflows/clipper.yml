@@ -1,0 +1,108 @@
+name: AI Video Clipper
+
+# Kasih 1 link (YouTube / TikTok / Instagram / X / FB), sistem auto:
+# download → transcribe → Claude pilih momen viral → potong 9:16 + auto-caption.
+# Hasil ke-commit ke clipper/published + muncul di dashboard clipper.html.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Link video (YouTube / TikTok / Instagram / X / FB)"
+        required: true
+        type: string
+      num_clips:
+        description: "Mau berapa clip? (1-8)"
+        required: false
+        default: "4"
+        type: string
+      language:
+        description: "Bahasa video"
+        required: false
+        default: "id"
+        type: choice
+        options:
+          - id
+          - en
+          - auto
+      brand:
+        description: "Tulisan brand di pojok video"
+        required: false
+        default: "BERSTOCK.ID"
+        type: string
+
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: clipper/requirements.txt
+
+      - run: pip install -r clipper/requirements.txt
+        working-directory: clipper
+
+      - name: Install ffmpeg + Poppins font
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fontconfig
+          sudo mkdir -p /usr/share/fonts/truetype/poppins
+          sudo cp daily-news-poster/fonts/Poppins-*.ttf /usr/share/fonts/truetype/poppins/
+          sudo fc-cache -f >/dev/null
+
+      - name: Generate clips
+        working-directory: clipper
+        run: python clip_app.py "${{ github.event.inputs.url }}" --num "${{ github.event.inputs.num_clips }}" --lang "${{ github.event.inputs.language }}" --brand "${{ github.event.inputs.brand }}"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WHISPER_MODEL: small
+
+      - name: Commit clips + update dashboard
+        working-directory: ${{ github.workspace }}
+        run: |
+          TS=$(ls -t clipper/out | head -1)
+          echo "TS=$TS" >> "$GITHUB_ENV"
+          mkdir -p "clipper/published/$TS"
+          # copy clip mp4 yang < 99MB (limit GitHub 100MB)
+          for f in clipper/out/$TS/clip-*.mp4; do
+            [ -f "$f" ] || continue
+            if [ "$(stat -c%s "$f")" -lt 99000000 ]; then
+              cp "$f" "clipper/published/$TS/"
+            else
+              echo "skip $f (kegedean)"
+            fi
+          done
+          cp clipper/out/$TS/caption-*.txt "clipper/published/$TS/" 2>/dev/null || true
+          cp clipper/out/$TS/meta.json "clipper/published/$TS/" 2>/dev/null || true
+          # simpan 10 job terbaru aja biar repo gak bengkak
+          ls -dt clipper/published/*/ 2>/dev/null | tail -n +11 | xargs rm -rf 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          RAW_BASE="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/clipper/published" python clipper/build_clipper_manifest.py || true
+          git add -A clipper/published docs/clipper-manifest.json docs/clipper.html
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Clipper: $TS"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              echo "push ditolak, sync ulang ($i)..."
+              git fetch origin ${{ github.ref_name }}
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
+            done
+          fi
+
+      - name: Upload clips (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clips-${{ github.run_id }}
+          path: clipper/out/*/clip-*.mp4
+          retention-days: 14
