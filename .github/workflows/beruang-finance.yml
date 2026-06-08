@@ -104,7 +104,7 @@ jobs:
           python build_manifest.py || true   # update dashboard monitoring
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add beruang-finance/published docs/faktaviral-manifest.json docs/beruang-manifest.json
+          git add -A beruang-finance docs   # -A → working tree bersih (rebase aman)
           if git diff --staged --quiet; then
             echo "Nothing to commit."
           else
@@ -112,8 +112,8 @@ jobs:
             for i in 1 2 3 4 5; do
               if git push origin HEAD:${{ github.ref_name }}; then break; fi
               git fetch origin ${{ github.ref_name }}
-              git rebase origin/${{ github.ref_name }} || git rebase --abort
-              sleep 2
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
             done
           fi
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
