@@ -12,7 +12,7 @@ PUBLISHED = ROOT / "clipper" / "published"
 OUT = ROOT / "docs" / "clipper-manifest.json"
 
 DEFAULT_RAW = ("https://raw.githubusercontent.com/hendrypangg12/Claude/"
-               "claude/ai-video-clippers-app-1kvkqi/clipper/published")
+               "claude/halo-bYUsl/clipper/published")
 
 
 def main() -> None:
