@@ -18,7 +18,7 @@ from fakta_generator import generate_fakta
 from fakta_image_maker import compose_cover, compose_fact, compose_outro
 
 # kategori yang harus GROUNDED ke berita real (diverifikasi lewat search engine)
-NEWS_CATEGORIES = {"keuangan", "aktor"}
+NEWS_CATEGORIES = {"trending", "keuangan", "aktor"}
 
 WIB = timezone(timedelta(hours=7))
 HISTORY = Path("history.json")  # persisted hooks for cross-run dedup (out/ is gitignored)

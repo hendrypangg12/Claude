@@ -119,7 +119,7 @@ jobs:
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Publish ke Instagram (@beruangfinance)
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        if: ${{ (github.event.inputs.post_mode || steps.slot.outputs.mode) != 'none' }}
         working-directory: fakta-poster
         run: |
           sleep 12   # beri waktu raw.githubusercontent serve file baru
@@ -132,7 +132,7 @@ jobs:
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/beruang-finance/published/${{ env.TS }}
 
       - name: Publish ke Facebook Page (Beruang)
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        if: ${{ (github.event.inputs.post_mode || steps.slot.outputs.mode) != 'none' }}
         continue-on-error: true
         working-directory: fakta-poster
         run: python publish_fb.py
