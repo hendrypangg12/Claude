@@ -83,7 +83,7 @@ jobs:
           ls -dt clipper/published/*/ 2>/dev/null | tail -n +11 | xargs rm -rf 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          RAW_BASE="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/clipper/published" python clipper/build_clipper_manifest.py || true
+          RAW_BASE="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/clipper/published" python clipper/build_clipper_manifest.py || true
           git add -A clipper/published docs/clipper-manifest.json docs/clipper.html
           if git diff --staged --quiet; then
             echo "Nothing to commit."
