@@ -28,7 +28,7 @@ on:
       brand:
         description: "Tulisan brand di pojok video"
         required: false
-        default: "BERSTOCK.ID"
+        default: "FAKTAVIRAL.IDN"
         type: string
 
 jobs:

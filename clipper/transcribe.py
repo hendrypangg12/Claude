@@ -5,6 +5,7 @@ No paid speech API — faster-whisper runs locally (CPU) and is free. The word
 timestamps drive both the viral-moment picker and the karaoke-style captions.
 """
 import os
+import re
 import shutil
 from pathlib import Path
 
@@ -14,6 +15,21 @@ def _bin(name: str, env: str) -> str:
 
 
 FFMPEG = _bin("ffmpeg", "FFMPEG")
+
+
+def pick_handle(info: dict) -> str:
+    """Best-effort @username of the original creator (for credit). yt-dlp's
+    uploader_id is often numeric, so fall back through channel/title/uploader."""
+    ch = info.get("channel")
+    if ch and " " not in ch:
+        return ch
+    m = re.search(r"\bby\s+([A-Za-z0-9_.]+)", info.get("title") or "")
+    if m:
+        return m.group(1)
+    uid = str(info.get("uploader_id") or "")
+    if uid and not uid.isdigit():
+        return uid.lstrip("@")
+    return (info.get("uploader") or "").strip()
 
 
 def download(url: str, out_dir: Path):

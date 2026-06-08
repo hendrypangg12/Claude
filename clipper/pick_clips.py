@@ -10,7 +10,8 @@ from anthropic import Anthropic
 
 MODEL = "claude-sonnet-4-6"
 
-SYSTEM_PROMPT = """Kamu editor konten viral short-form (TikTok / Reels / YouTube Shorts), kayak Opus Clip.
+SYSTEM_PROMPT = """Kamu editor konten viral short-form (TikTok / Reels / YouTube Shorts), kayak Opus Clip,
+untuk akun @faktaviral.idn (momen & konten viral harian).
 Dikasih TRANSKRIP video panjang dalam format baris: "[mulai-selesai] teks" (mulai & selesai = detik).
 Tugasmu: pilih {N} POTONGAN paling berpotensi VIRAL dari video itu.
 
@@ -27,17 +28,29 @@ Aturan potongan (WAJIB):
 - start_sec & end_sec WAJIB ngambil dari rentang timestamp di transkrip. end_sec > start_sec.
 - Antar potongan JANGAN tumpang-tindih. Urutkan dari yang paling viral.
 
+Aturan JUDUL/HOOK + KREDIT CREATOR (WAJIB):
+- "title" = kalimat HOOK scroll-stopping yang DIMULAI dengan handle creator, lalu koma, lalu
+  kata kaget/penasaran + klaim paling viral dari momen itu. WAJIB sebut creator (kredit).
+  FORMAT: "@creator , [KATA KAGET] [klaim viral]". Boleh pakai kapital buat penekanan.
+  Contoh gaya:
+    "@realmrbert , GILA ada teknologi baru pakai WiFi yang bisa lihat aktivitas di balik tembok"
+    "@realmrbert , NGAMUK pas ada yang bilang dolar naik gak ngefek ke orang desa"
+  8-18 kata, naratif, bikin orang berhenti scroll.
+- Kalau handle creator gak dikasih/gak jelas, bikin hook biasa tanpa maksa nyebut handle.
+
 Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 {"clips":[
   {
     "start_sec": 0.0,
     "end_sec": 0.0,
     "score": 85,                 // taksiran potensi viral 1-100
-    "title": "...",              // judul singkat buat owner (jujur, bukan di-burn ke video)
-    "hook": "...",               // 3-7 kata, alasan orang berhenti scroll
+    "title": "...",              // HOOK naratif + sebut creator (lihat aturan di atas)
+    "hook": "...",               // versi super pendek 3-7 kata
     "why": "...",                // 1 kalimat kenapa ini berpotensi viral
-    "caption": "..."             // caption IG/TikTok lengkap: baris 1 = hook scroll-stopping,
-                                 //   lalu 1-2 kalimat, tutup dengan ajakan engagement,
+    "caption": "..."             // caption IG/TikTok lengkap utk @faktaviral.idn:
+                                 //   baris 1 = hook (sebut creator), 1-2 kalimat isi,
+                                 //   KREDIT creator ("Video: @creator"),
+                                 //   ajakan "Follow @faktaviral.idn buat momen viral tiap hari",
                                  //   baris terakhir MAKS 5 hashtag dalam 1 baris.
   }
 ],"language":"id"}
@@ -68,19 +81,23 @@ def _transcript_text(transcript: dict) -> str:
     return body
 
 
-def pick_clips(transcript: dict, num_clips: int = 4, video_title: str = "") -> list[dict]:
+def pick_clips(transcript: dict, num_clips: int = 4, video_title: str = "",
+               creator: str = "") -> list[dict]:
     body = _transcript_text(transcript)
     if not body.strip():
         return []
     sys = SYSTEM_PROMPT.replace("{N}", str(num_clips))
+    cred = creator.lstrip("@") if creator else ""
+    cred_line = (f"Creator video ini: @{cred} (SEBUT di judul/hook + kredit di caption). "
+                 if cred else "Nama creator gak diketahui. ")
     msg = _client().messages.create(
         model=MODEL,
         max_tokens=2500,
         system=sys,
         messages=[{
             "role": "user",
-            "content": f"Judul video: {video_title or '(tanpa judul)'}\n\nTRANSKRIP:\n{body}\n\n"
-                       f"Pilih {num_clips} potongan paling viral.",
+            "content": f"Judul video: {video_title or '(tanpa judul)'}\n{cred_line}\n\n"
+                       f"TRANSKRIP:\n{body}\n\nPilih {num_clips} potongan paling viral.",
         }],
     )
     data = _parse_json(msg.content[0].text)
