@@ -124,6 +124,26 @@ def _newsapi(query: str, num: int = 8, fresh: str = "w2") -> tuple[int, list[dic
     return total, items
 
 
+def _newsapi_top(country: str = "id", num: int = 12) -> tuple[int, list[dict]]:
+    """NewsAPI top-headlines per negara = berita HANGAT real (gak butuh Google sama sekali)."""
+    key = os.environ.get("NEWSAPI_KEY", "").strip()
+    if not key:
+        raise RuntimeError("NEWSAPI_KEY kosong")
+    params = {"country": country, "pageSize": num, "apiKey": key}
+    r = requests.get("https://newsapi.org/v2/top-headlines", params=params, timeout=20)
+    if not r.ok:
+        raise RuntimeError(f"NewsAPI top {r.status_code}: {r.text[:120]}")
+    j = r.json()
+    total = int(j.get("totalResults", 0) or 0)
+    items = [{
+        "title": a.get("title", "") or "",
+        "snippet": a.get("description", "") or "",
+        "source": (a.get("source") or {}).get("name", ""),
+        "link": a.get("url", ""),
+    } for a in j.get("articles", []) if a.get("title")]
+    return total, items
+
+
 def _search_any(query: str, num: int, fresh: str) -> tuple[int, list[dict]]:
     """Gabung 2 sumber: Google CSE + NewsAPI. Pakai yang jalan, gak error walau salah satu mati."""
     total, items = 0, []
@@ -141,7 +161,18 @@ def _search_any(query: str, num: int, fresh: str) -> tuple[int, list[dict]]:
 def _gather(category: str) -> list[dict]:
     seen, out = set(), []
     fresh = RECENCY.get(category, "m1")  # default: 1 bulan terakhir
-    # cukup 2 query teratas (hemat kuota); tiap query gabung Google + NewsAPI
+    # 0) berita HANGAT Indonesia dari NewsAPI top-headlines (jalan walau Google 403)
+    try:
+        _, top = _newsapi_top("id", 12)
+        print(f"      NewsAPI top-headlines ID: {len(top)} berita")
+        for it in top:
+            key = it["title"][:60].lower()
+            if key not in seen:
+                seen.add(key)
+                out.append(it)
+    except Exception as exc:
+        print(f"      (NewsAPI top gagal: {exc})")
+    # 1) query spesifik kategori (gabung Google + NewsAPI everything)
     for q in CATEGORY_QUERIES.get(category, [f"berita {category} viral terbaru"])[:2]:
         _, items = _search_any(q, 8, fresh)
         for it in items:
