@@ -75,7 +75,15 @@ def _cse_web(query: str, num: int = 10, date_restrict: str | None = None) -> tup
     if date_restrict:
         params["dateRestrict"] = date_restrict
     r = requests.get("https://www.googleapis.com/customsearch/v1", params=params, timeout=20)
-    r.raise_for_status()
+    if not r.ok:
+        # tampilkan ALASAN dari Google (mis. accessNotConfigured / dailyLimitExceeded / keyInvalid)
+        reason = ""
+        try:
+            err = r.json().get("error", {})
+            reason = err.get("message") or (err.get("errors", [{}])[0].get("reason", ""))
+        except Exception:
+            reason = r.text[:160]
+        raise RuntimeError(f"CSE {r.status_code}: {reason}")
     j = r.json()
     total = int(j.get("searchInformation", {}).get("totalResults", "0") or 0)
     items = [{
@@ -90,7 +98,8 @@ def _cse_web(query: str, num: int = 10, date_restrict: str | None = None) -> tup
 def _gather(category: str) -> list[dict]:
     seen, out = set(), []
     fresh = RECENCY.get(category, "m1")  # default: 1 bulan terakhir
-    for q in CATEGORY_QUERIES.get(category, [f"berita {category} viral terbaru"]):
+    # cukup 2 query teratas (hemat kuota Custom Search yg cuma 100/hari)
+    for q in CATEGORY_QUERIES.get(category, [f"berita {category} viral terbaru"])[:2]:
         try:
             _, items = _cse_web(q, num=8, date_restrict=fresh)
         except Exception as exc:
