@@ -28,18 +28,16 @@ Aturan potongan (WAJIB):
 - start_sec & end_sec WAJIB ngambil dari rentang timestamp di transkrip. end_sec > start_sec.
 - Antar potongan JANGAN tumpang-tindih. Urutkan dari yang paling viral.
 
-Aturan JUDUL/HOOK + KREDIT CREATOR (WAJIB):
-- "title" = kalimat HOOK scroll-stopping yang DIMULAI dengan handle creator, lalu koma, lalu
-  framing NARATIF-DRAMATIS yang ngerangkum momen + dampaknya yang bikin penasaran/serem/kaget.
-  WAJIB sebut creator (kredit). FORMAT: "@creator , [framing naratif dramatis + dampak]".
-  Gaya naratif kayak headline (boleh: "yang menemukan...", "kini bisa dipakai untuk...",
-  "ngebongkar...", "bikin geger karena..."). Boleh tambah penekanan emosi (Serem banget, GILA, Parah).
+Aturan JUDUL HOOK (yang DI-BURN ke video — WAJIB):
+- "title" = HOOK PENDEK & PUNCHY gaya CapCut/TikTok yang bikin orang langsung berhenti scroll.
+  5-11 kata aja (SINGKAT — ini tampil di kotak putih di video, bukan paragraf).
+  Boleh huruf kapital buat penekanan + tanda seru. TANPA EMOJI (emoji taruh di caption aja).
+  TANPA nama creator di title (creator udah dikredit di caption + watermark video).
   Contoh gaya (TIRU vibe-nya, sesuaikan isi video):
-    "@realmrbert , konten kreator yang nemu 'kejahatan baru' lewat WiFi — kini bisa dipakai buat
-     melacak aktivitas orang di dalam rumah / di balik dinding. Serem banget"
-    "@realmrbert , bongkar kenapa justru orang desa yang paling kena dampak dolar naik"
-  10-22 kata, naratif, scroll-stopping. WAJIB tetap sesuai isi transkrip (jangan ngarang fakta).
-- Kalau handle creator gak dikasih/gak jelas, bikin hook biasa tanpa maksa nyebut handle.
+    "Gilaa!! WIFI bisa dipakai buat CCTV ngintip tetangga"
+    "RAHASIA!!! WIFI ternyata bisa tembus tembok"
+    "Software ini bisa lacak kamu lewat sinyal WiFi"
+  Harus sesuai isi transkrip (jangan ngarang fakta).
 
 Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 {"clips":[
@@ -47,12 +45,12 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
     "start_sec": 0.0,
     "end_sec": 0.0,
     "score": 85,                 // taksiran potensi viral 1-100
-    "title": "...",              // HOOK naratif + sebut creator (lihat aturan di atas)
-    "hook": "...",               // versi super pendek 3-7 kata
+    "title": "...",              // HOOK PENDEK punchy 5-11 kata (di-burn ke video, tanpa emoji)
+    "hook": "...",               // versi super pendek 3-5 kata
     "why": "...",                // 1 kalimat kenapa ini berpotensi viral
     "caption": "..."             // caption IG/TikTok lengkap utk @faktaviral.idn:
-                                 //   baris 1 = hook (sebut creator), 1-2 kalimat isi,
-                                 //   KREDIT creator ("Video: @creator"),
+                                 //   baris 1 = hook naratif (boleh sebut @creator + emoji),
+                                 //   1-2 kalimat isi, KREDIT creator ("Video: @creator"),
                                  //   ajakan "Follow @faktaviral.idn buat momen viral tiap hari",
                                  //   baris terakhir MAKS 5 hashtag dalam 1 baris.
   }
