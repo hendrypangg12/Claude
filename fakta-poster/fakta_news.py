@@ -63,7 +63,8 @@ Keluarkan STRICT JSON saja:
   "detail": "...",        // 1-2 kalimat konteks/kenapa penting
   "takeaway": "...",      // 1 kalimat penutup ringan/relevan
   "caption": "...",       // caption IG: baris1 hook; 2-3 kalimat isi; ajakan engagement; baris akhir MAKS 5 hashtag. Akhiri dgn 'Sumber: <sumber>'. Emoji maks 2.
-  "query": "..."          // 1-2 kata Inggris = subjek visual utama buat stock video/foto (mis. "stock market", "red carpet")
+  "query": "...",         // 1-2 kata Inggris = subjek visual utama buat stock video/foto (mis. "stock market", "red carpet")
+  "source_urls": ["..."]  // 2-4 URL ARTIKEL ASLI (lengkap, https://...) dari hasil search yg kamu pakai. WAJIB dari sumber kredibel. Dipakai buat ambil FOTO asli berita.
 }"""
 
 
@@ -183,6 +184,49 @@ def _gather(category: str) -> list[dict]:
     return out[:14]
 
 
+import re as _re
+
+# ambil URL foto utama (og:image / twitter:image) dari halaman artikel berita
+_IMG_META_RE = [
+    _re.compile(r'<meta[^>]+property=["\']og:image(?::url)?["\'][^>]+content=["\']([^"\']+)["\']', _re.I),
+    _re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image(?::url)?["\']', _re.I),
+    _re.compile(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', _re.I),
+]
+
+
+def _og_image(url: str) -> str:
+    """Ambil URL foto utama dari 1 artikel (foto ASLI yang dipakai outlet beritanya)."""
+    try:
+        r = requests.get(url, timeout=15,
+                         headers={"User-Agent": "Mozilla/5.0 (compatible; FaktaBot/1.0)"})
+        if not r.ok:
+            return ""
+        html = r.text[:300000]
+        for rx in _IMG_META_RE:
+            m = rx.search(html)
+            if m:
+                img = m.group(1).strip().replace("&amp;", "&")
+                if img.startswith("//"):
+                    img = "https:" + img
+                if img.startswith("http") and not img.lower().endswith(".svg"):
+                    return img
+    except Exception:
+        return ""
+    return ""
+
+
+def _resolve_news_image(urls: list[str]) -> tuple[str, str]:
+    """Coba beberapa artikel sumber → return (url_foto_asli, url_artikel). ('','') kalau gagal."""
+    for u in urls:
+        u = str(u or "").strip()
+        if not u.startswith("http"):
+            continue
+        img = _og_image(u)
+        if img:
+            return img, u
+    return "", ""
+
+
 def _parse_json(raw: str) -> dict:
     raw = raw.strip()
     if raw.startswith("```"):
@@ -227,12 +271,15 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
     user = (
         f"Hari ini = {today_str} (WIB).\n"
         f"Cari di internet: {brief}.\n"
-        f"Lakukan 2-4 pencarian (pakai kata 'hari ini', 'terbaru', tanggal, nama peristiwa).\n\n"
-        f"ATURAN FRESH (WAJIB): prioritaskan berita yang TERBIT 1-3 HARI TERAKHIR. "
-        f"TOLAK berita yang lebih tua dari 5 hari KECUALI topiknya masih sangat rame HARI INI. "
+        f"Lakukan 2-4 pencarian (pakai kata 'hari ini', 'terbaru', 'beberapa jam lalu', jam/tanggal, nama peristiwa).\n\n"
+        f"ATURAN FRESH (WAJIB): prioritaskan berita yang TERBIT DALAM 6 JAM TERAKHIR (paling hangat). "
+        f"Kalau dalam 6 jam belum ada yang cukup rame/kredibel, ambil yang TERBARU hari ini. "
+        f"TOLAK berita yang lebih tua dari 1 hari kecuali masih sangat rame jam ini. "
         f"Makin baru makin bagus — ini buat konten 'berita hangat'.\n\n"
         f"PILIH SATU topik paling viral & paling banyak diberitakan dari banyak sumber kredibel "
         f"(BUKAN rumor pribadi/fitnah).{avoid_line}\n\n"
+        f"WAJIB isi 'source_urls' dengan 2-4 URL artikel ASLI yang kamu baca (https lengkap) — "
+        f"dipakai buat ngambil FOTO asli beritanya.\n"
         f"PENTING soal field 'query': isi dengan subjek visual yang SPESIFIK & nyambung ke berita "
         f"(mis. berita baling-baling pesawat → 'turboprop propeller plane', berita rupiah → "
         f"'indonesian rupiah money', berita artis → nama umum yg relevan), JANGAN terlalu generik.\n\n"
@@ -263,6 +310,17 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         raise RuntimeError("web_search tidak mengembalikan teks JSON")
     data = _parse_json(final_text)
 
+    # FOTO ASLI berita: ambil og:image dari artikel sumber yang Claude pakai
+    src_urls = data.get("source_urls") or []
+    if isinstance(src_urls, str):
+        src_urls = [src_urls]
+    src_urls = [str(u) for u in src_urls][:4]
+    img_url, img_article = _resolve_news_image(src_urls)
+    if img_url:
+        print(f"      foto ASLI berita ketemu: {img_url[:70]}")
+    else:
+        print("      (foto asli berita gak ketemu di sumber) → nanti pakai stok/kosmik")
+
     return {
         "category": str(data.get("category", category)).strip().lower() or category,
         "hook": str(data.get("hook", "")).strip(),
@@ -273,6 +331,9 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         "query": str(data.get("query", "")).strip() or category,
         "_coverage": MIN_COVERAGE,  # web_search = Claude udah verifikasi lintas-sumber
         "_sumber": str(data.get("sumber", "")).strip(),
+        "_image_url": img_url,
+        "_image_article": img_article,
+        "_source_urls": src_urls,
         "_via": "web_search",
     }
 
@@ -330,6 +391,17 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
     status = "OK" if coverage >= MIN_COVERAGE else "RENDAH"
     print(f"      verifikasi: '{vq}' → ~{coverage} hasil (target {MIN_COVERAGE}) [{status}]")
 
+    # FOTO ASLI berita: pakai source_urls dari Claude, fallback ke link cuplikan
+    src_urls = data.get("source_urls") or []
+    if isinstance(src_urls, str):
+        src_urls = [src_urls]
+    src_urls = [str(u) for u in src_urls if u]
+    if not src_urls:
+        src_urls = [it["link"] for it in items if it.get("link")][:5]
+    img_url, img_article = _resolve_news_image(src_urls[:5])
+    if img_url:
+        print(f"      foto ASLI berita ketemu: {img_url[:70]}")
+
     return {
         "category": str(data.get("category", category)).strip().lower() or category,
         "hook": str(data.get("hook", "")).strip(),
@@ -340,4 +412,7 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
         "query": str(data.get("query", "")).strip() or category,
         "_coverage": coverage,
         "_sumber": str(data.get("sumber", "")).strip(),
+        "_image_url": img_url,
+        "_image_article": img_article,
+        "_source_urls": src_urls,
     }

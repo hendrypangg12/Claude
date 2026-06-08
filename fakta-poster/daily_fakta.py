@@ -128,6 +128,18 @@ def main() -> int:
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
 
+    # FOTO ASLI berita (og:image dari sumber) → carousel & reel sesuai kejadian asli.
+    # Ini cuma untuk konten BERITA (web_search/CSE kasih _image_url). Fakta evergreen = None.
+    hero: str | None = None
+    img_url = fakta.get("_image_url")
+    if img_url:
+        try:
+            from media_fetcher import download_image
+            hero = download_image(img_url, str(out_dir / "news_hero.jpg"))
+            print(f"      ✓ pakai FOTO ASLI berita (sumber: {fakta.get('_sumber', '?')})")
+        except Exception as exc:
+            print(f"      (download foto asli gagal: {exc}) → pakai stok/kosmik")
+
     # Optional topic media from Pexels (free, legal). Falls back to cosmic bg.
     photos: list[str] = []
     video_paths: list[str] = []
@@ -147,10 +159,10 @@ def main() -> int:
     else:
         print("      (PEXELS_API_KEY belum di-set → background kosmik, no reel)")
 
-    # 1 foto per slide (kalau kurang, pakai foto yang ada / fallback kosmik)
-    p1 = photos[0] if len(photos) > 0 else None
-    p2 = photos[1] if len(photos) > 1 else p1
-    p3 = photos[2] if len(photos) > 2 else p1
+    # 1 foto per slide. Kalau ada FOTO ASLI berita → cover (slide 1) WAJIB pakai itu.
+    p1 = hero or (photos[0] if len(photos) > 0 else None)
+    p2 = (photos[1] if len(photos) > 1 else None) or hero or p1
+    p3 = (photos[2] if len(photos) > 2 else None) or hero or p1
 
     print("[2/3] Composing carousel...")
     compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=p1)
@@ -158,7 +170,18 @@ def main() -> int:
     compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"), bg_path=p3)
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
 
-    if video_paths:
+    # reel background: FOTO ASLI berita (Ken Burns) diutamakan; kalau gak ada → stok video
+    reel_bg = video_paths
+    if hero:
+        try:
+            from fakta_video_maker import image_to_clip
+            clip = image_to_clip(hero, str(out_dir / "news_clip.mp4"), dur=20)
+            reel_bg = [clip]
+            print("      reel pakai FOTO ASLI berita (zoom pelan)")
+        except Exception as exc:
+            print(f"      (bikin klip dari foto berita gagal: {exc}) → stok video")
+
+    if reel_bg:
         print("      Composing reel...")
         try:
             from fakta_video_maker import make_reel_overlay, render_reel
@@ -168,7 +191,7 @@ def main() -> int:
                 str(out_dir / "reel_detail.png"), detail=fakta.get("detail", ""),
             )
             music = _pick_music()
-            render_reel(video_paths, main_ov, fact_ov, str(out_dir / "reel.mp4"),
+            render_reel(reel_bg, main_ov, fact_ov, str(out_dir / "reel.mp4"),
                         seg=10, max_segments=2, fact_at=1.5,
                         detail_png=detail_ov, detail_at=10, music=music)
             if music:
@@ -187,6 +210,8 @@ def main() -> int:
         "category": fakta["category"],
         "hook": fakta["hook"],
         "fact": fakta["fact"],
+        "sumber": fakta.get("_sumber", ""),
+        "foto_asli": bool(hero),
     }
     (out_dir / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"

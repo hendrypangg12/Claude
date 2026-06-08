@@ -23,6 +23,23 @@ FFPROBE = os.environ.get("FFPROBE") or shutil.which("ffprobe") or "ffprobe"
 _DEVNULL = subprocess.DEVNULL
 
 
+def image_to_clip(img_path: str, out_path: str, dur: int = 20) -> str:
+    """Ubah 1 FOTO (mis. foto asli berita) jadi klip 1080x1920 dgn zoom pelan (Ken Burns).
+    Dipakai biar reel BERITA nampilin foto kejadian asli, bukan stok generik. Raise kalau gagal."""
+    frames = max(int(dur * 30), 30)
+    vf = (
+        "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+        f"zoompan=z='min(zoom+0.0004,1.12)':d={frames}:s=1080x1920:fps=30,"
+        "setsar=1,format=yuv420p"
+    )
+    subprocess.run(
+        [FFMPEG, "-y", "-loop", "1", "-i", img_path, "-t", str(dur),
+         "-vf", vf, "-c:v", "libx264", "-r", "30", "-pix_fmt", "yuv420p", out_path],
+        check=True, stdout=_DEVNULL, stderr=_DEVNULL,
+    )
+    return out_path
+
+
 def _reel_scrim() -> Image.Image:
     a = Image.new("L", (1, RH), 0)
     px = a.load()
