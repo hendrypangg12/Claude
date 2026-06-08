@@ -30,12 +30,15 @@ Aturan potongan (WAJIB):
 
 Aturan JUDUL/HOOK + KREDIT CREATOR (WAJIB):
 - "title" = kalimat HOOK scroll-stopping yang DIMULAI dengan handle creator, lalu koma, lalu
-  kata kaget/penasaran + klaim paling viral dari momen itu. WAJIB sebut creator (kredit).
-  FORMAT: "@creator , [KATA KAGET] [klaim viral]". Boleh pakai kapital buat penekanan.
-  Contoh gaya:
-    "@realmrbert , GILA ada teknologi baru pakai WiFi yang bisa lihat aktivitas di balik tembok"
-    "@realmrbert , NGAMUK pas ada yang bilang dolar naik gak ngefek ke orang desa"
-  8-18 kata, naratif, bikin orang berhenti scroll.
+  framing NARATIF-DRAMATIS yang ngerangkum momen + dampaknya yang bikin penasaran/serem/kaget.
+  WAJIB sebut creator (kredit). FORMAT: "@creator , [framing naratif dramatis + dampak]".
+  Gaya naratif kayak headline (boleh: "yang menemukan...", "kini bisa dipakai untuk...",
+  "ngebongkar...", "bikin geger karena..."). Boleh tambah penekanan emosi (Serem banget, GILA, Parah).
+  Contoh gaya (TIRU vibe-nya, sesuaikan isi video):
+    "@realmrbert , konten kreator yang nemu 'kejahatan baru' lewat WiFi — kini bisa dipakai buat
+     melacak aktivitas orang di dalam rumah / di balik dinding. Serem banget"
+    "@realmrbert , bongkar kenapa justru orang desa yang paling kena dampak dolar naik"
+  10-22 kata, naratif, scroll-stopping. WAJIB tetap sesuai isi transkrip (jangan ngarang fakta).
 - Kalau handle creator gak dikasih/gak jelas, bikin hook biasa tanpa maksa nyebut handle.
 
 Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
