@@ -219,13 +219,23 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         if joined:
             avoid_line = f"\n\nHINDARI topik yang mirip ini (sudah pernah dibahas): {joined}"
 
+    today = datetime.utcnow() + timedelta(hours=7)  # WIB
+    today_str = today.strftime("%d %B %Y")
+
     client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 5}]
     user = (
+        f"Hari ini = {today_str} (WIB).\n"
         f"Cari di internet: {brief}.\n"
-        f"Lakukan beberapa kali pencarian, lalu PILIH SATU topik yang paling viral & paling banyak "
-        f"diberitakan dari banyak sumber kredibel (BUKAN rumor pribadi/fitnah). "
-        f"Pastikan FRESH (beberapa hari/minggu terakhir) dan beneran rame.{avoid_line}\n\n"
+        f"Lakukan 2-4 pencarian (pakai kata 'hari ini', 'terbaru', tanggal, nama peristiwa).\n\n"
+        f"ATURAN FRESH (WAJIB): prioritaskan berita yang TERBIT 1-3 HARI TERAKHIR. "
+        f"TOLAK berita yang lebih tua dari 5 hari KECUALI topiknya masih sangat rame HARI INI. "
+        f"Makin baru makin bagus — ini buat konten 'berita hangat'.\n\n"
+        f"PILIH SATU topik paling viral & paling banyak diberitakan dari banyak sumber kredibel "
+        f"(BUKAN rumor pribadi/fitnah).{avoid_line}\n\n"
+        f"PENTING soal field 'query': isi dengan subjek visual yang SPESIFIK & nyambung ke berita "
+        f"(mis. berita baling-baling pesawat → 'turboprop propeller plane', berita rupiah → "
+        f"'indonesian rupiah money', berita artis → nama umum yg relevan), JANGAN terlalu generik.\n\n"
         f"Setelah yakin, keluarkan HANYA STRICT JSON sesuai format di system. "
         f"Kategori: {category}."
     )
