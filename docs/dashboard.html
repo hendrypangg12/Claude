@@ -189,7 +189,7 @@ async function generate(){
     const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${c.wf}/dispatches`,{
       method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs })
     });
-    if(r.status===204){ btn.disabled=false; trackRun(c, since); }
+    if(r.status===204){ btn.disabled=false; trackWf(c.wf, since, document.getElementById("genMsg"), "gen"); }
     else {
       const t=await r.text();
       msg.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token salah/kurang izin (butuh <b>Actions: Read & write</b>). Tap ⚙️ perbarui token.":esc(t.slice(0,160))}`;
@@ -197,29 +197,50 @@ async function generate(){
     }
   }catch(e){ msg.innerHTML="❌ Error jaringan: "+esc(e.message); btn.disabled=false; }
 }
-async function trackRun(c, since){
-  const msg=document.getElementById("genMsg");
-  msg.innerHTML="✅ <b>Generate dimulai!</b> Nyari proses…";
-  let id=null, html="";
+async function trackWf(wf, since, el, kind){
+  el.innerHTML = kind==="post" ? "📤 Mengirim ke Instagram… nyari proses…" : "✅ Generate dimulai! Nyari proses…";
+  let id=null;
   for(let i=0;i<15 && !id;i++){
     await sleep(5000);
     try{
-      const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${c.wf}/runs?per_page=5`,{headers:ghH()});
+      const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${wf}/runs?per_page=5`,{headers:ghH()});
       const j=await r.json();
       const run=(j.workflow_runs||[]).find(x=>x.event==="workflow_dispatch" && new Date(x.created_at).getTime()>=since-15000);
-      if(run){ id=run.id; html=run.html_url; }
+      if(run) id=run.id;
     }catch(e){}
   }
-  if(!id){ msg.innerHTML="✅ Perintah terkirim. Tunggu ~1-2 mnt lalu tap ↻."; return; }
+  if(!id){ el.innerHTML="✅ Perintah terkirim. Cek sebentar lagi."; return; }
   for(let i=0;i<45;i++){
     await sleep(8000);
     let run; try{ run=await (await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/runs/${id}`,{headers:ghH()})).json(); }catch(e){ continue; }
-    if(run.status!=="completed"){ msg.innerHTML=`⏳ Lagi dibikin… (${Math.round(i*8)+5}s) <a href="${run.html_url}" target="_blank">lihat</a>`; continue; }
-    if(run.conclusion==="success"){ msg.innerHTML="✅ <b>Selesai!</b> Konten baru masuk. Memuat…"; }
-    else { msg.innerHTML=`⚠️ Beres, tapi ada step yang gagal (${run.conclusion}) — biasanya step publish (token). Kontennya tetap jadi, cek di bawah. <a href="${run.html_url}" target="_blank">Detail</a>`; }
-    await sleep(4000); load(true); return;
+    if(run.status!=="completed"){ el.innerHTML=`⏳ Lagi diproses… (${Math.round(i*8)+5}s) <a href="${run.html_url}" target="_blank">lihat</a>`; continue; }
+    if(run.conclusion==="success"){
+      el.innerHTML = kind==="post" ? "✅ <b>Ke-post ke Instagram!</b> 🎉 Cek feed kamu." : "✅ <b>Selesai!</b> Konten baru masuk. Memuat…";
+    } else {
+      el.innerHTML = kind==="post"
+        ? `❌ Gagal posting (${run.conclusion}). Biasanya token IG belum siap / error #10. <a href="${run.html_url}" target="_blank">Detail</a>`
+        : `⚠️ Beres, tapi ada step gagal (${run.conclusion}). Kontennya tetap jadi. <a href="${run.html_url}" target="_blank">Detail</a>`;
+    }
+    if(kind==="gen"){ await sleep(4000); load(true); }
+    return;
   }
-  msg.innerHTML='⏳ Masih lama (mungkin antri). Tap ↻ nanti buat lihat hasil.';
+  el.innerHTML='⏳ Masih lama (mungkin antri). Cek lagi nanti.';
+}
+async function postIG(mode){
+  if(!pat()){ toast("Pasang token dulu (⚙️)"); openSettings(); return; }
+  const p=window._cur.p;
+  const what = mode==="reel" ? "REEL (video + musik)" : "CAROUSEL (3 foto)";
+  const akun = brand==="beruang" ? "@beruangfinance" : "@faktaviral.idn";
+  if(!confirm(`Posting ${what} ini ke Instagram ${akun} SEKARANG?`)) return;
+  const el=document.getElementById("postMsg"), since=Date.now();
+  el.innerHTML="📤 Mengirim perintah…";
+  try{
+    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/publish-existing.yml/dispatches`,{
+      method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs:{ brand, id:p.id, mode } })
+    });
+    if(r.status===204){ trackWf("publish-existing.yml", since, el, "post"); }
+    else { const t=await r.text(); el.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token kurang izin (Actions: Read & write).":esc(t.slice(0,140))}`; }
+  }catch(e){ el.innerHTML="❌ Error: "+esc(e.message); }
 }
 async function openPost(p){
   const c=BRANDS[brand], body=document.getElementById("ovbody");
@@ -229,7 +250,10 @@ async function openPost(p){
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
     <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
-    <div class="btnrow"><button class="btn" onclick="copyCap()">📋 Salin caption</button>
+    <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post Carousel ke IG</button>
+      ${p.reel?`<button class="btn" onclick="postIG('reel')">📤 Post Reel ke IG</button>`:''}</div>
+    <div class="genmsg" id="postMsg"></div>
+    <div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="copyCap()">📋 Salin caption</button>
       ${p.reel?'<button class="btn ghost" onclick="copyCap(true)">📋 Caption reel (+kredit)</button>':''}</div>
     <div class="btnrow"><a class="btn ghost" href="${c.base}/${p.id}/post_1.jpg" download>⬇️ Slide 1</a>
       ${p.reel?`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download>⬇️ Reel</a>`:''}</div>`;

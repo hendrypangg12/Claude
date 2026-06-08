@@ -1,0 +1,67 @@
+name: Publish existing post
+
+# Posting SATU konten yang UDAH ada di repo (dipanggil dari dashboard "Post ke IG").
+# Tidak generate apa pun — cuma upload folder published/<id> yang dipilih ke IG (+ FB).
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "Akun"
+        required: true
+        type: choice
+        options: [faktaviral, beruang]
+      id:
+        description: "ID konten (nama folder published, mis. 2026-06-08_22-31-38)"
+        required: true
+        type: string
+      mode:
+        description: "Mau post apa?"
+        required: true
+        type: choice
+        options: [carousel, reel, both]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fakta-poster
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: fakta-poster/requirements.txt
+      - run: pip install -r requirements.txt
+
+      - name: Resolve folder per brand
+        id: b
+        working-directory: ${{ github.workspace }}
+        run: |
+          if [ "${{ github.event.inputs.brand }}" = "beruang" ]; then
+            echo "folder=beruang-finance/published" >> "$GITHUB_OUTPUT"
+          else
+            echo "folder=fakta-poster/published" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish ke Instagram
+        run: python publish_ig.py
+        env:
+          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_ACCESS_TOKEN_BF || secrets.IG_ACCESS_TOKEN }}
+          POST_MODE: ${{ github.event.inputs.mode }}
+          PUB_DIR: ${{ github.workspace }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
+
+      - name: Publish ke Facebook Page
+        continue-on-error: true
+        run: python publish_fb.py
+        env:
+          FB_TOKEN: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_ACCESS_TOKEN_BF || secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.FB_PAGE_ID_BF || secrets.FB_PAGE_ID }}
+          POST_MODE: ${{ github.event.inputs.mode }}
+          PUB_DIR: ${{ github.workspace }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
