@@ -4,38 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d0b1c">
-<title>Content Monitor — Fakta Viral & Beruang</title>
+<title>Content Studio — Fakta Viral & Beruang</title>
 <style>
   :root{ --bg:#0d0b1c; --card:#16142b; --line:#272447; --txt:#f4f6fb; --muted:#a4a2c4; --accent:#22d3ee; --ink:#08121a; }
   *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body{ margin:0; background:var(--bg); color:var(--txt); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding-bottom:env(safe-area-inset-bottom); }
-  header{ position:sticky; top:0; z-index:5; background:rgba(13,11,28,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding:14px 16px calc(14px + env(safe-area-inset-top)); padding-top:max(14px,env(safe-area-inset-top)); }
+  header{ position:sticky; top:0; z-index:5; background:rgba(13,11,28,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding:14px 16px; padding-top:max(14px,env(safe-area-inset-top)); }
   .brandrow{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
-  .logo{ font-weight:900; font-size:18px; letter-spacing:.5px; }
-  .logo b{ color:var(--accent); }
-  .refresh{ background:var(--card); border:1px solid var(--line); color:var(--txt); border-radius:10px; padding:8px 12px; font-weight:700; font-size:13px; }
+  .logo{ font-weight:900; font-size:18px; letter-spacing:.3px; } .logo b{ color:var(--accent); }
+  .hbtns{ display:flex; gap:8px; }
+  .ib{ background:var(--card); border:1px solid var(--line); color:var(--txt); border-radius:10px; padding:8px 12px; font-weight:700; font-size:13px; }
   .tabs{ display:flex; gap:8px; margin-top:12px; }
   .tab{ flex:1; text-align:center; padding:10px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--muted); font-weight:800; font-size:14px; }
   .tab.active{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
   .status{ color:var(--muted); font-size:12px; margin-top:10px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
   .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); display:inline-block; }
   main{ padding:14px 14px 40px; max-width:760px; margin:0 auto; }
+  /* generate panel */
+  .gen{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:16px; }
+  .gen h3{ margin:0 0 10px; font-size:14px; display:flex; align-items:center; gap:8px; }
+  .row{ display:flex; gap:10px; margin-bottom:10px; } .row>*{ flex:1; }
+  label.fl{ font-size:11px; color:var(--muted); display:block; margin:0 0 4px 2px; font-weight:700; letter-spacing:.3px; }
+  select,input.tx{ width:100%; background:#0e0c20; border:1px solid var(--line); color:var(--txt); border-radius:10px; padding:11px; font-size:14px; font-family:inherit; }
+  .genbtn{ width:100%; background:var(--accent); color:var(--ink); border:none; border-radius:12px; padding:14px; font-weight:900; font-size:15px; margin-top:4px; }
+  .genbtn:disabled{ opacity:.5; }
+  .genmsg{ font-size:12.5px; margin-top:10px; color:var(--muted); line-height:1.5; }
+  .genmsg a{ color:var(--accent); }
   .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
   .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; cursor:pointer; }
   .thumb{ position:relative; aspect-ratio:1/1; background:#0a0918; }
   .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
   .badges{ position:absolute; top:8px; left:8px; right:8px; display:flex; justify-content:space-between; gap:6px; }
-  .chip{ background:var(--accent); color:var(--ink); font-size:10px; font-weight:900; letter-spacing:.5px; padding:4px 8px; border-radius:7px; }
+  .chip{ background:var(--accent); color:var(--ink); font-size:10px; font-weight:900; letter-spacing:.4px; padding:4px 8px; border-radius:7px; }
   .chip.dark{ background:rgba(8,12,24,.78); color:var(--accent); }
   .meta{ padding:10px 11px 12px; }
   .meta .t{ font-size:13px; font-weight:700; line-height:1.3; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
   .meta .d{ color:var(--muted); font-size:11px; margin-top:7px; }
-  .empty,.loading{ color:var(--muted); text-align:center; padding:50px 20px; font-size:14px; }
-  /* modal */
-  .ov{ position:fixed; inset:0; background:rgba(5,4,12,.96); z-index:20; display:none; flex-direction:column; }
+  .empty,.loading{ color:var(--muted); text-align:center; padding:40px 20px; font-size:14px; grid-column:1/-1; }
+  .ov{ position:fixed; inset:0; background:rgba(5,4,12,.97); z-index:20; display:none; flex-direction:column; }
   .ov.open{ display:flex; }
   .ovhead{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; padding-top:max(14px,env(safe-area-inset-top)); border-bottom:1px solid var(--line); }
-  .ovhead .x{ background:var(--card); border:1px solid var(--line); color:var(--txt); width:36px; height:36px; border-radius:50%; font-size:18px; font-weight:800; }
+  .x{ background:var(--card); border:1px solid var(--line); color:var(--txt); width:36px; height:36px; border-radius:50%; font-size:18px; font-weight:800; }
   .ovhead .ti{ font-size:13px; color:var(--muted); font-weight:700; }
   .ovbody{ overflow-y:auto; padding:14px 14px 40px; max-width:620px; margin:0 auto; width:100%; }
   .slides{ display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
@@ -48,120 +57,163 @@
   .btn.ghost{ background:var(--card); color:var(--txt); border:1px solid var(--line); }
   .toast{ position:fixed; left:50%; bottom:28px; transform:translateX(-50%); background:var(--accent); color:var(--ink); font-weight:800; padding:11px 18px; border-radius:12px; font-size:13px; opacity:0; transition:opacity .2s; z-index:30; }
   .toast.show{ opacity:1; }
+  .sheet{ position:fixed; inset:0; background:rgba(5,4,12,.7); z-index:25; display:none; align-items:flex-end; }
+  .sheet.open{ display:flex; }
+  .sheetbox{ background:var(--card); border-top:1px solid var(--line); border-radius:18px 18px 0 0; padding:18px 16px calc(24px + env(safe-area-inset-bottom)); width:100%; max-width:600px; margin:0 auto; }
+  .sheetbox h3{ margin:0 0 6px; } .sheetbox p{ color:var(--muted); font-size:12.5px; line-height:1.5; margin:0 0 12px; }
 </style>
 </head>
 <body>
 <header>
   <div class="brandrow">
-    <div class="logo">📡 Content <b>Monitor</b></div>
-    <button class="refresh" onclick="load(true)">↻ Refresh</button>
+    <div class="logo">🎬 Content <b>Studio</b></div>
+    <div class="hbtns">
+      <button class="ib" onclick="openSettings()">⚙️</button>
+      <button class="ib" onclick="load(true)">↻</button>
+    </div>
   </div>
   <div class="tabs">
     <div class="tab active" data-brand="faktaviral" onclick="setTab('faktaviral')">🪐 Fakta Viral</div>
-    <div class="tab" data-brand="beruang" onclick="setTab('beruang')">🐻 Beruang Finance</div>
+    <div class="tab" data-brand="beruang" onclick="setTab('beruang')">🐻 Beruang</div>
   </div>
   <div class="status" id="status"><span class="dot"></span> memuat…</div>
 </header>
 <main>
-  <div class="grid" id="grid"></div>
-  <div class="loading" id="loading">Memuat konten…</div>
+  <div class="gen">
+    <h3>⚡ Generate konten baru</h3>
+    <div class="row">
+      <div><label class="fl">Kategori</label><select id="genCat"></select></div>
+      <div><label class="fl">Aksi</label><select id="genMode">
+        <option value="none">Preview aja (nggak post)</option>
+        <option value="carousel">Generate + Post carousel</option>
+        <option value="reel">Generate + Post reel</option>
+        <option value="both">Generate + Post dua-duanya</option>
+      </select></div>
+    </div>
+    <div><label class="fl">Topik spesifik (opsional)</label><input class="tx" id="genTopic" placeholder="kosongin = AI pilih topik hangat"></div>
+    <button class="genbtn" id="genBtn" onclick="generate()">⚡ Generate sekarang</button>
+    <div class="genmsg" id="genMsg"></div>
+  </div>
+  <div class="grid" id="grid"><div class="loading" id="loading">Memuat konten…</div></div>
 </main>
 
 <div class="ov" id="ov">
-  <div class="ovhead">
-    <button class="x" onclick="closeOv()">✕</button>
-    <div class="ti" id="ovti"></div>
-    <div style="width:36px"></div>
-  </div>
+  <div class="ovhead"><button class="x" onclick="closeOv()">✕</button><div class="ti" id="ovti"></div><div style="width:36px"></div></div>
   <div class="ovbody" id="ovbody"></div>
+</div>
+
+<div class="sheet" id="sheet">
+  <div class="sheetbox">
+    <h3>⚙️ Setelan — GitHub Token</h3>
+    <p>Token dipakai buat tombol <b>Generate</b> (jalanin workflow dari sini). Disimpan <b>cuma di HP kamu</b>, nggak dikirim ke mana-mana selain GitHub.<br><br>
+    Bikin token: GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → repo <b>Claude</b> → permission <b>Actions: Read and write</b>. Tempel di bawah:</p>
+    <input class="tx" id="patIn" placeholder="github_pat_..." type="password" autocomplete="off">
+    <div class="btnrow">
+      <button class="btn" onclick="savePat()">💾 Simpan</button>
+      <button class="btn ghost" onclick="closeSettings()">Tutup</button>
+    </div>
+  </div>
 </div>
 <div class="toast" id="toast">Tersalin ✓</div>
 
 <script>
-const REPO_OWNER="hendrypangg12", REPO_NAME="Claude", BRANCH="claude/halo-bYUsl";
-const RAW=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}`;
+const OWNER="hendrypangg12", REPO="Claude", BRANCH="claude/halo-bYUsl";
+const RAW=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
+const FV_CATS=[["","🎲 Bebas (AI pilih)"],["keuangan","💰 Berita Keuangan Viral"],["aktor","🎭 Berita Aktor/Selebriti"],
+  ["sains","🔬 Sains"],["sejarah","🏛️ Sejarah"],["tubuh","🫀 Tubuh Manusia"],["otak","🧠 Otak & Pikiran"],["psikologi","🧩 Psikologi"],
+  ["hewan","🐾 Dunia Hewan"],["laut","🌊 Dunia Laut"],["serangga","🐜 Serangga"],["dinosaurus","🦖 Dinosaurus"],["tumbuhan","🌱 Tumbuhan"],
+  ["luarangkasa","🚀 Luar Angkasa"],["teknologi","💻 Teknologi"],["internet","📱 Internet & Medsos"],["geografi","🗺️ Geografi"],
+  ["negara","🌍 Negara & Dunia"],["alam","🏔️ Alam"],["cuaca","⛈️ Cuaca & Iklim"],["makanan","🍔 Makanan"],["kuliner","🍜 Kuliner Dunia"],
+  ["kesehatan","💊 Kesehatan"],["olahraga","⚽ Olahraga"],["hiburan","🎬 Film & Hiburan"],["musik","🎵 Musik"],["budaya","🎎 Budaya & Tradisi"],
+  ["bahasa","🔤 Bahasa"],["ekonomi","📈 Ekonomi"],["rekor","🏆 Rekor Dunia"],["misteri","🔮 Misteri & Mitos"],["transportasi","🚗 Transportasi"],
+  ["bangunan","🏗️ Bangunan Megah"],["militer","🪖 Militer & Perang"]];
+const BF_CATS=[["","🎲 Bebas (AI pilih)"],["tips","💡 Tips Keuangan"],["berita","📰 Berita Keuangan"],["lucu","😂 Lucu/Relatable"]];
 const BRANDS={
-  faktaviral:{ base:`${RAW}/fakta-poster/published`, manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a" },
-  beruang:{ base:`${RAW}/beruang-finance/published`, manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616" },
+  faktaviral:{ base:`${RAW}/fakta-poster/published`, manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a", wf:"daily-fakta.yml", catKey:"category", cats:FV_CATS },
+  beruang:{ base:`${RAW}/beruang-finance/published`, manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
 };
 let brand="faktaviral", cache={};
+const pat=()=>localStorage.getItem("gh_pat")||"";
 
 function setTab(b){
   brand=b;
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.brand===b));
   const c=BRANDS[b]; document.documentElement.style.setProperty("--accent",c.accent); document.documentElement.style.setProperty("--ink",c.ink);
-  document.querySelector('meta[name=theme-color]').setAttribute("content","#0d0b1c");
+  document.getElementById("genCat").innerHTML=c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  document.getElementById("genMsg").textContent="";
   render();
 }
 async function load(force){
-  const c=BRANDS[brand];
   document.getElementById("loading").style.display="block";
-  document.getElementById("grid").innerHTML="";
-  try{
-    const r=await fetch(c.manifest+"?_="+Date.now());
-    cache[brand]=await r.json();
-  }catch(e){ cache[brand]={posts:[]}; }
+  try{ const r=await fetch(BRANDS[brand].manifest+"?_="+Date.now()); cache[brand]=await r.json(); }
+  catch(e){ cache[brand]={posts:[]}; }
   render();
 }
 function render(){
-  const c=BRANDS[brand], data=cache[brand];
-  const grid=document.getElementById("grid"), load=document.getElementById("loading");
-  if(!data){ load.style.display="block"; return; }
-  const posts=(data.posts||[]);
-  load.style.display="none";
-  const last=posts[0];
-  document.getElementById("status").innerHTML=`<span class="dot"></span> ${posts.length} post · update terakhir: ${last?(last.date+" "+last.time):"—"}`;
-  if(!posts.length){ grid.innerHTML='<div class="empty" style="grid-column:1/-1">Belum ada konten. Tunggu jadwal otomatis atau Run workflow.</div>'; return; }
+  const c=BRANDS[brand], data=cache[brand], grid=document.getElementById("grid");
+  if(!data){ return; }
+  const posts=data.posts||[]; const last=posts[0];
+  document.getElementById("status").innerHTML=`<span class="dot"></span> ${posts.length} post · update: ${last?(last.date+" "+last.time):"—"}`;
+  if(!posts.length){ grid.innerHTML='<div class="empty">Belum ada konten. Klik Generate ⚡ atau tunggu jadwal.</div>'; return; }
   grid.innerHTML=posts.map(p=>`
     <div class="card" onclick='openPost(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
-      <div class="thumb">
-        <img loading="lazy" src="${c.base}/${p.id}/post_1.jpg" onerror="this.style.opacity=.2">
-        <div class="badges">
-          <span class="chip">${p.label||"POST"}</span>
-          <span class="chip dark">${p.reel?"🎬 Reel":"🖼️ "+p.slides}</span>
-        </div>
+      <div class="thumb"><img loading="lazy" src="${c.base}/${p.id}/post_1.jpg" onerror="this.style.opacity=.2">
+        <div class="badges"><span class="chip">${p.label||"POST"}</span><span class="chip dark">${p.reel?"🎬":"🖼️"+p.slides}</span></div>
       </div>
       <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}</div></div>
     </div>`).join("");
 }
+async function generate(){
+  const c=BRANDS[brand], msg=document.getElementById("genMsg"), btn=document.getElementById("genBtn");
+  if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
+  const inputs={ post_mode:document.getElementById("genMode").value, topic:document.getElementById("genTopic").value.trim() };
+  inputs[c.catKey]=document.getElementById("genCat").value;
+  btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah generate…";
+  try{
+    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${c.wf}/dispatches`,{
+      method:"POST", headers:{ "Authorization":`Bearer ${pat()}`, "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" },
+      body: JSON.stringify({ ref:BRANCH, inputs })
+    });
+    if(r.status===204){
+      msg.innerHTML=`✅ <b>Generate dimulai!</b> Konten lagi dibikin (carousel ±1 mnt, reel ±3 mnt).<br>Tunggu sebentar lalu tap ↻ buat lihat hasilnya. <a href="https://github.com/${OWNER}/${REPO}/actions/workflows/${c.wf}" target="_blank">Lihat proses</a>`;
+      setTimeout(()=>load(true), 75000);
+    } else {
+      const t=await r.text();
+      msg.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token salah/kurang izin (butuh Actions: Read & write).":esc(t.slice(0,160))}`;
+    }
+  }catch(e){ msg.innerHTML="❌ Error jaringan: "+esc(e.message); }
+  btn.disabled=false;
+}
 async function openPost(p){
   const c=BRANDS[brand], body=document.getElementById("ovbody");
   document.getElementById("ovti").textContent=`${p.label||""} · ${p.date} ${p.time}`;
-  let slides="";
-  for(let i=1;i<=p.slides;i++) slides+=`<img src="${c.base}/${p.id}/post_${i}.jpg">`;
-  if(p.reel) slides+=`<video src="${c.base}/${p.id}/reel.mp4" controls playsinline></video>`;
-  body.innerHTML=`
-    <div class="slides">${slides}</div>
-    <div class="h2">${esc(p.title)}</div>
-    <div class="sub">${p.slides} slide${p.reel?" + reel berlagu":""} · ${p.date} ${p.time}</div>
+  let sl=""; for(let i=1;i<=p.slides;i++) sl+=`<img src="${c.base}/${p.id}/post_${i}.jpg">`;
+  if(p.reel) sl+=`<video src="${c.base}/${p.id}/reel.mp4" controls playsinline></video>`;
+  body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
+    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
-    <div class="btnrow">
-      <button class="btn" onclick="copyCap()">📋 Salin caption</button>
-      ${p.reel?'<button class="btn ghost" onclick="copyCap(true)">📋 Caption reel (+kredit)</button>':''}
-    </div>
-    <div class="btnrow">
-      <a class="btn ghost" href="${c.base}/${p.id}/post_1.jpg" download>⬇️ Slide 1</a>
-      ${p.reel?`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download>⬇️ Reel</a>`:''}
-    </div>`;
+    <div class="btnrow"><button class="btn" onclick="copyCap()">📋 Salin caption</button>
+      ${p.reel?'<button class="btn ghost" onclick="copyCap(true)">📋 Caption reel (+kredit)</button>':''}</div>
+    <div class="btnrow"><a class="btn ghost" href="${c.base}/${p.id}/post_1.jpg" download>⬇️ Slide 1</a>
+      ${p.reel?`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download>⬇️ Reel</a>`:''}</div>`;
   document.getElementById("ov").classList.add("open");
-  window._cur={c,p,cap:"",capReel:""};
-  fetchCap(false); if(p.reel) fetchCap(true);
+  window._cur={c,p,cap:"",capReel:""}; fetchCap(false); if(p.reel) fetchCap(true);
 }
 async function fetchCap(reel){
-  const {c,p}=window._cur;
-  const file=reel?"caption_reel.txt":"caption.txt";
+  const {c,p}=window._cur, file=reel?"caption_reel.txt":"caption.txt";
   try{ const r=await fetch(`${c.base}/${p.id}/${file}?_=`+Date.now()); const t=await r.text();
     if(reel) window._cur.capReel=t; else { window._cur.cap=t; document.getElementById("capbox").textContent=t; }
   }catch(e){ if(!reel) document.getElementById("capbox").textContent="(caption tidak tersedia)"; }
 }
-function copyCap(reel){
-  const t=reel?(window._cur.capReel||window._cur.cap):window._cur.cap;
-  navigator.clipboard.writeText(t||"").then(()=>toast());
-}
+function copyCap(reel){ const t=reel?(window._cur.capReel||window._cur.cap):window._cur.cap; navigator.clipboard.writeText(t||"").then(toast); }
 function closeOv(){ document.getElementById("ov").classList.remove("open"); }
-function toast(){ const t=document.getElementById("toast"); t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1300); }
+function openSettings(){ document.getElementById("patIn").value=pat(); document.getElementById("sheet").classList.add("open"); }
+function closeSettings(){ document.getElementById("sheet").classList.remove("open"); }
+function savePat(){ localStorage.setItem("gh_pat",document.getElementById("patIn").value.trim()); closeSettings(); toast("Token tersimpan ✓"); }
+function toast(m){ const t=document.getElementById("toast"); if(typeof m==="string") t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1300); }
 function esc(s){ return (s||"").replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m])); }
 document.getElementById("ov").addEventListener("click",e=>{ if(e.target.id==="ov") closeOv(); });
+document.getElementById("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeSettings(); });
 setTab("faktaviral"); load();
 </script>
 </body>

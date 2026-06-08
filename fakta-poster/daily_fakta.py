@@ -17,6 +17,9 @@ from dotenv import load_dotenv
 from fakta_generator import generate_fakta
 from fakta_image_maker import compose_cover, compose_fact, compose_outro
 
+# kategori yang harus GROUNDED ke berita real (diverifikasi lewat search engine)
+NEWS_CATEGORIES = {"keuangan", "aktor"}
+
 WIB = timezone(timedelta(hours=7))
 HISTORY = Path("history.json")  # persisted hooks for cross-run dedup (out/ is gitignored)
 MUSIC_DIR = Path("music")       # lagu royalty-free (taruh sendiri) → di-acak per reel
@@ -86,7 +89,16 @@ def main() -> int:
     topic = os.environ.get("TOPIC", "").strip() or None
 
     print("[1/3] Generating fakta with Claude...")
-    fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic)
+    fakta = None
+    if category in NEWS_CATEGORIES and not topic:
+        try:
+            from fakta_news import generate_news
+            print(f"      mode BERITA (verifikasi search engine) — kategori {category}...")
+            fakta = generate_news(category, avoid=_recent_hooks(out_root))
+        except Exception as exc:
+            print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
+    if fakta is None:
+        fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic)
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
 

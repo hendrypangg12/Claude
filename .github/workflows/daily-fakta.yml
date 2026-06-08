@@ -15,18 +15,10 @@ on:
   workflow_dispatch:
     inputs:
       category:
-        description: "Kategori (kosong = Claude pilih)"
+        description: "Kategori (kosong = Claude pilih). Bebas, mis. sains/sejarah/keuangan/aktor"
         required: false
         default: ""
-        type: choice
-        options:
-          - ""
-          - sains
-          - sejarah
-          - tubuh
-          - hewan
-          - luarangkasa
-          - teknologi
+        type: string
       topic:
         description: "Topik spesifik (opsional, mis. 'hiu lebih tua dari pohon'). Kosong = Claude pilih"
         required: false
@@ -87,9 +79,11 @@ jobs:
           TOPIC: ${{ github.event.inputs.topic }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
 
       - name: Siapkan media publik + commit
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        # selalu commit (biar muncul di dashboard utk preview); publish-nya yg digate post_mode
         working-directory: ${{ github.workspace }}
         run: |
           TS=$(ls -t fakta-poster/out | head -1)

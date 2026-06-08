@@ -10,7 +10,7 @@ SYSTEM_PROMPT = """Kamu bikin SATU 'fakta unik' yang mengejutkan TAPI BENAR, dal
 
 Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
 {
-  "category": salah satu dari: sains | sejarah | tubuh | hewan | luarangkasa | teknologi | geografi | makanan | ekonomi | rekor | budaya | alam,
+  "category": pilih SATU yang paling pas (huruf kecil, tanpa spasi): sains | sejarah | tubuh | otak | psikologi | hewan | laut | serangga | dinosaurus | tumbuhan | luarangkasa | teknologi | internet | geografi | negara | alam | cuaca | makanan | kuliner | kesehatan | olahraga | hiburan | musik | budaya | bahasa | ekonomi | uang | rekor | misteri | transportasi | bangunan | militer,
   "hook": "...",      // teaser cover — klaim mengejutkannya, 5-11 kata, bikin orang berhenti scroll. JANGAN pakai 'Tau gak sih' (sudah ada di template).
   "fact": "...",      // 1 kalimat inti fakta, jelas & spesifik (boleh pakai angka)
   "detail": "...",    // 1-2 kalimat kenapa/bagaimana, bahasa simpel

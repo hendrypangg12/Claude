@@ -84,7 +84,7 @@ jobs:
           TOPIC: ${{ github.event.inputs.topic }}
 
       - name: Siapkan media + commit
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        # selalu commit (preview di dashboard); publish-nya yg digate post_mode
         working-directory: ${{ github.workspace }}
         run: |
           TS=$(ls -t beruang-finance/out | head -1)
