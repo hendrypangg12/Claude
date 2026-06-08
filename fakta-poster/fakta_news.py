@@ -21,15 +21,23 @@ MIN_COVERAGE = int(os.environ.get("NEWS_MIN_COVERAGE", "20"))
 
 # query pencarian per kategori berita (Bahasa Indonesia, bias konteks ID)
 CATEGORY_QUERIES = {
+    "trending": [
+        "berita viral hari ini indonesia", "trending topic hari ini",
+        "yang lagi ramai diperbincangkan", "kabar viral terbaru indonesia",
+        "fenomena viral medsos terbaru",
+    ],
     "keuangan": [
         "berita keuangan viral terbaru", "ekonomi rupiah saham berita hari ini",
         "berita finansial trending indonesia", "investasi crypto viral terbaru",
     ],
     "aktor": [
         "berita aktor selebriti viral terbaru", "artis indonesia trending hari ini",
-        "gosip selebriti ramai diperbincangkan", "aktor hollywood berita viral",
+        "selebriti ramai diperbincangkan", "aktor hollywood berita viral",
     ],
 }
+
+# seberapa "fresh" hasil yang dicari (Google dateRestrict). Trending = paling baru.
+RECENCY = {"trending": "w1", "keuangan": "w2", "aktor": "w2"}
 
 SYSTEM = """Kamu editor konten Instagram 'fakta/berita viral' (Bahasa Indonesia, gaya anak muda).
 Kamu DIBERI daftar cuplikan hasil pencarian ASLI (judul + ringkasan + sumber).
@@ -56,13 +64,16 @@ Keluarkan STRICT JSON saja:
 }"""
 
 
-def _cse_web(query: str, num: int = 10) -> tuple[int, list[dict]]:
-    """Google Custom Search (web). Return (totalResults, items[])."""
+def _cse_web(query: str, num: int = 10, date_restrict: str | None = None) -> tuple[int, list[dict]]:
+    """Google Custom Search (web). Return (totalResults, items[]).
+    date_restrict mis. 'w1' (1 minggu), 'd3' (3 hari) → bias ke hasil yang masih fresh."""
     params = {
         "key": os.environ["GOOGLE_API_KEY"].strip(),
         "cx": os.environ["GOOGLE_CSE_ID"].strip(),
         "q": query, "num": num, "safe": "active", "hl": "id", "gl": "id",
     }
+    if date_restrict:
+        params["dateRestrict"] = date_restrict
     r = requests.get("https://www.googleapis.com/customsearch/v1", params=params, timeout=20)
     r.raise_for_status()
     j = r.json()
@@ -78,9 +89,10 @@ def _cse_web(query: str, num: int = 10) -> tuple[int, list[dict]]:
 
 def _gather(category: str) -> list[dict]:
     seen, out = set(), []
+    fresh = RECENCY.get(category, "m1")  # default: 1 bulan terakhir
     for q in CATEGORY_QUERIES.get(category, [f"berita {category} viral terbaru"]):
         try:
-            _, items = _cse_web(q, num=8)
+            _, items = _cse_web(q, num=8, date_restrict=fresh)
         except Exception as exc:
             print(f"      (cari '{q}' gagal: {exc})")
             continue

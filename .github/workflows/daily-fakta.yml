@@ -1,17 +1,14 @@
 name: Daily Fakta (semi-manual)
 
-# Auto-generate 1 "fakta unik" carousel (original content, no copyright).
-# Output is uploaded as an artifact you download + post manually.
-# history.json is committed so facts don't repeat across runs.
+# Tiap PAGI cari 1 konten VIRAL terverifikasi (cek search engine: fresh + udah mulai rame)
+# → di-commit ke dashboard buat di-REVIEW & post MANUAL. TIDAK auto-post (mode=none).
+# Bisa juga di-Generate on-demand dari dashboard (pilih kategori + mau post atau preview).
 
 on:
   schedule:
-    # WIB = UTC+7. 5 slot/hari. Menit :09 (bukan jam bulat) → kurangi delay antrian GitHub.
-    - cron: "9 23 * * *"  # 06:09 WIB → REEL
-    - cron: "9 3 * * *"   # 10:09 WIB → carousel
-    - cron: "9 6 * * *"   # 13:09 WIB → carousel
-    - cron: "9 10 * * *"  # 17:09 WIB → REEL
-    - cron: "9 13 * * *"  # 20:09 WIB → carousel
+    # 06:09 & 07:09 WIB = 2 pilihan konten viral tiap pagi (preview, nggak auto-post).
+    - cron: "9 23 * * *"  # 06:09 WIB → trending (preview)
+    - cron: "9 0 * * *"   # 07:09 WIB → trending (preview)
   workflow_dispatch:
     inputs:
       category:
@@ -60,14 +57,10 @@ jobs:
       - name: Resolve slot (kategori + mode) untuk run ini
         id: slot
         run: |
-          # tiap cron → kategori (variasi) + post_mode (reel/carousel)
+          # PAGI (terjadwal) → cari konten 'trending' viral, mode=none (preview, NGGAK auto-post)
           case "${{ github.event.schedule }}" in
-            "9 23 * * *") cat="hewan";       mode="reel" ;;      # 06:09 WIB
-            "9 3 * * *")  cat="sains";       mode="carousel" ;;  # 10:09 WIB
-            "9 6 * * *")  cat="sejarah";     mode="carousel" ;;  # 13:09 WIB
-            "9 10 * * *") cat="luarangkasa"; mode="reel" ;;      # 17:09 WIB
-            "9 13 * * *") cat="tubuh";       mode="carousel" ;;  # 20:09 WIB
-            *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual
+            "9 23 * * *"|"9 0 * * *") cat="trending"; mode="none" ;;  # 06:09 & 07:09 WIB
+            *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual (dashboard)
           esac
           echo "cat=$cat"   >> "$GITHUB_OUTPUT"
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
@@ -122,7 +115,7 @@ jobs:
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Publish ke Instagram (carousel + reel)
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        if: ${{ (github.event.inputs.post_mode || steps.slot.outputs.mode) != 'none' }}
         run: |
           sleep 12   # beri waktu raw.githubusercontent serve file baru
           python publish_ig.py
@@ -135,7 +128,7 @@ jobs:
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/fakta-poster/published/${{ env.TS }}
 
       - name: Publish ke Facebook Page
-        if: ${{ github.event.inputs.post_mode != 'none' }}
+        if: ${{ (github.event.inputs.post_mode || steps.slot.outputs.mode) != 'none' }}
         continue-on-error: true   # FB sekunder — kalau token belum siap, IG tetap jalan
         run: python publish_fb.py
         env:

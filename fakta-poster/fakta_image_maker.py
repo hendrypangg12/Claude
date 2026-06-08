@@ -58,6 +58,7 @@ NICHE_LABELS = {
     "uang": "UANG & FINANSIAL",
     "keuangan": "KEUANGAN VIRAL",
     "aktor": "SELEBRITI",
+    "trending": "LAGI VIRAL",
     "rekor": "REKOR DUNIA",
     "misteri": "MISTERI & MITOS",
     "transportasi": "TRANSPORTASI",
