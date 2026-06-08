@@ -61,6 +61,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WHISPER_MODEL: small
+          YT_COOKIES: ${{ secrets.YT_COOKIES }}
 
       - name: Commit clips + update dashboard
         working-directory: ${{ github.workspace }}

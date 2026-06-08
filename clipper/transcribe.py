@@ -29,11 +29,30 @@ def download(url: str, out_dir: Path):
         "noplaylist": True,
         "noprogress": True,
         "retries": 3,
+        # YouTube sering blokir IP datacenter (GitHub Actions) dgn "Sign in to confirm
+        # you're not a bot". Coba beberapa client (android/ios/tv) yg lebih jarang kena.
+        "extractor_args": {"youtube": {"player_client": ["android", "ios", "tv", "web"]}},
     }
+    cookies = os.environ.get("YT_COOKIES", "").strip()
+    if cookies:
+        cf = out_dir / "cookies.txt"
+        cf.write_text(cookies, encoding="utf-8")
+        opts["cookiefile"] = str(cf)
     if ff_dir:
         opts["ffmpeg_location"] = ff_dir
-    with yt_dlp.YoutubeDL(opts) as y:
-        info = y.extract_info(url, download=True)
+    try:
+        with yt_dlp.YoutubeDL(opts) as y:
+            info = y.extract_info(url, download=True)
+    except yt_dlp.utils.DownloadError as e:
+        msg = str(e)
+        if "Sign in to confirm" in msg or "not a bot" in msg or "cookies" in msg.lower():
+            raise RuntimeError(
+                "YouTube nolak download dari server GitHub (IP-nya dikira bot). "
+                "Solusi: (1) pakai link TikTok / Instagram (biasanya lolos), atau "
+                "(2) pasang cookies YouTube via secret YT_COOKIES, atau "
+                "(3) coba lagi beberapa menit (kadang lolos)."
+            ) from e
+        raise
     vids = [f for f in sorted(out_dir.glob("source.*"))
             if f.suffix.lower() in (".mp4", ".mkv", ".webm", ".mov")]
     if not vids:
