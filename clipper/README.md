@@ -41,15 +41,17 @@ python clip_app.py "https://youtu.be/xxxx" --num 4 --lang id
 | `transcribe.py` | yt-dlp download + faster-whisper (word timestamps). |
 | `pick_clips.py` | Claude pilih momen viral → `{start,end,score,title,hook,caption}`. |
 | `captions.py` | Bikin ASS karaoke (kata aktif highlight emas). |
-| `render.py` | ffmpeg: cut + reframe 9:16 + burn caption + brand chip. |
+| `face_track.py` | Track wajah (OpenCV) → drive crop dinamis 9:16. |
+| `render.py` | ffmpeg: cut + reframe 9:16 (face-track) + burn caption + brand chip. |
 | `build_clipper_manifest.py` | Update `docs/clipper-manifest.json` buat dashboard. |
 
 ## Catatan
 
 - **Whisper model**: default `small` (env `WHISPER_MODEL`). `base`/`tiny` lebih cepat tapi
   kurang akurat; `medium` lebih akurat tapi lambat di CPU GitHub Actions.
-- **Reframe 9:16** = fill + center-crop (cocok buat semua rasio). Belum face-tracking —
-  kalau pembicara di pinggir frame bisa kepotong (roadmap).
+- **Reframe 9:16 + face-tracking**: crop vertikal otomatis ngikutin wajah pembicara
+  (OpenCV Haar, di-smooth biar gak goyang). Kalau gak ketemu wajah → balik ke center-crop.
+  Matiin pakai `--no-track` atau env `FACE_TRACK=0`.
 - **Transkrip panjang** (>~1.5 jam) dipotong sebelum dikasih ke Claude.
 - **Hak cipta**: clipper ini buat motong video yang KAMU punya / izinkan. Mau repost punya
   orang? Pastiin ada izin — kredit ≠ izin.

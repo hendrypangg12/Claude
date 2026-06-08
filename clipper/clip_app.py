@@ -19,6 +19,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from captions import build_ass
+from face_track import track_face
 from pick_clips import pick_clips
 from render import make_brand_png, render_clip
 from transcribe import download, transcribe
@@ -32,7 +33,10 @@ def main() -> int:
     ap.add_argument("--num", type=int, default=int(os.environ.get("NUM_CLIPS", "4")))
     ap.add_argument("--lang", default=os.environ.get("LANG_CODE", "id"))
     ap.add_argument("--brand", default=os.environ.get("BRAND", "BERSTOCK.ID"))
+    ap.add_argument("--no-track", action="store_true",
+                    help="matikan face-tracking (pakai center-crop statis)")
     args = ap.parse_args()
+    track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
 
     if not args.url:
         print("ERROR: kasih link video. Contoh: python clip_app.py \"https://...\"")
@@ -63,8 +67,9 @@ def main() -> int:
     for i, c in enumerate(clips, 1):
         ass = build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
         out_mp4 = out_dir / f"clip-{i}.mp4"
+        face = track_face(src, c["start"], c["end"]) if track_on else None
         try:
-            render_clip(src, c["start"], c["end"], ass, brand_png, out_mp4)
+            render_clip(src, c["start"], c["end"], ass, brand_png, out_mp4, face=face)
         except Exception as e:  # noqa: BLE001 — satu clip gagal jangan stop sisanya
             print(f"      clip-{i} gagal render: {e}")
             continue
