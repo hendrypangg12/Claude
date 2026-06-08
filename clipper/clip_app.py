@@ -21,7 +21,7 @@ from pathlib import Path
 from captions import build_ass
 from face_track import track_face
 from pick_clips import pick_clips
-from render import make_brand_png, render_clip
+from render import make_overlay_png, render_clip
 from transcribe import download, pick_handle, transcribe
 
 WIB = timezone(timedelta(hours=7))
@@ -62,15 +62,16 @@ def main() -> int:
     clips = pick_clips(transcript, num_clips=args.num, video_title=title, creator=creator)
     print(f"      dapet {len(clips)} momen")
 
-    print("[4/4] Render clip 9:16 + caption...")
-    brand_png = make_brand_png(out_dir / "brand.png", brand=args.brand, credit=creator)
+    print("[4/4] Render clip 9:16 + caption + title HOOK...")
     rendered = []
     for i, c in enumerate(clips, 1):
         ass = build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
         out_mp4 = out_dir / f"clip-{i}.mp4"
+        overlay = make_overlay_png(out_dir / f"overlay-{i}.png", brand=args.brand,
+                                   title=c["title"], credit=creator)
         face = track_face(src, c["start"], c["end"]) if track_on else None
         try:
-            render_clip(src, c["start"], c["end"], ass, brand_png, out_mp4, face=face)
+            render_clip(src, c["start"], c["end"], ass, overlay, out_mp4, face=face)
         except Exception as e:  # noqa: BLE001 — satu clip gagal jangan stop sisanya
             print(f"      clip-{i} gagal render: {e}")
             continue
