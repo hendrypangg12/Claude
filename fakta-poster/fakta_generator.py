@@ -50,19 +50,21 @@ def _parse_json(raw: str) -> dict:
 
 
 def generate_fakta(category: str | None = None, avoid: list[str] | None = None,
-                   topic: str | None = None) -> dict:
+                   topic: str | None = None, avoid_categories: list[str] | None = None) -> dict:
     """Return {category, hook, fact, detail, takeaway, caption, query}."""
     if topic:
         cat_line = (
             f"Buat fakta unik SPESIFIK tentang: {topic}. "
             f"Cari sudut yang paling mengejutkan/viral dari topik itu, tetap 100% benar."
         )
+    elif category:
+        cat_line = f"Kategori: {category}."
     else:
-        cat_line = (
-            f"Kategori: {category}."
-            if category
-            else "Kategori: bebas — pilih yang paling menarik & beragam."
-        )
+        cat_line = "Kategori: bebas — pilih yang paling menarik & beragam."
+        recent = [c for c in (avoid_categories or []) if c]
+        if recent:
+            cat_line += (f" WAJIB VARIASI: JANGAN pilih kategori yang baru dipakai "
+                         f"({', '.join(recent)}). Pilih bidang yang BEDA dari itu.")
     avoid_line = ""
     if avoid:
         joined = "; ".join(a for a in avoid if a)[:1200]

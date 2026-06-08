@@ -53,6 +53,29 @@ def _save_history(hooks: list[str]) -> None:
     HISTORY.write_text(json.dumps(hooks[-200:], ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _recent_categories(out_root: Path, limit: int = 4) -> list[str]:
+    """Kategori yang baru dipakai → biar mode 'Bebas' gak ngulang topik yang sama."""
+    cats: list[str] = []
+    for root in (Path("published"), out_root):
+        if not root.exists():
+            continue
+        for d in sorted(root.iterdir(), reverse=True):
+            meta = d / "meta.json"
+            if meta.is_file():
+                try:
+                    c = str(json.loads(meta.read_text(encoding="utf-8")).get("category", "")).strip()
+                except Exception:
+                    c = ""
+                if c:
+                    cats.append(c)
+    seen, out = set(), []
+    for c in cats:
+        if c not in seen:
+            seen.add(c)
+            out.append(c)
+    return out[:limit]
+
+
 def _recent_hooks(out_root: Path, limit: int = 40) -> list[str]:
     """Recent hooks so Claude doesn't repeat itself (history.json + out/ + published/)."""
     hooks: list[str] = list(_load_history())
@@ -98,7 +121,8 @@ def main() -> int:
         except Exception as exc:
             print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
     if fakta is None:
-        fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic)
+        fakta = generate_fakta(category=category, avoid=_recent_hooks(out_root), topic=topic,
+                               avoid_categories=_recent_categories(out_root))
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     _save_history(_load_history() + [fakta["hook"]])
 
