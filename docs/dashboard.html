@@ -136,10 +136,11 @@ function renderGenPanel(c){
   if(c.kind==="clipper"){
     el.innerHTML=`<h3>🎬 Bikin clip viral dari 1 link</h3>
       <div><label class="fl">Link video (YouTube / TikTok / Instagram / X)</label><input class="tx" id="clipUrl" placeholder="tempel link di sini…"></div>
-      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="document.getElementById('clipOpts').style.display=this.value==='full'?'none':'block'">
+      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="var f=this.value==='full';document.getElementById('clipOpts').style.display=f?'none':'block';document.getElementById('clipHookWrap').style.display=f?'block':'none'">
         <option value="viral">Viral — AI potong momen + edit lengkap</option>
         <option value="full">Download utuh — 1 klip video penuh + tag FAKTAVIRAL.IDN</option>
       </select></div>
+      <div id="clipHookWrap" style="display:none;margin-top:10px"><label class="fl">Judul HOOK 3 detik pertama (kosongin = AI bikinin)</label><input class="tx" id="clipHook" placeholder="mis. Gilaa!! WIFI bisa buat ngintip tetangga"></div>
       <div id="clipOpts"></div>
       <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
       <div class="genmsg" id="genMsg">AI pilih momen viral → 9:16 + caption + zoom + musik. Mode "Download utuh" = 1 video penuh + tag FAKTAVIRAL.IDN. Video panjang bisa 10-20 menit.</div>`;
@@ -238,7 +239,7 @@ function render(){
       <div class="thumb"><img loading="lazy" src="${c.base}/${p.id}/post_1.jpg" onerror="this.style.opacity=.2">
         <div class="badges"><span class="chip">${p.label||"POST"}</span><span class="chip dark">${p.reel?"🎬":"🖼️"+p.slides}</span></div>
       </div>
-      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}${p.tanggal_berita?` · 🕒 berita: ${esc(p.tanggal_berita)}`:""}</div></div>
+      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}</div></div>
     </div>`).join("");
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -312,7 +313,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, mode:document.getElementById("clipMode").value, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
+  const inputs={ url, mode:document.getElementById("clipMode").value, hook:(document.getElementById("clipHook")||{}).value||"", num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{
@@ -349,7 +350,7 @@ async function openPost(p){
   let dl=""; for(let i=1;i<=p.slides;i++) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/post_${i}.jpg" download target="_blank">⬇️ Slide ${i}</a>`;
   if(p.reel) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download target="_blank">⬇️ Reel</a>`;
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
-    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}${p.tanggal_berita?` · 🕒 berita terbit: ${esc(p.tanggal_berita)}`:""}${p.sumber?` · 📰 ${esc(p.sumber)}`:""}</div>
+    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
     <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post Carousel ke IG</button>
       ${p.reel?`<button class="btn" onclick="postIG('reel')">📤 Post Reel ke IG</button>`:''}</div>

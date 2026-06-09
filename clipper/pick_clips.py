@@ -140,3 +140,23 @@ def pick_clips(transcript: dict, num_clips: int = 4, video_title: str = "",
         })
     clips.sort(key=lambda x: x["score"], reverse=True)
     return clips[:num_clips]
+
+
+HOOK_SYSTEM = """Kamu bikin SATU judul HOOK super nampol buat reel @faktaviral.idn, yang muncul
+3 detik pertama biar orang langsung berhenti scroll.
+Output: CUMA 1 baris hook, TANPA tanda kutip, TANPA emoji. 5-11 kata.
+Boleh huruf KAPITAL + tanda seru buat penekanan. Gaya CapCut/clickbait tapi sesuai isi video.
+Contoh: "Gilaa!! WIFI bisa dipakai buat CCTV ngintip tetangga" / "RAHASIA!!! WIFI tembus tembok".
+WAJIB sesuai isi transkrip (jangan ngarang fakta)."""
+
+
+def generate_hook(transcript: dict, creator: str = "") -> str:
+    """One short punchy HOOK headline (for the first ~3s of a 'download utuh' video)."""
+    body = _transcript_text(transcript)[:8000]
+    if not body.strip():
+        return ""
+    msg = _client().messages.create(
+        model=MODEL, max_tokens=120, system=HOOK_SYSTEM,
+        messages=[{"role": "user", "content": f"Transkrip video:\n{body}\n\nBikin 1 judul HOOK."}])
+    line = (msg.content[0].text or "").strip().strip('"').splitlines()
+    return line[0].strip().strip('"') if line else ""

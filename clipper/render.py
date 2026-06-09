@@ -188,16 +188,57 @@ def make_tag_overlay(out_png: Path, w: int, h: int, brand: str = "FAKTAVIRAL.IDN
     return out_png
 
 
-def render_full(source: Path, overlay_png: Path, out_mp4: Path) -> Path:
-    """'Download utuh' mode: keep the original video (no reframe/cut), just burn the
-    brand watermark overlay."""
-    cmd = [
-        FFMPEG, "-y", "-i", str(source), "-i", str(overlay_png),
-        "-filter_complex", "[0:v][1:v]overlay=0:0:format=auto[o]",
-        "-map", "[o]", "-map", "0:a?",
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(out_mp4),
-    ]
+def make_hook_overlay(out_png: Path, w: int, h: int, title: str) -> Path:
+    """CapCut white-box HOOK title sized to the source video — shown only for the
+    first few seconds (grab attention). Black bold UPPERCASE on white boxes."""
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    if not _clean(title):
+        img.save(out_png)
+        return out_png
+    d = ImageDraw.Draw(img)
+    s = max(0.4, w / 1080.0)
+    ttl = _clean(title).upper()
+    max_w = int(w * 0.84)
+    for size in (int(64 * s), int(58 * s), int(52 * s), int(46 * s), int(40 * s)):
+        tf = _font("Poppins-ExtraBold.ttf", max(20, size))
+        lines, _ = _wrap_tokens(d, ttl, tf, max_w)
+        if len(lines) <= 4:
+            break
+    bpx, bpy = int(22 * s), int(10 * s)
+    gap = int(tf.size * 0.16)
+    row_h = tf.size + 2 * bpy
+    block_h = len(lines) * row_h + (len(lines) - 1) * gap
+    y = int(h * 0.34) - block_h // 2
+    qf = _font("Poppins-ExtraBold.ttf", int(48 * s))
+    qx = (w - max_w) / 2 - 6
+    d.rounded_rectangle([qx, y - int(58 * s), qx + int(60 * s), y - int(6 * s)],
+                        radius=int(12 * s), fill=CYAN)
+    d.text((qx + int(14 * s), y - int(78 * s)), "”", font=qf, fill=INK)
+    for toks in lines:
+        text = " ".join(toks)
+        tw = d.textlength(text, font=tf)
+        d.rounded_rectangle([(w - tw) / 2 - bpx, y, (w + tw) / 2 + bpx, y + row_h],
+                            radius=int(14 * s), fill=(255, 255, 255, 236))
+        d.text(((w - tw) / 2, y + bpy - int(4 * s)), text, font=tf, fill=(15, 18, 26, 255))
+        y += row_h + gap
+    img.save(out_png)
+    return out_png
+
+
+def render_full(source: Path, overlay_png: Path, out_mp4: Path,
+                hook_png: Path | None = None, hook_dur: float = 3.0) -> Path:
+    """'Download utuh' mode: keep the original video (no reframe/cut), burn the brand
+    watermark, and optionally a HOOK title card for the first `hook_dur` seconds."""
+    inputs = ["-i", str(source), "-i", str(overlay_png)]
+    chain = "[0:v][1:v]overlay=0:0:format=auto[ov]"
+    cur = "[ov]"
+    if hook_png:
+        inputs += ["-i", str(hook_png)]
+        chain += f";{cur}[2:v]overlay=0:0:format=auto:enable='lte(t,{hook_dur})'[o]"
+        cur = "[o]"
+    cmd = [FFMPEG, "-y"] + inputs + ["-filter_complex", chain, "-map", cur, "-map", "0:a?",
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
+           "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(out_mp4)]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     return out_mp4
 

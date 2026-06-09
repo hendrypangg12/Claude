@@ -19,6 +19,11 @@ on:
         options:
           - "viral"
           - "full"
+      hook:
+        description: "Judul HOOK 3 detik pertama (mode full; kosong = AI bikinin)"
+        required: false
+        default: ""
+        type: string
       num_clips:
         description: "Mau berapa clip? (1-8)"
         required: false
@@ -110,6 +115,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WHISPER_MODEL: small
           CLIP_MODE: ${{ github.event.inputs.mode || 'viral' }}
+          HOOK: ${{ github.event.inputs.hook }}
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
           CAPTIONS: ${{ github.event.inputs.caption == 'off' && '0' || '1' }}
           ZOOM: ${{ github.event.inputs.zoom == 'off' && '0' || '1' }}
