@@ -163,16 +163,29 @@ def compose_points(points, header, out_path, bg_path=None) -> str:
     uy = ty + tf.size + s(12)
     draw.rounded_rectangle([s(PAD), uy, s(PAD) + uw, uy + s(9)], radius=s(4), fill=YELLOW)
 
-    pf = _font("semibold", 40)
     max_w = R - 2 * s(PAD) - s(44)
-    y = uy + s(64)
+    start_y = uy + s(64)
+    bottom = R - s(PAD) - s(150)  # batas aman: di atas indikator swipe + UI IG bawah
+
+    # AUTO-FIT: kecilin font sampai semua poin muat di area aman (anti kepanjangan/ketutup)
+    pf = _font("semibold", 40)
+    for fs in (40, 38, 36, 34, 32, 30, 28, 26):
+        pf = _font("semibold", fs)
+        lh = int(pf.size * 1.22)  # pf.size = 2*fs (font di-load di skala 2x)
+        total = 0
+        for p in points:
+            total += len(_wrap(p, pf, max_w)) * lh + s(24)
+        if start_y + total <= bottom:
+            break
+
+    lh = int(pf.size * 1.22)
+    y = start_y
     for p in points:
         _bullet(draw, s(PAD), y + s(10))
-        lines = _wrap(p, pf, max_w)
-        for i, ln in enumerate(lines):
+        for ln in _wrap(p, pf, max_w):
             draw.text((s(PAD) + s(44), y), ln, font=pf, fill=WHITE)
-            y += int(pf.size * 1.22)
-        y += s(22)
+            y += lh
+        y += s(24)
 
     _swipe(draw, _font("semibold", 24), R - s(PAD) - s(24))
     return _save(canvas, out_path)

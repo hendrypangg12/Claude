@@ -23,7 +23,7 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
   "type": "tips" | "berita" | "lucu",
   "kicker": "...",      // label kecil di atas hook, mis. "TIPS HARI INI" / "KAMU HARUS TAU" / "RELATABLE BANGET"
   "hook": "...",        // judul cover, 5-11 kata, bikin berhenti scroll. JANGAN pakai tanda kutip.
-  "points": ["...","...","..."],  // 3 poin isi (untuk tips=3 langkah/tips; berita=3 fakta/dampak; lucu=3 momen relatable). Tiap poin 1 kalimat pendek & jelas.
+  "points": ["...","...","..."],  // 3 poin isi (tips=3 langkah; berita=3 fakta/dampak; lucu=3 momen relatable). Tiap poin PADAT & PENDEK: MAKS ~14 kata (idealnya <12), langsung ke intinya. JANGAN bertele-tele — biar muat & kebaca di slide.
   "takeaway": "...",    // 1 kalimat penutup witty/memotivasi
   "caption": "...",     // caption IG lengkap (lihat aturan)
   "query": "..."        // 1-2 kata BAHASA INGGRIS = subjek visual buat stock photo (mis. "saving money", "wallet", "rupiah cash", "piggy bank", "stock chart"). Konkret & umum ada di stock.
