@@ -22,9 +22,10 @@ from captions import build_ass
 import random
 
 from edit import plan_edit
-from face_track import track_face, video_fps
+from face_track import track_face, video_fps, video_size
 from pick_clips import pick_clips
-from render import make_endcard_png, make_overlay_png, make_progress_png, render_clip
+from render import (make_endcard_png, make_overlay_png, make_progress_png,
+                    make_tag_overlay, render_clip, render_full)
 from transcribe import download, pick_handle, transcribe
 
 WIB = timezone(timedelta(hours=7))
@@ -48,7 +49,10 @@ def main() -> int:
     ap.add_argument("--no-music", action="store_true", help="matikan musik latar + SFX whoosh")
     ap.add_argument("--no-tighten", action="store_true", help="matikan buang silence + filler")
     ap.add_argument("--no-polish", action="store_true", help="matikan end card + progress bar")
+    ap.add_argument("--full", action="store_true",
+                    help="mode download utuh: 1 klip = video penuh + watermark FAKTAVIRAL.IDN (tanpa AI)")
     args = ap.parse_args()
+    full_mode = args.full or os.environ.get("CLIP_MODE", "viral") == "full"
     track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
     cap_on = not args.no_caption and os.environ.get("CAPTIONS", "1") != "0"
     zoom_on = not args.no_zoom and os.environ.get("ZOOM", "1") != "0"
@@ -69,6 +73,30 @@ def main() -> int:
     title = info.get("title") or ""
     creator = pick_handle(info)
     print(f"      {src.name} | {title[:60]} | by {creator or '?'} | {info.get('duration')}s")
+
+    if full_mode:
+        print("[2/2] Mode download utuh: stamp watermark FAKTAVIRAL.IDN...")
+        w, h = video_size(src)
+        overlay = make_tag_overlay(out_dir / "overlay-1.png", w, h,
+                                   brand=args.brand, credit=creator)
+        out_mp4 = out_dir / "clip-1.mp4"
+        render_full(src, overlay, out_mp4)
+        cred = f"@{creator}" if creator else ""
+        cap = ((f"Momen menarik dari {cred} 🔥\n\nVideo: {cred}\n" if cred
+                else "Momen viral hari ini 🔥\n\n")
+               + "Follow @faktaviral.idn buat momen viral tiap hari!\n\n"
+               + "#faktaviral #viral #fyp #infoviral #faktaunik")
+        (out_dir / "caption-1.txt").write_text(cap, encoding="utf-8")
+        clip = {"file": out_mp4.name, "title": title or "Video utuh", "hook": "",
+                "score": 0, "start": 0, "end": info.get("duration"), "caption": cap}
+        meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"),
+                "time": now.strftime("%H:%M"), "url": args.url, "title": title,
+                "creator": creator, "mode": "full", "brand": args.brand,
+                "clips": [clip], "created": now.isoformat()}
+        (out_dir / "meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\nDONE → {out_dir}  (1 klip utuh + watermark)")
+        return 0
 
     print(f"[2/4] Transcribe (lang={args.lang}, model={os.environ.get('WHISPER_MODEL', 'small')})...")
     transcript = transcribe(src, language=args.lang)

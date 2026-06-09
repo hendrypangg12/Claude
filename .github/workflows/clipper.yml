@@ -11,6 +11,14 @@ on:
         description: "Link video (YouTube / TikTok / Instagram / X / FB)"
         required: true
         type: string
+      mode:
+        description: "Mode"
+        required: false
+        default: "viral"
+        type: choice
+        options:
+          - "viral"
+          - "full"
       num_clips:
         description: "Mau berapa clip? (1-8)"
         required: false
@@ -101,6 +109,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WHISPER_MODEL: small
+          CLIP_MODE: ${{ github.event.inputs.mode || 'viral' }}
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
           CAPTIONS: ${{ github.event.inputs.caption == 'off' && '0' || '1' }}
           ZOOM: ${{ github.event.inputs.zoom == 'off' && '0' || '1' }}

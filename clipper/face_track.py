@@ -65,6 +65,19 @@ def video_fps(source) -> int:
     return int(round(fps)) if fps and fps > 0 else 30
 
 
+def video_size(source) -> tuple[int, int]:
+    """Source (width, height) — for 'download utuh' watermark sizing. Default 1080x1920."""
+    try:
+        import cv2
+    except Exception:
+        return 1080, 1920
+    cap = cv2.VideoCapture(str(source))
+    w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0) if cap.isOpened() else 0
+    h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0) if cap.isOpened() else 0
+    cap.release()
+    return (w or 1080, h or 1920)
+
+
 def _smooth(track: list, win: int = 6, max_step: float = 0.035) -> list:
     """Moving-average + speed clamp so the crop pans smoothly, never jitters."""
     if not track:
