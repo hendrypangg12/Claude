@@ -24,7 +24,7 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Pop,Poppins,84,&H00FFFFFF,&H000000FF,&H00000000,&HA0000000,-1,0,0,0,100,100,0,0,1,6,2,2,90,90,560,1
 
 [Events]
-Format: Layer, Start, End, Style, MarginL, MarginR, Effect, Text
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, Effect, Text
 """
 
 
@@ -78,7 +78,7 @@ def build_ass(words: list[dict], clip_start: float, clip_end: float,
                 else:
                     parts.append(gw["word"])
             events.append(
-                f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},Pop,,0,0,0,,{' '.join(parts)}"
+                f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},Pop,,0,0,0,{' '.join(parts)}"
             )
         i += len(group)
 
