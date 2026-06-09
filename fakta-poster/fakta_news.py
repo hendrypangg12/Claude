@@ -65,6 +65,7 @@ Keluarkan STRICT JSON saja:
   "caption": "...",       // caption IG: baris1 hook; 2-3 kalimat isi; ajakan engagement; baris akhir MAKS 5 hashtag. Akhiri dgn 'Sumber: <sumber>'. Emoji maks 2.
   "query": "...",         // 1-2 kata Inggris = subjek visual utama buat stock video/foto (mis. "stock market", "red carpet")
   "published": "...",     // perkiraan KAPAN berita terbit (mis. "3 jam lalu" / "hari ini 06:00 WIB" / "9 Juni 2026"). HARUS jujur.
+  "video_url": "...",     // (opsional) 1 URL VIDEO PUBLIK kejadian itu (PALING BAGUS dari YouTube outlet berita resmi, mis. Liputan6/Metro TV/Kompas TV/CNN Indonesia). HARUS link yang bener-bener ada & soal berita ini. Kalau ragu/gak ada, kosongin "".
   "source_urls": ["..."]  // 2-4 URL ARTIKEL ASLI (lengkap, https://...) dari hasil search yg kamu pakai. WAJIB dari sumber kredibel. Dipakai buat ambil FOTO asli berita.
 }"""
 
@@ -297,7 +298,10 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         f"SYARAT VIRAL: topik harus udah diberitakan BANYAK media terkenal (mis. detik, Kompas, "
         f"CNN/CNBC Indonesia, BBC, Tempo) — minimal beberapa outlet besar, BUKAN rumor pribadi/fitnah. "
         f"WAJIB isi 'published' = perkiraan kapan berita terbit (mis. '3 jam lalu' / 'hari ini 06:00 WIB' / "
-        f"'9 Juni 2026'). Kalau cuma nemu berita >24 jam, tetap isi published apa adanya (jujur).{avoid_line}\n\n"
+        f"'9 Juni 2026'). Kalau cuma nemu berita >24 jam, tetap isi published apa adanya (jujur).\n"
+        f"USAHAKAN isi 'video_url' = 1 link video PUBLIK kejadian ini (paling oke YouTube outlet berita "
+        f"resmi spt Liputan6/Metro TV/Kompas TV/CNN Indonesia). HARUS link asli yg beneran ada & cocok sama "
+        f"beritanya — kalau gak yakin, kosongin aja.{avoid_line}\n\n"
         f"WAJIB isi 'source_urls' dengan 2-4 URL artikel ASLI yang kamu baca (https lengkap) — "
         f"dipakai buat ngambil FOTO asli beritanya.\n"
         f"PENTING soal field 'query': isi dengan subjek visual yang SPESIFIK & nyambung ke berita "
@@ -352,6 +356,7 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         "_coverage": MIN_COVERAGE,  # web_search = Claude udah verifikasi lintas-sumber
         "_sumber": str(data.get("sumber", "")).strip(),
         "_published": str(data.get("published", "")).strip(),
+        "_video_url": str(data.get("video_url", "")).strip(),
         "_image_url": img_url,
         "_image_article": img_article,
         "_source_urls": src_urls,
@@ -434,6 +439,7 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
         "_coverage": coverage,
         "_sumber": str(data.get("sumber", "")).strip(),
         "_published": str(data.get("published", "")).strip(),
+        "_video_url": str(data.get("video_url", "")).strip(),
         "_image_url": img_url,
         "_image_article": img_article,
         "_source_urls": src_urls,
