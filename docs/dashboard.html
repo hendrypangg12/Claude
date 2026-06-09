@@ -238,7 +238,7 @@ function render(){
       <div class="thumb"><img loading="lazy" src="${c.base}/${p.id}/post_1.jpg" onerror="this.style.opacity=.2">
         <div class="badges"><span class="chip">${p.label||"POST"}</span><span class="chip dark">${p.reel?"🎬":"🖼️"+p.slides}</span></div>
       </div>
-      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}</div></div>
+      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}${p.tanggal_berita?` · 🕒 berita: ${esc(p.tanggal_berita)}`:""}</div></div>
     </div>`).join("");
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -349,7 +349,7 @@ async function openPost(p){
   let dl=""; for(let i=1;i<=p.slides;i++) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/post_${i}.jpg" download target="_blank">⬇️ Slide ${i}</a>`;
   if(p.reel) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download target="_blank">⬇️ Reel</a>`;
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
-    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
+    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}${p.tanggal_berita?` · 🕒 berita terbit: ${esc(p.tanggal_berita)}`:""}${p.sumber?` · 📰 ${esc(p.sumber)}`:""}</div>
     <div class="cap" id="capbox">memuat caption…</div>
     <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post Carousel ke IG</button>
       ${p.reel?`<button class="btn" onclick="postIG('reel')">📤 Post Reel ke IG</button>`:''}</div>
