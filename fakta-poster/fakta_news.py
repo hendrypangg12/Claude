@@ -64,6 +64,7 @@ Keluarkan STRICT JSON saja:
   "takeaway": "...",      // 1 kalimat penutup ringan/relevan
   "caption": "...",       // caption IG: baris1 hook; 2-3 kalimat isi; ajakan engagement; baris akhir MAKS 5 hashtag. Akhiri dgn 'Sumber: <sumber>'. Emoji maks 2.
   "query": "...",         // 1-2 kata Inggris = subjek visual utama buat stock video/foto (mis. "stock market", "red carpet")
+  "published": "...",     // perkiraan KAPAN berita terbit (mis. "3 jam lalu" / "hari ini 06:00 WIB" / "9 Juni 2026"). HARUS jujur.
   "source_urls": ["..."]  // 2-4 URL ARTIKEL ASLI (lengkap, https://...) dari hasil search yg kamu pakai. WAJIB dari sumber kredibel. Dipakai buat ambil FOTO asli berita.
 }"""
 
@@ -215,15 +216,29 @@ def _og_image(url: str) -> str:
     return ""
 
 
+def _image_looks_stale(img_url: str) -> bool:
+    """True kalau URL foto mengandung TAHUN lama (mis. .../2015/10/...) = foto ilustrasi
+    daur-ulang, BUKAN foto kejadian. Berita kriminal sering pakai ini → kita tolak."""
+    import datetime as _dt
+    yrs = _re.findall(r'(?:/|-)(20\d\d)(?:/|-)', img_url)
+    if not yrs:
+        return False
+    cur = _dt.datetime.utcnow().year
+    return any(int(y) < cur - 1 for y in yrs)  # lebih tua dari tahun lalu = ilustrasi jadul
+
+
 def _resolve_news_image(urls: list[str]) -> tuple[str, str]:
-    """Coba beberapa artikel sumber → return (url_foto_asli, url_artikel). ('','') kalau gagal."""
+    """Coba beberapa artikel sumber → return (url_foto_asli, url_artikel). ('','') kalau gagal.
+    SKIP foto yang kelihatan ilustrasi lama (tahun jadul di URL) → mending stok yg relevan."""
     for u in urls:
         u = str(u or "").strip()
         if not u.startswith("http"):
             continue
         img = _og_image(u)
-        if img:
+        if img and not _image_looks_stale(img):
             return img, u
+        if img:
+            print(f"      (foto sumber kelihatan ilustrasi lama, dilewati: {img[:60]})")
     return "", ""
 
 
@@ -272,14 +287,17 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         f"Hari ini = {today_str} (WIB).\n"
         f"Cari di internet: {brief}.\n"
         f"Lakukan 2-4 pencarian (pakai kata 'hari ini', 'terbaru', 'beberapa jam lalu', jam/tanggal, nama peristiwa).\n\n"
-        f"ATURAN FRESH (WAJIB): target UTAMA = berita TERBIT DALAM 4 JAM TERAKHIR (sehangat mungkin). "
-        f"Kalau dalam 4 jam belum ada yang cukup rame/kredibel, boleh mundur ke maks ~8 jam, "
-        f"TOLAK yang lebih tua dari 1 hari kecuali masih sangat rame jam ini.\n"
+        f"ATURAN FRESH (WAJIB, KERAS): target UTAMA = berita TERBIT DALAM 4 JAM TERAKHIR (sehangat mungkin). "
+        f"Kalau dalam 4 jam belum ada yang cukup rame/kredibel, boleh mundur ke maks ~12 jam.\n"
+        f"DILARANG KERAS pilih berita yang terbit LEBIH DARI 24 JAM lalu (kemarin/sebelumnya) — "
+        f"lebih baik ambil topik lain yang benar-benar HARI INI daripada berita basi 2-5 hari. "
+        f"Verifikasi tanggal terbit tiap artikel sebelum milih; kalau ragu tanggalnya, JANGAN dipakai.\n"
         f"KUNCI: di antara kandidat yang SAMA-SAMA rame & kredibel, PILIH YANG PALING BARU "
-        f"(umur jam paling kecil). Mending berita 3 jam yg rame daripada 8 jam yg lebih rame.\n\n"
+        f"(umur jam paling kecil). Mending berita 3 jam yg rame daripada 10 jam yg lebih rame.\n\n"
         f"SYARAT VIRAL: topik harus udah diberitakan BANYAK media terkenal (mis. detik, Kompas, "
         f"CNN/CNBC Indonesia, BBC, Tempo) — minimal beberapa outlet besar, BUKAN rumor pribadi/fitnah. "
-        f"Sebutkan perkiraan UMUR berita (jam) di 'detail' kalau tahu.{avoid_line}\n\n"
+        f"WAJIB isi 'published' = perkiraan kapan berita terbit (mis. '3 jam lalu' / 'hari ini 06:00 WIB' / "
+        f"'9 Juni 2026'). Kalau cuma nemu berita >24 jam, tetap isi published apa adanya (jujur).{avoid_line}\n\n"
         f"WAJIB isi 'source_urls' dengan 2-4 URL artikel ASLI yang kamu baca (https lengkap) — "
         f"dipakai buat ngambil FOTO asli beritanya.\n"
         f"PENTING soal field 'query': isi dengan subjek visual yang SPESIFIK & nyambung ke berita "
@@ -333,6 +351,7 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
         "query": str(data.get("query", "")).strip() or category,
         "_coverage": MIN_COVERAGE,  # web_search = Claude udah verifikasi lintas-sumber
         "_sumber": str(data.get("sumber", "")).strip(),
+        "_published": str(data.get("published", "")).strip(),
         "_image_url": img_url,
         "_image_article": img_article,
         "_source_urls": src_urls,
@@ -414,6 +433,7 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
         "query": str(data.get("query", "")).strip() or category,
         "_coverage": coverage,
         "_sumber": str(data.get("sumber", "")).strip(),
+        "_published": str(data.get("published", "")).strip(),
         "_image_url": img_url,
         "_image_article": img_article,
         "_source_urls": src_urls,

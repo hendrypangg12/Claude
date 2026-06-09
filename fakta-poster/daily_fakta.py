@@ -126,6 +126,8 @@ def main() -> int:
         fakta = generate_fakta(category=fb_cat, avoid=_recent_hooks(out_root), topic=topic,
                                avoid_categories=_recent_categories(out_root))
     print(f"      → [{fakta['category']}] {fakta['hook']}")
+    if fakta.get("_published"):
+        print(f"      🕒 berita terbit: {fakta['_published']}")
     _save_history(_load_history() + [fakta["hook"]])
 
     # FOTO ASLI berita (og:image dari sumber) → carousel & reel sesuai kejadian asli.
@@ -211,6 +213,7 @@ def main() -> int:
         "hook": fakta["hook"],
         "fact": fakta["fact"],
         "sumber": fakta.get("_sumber", ""),
+        "tanggal_berita": fakta.get("_published", ""),
         "foto_asli": bool(hero),
     }
     (out_dir / "meta.json").write_text(
