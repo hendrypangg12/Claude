@@ -136,6 +136,14 @@ function renderGenPanel(c){
   if(c.kind==="clipper"){
     el.innerHTML=`<h3>🎬 Bikin clip viral dari 1 link</h3>
       <div><label class="fl">Link video (YouTube / TikTok / Instagram / X)</label><input class="tx" id="clipUrl" placeholder="tempel link di sini…"></div>
+      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="document.getElementById('clipOpts').style.display=this.value==='full'?'none':'block'">
+        <option value="viral">Viral — AI potong momen + edit lengkap</option>
+        <option value="full">Download utuh — 1 klip video penuh + tag FAKTAVIRAL.IDN</option>
+      </select></div>
+      <div id="clipOpts"></div>
+      <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
+      <div class="genmsg" id="genMsg">AI pilih momen viral → 9:16 + caption + zoom + musik. Mode "Download utuh" = 1 video penuh + tag FAKTAVIRAL.IDN. Video panjang bisa 10-20 menit.</div>`;
+    document.getElementById("clipOpts").innerHTML=`
       <div class="row" style="margin-top:10px">
         <div><label class="fl">Jumlah clip</label><select id="clipNum">${[2,3,4,5,6].map(n=>`<option value="${n}"${n===4?" selected":""}>${n} clip</option>`).join("")}</select></div>
         <div><label class="fl">Bahasa</label><select id="clipLang"><option value="id">Indonesia</option><option value="en">Inggris</option><option value="auto">Auto-detect</option></select></div>
@@ -163,9 +171,7 @@ function renderGenPanel(c){
           <option value="on">Nyala</option>
           <option value="off">Matikan</option>
         </select></div>
-      </div>
-      <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
-      <div class="genmsg" id="genMsg">AI bakal pilih momen paling viral → potong 9:16 + auto-caption + face-tracking. Video panjang bisa 10-20 menit.</div>`;
+      </div>`;
   } else {
     el.innerHTML=`<h3>⚡ Generate konten baru</h3>
       <div class="row">
@@ -306,7 +312,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
+  const inputs={ url, mode:document.getElementById("clipMode").value, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{

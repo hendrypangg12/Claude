@@ -160,6 +160,48 @@ def build_pan_script(face: dict, out_path: Path) -> tuple[Path, int] | None:
     return out_path, _x(track[0][1])
 
 
+def make_tag_overlay(out_png: Path, w: int, h: int, brand: str = "FAKTAVIRAL.IDN",
+                     credit: str | None = None) -> Path:
+    """Brand watermark sized to the SOURCE video (for 'download utuh' mode — keeps
+    original aspect, just stamps FAKTAVIRAL.IDN top + 'via @creator' bottom)."""
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    s = max(0.4, w / 1080.0)
+    bf = _font("Poppins-ExtraBold.ttf", max(20, int(40 * s)))
+    bw = bf.getlength(brand)
+    px, py = int(24 * s), int(13 * s)
+    bx, by = (w - (bw + 2 * px)) / 2, int(40 * s)
+    d.rounded_rectangle([bx, by, bx + bw + 2 * px, by + bf.size + 2 * py],
+                        radius=int(26 * s), fill=CYAN)
+    d.text((bx + px, by + py - int(5 * s)), brand, font=bf, fill=INK)
+    if credit:
+        handle = credit if str(credit).startswith("@") else f"@{credit}"
+        cf = _font("Poppins-SemiBold.ttf", max(16, int(30 * s)))
+        text = f"via {handle}"
+        ctw = cf.getlength(text)
+        cpx, cpy = int(16 * s), int(11 * s)
+        cx, cy = int(40 * s), int(h - cf.size - 2 * cpy - 40 * s)
+        d.rounded_rectangle([cx, cy, cx + ctw + 2 * cpx, cy + cf.size + 2 * cpy],
+                            radius=int(22 * s), fill=(0, 0, 0, 150))
+        d.text((cx + cpx, cy + cpy - int(4 * s)), text, font=cf, fill=WHITE)
+    img.save(out_png)
+    return out_png
+
+
+def render_full(source: Path, overlay_png: Path, out_mp4: Path) -> Path:
+    """'Download utuh' mode: keep the original video (no reframe/cut), just burn the
+    brand watermark overlay."""
+    cmd = [
+        FFMPEG, "-y", "-i", str(source), "-i", str(overlay_png),
+        "-filter_complex", "[0:v][1:v]overlay=0:0:format=auto[o]",
+        "-map", "[o]", "-map", "0:a?",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(out_mp4),
+    ]
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    return out_mp4
+
+
 def build_zoom_expr(emphasis: list[float] | None, fps: int,
                     amp: float = 0.16, half: float = 0.55) -> str | None:
     """ffmpeg zoompan z-expression: 1.0 baseline, smooth punch to 1+amp around each
