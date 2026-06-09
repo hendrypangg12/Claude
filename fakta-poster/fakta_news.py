@@ -282,8 +282,9 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
     today = datetime.utcnow() + timedelta(hours=7)  # WIB
     today_str = today.strftime("%d %B %Y")
 
-    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
-    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 5}]
+    # max_retries gede → SDK auto nunggu (backoff, hormati Retry-After) kalau kena 429 rate limit
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 4}]
     user = (
         f"Hari ini = {today_str} (WIB).\n"
         f"Cari di internet: {brief}.\n"
@@ -316,7 +317,7 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
     for _ in range(6):  # batasi loop pause_turn
         try:
             resp = client.messages.create(
-                model=MODEL, max_tokens=1500, system=SYSTEM, tools=tools, messages=messages,
+                model=MODEL, max_tokens=1200, system=SYSTEM, tools=tools, messages=messages,
             )
         except Exception as exc:
             raise RuntimeError(f"web_search call gagal: {exc}")
@@ -401,7 +402,7 @@ def generate_news(category: str, avoid: list[str] | None = None) -> dict:
         f"{i+1}. [{it['source']}] {it['title']} — {it['snippet']}"
         for i, it in enumerate(items)
     )
-    msg = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip()).messages.create(
+    msg = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6).messages.create(
         model=MODEL, max_tokens=1000, system=SYSTEM,
         messages=[{"role": "user", "content":
                    f"Kategori: {category}.\nCuplikan hasil pencarian asli:\n{ctx}{avoid_line}\n\n"

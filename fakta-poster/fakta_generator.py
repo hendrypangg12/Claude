@@ -37,7 +37,8 @@ Aturan caption:
 
 
 def _client() -> Anthropic:
-    return Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
+    # max_retries gede → auto backoff kalau kena 429 rate limit (hormati Retry-After)
+    return Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
 
 
 def _parse_json(raw: str) -> dict:
