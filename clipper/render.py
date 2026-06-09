@@ -81,7 +81,7 @@ def make_overlay_png(out_png: Path, brand: str = "FAKTAVIRAL.IDN",
     bf = _font("Poppins-ExtraBold.ttf", 40)
     bw = bf.getlength(brand)
     bpx, bpy = 24, 13
-    bx, by = (W - (bw + 2 * bpx)) / 2, 60
+    bx, by = (W - (bw + 2 * bpx)) / 2, int(H * 0.12)   # turun dari tepi atas (lolos UI TikTok/IG)
     d.rounded_rectangle([bx, by, bx + bw + 2 * bpx, by + bf.size + 2 * bpy],
                         radius=26, fill=CYAN)
     d.text((bx + bpx, by + bpy - 5), brand, font=bf, fill=INK)
@@ -122,7 +122,7 @@ def make_overlay_png(out_png: Path, brand: str = "FAKTAVIRAL.IDN",
         cf = _font("Poppins-SemiBold.ttf", 32)
         text = f"via {handle}"
         ctw = cf.getlength(text)
-        cx, cy = 70, int(H * 0.80)
+        cx, cy = 70, int(H * 0.75)
         cpx, cpy = 18, 12
         d.rounded_rectangle([cx, cy, cx + ctw + 2 * cpx, cy + cf.size + 2 * cpy],
                             radius=24, fill=(0, 0, 0, 150))
@@ -170,7 +170,7 @@ def make_tag_overlay(out_png: Path, w: int, h: int, brand: str = "FAKTAVIRAL.IDN
     bf = _font("Poppins-ExtraBold.ttf", max(20, int(40 * s)))
     bw = bf.getlength(brand)
     px, py = int(24 * s), int(13 * s)
-    bx, by = (w - (bw + 2 * px)) / 2, int(40 * s)
+    bx, by = (w - (bw + 2 * px)) / 2, int(h * 0.12)   # turun dari tepi atas (lolos UI TikTok/IG)
     d.rounded_rectangle([bx, by, bx + bw + 2 * px, by + bf.size + 2 * py],
                         radius=int(26 * s), fill=CYAN)
     d.text((bx + px, by + py - int(5 * s)), brand, font=bf, fill=INK)
@@ -180,7 +180,7 @@ def make_tag_overlay(out_png: Path, w: int, h: int, brand: str = "FAKTAVIRAL.IDN
         text = f"via {handle}"
         ctw = cf.getlength(text)
         cpx, cpy = int(16 * s), int(11 * s)
-        cx, cy = int(40 * s), int(h - cf.size - 2 * cpy - 40 * s)
+        cx, cy = int(40 * s), int(h * 0.80)   # angkat dari dasar (lolos username TikTok/IG)
         d.rounded_rectangle([cx, cy, cx + ctw + 2 * cpx, cy + cf.size + 2 * cpy],
                             radius=int(22 * s), fill=(0, 0, 0, 150))
         d.text((cx + cpx, cy + cpy - int(4 * s)), text, font=cf, fill=WHITE)
