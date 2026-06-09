@@ -19,6 +19,15 @@ on:
         options:
           - "viral"
           - "full"
+      full_style:
+        description: "Gaya mode full"
+        required: false
+        default: "tag_hook"
+        type: choice
+        options:
+          - "tag_hook"
+          - "tag"
+          - "raw"
       hook:
         description: "Judul HOOK 3 detik pertama (mode full; kosong = AI bikinin)"
         required: false
@@ -115,6 +124,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WHISPER_MODEL: small
           CLIP_MODE: ${{ github.event.inputs.mode || 'viral' }}
+          FULL_STYLE: ${{ github.event.inputs.full_style || 'tag_hook' }}
           HOOK: ${{ github.event.inputs.hook }}
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
           CAPTIONS: ${{ github.event.inputs.caption == 'off' && '0' || '1' }}

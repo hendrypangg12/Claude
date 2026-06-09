@@ -225,20 +225,29 @@ def make_hook_overlay(out_png: Path, w: int, h: int, title: str) -> Path:
     return out_png
 
 
-def render_full(source: Path, overlay_png: Path, out_mp4: Path,
+def render_full(source: Path, overlay_png: Path | None, out_mp4: Path,
                 hook_png: Path | None = None, hook_dur: float = 3.0) -> Path:
-    """'Download utuh' mode: keep the original video (no reframe/cut), burn the brand
-    watermark, and optionally a HOOK title card for the first `hook_dur` seconds."""
-    inputs = ["-i", str(source), "-i", str(overlay_png)]
-    chain = "[0:v][1:v]overlay=0:0:format=auto[ov]"
-    cur = "[ov]"
+    """'Download utuh' mode: keep the original video (no reframe/cut). Optionally burn
+    a brand watermark and/or a HOOK title card for the first `hook_dur` seconds.
+    With neither, just remux the source (pure download)."""
+    inputs = ["-i", str(source)]
+    chain, cur, idx = "", "[0:v]", 1
+    if overlay_png:
+        inputs += ["-i", str(overlay_png)]
+        chain += f"{cur}[{idx}:v]overlay=0:0:format=auto[ov]"
+        cur = "[ov]"; idx += 1
     if hook_png:
         inputs += ["-i", str(hook_png)]
-        chain += f";{cur}[2:v]overlay=0:0:format=auto:enable='lte(t,{hook_dur})'[o]"
-        cur = "[o]"
-    cmd = [FFMPEG, "-y"] + inputs + ["-filter_complex", chain, "-map", cur, "-map", "0:a?",
-           "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
-           "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(out_mp4)]
+        seg = f"{cur}[{idx}:v]overlay=0:0:format=auto:enable='lte(t,{hook_dur})'[o]"
+        chain += (";" if chain else "") + seg
+        cur = "[o]"; idx += 1
+    if chain:
+        cmd = [FFMPEG, "-y"] + inputs + ["-filter_complex", chain, "-map", cur, "-map", "0:a?",
+               "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p",
+               "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(out_mp4)]
+    else:
+        cmd = [FFMPEG, "-y", "-i", str(source), "-c", "copy",
+               "-movflags", "+faststart", str(out_mp4)]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     return out_mp4
 

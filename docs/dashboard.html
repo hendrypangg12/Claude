@@ -136,11 +136,18 @@ function renderGenPanel(c){
   if(c.kind==="clipper"){
     el.innerHTML=`<h3>🎬 Bikin clip viral dari 1 link</h3>
       <div><label class="fl">Link video (YouTube / TikTok / Instagram / X)</label><input class="tx" id="clipUrl" placeholder="tempel link di sini…"></div>
-      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="var f=this.value==='full';document.getElementById('clipOpts').style.display=f?'none':'block';document.getElementById('clipHookWrap').style.display=f?'block':'none'">
+      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="var f=this.value==='full';document.getElementById('clipOpts').style.display=f?'none':'block';document.getElementById('clipFullWrap').style.display=f?'block':'none'">
         <option value="viral">Viral — AI potong momen + edit lengkap</option>
-        <option value="full">Download utuh — 1 klip video penuh + tag FAKTAVIRAL.IDN</option>
+        <option value="full">Download utuh — 1 klip video penuh</option>
       </select></div>
-      <div id="clipHookWrap" style="display:none;margin-top:10px"><label class="fl">Judul HOOK 3 detik pertama (kosongin = AI bikinin)</label><input class="tx" id="clipHook" placeholder="mis. Gilaa!! WIFI bisa buat ngintip tetangga"></div>
+      <div id="clipFullWrap" style="display:none">
+        <div style="margin-top:10px"><label class="fl">Gaya (mode full)</label><select id="clipStyle" onchange="document.getElementById('clipHookRow').style.display=this.value==='tag_hook'?'block':'none'">
+          <option value="tag_hook">Tag FAKTAVIRAL + Hook 3 detik</option>
+          <option value="tag">Tag FAKTAVIRAL aja (tanpa hook)</option>
+          <option value="raw">Murni — tanpa apa-apa (kayak blacksave)</option>
+        </select></div>
+        <div id="clipHookRow" style="margin-top:10px"><label class="fl">Judul HOOK (kosongin = AI bikinin)</label><input class="tx" id="clipHook" placeholder="mis. SEREM! QRIS bakal diganti chip di tangan"></div>
+      </div>
       <div id="clipOpts"></div>
       <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
       <div class="genmsg" id="genMsg">AI pilih momen viral → 9:16 + caption + zoom + musik. Mode "Download utuh" = 1 video penuh + tag FAKTAVIRAL.IDN. Video panjang bisa 10-20 menit.</div>`;
@@ -313,7 +320,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, mode:document.getElementById("clipMode").value, hook:(document.getElementById("clipHook")||{}).value||"", num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
+  const inputs={ url, mode:document.getElementById("clipMode").value, full_style:(document.getElementById("clipStyle")||{}).value||"tag_hook", hook:(document.getElementById("clipHook")||{}).value||"", num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{
