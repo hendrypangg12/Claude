@@ -160,8 +160,24 @@ def build_pan_script(face: dict, out_path: Path) -> tuple[Path, int] | None:
     return out_path, _x(track[0][1])
 
 
+def build_zoom_expr(emphasis: list[float] | None, fps: int,
+                    amp: float = 0.16, half: float = 0.55) -> str | None:
+    """ffmpeg zoompan z-expression: 1.0 baseline, smooth punch to 1+amp around each
+    emphasis second. Commas escaped (\\,) for the filtergraph parser."""
+    es = [e for e in (emphasis or []) if e is not None and e >= 0]
+    if not es:
+        return None
+    t = f"(on/{fps})"
+    terms = [f"(1-abs({t}-{e:.2f})/{half})" for e in es]
+    inner = terms[0]
+    for tm in terms[1:]:
+        inner = f"max({inner}\\,{tm})"
+    return f"1+{amp}*max(0\\,{inner})"
+
+
 def render_clip(source: Path, start: float, end: float, ass_path: Path | None,
-                brand_png: Path, out_mp4: Path, face: dict | None = None) -> Path:
+                brand_png: Path, out_mp4: Path, face: dict | None = None,
+                emphasis: list[float] | None = None, fps: int = 30) -> Path:
     dur = max(0.5, end - start)
     fonts_dir = next((str(d) for d in FONT_DIRS if d.exists()), str(FONT_DIRS[0]))
     pan = build_pan_script(face, out_mp4.with_suffix(".pan.txt")) if face else None
@@ -171,13 +187,20 @@ def render_clip(source: Path, start: float, end: float, ass_path: Path | None,
         crop = f"sendcmd=f='{script}',crop={W}:{H}:x={init_x}:y=0"
     else:
         crop = f"crop={W}:{H}"          # static center crop (fallback)
-    # karaoke caption is optional (off when source video already has burned-in text)
-    subs = f",subtitles='{ass_path}':fontsdir='{fonts_dir}'" if ass_path else ""
-    vf = (
-        f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,"
-        f"{crop}{subs}[v];"
-        f"[v][1:v]overlay=0:0:format=auto[o]"
-    )
+
+    # build the filter chain stage by stage (reframe → zoom → caption → overlay)
+    parts = [f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,{crop}[c]"]
+    cur = "[c]"
+    zexpr = build_zoom_expr(emphasis, fps)
+    if zexpr:                            # punch-in zoom to face on emphasis moments
+        parts.append(f"{cur}zoompan=z='{zexpr}':d=1:x='iw/2-(iw/zoom/2)':"
+                     f"y='ih*0.45-(ih/zoom/2)':s={W}x{H}:fps={fps}[zm]")
+        cur = "[zm]"
+    if ass_path:                         # optional karaoke caption
+        parts.append(f"{cur}subtitles='{ass_path}':fontsdir='{fonts_dir}'[sv]")
+        cur = "[sv]"
+    parts.append(f"{cur}[1:v]overlay=0:0:format=auto[o]")
+    vf = ";".join(parts)
     cmd = [
         FFMPEG, "-y",
         "-ss", f"{start:.2f}", "-i", str(source), "-t", f"{dur:.2f}",

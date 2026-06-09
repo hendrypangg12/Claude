@@ -48,6 +48,9 @@ Keluarkan STRICT JSON saja (tanpa markdown, tanpa komentar):
     "title": "...",              // HOOK PENDEK punchy 5-11 kata (di-burn ke video, tanpa emoji)
     "hook": "...",               // versi super pendek 3-5 kata
     "why": "...",                // 1 kalimat kenapa ini berpotensi viral
+    "emphasis": [0.0],           // 1-4 DETIK (absolut, dari timestamp transkrip) di momen
+                                 //   PENEGASAN/PENTING (punchline, angka kaget, kalimat kunci).
+                                 //   Kamera bakal ZOOM ke wajah di momen ini. Boleh [] kalau gak ada.
     "caption": "..."             // caption IG/TikTok lengkap utk @faktaviral.idn:
                                  //   baris 1 = hook naratif (boleh sebut @creator + emoji),
                                  //   1-2 kalimat isi, KREDIT creator ("Video: @creator"),
@@ -117,6 +120,14 @@ def pick_clips(transcript: dict, num_clips: int = 4, video_title: str = "",
             continue
         if length > 90:          # cap 90 detik biar tetap short-form
             end = start + 90
+        emph = []
+        for e in (c.get("emphasis") or [])[:4]:
+            try:
+                ev = float(e)
+            except (TypeError, ValueError):
+                continue
+            if start <= ev <= end:        # keep only marks inside this clip
+                emph.append(round(ev, 2))
         clips.append({
             "start": round(start, 2),
             "end": round(end, 2),
@@ -124,6 +135,7 @@ def pick_clips(transcript: dict, num_clips: int = 4, video_title: str = "",
             "title": str(c.get("title", "")).strip(),
             "hook": str(c.get("hook", "")).strip(),
             "why": str(c.get("why", "")).strip(),
+            "emphasis": emph,
             "caption": str(c.get("caption", "")).strip(),
         })
     clips.sort(key=lambda x: x["score"], reverse=True)

@@ -19,7 +19,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from captions import build_ass
-from face_track import track_face
+from face_track import track_face, video_fps
 from pick_clips import pick_clips
 from render import make_overlay_png, render_clip
 from transcribe import download, pick_handle, transcribe
@@ -37,9 +37,12 @@ def main() -> int:
                     help="matikan face-tracking (pakai center-crop statis)")
     ap.add_argument("--no-caption", action="store_true",
                     help="matikan caption karaoke (kalau video ori udah ada teks)")
+    ap.add_argument("--no-zoom", action="store_true",
+                    help="matikan zoom punch-in ke wajah di momen penegasan")
     args = ap.parse_args()
     track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
     cap_on = not args.no_caption and os.environ.get("CAPTIONS", "1") != "0"
+    zoom_on = not args.no_zoom and os.environ.get("ZOOM", "1") != "0"
 
     if not args.url:
         print("ERROR: kasih link video. Contoh: python clip_app.py \"https://...\"")
@@ -65,7 +68,8 @@ def main() -> int:
     clips = pick_clips(transcript, num_clips=args.num, video_title=title, creator=creator)
     print(f"      dapet {len(clips)} momen")
 
-    print("[4/4] Render clip 9:16 + caption + title HOOK...")
+    print("[4/4] Render clip 9:16 + caption + title HOOK + zoom...")
+    fps = video_fps(src)
     rendered = []
     for i, c in enumerate(clips, 1):
         ass = (build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
@@ -74,8 +78,11 @@ def main() -> int:
         overlay = make_overlay_png(out_dir / f"overlay-{i}.png", brand=args.brand,
                                    title=c["title"], credit=creator)
         face = track_face(src, c["start"], c["end"]) if track_on else None
+        emph = ([round(e - c["start"], 2) for e in c.get("emphasis", [])]
+                if zoom_on else None)
         try:
-            render_clip(src, c["start"], c["end"], ass, overlay, out_mp4, face=face)
+            render_clip(src, c["start"], c["end"], ass, overlay, out_mp4,
+                        face=face, emphasis=emph, fps=fps)
         except Exception as e:  # noqa: BLE001 — satu clip gagal jangan stop sisanya
             print(f"      clip-{i} gagal render: {e}")
             continue

@@ -140,10 +140,16 @@ function renderGenPanel(c){
         <div><label class="fl">Jumlah clip</label><select id="clipNum">${[2,3,4,5,6].map(n=>`<option value="${n}"${n===4?" selected":""}>${n} clip</option>`).join("")}</select></div>
         <div><label class="fl">Bahasa</label><select id="clipLang"><option value="id">Indonesia</option><option value="en">Inggris</option><option value="auto">Auto-detect</option></select></div>
       </div>
-      <div style="margin-top:10px"><label class="fl">Caption kata-per-kata</label><select id="clipCap">
-        <option value="on">Nyala (video belum ada teks)</option>
-        <option value="off">Matikan (video ori udah ada caption)</option>
-      </select></div>
+      <div class="row" style="margin-top:10px">
+        <div><label class="fl">Caption kata-per-kata</label><select id="clipCap">
+          <option value="on">Nyala (video belum ada teks)</option>
+          <option value="off">Matikan (video ori udah ada caption)</option>
+        </select></div>
+        <div><label class="fl">Zoom ke wajah (animasi)</label><select id="clipZoom">
+          <option value="on">Nyala (zoom pas penegasan)</option>
+          <option value="off">Matikan</option>
+        </select></div>
+      </div>
       <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
       <div class="genmsg" id="genMsg">AI bakal pilih momen paling viral → potong 9:16 + auto-caption + face-tracking. Video panjang bisa 10-20 menit.</div>`;
   } else {
@@ -286,7 +292,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, brand:"FAKTAVIRAL.IDN" };
+  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{
