@@ -23,9 +23,9 @@ import random
 
 from edit import plan_edit
 from face_track import track_face, video_fps, video_size
-from pick_clips import pick_clips
-from render import (make_endcard_png, make_overlay_png, make_progress_png,
-                    make_tag_overlay, render_clip, render_full)
+from pick_clips import generate_hook, pick_clips
+from render import (make_endcard_png, make_hook_overlay, make_overlay_png,
+                    make_progress_png, make_tag_overlay, render_clip, render_full)
 from transcribe import download, pick_handle, transcribe
 
 WIB = timezone(timedelta(hours=7))
@@ -51,6 +51,8 @@ def main() -> int:
     ap.add_argument("--no-polish", action="store_true", help="matikan end card + progress bar")
     ap.add_argument("--full", action="store_true",
                     help="mode download utuh: 1 klip = video penuh + watermark FAKTAVIRAL.IDN (tanpa AI)")
+    ap.add_argument("--hook", default=os.environ.get("HOOK", ""),
+                    help="judul HOOK 3 detik pertama (kosong = AI bikinin)")
     args = ap.parse_args()
     full_mode = args.full or os.environ.get("CLIP_MODE", "viral") == "full"
     track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
@@ -75,19 +77,30 @@ def main() -> int:
     print(f"      {src.name} | {title[:60]} | by {creator or '?'} | {info.get('duration')}s")
 
     if full_mode:
-        print("[2/2] Mode download utuh: stamp watermark FAKTAVIRAL.IDN...")
+        # HOOK 3 detik pertama: pakai teks manual, atau AI bikinin dari transkrip
+        hook = args.hook.strip()
+        if not hook and os.environ.get("HOOK_AI", "1") != "0":
+            print("      bikin HOOK pakai AI (transcribe + Claude)...")
+            try:
+                tr = transcribe(src, language=args.lang)
+                hook = generate_hook(tr, creator=creator)
+                print(f"      HOOK: {hook}")
+            except Exception as e:  # noqa: BLE001
+                print(f"      AI hook gagal ({e}); lanjut tanpa hook")
+        print("[2/2] Mode download utuh: stamp watermark FAKTAVIRAL.IDN + hook 3 detik...")
         w, h = video_size(src)
         overlay = make_tag_overlay(out_dir / "overlay-1.png", w, h,
                                    brand=args.brand, credit=creator)
+        hook_png = (make_hook_overlay(out_dir / "hook-1.png", w, h, hook) if hook else None)
         out_mp4 = out_dir / "clip-1.mp4"
-        render_full(src, overlay, out_mp4)
+        render_full(src, overlay, out_mp4, hook_png=hook_png, hook_dur=3.0)
         cred = f"@{creator}" if creator else ""
-        cap = ((f"Momen menarik dari {cred} 🔥\n\nVideo: {cred}\n" if cred
-                else "Momen viral hari ini 🔥\n\n")
+        cap = ((f"{hook}\n\n" if hook else "")
+               + (f"Video: {cred}\n" if cred else "")
                + "Follow @faktaviral.idn buat momen viral tiap hari!\n\n"
                + "#faktaviral #viral #fyp #infoviral #faktaunik")
         (out_dir / "caption-1.txt").write_text(cap, encoding="utf-8")
-        clip = {"file": out_mp4.name, "title": title or "Video utuh", "hook": "",
+        clip = {"file": out_mp4.name, "title": hook or title or "Video utuh", "hook": hook,
                 "score": 0, "start": 0, "end": info.get("duration"), "caption": cap}
         meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"),
                 "time": now.strftime("%H:%M"), "url": args.url, "title": title,
