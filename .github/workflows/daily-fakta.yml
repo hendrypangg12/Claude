@@ -5,11 +5,12 @@ name: Daily Fakta (semi-manual)
 # Bisa juga di-Generate on-demand dari dashboard (pilih kategori + mau post atau preview).
 
 on:
-  schedule:
-    # Tiap pagi cari konten viral terverifikasi (preview, nggak auto-post).
-    - cron: "9 23 * * *"  # 06:09 WIB → trending (preview)
-    - cron: "9 0 * * *"   # 07:09 WIB → trending (preview)
-    - cron: "0 3 * * *"   # 10:00 WIB → trending (preview) — berita pagi udah banyak yg fresh (<4 jam)
+  # AUTO-GENERATE DIMATIIN (hemat biaya API) — 9 Juni 2026, atas permintaan owner.
+  # Mau nyalain lagi: hapus '#' di 3 baris cron bawah ini. Generate manual dari dashboard tetap jalan.
+  # schedule:
+  #   - cron: "9 23 * * *"  # 06:09 WIB → trending (preview)
+  #   - cron: "9 0 * * *"   # 07:09 WIB → trending (preview)
+  #   - cron: "0 3 * * *"   # 10:00 WIB → trending (preview)
   workflow_dispatch:
     inputs:
       category:
