@@ -15,11 +15,12 @@ Output → out/<timestamp>/:
 import argparse
 import json
 import os
+import random
+import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from captions import build_ass
-import random
 
 from edit import plan_edit
 from face_track import track_face, video_fps, video_size
@@ -77,23 +78,29 @@ def main() -> int:
     print(f"      {src.name} | {title[:60]} | by {creator or '?'} | {info.get('duration')}s")
 
     if full_mode:
-        # HOOK 3 detik pertama: pakai teks manual, atau AI bikinin dari transkrip
+        # gaya: tag_hook (watermark+hook) | tag (watermark only) | raw (murni, kayak blacksave)
+        style = os.environ.get("FULL_STYLE", "tag_hook")
+        watermark_on = style != "raw"
         hook = args.hook.strip()
-        if not hook and os.environ.get("HOOK_AI", "1") != "0":
+        if not hook and style == "tag_hook" and os.environ.get("HOOK_AI", "1") != "0":
             print("      bikin HOOK pakai AI (transcribe + Claude)...")
             try:
-                tr = transcribe(src, language=args.lang)
-                hook = generate_hook(tr, creator=creator)
+                hook = generate_hook(transcribe(src, language=args.lang), creator=creator)
                 print(f"      HOOK: {hook}")
             except Exception as e:  # noqa: BLE001
                 print(f"      AI hook gagal ({e}); lanjut tanpa hook")
-        print("[2/2] Mode download utuh: stamp watermark FAKTAVIRAL.IDN + hook 3 detik...")
-        w, h = video_size(src)
-        overlay = make_tag_overlay(out_dir / "overlay-1.png", w, h,
-                                   brand=args.brand, credit=creator)
-        hook_png = (make_hook_overlay(out_dir / "hook-1.png", w, h, hook) if hook else None)
+        print(f"[2/2] Mode download utuh (gaya={style}): "
+              f"{'watermark ' if watermark_on else ''}{'+ hook' if hook else ''}...")
         out_mp4 = out_dir / "clip-1.mp4"
-        render_full(src, overlay, out_mp4, hook_png=hook_png, hook_dur=3.0)
+        if not watermark_on and not hook:
+            shutil.copy(src, out_mp4)        # download MURNI (no overlay sama sekali)
+        else:
+            w, h = video_size(src)
+            overlay = (make_tag_overlay(out_dir / "overlay-1.png", w, h,
+                                        brand=args.brand, credit=creator)
+                       if watermark_on else None)
+            hook_png = make_hook_overlay(out_dir / "hook-1.png", w, h, hook) if hook else None
+            render_full(src, overlay, out_mp4, hook_png=hook_png, hook_dur=3.0)
         cred = f"@{creator}" if creator else ""
         cap = ((f"{hook}\n\n" if hook else "")
                + (f"Video: {cred}\n" if cred else "")
