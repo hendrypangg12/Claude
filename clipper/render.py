@@ -175,42 +175,117 @@ def build_zoom_expr(emphasis: list[float] | None, fps: int,
     return f"1+{amp}*max(0\\,{inner})"
 
 
+def make_progress_png(out_png: Path, color=CYAN) -> Path:
+    """A full-width bar (slid in via overlay-x to read as a progress fill)."""
+    bar = Image.new("RGBA", (W, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(bar)
+    d.rounded_rectangle([0, 2, W - 1, 14], radius=6, fill=color)
+    bar.save(out_png)
+    return out_png
+
+
+def make_endcard_png(out_png: Path, brand: str = "FAKTAVIRAL.IDN",
+                     handle: str = "@faktaviral.idn") -> Path:
+    """Full-screen branded outro shown for the last ~2s of the clip."""
+    img = Image.new("RGBA", (W, H), (13, 11, 28, 255))     # cosmic deep
+    d = ImageDraw.Draw(img)
+    bf = _font("Poppins-ExtraBold.ttf", 92)
+    bw = bf.getlength(brand)
+    d.text(((W - bw) / 2, H * 0.40), brand, font=bf, fill=CYAN)
+    sf = _font("Poppins-ExtraBold.ttf", 54)
+    sub = "FOLLOW"
+    d.text(((W - sf.getlength(sub)) / 2, H * 0.40 - 90), sub, font=sf, fill=WHITE)
+    hf = _font("Poppins-SemiBold.ttf", 46)
+    hw = hf.getlength(handle)
+    hy = H * 0.40 + 130
+    d.rounded_rectangle([(W - hw) / 2 - 30, hy, (W + hw) / 2 + 30, hy + hf.size + 28],
+                        radius=30, fill=CYAN)
+    d.text(((W - hw) / 2, hy + 12), handle, font=hf, fill=INK)
+    tf = _font("Poppins-SemiBold.ttf", 40)
+    tip = "buat momen viral tiap hari"
+    d.text(((W - tf.getlength(tip)) / 2, hy + 120), tip, font=tf, fill=(160, 170, 200, 255))
+    img.save(out_png)
+    return out_png
+
+
 def render_clip(source: Path, start: float, end: float, ass_path: Path | None,
-                brand_png: Path, out_mp4: Path, face: dict | None = None,
-                emphasis: list[float] | None = None, fps: int = 30) -> Path:
+                brand_png: Path, out_mp4: Path, *, face: dict | None = None,
+                emphasis: list[float] | None = None, fps: int = 30,
+                select_expr: str | None = None, out_dur: float | None = None,
+                music: Path | None = None, sfx: Path | None = None,
+                sfx_times: list[float] | None = None,
+                progress_png: Path | None = None,
+                endcard_png: Path | None = None) -> Path:
     dur = max(0.5, end - start)
+    odur = float(out_dur or dur)        # effective output length (compressed if tightened)
     fonts_dir = next((str(d) for d in FONT_DIRS if d.exists()), str(FONT_DIRS[0]))
     pan = build_pan_script(face, out_mp4.with_suffix(".pan.txt")) if face else None
-    # subtitles + fontsdir paths: our paths have no ':' so plain single-quoting is safe
     if pan:
         script, init_x = pan
         crop = f"sendcmd=f='{script}',crop={W}:{H}:x={init_x}:y=0"
     else:
-        crop = f"crop={W}:{H}"          # static center crop (fallback)
+        crop = f"crop={W}:{H}"
 
-    # build the filter chain stage by stage (reframe → zoom → caption → overlay)
-    parts = [f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,{crop}[c]"]
+    # ---- video chain ----
+    pre = f"select='{select_expr}',setpts=N/FRAME_RATE/TB," if select_expr else ""
+    parts = [f"[0:v]{pre}scale={W}:{H}:force_original_aspect_ratio=increase,setsar=1,{crop}[c]"]
     cur = "[c]"
     zexpr = build_zoom_expr(emphasis, fps)
-    if zexpr:                            # punch-in zoom to face on emphasis moments
+    if zexpr:
         parts.append(f"{cur}zoompan=z='{zexpr}':d=1:x='iw/2-(iw/zoom/2)':"
                      f"y='ih*0.45-(ih/zoom/2)':s={W}x{H}:fps={fps}[zm]")
         cur = "[zm]"
-    if ass_path:                         # optional karaoke caption
+    if ass_path:
         parts.append(f"{cur}subtitles='{ass_path}':fontsdir='{fonts_dir}'[sv]")
         cur = "[sv]"
-    parts.append(f"{cur}[1:v]overlay=0:0:format=auto[o]")
-    vf = ";".join(parts)
-    cmd = [
-        FFMPEG, "-y",
-        "-ss", f"{start:.2f}", "-i", str(source), "-t", f"{dur:.2f}",
-        "-i", str(brand_png),
-        "-filter_complex", vf,
-        "-map", "[o]", "-map", "0:a?",
+
+    inputs = ["-ss", f"{start:.2f}", "-t", f"{dur:.2f}", "-i", str(source), "-i", str(brand_png)]
+    idx = 2
+    parts.append(f"{cur}[1:v]overlay=0:0:format=auto[o1]")
+    cur = "[o1]"
+    n = 1
+    if progress_png:
+        inputs += ["-i", str(progress_png)]
+        parts.append(f"{cur}[{idx}:v]overlay=x='-{W}+{W}*t/{odur:.3f}':y={H - 18}[o{n + 1}]")
+        cur = f"[o{n + 1}]"; idx += 1; n += 1
+    if endcard_png:
+        inputs += ["-i", str(endcard_png)]
+        st = max(0.0, odur - 2.0)
+        parts.append(f"{cur}[{idx}:v]overlay=0:0:enable='between(t,{st:.2f},{odur:.2f})'[o{n + 1}]")
+        cur = f"[o{n + 1}]"; idx += 1; n += 1
+    vlabel = cur
+
+    # ---- audio chain ----
+    if select_expr or music or (sfx and sfx_times):
+        a = [f"[0:a]aselect='{select_expr}',asetpts=N/SR/TB[a0]"] if select_expr \
+            else ["[0:a]anull[a0]"]
+        mix = ["[a0]"]
+        if music:
+            inputs += ["-i", str(music)]
+            fst = max(0.1, odur - 1.5)
+            a.append(f"[{idx}:a]atrim=0:{odur:.2f},volume=0.13,"
+                     f"afade=t=out:st={fst:.2f}:d=1.5[am]")
+            mix.append("[am]"); idx += 1
+        if sfx and sfx_times:
+            inputs += ["-i", str(sfx)]
+            ns = len(sfx_times)
+            a.append(f"[{idx}:a]asplit={ns}" + "".join(f"[s{i}]" for i in range(ns)))
+            for i, tt in enumerate(sfx_times):
+                ms = int(max(0.0, tt) * 1000)
+                a.append(f"[s{i}]adelay={ms}|{ms}[sd{i}]"); mix.append(f"[sd{i}]")
+            idx += 1
+        a.append("".join(mix) + f"amix=inputs={len(mix)}:duration=first:normalize=0,"
+                 f"volume=1.4[a]")
+        parts += a
+        amap = ["-map", "[a]"]
+    else:
+        amap = ["-map", "0:a?"]
+
+    cmd = [FFMPEG, "-y"] + inputs + ["-filter_complex", ";".join(parts),
+           "-map", vlabel] + amap + [
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
         "-maxrate", "6M", "-bufsize", "12M", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
-        str(out_mp4),
-    ]
+        "-t", f"{odur:.2f}", str(out_mp4)]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     return out_mp4

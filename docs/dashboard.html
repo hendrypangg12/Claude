@@ -150,6 +150,20 @@ function renderGenPanel(c){
           <option value="off">Matikan</option>
         </select></div>
       </div>
+      <div class="row" style="margin-top:10px">
+        <div><label class="fl">Buang silence/filler</label><select id="clipTighten">
+          <option value="on">Nyala (clip padat)</option>
+          <option value="off">Matikan</option>
+        </select></div>
+        <div><label class="fl">Musik + whoosh</label><select id="clipMusic">
+          <option value="on">Nyala</option>
+          <option value="off">Matikan</option>
+        </select></div>
+        <div><label class="fl">End card + bar</label><select id="clipPolish">
+          <option value="on">Nyala</option>
+          <option value="off">Matikan</option>
+        </select></div>
+      </div>
       <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
       <div class="genmsg" id="genMsg">AI bakal pilih momen paling viral → potong 9:16 + auto-caption + face-tracking. Video panjang bisa 10-20 menit.</div>`;
   } else {
@@ -292,7 +306,7 @@ async function generateClip(){
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
-  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, brand:"FAKTAVIRAL.IDN" };
+  const inputs={ url, num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{

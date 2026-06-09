@@ -19,12 +19,18 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from captions import build_ass
+import random
+
+from edit import plan_edit
 from face_track import track_face, video_fps
 from pick_clips import pick_clips
-from render import make_overlay_png, render_clip
+from render import make_endcard_png, make_overlay_png, make_progress_png, render_clip
 from transcribe import download, pick_handle, transcribe
 
 WIB = timezone(timedelta(hours=7))
+HERE = Path(__file__).resolve().parent
+MUSIC_DIR = HERE.parent / "fakta-poster" / "music"
+SFX_WHOOSH = HERE / "sfx" / "whoosh.wav"
 
 
 def main() -> int:
@@ -39,10 +45,16 @@ def main() -> int:
                     help="matikan caption karaoke (kalau video ori udah ada teks)")
     ap.add_argument("--no-zoom", action="store_true",
                     help="matikan zoom punch-in ke wajah di momen penegasan")
+    ap.add_argument("--no-music", action="store_true", help="matikan musik latar + SFX whoosh")
+    ap.add_argument("--no-tighten", action="store_true", help="matikan buang silence + filler")
+    ap.add_argument("--no-polish", action="store_true", help="matikan end card + progress bar")
     args = ap.parse_args()
     track_on = not args.no_track and os.environ.get("FACE_TRACK", "1") != "0"
     cap_on = not args.no_caption and os.environ.get("CAPTIONS", "1") != "0"
     zoom_on = not args.no_zoom and os.environ.get("ZOOM", "1") != "0"
+    music_on = not args.no_music and os.environ.get("MUSIC", "1") != "0"
+    tighten_on = not args.no_tighten and os.environ.get("TIGHTEN", "1") != "0"
+    polish_on = not args.no_polish and os.environ.get("POLISH", "1") != "0"
 
     if not args.url:
         print("ERROR: kasih link video. Contoh: python clip_app.py \"https://...\"")
@@ -68,25 +80,48 @@ def main() -> int:
     clips = pick_clips(transcript, num_clips=args.num, video_title=title, creator=creator)
     print(f"      dapet {len(clips)} momen")
 
-    print("[4/4] Render clip 9:16 + caption + title HOOK + zoom...")
+    print("[4/4] Render: reframe + zoom + caption + tighten + musik + polish...")
     fps = video_fps(src)
+    handle = "@" + args.brand.lower().replace(" ", "")
+    progress_png = make_progress_png(out_dir / "bar.png") if polish_on else None
+    endcard_png = (make_endcard_png(out_dir / "endcard.png", brand=args.brand, handle=handle)
+                   if polish_on else None)
+    tracks = sorted(MUSIC_DIR.glob("*.mp3")) if music_on else []
+    sfx = SFX_WHOOSH if (music_on and SFX_WHOOSH.exists()) else None
+
     rendered = []
     for i, c in enumerate(clips, 1):
-        ass = (build_ass(transcript["words"], c["start"], c["end"], out_dir / f"clip-{i}.ass")
-               if cap_on else None)
         out_mp4 = out_dir / f"clip-{i}.mp4"
         overlay = make_overlay_png(out_dir / f"overlay-{i}.png", brand=args.brand,
                                    title=c["title"], credit=creator)
+        # words relative to this clip
+        cw = [{"start": w["start"] - c["start"], "end": w["end"] - c["start"], "word": w["word"]}
+              for w in transcript["words"]
+              if w["start"] >= c["start"] - 0.05 and w["end"] <= c["end"] + 0.4]
+        plan = plan_edit(cw, c["end"] - c["start"]) if tighten_on else None
+        remap = plan["remap"] if plan else (lambda x: x)
+        out_dur = plan["new_dur"] if plan else (c["end"] - c["start"])
+        select_expr = plan["select"] if plan else None
+        ass_words = ([{"start": remap(w["start"]), "end": remap(w["end"]), "word": w["word"]}
+                      for w in cw] if plan else cw)
+        ass = (build_ass(ass_words, 0.0, out_dur, out_dir / f"clip-{i}.ass")
+               if cap_on else None)
+        emph = ([round(remap(e - c["start"]), 2) for e in c.get("emphasis", [])]
+                if (zoom_on or music_on) else [])
         face = track_face(src, c["start"], c["end"]) if track_on else None
-        emph = ([round(e - c["start"], 2) for e in c.get("emphasis", [])]
-                if zoom_on else None)
+        music = random.choice(tracks) if tracks else None
         try:
             render_clip(src, c["start"], c["end"], ass, overlay, out_mp4,
-                        face=face, emphasis=emph, fps=fps)
+                        face=face, emphasis=(emph if zoom_on else None), fps=fps,
+                        select_expr=select_expr, out_dur=out_dur,
+                        music=music, sfx=sfx, sfx_times=(emph if (sfx and emph) else None),
+                        progress_png=progress_png, endcard_png=endcard_png)
         except Exception as e:  # noqa: BLE001 — satu clip gagal jangan stop sisanya
             print(f"      clip-{i} gagal render: {e}")
             continue
         cap = c["caption"] or c["title"]
+        if music:                        # CC-BY attribution wajib dicantumkan
+            cap += f"\n\n🎵 {music.stem} – Kevin MacLeod (incompetech.com) CC BY 4.0"
         (out_dir / f"caption-{i}.txt").write_text(cap, encoding="utf-8")
         c["file"] = out_mp4.name
         rendered.append(c)
