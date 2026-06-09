@@ -35,6 +35,8 @@ def _entry(d: Path) -> dict | None:
         # label tampilan: pakai label/category/type apa pun yang ada
         "label": (m.get("label") or m.get("category") or m.get("type") or "").upper(),
         "title": m.get("hook") or m.get("headline") or m.get("fact") or "",
+        "tanggal_berita": m.get("tanggal_berita", ""),  # kapan beritanya terbit (buat konten BERITA)
+        "sumber": m.get("sumber", ""),
         "slides": slides,
         "reel": (d / "reel.mp4").exists(),
     }
