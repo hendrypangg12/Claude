@@ -41,6 +41,30 @@ on:
         options:
           - "on"
           - "off"
+      tighten:
+        description: "Buang silence + filler (clip jadi padat, retention naik)"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      music:
+        description: "Musik latar + SFX whoosh pas zoom"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      polish:
+        description: "End card 'Follow' + progress bar"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
       brand:
         description: "Tulisan brand di pojok video"
         required: false
@@ -80,6 +104,9 @@ jobs:
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
           CAPTIONS: ${{ github.event.inputs.caption == 'off' && '0' || '1' }}
           ZOOM: ${{ github.event.inputs.zoom == 'off' && '0' || '1' }}
+          TIGHTEN: ${{ github.event.inputs.tighten == 'off' && '0' || '1' }}
+          MUSIC: ${{ github.event.inputs.music == 'off' && '0' || '1' }}
+          POLISH: ${{ github.event.inputs.polish == 'off' && '0' || '1' }}
 
       - name: Commit clips + update dashboard
         working-directory: ${{ github.workspace }}
