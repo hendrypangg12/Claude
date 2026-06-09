@@ -100,7 +100,8 @@ def main() -> int:
                                         brand=args.brand, credit=creator)
                        if watermark_on else None)
             hook_png = make_hook_overlay(out_dir / "hook-1.png", w, h, hook) if hook else None
-            render_full(src, overlay, out_mp4, hook_png=hook_png, hook_dur=3.0)
+            hook_dur = float(os.environ.get("HOOK_DUR", "6"))
+            render_full(src, overlay, out_mp4, hook_png=hook_png, hook_dur=hook_dur)
         cred = f"@{creator}" if creator else ""
         cap = ((f"{hook}\n\n" if hook else "")
                + (f"Video: {cred}\n" if cred else "")
