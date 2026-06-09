@@ -158,8 +158,13 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - **`daily_fakta.py`**: download `hero` dari `_image_url` (di LUAR gate PEXELS). Carousel cover (p1) WAJIB hero;
   p2/p3 prefer stok→hero. Reel: kalau ada hero → `reel_bg=[image_to_clip(hero)]` (else stok video). `meta.json`
   nyimpen `sumber` + `foto_asli` (bool). DITES: KPK OTT Bupati Muara Enim → `"foto_asli": true` ✅.
-- ⚠️ **VIDEO klip viral mentah TIDAK di-download** (copyright/ToS — strike). Jalan tengah = foto asli + kredit
-  sumber (di caption + meta). Owner setuju pakai foto-asli+kredit (keputusan editorial dia, risiko dia).
+- ⚠️ Awalnya VIDEO mentah TIDAK di-download. TAPI **owner MINTA video kejadian asli** (9 Juni siang) → DIBANGUN:
+  **`fakta-poster/news_video.py` `fetch_news_video(url,out,max_sec=18)`** (yt-dlp, cap 90MB, potong 18s, buang audio).
+  web_search balikin **`video_url`** (link YouTube outlet berita resmi). `daily_fakta.py` prioritas reel:
+  **video asli > foto asli (Ken Burns) > stok**. Kredit "🎥 Video: via <sumber>" ditambah ke `caption_reel.txt`.
+  meta nyimpen `video_asli` (bool). `yt-dlp` ditambah ke `fakta-poster/requirements.txt`. Best-effort: kalau
+  YouTube blokir IP CI / link gak ada → fallback otomatis ke foto. **TETAP TOLAK hapus watermark/kredit orang.**
+  Owner sadar risiko copyright/Content ID video (strike/banned) = keputusan editorial dia. **BELUM dites di CI.**
 
 ### Jadwal & verifikasi
 - **daily-fakta.yml**: tambah cron **`0 3 * * *` (10:00 WIB)** selain 06:09 & 07:09. Semua → cat=trending,

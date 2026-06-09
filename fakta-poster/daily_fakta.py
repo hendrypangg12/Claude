@@ -172,7 +172,19 @@ def main() -> int:
     compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"), bg_path=p3)
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
 
-    # reel background: FOTO ASLI berita (Ken Burns) diutamakan; kalau gak ada → stok video
+    # VIDEO kejadian asli (yt-dlp dari sumber publik) — PALING diutamakan buat reel berita.
+    # Best-effort: kalau gagal (YouTube blokir CI / link gak ada) → fallback foto/stok.
+    news_vid: str | None = None
+    vurl = fakta.get("_video_url")
+    if vurl:
+        try:
+            from news_video import fetch_news_video
+            news_vid = fetch_news_video(vurl, str(out_dir), max_sec=18)
+            print(f"      ✓ VIDEO kejadian ASLI (via {fakta.get('_sumber', '?')}) — {vurl[:55]}")
+        except Exception as exc:
+            print(f"      (download video berita gagal: {exc}) → fallback foto/stok")
+
+    # prioritas reel: video asli > foto asli (Ken Burns) > stok video
     reel_bg = video_paths
     if hero:
         try:
@@ -182,6 +194,8 @@ def main() -> int:
             print("      reel pakai FOTO ASLI berita (zoom pelan)")
         except Exception as exc:
             print(f"      (bikin klip dari foto berita gagal: {exc}) → stok video")
+    if news_vid:
+        reel_bg = [news_vid]
 
     if reel_bg:
         print("      Composing reel...")
@@ -196,12 +210,18 @@ def main() -> int:
             render_reel(reel_bg, main_ov, fact_ov, str(out_dir / "reel.mp4"),
                         seg=10, max_segments=2, fact_at=1.5,
                         detail_png=detail_ov, detail_at=10, music=music)
+            # caption khusus reel = caption + KREDIT video (kalau pakai footage asli) + kredit musik
+            extra = []
+            if news_vid and fakta.get("_sumber"):
+                extra.append(f"🎥 Video: via {fakta['_sumber']}")
             if music:
-                # caption khusus reel = caption + kredit musik (carousel pakai caption.txt biasa)
+                extra.append(_music_credit(music))
+            if extra:
                 (out_dir / "caption_reel.txt").write_text(
-                    fakta["caption"] + "\n\n" + _music_credit(music), encoding="utf-8")
-            tag = f", musik: {Path(music).name}" if music else ", senyap (folder music/ kosong)"
-            print(f"      → reel.mp4 (20s, slide-2 di detik 10{tag})")
+                    fakta["caption"] + "\n\n" + "\n".join(extra), encoding="utf-8")
+            src_tag = "VIDEO asli" if news_vid else ("FOTO asli" if hero else "stok")
+            tag = f", musik: {Path(music).name}" if music else ", senyap"
+            print(f"      → reel.mp4 (20s, bg: {src_tag}{tag})")
         except Exception as exc:
             print(f"      (reel gagal: {exc})")
 
@@ -215,6 +235,7 @@ def main() -> int:
         "sumber": fakta.get("_sumber", ""),
         "tanggal_berita": fakta.get("_published", ""),
         "foto_asli": bool(hero),
+        "video_asli": bool(news_vid),
     }
     (out_dir / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
