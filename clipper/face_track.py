@@ -27,6 +27,7 @@ def track_face(source: Path, start: float, end: float, sample_fps: float = 4.0) 
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     src_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
     src_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 0
 
     track, last_frac = [], 0.5
     step = 1.0 / max(1.0, sample_fps)
@@ -48,7 +49,20 @@ def track_face(source: Path, start: float, end: float, sample_fps: float = 4.0) 
         t += step
     cap.release()
 
-    return {"src_w": src_w, "src_h": src_h, "track": _smooth(track)}
+    return {"src_w": src_w, "src_h": src_h,
+            "fps": int(round(fps)) if fps else 0, "track": _smooth(track)}
+
+
+def video_fps(source) -> int:
+    """Best-effort source fps (default 30) without a full face track."""
+    try:
+        import cv2
+    except Exception:
+        return 30
+    cap = cv2.VideoCapture(str(source))
+    fps = cap.get(cv2.CAP_PROP_FPS) if cap.isOpened() else 0
+    cap.release()
+    return int(round(fps)) if fps and fps > 0 else 30
 
 
 def _smooth(track: list, win: int = 6, max_step: float = 0.035) -> list:
