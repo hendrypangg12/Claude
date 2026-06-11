@@ -26,7 +26,7 @@ import sys
 import time
 from pathlib import Path
 
-from instagram_uploader import publish_carousel, publish_reel
+from instagram_uploader import publish_carousel, publish_reel, publish_story
 
 
 def _load_accounts() -> list[dict]:
@@ -75,6 +75,21 @@ def _publish_one(acc: dict, pub: Path, raw: str, mode: str, caption: str) -> lis
         rid = publish_reel(ig_id, token, f"{raw}/reel.mp4", reel_caption, cover_url=cover)
         print(f"  [{name}] ✅ reel id: {rid}")
         posted.append(("reel", rid))
+    # STORY: tiap auto-post, share juga ke Story (reel 9:16 kalau ada, else cover).
+    # Non-fatal: kalau story gagal, feed tetap ke-post. Matiin via POST_STORY=false.
+    if os.environ.get("POST_STORY", "true").strip().lower() == "true":
+        try:
+            if (pub / "reel.mp4").exists():
+                sid = publish_story(ig_id, token, video_url=f"{raw}/reel.mp4")
+            elif (pub / "post_1.jpg").exists():
+                sid = publish_story(ig_id, token, image_url=f"{raw}/post_1.jpg")
+            else:
+                sid = None
+            if sid:
+                print(f"  [{name}] ✅ story id: {sid}")
+                posted.append(("story", sid))
+        except Exception as exc:
+            print(f"  [{name}] (story gagal: {exc}) — feed tetap ke-post")
     return posted
 
 
