@@ -185,10 +185,10 @@ function renderGenPanel(c){
       <div class="row">
         <div><label class="fl">Kategori</label><select id="genCat">${c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
         <div><label class="fl">Aksi</label><select id="genMode">
+          <option value="both">Generate + Post (feed+reel+story)</option>
+          <option value="carousel">Generate + Post carousel aja</option>
+          <option value="reel">Generate + Post reel aja</option>
           <option value="none">Preview aja (nggak post)</option>
-          <option value="carousel">Generate + Post carousel</option>
-          <option value="reel">Generate + Post reel</option>
-          <option value="both">Generate + Post dua-duanya</option>
         </select></div>
       </div>
       <div><label class="fl">Topik spesifik (opsional)</label><input class="tx" id="genTopic" placeholder="kosongin = AI pilih topik hangat"></div>
