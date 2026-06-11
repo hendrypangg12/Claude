@@ -262,7 +262,12 @@ async function generate(){
     const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${c.wf}/dispatches`,{
       method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs })
     });
-    if(r.status===204){ btn.disabled=false; trackWf(c.wf, since, document.getElementById("genMsg"), "gen"); }
+    if(r.status===204){
+      // anti double-tap: tombol tetap mati ~90 detik biar gak ke-trigger 2x (1 generate = 1 post)
+      btn.textContent="⏳ Lagi generate… (jangan tap lagi)";
+      trackWf(c.wf, since, document.getElementById("genMsg"), "gen");
+      setTimeout(()=>{ btn.disabled=false; btn.textContent="⚡ Generate sekarang"; }, 90000);
+    }
     else {
       const t=await r.text();
       msg.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token salah/kurang izin (butuh <b>Actions: Read & write</b>). Tap ⚙️ perbarui token.":esc(t.slice(0,160))}`;
