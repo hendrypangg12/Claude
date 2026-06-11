@@ -187,8 +187,10 @@ def main() -> int:
     p1, p2, p3 = _slide_bg(0), _slide_bg(1), _slide_bg(2)
 
     print("[2/3] Composing carousel...")
-    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=p1)
-    compose_fact(fakta["fact"], fakta["detail"], str(out_dir / "post_2.jpg"), bg_path=p2)
+    src = fakta.get("_sumber") or None
+    compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=p1,
+                  highlight=fakta.get("highlight"), source=src)
+    compose_fact(fakta["fact"], fakta["detail"], str(out_dir / "post_2.jpg"), bg_path=p2, source=src)
     compose_outro(fakta["takeaway"], str(out_dir / "post_3.jpg"), bg_path=p3)
     (out_dir / "caption.txt").write_text(fakta["caption"], encoding="utf-8")
 

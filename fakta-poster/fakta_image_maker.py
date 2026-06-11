@@ -27,6 +27,9 @@ CYAN_INK = (8, 16, 22)        # text on cyan
 WHITE = (244, 246, 251)
 MUTED = (164, 162, 196)
 FAINT = (120, 120, 158)
+# ---- palet BERSIH (gaya fakta.indo): emas + putih ----
+GOLD = (255, 214, 0)
+INK_GOLD = (18, 16, 12)        # text di atas emas
 
 NICHE_LABELS = {
     "sains": "SAINS",
@@ -253,116 +256,173 @@ def _save(canvas, out_path) -> str:
 
 # --------------------------------------------------------------------------
 
-def compose_cover(hook, category, out_path, bg_path=None) -> str:
-    if bg_path:
-        try:
-            canvas = _photo_bg(bg_path, base=0.12)
-        except Exception:
-            canvas = _bg()
-    else:
-        canvas = _bg()
-    draw = ImageDraw.Draw(canvas, "RGBA")
-    _brand_chip(draw)
-    _dots(draw, 0)
+# ===== GAYA BERSIH (ala fakta.indo): foto dominan + judul minimal kuning+putih =====
 
-    kf = _font("extrabold", 40)
-    hf = _font("extrabold", 64)
-    max_w = R - 2 * s(PAD)
-    lines = _wrap(hook, hf, max_w)
-    line_h = int(hf.size * 1.06)
-    block_h = line_h * len(lines)
+def _photo_cover(path: str) -> Image.Image:
+    """Foto full-bleed ke square, boost tipis. TANPA scrim berat (biar foto dominan)."""
+    img = Image.open(path).convert("RGB")
+    img = ImageOps.exif_transpose(img)
+    img = ImageOps.fit(img, (R, R), method=Image.LANCZOS, centering=(0.5, 0.38))
+    img = ImageEnhance.Color(img).enhance(1.05)
+    img = ImageEnhance.Contrast(img).enhance(1.03)
+    return img.convert("RGB")
 
-    # vertically center the lower content block
-    start = (R - block_h) // 2 - s(20)
-    label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
-    cat_h = _category_pill(draw, label, s(PAD), start - s(150))
-    _tracked(draw, (s(PAD), start - s(150) + cat_h + s(26)), "TAU GAK SIH?", kf, WHITE, 1)
 
-    y = start
+def _grad(canvas, *, bottom=0.0, top=0.0) -> Image.Image:
+    """Tambah gradasi gelap di bawah (`bottom` start-frac) &/atau atas (`top` end-frac)."""
+    a = Image.new("L", (1, R), 0)
+    px = a.load()
+    for y in range(R):
+        t = y / (R - 1)
+        v = 0.0
+        if bottom and t >= bottom:
+            v = max(v, ((t - bottom) / (1 - bottom)) ** 1.25 * 0.94)
+        if top and t <= top:
+            v = max(v, (1 - t / top) ** 1.1 * 0.5)
+        px[0, y] = int(255 * min(v, 0.95))
+    dark = Image.new("RGB", (R, R), (8, 9, 12))
+    return Image.composite(dark, canvas.convert("RGB"), a.resize((R, R)))
+
+
+def _brand_chip_gold(draw, x=PAD, y=PAD) -> None:
+    f = _font("extrabold", 26)
+    tw = f.getlength(BRAND_TEXT)
+    px, py = s(18), s(11)
+    draw.rounded_rectangle([s(x), s(y), s(x) + tw + 2 * px, s(y) + f.size + 2 * py],
+                           radius=s(10), fill=GOLD)
+    draw.text((s(x) + px, s(y) + py - s(4)), BRAND_TEXT, font=f, fill=INK_GOLD)
+
+
+def _watermark(draw) -> None:
+    f = _font("extrabold", 28)
+    draw.text((R - s(PAD) - f.getlength(HANDLE), R - s(PAD) - f.size), HANDLE,
+              font=f, fill=(255, 255, 255, 205))
+
+
+def _split_hl(hook, highlight=None):
+    """(teks_kuning, teks_putih). Pakai `highlight` kalau ada di hook; else heuristik:
+    potong di koma pertama, atau ~45% kata pertama jadi kuning (ala fakta.indo)."""
+    h = (hook or "").strip()
+    if highlight and highlight.strip() and highlight.strip().lower() in h.lower():
+        j = h.lower().index(highlight.strip().lower()) + len(highlight.strip())
+        return h[:j].strip(), h[j:].strip()
+    if "," in h[:len(h) - 1]:
+        i = h.index(",")
+        return h[:i + 1].strip(), h[i + 1:].strip()
+    w = h.split()
+    k = max(1, round(len(w) * 0.45))
+    return " ".join(w[:k]), " ".join(w[k:])
+
+
+def _headline(draw, yellow, white, font, bottom_y, max_w, lh) -> int:
+    """Judul 2 warna (kuning+putih), wrap, anchor BAWAH. Return tinggi blok."""
+    words = [(w, GOLD) for w in yellow.split()] + [(w, WHITE) for w in white.split()]
+    sp = font.getlength(" ")
+    lines, cur, cw = [], [], 0
+    for w, c in words:
+        ww = font.getlength(w)
+        if cur and cw + sp + ww > max_w:
+            lines.append(cur); cur, cw = [], 0
+        cur.append((w, c)); cw += (sp if cw else 0) + ww
+    if cur:
+        lines.append(cur)
+    y = bottom_y - len(lines) * lh
     for ln in lines:
-        draw.text((s(PAD), y), ln, font=hf, fill=WHITE)
-        y += line_h
+        x = s(PAD)
+        for w, c in ln:
+            draw.text((x, y), w, font=font, fill=c)
+            x += font.getlength(w) + sp
+        y += lh
+    return len(lines) * lh
 
-    swf = _font("semibold", 24)
-    _swipe(draw, swf, R - s(PAD) - swf.size)
+
+def compose_cover(hook, category, out_path, bg_path=None, highlight=None, source=None) -> str:
+    try:
+        canvas = _photo_cover(bg_path) if bg_path else _bg()
+    except Exception:
+        canvas = _bg()
+    canvas = _grad(canvas, bottom=0.40, top=0.24)
+    draw = ImageDraw.Draw(canvas, "RGBA")
+    _brand_chip_gold(draw)
+    hf = _font("extrabold", 66)
+    lh = int(hf.size * 1.08)
+    yellow, white = _split_hl(hook, highlight)
+    bottom = R - s(155)
+    hh = _headline(draw, yellow, white, hf, bottom, R - 2 * s(PAD), lh)
+    if source:
+        sf = _font("medium", 28)
+        draw.text((s(PAD), bottom - hh - s(50)), f"Sumber: {source}", font=sf, fill=(210, 212, 218))
+    _watermark(draw)
     return _save(canvas, out_path)
 
 
-def compose_fact(fact, detail, out_path, bg_path=None) -> str:
-    canvas = None
+def compose_fact(fact, detail, out_path, bg_path=None, source=None) -> str:
+    """Slide isi: foto di ATAS, teks paragraf di bawah (panel gelap). Ala fakta.indo."""
+    photo_h = int(R * 0.50)
+    canvas = Image.new("RGB", (R, R), (13, 14, 17))
     if bg_path:
         try:
-            canvas = _photo_bg(bg_path, base=0.55)
+            img = ImageOps.exif_transpose(Image.open(bg_path).convert("RGB"))
+            img = ImageOps.fit(img, (R, photo_h + s(60)), method=Image.LANCZOS, centering=(0.5, 0.4))
+            canvas.paste(img, (0, 0))
+            # fade foto -> panel
+            a = Image.new("L", (1, R), 0); px = a.load()
+            for y in range(R):
+                px[0, y] = 0 if y < photo_h - s(80) else min(255, int(255 * (y - (photo_h - s(80))) / s(140)))
+            canvas = Image.composite(Image.new("RGB", (R, R), (13, 14, 17)), canvas, a.resize((R, R)))
         except Exception:
-            canvas = None
-    if canvas is None:
-        canvas = _bg()
+            pass
     draw = ImageDraw.Draw(canvas, "RGBA")
-    _brand_chip(draw)
-    _dots(draw, 1)
-
-    tf = _font("extrabold", 48)
-    ty = s(210)
-    draw.text((s(PAD), ty), "FAKTANYA", font=tf, fill=CYAN)
-    uw = tf.getlength("FAKTANYA")
-    uy = ty + tf.size + s(12)
-    draw.rounded_rectangle([s(PAD), uy, s(PAD) + uw, uy + s(9)], radius=s(4), fill=CYAN)
-
-    ff = _font("semibold", 44)
-    df = _font("medium", 34)
-    detail_col = (216, 222, 240) if bg_path else MUTED
-    max_w = R - 2 * s(PAD)
-
-    y = uy + s(60)
-    for ln in _wrap(fact, ff, max_w):
-        draw.text((s(PAD), y), ln, font=ff, fill=WHITE)
-        y += int(ff.size * 1.2)
-
-    if detail:
-        y += s(26)
-        for ln in _wrap(detail, df, max_w):
-            draw.text((s(PAD), y), ln, font=df, fill=detail_col)
-            y += int(df.size * 1.32)
-
-    swf = _font("semibold", 24)
-    _swipe(draw, swf, R - s(PAD) - swf.size)
+    _brand_chip_gold(draw)
+    top = photo_h + s(78)
+    draw.rectangle([s(PAD), top, s(PAD) + s(92), top + s(8)], fill=GOLD)  # aksen emas
+    top += s(38)
+    # auto-fit biar teks gak mentok bawah
+    bottom_lim = R - s(120)
+    for fs in (48, 45, 42, 39, 36, 33):
+        ff = _font("semibold", fs); df = _font("medium", int(fs * 0.76))
+        flh = int(ff.size * 1.22); dlh = int(df.size * 1.34)
+        flines = _wrap(fact, ff, R - 2 * s(PAD))
+        dlines = _wrap(detail, df, R - 2 * s(PAD)) if detail else []
+        h = len(flines) * flh + (s(24) + len(dlines) * dlh if dlines else 0)
+        if top + h <= bottom_lim:
+            break
+    y = top
+    for ln in flines:
+        draw.text((s(PAD), y), ln, font=ff, fill=WHITE); y += flh
+    if dlines:
+        y += s(24)
+        for ln in dlines:
+            draw.text((s(PAD), y), ln, font=df, fill=(202, 204, 212)); y += dlh
+    if source:
+        cf = _font("medium", 26)
+        draw.text((s(PAD), R - s(PAD) - cf.size), f"Sumber: {source}", font=cf, fill=(150, 152, 160))
+    _watermark(draw)
     return _save(canvas, out_path)
 
 
 def compose_outro(takeaway, out_path, bg_path=None) -> str:
-    canvas = None
-    if bg_path:
-        try:
-            canvas = _photo_bg(bg_path, base=0.55)
-        except Exception:
-            canvas = None
-    if canvas is None:
+    try:
+        canvas = _photo_cover(bg_path) if bg_path else _bg()
+    except Exception:
         canvas = _bg()
+    canvas = _grad(canvas, bottom=0.28, top=0.20)
     draw = ImageDraw.Draw(canvas, "RGBA")
-    _brand_chip(draw)
-    _dots(draw, 2)
-
-    _sparkle(draw, s(PAD) + s(40), s(250), s(48), CYAN)
-    _sparkle(draw, s(PAD) + s(104), s(212), s(22), WHITE)
-
-    tf = _font("semibold", 48)
-    max_w = R - 2 * s(PAD)
-    y = s(360)
-    for ln in _wrap(takeaway or "Sekarang kamu tau hal baru hari ini.", tf, max_w):
-        draw.text((s(PAD), y), ln, font=tf, fill=WHITE)
-        y += int(tf.size * 1.2)
-
-    # CTA
-    cf = _font("bold", 30)
-    subf = _font("medium", 24)
-    sub_y = R - s(PAD) - subf.size - s(4)
-    px, py = s(26), s(16)
-    pill_h = cf.size + 2 * py
-    pill_y = sub_y - s(22) - pill_h
+    _brand_chip_gold(draw)
+    cf = _font("bold", 40)
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
+    px, py = s(30), s(18)
+    pill_h = cf.size + 2 * py
+    pill_y = R - s(150) - pill_h
+    tf = _font("semibold", 50)
+    lh = int(tf.size * 1.2)
+    lines = _wrap(takeaway or "Pantau terus update terbaru di sini.", tf, R - 2 * s(PAD))
+    bottom = pill_y - s(54)
+    y = bottom - len(lines) * lh
+    for ln in lines:
+        draw.text((s(PAD), y), ln, font=tf, fill=WHITE); y += lh
     draw.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px, pill_y + pill_h],
-                           radius=s(14), fill=CYAN)
-    draw.text((s(PAD) + px, pill_y + py - s(4)), ct, font=cf, fill=CYAN_INK)
-    draw.text((s(PAD), sub_y), "1 fakta unik tiap hari", font=subf, fill=MUTED)
+                           radius=s(16), fill=GOLD)
+    draw.text((s(PAD) + px, pill_y + py - s(5)), ct, font=cf, fill=INK_GOLD)
     return _save(canvas, out_path)
