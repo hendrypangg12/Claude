@@ -75,25 +75,12 @@
   <div class="tabs">
     <div class="tab active" data-brand="faktaviral" onclick="setTab('faktaviral')">🪐 Fakta Viral</div>
     <div class="tab" data-brand="beruang" onclick="setTab('beruang')">🐻 Beruang</div>
+    <div class="tab" data-brand="clipper" onclick="setTab('clipper')">🎬 Clipper</div>
   </div>
   <div class="status" id="status"><span class="dot"></span> memuat…</div>
 </header>
 <main>
-  <div class="gen">
-    <h3>⚡ Generate konten baru</h3>
-    <div class="row">
-      <div><label class="fl">Kategori</label><select id="genCat"></select></div>
-      <div><label class="fl">Aksi</label><select id="genMode">
-        <option value="both">Generate + Post (feed+reel+story)</option>
-        <option value="carousel">Generate + Post carousel aja</option>
-        <option value="reel">Generate + Post reel aja</option>
-        <option value="none">Preview aja (nggak post)</option>
-      </select></div>
-    </div>
-    <div><label class="fl">Topik spesifik (opsional)</label><input class="tx" id="genTopic" placeholder="kosongin = AI pilih topik hangat"></div>
-    <button class="genbtn" id="genBtn" onclick="generate()">⚡ Generate sekarang</button>
-    <div class="genmsg" id="genMsg"></div>
-  </div>
+  <div class="gen" id="genPanel"></div>
   <div class="grid" id="grid"><div class="loading" id="loading">Memuat konten…</div></div>
 </main>
 
@@ -129,8 +116,9 @@ const FV_CATS=[["","🎲 Bebas (AI pilih)"],["trending","🔥 Lagi Viral (terver
   ["bangunan","🏗️ Bangunan Megah"],["militer","🪖 Militer & Perang"]];
 const BF_CATS=[["","🎲 Bebas (AI pilih)"],["tips","💡 Tips Keuangan"],["berita","📰 Berita Keuangan"],["lucu","😂 Lucu/Relatable"]];
 const BRANDS={
-  faktaviral:{ base:`${RAW}/fakta-poster/published`, manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a", wf:"daily-fakta.yml", catKey:"category", cats:FV_CATS },
-  beruang:{ base:`${RAW}/beruang-finance/published`, manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
+  faktaviral:{ kind:"content", base:`${RAW}/fakta-poster/published`, path:"docs/faktaviral-manifest.json", manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a", wf:"daily-fakta.yml", catKey:"category", cats:FV_CATS },
+  beruang:{ kind:"content", base:`${RAW}/beruang-finance/published`, path:"docs/beruang-manifest.json", manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
+  clipper:{ kind:"clipper", path:"docs/clipper-manifest.json", manifest:`${RAW}/docs/clipper-manifest.json`, accent:"#ffc400", ink:"#0f121a", wf:"clipper.yml" },
 };
 let brand="faktaviral", cache={}, sigs={};
 const pat=()=>localStorage.getItem("gh_pat")||"";
@@ -140,13 +128,77 @@ function setTab(b){
   brand=b;
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.brand===b));
   const c=BRANDS[b]; document.documentElement.style.setProperty("--accent",c.accent); document.documentElement.style.setProperty("--ink",c.ink);
-  document.getElementById("genCat").innerHTML=c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
-  document.getElementById("genMsg").textContent="";
+  renderGenPanel(c);
   load(true);   // fetch ulang manifest brand ini (jangan tampilin konten brand lain)
+}
+function renderGenPanel(c){
+  const el=document.getElementById("genPanel");
+  if(c.kind==="clipper"){
+    el.innerHTML=`<h3>🎬 Bikin clip viral dari 1 link</h3>
+      <div><label class="fl">Link video (YouTube / TikTok / Instagram / X)</label><input class="tx" id="clipUrl" placeholder="tempel link di sini…"></div>
+      <div style="margin-top:10px"><label class="fl">Mode</label><select id="clipMode" onchange="var f=this.value==='full';document.getElementById('clipOpts').style.display=f?'none':'block';document.getElementById('clipFullWrap').style.display=f?'block':'none'">
+        <option value="viral">Viral — AI potong momen + edit lengkap</option>
+        <option value="full">Download utuh — 1 klip video penuh</option>
+      </select></div>
+      <div id="clipFullWrap" style="display:none">
+        <div style="margin-top:10px"><label class="fl">Gaya (mode full)</label><select id="clipStyle" onchange="document.getElementById('clipHookRow').style.display=this.value==='tag_hook'?'block':'none'">
+          <option value="tag_hook">Tag FAKTAVIRAL + Hook 3 detik</option>
+          <option value="tag">Tag FAKTAVIRAL aja (tanpa hook)</option>
+          <option value="raw">Murni — tanpa apa-apa (kayak blacksave)</option>
+        </select></div>
+        <div id="clipHookRow" style="margin-top:10px"><label class="fl">Judul HOOK (kosongin = AI bikinin)</label><input class="tx" id="clipHook" placeholder="mis. SEREM! QRIS bakal diganti chip di tangan"></div>
+      </div>
+      <div id="clipOpts"></div>
+      <button class="genbtn" id="genBtn" onclick="generateClip()">🎬 Potong jadi clip viral</button>
+      <div class="genmsg" id="genMsg">AI pilih momen viral → 9:16 + caption + zoom + musik. Mode "Download utuh" = 1 video penuh + tag FAKTAVIRAL.IDN. Video panjang bisa 10-20 menit.</div>`;
+    document.getElementById("clipOpts").innerHTML=`
+      <div class="row" style="margin-top:10px">
+        <div><label class="fl">Jumlah clip</label><select id="clipNum">${[2,3,4,5,6].map(n=>`<option value="${n}"${n===4?" selected":""}>${n} clip</option>`).join("")}</select></div>
+        <div><label class="fl">Bahasa</label><select id="clipLang"><option value="id">Indonesia</option><option value="en">Inggris</option><option value="auto">Auto-detect</option></select></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div><label class="fl">Caption kata-per-kata</label><select id="clipCap">
+          <option value="on">Nyala (video belum ada teks)</option>
+          <option value="off">Matikan (video ori udah ada caption)</option>
+        </select></div>
+        <div><label class="fl">Zoom ke wajah (animasi)</label><select id="clipZoom">
+          <option value="on">Nyala (zoom pas penegasan)</option>
+          <option value="off">Matikan</option>
+        </select></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div><label class="fl">Buang silence/filler</label><select id="clipTighten">
+          <option value="on">Nyala (clip padat)</option>
+          <option value="off">Matikan</option>
+        </select></div>
+        <div><label class="fl">Musik + whoosh</label><select id="clipMusic">
+          <option value="on">Nyala</option>
+          <option value="off">Matikan</option>
+        </select></div>
+        <div><label class="fl">End card + bar</label><select id="clipPolish">
+          <option value="on">Nyala</option>
+          <option value="off">Matikan</option>
+        </select></div>
+      </div>`;
+  } else {
+    el.innerHTML=`<h3>⚡ Generate konten baru</h3>
+      <div class="row">
+        <div><label class="fl">Kategori</label><select id="genCat">${c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
+        <div><label class="fl">Aksi</label><select id="genMode">
+          <option value="both">Generate + Post (feed+reel+story)</option>
+          <option value="carousel">Generate + Post carousel aja</option>
+          <option value="reel">Generate + Post reel aja</option>
+          <option value="none">Preview aja (nggak post)</option>
+        </select></div>
+      </div>
+      <div><label class="fl">Topik spesifik (opsional)</label><input class="tx" id="genTopic" placeholder="kosongin = AI pilih topik hangat"></div>
+      <button class="genbtn" id="genBtn" onclick="generate()">⚡ Generate sekarang</button>
+      <div class="genmsg" id="genMsg"></div>`;
+  }
 }
 // ambil manifest: lewat GitHub API (FRESH, bypass cache) kalau ada token; else raw (bisa lag ~menit)
 async function fetchManifest(b){
-  const path = b==="beruang" ? "docs/beruang-manifest.json" : "docs/faktaviral-manifest.json";
+  const path = BRANDS[b].path;
   if(pat()){
     try{
       const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${encodeURIComponent(BRANCH)}&_=${Date.now()}`,{headers:ghH()});
@@ -176,14 +228,25 @@ function render(){
   const c=BRANDS[brand], data=cache[brand], grid=document.getElementById("grid");
   if(!data){ return; }
   const posts=data.posts||[]; const last=posts[0];
-  document.getElementById("status").innerHTML=`<span class="dot"></span> ${posts.length} post · update: ${last?(last.date+" "+last.time):"—"}`;
-  if(!posts.length){ grid.innerHTML='<div class="empty">Belum ada konten. Klik Generate ⚡ atau tunggu jadwal.</div>'; return; }
+  document.getElementById("status").innerHTML=`<span class="dot"></span> ${posts.length} ${c.kind==="clipper"?"video":"post"} · update: ${last?(last.date+" "+last.time):"—"}`;
+  if(!posts.length){ grid.innerHTML=`<div class="empty">${c.kind==="clipper"?"Belum ada clip. Tempel link video di atas → 🎬 Potong jadi clip viral.":"Belum ada konten. Klik Generate ⚡ atau tunggu jadwal."}</div>`; return; }
+  if(c.kind==="clipper"){
+    grid.innerHTML=posts.map(p=>{
+      const first=(p.clips||[])[0]||{}; const top=Math.max(0,...(p.clips||[]).map(x=>x.score||0));
+      return `<div class="card" onclick='openClip(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
+        <div class="thumb"><video src="${first.url}#t=0.5" preload="metadata" muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <div class="badges"><span class="chip">🎬 ${(p.clips||[]).length} CLIP</span><span class="chip dark">🔥 ${top}</span></div>
+        </div>
+        <div class="meta"><div class="t">${esc(p.title)||"(tanpa judul)"}</div><div class="d">${p.date} · ${p.time}</div></div>
+      </div>`;}).join("");
+    return;
+  }
   grid.innerHTML=posts.map(p=>`
     <div class="card" onclick='openPost(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
       <div class="thumb"><img loading="lazy" src="${c.base}/${p.id}/post_1.jpg" onerror="this.style.opacity=.2">
         <div class="badges"><span class="chip">${p.label||"POST"}</span><span class="chip dark">${p.reel?"🎬":"🖼️"+p.slides}</span></div>
       </div>
-      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}${p.tanggal_berita?` · 🕒 berita: ${esc(p.tanggal_berita)}`:""}</div></div>
+      <div class="meta"><div class="t">${esc(p.title)}</div><div class="d">${p.date} · ${p.time}</div></div>
     </div>`).join("");
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -252,6 +315,40 @@ async function postIG(mode){
     else { const t=await r.text(); el.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token kurang izin (Actions: Read & write).":esc(t.slice(0,140))}`; }
   }catch(e){ el.innerHTML="❌ Error: "+esc(e.message); }
 }
+async function generateClip(){
+  const msg=document.getElementById("genMsg"), btn=document.getElementById("genBtn");
+  if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
+  const url=document.getElementById("clipUrl").value.trim();
+  if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
+  const inputs={ url, mode:document.getElementById("clipMode").value, full_style:(document.getElementById("clipStyle")||{}).value||"tag_hook", hook:(document.getElementById("clipHook")||{}).value||"", num_clips:document.getElementById("clipNum").value, language:document.getElementById("clipLang").value, caption:document.getElementById("clipCap").value, zoom:document.getElementById("clipZoom").value, tighten:document.getElementById("clipTighten").value, music:document.getElementById("clipMusic").value, polish:document.getElementById("clipPolish").value, brand:"FAKTAVIRAL.IDN" };
+  btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
+  const since=Date.now();
+  try{
+    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/clipper.yml/dispatches`,{
+      method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs })
+    });
+    if(r.status===204){ btn.disabled=false; trackWf("clipper.yml", since, msg, "gen"); }
+    else { const t=await r.text(); msg.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token salah/kurang izin (butuh <b>Actions: Read & write</b>). Tap ⚙️.":esc(t.slice(0,160))}`; btn.disabled=false; }
+  }catch(e){ msg.innerHTML="❌ Error jaringan: "+esc(e.message); btn.disabled=false; }
+}
+function openClip(p){
+  document.getElementById("ovti").textContent=`🎬 ${(p.clips||[]).length} clip · ${p.date} ${p.time}`;
+  const clips=(p.clips||[]).map((c,i)=>`
+    <div style="margin-bottom:22px">
+      <video src="${c.url}" controls playsinline style="width:100%;border-radius:14px;background:#0a0918;aspect-ratio:9/16;max-height:70vh"></video>
+      <div class="h2">🔥 ${c.score||0} · ${esc(c.title)||esc(c.hook)}</div>
+      <div class="sub">${c.start!=null?Math.round(c.end-c.start)+"s":""} · ${esc(c.hook)}</div>
+      <div class="cap" id="clipcap-${i}">${esc(c.caption)}</div>
+      <div class="btnrow">
+        <button class="btn ghost" onclick="copyText('clipcap-${i}')">📋 Salin caption</button>
+        <a class="btn" href="${c.url}" download target="_blank">⬇️ Download clip</a>
+      </div>
+    </div>`).join("");
+  document.getElementById("ovbody").innerHTML=
+    `<div class="sub" style="margin:0 2px 14px">Dari: ${esc(p.title)||"(tanpa judul)"}<br>${esc(p.source_url||"")}</div>${clips}`;
+  document.getElementById("ov").classList.add("open");
+}
+function copyText(id){ navigator.clipboard.writeText(document.getElementById(id).innerText||"").then(toast); }
 async function openPost(p){
   const c=BRANDS[brand], body=document.getElementById("ovbody");
   document.getElementById("ovti").textContent=`${p.label||""} · ${p.date} ${p.time}`;
@@ -260,7 +357,7 @@ async function openPost(p){
   let dl=""; for(let i=1;i<=p.slides;i++) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/post_${i}.jpg" download target="_blank">⬇️ Slide ${i}</a>`;
   if(p.reel) dl+=`<a class="btn ghost" href="${c.base}/${p.id}/reel.mp4" download target="_blank">⬇️ Reel</a>`;
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
-    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}${p.tanggal_berita?` · 🕒 berita terbit: ${esc(p.tanggal_berita)}`:""}${p.sumber?` · 📰 ${esc(p.sumber)}`:""}</div>
+    <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
     <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post Carousel ke IG</button>
       ${p.reel?`<button class="btn" onclick="postIG('reel')">📤 Post Reel ke IG</button>`:''}</div>
