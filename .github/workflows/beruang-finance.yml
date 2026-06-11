@@ -4,6 +4,11 @@ name: Beruang Finance (auto-post)
 # Auto-post ke IG @beruangfinance (pakai secret IG_USER_ID_BF / IG_ACCESS_TOKEN_BF).
 # Jadwal SENGAJA beda jam dari faktaviral biar gak nabrakan.
 
+# Antri sama daily-fakta (grup sama) → 2 workflow GAK jalan barengan = hindari rate limit Anthropic 429.
+concurrency:
+  group: ig-content-gen
+  cancel-in-progress: false
+
 on:
   schedule:
     # WIB = UTC+7. 5 slot/hari, jam beda dari Daily Fakta. Menit :17 (hindari jam bulat).

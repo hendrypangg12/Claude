@@ -4,6 +4,11 @@ name: Daily Fakta (semi-manual)
 # → di-commit ke dashboard buat di-REVIEW & post MANUAL. TIDAK auto-post (mode=none).
 # Bisa juga di-Generate on-demand dari dashboard (pilih kategori + mau post atau preview).
 
+# Antri sama beruang-finance (grup sama) → 2 workflow GAK jalan barengan = hindari rate limit Anthropic 429.
+concurrency:
+  group: ig-content-gen
+  cancel-in-progress: false
+
 on:
   # AUTO-POST faktaviral (berita trending) — carousel + reel, 3x/hari WIB.
   schedule:
