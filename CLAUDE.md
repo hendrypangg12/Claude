@@ -215,10 +215,38 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - ⚠️ DITOLAK (konsisten): repost daftar 24 nama "pejabat terseret BAP MBG" dari akun lain (cuma 3 resmi tersangka:
   Dadan Hindayana, Sony Sonjaya, Lodewyk Pusung; sisanya BELUM tersangka → UU ITE/pencemaran). Tawarin versi aman.
 
-### TODO 11 Juni
-- Tes auto-post BERUANG (manual run beruang-finance.yml) → kalau ✅, baru setup Facebook Pages.
-- (Opsional) matiin/silence step "Publish ke Facebook" di daily-fakta biar run gak nampilin "1 error" palsu.
-- Rate limit Anthropic 429 (tier 30k token/menit) → jangan generate beruntun; auto-retry max_retries=6 udah dipasang.
+### 11 Juni (lanjutan malam) — BERUANG LIVE + banyak polish
+- **Beruang auto-post DITES SUKSES** (run #23 dari dashboard): `Publish ke Instagram (@beruangfinance) ✅`.
+  IG ID beruang = `17841473550306699`, faktaviral = `17841431673727855`. 1 token permanen dipakai 2 akun.
+- **Jadwal faktaviral DIROMBAK** (owner minta): 6 slot/hari, cron UTC=WIB-7:
+  07:17 reel · 08:17 carousel · 12:11 reel · **16:11 EVERGREEN reel** · 18:00 carousel · **21:00 EVERGREEN carousel**.
+  Evergreen = `cat=""` (Bebas, no web_search → murah ~Rp300). Trending ~Rp2rb/post (web_search). Resolver di `daily-fakta.yml`.
+- **Anti rate-limit 429**: `concurrency: {group: ig-content-gen, cancel-in-progress: false}` di KEDUA workflow →
+  faktaviral & beruang GAK jalan barengan (antri). Plus `max_retries=6` di semua Anthropic client.
+- **Foto ASLI berita di SEMUA slide** (bukan cuma slide 1): `daily_fakta.py` ambil banyak og:image dari `_source_urls`
+  (`_og_image`) → `hero_imgs[]`, tiap slide pakai foto asli (variasi kalau >1 sumber, else diulang). Stok cuma fallback.
+- **Dashboard** (`docs/dashboard.html`, versi LIVE di halo = genPanel DINAMIS, bukan static): default Aksi diubah jadi
+  **"Generate + Post (feed+reel+story)"** (dulu "Preview" → makanya konten dari dashboard "gak ke-post"). Plus
+  **anti double-tap** (tombol mati 90s) → cegah 1 generate jadi 2 post.
+- **Auto-story DIMATIIN** (`POST_STORY: "false"` di 2 workflow). Alasan: owner mau story = "Add post to story" yang
+  CLICKABLE ke postingan, TAPI **IG API gak bisa** repost-feed-ke-story clickable (cuma manual di app). Fungsi
+  `publish_story` (image/video) tetap ada di `instagram_uploader.py`/`publish_ig.py` tinggal nyalain `POST_STORY=true`.
+- **Prompt caching** dipasang di loop web_search (`fakta_news.py`): `cache_control={"type":"ephemeral"}` (automatic),
+  fallback `use_cache=False` kalau SDK lama (TypeError). Manfaat MODEST (cuma loop pause_turn; jadwal jarak jam → cache expired antar-run).
+- **Konten kontroversial DITOLAK lagi**: daftar 24 nama BAP MBG + reframe "nama disebut Sony JC" → tetap UU ITE. Owner
+  setuju "viral yang penting" TAPI stance nama-pribadi/defamasi tetap ditolak. Owner sadar konten sensitif (kekerasan
+  anak dll) auto-post trending = risiko, pilih lanjut.
+
+### Biaya API (info ke owner)
+- Cuma **Anthropic** yang bayar (Pexels/NewsAPI/GitHub/IG-FB gratis). Sonnet 4.6: $3/1jt input, $15/1jt output;
+  web_search ~$10/1000 search. Per generate: faktaviral ~$0.10-0.15, beruang ~$0.02. Jadwal sekarang ~$0.80/hari ≈ ~$25/bln.
+- **Saldo 11 Juni: $10.33** (auto-reload MASIH MATI → owner disuruh nyalain biar gak berhenti mendadak; spend bulan ini $7.05).
+
+### TODO lanjutan
+- Facebook Pages auto-post masih GAGAL (#200 pages_manage_posts gak ada di app) → perlu App Review Meta. Step FB
+  `continue-on-error` jadi tiap run nampil "1 error" palsu (IG tetep sukses). Bisa di-silence/matiin kalau owner mau.
+- Owner perlu NYALAIN auto-reload Anthropic + (opsional) top-up biar auto-post gak berhenti pas saldo habis (~24 Juni).
+- Story clickable = manual ("Add post to story" di app) tiap abis post.
 
 ## Snake game
 

@@ -314,11 +314,16 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
     messages = [{"role": "user", "content": user}]
 
     final_text = ""
-    for _ in range(6):  # batasi loop pause_turn
+    use_cache = True  # prompt caching otomatis: hasil web_search (gede) di-cache → putaran ulang bayar 10%
+    for _ in range(7):  # batasi loop pause_turn
+        kw = dict(model=MODEL, max_tokens=1200, system=SYSTEM, tools=tools, messages=messages)
+        if use_cache:
+            kw["cache_control"] = {"type": "ephemeral"}
         try:
-            resp = client.messages.create(
-                model=MODEL, max_tokens=1200, system=SYSTEM, tools=tools, messages=messages,
-            )
+            resp = client.messages.create(**kw)
+        except TypeError:
+            use_cache = False  # SDK lama gak support cache_control → ulang tanpa cache
+            continue
         except Exception as exc:
             raise RuntimeError(f"web_search call gagal: {exc}")
         # kumpulkan teks dari block terakhir
