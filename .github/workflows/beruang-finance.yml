@@ -133,6 +133,7 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID_BF }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_BF }}
           POST_MODE: ${{ github.event.inputs.post_mode || steps.slot.outputs.mode }}
+          POST_STORY: "false"   # auto-story dimatiin — 'Add to story' manual biar bisa diklik ke postingan
           PUB_DIR: ${{ github.workspace }}/beruang-finance/published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/beruang-finance/published/${{ env.TS }}
 
