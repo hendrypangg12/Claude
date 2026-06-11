@@ -248,6 +248,22 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - Owner perlu NYALAIN auto-reload Anthropic + (opsional) top-up biar auto-post gak berhenti pas saldo habis (~24 Juni).
 - Story clickable = manual ("Add post to story" di app) tiap abis post.
 
+### 12 Juni — REDESAIN BERSIH + video dari situs berita
+- **Carousel DIREDESAIN** ke gaya BERSIH ala @fakta.indo / @indo_psikologi (owner mau "rapih, ga lebay"):
+  `fakta_image_maker.py` compose_cover/fact/outro ditulis ulang. Cover = **foto full-bleed + judul KUNING+PUTIH**
+  (kata kunci kuning, sisanya putih, helper `_split_hl` heuristik potong di koma/45% kata; bisa di-override field
+  `highlight` dari generator nanti) + kredit "Sumber: X" + watermark `faktaviral.idn` + chip emas `FAKTAVIRAL`.
+  Slide isi = **foto atas + panel gelap teks bawah** (auto-fit). Outro = takeaway + pill "Follow" emas. Palet baru
+  `GOLD=(255,214,0)`. BUANG cosmic/bintang/"TAU GAK SIH?"/dots/cyan. `daily_fakta.py` passing `source=_sumber`.
+- **VIDEO ASLI dari situs berita (bukan YouTube)**: penemuan penting — Kompas/Detik dll sering host **MP4 langsung**
+  di CDN (mis. `assets-studiohub.kompas.com/.../*.mp4`) → bisa di-download via `requests` BIASA (gak kena bot-block
+  YouTube, gak butuh cookies!). Probe og:video/twitter:player:stream/.mp4/.m3u8 di halaman artikel. DEMO sukses:
+  reel konpers Shin Tae-yong (video Kompas + overlay bersih 9:16 blur-fill + kredit "Video: Kompas TV"). **BELUM
+  diintegrasi ke auto-pipeline** (TODO: web_search/og kasih video_url situs berita → download → reel).
+- **YouTube auto-download = GAGAL** di server (SSL proxy lokal + "confirm you're not a bot" 403 di CI). Workflow
+  `clipper.yml` ("AI Video Clipper", udah ada di repo: transcribe→Claude pilih momen→9:16+caption) support
+  `YT_COOKIES` secret. Owner dipandu cara export cookies (ekstensi "Get cookies.txt LOCALLY" di komputer; iOS gak bisa).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
