@@ -1,0 +1,69 @@
+name: Clipper (brand a video)
+
+# Paste link video (YouTube/dll) → download (yt-dlp) → tempel brand + kredit "via @creator"
+# → hasil branded.mp4 di-UPLOAD sebagai artifact (TIDAK di-commit: video pihak ketiga = copyright).
+# ⚠️ YouTube sering blokir IP server ("confirm you're not a bot"). Pakai cookies (secret
+# YOUTUBE_COOKIES) buat naikin peluang lolos. Credit BUKAN izin — pastikan kamu berhak repost.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Link video (YouTube/Twitter/dll)"
+        required: true
+        type: string
+      brand:
+        description: "Brand di video"
+        required: false
+        default: "FAKTAVIRAL"
+        type: string
+      credit:
+        description: "Kredit creator (opsional, mis. PersijaTV). Kosong = auto dari uploader"
+        required: false
+        default: ""
+        type: string
+
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: viral-clipper
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Tulis cookies YouTube (kalau ada secret)
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          if [ -n "$YOUTUBE_COOKIES" ]; then
+            printf '%s' "$YOUTUBE_COOKIES" > /tmp/yt_cookies.txt
+            echo "YT_COOKIES=/tmp/yt_cookies.txt" >> "$GITHUB_ENV"
+            echo "cookies: dipakai"
+          else
+            echo "cookies: KOSONG (peluang kena block YouTube lebih besar)"
+          fi
+
+      - name: Download + brand
+        env:
+          CREDIT: ${{ github.event.inputs.credit }}
+        run: |
+          if [ -n "$CREDIT" ]; then
+            python clip_viral.py "${{ github.event.inputs.url }}" --brand "${{ github.event.inputs.brand }}" --credit "$CREDIT"
+          else
+            python clip_viral.py "${{ github.event.inputs.url }}" --brand "${{ github.event.inputs.brand }}"
+          fi
+
+      - name: Upload hasil (branded.mp4)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clip-${{ github.run_id }}
+          path: viral-clipper/out/
+          retention-days: 14
