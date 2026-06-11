@@ -87,6 +87,13 @@ def download(url: str, out_dir: Path):
     }
     if ff_dir:
         opts["ffmpeg_location"] = ff_dir
+    # YouTube sering blokir IP server ("confirm you're not a bot"). Cookies dari browser login
+    # naikin peluang lolos: set env YT_COOKIES (path file cookies.txt format Netscape).
+    cookies = os.environ.get("YT_COOKIES", "").strip()
+    if cookies and os.path.exists(cookies):
+        opts["cookiefile"] = cookies
+    # client android/web sering lebih lolos drpd default
+    opts["extractor_args"] = {"youtube": {"player_client": ["android", "web"]}}
     with yt_dlp.YoutubeDL(opts) as y:
         info = y.extract_info(url, download=True)
     files = sorted(out_dir.glob("source.*"))
