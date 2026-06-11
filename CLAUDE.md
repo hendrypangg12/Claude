@@ -177,9 +177,48 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 ### TODO lanjutan (besok)
 - Tes generate sekali lagi buat liat hasil <4 jam + foto asli barengan (owner blm sempat, mau tidur jam 1).
 - (Opsional) opsi "keras: <4 jam atau skip" kalau owner mau.
-- (Belum kelar dari 8 Juni) Token IG #10 faktaviral + set `IG_USER_ID_BF`/`IG_ACCESS_TOKEN_BF` beruang.
 - (Opsional polish) label cover berita masih "TAU GAK SIH?" — buat berita mending "LAGI VIRAL"/"BREAKING".
 - Google CSE 403 masih ada tapi gak ngeganggu lagi (web_search jadi sumber utama). Boleh diabaikan / fix nanti.
+
+## SESSION MEMORY — update 11 Juni 2026 — AUTO-POST IG LIVE ✅ (token #10 BERES)
+
+> Token IG akhirnya FIXED & auto-post jalan. BACA ini buat status terbaru auto-posting.
+
+### Token IG — RESOLVED (akhirnya!)
+- Owner generate ulang token via Graph API Explorer (app "fakta viral bot" 1048502251194046) → centang scope
+  lengkap (instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement,
+  business_management) + **grant Page "Fakta Viral" + "Beruang Finance"** → Extend Access Token (Token Debugger)
+  jadi **PERMANEN ("Expires: Never")**. Update ke GH Secrets.
+- **1 token dipakai 2 akun** (granular scope `instagram_content_publish` = `17841431673727855` faktaviral +
+  `17841473550306699` beruang). Secrets ke-set SEMUA: `IG_ACCESS_TOKEN`/`IG_USER_ID` (faktaviral) +
+  `IG_ACCESS_TOKEN_BF`/`IG_USER_ID_BF=17841473550306699` (beruang).
+- **IG ID: faktaviral=17841431673727855, beruang=17841473550306699.**
+- ⚠️ `pages_manage_posts` GAK tersedia di app (use-case Instagram doang) → **Facebook Page auto-post GAGAL**
+  (#200/#100), tapi step FB `continue-on-error` jadi gak ngegagalin run. Mau FB beneran = perlu App Review Meta.
+
+### Auto-post status (LIVE)
+- **daily-fakta.yml**: jadwal DINYALAIN lagi (06:09/07:09/10:00 WIB) + `mode=both` (carousel+reel) = **AUTO-POST**
+  (bukan preview lagi). Owner pilih: konten **trending**, format **carousel+reel**. ⚠️ trending auto-post TANPA
+  review = ada risiko topik sensitif → owner sadar, pantau.
+- **DITES SUKSES (run #41)**: `[default] ✅ carousel id 18107651899948402` + `✅ reel id 18105421024804362`,
+  "Sukses: 1 akun". Error #10 HILANG.
+- **beruang-finance.yml**: tetep auto-post 5x/hari (07:17/11:17/15:17/18:17/21:17 WIB). Secret BF udah lengkap →
+  harusnya jalan mulai jadwal berikutnya (BELUM dites manual per update ini).
+- Owner mau: kalau beruang sukses, baru urus Facebook Pages (perlu pages_manage_posts/App Review).
+
+### Konten manual yang dibuat sesi ini (render LOKAL, gak makan API)
+- Carousel + **reel 15/45 detik** soal **korupsi MBG** (dapur tutup, dana belum cair, investor nagih) — gaya
+  DARK CINEMATIC (charcoal + emas, BUKAN biru "norak") + foto asli berita (og:image Kompas/Liputan6/Detik,
+  dikredit) + musik `investigations.mp3`. Script: `/tmp/make_mbg_*.py` (pakai imageio-ffmpeg + fakta_image_maker).
+- Infografis **Harga BBM Pertamina 10 Juni 2026** (Pertamax 12.300→16.250, verified Kompas/CNBC) versi faktaviral
+  (charcoal+emas, foto SPBU Kompas, tag @faktaviral.idn). Script `/tmp/make_bbm.py`.
+- ⚠️ DITOLAK (konsisten): repost daftar 24 nama "pejabat terseret BAP MBG" dari akun lain (cuma 3 resmi tersangka:
+  Dadan Hindayana, Sony Sonjaya, Lodewyk Pusung; sisanya BELUM tersangka → UU ITE/pencemaran). Tawarin versi aman.
+
+### TODO 11 Juni
+- Tes auto-post BERUANG (manual run beruang-finance.yml) → kalau ✅, baru setup Facebook Pages.
+- (Opsional) matiin/silence step "Publish ke Facebook" di daily-fakta biar run gak nampilin "1 error" palsu.
+- Rate limit Anthropic 429 (tier 30k token/menit) → jangan generate beruntun; auto-retry max_retries=6 udah dipasang.
 
 ## Snake game
 
