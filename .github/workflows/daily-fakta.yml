@@ -5,12 +5,11 @@ name: Daily Fakta (semi-manual)
 # Bisa juga di-Generate on-demand dari dashboard (pilih kategori + mau post atau preview).
 
 on:
-  # AUTO-GENERATE DIMATIIN (hemat biaya API) — 9 Juni 2026, atas permintaan owner.
-  # Mau nyalain lagi: hapus '#' di 3 baris cron bawah ini. Generate manual dari dashboard tetap jalan.
-  # schedule:
-  #   - cron: "9 23 * * *"  # 06:09 WIB → trending (preview)
-  #   - cron: "9 0 * * *"   # 07:09 WIB → trending (preview)
-  #   - cron: "0 3 * * *"   # 10:00 WIB → trending (preview)
+  # AUTO-POST faktaviral (berita trending) — carousel + reel, 3x/hari WIB.
+  schedule:
+    - cron: "9 23 * * *"  # 06:09 WIB → trending (auto-post carousel + reel)
+    - cron: "9 0 * * *"   # 07:09 WIB → trending (auto-post carousel + reel)
+    - cron: "0 3 * * *"   # 10:00 WIB → trending (auto-post carousel + reel)
   workflow_dispatch:
     inputs:
       category:
@@ -59,9 +58,9 @@ jobs:
       - name: Resolve slot (kategori + mode) untuk run ini
         id: slot
         run: |
-          # PAGI (terjadwal) → cari konten 'trending' viral, mode=none (preview, NGGAK auto-post)
+          # PAGI (terjadwal) → cari konten 'trending' viral, AUTO-POST carousel + reel
           case "${{ github.event.schedule }}" in
-            "9 23 * * *"|"9 0 * * *"|"0 3 * * *") cat="trending"; mode="none" ;;  # 06:09 / 07:09 / 10:00 WIB
+            "9 23 * * *"|"9 0 * * *"|"0 3 * * *") cat="trending"; mode="both" ;;  # 06:09 / 07:09 / 10:00 WIB
             *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual (dashboard)
           esac
           echo "cat=$cat"   >> "$GITHUB_OUTPUT"
