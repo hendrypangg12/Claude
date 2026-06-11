@@ -131,16 +131,31 @@ def main() -> int:
     _save_history(_load_history() + [fakta["hook"]])
 
     # FOTO ASLI berita (og:image dari sumber) → carousel & reel sesuai kejadian asli.
-    # Ini cuma untuk konten BERITA (web_search/CSE kasih _image_url). Fakta evergreen = None.
-    hero: str | None = None
-    img_url = fakta.get("_image_url")
-    if img_url:
+    # Ambil BEBERAPA foto asli (dari banyak artikel sumber) → tiap slide tetap nyambung berita,
+    # bukan cuma slide 1. Fakta evergreen = kosong (nanti pakai stok/kosmik).
+    hero_imgs: list[str] = []
+    img_urls: list[str] = []
+    if fakta.get("_image_url"):
+        img_urls.append(fakta["_image_url"])
+    for u in (fakta.get("_source_urls") or []):
+        try:
+            from fakta_news import _og_image
+            oi = _og_image(u)
+            if oi and oi not in img_urls:
+                img_urls.append(oi)
+        except Exception:
+            pass
+    for i, u in enumerate(img_urls[:4]):
         try:
             from media_fetcher import download_image
-            hero = download_image(img_url, str(out_dir / "news_hero.jpg"))
-            print(f"      ✓ pakai FOTO ASLI berita (sumber: {fakta.get('_sumber', '?')})")
-        except Exception as exc:
-            print(f"      (download foto asli gagal: {exc}) → pakai stok/kosmik")
+            hero_imgs.append(download_image(u, str(out_dir / f"news_{i}.jpg")))
+        except Exception:
+            continue
+    hero: str | None = hero_imgs[0] if hero_imgs else None
+    if hero_imgs:
+        print(f"      ✓ {len(hero_imgs)} FOTO ASLI berita (sumber: {fakta.get('_sumber', '?')}) → semua slide")
+    elif fakta.get("_image_url"):
+        print("      (download foto asli gagal) → pakai stok/kosmik")
 
     # Optional topic media from Pexels (free, legal). Falls back to cosmic bg.
     photos: list[str] = []
@@ -161,10 +176,15 @@ def main() -> int:
     else:
         print("      (PEXELS_API_KEY belum di-set → background kosmik, no reel)")
 
-    # 1 foto per slide. Kalau ada FOTO ASLI berita → cover (slide 1) WAJIB pakai itu.
-    p1 = hero or (photos[0] if len(photos) > 0 else None)
-    p2 = (photos[1] if len(photos) > 1 else None) or hero or p1
-    p3 = (photos[2] if len(photos) > 2 else None) or hero or p1
+    # 1 foto per slide. FOTO ASLI berita diutamakan di SEMUA slide (kalau ada >1 sumber → variasi;
+    # kalau cuma 1 → diulang). Stok cuma dipakai kalau gak ada foto asli sama sekali (fakta evergreen).
+    def _slide_bg(i: int):
+        if hero_imgs:
+            return hero_imgs[i] if i < len(hero_imgs) else hero_imgs[0]
+        if photos:
+            return photos[i] if i < len(photos) else photos[0]
+        return None
+    p1, p2, p3 = _slide_bg(0), _slide_bg(1), _slide_bg(2)
 
     print("[2/3] Composing carousel...")
     compose_cover(fakta["hook"], fakta["category"], str(out_dir / "post_1.jpg"), bg_path=p1)
