@@ -12,13 +12,13 @@ concurrency:
 on:
   # AUTO-POST faktaviral (berita trending) — carousel + reel, 3x/hari WIB.
   schedule:
-    # 6 slot/hari (WIB), semua TRENDING, format selang-seling reel/carousel. Cron = UTC (WIB-7).
+    # 6 slot/hari (WIB). Cron = UTC (WIB-7). 16:11 & 21:00 = EVERGREEN (hemat, no web_search).
     - cron: "17 0 * * *"  # 07:17 WIB → trending REEL
     - cron: "17 1 * * *"  # 08:17 WIB → trending CAROUSEL
     - cron: "11 5 * * *"  # 12:11 WIB → trending REEL
-    - cron: "11 9 * * *"  # 16:11 WIB → trending REEL
+    - cron: "11 9 * * *"  # 16:11 WIB → EVERGREEN REEL (fakta unik, murah)
     - cron: "0 11 * * *"  # 18:00 WIB → trending CAROUSEL
-    - cron: "0 14 * * *"  # 21:00 WIB → trending CAROUSEL
+    - cron: "0 14 * * *"  # 21:00 WIB → EVERGREEN CAROUSEL (fakta unik, murah)
   workflow_dispatch:
     inputs:
       category:
@@ -69,8 +69,10 @@ jobs:
         run: |
           # PAGI (terjadwal) → cari konten 'trending' viral, AUTO-POST carousel + reel
           case "${{ github.event.schedule }}" in
-            "17 0 * * *"|"11 5 * * *"|"11 9 * * *") cat="trending"; mode="reel" ;;      # 07:17/12:11/16:11 WIB
-            "17 1 * * *"|"0 11 * * *"|"0 14 * * *") cat="trending"; mode="carousel" ;;  # 08:17/18:00/21:00 WIB
+            "17 0 * * *"|"11 5 * * *") cat="trending"; mode="reel" ;;      # 07:17/12:11 → trending reel
+            "17 1 * * *"|"0 11 * * *") cat="trending"; mode="carousel" ;;  # 08:17/18:00 → trending carousel
+            "11 9 * * *")              cat="";         mode="reel" ;;      # 16:11 → EVERGREEN reel (Bebas, no web_search)
+            "0 14 * * *")              cat="";         mode="carousel" ;;  # 21:00 → EVERGREEN carousel
             *)            cat="${{ github.event.inputs.category }}"; mode="" ;;  # manual (dashboard)
           esac
           echo "cat=$cat"   >> "$GITHUB_OUTPUT"
