@@ -1,69 +1,178 @@
-name: Clipper (brand a video)
+name: AI Video Clipper
 
-# Paste link video (YouTube/dll) → download (yt-dlp) → tempel brand + kredit "via @creator"
-# → hasil branded.mp4 di-UPLOAD sebagai artifact (TIDAK di-commit: video pihak ketiga = copyright).
-# ⚠️ YouTube sering blokir IP server ("confirm you're not a bot"). Pakai cookies (secret
-# YOUTUBE_COOKIES) buat naikin peluang lolos. Credit BUKAN izin — pastikan kamu berhak repost.
+# Kasih 1 link (YouTube / TikTok / Instagram / X / FB), sistem auto:
+# download → transcribe → Claude pilih momen viral → potong 9:16 + auto-caption.
+# Hasil ke-commit ke clipper/published + muncul di dashboard clipper.html.
 
 on:
   workflow_dispatch:
     inputs:
       url:
-        description: "Link video (YouTube/Twitter/dll)"
+        description: "Link video (YouTube / TikTok / Instagram / X / FB)"
         required: true
         type: string
-      brand:
-        description: "Brand di video"
+      mode:
+        description: "Mode"
         required: false
-        default: "FAKTAVIRAL"
-        type: string
-      credit:
-        description: "Kredit creator (opsional, mis. PersijaTV). Kosong = auto dari uploader"
+        default: "viral"
+        type: choice
+        options:
+          - "viral"
+          - "full"
+      full_style:
+        description: "Gaya mode full"
+        required: false
+        default: "tag_hook"
+        type: choice
+        options:
+          - "tag_hook"
+          - "tag"
+          - "raw"
+      hook:
+        description: "Judul HOOK 3 detik pertama (mode full; kosong = AI bikinin)"
         required: false
         default: ""
+        type: string
+      num_clips:
+        description: "Mau berapa clip? (1-8)"
+        required: false
+        default: "4"
+        type: string
+      language:
+        description: "Bahasa video"
+        required: false
+        default: "id"
+        type: choice
+        options:
+          - id
+          - en
+          - auto
+      caption:
+        description: "Caption kata-per-kata di bawah (matiin kalau video ori udah ada teks)"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      zoom:
+        description: "Zoom punch-in ke wajah di momen penegasan (animasi)"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      tighten:
+        description: "Buang silence + filler (clip jadi padat, retention naik)"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      music:
+        description: "Musik latar + SFX whoosh pas zoom"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      polish:
+        description: "End card 'Follow' + progress bar"
+        required: false
+        default: "on"
+        type: choice
+        options:
+          - "on"
+          - "off"
+      brand:
+        description: "Tulisan brand di pojok video"
+        required: false
+        default: "FAKTAVIRAL.IDN"
         type: string
 
 jobs:
   clip:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: viral-clipper
+    timeout-minutes: 120
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - name: Install ffmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          cache: pip
+          cache-dependency-path: clipper/requirements.txt
 
-      - name: Tulis cookies YouTube (kalau ada secret)
-        env:
-          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+      - run: pip install -r clipper/requirements.txt
+
+      - name: Install ffmpeg + Poppins font
         run: |
-          if [ -n "$YOUTUBE_COOKIES" ]; then
-            printf '%s' "$YOUTUBE_COOKIES" > /tmp/yt_cookies.txt
-            echo "YT_COOKIES=/tmp/yt_cookies.txt" >> "$GITHUB_ENV"
-            echo "cookies: dipakai"
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fontconfig
+          sudo mkdir -p /usr/share/fonts/truetype/poppins
+          sudo cp daily-news-poster/fonts/Poppins-*.ttf /usr/share/fonts/truetype/poppins/
+          sudo fc-cache -f >/dev/null
+
+      - name: Generate clips
+        working-directory: clipper
+        run: python clip_app.py "${{ github.event.inputs.url }}" --num "${{ github.event.inputs.num_clips }}" --lang "${{ github.event.inputs.language }}" --brand "${{ github.event.inputs.brand }}"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WHISPER_MODEL: small
+          CLIP_MODE: ${{ github.event.inputs.mode || 'viral' }}
+          FULL_STYLE: ${{ github.event.inputs.full_style || 'tag_hook' }}
+          HOOK: ${{ github.event.inputs.hook }}
+          YT_COOKIES: ${{ secrets.YT_COOKIES }}
+          CAPTIONS: ${{ github.event.inputs.caption == 'off' && '0' || '1' }}
+          ZOOM: ${{ github.event.inputs.zoom == 'off' && '0' || '1' }}
+          TIGHTEN: ${{ github.event.inputs.tighten == 'off' && '0' || '1' }}
+          MUSIC: ${{ github.event.inputs.music == 'off' && '0' || '1' }}
+          POLISH: ${{ github.event.inputs.polish == 'off' && '0' || '1' }}
+
+      - name: Commit clips + update dashboard
+        working-directory: ${{ github.workspace }}
+        run: |
+          TS=$(ls -t clipper/out | head -1)
+          echo "TS=$TS" >> "$GITHUB_ENV"
+          mkdir -p "clipper/published/$TS"
+          # copy clip mp4 yang < 99MB (limit GitHub 100MB)
+          for f in clipper/out/$TS/clip-*.mp4; do
+            [ -f "$f" ] || continue
+            if [ "$(stat -c%s "$f")" -lt 99000000 ]; then
+              cp "$f" "clipper/published/$TS/"
+            else
+              echo "skip $f (kegedean)"
+            fi
+          done
+          cp clipper/out/$TS/caption-*.txt "clipper/published/$TS/" 2>/dev/null || true
+          cp clipper/out/$TS/meta.json "clipper/published/$TS/" 2>/dev/null || true
+          # simpan 10 job terbaru aja biar repo gak bengkak
+          ls -dt clipper/published/*/ 2>/dev/null | tail -n +11 | xargs rm -rf 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          RAW_BASE="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/clipper/published" python clipper/build_clipper_manifest.py || true
+          git add -A clipper/published docs/clipper-manifest.json docs/clipper.html
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
           else
-            echo "cookies: KOSONG (peluang kena block YouTube lebih besar)"
+            git commit -m "Clipper: $TS"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              echo "push ditolak, sync ulang ($i)..."
+              git fetch origin ${{ github.ref_name }}
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
+            done
           fi
 
-      - name: Download + brand
-        env:
-          CREDIT: ${{ github.event.inputs.credit }}
-        run: |
-          if [ -n "$CREDIT" ]; then
-            python clip_viral.py "${{ github.event.inputs.url }}" --brand "${{ github.event.inputs.brand }}" --credit "$CREDIT"
-          else
-            python clip_viral.py "${{ github.event.inputs.url }}" --brand "${{ github.event.inputs.brand }}"
-          fi
-
-      - name: Upload hasil (branded.mp4)
+      - name: Upload clips (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: clip-${{ github.run_id }}
-          path: viral-clipper/out/
+          name: clips-${{ github.run_id }}
+          path: clipper/out/*/clip-*.mp4
           retention-days: 14
