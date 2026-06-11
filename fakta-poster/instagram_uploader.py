@@ -68,3 +68,20 @@ def publish_reel(ig_id: str, token: str, video_url: str, caption: str, cover_url
     container = _post(f"{ig_id}/media", params)["id"]
     _wait_ready(container, token, max_wait=420)  # video processing can take a while
     return _post(f"{ig_id}/media_publish", {"creation_id": container, "access_token": token}).get("id")
+
+
+def publish_story(ig_id: str, token: str, *, image_url: str | None = None,
+                  video_url: str | None = None) -> str:
+    """Publish 1 Instagram Story (image ATAU video, 24 jam). Stories gak pakai caption."""
+    params = {"media_type": "STORIES", "access_token": token}
+    if video_url:
+        params["video_url"] = video_url
+        wait = 420
+    elif image_url:
+        params["image_url"] = image_url
+        wait = 120
+    else:
+        raise RuntimeError("publish_story butuh image_url atau video_url")
+    container = _post(f"{ig_id}/media", params)["id"]
+    _wait_ready(container, token, max_wait=wait)
+    return _post(f"{ig_id}/media_publish", {"creation_id": container, "access_token": token}).get("id")
