@@ -120,7 +120,7 @@ const BRANDS={
   beruang:{ kind:"content", base:`${RAW}/beruang-finance/published`, path:"docs/beruang-manifest.json", manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
   clipper:{ kind:"clipper", path:"docs/clipper-manifest.json", manifest:`${RAW}/docs/clipper-manifest.json`, accent:"#ffc400", ink:"#0f121a", wf:"clipper.yml" },
 };
-let brand="faktaviral", cache={}, sigs={};
+let brand="faktaviral", cache={}, sigs={}, genBusy=false;
 const pat=()=>localStorage.getItem("gh_pat")||"";
 const sigOf=j=>JSON.stringify((j.posts||[]).map(p=>p.id));
 
@@ -253,6 +253,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const ghH=()=>({ "Authorization":`Bearer ${pat()}`, "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" });
 async function generate(){
   const c=BRANDS[brand], msg=document.getElementById("genMsg"), btn=document.getElementById("genBtn");
+  if(genBusy){ return; }  // guard: lagi proses → cegah double-generate walau tombol ke-tap/ke-render ulang
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const inputs={ post_mode:document.getElementById("genMode").value, topic:document.getElementById("genTopic").value.trim() };
   inputs[c.catKey]=document.getElementById("genCat").value;
@@ -263,10 +264,10 @@ async function generate(){
       method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs })
     });
     if(r.status===204){
-      // anti double-tap: tombol tetap mati ~90 detik biar gak ke-trigger 2x (1 generate = 1 post)
+      // tombol MATI sampai run BENERAN selesai (dibuka lagi oleh trackWf) — anti ke-tap 2x = double post
+      genBusy=true; btn.disabled=true;
       btn.textContent="⏳ Lagi generate… (jangan tap lagi)";
       trackWf(c.wf, since, document.getElementById("genMsg"), "gen");
-      setTimeout(()=>{ btn.disabled=false; btn.textContent="⚡ Generate sekarang"; }, 90000);
     }
     else {
       const t=await r.text();
@@ -274,6 +275,12 @@ async function generate(){
       btn.disabled=false;
     }
   }catch(e){ msg.innerHTML="❌ Error jaringan: "+esc(e.message); btn.disabled=false; }
+}
+function genDone(kind){  // buka lagi tombol Generate setelah run selesai/nyerah (bukan timer)
+  if(kind==="post") return;
+  genBusy=false;
+  const b=document.getElementById("genBtn");
+  if(b){ b.disabled=false; b.textContent = brand==="clipper" ? "🎬 Potong jadi clip viral" : "⚡ Generate sekarang"; }
 }
 async function trackWf(wf, since, el, kind){
   el.innerHTML = kind==="post" ? "📤 Mengirim ke Instagram… nyari proses…" : "✅ Generate dimulai! Nyari proses…";
@@ -287,7 +294,7 @@ async function trackWf(wf, since, el, kind){
       if(run) id=run.id;
     }catch(e){}
   }
-  if(!id){ el.innerHTML="✅ Perintah terkirim. Cek sebentar lagi."; return; }
+  if(!id){ el.innerHTML="✅ Perintah terkirim. Cek sebentar lagi."; genDone(kind); return; }
   for(let i=0;i<45;i++){
     await sleep(8000);
     let run; try{ run=await (await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/runs/${id}`,{headers:ghH()})).json(); }catch(e){ continue; }
@@ -299,10 +306,12 @@ async function trackWf(wf, since, el, kind){
         ? `❌ Gagal posting (${run.conclusion}). Biasanya token IG belum siap / error #10. <a href="${run.html_url}" target="_blank">Detail</a>`
         : `⚠️ Beres, tapi ada step gagal (${run.conclusion}). Kontennya tetap jadi. <a href="${run.html_url}" target="_blank">Detail</a>`;
     }
+    genDone(kind);
     if(kind==="gen"){ await sleep(4000); load(true); }
     return;
   }
   el.innerHTML='⏳ Masih lama (mungkin antri). Cek lagi nanti.';
+  genDone(kind);
 }
 async function postIG(mode){
   if(!pat()){ toast("Pasang token dulu (⚙️)"); openSettings(); return; }
@@ -322,6 +331,7 @@ async function postIG(mode){
 }
 async function generateClip(){
   const msg=document.getElementById("genMsg"), btn=document.getElementById("genBtn");
+  if(genBusy){ return; }
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const url=document.getElementById("clipUrl").value.trim();
   if(!url){ msg.innerHTML="⚠️ Tempel link videonya dulu."; return; }
@@ -332,7 +342,7 @@ async function generateClip(){
     const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/clipper.yml/dispatches`,{
       method:"POST", headers:ghH(), body: JSON.stringify({ ref:BRANCH, inputs })
     });
-    if(r.status===204){ btn.disabled=false; trackWf("clipper.yml", since, msg, "gen"); }
+    if(r.status===204){ genBusy=true; btn.disabled=true; btn.textContent="⏳ Lagi proses… (jangan tap lagi)"; trackWf("clipper.yml", since, msg, "gen"); }
     else { const t=await r.text(); msg.innerHTML=`❌ Gagal (${r.status}). ${r.status===401||r.status===403?"Token salah/kurang izin (butuh <b>Actions: Read & write</b>). Tap ⚙️.":esc(t.slice(0,160))}`; btn.disabled=false; }
   }catch(e){ msg.innerHTML="❌ Error jaringan: "+esc(e.message); btn.disabled=false; }
 }
