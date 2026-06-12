@@ -11,8 +11,8 @@ import subprocess
 from PIL import Image, ImageDraw
 
 from fakta_image_maker import (
-    BRAND_TEXT, CYAN, CYAN_INK, HANDLE, INDIGO_DEEP, MUTED, NICHE_LABELS, PAD, WHITE,
-    _brand_chip, _category_pill, _font, _tracked, _wrap, s,
+    BRAND_TEXT, CYAN, CYAN_INK, GOLD, HANDLE, INDIGO_DEEP, INK_GOLD, MUTED, NICHE_LABELS,
+    PAD, WHITE, _brand_chip, _category_pill, _font, _split_hl, _tracked, _wrap, s,
 )
 
 VW, VH = 1080, 1920
@@ -65,75 +65,86 @@ def make_reel_overlay(hook: str, category: str, fact: str, out_main: str, out_fa
     detail_layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     ddet = ImageDraw.Draw(detail_layer, "RGBA")
 
-    _brand_chip(dmain)
+    # brand chip EMAS (gaya bersih) — bukan cyan
+    bf = _font("extrabold", 30)
+    bpx, bpy = s(20), s(12)
+    dmain.rounded_rectangle([s(PAD), s(PAD), s(PAD)+bf.getlength(BRAND_TEXT)+2*bpx, s(PAD)+bf.size+2*bpy],
+                            radius=s(12), fill=GOLD)
+    dmain.text((s(PAD)+bpx, s(PAD)+bpy-s(4)), BRAND_TEXT, font=bf, fill=INK_GOLD)
 
-    kf = _font("extrabold", 38)
-    hf = _font("extrabold", 60)
+    hf = _font("extrabold", 62)
     ff = _font("semibold", 40)
     df = _font("medium", 34)
     max_w = RW - 2 * s(PAD)
 
-    hook_lines = _wrap(hook, hf, max_w)
+    # hook 2 warna (kata kunci KUNING + sisanya PUTIH) — wrap manual per kata
+    yellow, white = _split_hl(hook)
+    hwords = [(w, GOLD) for w in yellow.split()] + [(w, WHITE) for w in white.split()]
+    sp = hf.getlength(" ")
+    hook_lines, cur, cw = [], [], 0
+    for w, c in hwords:
+        ww = hf.getlength(w)
+        if cur and cw + sp + ww > max_w:
+            hook_lines.append(cur); cur, cw = [], 0
+        cur.append((w, c)); cw += (sp if cw else 0) + ww
+    if cur:
+        hook_lines.append(cur)
+    hook_lh = int(hf.size * 1.08)
+
     fact_lines = []
     for raw in fact.split("\n"):
         fact_lines.extend(_wrap(raw, ff, max_w) if raw.strip() else [""])
     detail_lines = []
     for raw in (detail or "").split("\n"):
         detail_lines.extend(_wrap(raw, df, max_w) if raw.strip() else [""])
-    hook_lh = int(hf.size * 1.07)
     fact_lh = int(ff.size * 1.24)
     detail_lh = int(df.size * 1.32)
 
-    cat_h = _font("bold", 22).size + 2 * s(9)
-
-    # ANCHOR di tengah-atas (≈ 30% dari atas) — bukan mepet bawah
+    # ANCHOR di tengah-atas (≈ 30% dari atas). NO kicker / 'tau gak sih'.
     start_y = int(RH * 0.30)
     hook_block = len(hook_lines) * hook_lh
+    fact_top = start_y + hook_block + s(30)
     fact_block = len(fact_lines) * fact_lh
-    fact_top = start_y + cat_h + s(22) + kf.size + s(28) + hook_block + s(28)
     fact_end = fact_top + fact_block
     d_top = fact_end + s(28)
     detail_block = len(detail_lines) * detail_lh if detail_lines else 0
     content_end = (d_top + detail_block) if detail_lines else fact_end
     pad_p = s(36)
-    PANEL = (10, 12, 24, 180)  # 1 kartu gelap semi-transparan → teks selalu kebaca
+    PANEL = (10, 12, 20, 175)  # kartu gelap semi-transparan → teks selalu kebaca
 
-    # SATU panel utuh (incl. area penjelasan/slide-2) di main → no seam, selalu kebaca
     dmain.rounded_rectangle([s(PAD) - pad_p, start_y - pad_p,
                              RW - s(PAD) + pad_p, content_end + pad_p],
                             radius=s(30), fill=PANEL)
 
-    label = NICHE_LABELS.get((category or "").lower(), (category or "FAKTA").upper())
-    _category_pill(dmain, label, s(PAD), start_y)
-    _tracked(dmain, (s(PAD), start_y + cat_h + s(22)), "TAU GAK SIH?", kf, WHITE, 1)
-
-    y = start_y + cat_h + s(22) + kf.size + s(28)
+    # hook (kuning+putih)
+    y = start_y
     for ln in hook_lines:
-        dmain.text((s(PAD), y), ln, font=hf, fill=WHITE)
+        x = s(PAD)
+        for w, c in ln:
+            dmain.text((x, y), w, font=hf, fill=c)
+            x += hf.getlength(w) + sp
         y += hook_lh
+    # fakta inti (fade-in awal)
     y = fact_top
-    for ln in fact_lines:        # fakta inti → fade-in awal
+    for ln in fact_lines:
         dfact.text((s(PAD), y), ln, font=ff, fill=WHITE)
         y += fact_lh
-    if detail_lines:             # penjelasan KENAPA → 'slide 2' (teks di detail layer)
+    if detail_lines:             # penjelasan ('slide 2', muncul belakangan)
         y = d_top
         for ln in detail_lines:
             ddet.text((s(PAD), y), ln, font=df, fill=(228, 232, 247))
             y += detail_lh
 
-    # CTA bawah (selalu tampil)
-    cf = _font("bold", 32)
-    subf = _font("medium", 26)
-    sub_y = RH - s(PAD) - subf.size - s(170)  # diangkat — hindari ketutup UI Reels IG
-    px_, py_ = s(26), s(16)
+    # CTA Follow EMAS (diangkat dari dasar — hindari UI Reels)
+    cf = _font("bold", 34)
+    px_, py_ = s(28), s(16)
     pill_h = cf.size + 2 * py_
-    pill_y = sub_y - s(22) - pill_h
+    pill_y = RH - s(PAD) - pill_h - s(150)
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
     dmain.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px_, pill_y + pill_h],
-                            radius=s(14), fill=CYAN)
-    dmain.text((s(PAD) + px_, pill_y + py_ - s(4)), ct, font=cf, fill=CYAN_INK)
-    dmain.text((s(PAD), sub_y), "1 fakta unik tiap hari", font=subf, fill=MUTED)
+                            radius=s(16), fill=GOLD)
+    dmain.text((s(PAD) + px_, pill_y + py_ - s(4)), ct, font=cf, fill=INK_GOLD)
 
     main.resize((VW, VH), Image.LANCZOS).save(out_main)
     fact_layer.resize((VW, VH), Image.LANCZOS).save(out_fact)
