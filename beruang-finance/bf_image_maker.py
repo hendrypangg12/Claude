@@ -1,28 +1,30 @@
-"""Compose 1080x1080 IG carousel untuk Beruang Finance (kuning + beruang berdasi).
+"""Compose 1080x1080 IG carousel untuk Beruang Finance — GAYA BERSIH (ala fakta.indo
+/ faktaviral): foto full-bleed + judul minimal kuning+putih, sedikit teks, rapih.
 
-Pakai foto stock (Pexels) sebagai background dengan scrim coklat hangat biar teks
-kebaca + brand kuning. Reuse helper generik dari fakta_image_maker (font/wrap/dll)."""
+Tetap brand Beruang (kuning + beruang berdasi). Reuse helper generik dari
+fakta_image_maker (font/wrap/foto/gradasi/split-highlight)."""
 import os
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageOps
+from PIL import Image, ImageDraw, ImageOps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "fakta-poster"))
-from fakta_image_maker import _font, _wrap, _tracked, s, R, SIZE, PAD  # noqa: E402
+from fakta_image_maker import (  # noqa: E402
+    _font, _wrap, _tracked, _photo_cover, _grad, _split_hl, s, R, SIZE, PAD,
+)
 
 BEAR_PATH = Path(__file__).resolve().parent / "brand" / "bear.png"
 
 BRAND_TEXT = "BERUANG FINANCE"
 HANDLE = os.environ.get("BF_HANDLE", "beruangfinance")
 
-# palette: kuning terang + coklat tua
+# palette bersih: kuning Beruang + putih + ink coklat
 YELLOW = (255, 198, 0)
-YELLOW_HI = (255, 224, 90)
-INK = (58, 38, 22)          # coklat tua (teks di atas kuning / brand)
-BROWN_DEEP = (28, 18, 10)   # scrim foto
-WHITE = (250, 248, 242)
-CREAM = (228, 222, 208)
+INK = (40, 26, 10)            # teks di atas kuning
+WHITE = (245, 247, 250)
+MUTED = (206, 208, 214)
+PANEL = (16, 14, 12)          # panel gelap slide isi
 
 TYPE_LABELS = {"tips": "TIPS KEUANGAN", "berita": "BERITA", "lucu": "RELATABLE"}
 
@@ -39,79 +41,52 @@ def _bear(maxw: int) -> Image.Image:
     return b
 
 
-def _photo_bg(path: str, base: float = 0.14, peak: float = 0.92) -> Image.Image:
-    img = ImageOps.exif_transpose(Image.open(path).convert("RGB"))
-    img = ImageOps.fit(img, (R, R), method=Image.LANCZOS, centering=(0.5, 0.4))
-    img = ImageEnhance.Color(img).enhance(1.05)
-    img = img.convert("RGBA")
-    a = Image.new("L", (1, R), 0)
-    px = a.load()
-    for y in range(R):
-        t = y / (R - 1)
-        px[0, y] = int(255 * min(base + (peak - base) * (t ** 1.4), 0.96))
-    scrim = Image.new("RGBA", (R, R), (*BROWN_DEEP, 255))
-    scrim.putalpha(a.resize((R, R)))
-    out = Image.alpha_composite(img, scrim).convert("RGB")
-    ImageDraw.Draw(out, "RGBA").rectangle([0, 0, R, s(6)], fill=YELLOW)
-    return out
-
-
 def _yellow_bg() -> Image.Image:
+    """Fallback kalau gak ada foto: kuning polos halus (gak norak)."""
+    top, bot = (255, 214, 70), YELLOW
     base = Image.new("RGB", (1, R))
     px = base.load()
     for y in range(R):
         t = y / (R - 1)
-        px[0, y] = tuple(int(YELLOW_HI[i] + (YELLOW[i] - YELLOW_HI[i]) * t) for i in range(3))
+        px[0, y] = tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3))
     return base.resize((R, R)).convert("RGB")
 
 
-def _brand_chip(draw, x=PAD, y=PAD) -> int:
-    f = _font("extrabold", 24)
+def _brand_chip(draw, x=PAD, y=PAD) -> None:
+    f = _font("extrabold", 26)
     tw = f.getlength(BRAND_TEXT)
-    px, py = s(20), s(12)
-    h = f.size + 2 * py
-    draw.rounded_rectangle([s(x), s(y), s(x) + tw + 2 * px, s(y) + h], radius=s(10), fill=INK)
-    draw.text((s(x) + px, s(y) + py - s(4)), BRAND_TEXT, font=f, fill=YELLOW)
-    return s(y) + h
+    px, py = s(18), s(11)
+    draw.rounded_rectangle([s(x), s(y), s(x) + tw + 2 * px, s(y) + f.size + 2 * py],
+                           radius=s(10), fill=YELLOW)
+    draw.text((s(x) + px, s(y) + py - s(4)), BRAND_TEXT, font=f, fill=INK)
 
 
-def _dots(draw, active, total=3) -> None:
-    f = _font("extrabold", 24)
-    yc = s(PAD) + (f.size + 2 * s(12)) // 2
-    x = R - s(PAD)
-    for i in reversed(range(total)):
-        rr = s(7) if i == active else s(6)
-        col = YELLOW if i == active else (255, 255, 255, 110)
-        cx = x - rr
-        draw.ellipse([cx - rr, yc - rr, cx + rr, yc + rr], fill=col)
-        x = cx - rr - s(12)
+def _watermark(draw) -> None:
+    f = _font("extrabold", 28)
+    draw.text((R - s(PAD) - f.getlength(HANDLE), R - s(PAD) - f.size), HANDLE,
+              font=f, fill=(255, 255, 255, 205))
 
 
-def _category_pill(draw, label, x, y) -> int:
-    f = _font("bold", 22)
-    tw = f.getlength(label)
-    px, py = s(18), s(9)
-    h = f.size + 2 * py
-    draw.rounded_rectangle([x, y, x + tw + 2 * px, y + h], radius=s(20), fill=YELLOW)
-    draw.text((x + px, y + py - s(3)), label, font=f, fill=INK)
-    return h
-
-
-def _swipe(draw, font, y_top, color=YELLOW) -> None:
-    text = "Geser"
-    tw = font.getlength(text)
-    shaft, head = s(26), s(9)
-    x = R - s(PAD) - (tw + s(14) + shaft + head)
-    draw.text((x, y_top), text, font=font, fill=color)
-    ay = y_top + int(font.size * 0.58)
-    ax = x + tw + s(14)
-    draw.line([(ax, ay), (ax + shaft, ay)], fill=color, width=s(3))
-    draw.polygon([(ax + shaft, ay - head), (ax + shaft + head, ay), (ax + shaft, ay + head)], fill=color)
-
-
-def _bullet(draw, x, y, color=YELLOW) -> None:
-    r = s(9)
-    draw.ellipse([x, y, x + 2 * r, y + 2 * r], fill=color)
+def _headline(draw, yellow, white, font, bottom_y, max_w, lh) -> int:
+    """Judul 2 warna (kuning+putih), wrap, anchor BAWAH. Return tinggi blok."""
+    words = [(w, YELLOW) for w in yellow.split()] + [(w, WHITE) for w in white.split()]
+    sp = font.getlength(" ")
+    lines, cur, cw = [], [], 0
+    for w, c in words:
+        ww = font.getlength(w)
+        if cur and cw + sp + ww > max_w:
+            lines.append(cur); cur, cw = [], 0
+        cur.append((w, c)); cw += (sp if cw else 0) + ww
+    if cur:
+        lines.append(cur)
+    y = bottom_y - len(lines) * lh
+    for ln in lines:
+        x = s(PAD)
+        for w, c in ln:
+            draw.text((x, y), w, font=font, fill=c)
+            x += font.getlength(w) + sp
+        y += lh
+    return len(lines) * lh
 
 
 def _save(canvas, out_path) -> str:
@@ -122,102 +97,109 @@ def _save(canvas, out_path) -> str:
 # --------------------------------------------------------------------------
 
 def compose_cover(hook, ctype, kicker, out_path, bg_path=None) -> str:
-    canvas = _photo_bg(bg_path, base=0.12) if bg_path else _yellow_bg()
+    """Cover: foto full-bleed + label kecil + judul kuning/putih (anchor bawah)."""
+    try:
+        canvas = _photo_cover(bg_path) if bg_path else _yellow_bg()
+    except Exception:
+        canvas = _yellow_bg()
+    canvas = _grad(canvas, bottom=0.40, top=0.24)
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
-    _dots(draw, 0)
 
-    kf = _font("extrabold", 38)
-    hf = _font("extrabold", 62)
-    max_w = R - 2 * s(PAD)
-    lines = _wrap(hook, hf, max_w)
-    line_h = int(hf.size * 1.06)
-    block_h = line_h * len(lines)
-    start = (R - block_h) // 2 + s(20)
+    hf = _font("extrabold", 66)
+    lh = int(hf.size * 1.08)
+    yellow, white = _split_hl(hook)
+    bottom = R - s(155)
+    hh = _headline(draw, yellow, white, hf, bottom, R - 2 * s(PAD), lh)
 
-    label = TYPE_LABELS.get((ctype or "").lower(), "BERUANG FINANCE")
-    cat_h = _category_pill(draw, label, s(PAD), start - s(150))
-    _tracked(draw, (s(PAD), start - s(150) + cat_h + s(26)),
-             (kicker or "MELEK DUIT").upper(), kf, WHITE if bg_path else INK, 1)
-
-    fill = WHITE if bg_path else INK
-    y = start
-    for ln in lines:
-        draw.text((s(PAD), y), ln, font=hf, fill=fill)
-        y += line_h
-
-    _swipe(draw, _font("semibold", 24), R - s(PAD) - s(24))
+    # label kecil di atas judul (mis. "TIPS KEUANGAN") — tipis & rapih
+    label = TYPE_LABELS.get((ctype or "").lower()) or (kicker or "").upper()
+    if label:
+        lf = _font("extrabold", 28)
+        _tracked(draw, (s(PAD), bottom - hh - s(52)), label[:28], lf, YELLOW, 2)
+    _watermark(draw)
     return _save(canvas, out_path)
 
 
 def compose_points(points, header, out_path, bg_path=None) -> str:
-    canvas = _photo_bg(bg_path, base=0.6) if bg_path else _yellow_bg()
+    """Slide isi: foto di ATAS, 3 poin di panel gelap bawah. Ala fakta.indo."""
+    photo_h = int(R * 0.46)
+    canvas = Image.new("RGB", (R, R), PANEL)
+    if bg_path:
+        try:
+            img = ImageOps.exif_transpose(Image.open(bg_path).convert("RGB"))
+            img = ImageOps.fit(img, (R, photo_h + s(60)), method=Image.LANCZOS, centering=(0.5, 0.4))
+            canvas.paste(img, (0, 0))
+            a = Image.new("L", (1, R), 0); px = a.load()
+            for y in range(R):
+                px[0, y] = 0 if y < photo_h - s(80) else min(255, int(255 * (y - (photo_h - s(80))) / s(140)))
+            canvas = Image.composite(Image.new("RGB", (R, R), PANEL), canvas, a.resize((R, R)))
+        except Exception:
+            pass
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
-    _dots(draw, 1)
 
-    tf = _font("extrabold", 46)
-    ty = s(210)
-    draw.text((s(PAD), ty), header, font=tf, fill=YELLOW)
-    uw = tf.getlength(header)
-    uy = ty + tf.size + s(12)
-    draw.rounded_rectangle([s(PAD), uy, s(PAD) + uw, uy + s(9)], radius=s(4), fill=YELLOW)
+    top = photo_h + s(70)
+    hf = _font("extrabold", 44)
+    draw.text((s(PAD), top), header, font=hf, fill=YELLOW)
+    top += hf.size + s(28)
 
-    max_w = R - 2 * s(PAD) - s(44)
-    start_y = uy + s(64)
-    bottom = R - s(PAD) - s(150)  # batas aman: di atas indikator swipe + UI IG bawah
+    max_w = R - 2 * s(PAD) - s(46)
+    bottom_lim = R - s(110)
+    pts = [p for p in (points or []) if str(p).strip()][:3]
 
-    # AUTO-FIT: kecilin font sampai semua poin muat di area aman (anti kepanjangan/ketutup)
+    # AUTO-FIT: kecilin font sampai 3 poin muat di area aman
     pf = _font("semibold", 40)
-    for fs in (40, 38, 36, 34, 32, 30, 28, 26):
+    for fs in (40, 38, 36, 34, 32, 30, 28):
         pf = _font("semibold", fs)
-        lh = int(pf.size * 1.22)  # pf.size = 2*fs (font di-load di skala 2x)
-        total = 0
-        for p in points:
-            total += len(_wrap(p, pf, max_w)) * lh + s(24)
-        if start_y + total <= bottom:
+        lh = int(pf.size * 1.24)
+        total = sum(len(_wrap(p, pf, max_w)) * lh + s(26) for p in pts)
+        if top + total <= bottom_lim:
             break
-
-    lh = int(pf.size * 1.22)
-    y = start_y
-    for p in points:
-        _bullet(draw, s(PAD), y + s(10))
+    lh = int(pf.size * 1.24)
+    y = top
+    for p in pts:
+        draw.ellipse([s(PAD), y + s(12), s(PAD) + s(18), y + s(30)], fill=YELLOW)  # bullet
         for ln in _wrap(p, pf, max_w):
-            draw.text((s(PAD) + s(44), y), ln, font=pf, fill=WHITE)
+            draw.text((s(PAD) + s(46), y), ln, font=pf, fill=WHITE)
             y += lh
-        y += s(24)
-
-    _swipe(draw, _font("semibold", 24), R - s(PAD) - s(24))
+        y += s(26)
+    _watermark(draw)
     return _save(canvas, out_path)
 
 
 def compose_outro(takeaway, out_path, bg_path=None) -> str:
-    canvas = _photo_bg(bg_path, base=0.62) if bg_path else _yellow_bg()
+    """Outro: foto + takeaway + pill Follow kuning + beruang kecil."""
+    try:
+        canvas = _photo_cover(bg_path) if bg_path else _yellow_bg()
+    except Exception:
+        canvas = _yellow_bg()
+    canvas = _grad(canvas, bottom=0.28, top=0.22)
     draw = ImageDraw.Draw(canvas, "RGBA")
     _brand_chip(draw)
-    _dots(draw, 2)
 
-    tf = _font("semibold", 48)
-    max_w = R - 2 * s(PAD)
-    y = s(330)
-    for ln in _wrap(takeaway or "Yuk mulai atur duit dari sekarang.", tf, max_w):
-        draw.text((s(PAD), y), ln, font=tf, fill=WHITE)
-        y += int(tf.size * 1.2)
-
-    # bear logo kecil (pojok kanan atas)
-    bear = _bear(s(150))
-    canvas.paste(bear, (R - s(PAD) - bear.width, s(PAD) + s(40)), bear)
-
-    cf = _font("bold", 30)
-    subf = _font("medium", 24)
-    sub_y = R - s(PAD) - subf.size - s(4)
-    px, py = s(26), s(16)
-    pill_h = cf.size + 2 * py
-    pill_y = sub_y - s(22) - pill_h
+    cf = _font("bold", 40)
     ct = f"Follow @{HANDLE}"
     ctw = cf.getlength(ct)
+    px, py = s(30), s(18)
+    pill_h = cf.size + 2 * py
+    pill_y = R - s(180) - pill_h
+
+    tf = _font("semibold", 50)
+    lh = int(tf.size * 1.2)
+    lines = _wrap(takeaway or "Yuk mulai atur duit dari sekarang.", tf, R - 2 * s(PAD))
+    bottom = pill_y - s(50)
+    y = bottom - len(lines) * lh
+    for ln in lines:
+        draw.text((s(PAD), y), ln, font=tf, fill=WHITE); y += lh
+
     draw.rounded_rectangle([s(PAD), pill_y, s(PAD) + ctw + 2 * px, pill_y + pill_h],
-                           radius=s(14), fill=YELLOW)
-    draw.text((s(PAD) + px, pill_y + py - s(4)), ct, font=cf, fill=INK)
-    draw.text((s(PAD), sub_y), "Melek duit, pelan-pelan", font=subf, fill=CREAM)
+                           radius=s(16), fill=YELLOW)
+    draw.text((s(PAD) + px, pill_y + py - s(5)), ct, font=cf, fill=INK)
+
+    sf = _font("medium", 26)
+    draw.text((s(PAD), pill_y + pill_h + s(20)), "Melek duit, pelan-pelan", font=sf, fill=MUTED)
+
+    bear = _bear(s(150))
+    canvas.paste(bear, (R - s(PAD) - bear.width, s(PAD) + s(36)), bear)
     return _save(canvas, out_path)
