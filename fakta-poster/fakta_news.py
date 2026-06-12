@@ -268,11 +268,14 @@ _WEB_SEARCH_BRIEF = {
 }
 
 
-def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
+def _claude_web_news(category: str, avoid: list[str] | None = None, topic: str | None = None) -> dict:
     """SUMBER UTAMA: Claude search web sendiri (server-side web_search) → tulis carousel.
     Pakai ANTHROPIC_API_KEY (yang udah jalan) — TANPA Google Cloud / NewsAPI sama sekali.
-    Raises kalau gagal (caller fallback ke _gather/CSE)."""
-    brief = _WEB_SEARCH_BRIEF.get(category, f"berita '{category}' yang lagi viral & banyak diberitakan di Indonesia")
+    `topic` (opsional): fokusin pencarian ke topik itu. Raises kalau gagal (caller fallback)."""
+    if topic:
+        brief = f"berita TERBARU & yang lagi VIRAL tentang '{topic}' di Indonesia (cari yang paling hangat & banyak diberitakan)"
+    else:
+        brief = _WEB_SEARCH_BRIEF.get(category, f"berita '{category}' yang lagi viral & banyak diberitakan di Indonesia")
     avoid_line = ""
     if avoid:
         joined = "; ".join(a for a in avoid if a)[:800]
@@ -370,16 +373,16 @@ def _claude_web_news(category: str, avoid: list[str] | None = None) -> dict:
     }
 
 
-def generate_news(category: str, avoid: list[str] | None = None) -> dict:
+def generate_news(category: str, avoid: list[str] | None = None, topic: str | None = None) -> dict:
     """Return {category, hook, fact, detail, takeaway, caption, query} grounded ke berita asli.
-    Raises RuntimeError kalau search kosong / API tak tersedia (caller boleh fallback).
+    `topic` (opsional): fokusin ke topik tertentu. Raises kalau search kosong (caller fallback).
 
     Urutan sumber:
       1. web_search (Claude search web sendiri, pakai ANTHROPIC_API_KEY) = UTAMA, paling fresh.
       2. Google CSE + NewsAPI (snippet) = fallback kalau web_search mati/limit."""
     # 1) SUMBER UTAMA — Claude search web langsung (gak butuh Google Cloud/NewsAPI)
     try:
-        res = _claude_web_news(category, avoid=avoid)
+        res = _claude_web_news(category, avoid=avoid, topic=topic)
         if res.get("hook") and res.get("fact"):
             print(f"      via web_search (Claude cari web sendiri) — sumber: {res.get('_sumber', '?')}")
             return res
