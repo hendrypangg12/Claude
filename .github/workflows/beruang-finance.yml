@@ -11,12 +11,12 @@ concurrency:
 
 on:
   schedule:
-    # WIB = UTC+7. 5 slot/hari, jam beda dari Daily Fakta. Menit :17 (hindari jam bulat).
-    - cron: "17 0 * * *"   # 07:17 WIB → REEL
-    - cron: "17 4 * * *"   # 11:17 WIB → carousel
-    - cron: "17 8 * * *"   # 15:17 WIB → carousel
-    - cron: "17 11 * * *"  # 18:17 WIB → REEL
-    - cron: "17 14 * * *"  # 21:17 WIB → carousel
+    # WIB = UTC+7. 5 slot/hari, menit :27 (mundur 10 menit, hindari nabrak faktaviral :17).
+    - cron: "27 0 * * *"   # 07:27 WIB → REEL
+    - cron: "27 4 * * *"   # 11:27 WIB → carousel
+    - cron: "27 8 * * *"   # 15:27 WIB → carousel
+    - cron: "27 11 * * *"  # 18:27 WIB → REEL
+    - cron: "27 14 * * *"  # 21:27 WIB → carousel
   workflow_dispatch:
     inputs:
       ctype:
@@ -71,11 +71,11 @@ jobs:
         id: slot
         run: |
           case "${{ github.event.schedule }}" in
-            "17 0 * * *")  ct="tips";   mode="reel" ;;      # 07:17 WIB
-            "17 4 * * *")  ct="berita"; mode="carousel" ;;  # 11:17 WIB
-            "17 8 * * *")  ct="tips";   mode="carousel" ;;  # 15:17 WIB
-            "17 11 * * *") ct="lucu";   mode="reel" ;;      # 18:17 WIB
-            "17 14 * * *") ct="berita"; mode="carousel" ;;  # 21:17 WIB
+            "27 0 * * *")  ct="tips";   mode="reel" ;;      # 07:27 WIB
+            "27 4 * * *")  ct="berita"; mode="carousel" ;;  # 11:27 WIB
+            "27 8 * * *")  ct="tips";   mode="carousel" ;;  # 15:27 WIB
+            "27 11 * * *") ct="lucu";   mode="reel" ;;      # 18:27 WIB
+            "27 14 * * *") ct="berita"; mode="carousel" ;;  # 21:27 WIB
             *)            ct="${{ github.event.inputs.ctype }}"; mode="" ;;  # manual
           esac
           echo "ct=$ct"     >> "$GITHUB_OUTPUT"
