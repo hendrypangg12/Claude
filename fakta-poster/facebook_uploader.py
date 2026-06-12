@@ -44,6 +44,14 @@ def resolve_page(user_token: str, ig_user_id: str = "", page_id: str = "") -> tu
         raise RuntimeError("Token ini gak punya akses Page mana pun "
                            "(pastiin scope pages_show_list + pages_manage_posts, & Page ke-grant).")
 
+    # DIAGNOSTIK: tampilkan Page apa aja yang token bisa akses (nama gak disensor GitHub)
+    print("FB: Page yang kebaca token →",
+          ", ".join(f"{p.get('name','?')}({'token-OK' if p.get('access_token') else 'NO-token'})"
+                    for p in data))
+    print(f"FB: page_id diminta = {'(kosong)' if not page_id else 'ada (cek match di bawah)'}")
+    if page_id and not any(str(p.get('id')) == str(page_id) for p in data):
+        print(f"FB: ⚠️ page_id yang diminta TIDAK ada di daftar Page token → jatuh ke fallback")
+
     # 1) page_id eksplisit (FB_PAGE_ID/FB_PAGE_ID_BF) = niat user, menang dari tebakan IG-link
     if page_id:
         for p in data:
