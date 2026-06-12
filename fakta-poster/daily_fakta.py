@@ -113,11 +113,12 @@ def main() -> int:
 
     print("[1/3] Generating fakta with Claude...")
     fakta = None
-    if category in NEWS_CATEGORIES and not topic:
+    if category in NEWS_CATEGORIES:
         try:
             from fakta_news import generate_news
-            print(f"      mode BERITA (verifikasi search engine) — kategori {category}...")
-            fakta = generate_news(category, avoid=_recent_hooks(out_root))
+            foc = f" — fokus topik '{topic}'" if topic else ""
+            print(f"      mode BERITA (verifikasi search engine) — kategori {category}{foc}...")
+            fakta = generate_news(category, avoid=_recent_hooks(out_root), topic=topic or None)
         except Exception as exc:
             print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
     if fakta is None:
