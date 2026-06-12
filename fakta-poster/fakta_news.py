@@ -268,6 +268,24 @@ _WEB_SEARCH_BRIEF = {
 }
 
 
+def _avoid_instruction(avoid: list[str] | None) -> str:
+    """Bangun instruksi 'hindari tema yang baru dibahas' yang KERAS — hindari SELURUH tema/
+    peristiwanya, bukan cuma judul yang sama. Biar feed variatif, gak numpuk di 1 peristiwa besar."""
+    if not avoid:
+        return ""
+    joined = "; ".join(a for a in avoid if a)[:1000]
+    if not joined:
+        return ""
+    return (
+        f"\n\nBARU SAJA DIBAHAS (JANGAN diulang): {joined}\n"
+        f"ATURAN VARIASI (KERAS): hindari SELURUH TEMA/peristiwa di atas, bukan cuma judul yang sama. "
+        f"Contoh: kalau 'Piala Dunia / World Cup' sudah dibahas, JANGAN pilih berita Piala Dunia lain "
+        f"(sudut, pertandingan, drama, pemain lain pun TIDAK boleh). Kalau 'demo mahasiswa' sudah dibahas, "
+        f"jangan ambil angle demo lain. PILIH PERISTIWA yang BENAR-BENAR BEDA TOTAL dari daftar itu — "
+        f"tujuannya feed variatif tiap hari, bukan numpuk di 1 peristiwa besar."
+    )
+
+
 def _claude_web_news(category: str, avoid: list[str] | None = None, topic: str | None = None) -> dict:
     """SUMBER UTAMA: Claude search web sendiri (server-side web_search) → tulis carousel.
     Pakai ANTHROPIC_API_KEY (yang udah jalan) — TANPA Google Cloud / NewsAPI sama sekali.
@@ -276,11 +294,7 @@ def _claude_web_news(category: str, avoid: list[str] | None = None, topic: str |
         brief = f"berita TERBARU & yang lagi VIRAL tentang '{topic}' di Indonesia (cari yang paling hangat & banyak diberitakan)"
     else:
         brief = _WEB_SEARCH_BRIEF.get(category, f"berita '{category}' yang lagi viral & banyak diberitakan di Indonesia")
-    avoid_line = ""
-    if avoid:
-        joined = "; ".join(a for a in avoid if a)[:800]
-        if joined:
-            avoid_line = f"\n\nHINDARI topik yang mirip ini (sudah pernah dibahas): {joined}"
+    avoid_line = _avoid_instruction(avoid)
 
     today = datetime.utcnow() + timedelta(hours=7)  # WIB
     today_str = today.strftime("%d %B %Y")
@@ -400,11 +414,7 @@ def generate_news(category: str, avoid: list[str] | None = None, topic: str | No
     if not items:
         raise RuntimeError(f"tidak ada hasil pencarian untuk kategori '{category}'")
 
-    avoid_line = ""
-    if avoid:
-        joined = "; ".join(a for a in avoid if a)[:800]
-        if joined:
-            avoid_line = f"\n\nHINDARI topik yang mirip ini (sudah pernah dibahas): {joined}"
+    avoid_line = _avoid_instruction(avoid)
 
     ctx = "\n".join(
         f"{i+1}. [{it['source']}] {it['title']} — {it['snippet']}"
