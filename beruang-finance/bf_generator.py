@@ -56,7 +56,14 @@ def _parse_json(raw: str) -> dict:
         raw = raw.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0].strip()
         if raw.startswith("json"):
             raw = raw[4:].strip()
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        # model kadang nambah prosa / kelebihan koma → ambil objek JSON pertama
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        if not m:
+            raise
+        return json.loads(m.group(0))
 
 
 def generate_content(ctype: str | None = None, topic: str | None = None,
@@ -74,13 +81,26 @@ def generate_content(ctype: str | None = None, topic: str | None = None,
         if joined:
             avoid_line = f"\n\nJANGAN ulangi/mirip konten yang sudah pernah dibahas: {joined}"
 
-    msg = _client().messages.create(
-        model=MODEL,
-        max_tokens=900,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"Buat satu konten baru. {line}{avoid_line}"}],
-    )
-    data = _parse_json(msg.content[0].text)
+    client = _client()
+    user = f"Buat satu konten baru. {line}{avoid_line}"
+    # JSON model kadang flaky (kurang koma / kutip nyasar) → coba sampai 3x sebelum nyerah
+    data = None
+    last_exc: Exception | None = None
+    for attempt in range(3):
+        msg = client.messages.create(
+            model=MODEL,
+            max_tokens=900,
+            system=SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user}],
+        )
+        try:
+            data = _parse_json(msg.content[0].text)
+            break
+        except (json.JSONDecodeError, KeyError, IndexError) as exc:
+            last_exc = exc
+            print(f"      (JSON konten rusak, ulang {attempt + 1}/3: {exc})")
+    if data is None:
+        raise RuntimeError(f"gagal parse JSON konten setelah 3x coba → {last_exc}")
     pts = [_no_emoji(str(p)) for p in (data.get("points") or []) if str(p).strip()]
     return {
         "type": str(data.get("type", "tips")).strip().lower() or "tips",
