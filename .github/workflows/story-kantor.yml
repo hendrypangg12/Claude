@@ -1,0 +1,105 @@
+name: Story Kantor (auto-post)
+
+# Generate 1 carousel "Story Kantor" (sindiran/relatable kerja, gaya Folkative) → IG @storykantor.idn.
+# Antri sama workflow lain (grup sama) biar gak nabrak rate limit Anthropic 429.
+concurrency:
+  group: ig-content-gen
+  cancel-in-progress: false
+
+on:
+  schedule:
+    # WIB = UTC+7. 3 slot/hari, menit :37 (beda dari faktaviral :17 & beruang :27).
+    - cron: "37 1 * * *"   # 08:37 WIB
+    - cron: "37 5 * * *"   # 12:37 WIB
+    - cron: "37 12 * * *"  # 19:37 WIB
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topik spesifik (opsional, mis. 'lembur' / 'cari muka')"
+        required: false
+        default: ""
+        type: string
+      post_mode:
+        description: "Mau post? (none = cuma preview ke repo)"
+        required: false
+        default: "carousel"
+        type: choice
+        options:
+          - carousel
+          - none
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: story-kantor
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: fakta-poster/requirements.txt
+
+      - run: pip install -r ../fakta-poster/requirements.txt
+
+      - run: python sk_daily.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOPIC: ${{ github.event.inputs.topic }}
+
+      - name: Siapkan media + commit
+        working-directory: ${{ github.workspace }}
+        run: |
+          TS=$(ls -t story-kantor/out | head -1)
+          echo "TS=$TS" >> "$GITHUB_ENV"
+          mkdir -p "story-kantor/published/$TS"
+          cp story-kantor/out/$TS/post_*.jpg "story-kantor/published/$TS/" 2>/dev/null || true
+          cp story-kantor/out/$TS/caption.txt "story-kantor/published/$TS/" 2>/dev/null || true
+          cp story-kantor/out/$TS/meta.json "story-kantor/published/$TS/" 2>/dev/null || true
+          ls -dt story-kantor/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A story-kantor
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Story Kantor $TS"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              git fetch origin ${{ github.ref_name }}
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
+            done
+          fi
+          echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Publish ke Instagram (@storykantor.idn)
+        if: ${{ (github.event.inputs.post_mode || 'carousel') != 'none' }}
+        working-directory: fakta-poster
+        run: |
+          if [ -z "$IG_USER_ID" ]; then
+            echo "IG_USER_ID_SK belum di-set → skip publish (akun belum siap). Konten tetap ke repo."
+            exit 0
+          fi
+          sleep 12
+          python publish_ig.py
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID_SK }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          POST_MODE: carousel
+          POST_STORY: "false"
+          PUB_DIR: ${{ github.workspace }}/story-kantor/published/${{ env.TS }}
+          RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/story-kantor/published/${{ env.TS }}
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-kantor-${{ github.run_id }}
+          path: story-kantor/out/
+          retention-days: 14
