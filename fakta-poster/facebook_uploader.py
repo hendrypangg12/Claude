@@ -33,8 +33,9 @@ def _get(path: str, params: dict) -> dict:
 
 
 def resolve_page(user_token: str, ig_user_id: str = "", page_id: str = "") -> tuple[str, str, str]:
-    """Cari (page_id, page_token, page_name). Prioritas: Page yang link ke ig_user_id,
-    lalu page_id eksplisit, lalu Page pertama yang punya akses post."""
+    """Cari (page_id, page_token, page_name). Prioritas: page_id eksplisit (paling kuat —
+    kalau user udah nyebut Page mana, itu yang dipakai), lalu Page yang link ke ig_user_id,
+    lalu Page pertama yang punya akses post."""
     data = _get("me/accounts", {
         "fields": "id,name,access_token,instagram_business_account",
         "access_token": user_token,
@@ -43,16 +44,16 @@ def resolve_page(user_token: str, ig_user_id: str = "", page_id: str = "") -> tu
         raise RuntimeError("Token ini gak punya akses Page mana pun "
                            "(pastiin scope pages_show_list + pages_manage_posts, & Page ke-grant).")
 
-    # 1) Page yang IG-nya == ig_user_id
+    # 1) page_id eksplisit (FB_PAGE_ID/FB_PAGE_ID_BF) = niat user, menang dari tebakan IG-link
+    if page_id:
+        for p in data:
+            if str(p.get("id")) == str(page_id) and p.get("access_token"):
+                return p["id"], p["access_token"], p.get("name", "")
+    # 2) Page yang IG-nya == ig_user_id
     if ig_user_id:
         for p in data:
             iba = (p.get("instagram_business_account") or {}).get("id")
             if iba and str(iba) == str(ig_user_id) and p.get("access_token"):
-                return p["id"], p["access_token"], p.get("name", "")
-    # 2) page_id eksplisit
-    if page_id:
-        for p in data:
-            if str(p.get("id")) == str(page_id) and p.get("access_token"):
                 return p["id"], p["access_token"], p.get("name", "")
     # 3) Page pertama yang ada token
     for p in data:
