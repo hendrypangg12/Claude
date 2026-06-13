@@ -264,6 +264,82 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   `clipper.yml` ("AI Video Clipper", udah ada di repo: transcribe→Claude pilih momen→9:16+caption) support
   `YT_COOKIES` secret. Owner dipandu cara export cookies (ekstensi "Get cookies.txt LOCALLY" di komputer; iOS gak bisa).
 
+## SESSION MEMORY — update 13 Juni 2026 — FB AUTO-POST + AKUN KE-3 "STORY KANTOR"
+
+> Branch dev sesi ini = `claude/new-session-7ysra`, semua di-merge ke default `claude/halo-bYUsl`.
+> NOTE buat AI: **selalu auto-save memory ke CLAUDE.md tiap abis ngerjain project** (permintaan owner).
+
+### Facebook Page auto-post — AKHIRNYA JALAN (faktaviral) ✅
+- Dinding Meta tembus TANPA App Review/Tech Provider: di App Dashboard "fakta viral bot" (App ID `1048502251194046`)
+  → **Kasus penggunaan "Kelola segala sesuatu di Halaman Anda" (Pages API)** → izin `pages_manage_posts` statusnya
+  **"Siap untuk pengujian" (Standard Access)** = cukup buat admin app sendiri. JANGAN klik "Continue/Tech Provider"
+  (irreversible + minta verifikasi bisnis). Generate token di Graph API Explorer (centang `pages_manage_posts`,
+  `pages_read_engagement`, `pages_show_list`) → grant Page → Extend (permanen) → update Secret.
+- **IG→FB crosspost toggle (Settings IG → Sharing to Facebook) cuma jalan buat post MANUAL, BUKAN API auto-post**
+  (limitasi Meta). Makanya wajib `publish_fb.py` + `pages_manage_posts`.
+- **ID PENTING:** FB user Hendry Pang `28092466593674265`. **FB Page: Fakta Viral=`1113692745165301`,
+  Beruang Finance=`1144300008769890`.** IG: faktaviral=`17841431673727855`, beruang=`17841473550306699`.
+- **Secrets baru:** `FB_PAGE_ID=1113692745165301`, `FB_PAGE_ID_BF=1144300008769890` (+ token di IG_ACCESS_TOKEN/
+  IG_ACCESS_TOKEN_BF, 1 token permanen buat semua).
+- **DITES SUKSES faktaviral**: carousel+reel ke IG **dan** FB Page "Fakta Viral" (`FB: ✅ album/carousel id...`).
+- **`facebook_uploader.resolve_page` FIX**: prioritas diubah → **page_id eksplisit (FB_PAGE_ID/_BF) MENANG** dari
+  tebakan IG-link. + log diagnostik "FB: Page yang kebaca token → ...".
+- ⚠️ **BERUANG FB MASIH NYASAR ke Page Fakta Viral** per akhir sesi. Diagnosa (dari log): token `me/accounts`
+  **cuma balikin "Fakta Viral"** — Page "Beruang Finance" GAK ke-grant ke token. `FB_PAGE_ID_BF` udah BENER;
+  masalahnya **token belum grant Page Beruang**. FIX: regenerate token, di popup FB **centang DUA Page (opt in to all)**,
+  pastiin owner **Admin** Page Beruang. Owner regenerate tapi **belum re-run** buat verifikasi → TODO besok.
+
+### Anti-ulang topik (dedup) — diperkuat ke level SUBJEK
+- Masalah: auto-post ngulang topik (World Cup berkali-kali; "Venus" 2x dalam semalam) karena avoid cuma cek JUDUL identik.
+- FIX: `fakta_news._avoid_instruction` (berita) + `fakta_generator` avoid_line (evergreen) → sekarang **hindari
+  SUBJEK/TEMA yang sama** (contoh eksplisit World Cup/Venus/gurita), bukan cuma kalimat. Berlaku carousel & reel.
+- Dedup baca ±60 post terakhir dari `published/` (ke-commit) + history.json → cuma tau AUTO-post, bukan render manual lokal.
+
+### Robustness generator (anti gagal)
+- `bf_generator` + `fakta_generator` + `sk_generator`: `_parse_json` dikasih **regex fallback** + **auto-ulang 3x**
+  (Claude sesekali balikin JSON cacat → dulu bikin `bf_daily` gagal total).
+- `fakta_news.generate_news`/`_claude_web_news` dapat param **`topic`** → trending+topik nyari BERITA soal topik itu
+  (fix bug dulu trending+topik malah keluar "sejarah" evergreen).
+
+### Beruang carousel — REDESAIN bersih (ala faktaviral)
+- `bf_image_maker.py` ditulis ulang: cover foto full-bleed + judul KUNING/PUTIH (`_split_hl`), slide isi foto-atas+panel
+  3 poin (auto-fit), outro takeaway + pill Follow + beruang. Reuse `_photo_cover/_grad/_split_hl` dari fakta_image_maker.
+  Palet `YELLOW=(255,198,0)`. Buang scrim coklat tebal/dots/swipe lama.
+
+### Dashboard — tombol Generate anti double-tap (beneran)
+- `docs/dashboard.html`: dulu tombol kebuka lagi after 90s (timer) padahal run 3-5 menit → bisa ke-tap 2x = double post.
+  Sekarang flag `genBusy` + `genDone()` → tombol **mati sampai run BENERAN selesai** (trackWf deteksi), guard re-tap
+  walau panel re-render. Konsisten di tab Clipper.
+
+### AKUN KE-3 BARU: "Story Kantor" (@storykantor.idn) — sindiran/relatable kerja, GAYA FOLKATIVE
+- Owner mau akun ke-3. Pilihan: (1) sindiran kerja ✅dipilih, (2) zodiak, (3) quote galau. Nama final **storykantor.idn**.
+- Referensi = **Folkative**: post **putih bersih + teks hitam bold gede**, brand kecil kanan-atas, minimalis "ga lebay".
+- Folder **`story-kantor/`**: `sk_generator.py` (Claude `claude-sonnet-4-6`, output {topic,hook,lines[2],caption},
+  retry+regex, DILARANG kasar/SARA/nyebut nama), `sk_image_maker.py` (BG putih `(252,252,250)` + INK `(24,24,26)`,
+  brand "STORY KANTOR" kecil bold kanan-atas, handle kiri-bawah + counter kanan-bawah; `compose_statement(text,out,idx,
+  total,last)`; `make_profile()` = foto profil HITAM + wordmark "STORY KANTOR" putih bold 2 baris), `sk_daily.py`
+  (carousel 3 slide teks, NO foto/video). Workflow `.github/workflows/story-kantor.yml` (3 slot/hari menit :37;
+  publish **skip mulus kalau `IG_USER_ID_SK` kosong**; reuse IG_ACCESS_TOKEN; concurrency grup `ig-content-gen`).
+- Owner UDAH pasang foto profil hitam. Name disaranin "Story Kantor | Relatable Anak Kantoran", Bio dikasih 3 opsi.
+- **TODO biar auto-post LIVE: owner kasih `IG_USER_ID_SK`** (IG User ID @storykantor.idn) → set Secret. Story Kantor
+  BELUM diintegrasi ke dashboard/`build_manifest.py` (cuma via Actions Run manual / nanti).
+
+### Cron GitHub makin gak reliable
+- 13 Juni pagi: slot faktaviral **07:17 & 08:17 ke-skip total** (kemarin masih jalan). Murni keandalan GitHub jelek.
+- Solusi disaranin: **trigger eksternal cron-job.org** (panggil API workflow_dispatch pakai PAT) biar tepat waktu.
+  Sementara: **Run manual dari dashboard**. (Belum dipasang per akhir sesi.)
+
+### Konten manual sesi ini (render LOKAL, gak ke-commit)
+- **Carousel BBM subsidi langka** (faktaviral) pakai FOOTAGE ASLI owner: video SPBU Pertamina ditempel "BBM DALAM
+  PENGIRIMAN" plat B (Jakarta) → extract frame pakai ffmpeg → `compose_cover/fact/outro`. Headline "BBM subsidi
+  menjadi langka, warga Jakarta dipaksa beli Pertamax". Framing AMAN (kritik situasi, gak nuduh nama → UU ITE aman).
+- **Reel Earth Hour** (faktaviral): "Jakarta padamkan lampu 1 jam malam ini" — VERIFIED via web_search (Sabtu 13 Juni
+  20.30-21.30 WIB, Hari Lingkungan Hidup, simbolis di Monas/Bundaran HI/Balai Kota, **BUKAN mati listrik beneran**).
+  Foto kota malam (Pexels hotlink) → `image_to_clip` Ken Burns → `make_reel_overlay`+`render_reel` + musik.
+- **Banyak slide Story Kantor**: cari muka, sabtu kerja, sebelum tidur, weekend/Sunday-scaries (semua single-slide putih).
+- **Render lokal**: ffmpeg via `imageio-ffmpeg` (set env `FFMPEG`=imageio exe; ffprobe gak ada → `_duration` return 0,
+  aman). Pexels foto via hotlink `images.pexels.com/photos/<id>/...`. Frame video: `ffmpeg -i src -vf fps=1 ...`.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
