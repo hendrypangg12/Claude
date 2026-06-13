@@ -42,12 +42,19 @@ def _client() -> Anthropic:
 
 
 def _parse_json(raw: str) -> dict:
+    import re
     raw = raw.strip()
     if raw.startswith("```"):
         raw = raw.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0].strip()
         if raw.startswith("json"):
             raw = raw[4:].strip()
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        if not m:
+            raise
+        return json.loads(m.group(0))
 
 
 def generate_fakta(category: str | None = None, avoid: list[str] | None = None,
@@ -70,15 +77,31 @@ def generate_fakta(category: str | None = None, avoid: list[str] | None = None,
     if avoid:
         joined = "; ".join(a for a in avoid if a)[:1200]
         if joined:
-            avoid_line = f"\n\nJANGAN ulangi atau mirip dengan fakta yang sudah pernah dibahas ini: {joined}"
+            avoid_line = (
+                f"\n\nBARU SAJA DIBAHAS (JANGAN diulang): {joined}\n"
+                f"ATURAN VARIASI (KERAS): hindari SUBJEK/objek yang sama, bukan cuma kalimat yang sama. "
+                f"Contoh: kalau 'Venus' sudah dibahas, JANGAN bikin fakta Venus lain (sudut/angka lain pun TIDAK boleh). "
+                f"Kalau 'gurita' sudah dibahas, jangan ambil fakta gurita lain. "
+                f"Pilih SUBJEK yang BENAR-BENAR BEDA dari daftar di atas."
+            )
 
-    message = _client().messages.create(
-        model=MODEL,
-        max_tokens=900,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"Buat satu fakta unik baru. {cat_line}{avoid_line}"}],
-    )
-    data = _parse_json(message.content[0].text)
+    client = _client()
+    user = f"Buat satu fakta unik baru. {cat_line}{avoid_line}"
+    data = None
+    last_exc: Exception | None = None
+    for attempt in range(3):  # JSON model kadang flaky → coba sampai 3x
+        message = client.messages.create(
+            model=MODEL, max_tokens=900, system=SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user}],
+        )
+        try:
+            data = _parse_json(message.content[0].text)
+            break
+        except (json.JSONDecodeError, KeyError, IndexError) as exc:
+            last_exc = exc
+            print(f"      (JSON fakta rusak, ulang {attempt + 1}/3: {exc})")
+    if data is None:
+        raise RuntimeError(f"gagal parse JSON fakta setelah 3x coba → {last_exc}")
 
     return {
         "category": str(data.get("category", "")).strip().lower() or "sains",
