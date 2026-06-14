@@ -340,6 +340,20 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - **Render lokal**: ffmpeg via `imageio-ffmpeg` (set env `FFMPEG`=imageio exe; ffprobe gak ada → `_duration` return 0,
   aman). Pexels foto via hotlink `images.pexels.com/photos/<id>/...`. Frame video: `ffmpeg -i src -vf fps=1 ...`.
 
+### 14 Juni — dedup "peristiwa sama angle beda" + logo + cron makin parah
+- **Bug dobel lagi**: event lari Jakarta keluar 2x ("45rb pelari banjiri jalan" + "Jakarta macet gara-gara event").
+  Peristiwa SAMA, angle beda (lari vs macet) → dedup lama lolos. FIX `fakta_news._avoid_instruction`: suruh
+  **identifikasi PERISTIWA INTI dulu**, larang semua angle dari peristiwa yang sama (contoh eksplisit lari→macet).
+- **Akar ke-2 = cron pile-up**: cron pagi (00:17/01:17 UTC = 07:17/08:17 WIB) **konsisten ke-skip** (jam sibuk GitHub).
+  Owner run manual → cron telat nyusul → 3 post trending numpuk 2 jam → semua ngejar berita terpanas (event lari).
+  Solusi permanen disaranin lagi: **cron-job.org** (BELUM dipasang). Sementara: run manual dari dashboard.
+- **Logo Fakta Viral baru**: owner ganti ke **hitam + "FAKTA" putih + "VIRAL" kuning/emas + garis bawah emas**
+  (rekomendasi `fv_black`). Putih+kuning DITOLAK (kontras rendah). Mock-up dirender lokal pakai `_font` + GOLD=(255,214,0).
+- **Konten manual sesi ini**: carousel + REEL misteri akun IG **@moapies** (28 juta post, private, bio "Tag me in the
+  post you found me to get accepted" — VERIFIED via web_search, akun viral nyata, teori dilabel "teori", + caution
+  jangan asal tag/follow). Reel pakai screenshot owner sbg bg (Ken Burns) + `make_reel_overlay`/`render_reel` + musik
+  investigations.mp3. Reels > carousel buat topik misteri (jangkauan Explore).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
