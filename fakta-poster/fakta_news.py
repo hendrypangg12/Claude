@@ -278,11 +278,14 @@ def _avoid_instruction(avoid: list[str] | None) -> str:
         return ""
     return (
         f"\n\nBARU SAJA DIBAHAS (JANGAN diulang): {joined}\n"
-        f"ATURAN VARIASI (KERAS): hindari SELURUH TEMA/peristiwa di atas, bukan cuma judul yang sama. "
-        f"Contoh: kalau 'Piala Dunia / World Cup' sudah dibahas, JANGAN pilih berita Piala Dunia lain "
-        f"(sudut, pertandingan, drama, pemain lain pun TIDAK boleh). Kalau 'demo mahasiswa' sudah dibahas, "
-        f"jangan ambil angle demo lain. PILIH PERISTIWA yang BENAR-BENAR BEDA TOTAL dari daftar itu — "
-        f"tujuannya feed variatif tiap hari, bukan numpuk di 1 peristiwa besar."
+        f"ATURAN VARIASI (KERAS): untuk TIAP item di atas, identifikasi dulu PERISTIWA INTI-nya. "
+        f"Kalau berita yang mau kamu pilih soal PERISTIWA YANG SAMA — walau angle/judulnya beda total "
+        f"(mis. dampaknya, korbannya, reaksinya, kemacetannya) — itu TETAP DILARANG. "
+        f"Contoh konkret: kalau 'event lari 45 ribu pelari di Jakarta' sudah dibahas, maka 'Jakarta macet "
+        f"gara-gara event' JUGA DILARANG (itu peristiwa yang sama, cuma angle macet). "
+        f"Kalau 'Piala Dunia' sudah dibahas, semua berita Piala Dunia (sudut/pemain/drama lain) DILARANG. "
+        f"PILIH PERISTIWA yang BENAR-BENAR BEDA TOTAL — beda kejadian, beda tempat, beda topik. "
+        f"Tujuannya feed variatif tiap hari, bukan numpuk di 1 peristiwa besar dari berbagai sudut."
     )
 
 
