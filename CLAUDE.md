@@ -344,6 +344,10 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - **Bug dobel lagi**: event lari Jakarta keluar 2x ("45rb pelari banjiri jalan" + "Jakarta macet gara-gara event").
   Peristiwa SAMA, angle beda (lari vs macet) → dedup lama lolos. FIX `fakta_news._avoid_instruction`: suruh
   **identifikasi PERISTIWA INTI dulu**, larang semua angle dari peristiwa yang sama (contoh eksplisit lari→macet).
+- **Madu keluar 2x** ("Madu...berusia 3.000 tahun" 13 & 14 Juni, nyaris identik) → prompt-avoid gak cukup.
+  **DEDUP LEVEL KODE** ditambah di `daily_fakta.py`: `_is_dup(hook, recent)` = overlap kata penting (≥4 kata sama
+  atau Jaccard≥0.5) vs ~60 post terakhir → kalau mirip, **REGENERATE (maks 3x), gak jadi upload**. 2 lapis (kode +
+  prompt). Di-skip kalau owner maksa topik. NB: belum dipasang di `bf_daily`/`sk_daily` (beruang/story-kantor) — TODO kalau perlu.
 - **Akar ke-2 = cron pile-up**: cron pagi (00:17/01:17 UTC = 07:17/08:17 WIB) **konsisten ke-skip** (jam sibuk GitHub).
   Owner run manual → cron telat nyusul → 3 post trending numpuk 2 jam → semua ngejar berita terpanas (event lari).
   Solusi permanen disaranin lagi: **cron-job.org** (BELUM dipasang). Sementara: run manual dari dashboard.
