@@ -101,6 +101,36 @@ def _recent_hooks(out_root: Path, limit: int = 40) -> list[str]:
     return out[:60]
 
 
+_STOP = set((
+    "yang kamu kita gue gua lo lu kau ini itu ada bisa akan udah sudah lagi juga buat untuk "
+    "dengan dari pada ke di dan atau tapi saat hari pagi siang sore malam lebih paling banget "
+    "the a an is are of in on to bikin jadi gak nggak tak tetap masih para ribu juta"
+).split())
+
+
+def _norm_words(s: str) -> set:
+    import re
+    return set(w for w in re.findall(r"[a-z0-9]+", (s or "").lower())
+               if len(w) > 2 and w not in _STOP)
+
+
+def _is_dup(hook: str, recent: list[str], thresh: float = 0.5) -> bool:
+    """True kalau `hook` mirip salah satu post lama (overlap kata penting tinggi).
+    Nangkep 'Madu ... berusia 3.000 tahun' vs 'Madu ... bisa berusia 3.000 tahun'."""
+    hw = _norm_words(hook)
+    if len(hw) < 2:
+        return False
+    for r in recent:
+        rw = _norm_words(r)
+        if not rw:
+            continue
+        inter = len(hw & rw)
+        union = len(hw | rw) or 1
+        if inter >= 4 or inter / union >= thresh:
+            return True
+    return False
+
+
 def main() -> int:
     load_dotenv()
     now = datetime.now(WIB)
@@ -112,20 +142,38 @@ def main() -> int:
     topic = os.environ.get("TOPIC", "").strip() or None
 
     print("[1/3] Generating fakta with Claude...")
-    fakta = None
-    if category in NEWS_CATEGORIES:
-        try:
-            from fakta_news import generate_news
-            foc = f" — fokus topik '{topic}'" if topic else ""
-            print(f"      mode BERITA (verifikasi search engine) — kategori {category}{foc}...")
-            fakta = generate_news(category, avoid=_recent_hooks(out_root), topic=topic or None)
-        except Exception as exc:
-            print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
-    if fakta is None:
-        # kalau kategori 'berita' (trending/keuangan/aktor) gagal → fallback ke BEBAS (bukan kategori palsu)
+    recent = _recent_hooks(out_root)
+
+    def _gen(av):
+        """1 kali generate (berita kalau kategori berita, else evergreen). Selalu balikin dict."""
+        if category in NEWS_CATEGORIES:
+            try:
+                from fakta_news import generate_news
+                foc = f" — fokus topik '{topic}'" if topic else ""
+                print(f"      mode BERITA (verifikasi search engine) — kategori {category}{foc}...")
+                return generate_news(category, avoid=av, topic=topic or None)
+            except Exception as exc:
+                print(f"      (berita gagal: {exc}) → fallback ke fakta evergreen")
         fb_cat = None if category in NEWS_CATEGORIES else category
-        fakta = generate_fakta(category=fb_cat, avoid=_recent_hooks(out_root), topic=topic,
-                               avoid_categories=_recent_categories(out_root))
+        return generate_fakta(category=fb_cat, avoid=av, topic=topic,
+                              avoid_categories=_recent_categories(out_root))
+
+    # GUARD ANTI-DOBEL (level kode): kalau hook mirip post lama → REGENERATE, gak jadi di-upload.
+    # Di-skip kalau owner maksa topik spesifik (emang mau topik itu).
+    fakta = None
+    av = list(recent)
+    for attempt in range(3):
+        cand = _gen(av)
+        if cand is None:
+            continue
+        if topic or not _is_dup(cand.get("hook", ""), recent):
+            fakta = cand
+            break
+        print(f"      ⚠️ DOBEL: '{cand['hook']}' mirip post lama → regenerate ({attempt + 1}/3)")
+        av = av + [cand.get("hook", "")]   # tolak yang mirip, masukin ke avoid biar gak ngulang
+        fakta = cand                       # simpan terakhir sbg fallback kalau 3x tetap mirip
+    if fakta is None:
+        raise RuntimeError("gagal generate konten")
     print(f"      → [{fakta['category']}] {fakta['hook']}")
     if fakta.get("_published"):
         print(f"      🕒 berita terbit: {fakta['_published']}")
