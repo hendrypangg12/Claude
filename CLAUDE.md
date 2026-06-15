@@ -348,6 +348,9 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   **DEDUP LEVEL KODE** ditambah di `daily_fakta.py`: `_is_dup(hook, recent)` = overlap kata penting (≥4 kata sama
   atau Jaccard≥0.5) vs ~60 post terakhir → kalau mirip, **REGENERATE (maks 3x), gak jadi upload**. 2 lapis (kode +
   prompt). Di-skip kalau owner maksa topik. NB: belum dipasang di `bf_daily`/`sk_daily` (beruang/story-kantor) — TODO kalau perlu.
+- **15 Juni: IHSG keluar 2x** (jam beda) — lolos karena overlap kata pas di bawah ambang. FIX: `_acronyms()` di `_is_dup`
+  → kalau 2 hook share AKRONIM kapital subjek sama (IHSG/BBM/MBG/KPK/TNI/DPR) langsung dianggap dobel. Story Kantor
+  auto-post mulai jalan (ada commit `story-kantor/published/...`).
 - **Akar ke-2 = cron pile-up**: cron pagi (00:17/01:17 UTC = 07:17/08:17 WIB) **konsisten ke-skip** (jam sibuk GitHub).
   Owner run manual → cron telat nyusul → 3 post trending numpuk 2 jam → semua ngejar berita terpanas (event lari).
   Solusi permanen disaranin lagi: **cron-job.org** (BELUM dipasang). Sementara: run manual dari dashboard.
