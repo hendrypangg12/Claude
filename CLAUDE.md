@@ -411,6 +411,22 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - Cara kirim file ke owner: kasih **link GitHub blob** (owner klik → Download raw file), karena owner susah copy-paste. Branch `claude/forex-trading-gb76l2`.
 - Link contoh: `https://github.com/hendrypangg12/Claude/blob/claude/forex-trading-gb76l2/forex-trading/<file>.mq5`.
 
+### Update setup MT5 (15 Juni malam) — BOT LIVE di akun REAL
+- MT5 desktop (Windows) keinstall, login **akun 211063379**. ⚠️ **INI AKUN REAL** (server **HFMarketsGlobal-Live17**),
+  BUKAN demo — sempat salah kira demo karena di Navigator ada folder "HFMarketsGlobal-Demo", tapi title bar = "Live17".
+  Owner KONFIRMASI duit real, **"duit siap ilang"** (tolak turun ke 0.01, tetep 0.1). Saldo ~Rp2,77jt setelah top-up.
+- Kedua EA **compile 0 errors**. `TimedDailyTrade` udah **dipasang ke chart XAUUSDb,M1 + Algo Trading ON** (live).
+- **Timezone TERVERIFIKASI BENAR**: log EA nunjukin "Waktu WIB" = jam laptop (server HFM = GMT+3, `InpBrokerGMTOff=3` pas).
+- **TES LIVE sukses** (mekanik bot 100% jalan): set jam ke 23:50/23:53 → bot BUY 0.1 lot @4336.79 TEPAT 23:50, SL kepasang
+  @4333.79 ($3), CLOSE @4335.36 jam 23:53 → **RUGI -Rp253rb (REAL)**. Pelajaran: (1) exit-by-waktu gak ngambil cuan
+  sementara (sempat +40rb tapi tutup rugi) → TP bisa bantu; (2) 0.1 lot itu GEDE (gerak $1.43 = -253rb).
+- **Backtest 6 bulan GAGAL**: data history M1 XAUUSDb di akun ini cuma ~1379 bars (~1 hari) — broker gak nyimpen M1
+  lengkap. Strategy Tester mentok, hasil -16rb gak valid. Solusi backtest proper = data source lain (belum dikejar).
+- **Worst case 0.1 lot dijelasin ke owner**: SL normal cap ~Rp490rb/trade; TAPI strategi nahan-lewat-gap → kalau gap
+  lompati SL, emas gerak ~$17 = **AKUN HABIS** (~Rp2,77jt) sekali trade. Owner sadar, tetep lanjut 0.1.
+- **Status akhir sesi**: bot di-set jadwal ASLI **BUY 03:57 / CLOSE 05:02 WIB, lot 0.1**, Algo Trading ON. Owner mau
+  biarin laptop nyala → subuh bot trade real otomatis. NEXT: besok cek tab History hasil trade subuh; opsi VPS biar 24 jam.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
