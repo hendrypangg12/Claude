@@ -25,9 +25,11 @@ input int    InpBrokerGMTOff  = 3;     // Offset GMT server broker (cek Market W
 
 //--- Order ---------------------------------------------------------
 input group "=== Order ==="
-input double InpLotSize        = 0.10; // Ukuran lot (PERINGATAN: 0.10 emas di akun kecil = sangat berisiko)
-input int    InpStopLossPts    = 0;    // Stop Loss (points, 0 = tidak dipakai)
-input int    InpTakeProfitPts  = 0;    // Take Profit (points, 0 = tidak dipakai)
+input double InpLotSize         = 0.10; // Ukuran lot (PERINGATAN: 0.10 emas di akun kecil = sangat berisiko)
+input bool   InpUseStopLoss     = true; // Pakai Stop Loss?
+input double InpStopLossPrice   = 3.0;  // Jarak SL dari harga masuk, dalam satuan HARGA (emas: dollar). 3.0 = SL $3 di bawah
+input bool   InpUseTakeProfit   = false;// Pakai Take Profit?
+input double InpTakeProfitPrice = 3.0;  // Jarak TP dari harga masuk, dalam satuan HARGA (emas: dollar)
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
 input bool   InpTradeMonToFri  = true; // Hanya Senin-Jumat (skip Sabtu/Minggu)
 input long   InpMagic          = 39570050; // Magic number (identitas posisi EA ini)
@@ -138,10 +140,33 @@ bool OpenBuy()
       }
    }
 
-   //--- SL / TP opsional
+   //--- SL / TP opsional (jarak dalam satuan harga, mis. emas = dollar)
    double sl = 0.0, tp = 0.0;
-   if(InpStopLossPts   > 0) sl = NormalizeDouble(ask - InpStopLossPts   * point, digits);
-   if(InpTakeProfitPts > 0) tp = NormalizeDouble(ask + InpTakeProfitPts * point, digits);
+   if(InpUseStopLoss   && InpStopLossPrice   > 0) sl = ask - InpStopLossPrice;
+   if(InpUseTakeProfit && InpTakeProfitPrice > 0) tp = ask + InpTakeProfitPrice;
+
+   //--- hormati jarak minimum stop dari broker (stops level)
+   long   stopsLevel = SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double minDist    = stopsLevel * point;
+   if(sl > 0 && (ask - sl) < minDist)
+   {
+      sl = ask - minDist - point;
+      PrintFormat("[TimedDailyTrade] SL terlalu dekat, didorong ke jarak minimum broker (%d points).", (int)stopsLevel);
+   }
+   if(tp > 0 && (tp - ask) < minDist)
+      tp = ask + minDist + point;
+
+   sl = (sl > 0) ? NormalizeDouble(sl, digits) : 0.0;
+   tp = (tp > 0) ? NormalizeDouble(tp, digits) : 0.0;
+
+   //--- info estimasi rugi maks dari SL (dalam mata uang akun, mis. IDR)
+   if(sl > 0)
+   {
+      double estLoss = 0;
+      if(OrderCalcProfit(ORDER_TYPE_BUY, _Symbol, InpLotSize, ask, sl, estLoss))
+         PrintFormat("[TimedDailyTrade] SL @ %.*f -> estimasi rugi maks ~%.2f %s",
+                     digits, sl, estLoss, AccountInfoString(ACCOUNT_CURRENCY));
+   }
 
    if(trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "TimedDailyTrade"))
    {

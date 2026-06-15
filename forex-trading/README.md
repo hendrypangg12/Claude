@@ -64,14 +64,41 @@ Kalau **"Waktu WIB"** sama dengan jam asli di HP kamu → **udah benar**. Kalau 
 | `InpWIBOffset` | 7 | WIB = GMT+7 (jangan diubah) |
 | `InpBrokerGMTOff` | 3 | Offset GMT server broker (cek lewat log) |
 | `InpLotSize` | 0.10 | Ukuran lot |
-| `InpStopLossPts` | 0 | Stop Loss (points, 0 = mati) |
-| `InpTakeProfitPts` | 0 | Take Profit (points, 0 = mati) |
+| `InpUseStopLoss` | true | Pakai Stop Loss? |
+| `InpStopLossPrice` | 3.0 | Jarak SL dari harga masuk, dalam satuan harga (emas: dollar). 3.0 = SL $3 di bawah |
+| `InpUseTakeProfit` | false | Pakai Take Profit? |
+| `InpTakeProfitPrice` | 3.0 | Jarak TP dari harga masuk, dalam satuan harga (emas: dollar) |
 | `InpMaxSpreadPts` | 0 | Spread maks (points, 0 = abaikan) |
 | `InpTradeMonToFri` | true | Cuma Senin-Jumat |
 | `InpMagic` | 39570050 | Identitas posisi EA |
 | `InpSlippagePts` | 30 | Deviasi/slippage maks (points) |
 
 ---
+
+## 📐 Cara hitung Stop Loss (XAUUSD / emas)
+
+- **1.00 lot = 100 oz**, jadi **0.10 lot = 10 oz**.
+- Tiap harga emas gerak **$1**, untung/rugi = **lot × 100** dollar (0.10 lot → **$10**).
+
+Rumus rugi kalau kena SL:
+```
+Rugi (USD) = Jarak SL (dalam $ harga) × Lot × 100
+```
+
+Contoh dengan **lot 0.10**:
+
+| Jarak SL (`InpStopLossPrice`) | Rugi kalau kena | ≈ Rupiah (kurs 16.500) |
+|---|---|---|
+| 1.0 ($1) | $10 | ~Rp165.000 |
+| 3.0 ($3) | $30 | ~Rp495.000 |
+| 5.0 ($5) | $50 | ~Rp825.000 |
+
+> Isi `InpStopLossPrice` = berapa **dollar harga** SL di bawah harga masuk. Pas EA buka posisi,
+> log di tab **Experts** otomatis nampilin estimasi rugi maks dalam mata uang akun (IDR), mis:
+> `SL @ 2497.00 -> estimasi rugi maks ~-495000.00 IDR`.
+
+**Catatan akun kecil:** dengan modal ~$60, SL $3 = rugi ~setengah modal. Kalau mau risiko lebih kecil,
+kecilin **lot** (mis. 0.01 → rugi tinggal 1/10-nya) bukan cuma SL-nya.
 
 ## ✅ Cara tes aman dulu (sangat disarankan)
 1. Ganti `InpLotSize` ke **0.01**.
