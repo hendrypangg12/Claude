@@ -101,8 +101,17 @@ void CloseOurPositions()
       if(PositionGetString(POSITION_SYMBOL) == _Symbol &&
          PositionGetInteger(POSITION_MAGIC) == InpMagic)
       {
+         //--- catat data GAP sebelum nutup (buat analisa harian)
+         int    digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+         double openP  = PositionGetDouble(POSITION_PRICE_OPEN);
+         double curP   = PositionGetDouble(POSITION_PRICE_CURRENT);
+         double gap    = curP - openP;
+         double pl     = PositionGetDouble(POSITION_PROFIT) + PositionGetDouble(POSITION_SWAP);
+
          if(trade.PositionClose(ticket))
-            PrintFormat("[TimedDailyTrade] CLOSE sukses ticket %I64u", ticket);
+            PrintFormat("[TimedDailyTrade] CLOSE ticket %I64u | BUY %.*f -> CLOSE %.*f | GAP %+.2f | P/L+swap %.2f %s",
+                        ticket, digits, openP, digits, curP, gap, pl,
+                        AccountInfoString(ACCOUNT_CURRENCY));
          else
             PrintFormat("[TimedDailyTrade] CLOSE GAGAL ticket %I64u: %s (retcode %d)",
                         ticket, trade.ResultRetcodeDescription(), trade.ResultRetcode());

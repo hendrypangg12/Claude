@@ -103,6 +103,24 @@ Contoh dengan **lot 0.10**:
 **Catatan akun kecil:** dengan modal ~$60, SL $3 = rugi ~setengah modal. Kalau mau risiko lebih kecil,
 kecilin **lot** (mis. 0.01 → rugi tinggal 1/10-nya) bukan cuma SL-nya.
 
+## 📐 Rumus GAP (strategi buka-tutup harian)
+
+```
+GAP        = Harga CLOSE (≈05:00) − Harga BUY (≈04:00)
+P/L kotor  = (Harga CLOSE − Harga BUY) × Lot × 100      (emas: 1 lot = 100 oz)
+P/L bersih = P/L kotor − Biaya Spread − Swap
+Biaya Spread ≈ Spread($) × Lot × 100
+```
+
+**GAP minimum biar gak rugi (break-even):**
+```
+GAP minimum ($) = Spread($) + ( Swap per-trade($) ÷ (Lot × 100) )
+```
+
+> Bot otomatis nulis GAP & P/L tiap nutup posisi di tab **Experts**, mis:
+> `CLOSE ticket ... | BUY 4330.00 -> CLOSE 4332.50 | GAP +2.50 | P/L+swap 21.00 IDR`.
+> Kumpulin angka ini tiap hari buat tau rata-rata gap-mu positif atau negatif.
+
 ## ✅ Cara tes aman dulu (sangat disarankan)
 1. Ganti `InpLotSize` ke **0.01**.
 2. **Sementara** set `InpBuyMinute` ke beberapa menit dari sekarang + `InpCloseMinute` ~2-3 menit setelahnya → lihat EA beneran BUY lalu CLOSE.
