@@ -17,7 +17,7 @@
 //--- Waktu (SEMUA pakai WIB / waktu Indonesia Barat) ---------------
 input group "=== Waktu (pakai WIB / waktu HP kamu) ==="
 input int    InpBuyHour       = 3;     // Jam BUY (WIB, 0-23)
-input int    InpBuyMinute     = 47;    // Menit BUY (WIB, 0-59)
+input int    InpBuyMinute     = 57;    // Menit BUY (WIB, 0-59)
 input int    InpCloseHour     = 5;     // Jam CLOSE/jual (WIB, 0-23)
 input int    InpCloseMinute   = 2;     // Menit CLOSE/jual (WIB, 0-59)
 input int    InpWIBOffset     = 7;     // WIB = GMT+7 (JANGAN diubah)

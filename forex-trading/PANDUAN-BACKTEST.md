@@ -1,7 +1,7 @@
 # Panduan: Backtest strategi gap 6 bulan (MT5 Strategy Tester)
 
 Tujuan: cek **pakai data historis broker kamu** — kalau tiap hari:
-- **BUY (long)** jam 03:47 WIB (sebelum sesi emas tutup)
+- **BUY (long)** jam 03:57 WIB (3 menit sebelum sesi emas tutup)
 - **CLOSE** jam 05:02 WIB (setelah market buka)
 
 selama **6 bulan** ke belakang → **cuan atau rugi?** (lengkap dengan spread + swap asli).
@@ -24,7 +24,7 @@ selama **6 bulan** ke belakang → **cuan atau rugi?** (lengkap dengan spread + 
 7. **Deposit**: isi modal simulasi (mis. 1.000.000 IDR) + leverage sesuai akunmu.
 8. **Spread**: pilih **Current** (atau angka realistis) — biar kena biaya spread beneran.
 9. Klik tab **Inputs** → set:
-   - Jam: `InpBuyHour=3 / InpBuyMinute=47`, `InpCloseHour=5 / InpCloseMinute=2`
+   - Jam: `InpBuyHour=3 / InpBuyMinute=57`, `InpCloseHour=5 / InpCloseMinute=2`
    - `InpBrokerGMTOff` → samakan offset GMT server broker (default 3)
    - `InpLotSize=0.01` (buat baca hasil yang bersih; nanti tinggal dikali)
    - SL/TP sesuai mau (atau matiin `InpUseStopLoss=false` buat lihat gap murni)
@@ -49,7 +49,7 @@ Lihat juga tab **Graph**: garis **naik stabil** = strategi sehat. **Turun / geri
 ## ⚠️ Jujur soal backtest (baca biar gak ketipu hasil bagus)
 
 - **Swap kemungkinan KENA tiap hari.** Broker potong swap di ~00:00 waktu server (≈ 04:00 WIB) —
-  itu **di dalam** jam tahan posisi kamu (03:47–05:02). Jadi tiap transaksi kemungkinan bayar swap
+  itu **di dalam** jam tahan posisi kamu (03:57–05:02). Jadi tiap transaksi kemungkinan bayar swap
   1 hari (Rabu biasanya **3x lipat**). Backtest udah ngitung ini → perhatiin apakah swap nyolong cuan.
 - **Gap jeda harian emas biasanya KECIL & ~50/50 arah.** Wajar kalau hasilnya tipis / dimakan biaya.
 - **Past performance ≠ future.** 6 bulan cuan bukan jaminan ke depan cuan. Coba juga periode lain
