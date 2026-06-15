@@ -114,13 +114,23 @@ def _norm_words(s: str) -> set:
                if len(w) > 2 and w not in _STOP)
 
 
+def _acronyms(s: str) -> set:
+    """Akronim kapital (IHSG, BBM, MBG, KPK, TNI, DPR...) = biasanya SUBJEK berita."""
+    import re
+    return set(w.lower() for w in re.findall(r"\b[A-Z]{3,}\b", s or ""))
+
+
 def _is_dup(hook: str, recent: list[str], thresh: float = 0.5) -> bool:
-    """True kalau `hook` mirip salah satu post lama (overlap kata penting tinggi).
-    Nangkep 'Madu ... berusia 3.000 tahun' vs 'Madu ... bisa berusia 3.000 tahun'."""
+    """True kalau `hook` mirip salah satu post lama. 2 sinyal:
+    1. share AKRONIM subjek yang sama (IHSG vs IHSG) → dobel walau kalimat beda.
+    2. overlap kata penting tinggi ('Madu...3.000 tahun' vs 'Madu...bisa 3.000 tahun')."""
     hw = _norm_words(hook)
+    ha = _acronyms(hook)
     if len(hw) < 2:
         return False
     for r in recent:
+        if ha and (ha & _acronyms(r)):     # subjek akronim sama = dobel (mis. IHSG 2x)
+            return True
         rw = _norm_words(r)
         if not rw:
             continue
