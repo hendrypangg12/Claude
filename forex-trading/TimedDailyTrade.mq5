@@ -180,9 +180,10 @@ bool OpenBuy()
 }
 
 //+------------------------------------------------------------------+
-//| Loop utama (per detik)                                           |
+//| Logika utama. Dipanggil dari OnTimer (live) & OnTick (backtest)   |
+//| supaya hasil akurat baik saat live maupun di Strategy Tester.    |
 //+------------------------------------------------------------------+
-void OnTimer()
+void ProcessTrading()
 {
    datetime srv = TimeTradeServer();
    datetime wib = ServerToWIB(srv);
@@ -204,7 +205,7 @@ void OnTimer()
    else                   holding = (curMin >= buyMin || curMin < closeMin); // window lewat tengah malam
 
    //--- DI LUAR periode tahan: pastikan gak ada posisi (tutup kalau masih ada).
-   //    Dicek tiap detik => CLOSE tahan banting walau market baru buka / sempat requote di jam CLOSE.
+   //    Dicek terus => CLOSE tahan banting walau market baru buka / sempat requote di jam CLOSE.
    if(!holding)
    {
       if(HasOurPosition())
@@ -212,8 +213,8 @@ void OnTimer()
       return;
    }
 
-   //--- DI DALAM periode tahan: BUY sekali pas jam BUY (per hari).
-   if(curMin == buyMin)
+   //--- DI DALAM periode tahan: BUY sekali, di 3 menit pertama jam BUY (toleransi tester).
+   if(curMin >= buyMin && curMin <= buyMin + 2)
    {
       datetime dayStart = wib - (wib % 86400); // awal hari (WIB)
       if(g_lastBuyDay == dayStart) return;     // sudah BUY hari ini
@@ -223,4 +224,8 @@ void OnTimer()
          g_lastBuyDay = dayStart;
    }
 }
+
+//+------------------------------------------------------------------+
+void OnTimer() { ProcessTrading(); } // dipakai saat LIVE (cek tiap 1 detik)
+void OnTick()  { ProcessTrading(); } // dipakai saat BACKTEST (tiap tick)
 //+------------------------------------------------------------------+
