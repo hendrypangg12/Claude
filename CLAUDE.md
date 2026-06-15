@@ -361,6 +361,56 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   jangan asal tag/follow). Reel pakai screenshot owner sbg bg (Ken Burns) + `make_reel_overlay`/`render_reel` + musik
   investigations.mp3. Reels > carousel buat topik misteri (jangkauan Explore).
 
+## SESSION MEMORY — update 15 Juni 2026 — FOREX TRADING BOT (MT5 EA) — proyek BARU & TERPISAH
+
+> ⚠️ Ini proyek BEDA dari IG content. Owner lagi main **forex/emas** (bukan konten). Branch dev = `claude/forex-trading-gb76l2`.
+> Folder baru **`forex-trading/`**. SELALU auto-save memory ke CLAUDE.md (permintaan owner, takut context habis di tengah).
+
+### Konteks owner & broker
+- Owner main **XAUUSD (emas)** di **HF Markets (HFM)**. Akun: login `211063379`, server **HFMarketsGlobal-Live17**, Hedge.
+  Symbol emas broker = **`XAUUSDb`** (suffix "b"). Saldo ~Rp1.000.000 (≈ $60). Akun **REAL**.
+- Owner **NON-TEKNIS**, biasanya iPhone — tapi sesi ini lagi di **laptop Windows** buat setup MT5. Bahasa Indonesia santai.
+- Owner trading manual SELL emas → rugi ~Rp57rb (4 SELL lawan arah pas emas naik). Dijelasin BUY vs SELL.
+- ⚠️ **Lot 0.10 emas di akun $60 = hampir pasti Margin Call.** Aku saranin keras 0.01/demo; owner bilang **"duit siap ilang"** → lanjut 0.10. Risiko diterima owner.
+
+### Strategi (keputusan owner) = GAP PLAY emas
+- **BUY long jam 03:57 WIB** (3 menit sebelum sesi harian emas tutup ~04:00 WIB) → tahan lewat masa tutup →
+  **CLOSE jam 05:02 WIB** (setelah market buka). Taruhan: gap NAIK (continuation). Owner tegas BUY 03:57 (bukan 03:47).
+- HFM server musim panas (Juni) = **GMT+3** → `InpBrokerGMTOff=3` (default bener). WIB=GMT+7 → server midnight ≈ 04:00 WIB.
+
+### File di `forex-trading/` (SEMUA udah compile 0 errors di MT5 owner)
+- **`TimedDailyTrade.mq5`** — gap HARIAN. Input `InpDirection` (DIR_BUY/DIR_SELL), jam BUY/CLOSE (WIB) + `InpBrokerGMTOff`,
+  lot, SL/TP (jarak dalam HARGA/dollar, bukan points; `InpStopLossPrice`), guard spread+margin, anti-dobel (1x/hari),
+  CLOSE tahan-banting (hold-window: tutup tiap detik di luar window 03:57–05:02), log GAP+P/L+swap tiap close.
+  Logika di `ProcessTrading()` dipanggil dari **OnTimer (live) + OnTick (backtest)**. BUY trigger 3-menit grace (buyMin..+2)
+  biar gak kelewat di tester.
+- **`WeekendGapTrade.mq5`** — gap AKHIR PEKAN. Buka Jum'at 23:55 WIB → tutup Senin 04:10 WIB (week-minute timing,
+  `InpEntryDOW/InpExitDOW` enum hari). Magic beda (39570051). Owner WAJIB cocokin jam buka/tutup sama jam broker + swap berat.
+- **`README.md`** (rumus GAP/SL + input), **`PANDUAN-VPS.md`** (setup MT5 VPS), **`PANDUAN-BACKTEST.md`** (Strategy Tester 6 bulan, bandingin 3 strategi).
+
+### Rumus GAP (didokumen di README)
+- Emas: 1 lot=100oz → 0.10 lot: tiap harga gerak $1 = P/L $10. `P/L = (CLOSE−BUY) × Lot × 100`.
+- SL: `Rugi = JarakSL($) × Lot × 100`. Break-even gap = `Spread($) + Swap($)/(Lot×100)`.
+- ⚠️ **Swap kemungkinan KENA tiap hari** — broker potong swap ~00:00 server (≈04:00 WIB) = DI DALAM window tahan. Bisa nelen cuan.
+
+### Riset gap (web_search) — buat owner
+- Emas cenderung **TIDAK mean-revert** (gap fill kurang jalan vs saham); kalau gap naik + di atas high → lanjut naik (continuation). Rata-rata gap emas ~0.64%. → strategi BUY owner PUNYA dasar, tapi gap harian KECIL, edge tipis tanpa filter.
+- Weekend gap > daily gap (lebih gede) tapi swap 2-3 hari + risiko berita.
+
+### Status TERAKHIR (di tengah setup, lanjutkan dari sini)
+- MT5 (HFM) udah keinstall di laptop, login sukses, XAUUSDb ada. Kedua EA udah di `MQL5\Experts` + **WeekendGapTrade compile 0 errors**.
+  Owner lagi compile **TimedDailyTrade** (harusnya 0 errors juga, pola sama).
+- **NEXT:** buka **Strategy Tester** (Ctrl+R) → Expert=TimedDailyTrade, Symbol=**XAUUSDb**, Period=**M1**,
+  Modelling="Every tick based on real ticks" (atau "1 Minute OHLC"), Use date From=6 bln lalu→To=hari ini,
+  Inputs: `InpDirection`, `InpBrokerGMTOff=3`, lot **0.01** (baca bersih), jam default. Start. Bandingin BUY vs SELL vs Weekend.
+  Baca: Total Net Profit, Profit Factor (>1 cuan), % menang, drawdown. **Cek apakah swap nelen cuan.**
+- Setelah backtest oke → DEMO dulu → baru VPS (MT5 VPS: klik kanan chart → Register a Virtual Server → Migrate; EA gak bisa di iPhone).
+
+### Catatan teknis
+- **Aku TIDAK bisa compile MQL5** di environment-ku (gak ada MetaEditor) → owner yang compile, lapor hasil. Kode terbukti 0 errors.
+- Cara kirim file ke owner: kasih **link GitHub blob** (owner klik → Download raw file), karena owner susah copy-paste. Branch `claude/forex-trading-gb76l2`.
+- Link contoh: `https://github.com/hendrypangg12/Claude/blob/claude/forex-trading-gb76l2/forex-trading/<file>.mq5`.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
