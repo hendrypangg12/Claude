@@ -14,6 +14,13 @@
 
 #include <Trade/Trade.mqh>
 
+//--- Arah trading ---
+enum ENUM_TRADE_DIR
+{
+   DIR_BUY  = 0, // BUY long (taruhan gap NAIK / continuation naik)
+   DIR_SELL = 1  // SELL short (taruhan gap TURUN)
+};
+
 //--- Waktu (SEMUA pakai WIB / waktu Indonesia Barat) ---------------
 input group "=== Waktu (pakai WIB / waktu HP kamu) ==="
 input int    InpBuyHour       = 3;     // Jam BUY (WIB, 0-23)
@@ -25,6 +32,7 @@ input int    InpBrokerGMTOff  = 3;     // Offset GMT server broker (cek Market W
 
 //--- Order ---------------------------------------------------------
 input group "=== Order ==="
+input ENUM_TRADE_DIR InpDirection = DIR_BUY; // Arah: BUY (taruhan gap naik) / SELL (taruhan gap turun)
 input double InpLotSize         = 0.10; // Ukuran lot (PERINGATAN: 0.10 emas di akun kecil = sangat berisiko)
 input bool   InpUseStopLoss     = true; // Pakai Stop Loss?
 input double InpStopLossPrice   = 3.0;  // Jarak SL dari harga masuk, dalam satuan HARGA (emas: dollar). 3.0 = SL $3 di bawah
@@ -61,7 +69,8 @@ int OnInit()
    PrintFormat("[TimedDailyTrade] Waktu server: %s  |  Waktu WIB: %s",
                TimeToString(srv, TIME_DATE|TIME_MINUTES),
                TimeToString(ServerToWIB(srv), TIME_DATE|TIME_MINUTES));
-   PrintFormat("[TimedDailyTrade] Rencana harian: BUY %02d:%02d WIB, CLOSE %02d:%02d WIB, lot %.2f",
+   PrintFormat("[TimedDailyTrade] Rencana harian: %s %02d:%02d WIB, CLOSE %02d:%02d WIB, lot %.2f",
+               (InpDirection == DIR_BUY ? "BUY" : "SELL"),
                InpBuyHour, InpBuyMinute, InpCloseHour, InpCloseMinute, InpLotSize);
    Print( "[TimedDailyTrade] CEK: pastikan 'Waktu WIB' di atas = jam asli di HP kamu. Kalau meleset, ubah InpBrokerGMTOff.");
    return(INIT_SUCCEEDED);
@@ -109,7 +118,7 @@ void CloseOurPositions()
          double pl     = PositionGetDouble(POSITION_PROFIT) + PositionGetDouble(POSITION_SWAP);
 
          if(trade.PositionClose(ticket))
-            PrintFormat("[TimedDailyTrade] CLOSE ticket %I64u | BUY %.*f -> CLOSE %.*f | GAP %+.2f | P/L+swap %.2f %s",
+            PrintFormat("[TimedDailyTrade] CLOSE ticket %I64u | OPEN %.*f -> CLOSE %.*f | GAP %+.2f | P/L+swap %.2f %s",
                         ticket, digits, openP, digits, curP, gap, pl,
                         AccountInfoString(ACCOUNT_CURRENCY));
          else
@@ -120,50 +129,60 @@ void CloseOurPositions()
 }
 
 //+------------------------------------------------------------------+
-//| Buka posisi BUY (market) dengan pengecekan keamanan              |
+//| Buka posisi (BUY atau SELL sesuai InpDirection) + pengecekan     |
 //+------------------------------------------------------------------+
-bool OpenBuy()
+bool OpenTrade()
 {
+   bool   isBuy  = (InpDirection == DIR_BUY);
+   string dirTxt = isBuy ? "BUY" : "SELL";
+
    //--- guard spread
    long spread = SymbolInfoInteger(_Symbol, SYMBOL_SPREAD);
    if(InpMaxSpreadPts > 0 && spread > InpMaxSpreadPts)
    {
-      PrintFormat("[TimedDailyTrade] Batal BUY: spread %d > maks %d", (int)spread, InpMaxSpreadPts);
+      PrintFormat("[TimedDailyTrade] Batal %s: spread %d > maks %d", dirTxt, (int)spread, InpMaxSpreadPts);
       return false;
    }
 
-   double ask   = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
    double point  = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
    int    digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   double price  = isBuy ? SymbolInfoDouble(_Symbol, SYMBOL_ASK)
+                         : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   ENUM_ORDER_TYPE otype = isBuy ? ORDER_TYPE_BUY : ORDER_TYPE_SELL;
 
    //--- guard margin (biar gak error kalau saldo gak cukup)
    double marginReq = 0;
-   if(OrderCalcMargin(ORDER_TYPE_BUY, _Symbol, InpLotSize, ask, marginReq))
+   if(OrderCalcMargin(otype, _Symbol, InpLotSize, price, marginReq))
    {
       double freeMargin = AccountInfoDouble(ACCOUNT_MARGIN_FREE);
       if(marginReq > freeMargin)
       {
-         PrintFormat("[TimedDailyTrade] Batal BUY: butuh margin %.2f tapi free margin cuma %.2f. TURUNKAN LOT!",
-                     marginReq, freeMargin);
+         PrintFormat("[TimedDailyTrade] Batal %s: butuh margin %.2f tapi free margin cuma %.2f. TURUNKAN LOT!",
+                     dirTxt, marginReq, freeMargin);
          return false;
       }
    }
 
-   //--- SL / TP opsional (jarak dalam satuan harga, mis. emas = dollar)
+   //--- SL / TP opsional (jarak dalam satuan harga, mis. emas = dollar). Arah disesuaikan.
    double sl = 0.0, tp = 0.0;
-   if(InpUseStopLoss   && InpStopLossPrice   > 0) sl = ask - InpStopLossPrice;
-   if(InpUseTakeProfit && InpTakeProfitPrice > 0) tp = ask + InpTakeProfitPrice;
+   if(InpUseStopLoss && InpStopLossPrice > 0)
+      sl = isBuy ? price - InpStopLossPrice : price + InpStopLossPrice;
+   if(InpUseTakeProfit && InpTakeProfitPrice > 0)
+      tp = isBuy ? price + InpTakeProfitPrice : price - InpTakeProfitPrice;
 
    //--- hormati jarak minimum stop dari broker (stops level)
    long   stopsLevel = SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
    double minDist    = stopsLevel * point;
-   if(sl > 0 && (ask - sl) < minDist)
+   if(isBuy)
    {
-      sl = ask - minDist - point;
-      PrintFormat("[TimedDailyTrade] SL terlalu dekat, didorong ke jarak minimum broker (%d points).", (int)stopsLevel);
+      if(sl > 0 && (price - sl) < minDist) sl = price - minDist - point;
+      if(tp > 0 && (tp - price) < minDist) tp = price + minDist + point;
    }
-   if(tp > 0 && (tp - ask) < minDist)
-      tp = ask + minDist + point;
+   else
+   {
+      if(sl > 0 && (sl - price) < minDist) sl = price + minDist + point;
+      if(tp > 0 && (price - tp) < minDist) tp = price - minDist - point;
+   }
 
    sl = (sl > 0) ? NormalizeDouble(sl, digits) : 0.0;
    tp = (tp > 0) ? NormalizeDouble(tp, digits) : 0.0;
@@ -172,19 +191,21 @@ bool OpenBuy()
    if(sl > 0)
    {
       double estLoss = 0;
-      if(OrderCalcProfit(ORDER_TYPE_BUY, _Symbol, InpLotSize, ask, sl, estLoss))
+      if(OrderCalcProfit(otype, _Symbol, InpLotSize, price, sl, estLoss))
          PrintFormat("[TimedDailyTrade] SL @ %.*f -> estimasi rugi maks ~%.2f %s",
                      digits, sl, estLoss, AccountInfoString(ACCOUNT_CURRENCY));
    }
 
-   if(trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "TimedDailyTrade"))
+   bool ok = isBuy ? trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "TimedDailyTrade")
+                   : trade.Sell(InpLotSize, _Symbol, 0.0, sl, tp, "TimedDailyTrade");
+   if(ok)
    {
-      PrintFormat("[TimedDailyTrade] BUY sukses %.2f lot %s @ %.*f", InpLotSize, _Symbol, digits, ask);
+      PrintFormat("[TimedDailyTrade] %s sukses %.2f lot %s @ %.*f", dirTxt, InpLotSize, _Symbol, digits, price);
       return true;
    }
 
-   PrintFormat("[TimedDailyTrade] BUY GAGAL: %s (retcode %d)",
-               trade.ResultRetcodeDescription(), trade.ResultRetcode());
+   PrintFormat("[TimedDailyTrade] %s GAGAL: %s (retcode %d)",
+               dirTxt, trade.ResultRetcodeDescription(), trade.ResultRetcode());
    return false;
 }
 
@@ -222,14 +243,14 @@ void ProcessTrading()
       return;
    }
 
-   //--- DI DALAM periode tahan: BUY sekali, di 3 menit pertama jam BUY (toleransi tester).
+   //--- DI DALAM periode tahan: buka posisi sekali, di 3 menit pertama jam BUY (toleransi tester).
    if(curMin >= buyMin && curMin <= buyMin + 2)
    {
       datetime dayStart = wib - (wib % 86400); // awal hari (WIB)
-      if(g_lastBuyDay == dayStart) return;     // sudah BUY hari ini
+      if(g_lastBuyDay == dayStart) return;     // sudah buka hari ini
       if(HasOurPosition()) { g_lastBuyDay = dayStart; return; }
 
-      if(OpenBuy())
+      if(OpenTrade())
          g_lastBuyDay = dayStart;
    }
 }

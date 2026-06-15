@@ -58,6 +58,22 @@ Lihat juga tab **Graph**: garis **naik stabil** = strategi sehat. **Turun / geri
 
 ---
 
+## Bandingin 3 strategi (jalankan backtest 3x)
+
+Biar tau mana yang paling cuan, tes ketiganya — catat **Total Net Profit** + **Profit Factor** tiap kali:
+
+| # | Strategi | File / Setting |
+|---|---|---|
+| 1 | **BUY harian** (gap naik) | `TimedDailyTrade`, `InpDirection = BUY` |
+| 2 | **SELL harian** (gap turun) | `TimedDailyTrade`, `InpDirection = SELL` |
+| 3 | **Weekend gap** | `WeekendGapTrade`, pilih `InpDirection` BUY/SELL |
+
+Tinggal ganti **Expert** dan/atau input **`InpDirection`** di Strategy Tester, lalu **Start** lagi.
+
+> ⚠️ **Weekend gap**: jam BUKA/TUTUP default (Jum'at 23:55 → Senin 04:10 WIB) **perlu kamu cocokin**
+> sama jam tutup/buka broker kamu (lihat kapan candle Jum'at terakhir & Senin pertama di chart).
+> Swap-nya juga lebih berat (nahan 2-3 hari). Sesuaikan `InpEntryHour/Minute` & `InpExitHour/Minute`.
+
 ## Sesudah backtest
 - **Hasil RUGI** → jangan dipaksain pakai duit real. Revisi strategi (mis. coba SELL, ganti jam,
   atau tambah filter) lalu backtest lagi.

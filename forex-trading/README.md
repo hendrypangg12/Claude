@@ -9,6 +9,13 @@ harga sempat requote / belum stabil.
 
 Symbol yang di-trade = **chart tempat EA dipasang** (mis. pasang di chart **XAUUSD** → trading emas).
 
+Bisa **BUY** (taruhan gap naik) atau **SELL** (taruhan gap turun) lewat input `InpDirection`.
+
+> **Ada 2 file EA di folder ini:**
+> - `TimedDailyTrade.mq5` — gap **HARIAN** (buka 03:57, tutup 05:02 tiap hari). BUY/SELL via `InpDirection`.
+> - `WeekendGapTrade.mq5` — gap **AKHIR PEKAN** (buka Jum'at malam, tutup Senin pagi). BUY/SELL juga.
+>   Gap akhir pekan biasanya lebih besar, TAPI swap nginep 2-3 hari + risiko berita weekend lebih gede.
+
 ---
 
 ## ⚠️ BACA DULU — Risiko (akun real)
@@ -66,6 +73,7 @@ Kalau **"Waktu WIB"** sama dengan jam asli di HP kamu → **udah benar**. Kalau 
 | `InpCloseHour` / `InpCloseMinute` | 5 / 2 | Jam CLOSE/jual (WIB) |
 | `InpWIBOffset` | 7 | WIB = GMT+7 (jangan diubah) |
 | `InpBrokerGMTOff` | 3 | Offset GMT server broker (cek lewat log) |
+| `InpDirection` | BUY | Arah: **BUY** (taruhan gap naik) atau **SELL** (taruhan gap turun) |
 | `InpLotSize` | 0.10 | Ukuran lot |
 | `InpUseStopLoss` | true | Pakai Stop Loss? |
 | `InpStopLossPrice` | 3.0 | Jarak SL dari harga masuk, dalam satuan harga (emas: dollar). 3.0 = SL $3 di bawah |
