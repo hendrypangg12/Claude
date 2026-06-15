@@ -17,9 +17,9 @@
 //--- Waktu (SEMUA pakai WIB / waktu Indonesia Barat) ---------------
 input group "=== Waktu (pakai WIB / waktu HP kamu) ==="
 input int    InpBuyHour       = 3;     // Jam BUY (WIB, 0-23)
-input int    InpBuyMinute     = 57;    // Menit BUY (WIB, 0-59)
+input int    InpBuyMinute     = 47;    // Menit BUY (WIB, 0-59)
 input int    InpCloseHour     = 5;     // Jam CLOSE/jual (WIB, 0-23)
-input int    InpCloseMinute   = 0;     // Menit CLOSE/jual (WIB, 0-59)
+input int    InpCloseMinute   = 2;     // Menit CLOSE/jual (WIB, 0-59)
 input int    InpWIBOffset     = 7;     // WIB = GMT+7 (JANGAN diubah)
 input int    InpBrokerGMTOff  = 3;     // Offset GMT server broker (cek Market Watch). Umum GMT+2 atau +3
 
@@ -194,16 +194,26 @@ void OnTimer()
    if(InpTradeMonToFri && (t.day_of_week == 0 || t.day_of_week == 6))
       return;
 
-   //--- WINDOW CLOSE: jual posisi
-   if(t.hour == InpCloseHour && t.min == InpCloseMinute)
+   int curMin   = t.hour * 60 + t.min;
+   int buyMin   = InpBuyHour   * 60 + InpBuyMinute;
+   int closeMin = InpCloseHour * 60 + InpCloseMinute;
+
+   //--- apakah sekarang dalam periode "tahan posisi" (antara jam BUY dan jam CLOSE)?
+   bool holding;
+   if(buyMin <= closeMin) holding = (curMin >= buyMin && curMin < closeMin);
+   else                   holding = (curMin >= buyMin || curMin < closeMin); // window lewat tengah malam
+
+   //--- DI LUAR periode tahan: pastikan gak ada posisi (tutup kalau masih ada).
+   //    Dicek tiap detik => CLOSE tahan banting walau market baru buka / sempat requote di jam CLOSE.
+   if(!holding)
    {
       if(HasOurPosition())
          CloseOurPositions();
       return;
    }
 
-   //--- WINDOW BUY: beli sekali per hari
-   if(t.hour == InpBuyHour && t.min == InpBuyMinute)
+   //--- DI DALAM periode tahan: BUY sekali pas jam BUY (per hari).
+   if(curMin == buyMin)
    {
       datetime dayStart = wib - (wib % 86400); // awal hari (WIB)
       if(g_lastBuyDay == dayStart) return;     // sudah BUY hari ini

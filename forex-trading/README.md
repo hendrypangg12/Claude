@@ -1,8 +1,11 @@
 # TimedDailyTrade — Bot MT5: BUY & CLOSE otomatis tiap hari
 
 Expert Advisor (EA) untuk **MetaTrader 5**. Tiap hari otomatis:
-- **BUY (market)** pada jam yang kamu set (default **03:57 WIB**)
-- **CLOSE / jual** pada jam yang kamu set (default **05:00 WIB**)
+- **BUY (market)** pada jam yang kamu set (default **03:47 WIB**, sebelum sesi harian emas tutup)
+- **CLOSE / jual** pada jam yang kamu set (default **05:02 WIB**, setelah market buka lagi)
+
+CLOSE dicek tiap detik di luar jam tahan posisi, jadi tetap nutup walau pas market baru buka
+harga sempat requote / belum stabil.
 
 Symbol yang di-trade = **chart tempat EA dipasang** (mis. pasang di chart **XAUUSD** → trading emas).
 
@@ -59,8 +62,8 @@ Kalau **"Waktu WIB"** sama dengan jam asli di HP kamu → **udah benar**. Kalau 
 
 | Input | Default | Arti |
 |---|---|---|
-| `InpBuyHour` / `InpBuyMinute` | 3 / 57 | Jam BUY (WIB) |
-| `InpCloseHour` / `InpCloseMinute` | 5 / 0 | Jam CLOSE/jual (WIB) |
+| `InpBuyHour` / `InpBuyMinute` | 3 / 47 | Jam BUY (WIB) |
+| `InpCloseHour` / `InpCloseMinute` | 5 / 2 | Jam CLOSE/jual (WIB) |
 | `InpWIBOffset` | 7 | WIB = GMT+7 (jangan diubah) |
 | `InpBrokerGMTOff` | 3 | Offset GMT server broker (cek lewat log) |
 | `InpLotSize` | 0.10 | Ukuran lot |

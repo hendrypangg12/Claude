@@ -36,8 +36,8 @@ Setelah ini, bot jalan 24 jam di VPS — laptop boleh dimatiin, mantau dari iPho
 2. **Drag** `TimedDailyTrade` dari Navigator ke chart.
 3. Tab **Common**: centang **Allow Algo Trading**.
 4. Tab **Inputs**: atur (lihat README utama buat detail):
-   - `InpBuyHour=3`, `InpBuyMinute=57` (jam BUY, WIB)
-   - `InpCloseHour=5`, `InpCloseMinute=0` (jam CLOSE, WIB)
+   - `InpBuyHour=3`, `InpBuyMinute=47` (jam BUY, WIB)
+   - `InpCloseHour=5`, `InpCloseMinute=2` (jam CLOSE, WIB)
    - `InpLotSize` → **saran 0.01 buat awal** (0.10 sangat berisiko)
    - `InpUseStopLoss=true`, `InpStopLossPrice` → jarak SL dalam dollar
 5. Klik **OK**. Pastikan tombol **Algo Trading** (toolbar atas) **nyala hijau**.
@@ -50,7 +50,7 @@ Setelah ini, bot jalan 24 jam di VPS — laptop boleh dimatiin, mantau dari iPho
 
 > 💡 **TES DULU sebelum lepas:** sementara set `InpBuyMinute` ke ~2 menit dari sekarang &
 > `InpCloseMinute` ~4 menit dari sekarang, lot 0.01 → lihat bot beneran BUY lalu CLOSE di tab Trade.
-> Kalau udah yakin, balikin ke 03:57 / 05:00.
+> Kalau udah yakin, balikin ke 03:47 / 05:02.
 
 ---
 
