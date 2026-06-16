@@ -41,6 +41,7 @@ input double InpBE_Trigger_ATR  = 1.0;  // Geser ke break-even setelah profit se
 input bool   InpUseTrailing     = true; // Trailing stop: SL ikut geser pas harga jalan (kunci cuan)?
 input double InpTrailStart_ATR  = 1.5;  // Mulai trailing setelah profit sekian x ATR
 input double InpTrail_ATR        = 1.0;  // Jarak SL trailing di belakang harga (x ATR)
+input bool   InpExitOnReverse   = true; // Tutup posisi pas ada sinyal BALIK ARAH (cuma kalau lagi profit)?
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
 input int    InpMaxTradesDay   = 10;   // Maks transaksi per hari
 input int    InpMaxLossesDay   = 5;    // STOP hari ini kalau udah RUGI sekian kali (0 = mati)
@@ -285,8 +286,43 @@ void OnTick()
    datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
    if(dayStart != g_dayStart) { g_dayStart = dayStart; g_tradesToday = 0; g_lossStopLogged = false; }
 
-   //--- 1 posisi aja; biarin SL/TP yang nutup
-   if(HasOurPosition()) return;
+   //--- ambil indikator (dipake buat exit-balik-arah DAN entry)
+   double ema[], rsi[], adx[];
+   ArraySetAsSeries(ema, true);
+   ArraySetAsSeries(rsi, true);
+   ArraySetAsSeries(adx, true);
+   if(CopyBuffer(g_emaHandle, 0, 0, 3, ema) < 3) return;
+   if(CopyBuffer(g_rsiHandle, 0, 0, 3, rsi) < 3) return;
+   if(CopyBuffer(g_adxHandle, 0, 0, 3, adx) < 3) return; // buffer 0 = garis ADX
+   double atr = GetATR();
+
+   double close1 = iClose(_Symbol, PERIOD_CURRENT, 1);
+   if(close1 <= 0) return;
+
+   //--- PUNYA POSISI: cek tutup-pas-BALIK-ARAH (cuma saat profit), terus stop (gak entry baru)
+   if(HasOurPosition())
+   {
+      if(InpExitOnReverse)
+      {
+         for(int i = PositionsTotal() - 1; i >= 0; i--)
+         {
+            ulong tk = PositionGetTicket(i);
+            if(tk == 0) continue;
+            if(PositionGetString(POSITION_SYMBOL) != _Symbol)  continue;
+            if(PositionGetInteger(POSITION_MAGIC) != InpMagic)  continue;
+            if(PositionGetDouble(POSITION_PROFIT) <= 0) continue; // cuma tutup kalau LAGI PROFIT
+            long ptype = PositionGetInteger(POSITION_TYPE);
+            bool rev = false;
+            if(ptype == POSITION_TYPE_BUY)       rev = (rsi[2] > InpRsiSell && rsi[1] <= InpRsiSell); // momentum balik TURUN
+            else if(ptype == POSITION_TYPE_SELL) rev = (rsi[2] < InpRsiBuy  && rsi[1] >= InpRsiBuy);  // momentum balik NAIK
+            if(rev && trade.PositionClose(tk))
+               PrintFormat("[ScalpSantai] %s %I64u DITUTUP: tanda balik arah pas profit (kunci cuan di puncak)",
+                           (ptype==POSITION_TYPE_BUY?"BUY":"SELL"), tk);
+         }
+      }
+      return;
+   }
+
    //--- batas trade harian
    if(g_tradesToday >= InpMaxTradesDay) return;
    //--- STOP kalau udah kebanyakan RUGI hari ini
@@ -300,19 +336,6 @@ void OnTick()
       }
       return;
    }
-
-   //--- ambil indikator (as-series: [1] = bar baru ditutup)
-   double ema[], rsi[], adx[];
-   ArraySetAsSeries(ema, true);
-   ArraySetAsSeries(rsi, true);
-   ArraySetAsSeries(adx, true);
-   if(CopyBuffer(g_emaHandle, 0, 0, 3, ema) < 3) return;
-   if(CopyBuffer(g_rsiHandle, 0, 0, 3, rsi) < 3) return;
-   if(CopyBuffer(g_adxHandle, 0, 0, 3, adx) < 3) return; // buffer 0 = garis ADX
-   double atr = GetATR();
-
-   double close1 = iClose(_Symbol, PERIOD_CURRENT, 1);
-   if(close1 <= 0) return;
 
    bool uptrend   = (close1 > ema[1]);
    bool downtrend = (close1 < ema[1]);
