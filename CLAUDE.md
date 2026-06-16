@@ -427,6 +427,25 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - **Status akhir sesi**: bot di-set jadwal ASLI **BUY 03:57 / CLOSE 05:02 WIB, lot 0.1**, Algo Trading ON. Owner mau
   biarin laptop nyala → subuh bot trade real otomatis. NEXT: besok cek tab History hasil trade subuh; opsi VPS biar 24 jam.
 
+### 16 Juni — gap bot CUAN ke-2 + EA SCALPING baru (`ScalpSantai`)
+- **Gap bot (TimedDailyTrade) trade subuh ke-2 = CUAN** ✅: BUY 03:57 @ 4308.07 → CLOSE 05:02 @ 4309.69, **GAP +1.62 = +Rp286rb**.
+  (Log Experts konfirm jam server 23:57→01:02 = WIB 03:57→05:02. Timezone tetep pas.) Gap naik 2 dari 2 hari (tapi owner
+  diingetin: 2 sampel ≠ bukti "95% naik" kata temennya; bisa aja besok turun).
+- **Backtest TETEP GAGAL** di demo HFM (data M1 XAUUSDb cuma ~1379 bar ≈ 1 hari, mau di-scroll/Custom-period pun mentok).
+  Disimpulin: **backtest 6 bln MUSTAHIL di akun ini** → solusi = **FORWARD TEST** (jalan live, gak butuh data historis).
+- **DITOLAK** permintaan owner cari "EA gacor gratis" share-an: web_search nunjukin mayoritas = **MARTINGALE/GRID**
+  (Dark Venus 100rb+ download, EA Perkasa/FXCore100 di Gumroad) = **bom waktu, akun PASTI habis** cepat/lambat. Owner ngerti.
+- **EA BARU: `forex-trading/ScalpSantai.mq5`** (compile 0 errors). Strategi **trend-pullback**: ikut EMA50 + entry pas RSI
+  mantul dari oversold(<35)/overbought(>65). **SELALU SL+TP, lot TETAP, 1 posisi, NO martingale**, maks N trade/hari,
+  cek per-bar (OnTick + new-bar guard). Magic 39570060.
+- **ScalpSantai DIPASANG LIVE di EURUSD M15 akun REAL** (Live17), Algo Trading ON. Setting owner: **lot 0.10**,
+  **SL 0.002 (20 pip)**, **TP 0.003 (30 pip)**, **maks 10 trade/hari**. Owner TOLAK demo + TOLAK turun lot/maks ("duit siap ilang").
+  - Buat scalp: **EURUSD > emas** (spread kecil). SL/TP EURUSD beda dari emas (0.002 bukan 3.0; label input "emas=dollar" cuma hint, generik).
+  - ⚠️ **BUG log kosmetik**: `OnInit` PrintFormat pakai `%.1f` buat SL/TP → 0.002 ke-tampil **"SL 0.0"** (bikin panik palsu,
+    dikira gak ada SL). Nilai ASLI bener (keverifikasi di dialog Inputs). TODO: ganti ke `%.5f` biar gak nyesatin.
+- **Sekarang 2 BOT jalan barengan di akun REAL**: TimedDailyTrade (gap, XAUUSDb M1) + ScalpSantai (EURUSD M15).
+  Dua-duanya butuh **laptop nyala / MT5 kebuka** (atau VPS). ScalpSantai selektif → bisa nunggu berjam-jam baru ada sinyal (normal).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
