@@ -452,6 +452,22 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   sekali trade. Ke-catch dari screenshot Inputs sebelum klik OK → dibenerin ke 0.1. **Selalu cek angka lot owner!**
   Per kalah EURUSD 0.1 lot (SL 20 pip) ≈ Rp350rb; worst case 5 kalah ≈ Rp1,8jt lalu stop.
 
+### 16 Juni malam — ScalpSantai v2, ScalpCobaCoba, fix retcode 10030, tolak EA scam
+- **ScalpSantai kelewat ketat** (RSI cross + trend filter sering bentrok) → 7+ jam GAK trade walau laptop nyala & market gerak.
+  Owner longgarin RSI ke **50/50** (via F7) → entry pas RSI nyilang 50 searah tren. **Laptop KEBUKTI nyala terus** (data live);
+  masalahnya murni strategi, bukan laptop.
+- **ScalpSantai di-upgrade ke v2**: tambah **filter ADX** (cuma trade pas tren kuat, anti-sideways/whipsaw) + **SL/TP auto ATR**
+  (adaptif volatilitas, gak set manual per-symbol) + **break-even** (SL geser ke modal setelah profit 1×ATR). NB: v2 lebih SELEKTIF
+  (lebih jarang trade tapi lebih berkualitas), bukan lebih sering.
+- **EA EKSPERIMEN baru `ScalpCobaCoba.mq5`** (owner minta high-intensity "bahaya"): EMA20 + RSI cross 50, **NO ADX** (sering masuk),
+  M1/M5, maks 50 trade/hari, **STOP setelah 3 KALAH BERUNTUN** (menang=reset=lanjut). Lot kecil default 0.01. Magic 39570070.
+- **DITOLAK lagi EA "gacor" share-an**: owner upload `AlphaScalperPro.zip` → isinya cuma `.ex5` (black box, no source) + setumpuk
+  `.url` affiliate (digistore24 redirect + "best brokers" referral indicatorspot). = **umpan affiliate/scam**, bukan EA serius. Disuruh hapus.
+- ⚠️ **FIX retcode 10030 "invalid fill"**: ScalpSantai sempat nemu sinyal & coba BUY (21:59) TAPI ditolak broker (filling mode EURUSD
+  gak cocok). Kedua scalper sekarang coba **ORDER_FILLING_IOC→FOK→RETURN** sampe diterima. Owner WAJIB re-download+recompile biar kepasang.
+  Lesson: bot jalan & nyari sinyal bener, cuma fill mode HFM rewel di EURUSD (XAUUSDb pakai FOK OK, EURUSD butuh IOC).
+- **Cara matiin 1 EA aja** (biar gak dobel): klik kanan chart → Expert Advisors → Remove (tombol "Algo Trading" itu GLOBAL, matiin semua).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
