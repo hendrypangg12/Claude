@@ -1,31 +1,45 @@
 //+------------------------------------------------------------------+
 //|                                                  ScalpSantai.mq5  |
+//|                                                      versi 2.00   |
 //|                                                                  |
-//|  EA scalping "santai" buat MetaTrader 5.                         |
-//|  Strategi: IKUT TREN (EMA) + masuk pas PULLBACK (RSI mantul).     |
-//|    - Uptrend (harga > EMA) + RSI balik naik dari oversold -> BUY  |
-//|    - Downtrend (harga < EMA) + RSI balik turun dari overbought -> SELL
-//|  Tiap trade SELALU pakai SL + TP. Lot TETAP. TANPA martingale.    |
+//|  Scalper "santai" buat MetaTrader 5 — versi disempurnakan.       |
+//|  Inti: IKUT TREN (EMA50) + ada KEKUATAN tren (ADX) + entry pas   |
+//|  RSI nyilang level searah tren.                                  |
+//|  Upgrade v2:                                                     |
+//|   - Filter ADX  : cuma trade pas tren KUAT (anti sideways/whipsaw)|
+//|   - SL/TP ATR   : otomatis nyesuain volatilitas (gak set manual) |
+//|   - Break-even  : SL geser ke modal setelah profit (kunci cuan)  |
+//|  Tetap: lot TETAP, SELALU SL+TP, 1 posisi, TANPA martingale,     |
+//|         maks N trade/hari, STOP kalau udah rugi N kali.          |
 //+------------------------------------------------------------------+
 #property copyright "personal use"
-#property version   "1.00"
+#property version   "2.00"
 #property strict
-#property description "Scalp santai: ikut tren (EMA50) + entry pullback (RSI). SELALU SL+TP, lot tetap, 1 posisi, NO martingale. Tes di DEMO dulu."
+#property description "Scalp santai v2: EMA50 + ADX (anti-sideways) + RSI cross. SL/TP otomatis (ATR) + break-even. NO martingale. Tes DEMO dulu."
 
 #include <Trade/Trade.mqh>
 
-input group "=== Strategi ==="
-input int    InpEmaPeriod      = 50;   // EMA periode (filter arah tren)
+input group "=== Arah & Sinyal ==="
+input int    InpEmaPeriod      = 50;   // EMA periode (filter ARAH tren)
 input int    InpRsiPeriod      = 14;   // RSI periode
-input double InpRsiBuy          = 35;  // RSI di bawah ini = oversold (zona BUY saat uptrend)
-input double InpRsiSell         = 65;  // RSI di atas ini = overbought (zona SELL saat downtrend)
+input double InpRsiBuy          = 50;  // BUY kalau RSI nyilang NAIK level ini (saat uptrend)
+input double InpRsiSell         = 50;  // SELL kalau RSI nyilang TURUN level ini (saat downtrend)
+input bool   InpUseADX          = true;// Pakai filter ADX? (cuma trade pas tren kuat)
+input int    InpAdxPeriod       = 14;  // ADX periode
+input double InpAdxMin          = 20;  // Tren dianggap "kuat" kalau ADX >= ini (di bawah = sideways, skip)
 
-input group "=== Order ==="
+input group "=== Order & Risiko ==="
 input double InpLotSize         = 0.01; // Lot TETAP (NO martingale!)
-input double InpStopLossPrice   = 3.0;  // Jarak SL (satuan harga; emas = dollar)
-input double InpTakeProfitPrice = 4.5;  // Jarak TP (satuan harga; R:R ~1:1.5)
+input bool   InpUseATR          = true; // SL/TP otomatis pakai ATR? (adaptif volatilitas)
+input int    InpAtrPeriod       = 14;   // ATR periode
+input double InpSL_ATR          = 1.5;  // SL = sekian x ATR
+input double InpTP_ATR          = 2.25; // TP = sekian x ATR (default R:R 1:1.5)
+input double InpStopLossPrice   = 0.0020;// SL manual (dipakai kalau InpUseATR=false)
+input double InpTakeProfitPrice = 0.0030;// TP manual (dipakai kalau InpUseATR=false)
+input bool   InpUseBreakEven    = true; // Geser SL ke modal setelah profit?
+input double InpBE_Trigger_ATR  = 1.0;  // Geser ke break-even setelah profit sekian x ATR
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
-input int    InpMaxTradesDay   = 5;    // Maks transaksi per hari (biar santai)
+input int    InpMaxTradesDay   = 10;   // Maks transaksi per hari
 input int    InpMaxLossesDay   = 5;    // STOP hari ini kalau udah RUGI sekian kali (0 = mati)
 
 input group "=== Lain ==="
@@ -36,10 +50,12 @@ input int    InpSlippagePts    = 30;   // Deviasi/slippage maksimum (points)
 CTrade   trade;
 int      g_emaHandle = INVALID_HANDLE;
 int      g_rsiHandle = INVALID_HANDLE;
-datetime g_lastBar   = 0;   // anti dobel: 1 cek per bar baru
-datetime g_dayStart  = 0;   // penanda hari (reset hitungan trade)
+int      g_adxHandle = INVALID_HANDLE;
+int      g_atrHandle = INVALID_HANDLE;
+datetime g_lastBar   = 0;
+datetime g_dayStart  = 0;
 int      g_tradesToday = 0;
-bool     g_lossStopLogged = false; // biar log "STOP rugi" muncul sekali aja
+bool     g_lossStopLogged = false;
 
 //+------------------------------------------------------------------+
 int OnInit()
@@ -50,26 +66,40 @@ int OnInit()
 
    g_emaHandle = iMA(_Symbol, PERIOD_CURRENT, InpEmaPeriod, 0, MODE_EMA, PRICE_CLOSE);
    g_rsiHandle = iRSI(_Symbol, PERIOD_CURRENT, InpRsiPeriod, PRICE_CLOSE);
-   if(g_emaHandle == INVALID_HANDLE || g_rsiHandle == INVALID_HANDLE)
+   g_adxHandle = iADX(_Symbol, PERIOD_CURRENT, InpAdxPeriod);
+   g_atrHandle = iATR(_Symbol, PERIOD_CURRENT, InpAtrPeriod);
+   if(g_emaHandle==INVALID_HANDLE || g_rsiHandle==INVALID_HANDLE ||
+      g_adxHandle==INVALID_HANDLE || g_atrHandle==INVALID_HANDLE)
    {
       Print("[ScalpSantai] GAGAL bikin indikator. EA stop.");
       return(INIT_FAILED);
    }
 
-   PrintFormat("[ScalpSantai] AKTIF di %s | EMA%d + RSI%d | lot %.2f | SL %.5f / TP %.5f | maks %d trade & %d rugi/hari",
-               _Symbol, InpEmaPeriod, InpRsiPeriod, InpLotSize,
-               InpStopLossPrice, InpTakeProfitPrice, InpMaxTradesDay, InpMaxLossesDay);
-   Print("[ScalpSantai] TANPA martingale. Tiap trade pakai SL+TP. TES DI DEMO dulu ya.");
+   PrintFormat("[ScalpSantai v2] AKTIF di %s | EMA%d + RSI%d cross %.0f/%.0f | ADX>=%.0f(%s) | SL/TP=%s | lot %.2f | maks %d trade & %d rugi/hari",
+               _Symbol, InpEmaPeriod, InpRsiPeriod, InpRsiBuy, InpRsiSell, InpAdxMin,
+               (InpUseADX?"on":"off"), (InpUseATR?"ATR-auto":"manual"), InpLotSize,
+               InpMaxTradesDay, InpMaxLossesDay);
+   Print("[ScalpSantai v2] TANPA martingale. Tiap trade pakai SL+TP + break-even. TES DI DEMO dulu ya.");
    return(INIT_SUCCEEDED);
 }
 
 void OnDeinit(const int reason)
 {
-   if(g_emaHandle != INVALID_HANDLE) IndicatorRelease(g_emaHandle);
-   if(g_rsiHandle != INVALID_HANDLE) IndicatorRelease(g_rsiHandle);
+   if(g_emaHandle!=INVALID_HANDLE) IndicatorRelease(g_emaHandle);
+   if(g_rsiHandle!=INVALID_HANDLE) IndicatorRelease(g_rsiHandle);
+   if(g_adxHandle!=INVALID_HANDLE) IndicatorRelease(g_adxHandle);
+   if(g_atrHandle!=INVALID_HANDLE) IndicatorRelease(g_atrHandle);
 }
 
 //+------------------------------------------------------------------+
+double GetATR()
+{
+   double atr[];
+   ArraySetAsSeries(atr, true);
+   if(CopyBuffer(g_atrHandle, 0, 0, 2, atr) < 2) return 0.0;
+   return atr[1];
+}
+
 bool HasOurPosition()
 {
    for(int i = PositionsTotal() - 1; i >= 0; i--)
@@ -84,9 +114,78 @@ bool HasOurPosition()
 }
 
 //+------------------------------------------------------------------+
-//| Buka posisi (BUY/SELL) + SL/TP + pengecekan keamanan             |
+//| Geser SL ke harga masuk (break-even) kalau udah cukup profit     |
 //+------------------------------------------------------------------+
-bool OpenTrade(bool isBuy)
+void ManageBreakEven()
+{
+   if(!InpUseBreakEven) return;
+   double atr = GetATR();
+   if(atr <= 0) return;
+   double trigger = InpBE_Trigger_ATR * atr;
+   int    digits  = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0) continue;
+      if(PositionGetString(POSITION_SYMBOL) != _Symbol)  continue;
+      if(PositionGetInteger(POSITION_MAGIC) != InpMagic)  continue;
+
+      long   type  = PositionGetInteger(POSITION_TYPE);
+      double openP = PositionGetDouble(POSITION_PRICE_OPEN);
+      double curSL = PositionGetDouble(POSITION_SL);
+      double curTP = PositionGetDouble(POSITION_TP);
+
+      if(type == POSITION_TYPE_BUY)
+      {
+         double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+         if(bid - openP >= trigger && (curSL < openP)) // belum di break-even
+         {
+            if(trade.PositionModify(ticket, NormalizeDouble(openP, digits), curTP))
+               PrintFormat("[ScalpSantai] BUY %I64u -> SL geser ke break-even (modal aman)", ticket);
+         }
+      }
+      else if(type == POSITION_TYPE_SELL)
+      {
+         double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+         if(openP - ask >= trigger && (curSL > openP || curSL == 0.0))
+         {
+            if(trade.PositionModify(ticket, NormalizeDouble(openP, digits), curTP))
+               PrintFormat("[ScalpSantai] SELL %I64u -> SL geser ke break-even (modal aman)", ticket);
+         }
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Hitung berapa kali RUGI hari ini                                 |
+//+------------------------------------------------------------------+
+int LossesToday()
+{
+   datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
+   if(!HistorySelect(dayStart, TimeCurrent())) return 0;
+
+   int losses = 0;
+   int total  = HistoryDealsTotal();
+   for(int i = 0; i < total; i++)
+   {
+      ulong ticket = HistoryDealGetTicket(i);
+      if(ticket == 0) continue;
+      if(HistoryDealGetString(ticket, DEAL_SYMBOL)  != _Symbol)  continue;
+      if(HistoryDealGetInteger(ticket, DEAL_MAGIC)  != InpMagic) continue;
+      if(HistoryDealGetInteger(ticket, DEAL_ENTRY)  != DEAL_ENTRY_OUT) continue;
+      double pl = HistoryDealGetDouble(ticket, DEAL_PROFIT)
+                + HistoryDealGetDouble(ticket, DEAL_SWAP)
+                + HistoryDealGetDouble(ticket, DEAL_COMMISSION);
+      if(pl < 0) losses++;
+   }
+   return losses;
+}
+
+//+------------------------------------------------------------------+
+//| Buka posisi dengan jarak SL/TP yang dikasih (dalam satuan harga) |
+//+------------------------------------------------------------------+
+bool OpenTrade(bool isBuy, double slDist, double tpDist)
 {
    string dirTxt = isBuy ? "BUY" : "SELL";
 
@@ -115,8 +214,8 @@ bool OpenTrade(bool isBuy)
    }
 
    double sl = 0.0, tp = 0.0;
-   if(InpStopLossPrice > 0)   sl = isBuy ? price - InpStopLossPrice : price + InpStopLossPrice;
-   if(InpTakeProfitPrice > 0) tp = isBuy ? price + InpTakeProfitPrice : price - InpTakeProfitPrice;
+   if(slDist > 0) sl = isBuy ? price - slDist : price + slDist;
+   if(tpDist > 0) tp = isBuy ? price + tpDist : price - tpDist;
 
    long   stopsLevel = SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
    double minDist    = stopsLevel * point;
@@ -137,8 +236,7 @@ bool OpenTrade(bool isBuy)
                    : trade.Sell(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpSantai");
    if(ok)
    {
-      PrintFormat("[ScalpSantai] %s %.2f lot @ %.*f | SL %.*f TP %.*f",
-                  dirTxt, InpLotSize, digits, price, digits, sl, digits, tp);
+      PrintFormat("[ScalpSantai] %s %.2f lot @ %.*f | SL %.*f TP %.*f", dirTxt, InpLotSize, digits, price, digits, sl, digits, tp);
       return true;
    }
    PrintFormat("[ScalpSantai] %s GAGAL: %s (retcode %d)", dirTxt, trade.ResultRetcodeDescription(), trade.ResultRetcode());
@@ -146,34 +244,12 @@ bool OpenTrade(bool isBuy)
 }
 
 //+------------------------------------------------------------------+
-//| Hitung berapa kali RUGI hari ini (transaksi EA ini yg udah tutup)|
-//+------------------------------------------------------------------+
-int LossesToday()
-{
-   datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
-   if(!HistorySelect(dayStart, TimeCurrent())) return 0;
-
-   int losses = 0;
-   int total  = HistoryDealsTotal();
-   for(int i = 0; i < total; i++)
-   {
-      ulong ticket = HistoryDealGetTicket(i);
-      if(ticket == 0) continue;
-      if(HistoryDealGetString(ticket, DEAL_SYMBOL)   != _Symbol)  continue;
-      if(HistoryDealGetInteger(ticket, DEAL_MAGIC)   != InpMagic) continue;
-      if(HistoryDealGetInteger(ticket, DEAL_ENTRY)   != DEAL_ENTRY_OUT) continue; // cuma deal PENUTUP
-      double pl = HistoryDealGetDouble(ticket, DEAL_PROFIT)
-                + HistoryDealGetDouble(ticket, DEAL_SWAP)
-                + HistoryDealGetDouble(ticket, DEAL_COMMISSION);
-      if(pl < 0) losses++;
-   }
-   return losses;
-}
-
-//+------------------------------------------------------------------+
 void OnTick()
 {
-   //--- cuma proses sekali tiap BAR baru (santai, gak tiap tick)
+   //--- kelola posisi terbuka (break-even) tiap tick
+   ManageBreakEven();
+
+   //--- entry cuma dicek tiap BAR baru (santai)
    datetime curBar = iTime(_Symbol, PERIOD_CURRENT, 0);
    if(curBar == g_lastBar) return;
    g_lastBar = curBar;
@@ -186,8 +262,7 @@ void OnTick()
    if(HasOurPosition()) return;
    //--- batas trade harian
    if(g_tradesToday >= InpMaxTradesDay) return;
-
-   //--- STOP hari ini kalau udah kebanyakan RUGI
+   //--- STOP kalau udah kebanyakan RUGI hari ini
    if(InpMaxLossesDay > 0 && LossesToday() >= InpMaxLossesDay)
    {
       if(!g_lossStopLogged)
@@ -199,12 +274,15 @@ void OnTick()
       return;
    }
 
-   //--- ambil nilai indikator (as-series: [1] = bar baru ditutup, [2] = sebelumnya)
-   double ema[], rsi[];
+   //--- ambil indikator (as-series: [1] = bar baru ditutup)
+   double ema[], rsi[], adx[];
    ArraySetAsSeries(ema, true);
    ArraySetAsSeries(rsi, true);
+   ArraySetAsSeries(adx, true);
    if(CopyBuffer(g_emaHandle, 0, 0, 3, ema) < 3) return;
    if(CopyBuffer(g_rsiHandle, 0, 0, 3, rsi) < 3) return;
+   if(CopyBuffer(g_adxHandle, 0, 0, 3, adx) < 3) return; // buffer 0 = garis ADX
+   double atr = GetATR();
 
    double close1 = iClose(_Symbol, PERIOD_CURRENT, 1);
    if(close1 <= 0) return;
@@ -212,12 +290,20 @@ void OnTick()
    bool uptrend   = (close1 > ema[1]);
    bool downtrend = (close1 < ema[1]);
 
-   //--- BUY: uptrend + RSI balik NAIK nembus level oversold (pullback selesai)
+   //--- filter ADX: cuma trade pas tren KUAT (anti sideways)
+   bool adxOK = (!InpUseADX) || (adx[1] >= InpAdxMin);
+   if(!adxOK) return;
+
+   //--- sinyal: RSI nyilang level searah tren
    bool buySignal  = uptrend   && rsi[2] <  InpRsiBuy  && rsi[1] >= InpRsiBuy;
-   //--- SELL: downtrend + RSI balik TURUN nembus level overbought
    bool sellSignal = downtrend && rsi[2] >  InpRsiSell && rsi[1] <= InpRsiSell;
 
-   if(buySignal)       { if(OpenTrade(true))  g_tradesToday++; }
-   else if(sellSignal) { if(OpenTrade(false)) g_tradesToday++; }
+   //--- jarak SL/TP: otomatis (ATR) atau manual
+   double slDist, tpDist;
+   if(InpUseATR && atr > 0) { slDist = atr * InpSL_ATR; tpDist = atr * InpTP_ATR; }
+   else                     { slDist = InpStopLossPrice; tpDist = InpTakeProfitPrice; }
+
+   if(buySignal)       { if(OpenTrade(true,  slDist, tpDist)) g_tradesToday++; }
+   else if(sellSignal) { if(OpenTrade(false, slDist, tpDist)) g_tradesToday++; }
 }
 //+------------------------------------------------------------------+
