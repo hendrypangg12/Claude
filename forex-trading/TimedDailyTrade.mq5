@@ -43,6 +43,14 @@ input bool   InpTradeMonToFri  = true; // Hanya Senin-Jumat (skip Sabtu/Minggu)
 input long   InpMagic          = 39570050; // Magic number (identitas posisi EA ini)
 input int    InpSlippagePts    = 30;   // Deviasi/slippage maksimum (points)
 
+//--- Trailing / tahan-kalau-cuan ----------------------------------
+input group "=== Trailing (tahan posisi kalau masih CUAN di jam CLOSE) ==="
+input bool   InpHoldIfProfit    = true; // Jam CLOSE: kalau masih CUAN -> JANGAN tutup, tahan pakai trailing
+input bool   InpUseTrailing     = true; // Pakai break-even + trailing stop?
+input double InpBE_TriggerPrice = 0.8;  // Geser SL ke MODAL setelah profit sekian (harga; emas=$)
+input double InpTrailStartPrice = 1.5;  // Mulai TRAILING setelah profit sekian (harga; emas=$)
+input double InpTrailDistPrice  = 1.0;  // Jarak SL trailing di belakang harga (harga; emas=$)
+
 //--- Internal ------------------------------------------------------
 CTrade   trade;
 datetime g_lastBuyDay = 0;   // penanda WIB-day-start terakhir yang sudah BUY (anti dobel)
@@ -124,6 +132,88 @@ void CloseOurPositions()
          else
             PrintFormat("[TimedDailyTrade] CLOSE GAGAL ticket %I64u: %s (retcode %d)",
                         ticket, trade.ResultRetcodeDescription(), trade.ResultRetcode());
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Total profit floating posisi kita (P/L + swap)                   |
+//+------------------------------------------------------------------+
+double OurPositionProfit()
+{
+   double sum = 0;
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0) continue;
+      if(PositionGetString(POSITION_SYMBOL) == _Symbol &&
+         PositionGetInteger(POSITION_MAGIC) == InpMagic)
+         sum += PositionGetDouble(POSITION_PROFIT) + PositionGetDouble(POSITION_SWAP);
+   }
+   return sum;
+}
+
+//+------------------------------------------------------------------+
+//| Kunci SL ke harga masuk (break-even) -> posisi gak bisa rugi     |
+//+------------------------------------------------------------------+
+void ForceBreakEven()
+{
+   int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0) continue;
+      if(PositionGetString(POSITION_SYMBOL) != _Symbol)  continue;
+      if(PositionGetInteger(POSITION_MAGIC) != InpMagic)  continue;
+      long   type  = PositionGetInteger(POSITION_TYPE);
+      double openP = PositionGetDouble(POSITION_PRICE_OPEN);
+      double curSL = PositionGetDouble(POSITION_SL);
+      double curTP = PositionGetDouble(POSITION_TP);
+      double be    = NormalizeDouble(openP, digits);
+      if(type == POSITION_TYPE_BUY  && (curSL < openP || curSL == 0.0))
+         trade.PositionModify(ticket, be, curTP);
+      else if(type == POSITION_TYPE_SELL && (curSL > openP || curSL == 0.0))
+         trade.PositionModify(ticket, be, curTP);
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Break-even + trailing stop untuk posisi terbuka                  |
+//+------------------------------------------------------------------+
+void ManageTrailing()
+{
+   if(!InpUseTrailing) return;
+   int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0) continue;
+      if(PositionGetString(POSITION_SYMBOL) != _Symbol)  continue;
+      if(PositionGetInteger(POSITION_MAGIC) != InpMagic)  continue;
+      long   type  = PositionGetInteger(POSITION_TYPE);
+      double openP = PositionGetDouble(POSITION_PRICE_OPEN);
+      double curSL = PositionGetDouble(POSITION_SL);
+      double curTP = PositionGetDouble(POSITION_TP);
+
+      if(type == POSITION_TYPE_BUY)
+      {
+         double bid    = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+         double profit = bid - openP;
+         double newSL  = curSL;
+         if(profit >= InpBE_TriggerPrice && (newSL < openP || newSL == 0.0)) newSL = openP;
+         if(profit >= InpTrailStartPrice) { double tr = bid - InpTrailDistPrice; if(tr > newSL) newSL = tr; }
+         if(newSL > 0 && (curSL == 0.0 || newSL > curSL))
+            trade.PositionModify(ticket, NormalizeDouble(newSL, digits), curTP);
+      }
+      else if(type == POSITION_TYPE_SELL)
+      {
+         double ask    = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+         double profit = openP - ask;
+         double newSL  = curSL;
+         if(profit >= InpBE_TriggerPrice && (newSL > openP || newSL == 0.0)) newSL = openP;
+         if(profit >= InpTrailStartPrice) { double tr = ask + InpTrailDistPrice; if(newSL == 0.0 || tr < newSL) newSL = tr; }
+         if(newSL > 0 && (curSL == 0.0 || newSL < curSL))
+            trade.PositionModify(ticket, NormalizeDouble(newSL, digits), curTP);
       }
    }
 }
@@ -225,6 +315,9 @@ void ProcessTrading()
    if(InpTradeMonToFri && (t.day_of_week == 0 || t.day_of_week == 6))
       return;
 
+   //--- kelola posisi terbuka: break-even + trailing (jalan terus tiap cek)
+   ManageTrailing();
+
    int curMin   = t.hour * 60 + t.min;
    int buyMin   = InpBuyHour   * 60 + InpBuyMinute;
    int closeMin = InpCloseHour * 60 + InpCloseMinute;
@@ -234,12 +327,18 @@ void ProcessTrading()
    if(buyMin <= closeMin) holding = (curMin >= buyMin && curMin < closeMin);
    else                   holding = (curMin >= buyMin || curMin < closeMin); // window lewat tengah malam
 
-   //--- DI LUAR periode tahan: pastikan gak ada posisi (tutup kalau masih ada).
-   //    Dicek terus => CLOSE tahan banting walau market baru buka / sempat requote di jam CLOSE.
+   //--- DI LUAR periode tahan (jam CLOSE):
    if(!holding)
    {
       if(HasOurPosition())
-         CloseOurPositions();
+      {
+         //--- kalau InpHoldIfProfit & masih CUAN -> JANGAN tutup, kunci modal + biarin trailing ride
+         if(InpHoldIfProfit && OurPositionProfit() > 0.0)
+            ForceBreakEven();
+         //--- kalau rugi/BEP (atau fitur mati) -> tutup seperti biasa (tahan banting)
+         else
+            CloseOurPositions();
+      }
       return;
    }
 
