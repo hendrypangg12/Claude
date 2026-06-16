@@ -11,10 +11,12 @@ Symbol yang di-trade = **chart tempat EA dipasang** (mis. pasang di chart **XAUU
 
 Bisa **BUY** (taruhan gap naik) atau **SELL** (taruhan gap turun) lewat input `InpDirection`.
 
-> **Ada 2 file EA di folder ini:**
+> **Ada 3 file EA di folder ini:**
 > - `TimedDailyTrade.mq5` — gap **HARIAN** (buka 03:57, tutup 05:02 tiap hari). BUY/SELL via `InpDirection`.
 > - `WeekendGapTrade.mq5` — gap **AKHIR PEKAN** (buka Jum'at malam, tutup Senin pagi). BUY/SELL juga.
 >   Gap akhir pekan biasanya lebih besar, TAPI swap nginep 2-3 hari + risiko berita weekend lebih gede.
+> - `ScalpSantai.mq5` — **scalper santai** (ikut tren EMA50 + entry pullback RSI). SELALU SL+TP, lot tetap,
+>   1 posisi, **TANPA martingale**. Bukan jaminan cuan — kerangka buat **dites di DEMO** dulu. Cocok M5/M15.
 
 ---
 
