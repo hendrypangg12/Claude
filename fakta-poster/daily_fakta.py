@@ -141,6 +141,50 @@ def _is_dup(hook: str, recent: list[str], thresh: float = 0.5) -> bool:
     return False
 
 
+# subjek visual ('query') yang terlalu generik → JANGAN dianggap penanda subjek
+_Q_GENERIC = set((
+    "indonesia indonesian money cash people person man woman human news photo image "
+    "city street crowd world planet space animal food nature thing object background"
+).split())
+
+
+def _subj_words(q: str) -> set:
+    import re
+    return set(w for w in re.findall(r"[a-z]+", (q or "").lower())
+               if len(w) >= 3 and w not in _Q_GENERIC)
+
+
+def _subj_dup(query: str, recent_subjects: list[str]) -> bool:
+    """True kalau SUBJEK ('query', mis. 'honey') udah dipakai post lain.
+    Nangkep 'madu makam Firaun' vs 'madu 3.000 tahun' (fakta beda, subjek SAMA = honey)."""
+    qw = _subj_words(query)
+    if not qw:
+        return False
+    for s in recent_subjects:
+        if qw & _subj_words(s):
+            return True
+    return False
+
+
+def _recent_subjects(out_root: Path, limit: int = 60) -> list[str]:
+    """Subjek ('query') dari ~60 post terakhir (published + out) buat cek subjek-dobel."""
+    subs: list[str] = []
+    for root in (Path("published"), out_root):
+        if not root.exists():
+            continue
+        for d in sorted(root.iterdir(), reverse=True):
+            meta = d / "meta.json"
+            if not meta.is_file():
+                continue
+            try:
+                q = str(json.loads(meta.read_text(encoding="utf-8")).get("query", "")).strip()
+            except Exception:
+                q = ""
+            if q:
+                subs.append(q)
+    return subs[:limit]
+
+
 def main() -> int:
     load_dotenv()
     now = datetime.now(WIB)
@@ -153,6 +197,7 @@ def main() -> int:
 
     print("[1/3] Generating fakta with Claude...")
     recent = _recent_hooks(out_root)
+    recent_subjects = _recent_subjects(out_root)
 
     def _gen(av):
         """1 kali generate (berita kalau kategori berita, else evergreen). Selalu balikin dict."""
@@ -176,10 +221,13 @@ def main() -> int:
         cand = _gen(av)
         if cand is None:
             continue
-        if topic or not _is_dup(cand.get("hook", ""), recent):
+        dup_hook = _is_dup(cand.get("hook", ""), recent)
+        dup_subj = _subj_dup(cand.get("query", ""), recent_subjects)
+        if topic or (not dup_hook and not dup_subj):
             fakta = cand
             break
-        print(f"      ⚠️ DOBEL: '{cand['hook']}' mirip post lama → regenerate ({attempt + 1}/3)")
+        why = "subjek udah dipakai" if dup_subj else "mirip post lama"
+        print(f"      ⚠️ DOBEL ({why}): '{cand['hook']}' → regenerate ({attempt + 1}/3)")
         av = av + [cand.get("hook", "")]   # tolak yang mirip, masukin ke avoid biar gak ngulang
         fakta = cand                       # simpan terakhir sbg fallback kalau 3x tetap mirip
     if fakta is None:
@@ -313,6 +361,7 @@ def main() -> int:
         "category": fakta["category"],
         "hook": fakta["hook"],
         "fact": fakta["fact"],
+        "query": fakta.get("query", ""),   # subjek visual → buat cek subjek-dobel run berikutnya
         "sumber": fakta.get("_sumber", ""),
         "tanggal_berita": fakta.get("_published", ""),
         "foto_asli": bool(hero),
