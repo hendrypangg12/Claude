@@ -177,8 +177,17 @@ bool OpenTrade(bool isBuy, double slDist, double tpDist)
    sl = (sl > 0) ? NormalizeDouble(sl, digits) : 0.0;
    tp = (tp > 0) ? NormalizeDouble(tp, digits) : 0.0;
 
-   bool ok = isBuy ? trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba")
-                   : trade.Sell(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba");
+   //--- kirim order; coba beberapa filling mode kalau broker nolak (fix retcode 10030 "invalid fill")
+   ENUM_ORDER_TYPE_FILLING fills[3] = {ORDER_FILLING_IOC, ORDER_FILLING_FOK, ORDER_FILLING_RETURN};
+   bool ok = false;
+   for(int f = 0; f < 3 && !ok; f++)
+   {
+      trade.SetTypeFilling(fills[f]);
+      ok = isBuy ? trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba")
+                 : trade.Sell(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba");
+      if(ok) break;
+      if(trade.ResultRetcode() != TRADE_RETCODE_INVALID_FILL) break; // error lain -> stop nyoba
+   }
    if(ok)
    {
       PrintFormat("[ScalpCobaCoba] %s %.2f lot @ %.*f | SL %.*f TP %.*f", dirTxt, InpLotSize, digits, price, digits, sl, digits, tp);
