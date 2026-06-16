@@ -26,6 +26,7 @@ input double InpStopLossPrice   = 3.0;  // Jarak SL (satuan harga; emas = dollar
 input double InpTakeProfitPrice = 4.5;  // Jarak TP (satuan harga; R:R ~1:1.5)
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
 input int    InpMaxTradesDay   = 5;    // Maks transaksi per hari (biar santai)
+input int    InpMaxLossesDay   = 5;    // STOP hari ini kalau udah RUGI sekian kali (0 = mati)
 
 input group "=== Lain ==="
 input long   InpMagic          = 39570060; // Magic number (identitas EA ini)
@@ -38,6 +39,7 @@ int      g_rsiHandle = INVALID_HANDLE;
 datetime g_lastBar   = 0;   // anti dobel: 1 cek per bar baru
 datetime g_dayStart  = 0;   // penanda hari (reset hitungan trade)
 int      g_tradesToday = 0;
+bool     g_lossStopLogged = false; // biar log "STOP rugi" muncul sekali aja
 
 //+------------------------------------------------------------------+
 int OnInit()
@@ -54,9 +56,9 @@ int OnInit()
       return(INIT_FAILED);
    }
 
-   PrintFormat("[ScalpSantai] AKTIF di %s | EMA%d + RSI%d | lot %.2f | SL %.1f / TP %.1f | maks %d trade/hari",
+   PrintFormat("[ScalpSantai] AKTIF di %s | EMA%d + RSI%d | lot %.2f | SL %.5f / TP %.5f | maks %d trade & %d rugi/hari",
                _Symbol, InpEmaPeriod, InpRsiPeriod, InpLotSize,
-               InpStopLossPrice, InpTakeProfitPrice, InpMaxTradesDay);
+               InpStopLossPrice, InpTakeProfitPrice, InpMaxTradesDay, InpMaxLossesDay);
    Print("[ScalpSantai] TANPA martingale. Tiap trade pakai SL+TP. TES DI DEMO dulu ya.");
    return(INIT_SUCCEEDED);
 }
@@ -144,6 +146,31 @@ bool OpenTrade(bool isBuy)
 }
 
 //+------------------------------------------------------------------+
+//| Hitung berapa kali RUGI hari ini (transaksi EA ini yg udah tutup)|
+//+------------------------------------------------------------------+
+int LossesToday()
+{
+   datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
+   if(!HistorySelect(dayStart, TimeCurrent())) return 0;
+
+   int losses = 0;
+   int total  = HistoryDealsTotal();
+   for(int i = 0; i < total; i++)
+   {
+      ulong ticket = HistoryDealGetTicket(i);
+      if(ticket == 0) continue;
+      if(HistoryDealGetString(ticket, DEAL_SYMBOL)   != _Symbol)  continue;
+      if(HistoryDealGetInteger(ticket, DEAL_MAGIC)   != InpMagic) continue;
+      if(HistoryDealGetInteger(ticket, DEAL_ENTRY)   != DEAL_ENTRY_OUT) continue; // cuma deal PENUTUP
+      double pl = HistoryDealGetDouble(ticket, DEAL_PROFIT)
+                + HistoryDealGetDouble(ticket, DEAL_SWAP)
+                + HistoryDealGetDouble(ticket, DEAL_COMMISSION);
+      if(pl < 0) losses++;
+   }
+   return losses;
+}
+
+//+------------------------------------------------------------------+
 void OnTick()
 {
    //--- cuma proses sekali tiap BAR baru (santai, gak tiap tick)
@@ -151,14 +178,26 @@ void OnTick()
    if(curBar == g_lastBar) return;
    g_lastBar = curBar;
 
-   //--- reset hitungan trade tiap ganti hari
+   //--- reset hitungan tiap ganti hari
    datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
-   if(dayStart != g_dayStart) { g_dayStart = dayStart; g_tradesToday = 0; }
+   if(dayStart != g_dayStart) { g_dayStart = dayStart; g_tradesToday = 0; g_lossStopLogged = false; }
 
    //--- 1 posisi aja; biarin SL/TP yang nutup
    if(HasOurPosition()) return;
    //--- batas trade harian
    if(g_tradesToday >= InpMaxTradesDay) return;
+
+   //--- STOP hari ini kalau udah kebanyakan RUGI
+   if(InpMaxLossesDay > 0 && LossesToday() >= InpMaxLossesDay)
+   {
+      if(!g_lossStopLogged)
+      {
+         PrintFormat("[ScalpSantai] STOP hari ini: udah %d kali rugi (batas %d). Gak buka trade baru sampai besok.",
+                     LossesToday(), InpMaxLossesDay);
+         g_lossStopLogged = true;
+      }
+      return;
+   }
 
    //--- ambil nilai indikator (as-series: [1] = bar baru ditutup, [2] = sebelumnya)
    double ema[], rsi[];
