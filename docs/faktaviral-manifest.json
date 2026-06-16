@@ -2,6 +2,17 @@
   "brand": "faktaviral",
   "posts": [
     {
+      "id": "2026-06-16_12-34-21",
+      "date": "2026-06-16",
+      "time": "12:34",
+      "label": "TRENDING",
+      "title": "Gempa 6,7 Guncang Palu Barusan — Warga Panik Lari!",
+      "tanggal_berita": "hari ini 10:27 WIB (sekitar 2 jam lalu)",
+      "sumber": "Liputan6, ANTARA, Tribunnews, Sindonews, Republika",
+      "slides": 3,
+      "reel": true
+    },
+    {
       "id": "2026-06-16_12-06-25",
       "date": "2026-06-16",
       "time": "12:06",
@@ -141,17 +152,6 @@
       "title": "Jakarta Macet Total Pagi Ini Gara-Gara Event Ini!",
       "tanggal_berita": "14 Juni 2026, pagi hari (hari ini)",
       "sumber": "Kompas.com, VIVA.co.id, Disway.id",
-      "slides": 3,
-      "reel": true
-    },
-    {
-      "id": "2026-06-14_12-08-08",
-      "date": "2026-06-14",
-      "time": "12:08",
-      "label": "TRENDING",
-      "title": "TikTok Resmi Geser Semua! Medsos No. 1 Indonesia 2026",
-      "tanggal_berita": "hari ini 10:00 WIB (14 Juni 2026)",
-      "sumber": "Kompas.com, GoodStats, digitalMamaID",
       "slides": 3,
       "reel": true
     }
