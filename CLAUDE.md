@@ -351,6 +351,12 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - **15 Juni: IHSG keluar 2x** (jam beda) — lolos karena overlap kata pas di bawah ambang. FIX: `_acronyms()` di `_is_dup`
   → kalau 2 hook share AKRONIM kapital subjek sama (IHSG/BBM/MBG/KPK/TNI/DPR) langsung dianggap dobel. Story Kantor
   auto-post mulai jalan (ada commit `story-kantor/published/...`).
+- **16 Juni: madu keluar 3x** ("makam Firaun" vs "3.000 tahun" — fakta beda, subjek SAMA, cuma share kata "madu"). FIX:
+  lapis dedup ke-4 di `daily_fakta.py` = **subjek visual (`query`)**. Simpan `query` di meta.json (mis. "honey") →
+  `_subj_dup()` tolak kalau subjek udah dipakai di ~60 post terakhir (`_recent_subjects`). Ada `_Q_GENERIC` (buang
+  query generik spt money/people/world). Nangkep madu (honey) & air mata/nangis (eye/tears). Total 4 lapis dedup:
+  (1) hook nyaris-identik, (2) akronim, (3) subjek query, (4) prompt peristiwa-inti. Cuma jalan utk post yg `query`-nya
+  udah ke-simpan (mulai efektif setelah 1 siklus). NB: masih cuma di faktaviral, belum beruang/story-kantor.
 - **Akar ke-2 = cron pile-up**: cron pagi (00:17/01:17 UTC = 07:17/08:17 WIB) **konsisten ke-skip** (jam sibuk GitHub).
   Owner run manual → cron telat nyusul → 3 post trending numpuk 2 jam → semua ngejar berita terpanas (event lari).
   Solusi permanen disaranin lagi: **cron-job.org** (BELUM dipasang). Sementara: run manual dari dashboard.
