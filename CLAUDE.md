@@ -445,6 +445,12 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
     dikira gak ada SL). Nilai ASLI bener (keverifikasi di dialog Inputs). TODO: ganti ke `%.5f` biar gak nyesatin.
 - **Sekarang 2 BOT jalan barengan di akun REAL**: TimedDailyTrade (gap, XAUUSDb M1) + ScalpSantai (EURUSD M15).
   Dua-duanya butuh **laptop nyala / MT5 kebuka** (atau VPS). ScalpSantai selektif → bisa nunggu berjam-jam baru ada sinyal (normal).
+- **ScalpSantai upgrade (16 Juni siang)**: tambah `InpMaxLossesDay` (default 5) = STOP buka trade baru kalau udah rugi 5x
+  hari ini (lindungi losing streak; hitung dari HistoryDeals hari ini, deal OUT profit<0). Fix bug log OnInit `%.1f`→`%.5f`
+  (SL 0.002 dulu ke-tampil "0.0" = panik palsu, sekarang "0.00200"). RSI dilonggarin owner jadi **40/60** (dari 35/65) biar lebih sering.
+- ⚠️ **NYARIS BENCANA**: owner sempat ketik lot **1.0** (maksudnya 0.1) di ScalpSantai → 1 kalah = −Rp3,5jt = akun HABIS
+  sekali trade. Ke-catch dari screenshot Inputs sebelum klik OK → dibenerin ke 0.1. **Selalu cek angka lot owner!**
+  Per kalah EURUSD 0.1 lot (SL 20 pip) ≈ Rp350rb; worst case 5 kalah ≈ Rp1,8jt lalu stop.
 
 ## Snake game
 
