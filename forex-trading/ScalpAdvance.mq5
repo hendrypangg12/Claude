@@ -40,7 +40,7 @@ input double InpStopLossPrice   = 0.0020;// SL manual (kalau InpUseATR=false)
 input double InpTakeProfitPrice = 0.0030;// TP manual (kalau InpUseATR=false)
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
 input int    InpMaxTradesDay   = 20;   // Maks transaksi per hari (termasuk pyramid)
-input int    InpMaxLossesDay   = 5;    // STOP hari ini kalau udah RUGI sekian kali (0=mati)
+input int    InpMaxConsecLosses = 3;   // STOP kalau KALAH sekian kali BERTURUT (menang=reset, 0=mati)
 
 input group "=== Kelola Posisi ==="
 input bool   InpUseBreakEven    = true; // Geser SL ke modal setelah profit?
@@ -86,9 +86,9 @@ int OnInit()
       return(INIT_FAILED);
    }
 
-   PrintFormat("[ScalpAdvance] AKTIF di %s | EMA%d+RSI cross %.0f/%.0f | ADX>=%.0f(%s) | SL/TP=%s | lot %.2f | PYRAMID %s maks %d posisi | stop %d rugi/hari",
+   PrintFormat("[ScalpAdvance] AKTIF di %s | EMA%d+RSI cross %.0f/%.0f | ADX>=%.0f(%s) | SL/TP=%s | lot %.2f | PYRAMID %s maks %d posisi | stop %d kalah berturut",
                _Symbol, InpEmaPeriod, InpRsiBuy, InpRsiSell, InpAdxMin, (InpUseADX?"on":"off"),
-               (InpUseATR?"ATR":"manual"), InpLotSize, (InpUsePyramid?"on":"off"), InpMaxPositions, InpMaxLossesDay);
+               (InpUseATR?"ATR":"manual"), InpLotSize, (InpUsePyramid?"on":"off"), InpMaxPositions, InpMaxConsecLosses);
    Print("[ScalpAdvance] Pyramiding = nambah pas MENANG (lot tetap, NO martingale). Tes DEMO/EURUSDb dulu.");
    return(INIT_SUCCEEDED);
 }
@@ -210,13 +210,13 @@ void ManageOpenPositions()
 }
 
 //+------------------------------------------------------------------+
-int LossesToday()
+int ConsecutiveLosses() // kalah BERTURUT (menang/BEP = reset 0)
 {
    datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
    if(!HistorySelect(dayStart, TimeCurrent())) return 0;
-   int losses = 0;
+   int streak = 0;
    int total  = HistoryDealsTotal();
-   for(int i = 0; i < total; i++)
+   for(int i = 0; i < total; i++) // urut waktu (lama -> baru)
    {
       ulong tk = HistoryDealGetTicket(i);
       if(tk == 0) continue;
@@ -226,9 +226,9 @@ int LossesToday()
       double pl = HistoryDealGetDouble(tk, DEAL_PROFIT)
                 + HistoryDealGetDouble(tk, DEAL_SWAP)
                 + HistoryDealGetDouble(tk, DEAL_COMMISSION);
-      if(pl < 0) losses++;
+      if(pl < 0) streak++; else streak = 0;
    }
-   return losses;
+   return streak;
 }
 
 //+------------------------------------------------------------------+
@@ -358,7 +358,7 @@ void OnTick()
       //--- PYRAMIDING: nambah searah HANYA kalau lagi PROFIT + ada sinyal searah + di bawah maks
       if(InpUsePyramid && count < InpMaxPositions && tot > 0
          && g_tradesToday < InpMaxTradesDay
-         && !(InpMaxLossesDay > 0 && LossesToday() >= InpMaxLossesDay))
+         && !(InpMaxConsecLosses > 0 && ConsecutiveLosses() >= InpMaxConsecLosses))
       {
          if(dir == POSITION_TYPE_BUY && buySignal)
          {
@@ -376,12 +376,12 @@ void OnTick()
 
    //=== BELUM ADA POSISI: entry baru ===
    if(g_tradesToday >= InpMaxTradesDay) return;
-   if(InpMaxLossesDay > 0 && LossesToday() >= InpMaxLossesDay)
+   if(InpMaxConsecLosses > 0 && ConsecutiveLosses() >= InpMaxConsecLosses)
    {
       if(!g_lossStopLogged)
       {
-         PrintFormat("[ScalpAdvance] STOP hari ini: udah %d kali rugi (batas %d). Gak buka baru sampai besok.",
-                     LossesToday(), InpMaxLossesDay);
+         PrintFormat("[ScalpAdvance] STOP: kalah %d kali BERTURUT (batas %d). Gak buka baru sampai besok.",
+                     ConsecutiveLosses(), InpMaxConsecLosses);
          g_lossStopLogged = true;
       }
       return;
