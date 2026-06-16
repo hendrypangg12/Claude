@@ -38,6 +38,9 @@ input double InpStopLossPrice   = 0.0020;// SL manual (dipakai kalau InpUseATR=f
 input double InpTakeProfitPrice = 0.0030;// TP manual (dipakai kalau InpUseATR=false)
 input bool   InpUseBreakEven    = true; // Geser SL ke modal setelah profit?
 input double InpBE_Trigger_ATR  = 1.0;  // Geser ke break-even setelah profit sekian x ATR
+input bool   InpUseTrailing     = true; // Trailing stop: SL ikut geser pas harga jalan (kunci cuan)?
+input double InpTrailStart_ATR  = 1.5;  // Mulai trailing setelah profit sekian x ATR
+input double InpTrail_ATR        = 1.0;  // Jarak SL trailing di belakang harga (x ATR)
 input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
 input int    InpMaxTradesDay   = 10;   // Maks transaksi per hari
 input int    InpMaxLossesDay   = 5;    // STOP hari ini kalau udah RUGI sekian kali (0 = mati)
@@ -114,15 +117,20 @@ bool HasOurPosition()
 }
 
 //+------------------------------------------------------------------+
-//| Geser SL ke harga masuk (break-even) kalau udah cukup profit     |
+//| Kelola posisi terbuka: BREAK-EVEN + TRAILING STOP                |
+//|  - Break-even: cuan >= trigger -> SL ke harga masuk (gak rugi)   |
+//|  - Trailing  : harga makin jalan -> SL ikut di belakang (kunci   |
+//|    cuan). Balik arah mendadak = keluar cuan/BEP, bukan rugi.     |
 //+------------------------------------------------------------------+
-void ManageBreakEven()
+void ManageOpenPosition()
 {
-   if(!InpUseBreakEven) return;
+   if(!InpUseBreakEven && !InpUseTrailing) return;
    double atr = GetATR();
    if(atr <= 0) return;
-   double trigger = InpBE_Trigger_ATR * atr;
-   int    digits  = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   int    digits     = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   double beTrig     = InpBE_Trigger_ATR  * atr;
+   double trailStart = InpTrailStart_ATR * atr;
+   double trailDist  = InpTrail_ATR       * atr;
 
    for(int i = PositionsTotal() - 1; i >= 0; i--)
    {
@@ -138,21 +146,31 @@ void ManageBreakEven()
 
       if(type == POSITION_TYPE_BUY)
       {
-         double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
-         if(bid - openP >= trigger && (curSL < openP)) // belum di break-even
+         double bid    = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+         double profit = bid - openP;
+         double newSL  = curSL;
+         if(InpUseBreakEven && profit >= beTrig && newSL < openP) newSL = openP;      // BE
+         if(InpUseTrailing  && profit >= trailStart)                                  // trailing
          {
-            if(trade.PositionModify(ticket, NormalizeDouble(openP, digits), curTP))
-               PrintFormat("[ScalpSantai] BUY %I64u -> SL geser ke break-even (modal aman)", ticket);
+            double t = bid - trailDist;
+            if(t > newSL) newSL = t;
          }
+         if(newSL > curSL)
+            trade.PositionModify(ticket, NormalizeDouble(newSL, digits), curTP);
       }
       else if(type == POSITION_TYPE_SELL)
       {
-         double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
-         if(openP - ask >= trigger && (curSL > openP || curSL == 0.0))
+         double ask    = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+         double profit = openP - ask;
+         double newSL  = curSL;
+         if(InpUseBreakEven && profit >= beTrig && newSL > openP) newSL = openP;      // BE
+         if(InpUseTrailing  && profit >= trailStart)                                  // trailing
          {
-            if(trade.PositionModify(ticket, NormalizeDouble(openP, digits), curTP))
-               PrintFormat("[ScalpSantai] SELL %I64u -> SL geser ke break-even (modal aman)", ticket);
+            double t = ask + trailDist;
+            if(t < newSL) newSL = t;
          }
+         if(newSL < curSL && newSL > 0)
+            trade.PositionModify(ticket, NormalizeDouble(newSL, digits), curTP);
       }
    }
 }
@@ -255,8 +273,8 @@ bool OpenTrade(bool isBuy, double slDist, double tpDist)
 //+------------------------------------------------------------------+
 void OnTick()
 {
-   //--- kelola posisi terbuka (break-even) tiap tick
-   ManageBreakEven();
+   //--- kelola posisi terbuka (break-even + trailing) tiap tick
+   ManageOpenPosition();
 
    //--- entry cuma dicek tiap BAR baru (santai)
    datetime curBar = iTime(_Symbol, PERIOD_CURRENT, 0);
