@@ -467,6 +467,18 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   gak cocok). Kedua scalper sekarang coba **ORDER_FILLING_IOC→FOK→RETURN** sampe diterima. Owner WAJIB re-download+recompile biar kepasang.
   Lesson: bot jalan & nyari sinyal bener, cuma fill mode HFM rewel di EURUSD (XAUUSDb pakai FOK OK, EURUSD butuh IOC).
 - **Cara matiin 1 EA aja** (biar gak dobel): klik kanan chart → Expert Advisors → Remove (tombol "Algo Trading" itu GLOBAL, matiin semua).
+- ⚠️ **PENTING — symbol "b"**: akun HFM trading di symbol suffix **"b"** (XAUUSDb, **EURUSDb**), BUKAN plain "EURUSD". Pasang EA di "EURUSD" (tanpa b) → kena 10030 invalid fill. Di **EURUSDb** → order MASUK. Selalu pakai symbol "b".
+- **ScalpCobaCoba DITES di EURUSDb M1**: order akhirnya MASUK (sell). Bukti masalah: M1 R:R 1:1 + komisi (~Rp460/trade akun "b") = struktur RUGI (menang +2128 < kalah -2305). Pelajaran: scalp M1 super-ketat kegerus komisi.
+
+### 16 Juni malam (lanjutan) — ScalpSantai v2 LENGKAP + ScalpAdvance (pyramiding)
+- **ScalpSantai v2 disempurnakan** atas ide owner jadi manajemen-posisi pro: SL (rugi) → break-even (profit→modal) →
+  **trailing stop** (SL ikut harga, kunci cuan) → **exit-on-reversal** (tutup pas RSI nyilang balik & lagi profit = tangkep puncak).
+  Inputs baru: `InpUseTrailing/InpTrailStart_ATR/InpTrail_ATR`, `InpExitOnReverse`. Semua default ON.
+- **TOLAK "jaring/averaging" (nambah pas RUGI)** = martingale-style, account-killer. Jelasin ke owner. Owner paham, pilih pyramiding.
+- **EA BARU `ScalpAdvance.mq5`** (magic 39570080) = ScalpSantai v2 + **PYRAMIDING**: nambah posisi searah HANYA pas
+  lagi PROFIT + ada sinyal searah (maks `InpMaxPositions`=3), **lot TETAP (BUKAN martingale)**, tutup SEMUA pas reversal.
+  Helper: CountOurPositions/OurDirection/TotalOurProfit/CloseAllOurs. Buat owner BELAJAR (demo/lot kecil dulu).
+- Semua EA scalp pakai filling-fix (IOC→FOK→RETURN). Owner WAJIB pasang di **EURUSDb** + lot 0.01.
 
 ## Snake game
 
