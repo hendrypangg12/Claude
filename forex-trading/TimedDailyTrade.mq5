@@ -33,7 +33,7 @@ input int    InpBrokerGMTOff  = 3;     // Offset GMT server broker (cek Market W
 //--- Order ---------------------------------------------------------
 input group "=== Order ==="
 input ENUM_TRADE_DIR InpDirection = DIR_BUY; // Arah: BUY (taruhan gap naik) / SELL (taruhan gap turun)
-input double InpLotSize         = 0.10; // Ukuran lot (PERINGATAN: 0.10 emas di akun kecil = sangat berisiko)
+input double InpLotSize         = 0.30; // Ukuran lot (PERINGATAN: 0.30 emas = ~Rp490rb tiap gerak $1; 1 gap besar bisa kuras akun kecil)
 input bool   InpUseStopLoss     = true; // Pakai Stop Loss?
 input double InpStopLossPrice   = 3.0;  // Jarak SL dari harga masuk, dalam satuan HARGA (emas: dollar). 3.0 = SL $3 di bawah
 input bool   InpUseTakeProfit   = false;// Pakai Take Profit?
