@@ -104,29 +104,28 @@ if __name__ == "__main__":
     rng = sys.argv[2] if len(sys.argv) > 2 else "180d"
     every = int(sys.argv[3]) if len(sys.argv) > 3 else 6
     df = get_gold(interval=interval, rng=rng)
-    print(f"Data emas: {len(df)} bar ({interval}, {rng})  {df.index[0] if hasattr(df.index,'__getitem__') else ''}", flush=True)
-    SL, TP, LOT, KURS, COMM = 5.0, 10.0, 0.03, 16200, 4890
-    tr = walk_forward(df, swing=20, rr=TP/SL, recompute_every=every, fixed_sl=SL, fixed_tp=TP)
-    print(f"Total {len(tr)} trade di seluruh {rng}.", flush=True)
+    print(f"Data emas: {len(df)} bar ({interval}, {rng})", flush=True)
+    LOT, KURS, COMM = 0.03, 16200, 4890
 
-    def stats(sub, label):
-        n = len(sub)
+    def summarize(tr, label):
+        n = len(tr)
         if n == 0:
-            print(f"  {label:16s}: tidak ada trade"); return
-        w = int((sub["R"] > 0).sum()); l = n - w
-        usd = w * TP - l * SL
-        idr_net = usd * LOT * 100 * KURS - n * COMM
-        pf = (w * TP) / (l * SL) if l else float("inf")
-        print(f"  {label:16s}: {n:3d} trade | win {100*w/n:4.1f}% | PF {pf:.2f} | net(0.03) Rp{idr_net:>12,.0f}")
+            print(f"  {label}: tidak ada trade"); return
+        w = int((tr["R"] > 0).sum()); l = n - w
+        # P/L harga per trade = R x risk; dollar = x lot x 100
+        price_pl = (tr["R"] * tr["risk"])
+        idr = price_pl * LOT * 100 * KURS - COMM
+        gp = price_pl[price_pl > 0].sum(); gl = -price_pl[price_pl <= 0].sum()
+        pf = gp / gl if gl else float("inf")
+        max_loss = (tr["risk"][tr["R"] <= 0] * LOT * 100 * KURS).max() if l else 0
+        print(f"\n  === {label} ===")
+        print(f"    Trade: {n} | Win: {100*w/n:.1f}% ({w}W/{l}L) | PF: {pf:.2f}")
+        print(f"    Rata2 jarak SL: ${tr['risk'].mean():.1f}  (risiko/trade lot 0.03 ~Rp{tr['risk'].mean()*LOT*100*KURS:,.0f})")
+        print(f"    RUGI TERBESAR 1 trade (lot 0.03): -Rp{max_loss:,.0f}")
+        print(f"    NET total (lot 0.03): Rp{idr.sum():,.0f}")
 
-    # bagi jadi 4 periode berdasarkan urutan trade (tiap ~1/4 rentang waktu)
-    print(f"\n===== ROBUSTNESS: SL$5/TP$10, lot 0.03, dibagi 4 periode =====")
-    tr = tr.reset_index(drop=True)
-    q = len(tr) // 4
-    for k in range(4):
-        seg = tr.iloc[k*q:(k+1)*q] if k < 3 else tr.iloc[k*q:]
-        stats(seg, f"Periode {k+1}")
-    print("  " + "-"*60)
-    stats(tr, "SEMUA (2 thn)")
-    be = 100*SL/(SL+TP)
-    print(f"\n  Break-even win rate: {be:.0f}%. Konsisten kalau tiap periode win >{be:.0f}% & PF>1.")
+    print("\n========== BANDINGIN 2 METODE (data 2 thn, sinyal SMC sama) ==========")
+    trA = walk_forward(df, swing=20, rr=2.0, recompute_every=every, fixed_sl=5.0, fixed_tp=10.0)
+    summarize(trA, "METODE A: SL/TP TETAP ($5/$10)")
+    trB = walk_forward(df, swing=20, rr=2.0, recompute_every=every)  # OB-based
+    summarize(trB, "METODE B: SMC PENUH (SL/TP dari Order Block)")
