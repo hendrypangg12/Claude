@@ -26,8 +26,10 @@ def get_gold(interval="60m", rng="730d"):
     return df
 
 
-def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=120):
-    """Walk-forward: recompute SMC pakai data sampai bar t saja. 1 posisi pada satu waktu."""
+def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=120,
+                 fixed_sl=None, fixed_tp=None):
+    """Walk-forward: recompute SMC pakai data sampai bar t saja. 1 posisi pada satu waktu.
+    fixed_sl/fixed_tp (dalam $): kalau diisi, pakai SL/TP TETAP, bukan dari Order Block."""
     n = len(df)
     high = df["high"].values; low = df["low"].values; close = df["close"].values
     trades = []
@@ -75,14 +77,18 @@ def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=12
         for i in reversed(idxs[-5:]):  # cek beberapa OB terbaru
             top, bot = otop[i], obot[i]
             if struct == 1 and low[t] <= top and close[t] >= bot:   # masuk zona bullish OB
-                entry = min(top, close[t]); sl = bot - sl_buf; risk = entry - sl
+                entry = min(top, close[t])
+                if fixed_sl: sl = entry - fixed_sl; risk = fixed_sl; tp = entry + fixed_tp
+                else: sl = bot - sl_buf; risk = entry - sl; tp = entry + rr * risk
                 if risk > 0:
-                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": entry + rr * risk, "risk": risk}; entered = True
+                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}; entered = True
                 break
             if struct == -1 and high[t] >= bot and close[t] <= top:  # masuk zona bearish OB
-                entry = max(bot, close[t]); sl = top + sl_buf; risk = sl - entry
+                entry = max(bot, close[t])
+                if fixed_sl: sl = entry + fixed_sl; risk = fixed_sl; tp = entry - fixed_tp
+                else: sl = top + sl_buf; risk = sl - entry; tp = entry - rr * risk
                 if risk > 0:
-                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": entry - rr * risk, "risk": risk}; entered = True
+                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}; entered = True
                 break
     return pd.DataFrame(trades)
 
@@ -109,8 +115,21 @@ if __name__ == "__main__":
     every = int(sys.argv[3]) if len(sys.argv) > 3 else 6
     df = get_gold(interval=interval, rng=rng)
     print(f"Data emas: {len(df)} bar ({interval}, {rng})  harga akhir {df['close'].iloc[-1]:.1f}", flush=True)
-    tr = walk_forward(df, swing=20, rr=2.0, recompute_every=every)
-    tr.to_csv("/tmp/claude-0/-home-user-Claude/2d63d472-ff6b-5d29-aaa7-9c977dd8a439/scratchpad/smc_trades.csv", index=False)
-    # bandingin: tanpa biaya, biaya ringan ($0.3), biaya realistis HFM ($0.5), pesimis ($0.8)
-    for cost in [0.0, 0.3, 0.5, 0.8]:
-        report(tr, "WALK-FORWARD TP=2R", cost_usd=cost)
+    # SL TETAP 50 pips ($5), TP TETAP 100 pips ($10) -> R:R 1:2
+    SL, TP, LOT, KURS, COMM = 5.0, 10.0, 0.03, 16200, 4890
+    tr = walk_forward(df, swing=20, rr=TP/SL, recompute_every=every, fixed_sl=SL, fixed_tp=TP)
+    n = len(tr); wins = int((tr["R"] > 0).sum()); losses = n - wins
+    # dollar di lot 0.03: menang +$10, kalah -$5 (tetap)
+    usd = wins * TP - losses * SL
+    idr_gross = usd * LOT * 100 * KURS
+    idr_net = idr_gross - n * COMM
+    print(f"\n===== SL 50pip ($5) / TP 100pip ($10) | lot {LOT} | 6 bulan =====")
+    print(f"  Total sinyal : {n} trade")
+    print(f"  KENA TP (menang): {wins}   |  KENA SL (kalah): {losses}")
+    print(f"  Win rate : {100*wins/n:.1f}%" if n else "  no trade")
+    print(f"  Hasil harga : {usd:+.0f}$  ({wins}x+$10  {losses}x-$5)")
+    print(f"  Kotor (lot {LOT}) : Rp{idr_gross:,.0f}")
+    print(f"  Komisi ({n}x)    : -Rp{n*COMM:,.0f}")
+    print(f"  NET 6 bulan     : Rp{idr_net:,.0f}")
+    be = 100*SL/(SL+TP)
+    print(f"  (Break-even win rate yang dibutuhin: {be:.0f}% — di atas itu = cuan)")
