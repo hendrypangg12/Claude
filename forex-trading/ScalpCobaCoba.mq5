@@ -1,0 +1,251 @@
+//+------------------------------------------------------------------+
+//|                                               ScalpCobaCoba.mq5   |
+//|                                                                  |
+//|  ⚠️⚠️ EA EKSPERIMEN — INTENSITAS TINGGI — BERISIKO TINGGI ⚠️⚠️    |
+//|  Ini "coba-coba" buat liat aksi cepat. JANGAN dipake serius      |
+//|  tanpa tes DEMO. Sangat agresif (banyak trade).                  |
+//|                                                                  |
+//|  Strategi: EMA (cepat) buat arah + RSI nyilang level searah tren.|
+//|  NO filter ADX (sengaja, biar sering masuk = intensitas tinggi). |
+//|  ATURAN MAIN owner:                                              |
+//|    - KALAH 3x BERTURUT  -> STOP hari ini (gak buka lagi)         |
+//|    - MENANG             -> hitungan kalah-beruntun RESET -> lanjut|
+//|  Tetap: lot TETAP, SELALU SL+TP, 1 posisi, TANPA martingale.     |
+//+------------------------------------------------------------------+
+#property copyright "personal use - EKSPERIMEN"
+#property version   "1.00"
+#property strict
+#property description "EKSPERIMEN/BAHAYA: scalp intensitas TINGGI (EMA cepat + RSI cross, no ADX). STOP setelah 3 KALAH BERUNTUN, menang=reset. NO martingale. TES DEMO + lot kecil!"
+
+#include <Trade/Trade.mqh>
+
+input group "=== Sinyal (INTENSITAS TINGGI) ==="
+input int    InpEmaPeriod      = 20;   // EMA periode (kecil = lebih responsif = lebih sering)
+input int    InpRsiPeriod      = 14;   // RSI periode
+input double InpRsiBuy          = 50;  // BUY kalau RSI nyilang NAIK level ini (saat uptrend)
+input double InpRsiSell         = 50;  // SELL kalau RSI nyilang TURUN level ini (saat downtrend)
+
+input group "=== Order & Risiko ==="
+input double InpLotSize         = 0.01; // Lot TETAP (BAHAYA: ini eksperimen, pakai KECIL!)
+input bool   InpUseATR          = true; // SL/TP otomatis pakai ATR?
+input int    InpAtrPeriod       = 14;   // ATR periode
+input double InpSL_ATR          = 1.0;  // SL = sekian x ATR (scalp cepat)
+input double InpTP_ATR          = 1.0;  // TP = sekian x ATR (R:R 1:1 = cepat kena)
+input double InpStopLossPrice   = 0.0015;// SL manual (kalau InpUseATR=false)
+input double InpTakeProfitPrice = 0.0015;// TP manual (kalau InpUseATR=false)
+input int    InpMaxConsecLosses = 3;    // STOP kalau KALAH sekian kali BERTURUT (menang = reset)
+input int    InpMaxTradesDay   = 50;   // Maks transaksi per hari (tinggi = intensitas tinggi)
+input int    InpMaxSpreadPts   = 0;    // Spread maksimum (points, 0 = abaikan)
+
+input group "=== Lain ==="
+input long   InpMagic          = 39570070; // Magic number (BEDA dari EA lain)
+input int    InpSlippagePts    = 30;   // Deviasi/slippage maksimum (points)
+
+//--- Internal ------------------------------------------------------
+CTrade   trade;
+int      g_emaHandle = INVALID_HANDLE;
+int      g_rsiHandle = INVALID_HANDLE;
+int      g_atrHandle = INVALID_HANDLE;
+datetime g_lastBar   = 0;
+datetime g_dayStart  = 0;
+int      g_tradesToday = 0;
+bool     g_stopLogged  = false;
+
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   trade.SetExpertMagicNumber(InpMagic);
+   trade.SetDeviationInPoints(InpSlippagePts);
+   trade.SetTypeFillingBySymbol(_Symbol);
+
+   g_emaHandle = iMA(_Symbol, PERIOD_CURRENT, InpEmaPeriod, 0, MODE_EMA, PRICE_CLOSE);
+   g_rsiHandle = iRSI(_Symbol, PERIOD_CURRENT, InpRsiPeriod, PRICE_CLOSE);
+   g_atrHandle = iATR(_Symbol, PERIOD_CURRENT, InpAtrPeriod);
+   if(g_emaHandle==INVALID_HANDLE || g_rsiHandle==INVALID_HANDLE || g_atrHandle==INVALID_HANDLE)
+   {
+      Print("[ScalpCobaCoba] GAGAL bikin indikator. EA stop.");
+      return(INIT_FAILED);
+   }
+
+   PrintFormat("[ScalpCobaCoba] ⚠️ EKSPERIMEN AKTIF di %s | EMA%d + RSI cross %.0f/%.0f (no ADX) | SL/TP=%s | lot %.2f | maks %d trade/hari | STOP %d kalah beruntun",
+               _Symbol, InpEmaPeriod, InpRsiBuy, InpRsiSell,
+               (InpUseATR?"ATR-auto":"manual"), InpLotSize, InpMaxTradesDay, InpMaxConsecLosses);
+   Print("[ScalpCobaCoba] ⚠️ INI BAHAYA/INTENSITAS TINGGI. Pake lot KECIL + idealnya DEMO. NO martingale, tetep ada SL+TP.");
+   return(INIT_SUCCEEDED);
+}
+
+void OnDeinit(const int reason)
+{
+   if(g_emaHandle!=INVALID_HANDLE) IndicatorRelease(g_emaHandle);
+   if(g_rsiHandle!=INVALID_HANDLE) IndicatorRelease(g_rsiHandle);
+   if(g_atrHandle!=INVALID_HANDLE) IndicatorRelease(g_atrHandle);
+}
+
+//+------------------------------------------------------------------+
+double GetATR()
+{
+   double atr[];
+   ArraySetAsSeries(atr, true);
+   if(CopyBuffer(g_atrHandle, 0, 0, 2, atr) < 2) return 0.0;
+   return atr[1];
+}
+
+bool HasOurPosition()
+{
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0) continue;
+      if(PositionGetString(POSITION_SYMBOL) == _Symbol &&
+         PositionGetInteger(POSITION_MAGIC) == InpMagic)
+         return true;
+   }
+   return false;
+}
+
+//+------------------------------------------------------------------+
+//| Berapa kali KALAH BERTURUT-TURUT hari ini (menang = reset 0)     |
+//+------------------------------------------------------------------+
+int ConsecutiveLosses()
+{
+   datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
+   if(!HistorySelect(dayStart, TimeCurrent())) return 0;
+
+   int streak = 0;
+   int total  = HistoryDealsTotal();
+   for(int i = 0; i < total; i++) // urut waktu (lama -> baru)
+   {
+      ulong ticket = HistoryDealGetTicket(i);
+      if(ticket == 0) continue;
+      if(HistoryDealGetString(ticket, DEAL_SYMBOL) != _Symbol)  continue;
+      if(HistoryDealGetInteger(ticket, DEAL_MAGIC) != InpMagic)  continue;
+      if(HistoryDealGetInteger(ticket, DEAL_ENTRY) != DEAL_ENTRY_OUT) continue;
+      double pl = HistoryDealGetDouble(ticket, DEAL_PROFIT)
+                + HistoryDealGetDouble(ticket, DEAL_SWAP)
+                + HistoryDealGetDouble(ticket, DEAL_COMMISSION);
+      if(pl < 0) streak++;   // kalah -> tambah beruntun
+      else       streak = 0; // menang/BEP -> reset (LANJUT)
+   }
+   return streak; // beruntun kalah TERAKHIR (sejak menang terakhir)
+}
+
+//+------------------------------------------------------------------+
+bool OpenTrade(bool isBuy, double slDist, double tpDist)
+{
+   string dirTxt = isBuy ? "BUY" : "SELL";
+
+   long spread = SymbolInfoInteger(_Symbol, SYMBOL_SPREAD);
+   if(InpMaxSpreadPts > 0 && spread > InpMaxSpreadPts)
+   {
+      PrintFormat("[ScalpCobaCoba] Batal %s: spread %d > maks %d", dirTxt, (int)spread, InpMaxSpreadPts);
+      return false;
+   }
+
+   double point  = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   int    digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   double price  = isBuy ? SymbolInfoDouble(_Symbol, SYMBOL_ASK)
+                         : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   ENUM_ORDER_TYPE otype = isBuy ? ORDER_TYPE_BUY : ORDER_TYPE_SELL;
+
+   double marginReq = 0;
+   if(OrderCalcMargin(otype, _Symbol, InpLotSize, price, marginReq))
+   {
+      double freeMargin = AccountInfoDouble(ACCOUNT_MARGIN_FREE);
+      if(marginReq > freeMargin)
+      {
+         PrintFormat("[ScalpCobaCoba] Batal %s: margin %.2f > free %.2f. TURUNKAN LOT!", dirTxt, marginReq, freeMargin);
+         return false;
+      }
+   }
+
+   double sl = 0.0, tp = 0.0;
+   if(slDist > 0) sl = isBuy ? price - slDist : price + slDist;
+   if(tpDist > 0) tp = isBuy ? price + tpDist : price - tpDist;
+
+   long   stopsLevel = SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double minDist    = stopsLevel * point;
+   if(isBuy)
+   {
+      if(sl > 0 && (price - sl) < minDist) sl = price - minDist - point;
+      if(tp > 0 && (tp - price) < minDist) tp = price + minDist + point;
+   }
+   else
+   {
+      if(sl > 0 && (sl - price) < minDist) sl = price + minDist + point;
+      if(tp > 0 && (price - tp) < minDist) tp = price - minDist - point;
+   }
+   sl = (sl > 0) ? NormalizeDouble(sl, digits) : 0.0;
+   tp = (tp > 0) ? NormalizeDouble(tp, digits) : 0.0;
+
+   //--- kirim order; coba beberapa filling mode kalau broker nolak (fix retcode 10030 "invalid fill")
+   ENUM_ORDER_TYPE_FILLING fills[3] = {ORDER_FILLING_IOC, ORDER_FILLING_FOK, ORDER_FILLING_RETURN};
+   bool ok = false;
+   for(int f = 0; f < 3 && !ok; f++)
+   {
+      trade.SetTypeFilling(fills[f]);
+      ok = isBuy ? trade.Buy(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba")
+                 : trade.Sell(InpLotSize, _Symbol, 0.0, sl, tp, "ScalpCobaCoba");
+      if(ok) break;
+      if(trade.ResultRetcode() != TRADE_RETCODE_INVALID_FILL) break; // error lain -> stop nyoba
+   }
+   if(ok)
+   {
+      PrintFormat("[ScalpCobaCoba] %s %.2f lot @ %.*f | SL %.*f TP %.*f", dirTxt, InpLotSize, digits, price, digits, sl, digits, tp);
+      return true;
+   }
+   PrintFormat("[ScalpCobaCoba] %s GAGAL: %s (retcode %d)", dirTxt, trade.ResultRetcodeDescription(), trade.ResultRetcode());
+   return false;
+}
+
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   //--- entry dicek tiap BAR baru (di M1/M5 = sering banget)
+   datetime curBar = iTime(_Symbol, PERIOD_CURRENT, 0);
+   if(curBar == g_lastBar) return;
+   g_lastBar = curBar;
+
+   //--- reset hitungan tiap ganti hari
+   datetime dayStart = TimeCurrent() - (TimeCurrent() % 86400);
+   if(dayStart != g_dayStart) { g_dayStart = dayStart; g_tradesToday = 0; g_stopLogged = false; }
+
+   if(HasOurPosition()) return;
+   if(g_tradesToday >= InpMaxTradesDay) return;
+
+   //--- ATURAN: STOP kalau udah KALAH BERTURUT sekian kali (menang = reset = lanjut)
+   if(InpMaxConsecLosses > 0 && ConsecutiveLosses() >= InpMaxConsecLosses)
+   {
+      if(!g_stopLogged)
+      {
+         PrintFormat("[ScalpCobaCoba] STOP hari ini: kalah %d kali BERTURUT (batas %d). Nunggu besok / sampai di-reset.",
+                     ConsecutiveLosses(), InpMaxConsecLosses);
+         g_stopLogged = true;
+      }
+      return;
+   }
+
+   //--- indikator
+   double ema[], rsi[];
+   ArraySetAsSeries(ema, true);
+   ArraySetAsSeries(rsi, true);
+   if(CopyBuffer(g_emaHandle, 0, 0, 3, ema) < 3) return;
+   if(CopyBuffer(g_rsiHandle, 0, 0, 3, rsi) < 3) return;
+   double atr = GetATR();
+
+   double close1 = iClose(_Symbol, PERIOD_CURRENT, 1);
+   if(close1 <= 0) return;
+
+   bool uptrend   = (close1 > ema[1]);
+   bool downtrend = (close1 < ema[1]);
+
+   bool buySignal  = uptrend   && rsi[2] <  InpRsiBuy  && rsi[1] >= InpRsiBuy;
+   bool sellSignal = downtrend && rsi[2] >  InpRsiSell && rsi[1] <= InpRsiSell;
+
+   double slDist, tpDist;
+   if(InpUseATR && atr > 0) { slDist = atr * InpSL_ATR; tpDist = atr * InpTP_ATR; }
+   else                     { slDist = InpStopLossPrice; tpDist = InpTakeProfitPrice; }
+
+   if(buySignal)       { if(OpenTrade(true,  slDist, tpDist)) g_tradesToday++; }
+   else if(sellSignal) { if(OpenTrade(false, slDist, tpDist)) g_tradesToday++; }
+}
+//+------------------------------------------------------------------+

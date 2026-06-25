@@ -367,6 +367,125 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   jangan asal tag/follow). Reel pakai screenshot owner sbg bg (Ken Burns) + `make_reel_overlay`/`render_reel` + musik
   investigations.mp3. Reels > carousel buat topik misteri (jangkauan Explore).
 
+## SESSION MEMORY — update 15 Juni 2026 — FOREX TRADING BOT (MT5 EA) — proyek BARU & TERPISAH
+
+> ⚠️ Ini proyek BEDA dari IG content. Owner lagi main **forex/emas** (bukan konten). Branch dev = `claude/forex-trading-gb76l2`.
+> Folder baru **`forex-trading/`**. SELALU auto-save memory ke CLAUDE.md (permintaan owner, takut context habis di tengah).
+
+### Konteks owner & broker
+- Owner main **XAUUSD (emas)** di **HF Markets (HFM)**. Akun: login `211063379`, server **HFMarketsGlobal-Live17**, Hedge.
+  Symbol emas broker = **`XAUUSDb`** (suffix "b"). Saldo ~Rp1.000.000 (≈ $60). Akun **REAL**.
+- Owner **NON-TEKNIS**, biasanya iPhone — tapi sesi ini lagi di **laptop Windows** buat setup MT5. Bahasa Indonesia santai.
+- Owner trading manual SELL emas → rugi ~Rp57rb (4 SELL lawan arah pas emas naik). Dijelasin BUY vs SELL.
+- ⚠️ **Lot 0.10 emas di akun $60 = hampir pasti Margin Call.** Aku saranin keras 0.01/demo; owner bilang **"duit siap ilang"** → lanjut 0.10. Risiko diterima owner.
+
+### Strategi (keputusan owner) = GAP PLAY emas
+- **BUY long jam 03:57 WIB** (3 menit sebelum sesi harian emas tutup ~04:00 WIB) → tahan lewat masa tutup →
+  **CLOSE jam 05:02 WIB** (setelah market buka). Taruhan: gap NAIK (continuation). Owner tegas BUY 03:57 (bukan 03:47).
+- HFM server musim panas (Juni) = **GMT+3** → `InpBrokerGMTOff=3` (default bener). WIB=GMT+7 → server midnight ≈ 04:00 WIB.
+
+### File di `forex-trading/` (SEMUA udah compile 0 errors di MT5 owner)
+- **`TimedDailyTrade.mq5`** — gap HARIAN. Input `InpDirection` (DIR_BUY/DIR_SELL), jam BUY/CLOSE (WIB) + `InpBrokerGMTOff`,
+  lot, SL/TP (jarak dalam HARGA/dollar, bukan points; `InpStopLossPrice`), guard spread+margin, anti-dobel (1x/hari),
+  CLOSE tahan-banting (hold-window: tutup tiap detik di luar window 03:57–05:02), log GAP+P/L+swap tiap close.
+  Logika di `ProcessTrading()` dipanggil dari **OnTimer (live) + OnTick (backtest)**. BUY trigger 3-menit grace (buyMin..+2)
+  biar gak kelewat di tester.
+- **`WeekendGapTrade.mq5`** — gap AKHIR PEKAN. Buka Jum'at 23:55 WIB → tutup Senin 04:10 WIB (week-minute timing,
+  `InpEntryDOW/InpExitDOW` enum hari). Magic beda (39570051). Owner WAJIB cocokin jam buka/tutup sama jam broker + swap berat.
+- **`README.md`** (rumus GAP/SL + input), **`PANDUAN-VPS.md`** (setup MT5 VPS), **`PANDUAN-BACKTEST.md`** (Strategy Tester 6 bulan, bandingin 3 strategi).
+
+### Rumus GAP (didokumen di README)
+- Emas: 1 lot=100oz → 0.10 lot: tiap harga gerak $1 = P/L $10. `P/L = (CLOSE−BUY) × Lot × 100`.
+- SL: `Rugi = JarakSL($) × Lot × 100`. Break-even gap = `Spread($) + Swap($)/(Lot×100)`.
+- ⚠️ **Swap kemungkinan KENA tiap hari** — broker potong swap ~00:00 server (≈04:00 WIB) = DI DALAM window tahan. Bisa nelen cuan.
+
+### Riset gap (web_search) — buat owner
+- Emas cenderung **TIDAK mean-revert** (gap fill kurang jalan vs saham); kalau gap naik + di atas high → lanjut naik (continuation). Rata-rata gap emas ~0.64%. → strategi BUY owner PUNYA dasar, tapi gap harian KECIL, edge tipis tanpa filter.
+- Weekend gap > daily gap (lebih gede) tapi swap 2-3 hari + risiko berita.
+
+### Status TERAKHIR (di tengah setup, lanjutkan dari sini)
+- MT5 (HFM) udah keinstall di laptop, login sukses, XAUUSDb ada. Kedua EA udah di `MQL5\Experts` + **WeekendGapTrade compile 0 errors**.
+  Owner lagi compile **TimedDailyTrade** (harusnya 0 errors juga, pola sama).
+- **NEXT:** buka **Strategy Tester** (Ctrl+R) → Expert=TimedDailyTrade, Symbol=**XAUUSDb**, Period=**M1**,
+  Modelling="Every tick based on real ticks" (atau "1 Minute OHLC"), Use date From=6 bln lalu→To=hari ini,
+  Inputs: `InpDirection`, `InpBrokerGMTOff=3`, lot **0.01** (baca bersih), jam default. Start. Bandingin BUY vs SELL vs Weekend.
+  Baca: Total Net Profit, Profit Factor (>1 cuan), % menang, drawdown. **Cek apakah swap nelen cuan.**
+- Setelah backtest oke → DEMO dulu → baru VPS (MT5 VPS: klik kanan chart → Register a Virtual Server → Migrate; EA gak bisa di iPhone).
+
+### Catatan teknis
+- **Aku TIDAK bisa compile MQL5** di environment-ku (gak ada MetaEditor) → owner yang compile, lapor hasil. Kode terbukti 0 errors.
+- Cara kirim file ke owner: kasih **link GitHub blob** (owner klik → Download raw file), karena owner susah copy-paste. Branch `claude/forex-trading-gb76l2`.
+- Link contoh: `https://github.com/hendrypangg12/Claude/blob/claude/forex-trading-gb76l2/forex-trading/<file>.mq5`.
+
+### Update setup MT5 (15 Juni malam) — BOT LIVE di akun REAL
+- MT5 desktop (Windows) keinstall, login **akun 211063379**. ⚠️ **INI AKUN REAL** (server **HFMarketsGlobal-Live17**),
+  BUKAN demo — sempat salah kira demo karena di Navigator ada folder "HFMarketsGlobal-Demo", tapi title bar = "Live17".
+  Owner KONFIRMASI duit real, **"duit siap ilang"** (tolak turun ke 0.01, tetep 0.1). Saldo ~Rp2,77jt setelah top-up.
+- Kedua EA **compile 0 errors**. `TimedDailyTrade` udah **dipasang ke chart XAUUSDb,M1 + Algo Trading ON** (live).
+- **Timezone TERVERIFIKASI BENAR**: log EA nunjukin "Waktu WIB" = jam laptop (server HFM = GMT+3, `InpBrokerGMTOff=3` pas).
+- **TES LIVE sukses** (mekanik bot 100% jalan): set jam ke 23:50/23:53 → bot BUY 0.1 lot @4336.79 TEPAT 23:50, SL kepasang
+  @4333.79 ($3), CLOSE @4335.36 jam 23:53 → **RUGI -Rp253rb (REAL)**. Pelajaran: (1) exit-by-waktu gak ngambil cuan
+  sementara (sempat +40rb tapi tutup rugi) → TP bisa bantu; (2) 0.1 lot itu GEDE (gerak $1.43 = -253rb).
+- **Backtest 6 bulan GAGAL**: data history M1 XAUUSDb di akun ini cuma ~1379 bars (~1 hari) — broker gak nyimpen M1
+  lengkap. Strategy Tester mentok, hasil -16rb gak valid. Solusi backtest proper = data source lain (belum dikejar).
+- **Worst case 0.1 lot dijelasin ke owner**: SL normal cap ~Rp490rb/trade; TAPI strategi nahan-lewat-gap → kalau gap
+  lompati SL, emas gerak ~$17 = **AKUN HABIS** (~Rp2,77jt) sekali trade. Owner sadar, tetep lanjut 0.1.
+- **Status akhir sesi**: bot di-set jadwal ASLI **BUY 03:57 / CLOSE 05:02 WIB, lot 0.1**, Algo Trading ON. Owner mau
+  biarin laptop nyala → subuh bot trade real otomatis. NEXT: besok cek tab History hasil trade subuh; opsi VPS biar 24 jam.
+
+### 16 Juni — gap bot CUAN ke-2 + EA SCALPING baru (`ScalpSantai`)
+- **Gap bot (TimedDailyTrade) trade subuh ke-2 = CUAN** ✅: BUY 03:57 @ 4308.07 → CLOSE 05:02 @ 4309.69, **GAP +1.62 = +Rp286rb**.
+  (Log Experts konfirm jam server 23:57→01:02 = WIB 03:57→05:02. Timezone tetep pas.) Gap naik 2 dari 2 hari (tapi owner
+  diingetin: 2 sampel ≠ bukti "95% naik" kata temennya; bisa aja besok turun).
+- **Backtest TETEP GAGAL** di demo HFM (data M1 XAUUSDb cuma ~1379 bar ≈ 1 hari, mau di-scroll/Custom-period pun mentok).
+  Disimpulin: **backtest 6 bln MUSTAHIL di akun ini** → solusi = **FORWARD TEST** (jalan live, gak butuh data historis).
+- **DITOLAK** permintaan owner cari "EA gacor gratis" share-an: web_search nunjukin mayoritas = **MARTINGALE/GRID**
+  (Dark Venus 100rb+ download, EA Perkasa/FXCore100 di Gumroad) = **bom waktu, akun PASTI habis** cepat/lambat. Owner ngerti.
+- **EA BARU: `forex-trading/ScalpSantai.mq5`** (compile 0 errors). Strategi **trend-pullback**: ikut EMA50 + entry pas RSI
+  mantul dari oversold(<35)/overbought(>65). **SELALU SL+TP, lot TETAP, 1 posisi, NO martingale**, maks N trade/hari,
+  cek per-bar (OnTick + new-bar guard). Magic 39570060.
+- **ScalpSantai DIPASANG LIVE di EURUSD M15 akun REAL** (Live17), Algo Trading ON. Setting owner: **lot 0.10**,
+  **SL 0.002 (20 pip)**, **TP 0.003 (30 pip)**, **maks 10 trade/hari**. Owner TOLAK demo + TOLAK turun lot/maks ("duit siap ilang").
+  - Buat scalp: **EURUSD > emas** (spread kecil). SL/TP EURUSD beda dari emas (0.002 bukan 3.0; label input "emas=dollar" cuma hint, generik).
+  - ⚠️ **BUG log kosmetik**: `OnInit` PrintFormat pakai `%.1f` buat SL/TP → 0.002 ke-tampil **"SL 0.0"** (bikin panik palsu,
+    dikira gak ada SL). Nilai ASLI bener (keverifikasi di dialog Inputs). TODO: ganti ke `%.5f` biar gak nyesatin.
+- **Sekarang 2 BOT jalan barengan di akun REAL**: TimedDailyTrade (gap, XAUUSDb M1) + ScalpSantai (EURUSD M15).
+  Dua-duanya butuh **laptop nyala / MT5 kebuka** (atau VPS). ScalpSantai selektif → bisa nunggu berjam-jam baru ada sinyal (normal).
+- **ScalpSantai upgrade (16 Juni siang)**: tambah `InpMaxLossesDay` (default 5) = STOP buka trade baru kalau udah rugi 5x
+  hari ini (lindungi losing streak; hitung dari HistoryDeals hari ini, deal OUT profit<0). Fix bug log OnInit `%.1f`→`%.5f`
+  (SL 0.002 dulu ke-tampil "0.0" = panik palsu, sekarang "0.00200"). RSI dilonggarin owner jadi **40/60** (dari 35/65) biar lebih sering.
+- ⚠️ **NYARIS BENCANA**: owner sempat ketik lot **1.0** (maksudnya 0.1) di ScalpSantai → 1 kalah = −Rp3,5jt = akun HABIS
+  sekali trade. Ke-catch dari screenshot Inputs sebelum klik OK → dibenerin ke 0.1. **Selalu cek angka lot owner!**
+  Per kalah EURUSD 0.1 lot (SL 20 pip) ≈ Rp350rb; worst case 5 kalah ≈ Rp1,8jt lalu stop.
+
+### 16 Juni malam — ScalpSantai v2, ScalpCobaCoba, fix retcode 10030, tolak EA scam
+- **ScalpSantai kelewat ketat** (RSI cross + trend filter sering bentrok) → 7+ jam GAK trade walau laptop nyala & market gerak.
+  Owner longgarin RSI ke **50/50** (via F7) → entry pas RSI nyilang 50 searah tren. **Laptop KEBUKTI nyala terus** (data live);
+  masalahnya murni strategi, bukan laptop.
+- **ScalpSantai di-upgrade ke v2**: tambah **filter ADX** (cuma trade pas tren kuat, anti-sideways/whipsaw) + **SL/TP auto ATR**
+  (adaptif volatilitas, gak set manual per-symbol) + **break-even** (SL geser ke modal setelah profit 1×ATR). NB: v2 lebih SELEKTIF
+  (lebih jarang trade tapi lebih berkualitas), bukan lebih sering.
+- **EA EKSPERIMEN baru `ScalpCobaCoba.mq5`** (owner minta high-intensity "bahaya"): EMA20 + RSI cross 50, **NO ADX** (sering masuk),
+  M1/M5, maks 50 trade/hari, **STOP setelah 3 KALAH BERUNTUN** (menang=reset=lanjut). Lot kecil default 0.01. Magic 39570070.
+- **DITOLAK lagi EA "gacor" share-an**: owner upload `AlphaScalperPro.zip` → isinya cuma `.ex5` (black box, no source) + setumpuk
+  `.url` affiliate (digistore24 redirect + "best brokers" referral indicatorspot). = **umpan affiliate/scam**, bukan EA serius. Disuruh hapus.
+- ⚠️ **FIX retcode 10030 "invalid fill"**: ScalpSantai sempat nemu sinyal & coba BUY (21:59) TAPI ditolak broker (filling mode EURUSD
+  gak cocok). Kedua scalper sekarang coba **ORDER_FILLING_IOC→FOK→RETURN** sampe diterima. Owner WAJIB re-download+recompile biar kepasang.
+  Lesson: bot jalan & nyari sinyal bener, cuma fill mode HFM rewel di EURUSD (XAUUSDb pakai FOK OK, EURUSD butuh IOC).
+- **Cara matiin 1 EA aja** (biar gak dobel): klik kanan chart → Expert Advisors → Remove (tombol "Algo Trading" itu GLOBAL, matiin semua).
+- ⚠️ **PENTING — symbol "b"**: akun HFM trading di symbol suffix **"b"** (XAUUSDb, **EURUSDb**), BUKAN plain "EURUSD". Pasang EA di "EURUSD" (tanpa b) → kena 10030 invalid fill. Di **EURUSDb** → order MASUK. Selalu pakai symbol "b".
+- **ScalpCobaCoba DITES di EURUSDb M1**: order akhirnya MASUK (sell). Bukti masalah: M1 R:R 1:1 + komisi (~Rp460/trade akun "b") = struktur RUGI (menang +2128 < kalah -2305). Pelajaran: scalp M1 super-ketat kegerus komisi.
+
+### 16 Juni malam (lanjutan) — ScalpSantai v2 LENGKAP + ScalpAdvance (pyramiding)
+- **ScalpSantai v2 disempurnakan** atas ide owner jadi manajemen-posisi pro: SL (rugi) → break-even (profit→modal) →
+  **trailing stop** (SL ikut harga, kunci cuan) → **exit-on-reversal** (tutup pas RSI nyilang balik & lagi profit = tangkep puncak).
+  Inputs baru: `InpUseTrailing/InpTrailStart_ATR/InpTrail_ATR`, `InpExitOnReverse`. Semua default ON.
+- **TOLAK "jaring/averaging" (nambah pas RUGI)** = martingale-style, account-killer. Jelasin ke owner. Owner paham, pilih pyramiding.
+- **EA BARU `ScalpAdvance.mq5`** (magic 39570080) = ScalpSantai v2 + **PYRAMIDING**: nambah posisi searah HANYA pas
+  lagi PROFIT + ada sinyal searah (maks `InpMaxPositions`=3), **lot TETAP (BUKAN martingale)**, tutup SEMUA pas reversal.
+  Helper: CountOurPositions/OurDirection/TotalOurProfit/CloseAllOurs. Buat owner BELAJAR (demo/lot kecil dulu).
+- Semua EA scalp pakai filling-fix (IOC→FOK→RETURN). Owner WAJIB pasang di **EURUSDb** + lot 0.01.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
@@ -396,3 +515,59 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - Keep the project a single self-contained `index.html`. Don't introduce a build step, framework, or split files unless explicitly asked.
 - Match the existing Nokia/Game Boy aesthetic (LCD green palette, pixelated rendering via `image-rendering: pixelated`, monospace HUD font) when adding UI.
 - `git log` shows feature work lands via PRs from `claude/<feature>-<id>` branches into `main`. Develop on the branch you've been given and push there.
+
+## SESSION MEMORY — 25 Juni 2026 — TRADING MANUAL EMAS + SMC SYSTEM + SCAM ALERT
+
+> Lanjutan proyek forex. Branch dev = `claude/forex-trading-gb76l2`. Owner non-teknis (iPad/iPhone + laptop Windows MT5), bahasa Indonesia santai. SELALU auto-save memory ke CLAUDE.md.
+
+### ⚠️ SCAM ALERT — "Admin ATH / Awan Trading House" (PENTING, ingat terus)
+- Grup Telegram **"Admin ATH", "AWAN TRADING HOUSE", "Executive ATH", "VIP - Awan Trading"** (ATH = Awan Trading House) = **SCAM signal group.**
+- Modus: pamer menang ("114 pips 🎯") sbg umpan → suruh owner masukin **kode mitra/IB `30482817`** + bikin "akun premium" + **deposit & kasih ID akun ke "Admin ATH"**. Itu funnel penipuan (affiliate churn + managed-account theft).
+- **SUDAH DITOLAK & diwanti-wanti.** Owner WAJIB: blokir grup, JANGAN kasih password, JANGAN install app remote (AnyDesk/TeamViewer), JANGAN deposit ke mereka, JANGAN kasih ID akun.
+- Fakta keamanan yang dijelasin: **ID akun doang (tanpa password) = AMAN** (gak bisa login/narik). Yang fatal = kasih password / install remote / deposit ke link mereka. Cek IB ke-link apa nggak di my.hfm.com (menu Mitra/Partner) atau tanya CS HFM.
+
+### Trading manual emas (hasil & pelajaran)
+- Owner trading manual XAUUSDb seharian. Puncak **+Rp2,47jt**, sempat balik turun, **gap bot subuh kalah −Rp428rb** (gap turun, BUY rugi; SL gak kena, terkendali). Net akhir ~**+Rp1,9jt**. Saldo ~5,5-5,77jt (target owner 6jt).
+- **POLA TERBUKTI (dari history sendiri):** BUY ikut tren naik = MENANG (+433rb, +280rb, +833rb); SELL lawan tren = KALAH (−288rb, −141rb). Komisi nelen besar (−Rp330rb+ dari overtrade). Manual = lumpy/hoki; +2,4jt sehari itu variance, bukan skill.
+- **Aturan yang ditegasin terus:** jangan SELL lawan tren, jangan overtrade (komisi), jangan revenge trade, **berhenti pas menang**, jangan target harian. 0.3 lot di akun 6jt = blowup (1 gap gede = akun ludes) → DITOLAK keras.
+- Owner sempat tergiur **target Rp500rb/hari** → dijelasin **MUSTAHIL di akun 5jt** (=10%/hari=200%/bln; butuh ~Rp235jt modal di risiko aman, atau lot bunuh diri).
+- **Owner akhirnya pilih: trading MANUAL** (pakai metode SMC + cheat sheet di bawah), bukan bikin bot otomatis.
+
+### Akun HFM
+- **211063379** (utama, gap bot) + **211078648** (baru). Dua-duanya tipe **"ZERO SPREAD-ISL" = Islamic/SWAP-FREE** (bagus buat gap, no swap). Server HFMarketsGlobal-Live17, REAL, IDR. Komisi ~Rp1.630/0.01 lot.
+- Gap bot `TimedDailyTrade.mq5`: **default lot diubah ke 0.30** (commit), tapi owner set **0.20** di chart. BUY 03:57 / CLOSE 05:02 WIB, GMT+3, SL $3, trailing on. Gap bot 2 menang : 1 kalah. (Connect MT5: File→Login, server HFMarketsGlobal-Live17.)
+
+### SMC SYSTEM (folder `forex-trading/`) — DIBANGUN sesi ini
+- `smc_backtest.py` — versi naif (expanding window) → **100% win rate PALSU (lookahead bias)**. Dipakai buat AJARIN owner: hasil kelewat bagus = bug/scam, JANGAN dipercaya.
+- `smc_backtest_wf.py` — **walk-forward JUJUR** (rolling window lookback=300, recompute SMC tiap N bar, NO lookahead). Pakai library **`smartmoneyconcepts`** (joshyattridge: swing_highs_lows, bos_choch, ob, fvg) + data emas Yahoo.
+- **HASIL (2 tahun, 530 trade):** entry SMC + **SL TETAP $5 / TP TETAP $10 (50/100 pip, R:R 1:2)** = **win rate 39,8%, PF 1,32, 4/4 sub-periode CUAN.** Setelah biaya HFM (~$0,50): PF ~1,28. 2 bulan terakhir: PF 1,67 (tapi sampel kecil = variance).
+- **Fixed SL/TP MENANG vs OB-based:** PF 1,23 vs 1,10; rugi terbesar −Rp243rb vs **−Rp3,4jt** (OB-based SL kelebaran = bisa ngabisin akun). **Pakai fixed SL/TP.**
+- Di lot 0,03 fixed SL/TP: ~**+Rp7,9jt/6 bln** (tapi 0,03 = ~5%/trade = agresif; saran 0,01-0,02). Lot 0,03 di OB-based = blowup.
+- **Ekspektasi jujur:** edge KECIL tapi NYATA & konsisten. Win rate ~40% = sering kalah beruntun (mental wajib kuat). Bukan mesin uang.
+
+### Catatan teknis backtest (penting buat lanjutan)
+- **Data emas:** `requests.get('https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=730d&interval=60m', verify='/root/.ccr/ca-bundle.crt')`. yfinance/curl_cffi GAGAL TLS di proxy → pakai `requests` + `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt`. **OANDA gold ≈ GC=F − ~$14** (offset perkiraan, owner konfirmasi pakai angka chart sendiri).
+- Walk-forward lambat kalau expanding window → **rolling window** bikin cepet. Recompute_every=6-8 cukup.
+- Untuk sistem LIVE nanti: tarik data dari MT5 HFM via `MetaTrader5` python package (Windows only, MT5 kebuka).
+
+### TradingView SMC indikator (owner UDAH pasang di iPad)
+- Indikator **"Smart Money Concepts [LuxAlgo]"** (gratis). Cara: tombol ƒₓ/Indikator → search → pilih LuxAlgo.
+- **Kotak BIRU = Bullish OB (demand/support) = zona BUY.** **Kotak MERAH = Bearish OB (supply/resistance) = zona SELL.** BOS = lanjut tren. CHoCH = balik arah.
+
+### CHEAT SHEET manual trading (yang diajarin & dipakai owner)
+- **Multi-TF:** M15 = bias/arah · M5 = zona/keputusan · M1 = timing entry doang (JANGAN trade murni M1 = noise, ketipu).
+- **Entry:** BUY di demand (kotak biru) pas UPTREND; SELL di supply (kotak merah) pas DOWNTREND. **JANGAN lawan tren.** Jangan masuk di tengah range.
+- **SL/TP tiered:** SL $5 (50pip) · TP1 +$5 (tutup 1/3 + SL ke modal/BE) · TP2 +$10 (tutup 1/3) · TP3 +$15 atau level struktur (tutup sisa). Lot **0,01-0,02**.
+- **KONFIRMASI (kunci, owner paham ini):** jangan masuk first-touch. Tunggu **candle CLOSE** = hijau nutup di/atas demand (BUY) / merah nutup di/bawah supply (SELL); atau **rejection wick** (ekor panjang). **Wick yang BELUM close bisa hilang** → jangan FOMO; aman: tunggu close ATAU konfirmasi via M1 (struktur mikro berubah). Owner contoh bener: "candle M5 nutup di atas 3974" = konfirmasi valid.
+- **Level intraday valid ~4-6 jam** (M5/M15); batal kalau tembus zona / ada news / struktur baru. Cek ulang tiap beberapa jam.
+
+### Kondisi emas 25 Jun (konteks)
+- Downtrend besar: ~5200 (Feb) turun; dari 4300 (17 Jun) jatuh ke ~3980. Volatil (crash −$150 di 18 Jun). 25 Jun: ~3976-3990 (OANDA), struktur bearish, ranging demand 3967-3974 ↔ supply 3990-4000, weak low ~3960.
+
+### VPS (kalau lanjut otomatis)
+- Saran: **MT5 Virtual Hosting** (built-in MT5, klik kanan chart → Register Virtual Server, ~$10-15/bln) buat gap bot 24 jam tanpa laptop. Forex VPS/Contabo opsi lain.
+
+### TODO / lanjutan
+- (Opsional) bangun alert system SMC ke Telegram (script ada, tinggal jalanin di laptop/VPS). Owner pilih manual dulu.
+- (Opsional) forward-test SMC lot 0,01 di real → cek slippage vs backtest.
+- Owner pantau gap bot subuh + manual trade emas pakai SMC. Pintu sistem otomatis tetap terbuka.
