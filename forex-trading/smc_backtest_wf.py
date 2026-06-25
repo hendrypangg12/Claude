@@ -27,68 +27,58 @@ def get_gold(interval="60m", rng="730d"):
 
 
 def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=120,
-                 fixed_sl=None, fixed_tp=None):
-    """Walk-forward: recompute SMC pakai data sampai bar t saja. 1 posisi pada satu waktu.
+                 fixed_sl=None, fixed_tp=None, lookback=300):
+    """Walk-forward: SMC dihitung pada ROLLING window (lookback bar terakhir) -> cepat & no-lookahead.
     fixed_sl/fixed_tp (dalam $): kalau diisi, pakai SL/TP TETAP, bukan dari Order Block."""
     n = len(df)
     high = df["high"].values; low = df["low"].values; close = df["close"].values
     trades = []
-    pos = None  # dict: dir, entry, sl, tp
+    pos = None
     cache = None; cache_t = -1
 
     for t in range(warmup, n):
-        # --- kelola posisi terbuka (cek SL/TP di bar ini) ---
         if pos is not None:
             if pos["dir"] == 1:
-                if low[t] <= pos["sl"]:
-                    trades.append({**pos, "R": -1}); pos = None
-                elif high[t] >= pos["tp"]:
-                    trades.append({**pos, "R": rr}); pos = None
+                if low[t] <= pos["sl"]: trades.append({**pos, "R": -1, "t": t}); pos = None
+                elif high[t] >= pos["tp"]: trades.append({**pos, "R": rr, "t": t}); pos = None
             else:
-                if high[t] >= pos["sl"]:
-                    trades.append({**pos, "R": -1}); pos = None
-                elif low[t] <= pos["tp"]:
-                    trades.append({**pos, "R": rr}); pos = None
+                if high[t] >= pos["sl"]: trades.append({**pos, "R": -1, "t": t}); pos = None
+                elif low[t] <= pos["tp"]: trades.append({**pos, "R": rr, "t": t}); pos = None
             if pos is not None:
-                continue  # masih ada posisi, tunggu
+                continue
 
-        # --- cari sinyal baru (recompute SMC sampai t, no future) ---
         if t - cache_t >= recompute_every or cache is None:
-            sub = df.iloc[: t + 1]
+            sub = df.iloc[max(0, t + 1 - lookback): t + 1]
             shl = smc.swing_highs_lows(sub, swing_length=swing)
             bos = smc.bos_choch(sub, shl, close_break=True)
             obs = smc.ob(sub, shl, close_mitigation=False)
             cache = (bos, obs); cache_t = t
         bos, obs = cache
 
-        # struktur terakhir (ambil sinyal BOS/CHOCH terakhir, no loop penuh)
         bv = pd.Series(bos["BOS"].values).fillna(0)
         cv = pd.Series(bos["CHOCH"].values).fillna(0)
-        sig = bv.where(bv != 0).combine_first(cv.where(cv != 0))
-        last = sig.dropna()
-        struct = int(last.iloc[-1]) if len(last) else 0
+        sig = bv.where(bv != 0).combine_first(cv.where(cv != 0)).dropna()
+        struct = int(sig.iloc[-1]) if len(sig) else 0
         if struct == 0:
             continue
 
-        # OB aktif terakhir searah struktur, yang zona-nya kena harga bar t
         odir = obs["OB"].values; otop = obs["Top"].values; obot = obs["Bottom"].values
-        idxs = [i for i in range(len(odir)) if not pd.isna(odir[i]) and odir[i] == struct and i < t]
-        entered = False
-        for i in reversed(idxs[-5:]):  # cek beberapa OB terbaru
+        idxs = [i for i in range(len(odir) - 1) if not pd.isna(odir[i]) and odir[i] == struct]
+        for i in reversed(idxs[-5:]):
             top, bot = otop[i], obot[i]
-            if struct == 1 and low[t] <= top and close[t] >= bot:   # masuk zona bullish OB
+            if struct == 1 and low[t] <= top and close[t] >= bot:
                 entry = min(top, close[t])
                 if fixed_sl: sl = entry - fixed_sl; risk = fixed_sl; tp = entry + fixed_tp
                 else: sl = bot - sl_buf; risk = entry - sl; tp = entry + rr * risk
                 if risk > 0:
-                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}; entered = True
+                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}
                 break
-            if struct == -1 and high[t] >= bot and close[t] <= top:  # masuk zona bearish OB
+            if struct == -1 and high[t] >= bot and close[t] <= top:
                 entry = max(bot, close[t])
                 if fixed_sl: sl = entry + fixed_sl; risk = fixed_sl; tp = entry - fixed_tp
                 else: sl = top + sl_buf; risk = sl - entry; tp = entry - rr * risk
                 if risk > 0:
-                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}; entered = True
+                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": tp, "risk": risk}
                 break
     return pd.DataFrame(trades)
 
@@ -114,22 +104,29 @@ if __name__ == "__main__":
     rng = sys.argv[2] if len(sys.argv) > 2 else "180d"
     every = int(sys.argv[3]) if len(sys.argv) > 3 else 6
     df = get_gold(interval=interval, rng=rng)
-    print(f"Data emas: {len(df)} bar ({interval}, {rng})  harga akhir {df['close'].iloc[-1]:.1f}", flush=True)
-    # SL TETAP 50 pips ($5), TP TETAP 100 pips ($10) -> R:R 1:2
+    print(f"Data emas: {len(df)} bar ({interval}, {rng})  {df.index[0] if hasattr(df.index,'__getitem__') else ''}", flush=True)
     SL, TP, LOT, KURS, COMM = 5.0, 10.0, 0.03, 16200, 4890
     tr = walk_forward(df, swing=20, rr=TP/SL, recompute_every=every, fixed_sl=SL, fixed_tp=TP)
-    n = len(tr); wins = int((tr["R"] > 0).sum()); losses = n - wins
-    # dollar di lot 0.03: menang +$10, kalah -$5 (tetap)
-    usd = wins * TP - losses * SL
-    idr_gross = usd * LOT * 100 * KURS
-    idr_net = idr_gross - n * COMM
-    print(f"\n===== SL 50pip ($5) / TP 100pip ($10) | lot {LOT} | 6 bulan =====")
-    print(f"  Total sinyal : {n} trade")
-    print(f"  KENA TP (menang): {wins}   |  KENA SL (kalah): {losses}")
-    print(f"  Win rate : {100*wins/n:.1f}%" if n else "  no trade")
-    print(f"  Hasil harga : {usd:+.0f}$  ({wins}x+$10  {losses}x-$5)")
-    print(f"  Kotor (lot {LOT}) : Rp{idr_gross:,.0f}")
-    print(f"  Komisi ({n}x)    : -Rp{n*COMM:,.0f}")
-    print(f"  NET 6 bulan     : Rp{idr_net:,.0f}")
+    print(f"Total {len(tr)} trade di seluruh {rng}.", flush=True)
+
+    def stats(sub, label):
+        n = len(sub)
+        if n == 0:
+            print(f"  {label:16s}: tidak ada trade"); return
+        w = int((sub["R"] > 0).sum()); l = n - w
+        usd = w * TP - l * SL
+        idr_net = usd * LOT * 100 * KURS - n * COMM
+        pf = (w * TP) / (l * SL) if l else float("inf")
+        print(f"  {label:16s}: {n:3d} trade | win {100*w/n:4.1f}% | PF {pf:.2f} | net(0.03) Rp{idr_net:>12,.0f}")
+
+    # bagi jadi 4 periode berdasarkan urutan trade (tiap ~1/4 rentang waktu)
+    print(f"\n===== ROBUSTNESS: SL$5/TP$10, lot 0.03, dibagi 4 periode =====")
+    tr = tr.reset_index(drop=True)
+    q = len(tr) // 4
+    for k in range(4):
+        seg = tr.iloc[k*q:(k+1)*q] if k < 3 else tr.iloc[k*q:]
+        stats(seg, f"Periode {k+1}")
+    print("  " + "-"*60)
+    stats(tr, "SEMUA (2 thn)")
     be = 100*SL/(SL+TP)
-    print(f"  (Break-even win rate yang dibutuhin: {be:.0f}% — di atas itu = cuan)")
+    print(f"\n  Break-even win rate: {be:.0f}%. Konsisten kalau tiap periode win >{be:.0f}% & PF>1.")
