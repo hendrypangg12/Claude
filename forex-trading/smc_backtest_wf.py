@@ -77,29 +77,30 @@ def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=12
             if struct == 1 and low[t] <= top and close[t] >= bot:   # masuk zona bullish OB
                 entry = min(top, close[t]); sl = bot - sl_buf; risk = entry - sl
                 if risk > 0:
-                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": entry + rr * risk}; entered = True
+                    pos = {"dir": 1, "entry": entry, "sl": sl, "tp": entry + rr * risk, "risk": risk}; entered = True
                 break
             if struct == -1 and high[t] >= bot and close[t] <= top:  # masuk zona bearish OB
                 entry = max(bot, close[t]); sl = top + sl_buf; risk = sl - entry
                 if risk > 0:
-                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": entry - rr * risk}; entered = True
+                    pos = {"dir": -1, "entry": entry, "sl": sl, "tp": entry - rr * risk, "risk": risk}; entered = True
                 break
     return pd.DataFrame(trades)
 
 
-def report(tr, label):
-    print(f"\n===== {label} =====")
+def report(tr, label, cost_usd=0.0):
+    print(f"\n===== {label}  (biaya ${cost_usd}/trade) =====")
     if len(tr) == 0:
         print("  Tidak ada trade."); return
-    wins = (tr["R"] > 0).sum(); losses = (tr["R"] < 0).sum()
-    total_R = tr["R"].sum(); wr = 100 * wins / len(tr)
-    gp = tr.loc[tr["R"] > 0, "R"].sum(); gl = -tr.loc[tr["R"] < 0, "R"].sum()
+    # net R per trade SETELAH biaya: biaya dalam $ dibagi risk$ -> dalam satuan R
+    cost_R = cost_usd / tr["risk"].clip(lower=0.01)
+    gross = tr["R"]
+    net = gross - cost_R                       # potong biaya tiap trade
+    wins = (net > 0).sum(); losses = (net <= 0).sum()
+    total_R = net.sum(); wr = 100 * wins / len(tr)
+    gp = net[net > 0].sum(); gl = -net[net <= 0].sum()
     pf = (gp / gl) if gl > 0 else float("inf")
-    print(f"  Total trade : {len(tr)}  (BUY {int((tr['dir']==1).sum())} / SELL {int((tr['dir']==-1).sum())})")
-    print(f"  Menang/Kalah: {wins} / {losses}   Win rate: {wr:.1f}%")
-    print(f"  Total hasil : {total_R:+.1f} R")
-    print(f"  Profit Factor: {pf:.2f}  ({'CUAN' if pf>1 else 'RUGI'})")
-    print(f"  Kalau risiko Rp100rb/trade -> net ~Rp{total_R*100000:,.0f}")
+    print(f"  Total trade : {len(tr)}  | Win rate: {wr:.1f}%  | Total: {total_R:+.1f} R")
+    print(f"  Profit Factor: {pf:.2f}  ({'CUAN' if pf>1 else 'RUGI'})  | risiko Rp100rb/trade -> ~Rp{total_R*100000:,.0f}")
 
 
 if __name__ == "__main__":
@@ -108,6 +109,8 @@ if __name__ == "__main__":
     every = int(sys.argv[3]) if len(sys.argv) > 3 else 6
     df = get_gold(interval=interval, rng=rng)
     print(f"Data emas: {len(df)} bar ({interval}, {rng})  harga akhir {df['close'].iloc[-1]:.1f}", flush=True)
-    for rr in [2.0]:
-        tr = walk_forward(df, swing=20, rr=rr, recompute_every=every)
-        report(tr, f"WALK-FORWARD (jujur) | TP={rr}R | recompute/{every}bar")
+    tr = walk_forward(df, swing=20, rr=2.0, recompute_every=every)
+    tr.to_csv("/tmp/claude-0/-home-user-Claude/2d63d472-ff6b-5d29-aaa7-9c977dd8a439/scratchpad/smc_trades.csv", index=False)
+    # bandingin: tanpa biaya, biaya ringan ($0.3), biaya realistis HFM ($0.5), pesimis ($0.8)
+    for cost in [0.0, 0.3, 0.5, 0.8]:
+        report(tr, "WALK-FORWARD TP=2R", cost_usd=cost)
