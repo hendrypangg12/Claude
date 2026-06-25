@@ -509,3 +509,59 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - Keep the project a single self-contained `index.html`. Don't introduce a build step, framework, or split files unless explicitly asked.
 - Match the existing Nokia/Game Boy aesthetic (LCD green palette, pixelated rendering via `image-rendering: pixelated`, monospace HUD font) when adding UI.
 - `git log` shows feature work lands via PRs from `claude/<feature>-<id>` branches into `main`. Develop on the branch you've been given and push there.
+
+## SESSION MEMORY — 25 Juni 2026 — TRADING MANUAL EMAS + SMC SYSTEM + SCAM ALERT
+
+> Lanjutan proyek forex. Branch dev = `claude/forex-trading-gb76l2`. Owner non-teknis (iPad/iPhone + laptop Windows MT5), bahasa Indonesia santai. SELALU auto-save memory ke CLAUDE.md.
+
+### ⚠️ SCAM ALERT — "Admin ATH / Awan Trading House" (PENTING, ingat terus)
+- Grup Telegram **"Admin ATH", "AWAN TRADING HOUSE", "Executive ATH", "VIP - Awan Trading"** (ATH = Awan Trading House) = **SCAM signal group.**
+- Modus: pamer menang ("114 pips 🎯") sbg umpan → suruh owner masukin **kode mitra/IB `30482817`** + bikin "akun premium" + **deposit & kasih ID akun ke "Admin ATH"**. Itu funnel penipuan (affiliate churn + managed-account theft).
+- **SUDAH DITOLAK & diwanti-wanti.** Owner WAJIB: blokir grup, JANGAN kasih password, JANGAN install app remote (AnyDesk/TeamViewer), JANGAN deposit ke mereka, JANGAN kasih ID akun.
+- Fakta keamanan yang dijelasin: **ID akun doang (tanpa password) = AMAN** (gak bisa login/narik). Yang fatal = kasih password / install remote / deposit ke link mereka. Cek IB ke-link apa nggak di my.hfm.com (menu Mitra/Partner) atau tanya CS HFM.
+
+### Trading manual emas (hasil & pelajaran)
+- Owner trading manual XAUUSDb seharian. Puncak **+Rp2,47jt**, sempat balik turun, **gap bot subuh kalah −Rp428rb** (gap turun, BUY rugi; SL gak kena, terkendali). Net akhir ~**+Rp1,9jt**. Saldo ~5,5-5,77jt (target owner 6jt).
+- **POLA TERBUKTI (dari history sendiri):** BUY ikut tren naik = MENANG (+433rb, +280rb, +833rb); SELL lawan tren = KALAH (−288rb, −141rb). Komisi nelen besar (−Rp330rb+ dari overtrade). Manual = lumpy/hoki; +2,4jt sehari itu variance, bukan skill.
+- **Aturan yang ditegasin terus:** jangan SELL lawan tren, jangan overtrade (komisi), jangan revenge trade, **berhenti pas menang**, jangan target harian. 0.3 lot di akun 6jt = blowup (1 gap gede = akun ludes) → DITOLAK keras.
+- Owner sempat tergiur **target Rp500rb/hari** → dijelasin **MUSTAHIL di akun 5jt** (=10%/hari=200%/bln; butuh ~Rp235jt modal di risiko aman, atau lot bunuh diri).
+- **Owner akhirnya pilih: trading MANUAL** (pakai metode SMC + cheat sheet di bawah), bukan bikin bot otomatis.
+
+### Akun HFM
+- **211063379** (utama, gap bot) + **211078648** (baru). Dua-duanya tipe **"ZERO SPREAD-ISL" = Islamic/SWAP-FREE** (bagus buat gap, no swap). Server HFMarketsGlobal-Live17, REAL, IDR. Komisi ~Rp1.630/0.01 lot.
+- Gap bot `TimedDailyTrade.mq5`: **default lot diubah ke 0.30** (commit), tapi owner set **0.20** di chart. BUY 03:57 / CLOSE 05:02 WIB, GMT+3, SL $3, trailing on. Gap bot 2 menang : 1 kalah. (Connect MT5: File→Login, server HFMarketsGlobal-Live17.)
+
+### SMC SYSTEM (folder `forex-trading/`) — DIBANGUN sesi ini
+- `smc_backtest.py` — versi naif (expanding window) → **100% win rate PALSU (lookahead bias)**. Dipakai buat AJARIN owner: hasil kelewat bagus = bug/scam, JANGAN dipercaya.
+- `smc_backtest_wf.py` — **walk-forward JUJUR** (rolling window lookback=300, recompute SMC tiap N bar, NO lookahead). Pakai library **`smartmoneyconcepts`** (joshyattridge: swing_highs_lows, bos_choch, ob, fvg) + data emas Yahoo.
+- **HASIL (2 tahun, 530 trade):** entry SMC + **SL TETAP $5 / TP TETAP $10 (50/100 pip, R:R 1:2)** = **win rate 39,8%, PF 1,32, 4/4 sub-periode CUAN.** Setelah biaya HFM (~$0,50): PF ~1,28. 2 bulan terakhir: PF 1,67 (tapi sampel kecil = variance).
+- **Fixed SL/TP MENANG vs OB-based:** PF 1,23 vs 1,10; rugi terbesar −Rp243rb vs **−Rp3,4jt** (OB-based SL kelebaran = bisa ngabisin akun). **Pakai fixed SL/TP.**
+- Di lot 0,03 fixed SL/TP: ~**+Rp7,9jt/6 bln** (tapi 0,03 = ~5%/trade = agresif; saran 0,01-0,02). Lot 0,03 di OB-based = blowup.
+- **Ekspektasi jujur:** edge KECIL tapi NYATA & konsisten. Win rate ~40% = sering kalah beruntun (mental wajib kuat). Bukan mesin uang.
+
+### Catatan teknis backtest (penting buat lanjutan)
+- **Data emas:** `requests.get('https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=730d&interval=60m', verify='/root/.ccr/ca-bundle.crt')`. yfinance/curl_cffi GAGAL TLS di proxy → pakai `requests` + `REQUESTS_CA_BUNDLE=/root/.ccr/ca-bundle.crt`. **OANDA gold ≈ GC=F − ~$14** (offset perkiraan, owner konfirmasi pakai angka chart sendiri).
+- Walk-forward lambat kalau expanding window → **rolling window** bikin cepet. Recompute_every=6-8 cukup.
+- Untuk sistem LIVE nanti: tarik data dari MT5 HFM via `MetaTrader5` python package (Windows only, MT5 kebuka).
+
+### TradingView SMC indikator (owner UDAH pasang di iPad)
+- Indikator **"Smart Money Concepts [LuxAlgo]"** (gratis). Cara: tombol ƒₓ/Indikator → search → pilih LuxAlgo.
+- **Kotak BIRU = Bullish OB (demand/support) = zona BUY.** **Kotak MERAH = Bearish OB (supply/resistance) = zona SELL.** BOS = lanjut tren. CHoCH = balik arah.
+
+### CHEAT SHEET manual trading (yang diajarin & dipakai owner)
+- **Multi-TF:** M15 = bias/arah · M5 = zona/keputusan · M1 = timing entry doang (JANGAN trade murni M1 = noise, ketipu).
+- **Entry:** BUY di demand (kotak biru) pas UPTREND; SELL di supply (kotak merah) pas DOWNTREND. **JANGAN lawan tren.** Jangan masuk di tengah range.
+- **SL/TP tiered:** SL $5 (50pip) · TP1 +$5 (tutup 1/3 + SL ke modal/BE) · TP2 +$10 (tutup 1/3) · TP3 +$15 atau level struktur (tutup sisa). Lot **0,01-0,02**.
+- **KONFIRMASI (kunci, owner paham ini):** jangan masuk first-touch. Tunggu **candle CLOSE** = hijau nutup di/atas demand (BUY) / merah nutup di/bawah supply (SELL); atau **rejection wick** (ekor panjang). **Wick yang BELUM close bisa hilang** → jangan FOMO; aman: tunggu close ATAU konfirmasi via M1 (struktur mikro berubah). Owner contoh bener: "candle M5 nutup di atas 3974" = konfirmasi valid.
+- **Level intraday valid ~4-6 jam** (M5/M15); batal kalau tembus zona / ada news / struktur baru. Cek ulang tiap beberapa jam.
+
+### Kondisi emas 25 Jun (konteks)
+- Downtrend besar: ~5200 (Feb) turun; dari 4300 (17 Jun) jatuh ke ~3980. Volatil (crash −$150 di 18 Jun). 25 Jun: ~3976-3990 (OANDA), struktur bearish, ranging demand 3967-3974 ↔ supply 3990-4000, weak low ~3960.
+
+### VPS (kalau lanjut otomatis)
+- Saran: **MT5 Virtual Hosting** (built-in MT5, klik kanan chart → Register Virtual Server, ~$10-15/bln) buat gap bot 24 jam tanpa laptop. Forex VPS/Contabo opsi lain.
+
+### TODO / lanjutan
+- (Opsional) bangun alert system SMC ke Telegram (script ada, tinggal jalanin di laptop/VPS). Owner pilih manual dulu.
+- (Opsional) forward-test SMC lot 0,01 di real → cek slippage vs backtest.
+- Owner pantau gap bot subuh + manual trade emas pakai SMC. Pintu sistem otomatis tetap terbuka.
