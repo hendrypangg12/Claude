@@ -59,12 +59,12 @@ def walk_forward(df, swing=20, rr=2.0, sl_buf=0.10, recompute_every=3, warmup=12
             cache = (bos, obs); cache_t = t
         bos, obs = cache
 
-        # struktur terakhir
-        struct = 0
-        bv = bos["BOS"].values; cv = bos["CHOCH"].values
-        for i in range(len(bv)):
-            if not pd.isna(bv[i]) and bv[i] != 0: struct = int(bv[i])
-            if not pd.isna(cv[i]) and cv[i] != 0: struct = int(cv[i])
+        # struktur terakhir (ambil sinyal BOS/CHOCH terakhir, no loop penuh)
+        bv = pd.Series(bos["BOS"].values).fillna(0)
+        cv = pd.Series(bos["CHOCH"].values).fillna(0)
+        sig = bv.where(bv != 0).combine_first(cv.where(cv != 0))
+        last = sig.dropna()
+        struct = int(last.iloc[-1]) if len(last) else 0
         if struct == 0:
             continue
 
@@ -104,8 +104,10 @@ def report(tr, label):
 
 if __name__ == "__main__":
     interval = sys.argv[1] if len(sys.argv) > 1 else "60m"
-    df = get_gold(interval=interval, rng="730d")
-    print(f"Data emas: {len(df)} bar ({interval})  harga akhir {df['close'].iloc[-1]:.1f}")
-    for rr in [1.5, 2.0, 3.0]:
-        tr = walk_forward(df, swing=20, rr=rr)
-        report(tr, f"WALK-FORWARD (jujur) | TP={rr}R")
+    rng = sys.argv[2] if len(sys.argv) > 2 else "180d"
+    every = int(sys.argv[3]) if len(sys.argv) > 3 else 6
+    df = get_gold(interval=interval, rng=rng)
+    print(f"Data emas: {len(df)} bar ({interval}, {rng})  harga akhir {df['close'].iloc[-1]:.1f}", flush=True)
+    for rr in [2.0]:
+        tr = walk_forward(df, swing=20, rr=rr, recompute_every=every)
+        report(tr, f"WALK-FORWARD (jujur) | TP={rr}R | recompute/{every}bar")
