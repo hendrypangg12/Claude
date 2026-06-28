@@ -565,3 +565,9 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - (Opsional) bangun alert system SMC ke Telegram (script ada, tinggal jalanin di laptop/VPS). Owner pilih manual dulu.
 - (Opsional) forward-test SMC lot 0,01 di real → cek slippage vs backtest.
 - Owner pantau gap bot subuh + manual trade emas pakai SMC. Pintu sistem otomatis tetap terbuka.
+
+### 28 Juni — belajar Fib + preferensi efisiensi
+- Owner belajar manual SMC + **Fibonacci**: cara tarik (anchor swing HIGH→LOW utk downtrend), arti level (50%/61,8% = sering reversal, golden pocket 0,618-0,786), **confluence Fib+OB** (2 "saksi" setuju = lebih kuat, bukan saling nge-tes). Diajarin: Fib=probabilitas bukan jaminan (self-fulfilling prophecy), WAJIB tunggu candle konfirmasi. Owner udah bisa narik Fib sendiri dengan benar (anchor swing high 4412 → weak low 3939).
+- Owner paham: cara nemu swing high (puncak terakhir sebelum jatuh), beda M1/M5/H4, BOS=lanjut/CHoCH=balik, weak high=bakal ditembus, body candle tebel=kuat/tipis=ragu, batas OB (merah: batas bawah=patokan; biru: batas atas=patokan).
+- ⚠️ **PREFERENSI OWNER: JAWAB SE-EFISIEN MUNGKIN (hemat token).** Singkat, to-the-point, kurangi tabel/emoji berlebih. Tetap auto-save memory tiap abis ngerjain.
+- Aku BISA fetch data harga (Yahoo GC=F, ~$14 di atas OANDA spot) + itung analisa, TAPI gak bisa nonton chart live visual. Owner pakai chart broker utk harga persis.
