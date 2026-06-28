@@ -390,6 +390,13 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   detik-finance/dll, 3-4 hidup per kategori) + retry 2x + parser regex (tahan XML rusak/CDATA). Per akhir update:
   owner lagi clear checkpoint IG, belum ke-verify auto-post jalan penuh.
 
+### 28 Juni (lanjutan) — preferензi kerja + fix beruang reel-slot
+- **PREFERENSI OWNER (28 Juni): kerja EFISIEN — yang penting2 aja, JANGAN baca log/file dari awal tiap kali.**
+  Owner langganan Pro, mau hemat usage. Langsung ke akar masalah, minim baca ulang.
+- **Beruang slot REEL gagal di mode hemat** ("tidak ada yang dipublish") karena hemat cuma bikin carousel (no reel).
+  FIX `publish_ig.py`: kalau `mode=reel` tapi `reel.mp4` gak ada & ada `post_1.jpg` → fallback ke carousel. Slot
+  carousel beruang (09:26, 10:39) udah SUKSES ke-post. faktaviral hemat (carousel+reel) DITES SUKSES ke IG + FB.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.

@@ -58,6 +58,10 @@ def _load_accounts() -> list[dict]:
 def _publish_one(acc: dict, pub: Path, raw: str, mode: str, caption: str) -> list[tuple]:
     ig_id, token, name = acc["ig_user_id"], acc["token"], acc["name"]
     posted: list[tuple] = []
+    # mode hemat: slot 'reel' tapi gak ada video → fallback ke carousel biar tetap ke-post
+    if mode == "reel" and not (pub / "reel.mp4").exists() and (pub / "post_1.jpg").exists():
+        print(f"  [{name}] reel gak ada → fallback carousel")
+        mode = "carousel"
     if mode in ("both", "carousel"):
         imgs = [f"{raw}/post_{i}.jpg" for i in (1, 2, 3) if (pub / f"post_{i}.jpg").exists()]
         if imgs:
