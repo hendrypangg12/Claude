@@ -81,6 +81,7 @@ jobs:
       - run: python daily_fakta.py
         env:
           DRY_RUN: "true"
+          NO_AI: "true"   # MODE HEMAT: berita dari RSS, tanpa Anthropic (gratis). Hapus baris ini buat balik pakai AI.
           CATEGORY: ${{ steps.slot.outputs.cat }}
           TOPIC: ${{ github.event.inputs.topic }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

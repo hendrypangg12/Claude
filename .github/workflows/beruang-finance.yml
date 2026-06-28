@@ -83,6 +83,7 @@ jobs:
 
       - run: python bf_daily.py
         env:
+          NO_AI: "true"   # MODE HEMAT: berita ekonomi dari RSS, tanpa Anthropic (gratis). Hapus baris ini buat balik pakai AI.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           CTYPE: ${{ steps.slot.outputs.ct }}

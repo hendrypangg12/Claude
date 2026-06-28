@@ -1,0 +1,200 @@
+"""Mode HEMAT: ambil berita dari RSS (GRATIS, TANPA Anthropic).
+
+Dipakai daily_fakta.py / bf_daily.py kalau env NO_AI=true → auto-post berita
+tanpa biaya API. Output dict-nya kompatibel sama generate_fakta/generate_content.
+
+Gambar diambil langsung dari <enclosure> RSS (foto artikelnya) → kredit "Sumber: X".
+"""
+import html
+import re
+
+import requests
+import xml.etree.ElementTree as ET
+
+# Feed RSS gratis (no API key). Detik diblok proxy, Tempo XML rusak → pakai CNN + ANTARA.
+FEEDS = {
+    "trending": [
+        "https://www.cnnindonesia.com/nasional/rss",
+        "https://www.antaranews.com/rss/terkini.xml",
+        "https://www.cnnindonesia.com/teknologi/rss",
+    ],
+    "keuangan": [
+        "https://www.cnnindonesia.com/ekonomi/rss",
+        "https://www.antaranews.com/rss/ekonomi.xml",
+    ],
+    "aktor": [
+        "https://www.cnnindonesia.com/hiburan/rss",
+        "https://www.antaranews.com/rss/hiburan.xml",
+    ],
+}
+
+_SRC = {
+    "cnnindonesia.com": "CNN Indonesia", "antaranews.com": "ANTARA",
+    "kompas.com": "Kompas", "detik.com": "detikcom", "tempo.co": "Tempo",
+}
+
+_HDR = {"User-Agent": "Mozilla/5.0 (compatible; FaktaBot/1.0)"}
+
+
+def _clean(t: str) -> str:
+    return html.unescape(re.sub(r"<[^>]+>", "", t or "")).strip()
+
+
+def _src_name(link: str) -> str:
+    m = re.search(r"https?://(?:www\.)?([^/]+)", link or "")
+    host = (m.group(1) if m else "").replace("www.", "")
+    for dom, name in _SRC.items():
+        if dom in host:
+            return name
+    return host or "media"
+
+
+def _img(item) -> str:
+    """Foto artikel dari RSS: <enclosure url=>, media:content/thumbnail."""
+    enc = item.find("enclosure")
+    if enc is not None and enc.get("url"):
+        return enc.get("url").strip()
+    for tag in ("{http://search.yahoo.com/mrss/}content",
+                "{http://search.yahoo.com/mrss/}thumbnail"):
+        m = item.find(tag)
+        if m is not None and m.get("url"):
+            return m.get("url").strip()
+    return ""
+
+
+def _words(s: str) -> set:
+    return set(w for w in re.findall(r"[a-z0-9]+", (s or "").lower()) if len(w) > 3)
+
+
+# Tanpa AI gak ada yang nyaring → blokir manual: konten sensitif (bahaya brand/UU ITE)
+# + advertorial/iklan (CNN ekonomi banyak Transmart). Item yang match = di-SKIP.
+_BLOCK = re.compile(
+    r"(bunuh diri|gantung diri|mutilasi|mayat|jenazah|pembunuhan|dibunuh|"
+    r"perkosa|pemerkosaan|pelecehan|cabul|mesum|bugil|porno|prostitusi|"
+    r"pedofil|bocah tewas|balita tewas|narkoba|sabu|ganja|"
+    r"transmart|full day sale|flash sale|diskon|promo|advertorial|harga spesial|"
+    r"kupon|giveaway|brand story)", re.I)
+
+
+def _blocked(title: str, summary: str) -> bool:
+    return bool(_BLOCK.search(f"{title} {summary}"))
+
+
+def _dup(title: str, avoid: list[str]) -> bool:
+    tw = _words(title)
+    if not tw:
+        return False
+    for a in avoid or []:
+        aw = _words(a)
+        if aw and len(tw & aw) >= 4:
+            return True
+    return False
+
+
+def _fetch_feed(url: str) -> list[dict]:
+    out = []
+    try:
+        r = requests.get(url, timeout=15, headers=_HDR)
+        root = ET.fromstring(r.text)
+    except Exception:
+        return out
+    for it in root.iter("item"):
+        title = _clean(it.findtext("title"))
+        link = (it.findtext("link") or "").strip()
+        if not title or not link:
+            continue
+        if any(x in link for x in ("/video/", "/foto/", "/infografi", "/galeri")):
+            continue  # skip galeri/video (kita mau artikel teks + 1 foto)
+        out.append({
+            "title": title,
+            "link": link,
+            "summary": _clean(it.findtext("description")),
+            "image": _img(it),
+            "source": _src_name(link),
+        })
+    return out
+
+
+_OG_RE = [
+    re.compile(r'<meta[^>]+property=["\']og:image(?::url)?["\'][^>]+content=["\']([^"\']+)', re.I),
+    re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image', re.I),
+    re.compile(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)', re.I),
+]
+
+
+def _og_image(url: str) -> str:
+    """Foto ukuran penuh dari halaman artikel (lebih gede dari thumbnail RSS)."""
+    try:
+        html_ = requests.get(url, timeout=12, headers=_HDR).text[:200000]
+        for rx in _OG_RE:
+            m = rx.search(html_)
+            if m:
+                img = m.group(1).strip().replace("&amp;", "&")
+                if img.startswith("//"):
+                    img = "https:" + img
+                if img.startswith("http") and not img.lower().endswith(".svg"):
+                    return img
+    except Exception:
+        pass
+    return ""
+
+
+def _caption(title: str, summary: str, source: str, category: str) -> str:
+    tags = {
+        "keuangan": "#keuangan #ekonomi #beritaviral #beruangfinance #finansial",
+        "aktor": "#selebriti #hiburan #beritaviral #gosip #viral",
+    }.get(category, "#beritaviral #faktaviral #beritaterkini #viral #indonesia")
+    body = title
+    if summary and summary[:30].lower() not in title.lower():
+        body += "\n\n" + summary[:300]
+    return f"{body}\n\nSelengkapnya cek di sumber ya.\nSumber: {source}\n\n{tags}"
+
+
+def _points(summary: str, title: str) -> list[str]:
+    parts = re.split(r"(?<=[.!?])\s+", summary or "")
+    pts = [p.strip() for p in parts if len(p.strip()) > 15][:3]
+    return pts or [summary.strip() or title]
+
+
+def fetch_rss_item(category: str = "trending", avoid: list[str] | None = None) -> dict:
+    """Ambil 1 berita FRESH dari RSS (skip yang mirip avoid). Tanpa Anthropic.
+    Output kompatibel dgn generate_fakta + generate_content (beruang)."""
+    cat = category if category in FEEDS else "trending"
+    items: list[dict] = []
+    seen = set()
+    for feed in FEEDS[cat]:
+        for it in _fetch_feed(feed):
+            key = it["title"][:60].lower()
+            if key not in seen:
+                seen.add(key)
+                items.append(it)
+    if not items:
+        raise RuntimeError(f"RSS kosong untuk kategori '{cat}'")
+
+    # buang konten sensitif + iklan, lalu pilih yg belum pernah dibahas (anti-dobel)
+    safe = [it for it in items if not _blocked(it["title"], it["summary"])]
+    pool = safe or items
+    pick = next((it for it in pool if not _dup(it["title"], avoid or [])), pool[0])
+    title, summary, source = pick["title"], pick["summary"], pick["source"]
+    image = _og_image(pick["link"]) or pick["image"]   # og:image (full) dulu, enclosure cadangan
+    return {
+        "category": cat,
+        "hook": title,
+        "fact": summary or title,
+        "detail": "",
+        "takeaway": "Sumber lengkap ada di caption.",
+        "caption": _caption(title, summary, source, cat),
+        "query": " ".join(re.findall(r"[A-Za-z]+", title)[:2]) or "news",
+        # buat beruang (carousel 3 poin)
+        "kicker": "BERITA",
+        "type": "berita",
+        "points": _points(summary, title),
+        # metadata
+        "_sumber": source,
+        "_published": "",
+        "_video_url": "",
+        "_image_url": image,
+        "_image_article": pick["link"],
+        "_source_urls": [pick["link"]],
+        "_via": "rss",
+    }
