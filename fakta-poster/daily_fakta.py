@@ -201,6 +201,12 @@ def main() -> int:
 
     def _gen(av):
         """1 kali generate (berita kalau kategori berita, else evergreen). Selalu balikin dict."""
+        # MODE HEMAT (NO_AI=true): ambil berita dari RSS, TANPA Anthropic (gratis)
+        if os.environ.get("NO_AI", "").lower() in ("1", "true", "yes"):
+            from rss_news import fetch_rss_item
+            rcat = category if category in NEWS_CATEGORIES else "trending"
+            print(f"      mode HEMAT (RSS, tanpa Anthropic) — {rcat}")
+            return fetch_rss_item(rcat, avoid=av)
         if category in NEWS_CATEGORIES:
             try:
                 from fakta_news import generate_news

@@ -67,13 +67,30 @@ def main() -> int:
     ctype = os.environ.get("CTYPE", "").strip().lower() or None
     topic = os.environ.get("TOPIC", "").strip() or None
 
-    print("[1/3] Generate konten (Claude)...")
-    c = generate_content(ctype=ctype, topic=topic, avoid=_recent_hooks(out_root))
-    print(f"      → [{c['type']}] {c['hook']}")
-
+    no_ai = os.environ.get("NO_AI", "").lower() in ("1", "true", "yes")
     photos: list[str] = []
     videos: list[str] = []
-    if os.environ.get("PEXELS_API_KEY"):
+
+    if no_ai:
+        # MODE HEMAT: berita ekonomi dari RSS, TANPA Anthropic (gratis). Carousel only.
+        print("[1/3] Mode HEMAT (RSS berita ekonomi, tanpa Anthropic)...")
+        from rss_news import fetch_rss_item
+        c = fetch_rss_item("keuangan", avoid=_recent_hooks(out_root))
+        print(f"      → [{c['type']}] {c['hook']}  (sumber: {c.get('_sumber','?')})")
+        if c.get("_image_url"):
+            try:
+                from media_fetcher import download_image
+                hero = download_image(c["_image_url"], str(out_dir / "news.jpg"))
+                photos = [hero, hero, hero]   # foto berita asli di tiap slide
+                print("      ✓ pakai FOTO berita asli")
+            except Exception as exc:
+                print(f"      (download foto gagal: {exc}) → background kuning")
+    else:
+        print("[1/3] Generate konten (Claude)...")
+        c = generate_content(ctype=ctype, topic=topic, avoid=_recent_hooks(out_root))
+        print(f"      → [{c['type']}] {c['hook']}")
+
+    if not no_ai and os.environ.get("PEXELS_API_KEY"):
         from media_fetcher import fetch_photos, fetch_videos
         try:
             photos = fetch_photos(c["query"] or "money", str(out_dir), count=3)
