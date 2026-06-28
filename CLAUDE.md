@@ -383,6 +383,12 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - ⚠️ **Trade-off** (dikasih tau owner): RSS mentah = kurang kurasi (kadang berita crime/dark lolos walau udah difilter),
   gak ditulis ulang. Story Kantor BELUM ada mode hemat (butuh AI buat quote relatable — gak ada RSS-nya).
 - DITES LOKAL render OK: carousel "Purbaya bongkar mesin baru Prabowo ekonomi 8%" (foto asli CNN + judul faktaviral, no AI).
+- **DITES CI: generate hemat SUKSES** (18 file, foto berita asli) — mode hemat beneran jalan tanpa Anthropic.
+- ⚠️ **2 ganjalan ditemukan pas tes**: (1) **IG checkpoint** — publish gagal `code 190/subcode 459` "You cannot
+  access the app till you log in to www.facebook.com" = Meta nahan akun, owner HARUS clear di facebook.com (atau
+  regenerate token). (2) **RSS sempat 'kosong'** (CNN/Antara ngambek sesaat) → DIFIX: multi-feed (CNN/Antara/Sindo/
+  detik-finance/dll, 3-4 hidup per kategori) + retry 2x + parser regex (tahan XML rusak/CDATA). Per akhir update:
+  owner lagi clear checkpoint IG, belum ke-verify auto-post jalan penuh.
 
 ## Snake game
 
