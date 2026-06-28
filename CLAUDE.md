@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚡ ATURAN HEMAT TOKEN (WAJIB — owner langganan Pro, usage cepat habis)
+
+Owner minta kerja SEHEMAT mungkin. Tiap sesi, patuhi:
+- **Langsung ke akar masalah.** JANGAN baca file/log dari awal atau re-baca yang udah diketahui.
+- **Baca seperlunya:** log workflow ambil `tail_lines` kecil (20-40) + langsung cari baris error; jangan tarik log penuh berkali-kali.
+- **Jawab RINGKAS** (Bahasa Indonesia santai), langsung inti, minim basa-basi.
+- **Gabung aksi** dalam 1 langkah (commit+merge+push sekali jalan, edit beberapa file sebelum 1x verifikasi).
+- **Jangan render/tes ulang** yang udah kebukti jalan. Percaya commit sebelumnya.
+- Tetap auto-save memory pas ada perubahan penting, tapi tulis SINGKAT.
+
 ## Project
 
 This repo holds two unrelated things — don't assume one when working on the other:
