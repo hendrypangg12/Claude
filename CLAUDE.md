@@ -367,6 +367,23 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   jangan asal tag/follow). Reel pakai screenshot owner sbg bg (Ken Burns) + `make_reel_overlay`/`render_reel` + musik
   investigations.mp3. Reels > carousel buat topik misteri (jangkauan Explore).
 
+### 19-28 Juni — SALDO ANTHROPIC HABIS → MODE HEMAT (RSS tanpa Anthropic)
+- **Auto-post mati total sejak ~19 Juni**: semua run `failure` → error `400 "Your credit balance is too low"`.
+  Saldo Anthropic HABIS (auto-reload mati dari dulu). Generate butuh Anthropic → gagal → gak ada yg ke-post.
+  Owner mau HEMAT biaya, gak mau top-up dulu.
+- **MODE HEMAT dibangun** — auto-post berita TANPA Anthropic (gratis): **`fakta-poster/rss_news.py`**
+  `fetch_rss_item(category, avoid)` → ambil berita dari **RSS CNN Indonesia + ANTARA** (gratis, no key;
+  detik diblok proxy, tempo XML rusak). Feeds: trending=nasional/teknologi, keuangan=ekonomi, aktor=hiburan.
+  Foto pakai **og:image** halaman artikel (penuh ~1200px; enclosure RSS cuma 360px ditolak <400). Output dict
+  kompatibel generate_fakta + generate_content (beruang). Ada **filter `_BLOCK`** (skip konten sensitif:
+  bunuh diri/perkosa/mutilasi/narkoba + iklan: transmart/diskon/promo) krn no-AI gak ada yg nyaring. Anti-dobel `_dup`.
+- **Wiring**: `daily_fakta.py` & `bf_daily.py` cek env **`NO_AI=true`** → pakai RSS (faktaviral=trending,
+  beruang=keuangan), foto berita asli tiap slide, beruang carousel-only (no reel). Workflow `daily-fakta.yml` +
+  `beruang-finance.yml` di-set `NO_AI: "true"` (HAPUS baris itu buat balik ke AI berkualitas).
+- ⚠️ **Trade-off** (dikasih tau owner): RSS mentah = kurang kurasi (kadang berita crime/dark lolos walau udah difilter),
+  gak ditulis ulang. Story Kantor BELUM ada mode hemat (butuh AI buat quote relatable — gak ada RSS-nya).
+- DITES LOKAL render OK: carousel "Purbaya bongkar mesin baru Prabowo ekonomi 8%" (foto asli CNN + judul faktaviral, no AI).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
