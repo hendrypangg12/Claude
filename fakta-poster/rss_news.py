@@ -11,20 +11,29 @@ import re
 import requests
 import xml.etree.ElementTree as ET
 
-# Feed RSS gratis (no API key). Detik diblok proxy, Tempo XML rusak → pakai CNN + ANTARA.
+# Feed RSS gratis (no API key). BANYAK sumber biar tahan kalau 1-2 feed mati/keblok.
 FEEDS = {
     "trending": [
         "https://www.cnnindonesia.com/nasional/rss",
         "https://www.antaranews.com/rss/terkini.xml",
+        "https://rss.detik.com/index.php/detikcom",
+        "https://www.tribunnews.com/rss",
+        "https://nasional.sindonews.com/rss",
+        "https://www.suara.com/rss/terkini",
         "https://www.cnnindonesia.com/teknologi/rss",
     ],
     "keuangan": [
         "https://www.cnnindonesia.com/ekonomi/rss",
         "https://www.antaranews.com/rss/ekonomi.xml",
+        "https://finance.detik.com/rss",
+        "https://ekbis.sindonews.com/rss",
+        "https://www.suara.com/rss/bisnis",
     ],
     "aktor": [
         "https://www.cnnindonesia.com/hiburan/rss",
         "https://www.antaranews.com/rss/hiburan.xml",
+        "https://hot.detik.com/rss",
+        "https://www.suara.com/rss/entertainment",
     ],
 }
 
@@ -37,7 +46,8 @@ _HDR = {"User-Agent": "Mozilla/5.0 (compatible; FaktaBot/1.0)"}
 
 
 def _clean(t: str) -> str:
-    return html.unescape(re.sub(r"<[^>]+>", "", t or "")).strip()
+    t = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", t or "", flags=re.S)  # buka CDATA dulu
+    return html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
 
 
 def _src_name(link: str) -> str:
@@ -91,27 +101,58 @@ def _dup(title: str, avoid: list[str]) -> bool:
     return False
 
 
+def _norm(title: str, link: str, summary: str, image: str) -> dict | None:
+    title = _clean(title)
+    link = (link or "").strip()
+    if not title or not link.startswith("http"):
+        return None
+    if any(x in link for x in ("/video/", "/foto/", "/infografi", "/galeri", "/photo")):
+        return None  # skip galeri/video (kita mau artikel teks + 1 foto)
+    return {"title": title, "link": link, "summary": _clean(summary),
+            "image": (image or "").strip(), "source": _src_name(link)}
+
+
 def _fetch_feed(url: str) -> list[dict]:
-    out = []
+    txt = ""
+    for _ in range(2):  # retry sekali kalau feed ngambek
+        try:
+            r = requests.get(url, timeout=12, headers=_HDR)
+            if r.ok and "<item" in r.text:
+                txt = r.text
+                break
+        except Exception:
+            pass
+    if not txt:
+        return []
+    out: list[dict] = []
+    # 1) parser XML normal
     try:
-        r = requests.get(url, timeout=15, headers=_HDR)
-        root = ET.fromstring(r.text)
+        root = ET.fromstring(txt)
+        for it in root.iter("item"):
+            n = _norm(it.findtext("title"), (it.findtext("link") or ""),
+                      it.findtext("description"), _img(it))
+            if n:
+                out.append(n)
     except Exception:
-        return out
-    for it in root.iter("item"):
-        title = _clean(it.findtext("title"))
-        link = (it.findtext("link") or "").strip()
-        if not title or not link:
-            continue
-        if any(x in link for x in ("/video/", "/foto/", "/infografi", "/galeri")):
-            continue  # skip galeri/video (kita mau artikel teks + 1 foto)
-        out.append({
-            "title": title,
-            "link": link,
-            "summary": _clean(it.findtext("description")),
-            "image": _img(it),
-            "source": _src_name(link),
-        })
+        out = []
+    # 2) fallback REGEX (kalau XML rusak / entity aneh spt Tempo)
+    if not out:
+        for m in re.finditer(r"<item\b[^>]*>(.*?)</item>", txt, re.S | re.I):
+            b = m.group(1)
+
+            def g(tag):
+                mm = re.search(rf"<{tag}\b[^>]*>(.*?)</{tag}>", b, re.S | re.I)
+                return mm.group(1) if mm else ""
+
+            link = g("link").strip()
+            if not link.startswith("http"):
+                mm = re.search(r'<link[^>]+href=["\']([^"\']+)', b)
+                link = mm.group(1) if mm else ""
+            em = (re.search(r'<enclosure[^>]+url=["\']([^"\']+)', b)
+                  or re.search(r'url=["\']([^"\']+\.(?:jpg|jpeg|png))', b, re.I))
+            n = _norm(g("title"), link, g("description"), em.group(1) if em else "")
+            if n:
+                out.append(n)
     return out
 
 
