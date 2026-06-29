@@ -6,6 +6,7 @@ tanpa biaya API. Output dict-nya kompatibel sama generate_fakta/generate_content
 Gambar diambil langsung dari <enclosure> RSS (foto artikelnya) → kredit "Sumber: X".
 """
 import html
+import random
 import re
 
 import requests
@@ -211,7 +212,7 @@ def _caption(title: str, body: str, source: str, category: str) -> str:
         "keuangan": "#keuangan #ekonomi #beritaviral #beruangfinance #finansial",
         "aktor": "#selebriti #hiburan #beritaviral #gosip #viral",
     }.get(category, "#beritaviral #faktaviral #beritaterkini #viral #indonesia")
-    txt = (body or title).strip()[:750]
+    txt = (body or title).strip()[:1000]
     return f"{title}\n\n{txt}\n\nSumber: {source}\n\n{tags}"
 
 
@@ -236,18 +237,21 @@ def fetch_rss_item(category: str = "trending", avoid: list[str] | None = None) -
     if not items:
         raise RuntimeError(f"RSS kosong untuk kategori '{cat}'")
 
-    # buang konten sensitif + iklan, lalu pilih yg belum pernah dibahas (anti-dobel)
-    safe = [it for it in items if not _blocked(it["title"], it["summary"])]
-    pool = safe or items
+    # buang konten sensitif + iklan + galeri foto/video (isinya tipis)
+    safe = [it for it in items
+            if not _blocked(it["title"], it["summary"])
+            and not re.match(r"\s*(FOTO|VIDEO|INFOGRAFI|GALERI)\b", it["title"], re.I)]
+    pool = (safe or items)[:20]
+    random.shuffle(pool)   # ACAK sumber biar gak ANTARA/CNN terus — variasi media
     pick = next((it for it in pool if not _dup(it["title"], avoid or [])), pool[0])
     title, summary, source = pick["title"], pick["summary"], pick["source"]
     image = _og_image(pick["link"]) or pick["image"]   # og:image (full) dulu, enclosure cadangan
     # AMBIL ISI ARTIKEL LENGKAP (bukan cuma judul) → berita gak setengah2
     paras = _article_text(pick["link"]) or ([summary] if summary else [title])
-    fact = paras[0][:240]
-    detail = (paras[1][:240] if len(paras) > 1 else (paras[0][240:480] if len(paras[0]) > 240 else ""))
-    body = "\n\n".join(paras[:4])
-    pts = [p[:140] for p in paras[:3]] if len(paras) >= 2 else _points(summary, title)
+    fact = paras[0][:260]
+    detail = " ".join(paras[1:3])[:340] if len(paras) > 1 else paras[0][260:560]
+    body = "\n\n".join(paras[:6])   # caption: berita lebih lengkap (s/d 6 paragraf)
+    pts = [p[:150] for p in paras[:3]] if len(paras) >= 2 else _points(summary, title)
     return {
         "category": cat,
         "hook": title,
