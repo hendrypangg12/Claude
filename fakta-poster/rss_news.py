@@ -180,15 +180,39 @@ def _og_image(url: str) -> str:
     return ""
 
 
-def _caption(title: str, summary: str, source: str, category: str) -> str:
+_SKIP_P = re.compile(
+    r"(baca juga|lihat juga|simak juga|saksikan|video pilihan|advertis|adsbygoogle|"
+    r"gambas|copyright|all rights|terkait:|berikut ini|halaman selanjutnya)", re.I)
+
+
+def _article_text(url: str, max_p: int = 6) -> list[str]:
+    """Ambil paragraf ISI artikel (biar berita LENGKAP, bukan cuma judul). Tanpa AI."""
+    try:
+        html_ = requests.get(url, timeout=12, headers=_HDR).text
+    except Exception:
+        return []
+    paras = []
+    for m in re.findall(r"<p[^>]*>(.*?)</p>", html_, re.S | re.I):
+        t = _clean(m)
+        if len(t) < 50 or t.count(" ") < 6 or _SKIP_P.search(t):
+            continue
+        # buang paragraf yg isinya kode/JS/UI (bukan prosa berita)
+        if re.search(r"(function|const |var |let |document\.|window\.|querySelector|=>|"
+                     r"addEventListener|cookie|\{|\}|//|;$)", t):
+            continue
+        paras.append(t)
+        if len(paras) >= max_p:
+            break
+    return paras
+
+
+def _caption(title: str, body: str, source: str, category: str) -> str:
     tags = {
         "keuangan": "#keuangan #ekonomi #beritaviral #beruangfinance #finansial",
         "aktor": "#selebriti #hiburan #beritaviral #gosip #viral",
     }.get(category, "#beritaviral #faktaviral #beritaterkini #viral #indonesia")
-    body = title
-    if summary and summary[:30].lower() not in title.lower():
-        body += "\n\n" + summary[:300]
-    return f"{body}\n\nSelengkapnya cek di sumber ya.\nSumber: {source}\n\n{tags}"
+    txt = (body or title).strip()[:750]
+    return f"{title}\n\n{txt}\n\nSumber: {source}\n\n{tags}"
 
 
 def _points(summary: str, title: str) -> list[str]:
@@ -218,18 +242,24 @@ def fetch_rss_item(category: str = "trending", avoid: list[str] | None = None) -
     pick = next((it for it in pool if not _dup(it["title"], avoid or [])), pool[0])
     title, summary, source = pick["title"], pick["summary"], pick["source"]
     image = _og_image(pick["link"]) or pick["image"]   # og:image (full) dulu, enclosure cadangan
+    # AMBIL ISI ARTIKEL LENGKAP (bukan cuma judul) → berita gak setengah2
+    paras = _article_text(pick["link"]) or ([summary] if summary else [title])
+    fact = paras[0][:240]
+    detail = (paras[1][:240] if len(paras) > 1 else (paras[0][240:480] if len(paras[0]) > 240 else ""))
+    body = "\n\n".join(paras[:4])
+    pts = [p[:140] for p in paras[:3]] if len(paras) >= 2 else _points(summary, title)
     return {
         "category": cat,
         "hook": title,
-        "fact": summary or title,
-        "detail": "",
+        "fact": fact,
+        "detail": detail,
         "takeaway": "Sumber lengkap ada di caption.",
-        "caption": _caption(title, summary, source, cat),
+        "caption": _caption(title, body, source, cat),
         "query": " ".join(re.findall(r"[A-Za-z]+", title)[:2]) or "news",
         # buat beruang (carousel 3 poin)
         "kicker": "BERITA",
         "type": "berita",
-        "points": _points(summary, title),
+        "points": pts,
         # metadata
         "_sumber": source,
         "_published": "",
