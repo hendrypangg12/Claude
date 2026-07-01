@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feed Generator — Berstock.ID</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#141e26;--gold:#ffc400;--white:#fff;
+  --gray:#f4f6f9;--border:#e0e4ea;--text:#1a2030;
+  --muted:#6b7280;--red:#e53e3e;--green:#22c55e;
+  --radius:14px;--shadow:0 4px 24px rgba(0,0,0,.10);
+}
+body{background:#f0f3f8;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+header{background:var(--navy);color:#fff;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+header h1{font-size:17px;font-weight:700;letter-spacing:.3px}
+header span{font-size:12px;opacity:.55;margin-left:8px}
+#btn-settings{background:none;border:none;color:#fff;opacity:.7;cursor:pointer;font-size:20px;padding:4px 8px}
+#btn-settings:hover{opacity:1}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin:16px auto;max-width:520px}
+.card h2{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--navy);display:flex;align-items:center;gap:8px}
+.card h2 .num{background:var(--gold);color:var(--navy);width:24px;height:24px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+#drop-zone{border:2px dashed var(--border);border-radius:12px;padding:32px 16px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+#drop-zone.drag{border-color:var(--gold);background:#fffbeb}
+#drop-zone.has-photo{border-style:solid;border-color:var(--gold)}
+#drop-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+#drop-zone .icon{font-size:36px;margin-bottom:8px}
+#drop-zone .label{font-size:14px;color:var(--muted)}
+#drop-zone .label b{color:var(--gold)}
+#preview-img{width:100%;max-height:240px;object-fit:cover;border-radius:10px;display:none;margin-bottom:8px}
+#change-photo{font-size:12px;color:var(--muted);text-decoration:underline;cursor:pointer;margin-top:4px;display:none}
+.field{margin-bottom:14px}
+.field label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.field input,.field textarea{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:11px 13px;font-size:14px;outline:none;transition:border-color .2s;font-family:inherit;background:#fafbfc}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{height:80px;resize:vertical}
+.niche-grid{display:flex;flex-wrap:wrap;gap:8px}
+.niche-pill{padding:8px 14px;border-radius:999px;border:1.5px solid var(--border);font-size:13px;cursor:pointer;background:#fafbfc;transition:all .15s;font-weight:500}
+.niche-pill.active{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:700}
+#btn-generate{width:100%;padding:16px;background:var(--gold);color:var(--navy);border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:4px;letter-spacing:.3px}
+#btn-generate:hover:not(:disabled){background:#e6b000;transform:translateY(-1px)}
+#btn-generate:disabled{opacity:.55;cursor:not-allowed;transform:none}
+#loading{display:none;text-align:center;padding:32px 0}
+.spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loading p{color:var(--muted);font-size:14px}
+#loading .steps{margin-top:12px;font-size:13px;color:var(--navy);font-weight:600}
+#result{display:none}
+#result .success-icon{font-size:48px;text-align:center;margin-bottom:8px}
+#result h3{text-align:center;font-size:18px;margin-bottom:4px}
+#result .sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:20px}
+#btn-download{display:block;width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;margin-bottom:12px}
+#btn-download:hover{background:#1e2d3a}
+#btn-new{display:block;width:100%;padding:13px;background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;text-align:center}
+#btn-new:hover{border-color:var(--navy);color:var(--navy)}
+.caption-box{background:#f8f9fb;border-radius:10px;padding:14px;margin-bottom:12px}
+.caption-box .cap-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.caption-box p{font-size:13px;line-height:1.6;color:var(--text)}
+#btn-copy-cap{font-size:12px;color:var(--gold);background:none;border:none;cursor:pointer;font-weight:700;margin-top:6px;padding:0}
+.error-box{background:#fff5f5;border:1.5px solid #fed7d7;border-radius:10px;padding:12px 14px;color:var(--red);font-size:13px;margin-top:12px;display:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:none;align-items:flex-end;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:24px;width:100%;max-width:520px}
+.modal h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.modal p{font-size:13px;color:var(--muted);margin-bottom:16px}
+.modal input{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:11px 13px;font-size:13px;outline:none;font-family:inherit;background:#fafbfc}
+.modal input:focus{border-color:var(--gold)}
+#btn-save-url{width:100%;padding:13px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px}
+.modal .close{float:right;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.info-bar{background:var(--gold);padding:10px 16px;font-size:12px;font-weight:600;color:var(--navy);text-align:center;display:none}
+.info-bar.show{display:block}
+@media(min-width:540px){.card{margin:20px auto}header{padding:16px 24px}}
+</style>
+</head>
+<body>
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">&#x2715;</button>
+    <h3>&#x2699;&#xFE0F; Konfigurasi API</h3>
+    <p>Masukkan URL backend Railway kamu. Contoh:<br>
+    <code style="font-size:11px;color:#555">https://nama-app.railway.app</code></p>
+    <input type="url" id="input-url" placeholder="https://your-app.railway.app">
+    <button id="btn-save-url" onclick="saveUrl()">Simpan</button>
+  </div>
+</div>
+<header>
+  <div><h1>Feed Generator <span>by Berstock.ID</span></h1></div>
+  <button id="btn-settings" onclick="openModal()" title="Pengaturan">&#x2699;&#xFE0F;</button>
+</header>
+<div class="info-bar" id="info-bar">&#x26A0;&#xFE0F; Backend URL belum diset. Tap &#x2699;&#xFE0F; untuk konfigurasi.</div>
+<div style="max-width:520px;margin:0 auto;padding-bottom:40px">
+  <div class="card">
+    <h2><span class="num">1</span> Upload Foto Produk</h2>
+    <div id="drop-zone">
+      <input type="file" id="file-input" accept="image/*">
+      <img id="preview-img" alt="preview">
+      <div id="drop-content">
+        <div class="icon">&#x1F4F8;</div>
+        <div class="label">Tap untuk pilih foto produk<br><b>JPG / PNG</b> &mdash; max 20MB</div>
+      </div>
+      <div id="change-photo">Ganti foto</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="num">2</span> Info Produk</h2>
+    <div class="field">
+      <label>Nama Produk *</label>
+      <input type="text" id="inp-name" placeholder="Contoh: Kemeja Batik Pria Lengan Pendek">
+    </div>
+    <div class="field">
+      <label>Harga *</label>
+      <input type="text" id="inp-price" placeholder="Contoh: Rp 150.000">
+    </div>
+    <div class="field">
+      <label>Deskripsi Singkat *</label>
+      <textarea id="inp-desc" placeholder="Ceritakan produkmu: bahan apa, untuk siapa, keunggulan utama..."></textarea>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="num">3</span> Kategori Produk</h2>
+    <div class="niche-grid" id="niche-grid">
+      <div class="niche-pill active" data-niche="fashion">&#x1F457; Fashion</div>
+      <div class="niche-pill" data-niche="makanan">&#x1F371; Makanan</div>
+      <div class="niche-pill" data-niche="kuliner">&#x2615; Kuliner</div>
+      <div class="niche-pill" data-niche="kecantikan">&#x1F484; Kecantikan</div>
+      <div class="niche-pill" data-niche="elektronik">&#x1F4F1; Elektronik</div>
+      <div class="niche-pill" data-niche="teknologi">&#x1F4BB; Teknologi</div>
+      <div class="niche-pill" data-niche="default">&#x1F6CD;&#xFE0F; Lainnya</div>
+    </div>
+  </div>
+  <div class="card">
+    <button id="btn-generate" onclick="doGenerate()">&#x2728; Generate 6 Feed Instagram</button>
+    <div class="error-box" id="error-box"></div>
+  </div>
+  <div class="card" id="loading">
+    <div class="spinner"></div>
+    <p>Sedang membuat konten...</p>
+    <div class="steps" id="loading-step">&#x1F916; AI menulis copy produk...</div>
+  </div>
+  <div class="card" id="result">
+    <div class="success-icon">&#x1F389;</div>
+    <h3>Feed siap didownload!</h3>
+    <p class="sub">6 slide carousel + caption IG sudah jadi</p>
+    <div class="caption-box" id="caption-box" style="display:none">
+      <div class="cap-label">Caption Instagram</div>
+      <p id="caption-text"></p>
+      <button id="btn-copy-cap" onclick="copyCaption()">&#x1F4CB; Copy Caption</button>
+    </div>
+    <a id="btn-download" href="#" download>&#x2B07;&#xFE0F; Download Semua Slide (ZIP)</a>
+    <button id="btn-new" onclick="resetForm()">+ Generate Produk Baru</button>
+  </div>
+</div>
+<script>
+let selectedNiche="fashion",selectedFile=null,captionText="",generating=false;
+function getBackendUrl(){return(localStorage.getItem("fg_backend_url")||"").replace(/\/$/,"");}
+function checkUrl(){const url=getBackendUrl();document.getElementById("info-bar").classList.toggle("show",!url);return url;}
+function openModal(){document.getElementById("input-url").value=getBackendUrl();document.getElementById("modal-overlay").classList.add("open");}
+function closeModal(){document.getElementById("modal-overlay").classList.remove("open");}
+function saveUrl(){const v=document.getElementById("input-url").value.trim();if(v){localStorage.setItem("fg_backend_url",v);closeModal();checkUrl();showError("");}}
+document.getElementById("modal-overlay").addEventListener("click",(e)=>{if(e.target===document.getElementById("modal-overlay"))closeModal();});
+document.querySelectorAll(".niche-pill").forEach(pill=>{pill.addEventListener("click",()=>{document.querySelectorAll(".niche-pill").forEach(p=>p.classList.remove("active"));pill.classList.add("active");selectedNiche=pill.dataset.niche;});});
+const fileInput=document.getElementById("file-input"),dropZone=document.getElementById("drop-zone"),previewImg=document.getElementById("preview-img"),dropContent=document.getElementById("drop-content"),changePhoto=document.getElementById("change-photo");
+fileInput.addEventListener("change",(e)=>{if(e.target.files[0])handleFile(e.target.files[0]);});
+dropZone.addEventListener("dragover",(e)=>{e.preventDefault();dropZone.classList.add("drag");});
+dropZone.addEventListener("dragleave",()=>dropZone.classList.remove("drag"));
+dropZone.addEventListener("drop",(e)=>{e.preventDefault();dropZone.classList.remove("drag");const f=e.dataTransfer.files[0];if(f&&f.type.startsWith("image/"))handleFile(f);});
+function handleFile(file){selectedFile=file;const reader=new FileReader();reader.onload=(e)=>{previewImg.src=e.target.result;previewImg.style.display="block";dropContent.style.display="none";changePhoto.style.display="block";dropZone.classList.add("has-photo");};reader.readAsDataURL(file);}
+const loadingSteps=["&#x1F916; AI menulis copy produk...","&#x1F3A8; Membuat slide 1 — Cover...","&#x270D;&#xFE0F; Membuat slide 2 — Hook...","&#x26A1; Membuat slide 3,4,5 — Fitur...","&#x1F3AF; Membuat slide 6 — CTA...","&#x1F4E6; Menyiapkan file ZIP..."];
+let stepInterval=null;
+function startLoadingAnimation(){let idx=0;const el=document.getElementById("loading-step");el.innerHTML=loadingSteps[0];stepInterval=setInterval(()=>{idx=Math.min(idx+1,loadingSteps.length-1);el.innerHTML=loadingSteps[idx];},3500);}
+function stopLoadingAnimation(){if(stepInterval){clearInterval(stepInterval);stepInterval=null;}}
+function showError(msg){const el=document.getElementById("error-box");el.textContent=msg;el.style.display=msg?"block":"none";}
+async function doGenerate(){
+  if(generating)return;
+  const url=checkUrl();
+  if(!url){openModal();return;}
+  if(!selectedFile){showError("Pilih foto produk dulu ya!");return;}
+  const name=document.getElementById("inp-name").value.trim();
+  const price=document.getElementById("inp-price").value.trim();
+  const desc=document.getElementById("inp-desc").value.trim();
+  if(!name){showError("Nama produk wajib diisi.");return;}
+  if(!price){showError("Harga produk wajib diisi.");return;}
+  if(!desc){showError("Deskripsi produk wajib diisi.");return;}
+  showError("");generating=true;
+  document.getElementById("btn-generate").disabled=true;
+  document.getElementById("loading").style.display="block";
+  document.getElementById("result").style.display="none";
+  startLoadingAnimation();
+  try{
+    const fd=new FormData();
+    fd.append("photo",selectedFile);
+    fd.append("product_name",name);
+    fd.append("price",price);
+    fd.append("description",desc);
+    fd.append("niche",selectedNiche);
+    const resp=await fetch(`${url}/generate`,{method:"POST",body:fd});
+    if(!resp.ok){const err=await resp.json().catch(()=>({detail:"Server error"}));throw new Error(err.detail||`HTTP ${resp.status}`);}
+    const blob=await resp.blob();
+    const zipUrl=URL.createObjectURL(blob);
+    document.getElementById("btn-download").href=zipUrl;
+    document.getElementById("btn-download").download=`${name.slice(0,20)}_IG.zip`;
+    document.getElementById("result").style.display="block";
+  }catch(err){
+    showError(`Gagal: ${err.message}`);
+  }finally{
+    stopLoadingAnimation();
+    document.getElementById("loading").style.display="none";
+    document.getElementById("btn-generate").disabled=false;
+    generating=false;
+  }
+}
+function resetForm(){
+  selectedFile=null;
+  previewImg.style.display="none";
+  dropContent.style.display="block";
+  changePhoto.style.display="none";
+  dropZone.classList.remove("has-photo");
+  document.getElementById("inp-name").value="";
+  document.getElementById("inp-price").value="";
+  document.getElementById("inp-desc").value="";
+  document.getElementById("result").style.display="none";
+  showError("");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function copyCaption(){
+  navigator.clipboard.writeText(captionText).then(()=>{
+    document.getElementById("btn-copy-cap").textContent="Tersalin!";
+    setTimeout(()=>{document.getElementById("btn-copy-cap").innerHTML="&#x1F4CB; Copy Caption";},2000);
+  });
+}
+checkUrl();
+</script>
+</body>
+</html>
