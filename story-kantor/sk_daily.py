@@ -46,8 +46,13 @@ def main() -> int:
 
     topic = os.environ.get("TOPIC", "").strip() or None
 
-    print("[1/2] Generate konten (Claude)...")
-    c = generate_content(topic=topic, avoid=_recent_hooks(out_root))
+    if os.environ.get("NO_AI", "").lower() in ("1", "true", "yes"):
+        print("[1/2] Mode HEMAT (bank quote, tanpa AI)...")
+        from sk_quotes import pick_quote
+        c = pick_quote(avoid=_recent_hooks(out_root))
+    else:
+        print("[1/2] Generate konten (Claude)...")
+        c = generate_content(topic=topic, avoid=_recent_hooks(out_root))
     print(f"      → [{c['topic']}] {c['hook']}")
 
     slides = [c["hook"], c["lines"][0], c["lines"][1]]
