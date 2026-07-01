@@ -36,7 +36,6 @@ async def generate(
 
     tmpdir = tempfile.mkdtemp()
     try:
-        # Simpan foto
         photo_path = os.path.join(tmpdir, "photo.jpg")
         data = await photo.read()
         if len(data) > 20 * 1024 * 1024:
@@ -44,13 +43,11 @@ async def generate(
         with open(photo_path, "wb") as f:
             f.write(data)
 
-        # Generate copy dengan Claude
         try:
             copy = generate_copy(product_name, price, description, niche)
         except Exception as e:
             raise HTTPException(500, f"Gagal generate copy: {e}")
 
-        # Generate slides
         out_dir = os.path.join(tmpdir, "slides")
         os.makedirs(out_dir)
         try:
@@ -65,16 +62,15 @@ async def generate(
                 cta=copy.get("cta", "Order sekarang!"),
                 niche=niche,
                 out_dir=out_dir,
+                contact=contact,
             )
         except Exception as e:
             raise HTTPException(500, f"Gagal buat gambar: {e}")
 
-        # Simpan caption
         caption_path = os.path.join(out_dir, "caption.txt")
         with open(caption_path, "w", encoding="utf-8") as f:
             f.write(copy.get("caption", ""))
 
-        # Buat ZIP
         safe_name = "".join(c for c in product_name[:20] if c.isalnum() or c in " _-").strip()
         zip_path = os.path.join(tmpdir, f"{safe_name or 'feeds'}.zip")
         with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
