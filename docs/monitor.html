@@ -14,81 +14,104 @@
   button{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600}
   button.ghost{background:var(--card);border:1px solid var(--line);color:var(--txt)}
   input{flex:1;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:10px;font-size:14px}
-  .acct{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:12px}
-  .acct h2{font-size:15px;margin:0 0 2px;display:flex;justify-content:space-between;align-items:center}
-  .tag{font-size:11px;color:var(--mut);font-weight:500}
-  .row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);
+  .acct{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  .head{display:flex;align-items:center;gap:8px;padding:14px;cursor:pointer;user-select:none}
+  .head .nm{flex:1;font-size:15px;font-weight:700}
+  .head .sum{font-size:12px;color:var(--mut);font-weight:600}
+  .chev{color:var(--mut);transition:transform .2s} .open .chev{transform:rotate(90deg)}
+  .detail{padding:0 14px 12px}
+  .sec{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin:10px 0 4px}
+  .row{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--line);
        font-size:14px;color:var(--txt);text-decoration:none}
   .row:first-of-type{border-top:0}
-  .t{flex:1} .t small{color:var(--mut);font-size:12px}
-  .st{font-size:13px;font-weight:600;color:var(--mut);white-space:nowrap}
-  .ok{color:var(--ok)} .bad{color:var(--bad)} .run{color:var(--run)}
-  .msg{color:var(--mut);font-size:13px;padding:6px 0}
-  a{color:#60a5fa;text-decoration:none}
+  .row .t{flex:1} .row small{color:var(--mut);font-size:12px}
+  .st{font-size:13px;font-weight:600;white-space:nowrap}
+  .ok{color:var(--ok)} .bad{color:var(--bad)} .run{color:var(--run)} .up{color:var(--mut)}
+  .msg{color:var(--mut);font-size:13px;padding:4px 0}
 </style>
 </head>
 <body>
   <h1>📡 Monitor Auto-Post</h1>
-  <div class="sub">✅ = kepost · ❌ = gagal · ⏳ = lagi proses · waktu WIB</div>
+  <div class="sub" id="clock">✅ kepost · ❌ gagal · ⏳ akan datang · klik nama akun buat buka</div>
   <div class="bar">
     <button onclick="loadAll()">🔄 Refresh</button>
     <button class="ghost" onclick="location.href='dashboard.html'">⚙️ Dashboard</button>
   </div>
   <div id="need" style="display:none">
-    <div class="msg">Belum ada token GitHub. Tempel di sini (sekali aja):</div>
+    <div class="msg">Belum ada token GitHub. Tempel sekali aja:</div>
     <div class="bar"><input id="patIn" placeholder="ghp_..." /><button onclick="saveTok()">Simpan</button></div>
   </div>
   <div id="out"></div>
 
 <script>
 const OWNER="hendrypangg12", REPO="Claude";
+// jadwal WIB per akun (buat tampilkan "akan datang")
 const ACCTS=[
-  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml"},
-  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml"},
-  {name:"⚫ Story Kantor", wf:"story-kantor.yml"},
+  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml", slots:["07:17","08:17","12:11","16:11","18:00","21:00"]},
+  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml", slots:["06:27","09:27","12:27","15:27","18:27","21:27"]},
+  {name:"⚫ Story Kantor", wf:"story-kantor.yml", slots:["08:37","12:37","19:37"]},
 ];
 const pat=()=>localStorage.getItem("gh_pat")||"";
-function saveTok(){ const v=document.getElementById("patIn").value.trim();
-  if(v){ localStorage.setItem("gh_pat",v); loadAll(); } }
+function saveTok(){ const v=document.getElementById("patIn").value.trim(); if(v){localStorage.setItem("gh_pat",v);loadAll();} }
 const H=()=>({Authorization:`Bearer ${pat()}`,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
+const openSet=new Set(JSON.parse(localStorage.getItem("mon_open")||"[0]"));  // fakta kebuka default
 
-function jam(iso){ return new Date(iso).toLocaleTimeString("id-ID",{timeZone:"Asia/Jakarta",
-  hour:"2-digit",minute:"2-digit"}); }
-function tgl(iso){ return new Date(iso).toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta",
-  day:"2-digit",month:"short"}); }
-
+function nowWIB(){ const s=new Date().toLocaleString("en-US",{timeZone:"Asia/Jakarta"}); return new Date(s); }
+function todayWIB(){ return nowWIB().toLocaleDateString("id-ID"); }
+function jam(iso){ return new Date(iso).toLocaleTimeString("id-ID",{timeZone:"Asia/Jakarta",hour:"2-digit",minute:"2-digit"}); }
+function dateWIB(iso){ return new Date(iso).toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta"}); }
 function statusOf(r){
   if(r.status!=="completed") return {ic:"⏳",cls:"run",tx:"proses"};
   if(r.conclusion==="success") return {ic:"✅",cls:"ok",tx:"kepost"};
   return {ic:"❌",cls:"bad",tx:r.conclusion||"gagal"};
 }
+function toggle(i){ if(openSet.has(i))openSet.delete(i); else openSet.add(i);
+  localStorage.setItem("mon_open",JSON.stringify([...openSet])); render(); }
 
-async function loadAcct(a){
-  const url=`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${a.wf}/runs?per_page=8`;
-  let runs=[];
-  try{ const r=await fetch(url,{headers:H()}); const j=await r.json(); runs=j.workflow_runs||[]; }
-  catch(e){ return `<div class="acct"><h2>${a.name}</h2><div class="msg">error: ${e.message}</div></div>`; }
-  // hitung "kepost hari ini"
-  const today=new Date().toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta"});
-  const okToday=runs.filter(r=>r.conclusion==="success" &&
-    new Date(r.created_at).toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta"})===today).length;
-  const rows=runs.slice(0,7).map(r=>{ const s=statusOf(r);
-    return `<a class="row" href="${r.html_url}" target="_blank">
-      <div class="t"><b>jam ${jam(r.created_at)}</b> <small>${tgl(r.created_at)} · ${r.event==="schedule"?"otomatis":"manual"}</small></div>
-      <div class="st ${s.cls}">${s.ic} ${s.tx}</div></a>`; }).join("");
-  return `<div class="acct"><h2>${a.name}<span class="tag">✅ ${okToday} kepost hari ini</span></h2>
-    ${rows||'<div class="msg">belum ada run</div>'}</div>`;
-}
-
+let CACHE=[];
 async function loadAll(){
   if(!pat()){ document.getElementById("need").style.display="block"; return; }
   document.getElementById("need").style.display="none";
-  document.getElementById("out").innerHTML='<div class="msg">Memuat…</div>';
-  const html=await Promise.all(ACCTS.map(loadAcct));
-  document.getElementById("out").innerHTML=html.join("");
+  const now=nowWIB();
+  document.getElementById("clock").textContent="Sekarang "+now.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})+" WIB · klik nama akun buat buka";
+  if(!CACHE.length) document.getElementById("out").innerHTML='<div class="msg">Memuat…</div>';
+  CACHE=await Promise.all(ACCTS.map(async a=>{
+    try{ const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${a.wf}/runs?per_page=15`,{headers:H()});
+      const j=await r.json(); return {a, runs:j.workflow_runs||[]}; }
+    catch(e){ return {a, runs:[], err:e.message}; }
+  }));
+  render();
+}
+
+function render(){
+  const today=todayWIB();
+  const nowMin=(()=>{const n=nowWIB();return n.getHours()*60+n.getMinutes();})();
+  document.getElementById("out").innerHTML=CACHE.map((c,i)=>{
+    const runsToday=c.runs.filter(r=>dateWIB(r.created_at)===today);
+    const okN=runsToday.filter(r=>r.conclusion==="success").length;
+    const upcoming=c.a.slots.filter(s=>{const[h,m]=s.split(":").map(Number);return h*60+m>nowMin;});
+    const open=openSet.has(i);
+    let body="";
+    if(open){
+      const done=runsToday.length
+        ? runsToday.map(r=>{const s=statusOf(r);
+            return `<a class="row" href="${r.html_url}" target="_blank"><div class="t"><b>${jam(r.created_at)}</b> <small>${r.event==="schedule"?"otomatis":"manual"}</small></div><div class="st ${s.cls}">${s.ic} ${s.tx}</div></a>`;}).join("")
+        : '<div class="msg">belum ada post hari ini</div>';
+      const up=upcoming.length
+        ? upcoming.map(s=>`<div class="row"><div class="t"><b>${s}</b></div><div class="st up">⏳ terjadwal</div></div>`).join("")
+        : '<div class="msg">gak ada jadwal lagi hari ini</div>';
+      body=`<div class="detail"><div class="sec">Hari ini</div>${done}<div class="sec">Akan datang</div>${up}</div>`;
+    }
+    return `<div class="acct ${open?'open':''}">
+      <div class="head" onclick="toggle(${i})">
+        <div class="nm">${c.a.name}</div>
+        <div class="sum">✅ ${okN}/${c.a.slots.length} · ⏳ ${upcoming.length}</div>
+        <div class="chev">›</div>
+      </div>${body}</div>`;
+  }).join("");
 }
 loadAll();
-setInterval(loadAll, 60000);  // auto-refresh tiap 1 menit
+setInterval(loadAll, 60000);
 </script>
 </body>
 </html>
