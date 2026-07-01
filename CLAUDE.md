@@ -407,6 +407,16 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   FIX `publish_ig.py`: kalau `mode=reel` tapi `reel.mp4` gak ada & ada `post_1.jpg` → fallback ke carousel. Slot
   carousel beruang (09:26, 10:39) udah SUKSES ke-post. faktaviral hemat (carousel+reel) DITES SUKSES ke IG + FB.
 
+### 1 Juli — monitor + hemat semua akun
+- **Mode hemat kelar buat 3 akun**: faktaviral+beruang (RSS `rss_news.py`, ambil ISI artikel lengkap + acak sumber
+  + potong di akhir kalimat), story-kantor (`sk_quotes.py` bank quote, NO_AI). Semua workflow `NO_AI: "true"`.
+- **Jadwal**: faktaviral 6x + beruang 6x (tiap 3 jam :27) + story-kantor 3x. Semua gratis.
+- **`docs/monitor.html`**: monitor auto-post — collapsible per akun (klik nama), per hari + jadwal "akan datang"
+  (klik slot → `dashboard.html?gen=<brand>` buka generate). Kartu profil IG (foto+post+follower+following) dari
+  **`docs/ig-stats.json`** (di-generate `fakta-poster/ig_stats.py` via workflow `ig-stats.yml` tiap 6 jam, Graph API,
+  token aman di Secrets). Dashboard ada tombol 📡 ke monitor. Story-kantor stats butuh `IG_USER_ID_SK`.
+- **IG checkpoint (code 190/459)**: kalau publish gagal gitu → owner login www.facebook.com clear checkpoint.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
