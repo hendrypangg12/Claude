@@ -212,7 +212,11 @@ def _caption(title: str, body: str, source: str, category: str) -> str:
         "keuangan": "#keuangan #ekonomi #beritaviral #beruangfinance #finansial",
         "aktor": "#selebriti #hiburan #beritaviral #gosip #viral",
     }.get(category, "#beritaviral #faktaviral #beritaterkini #viral #indonesia")
-    txt = (body or title).strip()[:1000]
+    txt = (body or title).strip()
+    if len(txt) > 1000:                        # potong di AKHIR KALIMAT, jangan tengah kata
+        cut = txt[:1000]
+        p = max(cut.rfind(". "), cut.rfind(".\n"), cut.rfind("!\n"), cut.rfind("?\n"))
+        txt = (cut[:p + 1] if p > 400 else cut.rsplit(" ", 1)[0] + "…")
     return f"{title}\n\n{txt}\n\nSumber: {source}\n\n{tags}"
 
 
