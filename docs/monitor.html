@@ -17,11 +17,11 @@
   .acct{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:12px}
   .acct h2{font-size:15px;margin:0 0 2px;display:flex;justify-content:space-between;align-items:center}
   .tag{font-size:11px;color:var(--mut);font-weight:500}
-  .row{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);
+       font-size:14px;color:var(--txt);text-decoration:none}
   .row:first-of-type{border-top:0}
-  .ic{width:22px;text-align:center;font-size:16px}
-  .t{flex:1} .t small{color:var(--mut);display:block;font-size:12px}
-  .st{font-size:12px;color:var(--mut)}
+  .t{flex:1} .t small{color:var(--mut);font-size:12px}
+  .st{font-size:13px;font-weight:600;color:var(--mut);white-space:nowrap}
   .ok{color:var(--ok)} .bad{color:var(--bad)} .run{color:var(--run)}
   .msg{color:var(--mut);font-size:13px;padding:6px 0}
   a{color:#60a5fa;text-decoration:none}
@@ -52,8 +52,10 @@ function saveTok(){ const v=document.getElementById("patIn").value.trim();
   if(v){ localStorage.setItem("gh_pat",v); loadAll(); } }
 const H=()=>({Authorization:`Bearer ${pat()}`,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
 
-function wib(iso){ return new Date(iso).toLocaleString("id-ID",{timeZone:"Asia/Jakarta",
-  day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}); }
+function jam(iso){ return new Date(iso).toLocaleTimeString("id-ID",{timeZone:"Asia/Jakarta",
+  hour:"2-digit",minute:"2-digit"}); }
+function tgl(iso){ return new Date(iso).toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta",
+  day:"2-digit",month:"short"}); }
 
 function statusOf(r){
   if(r.status!=="completed") return {ic:"⏳",cls:"run",tx:"proses"};
@@ -70,10 +72,10 @@ async function loadAcct(a){
   const today=new Date().toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta"});
   const okToday=runs.filter(r=>r.conclusion==="success" &&
     new Date(r.created_at).toLocaleDateString("id-ID",{timeZone:"Asia/Jakarta"})===today).length;
-  const rows=runs.slice(0,6).map(r=>{ const s=statusOf(r);
-    return `<div class="row"><div class="ic ${s.cls}">${s.ic}</div>
-      <div class="t">${wib(r.created_at)}<small>${r.event==="schedule"?"otomatis (jadwal)":"manual"}</small></div>
-      <a class="st" href="${r.html_url}" target="_blank">${s.tx} ›</a></div>`; }).join("");
+  const rows=runs.slice(0,7).map(r=>{ const s=statusOf(r);
+    return `<a class="row" href="${r.html_url}" target="_blank">
+      <div class="t"><b>jam ${jam(r.created_at)}</b> <small>${tgl(r.created_at)} · ${r.event==="schedule"?"otomatis":"manual"}</small></div>
+      <div class="st ${s.cls}">${s.ic} ${s.tx}</div></a>`; }).join("");
   return `<div class="acct"><h2>${a.name}<span class="tag">✅ ${okToday} kepost hari ini</span></h2>
     ${rows||'<div class="msg">belum ada run</div>'}</div>`;
 }
