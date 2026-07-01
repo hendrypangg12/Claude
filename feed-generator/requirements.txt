@@ -1,6 +1,6 @@
 fastapi==0.111.0
 uvicorn==0.30.1
 pillow==10.4.0
-anthropics>=0.34.0
+anthropic>=0.34.0
 python-multipart==0.0.9
 rembg[cpu]>=2.0.50
