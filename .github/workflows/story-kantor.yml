@@ -49,6 +49,7 @@ jobs:
 
       - run: python sk_daily.py
         env:
+          NO_AI: "true"   # MODE HEMAT: bank quote, tanpa Anthropic (gratis). Hapus baris ini buat balik ke AI.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TOPIC: ${{ github.event.inputs.topic }}
 
