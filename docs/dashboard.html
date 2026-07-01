@@ -400,7 +400,9 @@ function toast(m){ const t=document.getElementById("toast"); if(typeof m==="stri
 function esc(s){ return (s||"").replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m])); }
 document.getElementById("ov").addEventListener("click",e=>{ if(e.target.id==="ov") closeOv(); });
 document.getElementById("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeSettings(); });
-setTab("faktaviral");
+const _gen=new URLSearchParams(location.search).get("gen");
+setTab(["faktaviral","beruang","clipper"].includes(_gen)?_gen:"faktaviral");
+if(_gen){ setTimeout(()=>{document.getElementById("genPanel")?.scrollIntoView({behavior:"smooth",block:"center"});},350); }
 </script>
 </body>
 </html>

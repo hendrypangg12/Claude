@@ -47,9 +47,9 @@
 const OWNER="hendrypangg12", REPO="Claude";
 // jadwal WIB per akun (buat tampilkan "akan datang")
 const ACCTS=[
-  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml", slots:["07:17","08:17","12:11","16:11","18:00","21:00"]},
-  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml", slots:["06:27","09:27","12:27","15:27","18:27","21:27"]},
-  {name:"⚫ Story Kantor", wf:"story-kantor.yml", slots:["08:37","12:37","19:37"]},
+  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml", brand:"faktaviral", slots:["07:17","08:17","12:11","16:11","18:00","21:00"]},
+  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml", brand:"beruang", slots:["06:27","09:27","12:27","15:27","18:27","21:27"]},
+  {name:"⚫ Story Kantor", wf:"story-kantor.yml", brand:"", slots:["08:37","12:37","19:37"]},
 ];
 const pat=()=>localStorage.getItem("gh_pat")||"";
 function saveTok(){ const v=document.getElementById("patIn").value.trim(); if(v){localStorage.setItem("gh_pat",v);loadAll();} }
@@ -97,8 +97,9 @@ function render(){
         ? runsToday.map(r=>{const s=statusOf(r);
             return `<a class="row" href="${r.html_url}" target="_blank"><div class="t"><b>${jam(r.created_at)}</b> <small>${r.event==="schedule"?"otomatis":"manual"}</small></div><div class="st ${s.cls}">${s.ic} ${s.tx}</div></a>`;}).join("")
         : '<div class="msg">belum ada post hari ini</div>';
+      const href=c.a.brand?`dashboard.html?gen=${c.a.brand}`:"dashboard.html";
       const up=upcoming.length
-        ? upcoming.map(s=>`<div class="row"><div class="t"><b>${s}</b></div><div class="st up">⏳ terjadwal</div></div>`).join("")
+        ? upcoming.map(s=>`<a class="row" href="${href}"><div class="t"><b>${s}</b> <small>generate sekarang</small></div><div class="st up">⏳ generate ›</div></a>`).join("")
         : '<div class="msg">gak ada jadwal lagi hari ini</div>';
       body=`<div class="detail"><div class="sec">Hari ini</div>${done}<div class="sec">Akan datang</div>${up}</div>`;
     }
