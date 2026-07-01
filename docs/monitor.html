@@ -28,6 +28,11 @@
   .st{font-size:13px;font-weight:600;white-space:nowrap}
   .ok{color:var(--ok)} .bad{color:var(--bad)} .run{color:var(--run)} .up{color:var(--mut)}
   .msg{color:var(--mut);font-size:13px;padding:4px 0}
+  .prof{display:flex;align-items:center;gap:12px;padding:10px 0;text-decoration:none;color:var(--txt)}
+  .prof img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:var(--line)}
+  .prof .u{flex:1} .prof .u b{font-size:14px} .prof .u .n{color:var(--mut);font-size:12px}
+  .nums{display:flex;gap:16px;margin-top:3px;font-size:13px}
+  .nums b{font-size:14px} .nums span{color:var(--mut);font-size:11px}
 </style>
 </head>
 <body>
@@ -47,10 +52,11 @@
 const OWNER="hendrypangg12", REPO="Claude";
 // jadwal WIB per akun (buat tampilkan "akan datang")
 const ACCTS=[
-  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml", brand:"faktaviral", slots:["07:17","08:17","12:11","16:11","18:00","21:00"]},
-  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml", brand:"beruang", slots:["06:27","09:27","12:27","15:27","18:27","21:27"]},
-  {name:"⚫ Story Kantor", wf:"story-kantor.yml", brand:"", slots:["08:37","12:37","19:37"]},
+  {name:"🔵 Fakta Viral", wf:"daily-fakta.yml", brand:"faktaviral", key:"faktaviral", slots:["07:17","08:17","12:11","16:11","18:00","21:00"]},
+  {name:"🟡 Beruang Finance", wf:"beruang-finance.yml", brand:"beruang", key:"beruang", slots:["06:27","09:27","12:27","15:27","18:27","21:27"]},
+  {name:"⚫ Story Kantor", wf:"story-kantor.yml", brand:"", key:"storykantor", slots:["08:37","12:37","19:37"]},
 ];
+let STATS={};
 const pat=()=>localStorage.getItem("gh_pat")||"";
 function saveTok(){ const v=document.getElementById("patIn").value.trim(); if(v){localStorage.setItem("gh_pat",v);loadAll();} }
 const H=()=>({Authorization:`Bearer ${pat()}`,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
@@ -75,6 +81,7 @@ async function loadAll(){
   const now=nowWIB();
   document.getElementById("clock").textContent="Sekarang "+now.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})+" WIB · klik nama akun buat buka";
   if(!CACHE.length) document.getElementById("out").innerHTML='<div class="msg">Memuat…</div>';
+  try{ STATS=await (await fetch("ig-stats.json?t="+Date.now())).json(); }catch(e){ STATS={}; }
   CACHE=await Promise.all(ACCTS.map(async a=>{
     try{ const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${a.wf}/runs?per_page=15`,{headers:H()});
       const j=await r.json(); return {a, runs:j.workflow_runs||[]}; }
@@ -101,7 +108,16 @@ function render(){
       const up=upcoming.length
         ? upcoming.map(s=>`<a class="row" href="${href}"><div class="t"><b>${s}</b> <small>generate sekarang</small></div><div class="st up">⏳ generate ›</div></a>`).join("")
         : '<div class="msg">gak ada jadwal lagi hari ini</div>';
-      body=`<div class="detail"><div class="sec">Hari ini</div>${done}<div class="sec">Akan datang</div>${up}</div>`;
+      const st=STATS[c.a.key];
+      const fmt=n=>n==null?"–":(n>=1000?(n/1000).toFixed(n>=10000?0:1)+"rb":n);
+      const prof=st?`<a class="prof" href="https://instagram.com/${st.username}" target="_blank">
+          <img src="${st.pic||''}" onerror="this.style.visibility='hidden'">
+          <div class="u"><b>@${st.username||'—'}</b><div class="n">buka IG asli ›</div>
+            <div class="nums"><div><b>${fmt(st.media)}</b> <span>post</span></div>
+            <div><b>${fmt(st.followers)}</b> <span>followers</span></div>
+            <div><b>${fmt(st.follows)}</b> <span>following</span></div></div></div></a>`
+        : `<div class="msg">stats IG belum ada (nunggu update / set IG_USER_ID)</div>`;
+      body=`<div class="detail">${prof}<div class="sec">Hari ini</div>${done}<div class="sec">Akan datang</div>${up}</div>`;
     }
     return `<div class="acct ${open?'open':''}">
       <div class="head" onclick="toggle(${i})">
