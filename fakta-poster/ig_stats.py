@@ -47,9 +47,28 @@ def main() -> int:
             print(f"{key}: gagal → {exc}")
 
     out["_updated"] = datetime.datetime.utcnow().isoformat() + "Z"
-    dest = Path(__file__).resolve().parent.parent / "docs" / "ig-stats.json"
-    dest.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"tersimpan → {dest} ({len(out) - 1} akun)")
+    docs = Path(__file__).resolve().parent.parent / "docs"
+    (docs / "ig-stats.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # RIWAYAT harian (buat pertambahan follower) → 1 entri per hari (WIB), simpan 60 hari
+    today = (datetime.datetime.utcnow() + datetime.timedelta(hours=7)).strftime("%Y-%m-%d")
+    hpath = docs / "ig-history.json"
+    try:
+        hist = json.loads(hpath.read_text(encoding="utf-8"))
+    except Exception:
+        hist = {}
+    for key, v in out.items():
+        if key == "_updated" or v.get("followers") is None:
+            continue
+        lst = hist.setdefault(key, [])
+        entry = {"d": today, "f": v["followers"], "m": v.get("media")}
+        if lst and lst[-1].get("d") == today:
+            lst[-1] = entry          # update snapshot hari ini
+        else:
+            lst.append(entry)
+        hist[key] = lst[-60:]
+    hpath.write_text(json.dumps(hist, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"tersimpan → ig-stats.json + ig-history.json ({len(out) - 1} akun)")
     return 0
 
 
