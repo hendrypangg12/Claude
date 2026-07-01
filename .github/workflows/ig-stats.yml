@@ -5,7 +5,7 @@ name: IG Stats (monitor)
 
 on:
   schedule:
-    - cron: "5 */6 * * *"   # tiap 6 jam
+    - cron: "0 15 * * *"   # 22:00 WIB (10 malam) — 1x sehari, snapshot follower harian
   workflow_dispatch:
 
 jobs:
