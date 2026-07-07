@@ -524,6 +524,33 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   dari dashboard + topik "kopi" + nyalain AI (kalau mau dijamin), ATAU generate manual berkali-kali mode hemat
   sampe kebetulan dapet quote kopi yang udah ada.
 
+### 7 Juli (lanjutan lagi x6) — Niche BARU: Reff Cover Clipper (scaffold, belum live)
+- Owner mau niche musik: potong bagian **reff/chorus** dari berbagai video **cover** lagu, auto-post, full-auto
+  search+download (contoh test: "Jogja Istimewa"). Owner udah paham & terima 2 resiko yang dikasih tau:
+  (1) YouTube blokir download otomatis dari server (403, ditest ulang & konfirmasi masih gagal tanpa cookies —
+  solusinya `YT_COOKIES` dari **akun YouTube kedua/cadangan**, BUKAN akun pribadi utama, biar kalo keflag gak
+  nyeret akun utama), (2) copyright cover lagu (lagu asli + performance cover creator) — kredit sumber BUKAN izin.
+- **Dibangun (folder `clipper/`, reuse infra `transcribe.py`/`render.py` yang udah ada dari AI Video Clipper)**:
+  - `search_covers.py` — cari cover via **YouTube Data API v3 resmi** (bukan scraping), butuh `GOOGLE_API_KEY`
+    dengan API ini **di-enable terpisah** di Google Cloud Console (API key yang sama kayak Google CSE, tapi API-nya
+    beda, harus di-enable manual — **TODO owner cek/enable ini**).
+  - `pick_reff.py` — Claude nyari bagian reff dari **pola pengulangan** di transkrip timestamp (gak perlu tau lagu
+    apa, gak pernah ngutip lirik di kode/prompt — sengaja didesain gitu). Return `is_song:false` kalau video
+    bukan cover lagu.
+  - `reff_clip.py` — 1 video → 1 klip (download → transcribe → pick_reff → render 9:16 + watermark + kredit
+    "Cover: @creator" + "Sumber: <url>" di caption, biar sumbernya keliatan).
+  - `reff_daily.py` — orchestrator: 1 `SONG` → cari `NUM_COVERS` video → proses semua, skip video yang video_id-nya
+    udah pernah dipotong (dedup baca `clipper/published-reff/*/meta.json`).
+  - `build_reff_manifest.py` + workflow `reff-clipper.yml` (workflow_dispatch: song/num_covers/brand). **BELUM ada
+    step auto-post IG** (niche/akun belum dibikin owner) — hasil cuma commit ke `clipper/published-reff/` dulu.
+- **Ditest LOKAL** (logic `pick_reff()` aja, Claude API di-mock + transkrip dummy generik) — parsing/clamping/
+  is_song-false semua bener. **BELUM ditest end-to-end asli** (butuh `YT_COOKIES` buat download beneran + belum
+  ada `GOOGLE_API_KEY` dengan YouTube Data API enabled buat search).
+- **TODO lanjutan buat live**: (1) owner kasih cookies YouTube akun cadangan, (2) owner enable YouTube Data API v3
+  di GCP project yang sama kayak `GOOGLE_API_KEY`, (3) owner bikin akun IG niche musik baru (nama/handle blm
+  ditentuin) kalau udah mau auto-post beneran, (4) semua secrets di-set ke GitHub (`YT_COOKIES`,
+  pastiin `GOOGLE_API_KEY` udah ke-scope YouTube Data API).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
