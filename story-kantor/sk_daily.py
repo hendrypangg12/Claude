@@ -64,7 +64,7 @@ def main() -> int:
             "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": 1}
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"      Done → {out_dir} ({total} slide)")
+    print(f"      Done → {out_dir} (1 foto)")
     return 0
 
 
