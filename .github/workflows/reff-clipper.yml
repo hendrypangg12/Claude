@@ -1,0 +1,103 @@
+name: Reff Cover Clipper
+
+# 1 judul lagu → cari beberapa video cover di YouTube (YouTube Data API v3, resmi) →
+# tiap cover: download → transcribe → Claude cari bagian reff/chorus → potong 9:16
+# + watermark brand + kredit sumber. Belum ada auto-post IG (akun niche belum dibikin) —
+# hasil ke-commit ke repo dulu buat di-preview/manual-post.
+#
+# ⚠️ Reupload cover lagu orang lain tetap ngandung hak cipta lagu aslinya + performance
+# cover creator-nya. Kredit sumber BUKAN pengganti izin — resiko copyright claim/takedown
+# tetap ada, ini keputusan sadar owner.
+
+on:
+  workflow_dispatch:
+    inputs:
+      song:
+        description: "Judul lagu (mis. 'Jogja Istimewa')"
+        required: true
+        type: string
+      num_covers:
+        description: "Berapa cover yang dicoba (1-10)"
+        required: false
+        default: "5"
+        type: string
+      brand:
+        description: "Watermark brand di video"
+        required: false
+        default: "FAKTAVIRAL.IDN"
+        type: string
+
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: clipper/requirements.txt
+
+      - run: pip install -r clipper/requirements.txt
+
+      - name: Install ffmpeg + Poppins font
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fontconfig
+          sudo mkdir -p /usr/share/fonts/truetype/poppins
+          sudo cp daily-news-poster/fonts/Poppins-*.ttf /usr/share/fonts/truetype/poppins/
+          sudo fc-cache -f >/dev/null
+
+      - name: Generate reff clips
+        working-directory: clipper
+        run: python reff_daily.py
+        env:
+          SONG: ${{ github.event.inputs.song }}
+          NUM_COVERS: ${{ github.event.inputs.num_covers || '5' }}
+          BRAND: ${{ github.event.inputs.brand || 'FAKTAVIRAL.IDN' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          YT_COOKIES: ${{ secrets.YT_COOKIES }}
+
+      - name: Commit clips + update manifest
+        working-directory: ${{ github.workspace }}
+        run: |
+          TS=$(ls -t clipper/out | head -1)
+          mkdir -p "clipper/published-reff/$TS"
+          for f in clipper/out/$TS/clip-*.mp4; do
+            [ -f "$f" ] || continue
+            if [ "$(stat -c%s "$f")" -lt 99000000 ]; then
+              cp "$f" "clipper/published-reff/$TS/"
+            else
+              echo "skip $f (kegedean)"
+            fi
+          done
+          cp clipper/out/$TS/caption-*.txt "clipper/published-reff/$TS/" 2>/dev/null || true
+          cp clipper/out/$TS/meta.json "clipper/published-reff/$TS/" 2>/dev/null || true
+          ls -dt clipper/published-reff/*/ 2>/dev/null | tail -n +11 | xargs rm -rf 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          RAW_BASE="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/clipper/published-reff" python clipper/build_reff_manifest.py || true
+          git add -A clipper/published-reff docs/reffcover-manifest.json
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Reff cover: ${{ github.event.inputs.song }} $TS"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              git fetch origin ${{ github.ref_name }}
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
+            done
+          fi
+
+      - name: Upload clips (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reff-clips-${{ github.run_id }}
+          path: clipper/out/*/clip-*.mp4
+          retention-days: 14
