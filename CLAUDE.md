@@ -447,6 +447,30 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   mau FB Page "Story Kantor" (id `1105088592697341`) ikut auto-post juga, tambah secret itu + wiring di workflow
   (pola sama kayak faktaviral/beruang `publish_fb.py`).
 
+### 7 Juli (lanjutan lagi) — Story Kantor masuk Dashboard/Monitor + ganti ke 1 FOTO (bukan carousel)
+- Owner minta Story Kantor diintegrasi ke `docs/dashboard.html` (Content Studio) + `docs/monitor.html`, sebelumnya
+  cuma ada run-history di monitor, gak ada tab generate.
+- **Ditambahin**: tab "⚫ Story Kantor" di dashboard (generate/preview/post ke IG), `build_manifest.py` +
+  `story-kantor.yml` sekarang generate `docs/storykantor-manifest.json` (dulu cuma faktaviral+beruang),
+  `publish-existing.yml` dukung `brand=storykantor` (tombol "Post ke IG" dari kartu dashboard), monitor.html
+  link "generate sekarang" diarahin ke tab yang bener (`brand:"storykantor"`).
+- **PERUBAHAN PENTING (owner tegasin)**: storykantor.idn **BUKAN carousel** — cuma upload **1 FOTO** (statement
+  paling ngena/keren, dari field `hook`), bukan 3-slide kayak sebelumnya. `sk_daily.py` diubah cuma compose
+  `post_1.jpg` (pakai `c["hook"]`), `meta.json.slides=1`. `sk_image_maker.compose_statement` di-skip counter
+  "1/1" kalau `total==1`. Tambah `instagram_uploader.publish_image()` (endpoint IG beda buat 1 foto vs carousel)
+  + `publish_ig.py` auto-pakai itu kalau cuma ada 1 `post_N.jpg`.
+- **Bug ke-tangkep pas tes**: sisa variabel `total` yang gak kepakai lagi bikin `NameError` di baris print terakhir
+  `sk_daily.py` → run pertama gagal di step `python sk_daily.py` (1 detik doang). Fix: ganti ke string literal "(1 foto)".
+- **Alur kerja penting**: task branch = `claude/full-memory-kamu-nee8gq`, TAPI dashboard/monitor live +
+  workflow_dispatch cuma baca dari branch default **`claude/halo-bYUsl`** → tiap commit di task branch WAJIB
+  di-merge (fast-forward) ke `claude/halo-bYUsl` + push biar keliatan/aktif di HP owner. Owner udah approve pola
+  ini ("Ya, merge sekarang").
+- **DITES SUKSES end-to-end** (run manual dari dashboard, 07:27 WIB): generate → compose 1 foto → commit →
+  publish ke IG @storykantor.idn semua ✅ (job "Publish ke Instagram" sukses 23 detik, bukan skip).
+- **Catatan mode HEMAT**: `NO_AI=true` di `story-kantor.yml` bikin generator pakai bank quote statis
+  (`sk_quotes.py`) yang **mengabaikan** input `topic` custom dari dashboard (topic cuma dipakai kalau mode AI/
+  `generate_content` di `sk_generator.py`). Owner udah dikasih tau, belum diputusin mau tetap hemat atau nyalain AI.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
