@@ -512,6 +512,18 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
 - Semua perubahan session ini (dashboard/monitor integration, ganti ke 1 foto, musik+reel, fix double-post) udah
   di-merge ke `claude/halo-bYUsl` (default branch) + push, kedua branch sinkron.
 
+### 7 Juli (lanjutan lagi x5) — Slot 06:37 WIB + request topik "kopi" (belum kejamin)
+- Owner minta generate jam 6 pagi bertema **kopi**. **Claude GAK BISA** schedule sendiri (`create_trigger`/
+  `send_later` error "requires approval", ke-block) **ATAU** trigger workflow_dispatch manual langsung (403
+  "Resource not accessible by integration" — udah lama kecatet). Jadi solusinya: tambah **cron permanen baru
+  `37 23 * * *` = 06:37 WIB** di `story-kantor.yml` (4 slot/hari sekarang: 06:37/08:37/12:37/19:37).
+- **Owner pilih tetap mode HEMAT (gratis)** buat run ini (bukan nyalain AI) → artinya **topik "kopi" TIDAK
+  dijamin kepakai** di slot 06:37 — `sk_quotes.pick_quote()` random dari bank, ada 1 quote soal kopi
+  ("Kopi bukan lagi kenikmatan, tapi kebutuhan buat bertahan hidup...") tapi cuma 1-dari-~20 kemungkinan kepilih.
+- **TODO kalau owner nanya lagi soal "kopi" gak muncul**: jelasin lagi limitasi ini, tawarin generate manual
+  dari dashboard + topik "kopi" + nyalain AI (kalau mau dijamin), ATAU generate manual berkali-kali mode hemat
+  sampe kebetulan dapet quote kopi yang udah ada.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
