@@ -471,6 +471,32 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   (`sk_quotes.py`) yang **mengabaikan** input `topic` custom dari dashboard (topic cuma dipakai kalau mode AI/
   `generate_content` di `sk_generator.py`). Owner udah dikasih tau, belum diputusin mau tetap hemat atau nyalain AI.
 
+### 7 Juli (lanjutan lagi lagi) — Story Kantor + MUSIK (reel), bukan cuma foto statis
+- Owner: "kurasa tanpa lagu kyknya bakal sepi" → minta ditambahin musik. **Penting buat diinget**: musik
+  **TRENDING asli IG gak bisa di-automate** — Graph API cuma bisa attach musik BEBAS ROYALTI yang di-bake ke file
+  video sendiri (bukan pilih dari katalog trending IG, itu cuma bisa manual lewat app). Owner paham & pilih opsi ini.
+- **File baru `story-kantor/sk_video_maker.py`**: `render_reel(image_path, out, dur=12, music=..)` — reel simpel
+  1 kartu vertikal + zoom halus + musik (bank yang sama faktaviral/beruang: `fakta-poster/music/*.mp3`, Kevin
+  MacLeod CC BY 4.0, judul lagu di-append ke `caption_reel.txt` kalau kepakai). `pick_music()`/`music_credit()`.
+- **`sk_image_maker.compose_statement_vertical()`** (baru): versi 1080x1920 dari card yang sama (buat background reel).
+- **`sk_daily.py`**: abis compose foto utama, coba generate reel juga (best-effort, try/except — kalau ffmpeg/musik
+  gagal, foto tetap ke-post, reel bukan syarat wajib).
+- **BUG ke-tangkep pas tes lokal**: `zoompan` ffmpeg **default crop dari pojok kiri-atas** (bukan tengah) → brand
+  chip "STORY KANTOR" di pojok kanan-atas kepotong jadi "STORY KANTO" waktu di-zoom. FIX: tambah `x=/y=` expression
+  di zoompan biar center-crop (`iw/2-(iw/zoom/2)` dst) + turunin max zoom ke 1.06 (dari 1.10) biar lebih aman dari
+  tepi. **CATATAN buat brand lain**: `fakta_video_maker.image_to_clip` (dipakai faktaviral/beruang buat foto asli
+  berita) punya pola zoompan yang SAMA (gak ada centering) — potensi bug yang sama tapi belum keliatan karena foto
+  berita jarang ada teks/elemen deket tepi. Belum di-fix (di luar scope task ini), lumayan kalau nanti ada waktu.
+- **Insiden ngeri pas tes lokal**: sempat `rm -rf story-kantor/out/*` buat bersihin folder tes — ternyata folder
+  `out/` di project ini **DI-COMMIT ke git** (bukan gitignored, beda dari viral-clipper), jadi itu ngehapus 179 file
+  history yang udah ke-track. **LANGSUNG di-restore** via `git checkout -- story-kantor/out/` sebelum sempat commit,
+  gak ada yang hilang. **LESSON**: SELALU `git status`/cek tracked-or-not dulu sebelum `rm -rf` folder apa pun di
+  repo ini, walau keliatannya folder "output sementara" — beberapa `out/` folder justru sengaja di-commit.
+- Workflow `story-kantor.yml`: tambah step install ffmpeg (apt), commit `reel.mp4` (skip kalau >99MB) +
+  `caption_reel.txt`, `POST_MODE` publish diganti dari `carousel` → **`both`** (foto + reel keduanya ke-post).
+- Semua udah di-merge ke `claude/halo-bYUsl` (default branch) + push. **Belum dites end-to-end di CI** (baru dites
+  render lokal pakai imageio-ffmpeg) — run generate berikutnya dari dashboard bakal jadi tes CI pertama.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
