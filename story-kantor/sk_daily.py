@@ -6,6 +6,7 @@ Env:
 """
 import json
 import os
+import random
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -61,24 +62,28 @@ def main() -> int:
     compose_statement(c["hook"], str(out_dir / "post_1.jpg"), idx=0, total=1, last=True)
     (out_dir / "caption.txt").write_text(c["caption"], encoding="utf-8")
 
-    # Reel opsional: kartu sama, versi vertikal + zoom pelan + musik (biar gak sepi).
-    # Best-effort — kalau ffmpeg/musik gagal, foto tetap ke-post (reel bukan syarat).
-    caption_reel = c["caption"]
-    try:
-        vert = str(out_dir / "_vertical.jpg")
-        compose_statement_vertical(c["hook"], vert)
-        music = pick_music()
-        render_reel(vert, str(out_dir / "reel.mp4"), music=music)
-        os.remove(vert)
-        if music:
-            caption_reel = c["caption"] + "\n\n" + music_credit(music)
-        print("      + reel.mp4 (musik: " + ("ada" if music else "tanpa") + ")")
-    except Exception as exc:
-        print(f"      (reel gagal dibuat, lanjut foto doang: {exc})")
-    (out_dir / "caption_reel.txt").write_text(caption_reel, encoding="utf-8")
+    # CAMPUR tapi JANGAN DOUBLE-POST: tiap generate cuma jadi 1 post ke IG —
+    # foto ATAU reel (dipilih acak), gak pernah dua-duanya buat konten yang sama.
+    made_reel = False
+    if random.random() < 0.5:
+        try:
+            vert = str(out_dir / "_vertical.jpg")
+            compose_statement_vertical(c["hook"], vert)
+            music = pick_music()
+            render_reel(vert, str(out_dir / "reel.mp4"), music=music)
+            os.remove(vert)
+            caption_reel = c["caption"] + ("\n\n" + music_credit(music) if music else "")
+            (out_dir / "caption_reel.txt").write_text(caption_reel, encoding="utf-8")
+            made_reel = True
+            print("      + reel.mp4 (musik: " + ("ada" if music else "tanpa") + ") — slot ini POST REEL")
+        except Exception as exc:
+            print(f"      (reel gagal dibuat, fallback slot FOTO: {exc})")
+    if not made_reel:
+        print("      slot ini POST FOTO (reel dilewati biar gak double-post)")
 
     meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"), "time": now.strftime("%H:%M"),
-            "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": 1}
+            "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": 1,
+            "posted_as": "reel" if made_reel else "foto"}
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"      Done → {out_dir} (1 foto)")

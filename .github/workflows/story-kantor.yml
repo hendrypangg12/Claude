@@ -98,12 +98,18 @@ jobs:
             echo "IG_USER_ID_SK belum di-set → skip publish (akun belum siap). Konten tetap ke repo."
             exit 0
           fi
+          # 1 post doang per generate: reel kalau ada, else foto. JANGAN both (anti double-post).
+          if [ -f "$PUB_DIR/reel.mp4" ]; then
+            export POST_MODE=reel
+          else
+            export POST_MODE=carousel
+          fi
+          echo "Slot ini: $POST_MODE"
           sleep 12
           python publish_ig.py
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID_SK }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          POST_MODE: both
           POST_STORY: "false"
           PUB_DIR: ${{ github.workspace }}/story-kantor/published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/story-kantor/published/${{ env.TS }}
