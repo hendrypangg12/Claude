@@ -417,6 +417,21 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   token aman di Secrets). Dashboard ada tombol 📡 ke monitor. Story-kantor stats butuh `IG_USER_ID_SK`.
 - **IG checkpoint (code 190/459)**: kalau publish gagal gitu → owner login www.facebook.com clear checkpoint.
 
+### 7 Juli — Story Kantor: IG User ID masih nyangkut (belum linked ke FB Page)
+- Owner coba ambil IG User ID @storykantor.idn via Graph API Explorer (`me/accounts?fields=name,
+  instagram_business_account{id,username}`, app "fakta viral bot"). Hasil query: Page **"Story Kantor"**
+  (id `1105088592697341`) MUNCUL di daftar tapi **field `instagram_business_account` KOSONG/gak ada**,
+  beda dgn Page "Fakta Viral" (id `1113692745165301`) yg punya `instagram_business_account.id=
+  17841431673727855, username=faktaviral.idn`.
+- **Diagnosa: bukan soal token/permission** (token udah bisa akses Page Story Kantor). Akar masalah =
+  **IG @storykantor.idn belum ditautkan (linked) ke FB Page "Story Kantor"** di pengaturan Instagram.
+- **FIX yang harus owner lakuin** (di app Instagram @storykantor.idn):
+  1. Pastiin akun udah Bisnis/Profesional (bukan Personal)
+  2. Edit Profil → Pengaturan → Akun → cari opsi tautkan ke Halaman Facebook / akun lain yang ditautkan
+  3. Tautkan ke Page "Story Kantor" (id `1105088592697341`)
+  4. Ulangi query yang sama di Graph API Explorer → `instagram_business_account.id` harusnya muncul → itu IG_USER_ID_SK
+- **Belum di-set** per update ini — `IG_USER_ID_SK` Secret masih kosong, auto-post Story Kantor ke IG belum bisa live sampai step di atas selesai.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
