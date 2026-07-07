@@ -8,7 +8,8 @@ concurrency:
 
 on:
   schedule:
-    # WIB = UTC+7. 3 slot/hari, menit :37 (beda dari faktaviral :17 & beruang :27).
+    # WIB = UTC+7. 4 slot/hari, menit :37 (beda dari faktaviral :17 & beruang :27).
+    - cron: "37 23 * * *"  # 06:37 WIB
     - cron: "37 1 * * *"   # 08:37 WIB
     - cron: "37 5 * * *"   # 12:37 WIB
     - cron: "37 12 * * *"  # 19:37 WIB
