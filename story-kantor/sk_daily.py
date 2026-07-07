@@ -13,7 +13,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from sk_generator import generate_content
-from sk_image_maker import compose_statement, BRAND_TEXT
+from sk_image_maker import compose_statement, compose_statement_vertical, BRAND_TEXT
+from sk_video_maker import pick_music, music_credit, render_reel
 
 WIB = timezone(timedelta(hours=7))
 
@@ -59,6 +60,22 @@ def main() -> int:
     print("[2/2] Compose 1 foto (gaya Folkative)...")
     compose_statement(c["hook"], str(out_dir / "post_1.jpg"), idx=0, total=1, last=True)
     (out_dir / "caption.txt").write_text(c["caption"], encoding="utf-8")
+
+    # Reel opsional: kartu sama, versi vertikal + zoom pelan + musik (biar gak sepi).
+    # Best-effort — kalau ffmpeg/musik gagal, foto tetap ke-post (reel bukan syarat).
+    caption_reel = c["caption"]
+    try:
+        vert = str(out_dir / "_vertical.jpg")
+        compose_statement_vertical(c["hook"], vert)
+        music = pick_music()
+        render_reel(vert, str(out_dir / "reel.mp4"), music=music)
+        os.remove(vert)
+        if music:
+            caption_reel = c["caption"] + "\n\n" + music_credit(music)
+        print("      + reel.mp4 (musik: " + ("ada" if music else "tanpa") + ")")
+    except Exception as exc:
+        print(f"      (reel gagal dibuat, lanjut foto doang: {exc})")
+    (out_dir / "caption_reel.txt").write_text(caption_reel, encoding="utf-8")
 
     meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"), "time": now.strftime("%H:%M"),
             "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": 1}

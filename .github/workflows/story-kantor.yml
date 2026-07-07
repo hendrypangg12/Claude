@@ -47,6 +47,9 @@ jobs:
 
       - run: pip install -r ../fakta-poster/requirements.txt
 
+      - name: Install ffmpeg (untuk reel video)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - run: python sk_daily.py
         env:
           NO_AI: "true"   # MODE HEMAT: bank quote, tanpa Anthropic (gratis). Hapus baris ini buat balik ke AI.
@@ -60,7 +63,14 @@ jobs:
           echo "TS=$TS" >> "$GITHUB_ENV"
           mkdir -p "story-kantor/published/$TS"
           cp story-kantor/out/$TS/post_*.jpg "story-kantor/published/$TS/" 2>/dev/null || true
+          REEL="story-kantor/out/$TS/reel.mp4"
+          if [ -f "$REEL" ] && [ "$(stat -c%s "$REEL")" -lt 99000000 ]; then
+            cp "$REEL" "story-kantor/published/$TS/"
+          else
+            echo "reel skip (kegedean/ga ada)"
+          fi
           cp story-kantor/out/$TS/caption.txt "story-kantor/published/$TS/" 2>/dev/null || true
+          cp story-kantor/out/$TS/caption_reel.txt "story-kantor/published/$TS/" 2>/dev/null || true
           cp story-kantor/out/$TS/meta.json "story-kantor/published/$TS/" 2>/dev/null || true
           ls -dt story-kantor/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
           python build_manifest.py || true   # update dashboard monitoring
@@ -93,7 +103,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID_SK }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          POST_MODE: carousel
+          POST_MODE: both
           POST_STORY: "false"
           PUB_DIR: ${{ github.workspace }}/story-kantor/published/${{ env.TS }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ env.SHA }}/story-kantor/published/${{ env.TS }}

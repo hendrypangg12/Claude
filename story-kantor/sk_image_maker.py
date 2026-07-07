@@ -64,6 +64,39 @@ def compose_statement(text, out_path, idx=0, total=3, last=False) -> str:
     return out_path
 
 
+def compose_statement_vertical(text, out_path, handle=HANDLE) -> str:
+    """Sama gaya (hitam bersih + teks putih), tapi 1080x1920 — dipakai sebagai background reel."""
+    VW, VH = 1080, 1920
+    RW, RH = VW * 2, VH * 2
+    canvas = Image.new("RGB", (RW, RH), BG)
+    d = ImageDraw.Draw(canvas, "RGBA")
+
+    bf = _font("extrabold", 24)
+    d.text((RW - s(PAD) - bf.getlength(BRAND_TEXT), s(PAD)), BRAND_TEXT, font=bf, fill=INK)
+
+    max_w = RW - 2 * s(PAD)
+    f = _font("semibold", 84)
+    for fs in (88, 80, 72, 64, 56, 50, 44, 40, 36):
+        f = _font("semibold", fs)
+        lh = int(f.size * 1.26)
+        lines = _wrap(text, f, max_w)
+        if len(lines) * lh <= RH - s(700):
+            break
+    lh = int(f.size * 1.26)
+    lines = _wrap(text, f, max_w)
+    block_h = len(lines) * lh
+    y = (RH - block_h) // 2 - s(60)
+    for ln in lines:
+        d.text((s(PAD), y), ln, font=f, fill=INK)
+        y += lh
+
+    cf = _font("bold", 36)
+    d.text((s(PAD), RH - s(180) - cf.size), f"Follow @{handle}", font=cf, fill=INK)
+
+    canvas.resize((VW, VH), Image.LANCZOS).save(out_path, "JPEG", quality=92)
+    return out_path
+
+
 def make_profile(out_path, size=1080) -> str:
     """Foto profil: HITAM polos + wordmark 'STORY KANTOR' putih bold di-spasiin (ala Folkative)."""
     ss = 2
