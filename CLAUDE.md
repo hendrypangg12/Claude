@@ -493,9 +493,24 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   gak ada yang hilang. **LESSON**: SELALU `git status`/cek tracked-or-not dulu sebelum `rm -rf` folder apa pun di
   repo ini, walau keliatannya folder "output sementara" — beberapa `out/` folder justru sengaja di-commit.
 - Workflow `story-kantor.yml`: tambah step install ffmpeg (apt), commit `reel.mp4` (skip kalau >99MB) +
-  `caption_reel.txt`, `POST_MODE` publish diganti dari `carousel` → **`both`** (foto + reel keduanya ke-post).
-- Semua udah di-merge ke `claude/halo-bYUsl` (default branch) + push. **Belum dites end-to-end di CI** (baru dites
-  render lokal pakai imageio-ffmpeg) — run generate berikutnya dari dashboard bakal jadi tes CI pertama.
+  `caption_reel.txt`, `POST_MODE` publish awalnya diganti dari `carousel` → `both` (foto + reel keduanya ke-post).
+- **DITES CI SUKSES** (run manual dari dashboard, 19:46 WIB): foto ✅ (image id ...) + reel ✅ (reel id ..., ada
+  audio track AAC, kredit "Inspired" di `caption_reel.txt`). Musik beneran nempel & kedengeran pas diputar —
+  TAPI reel dari API gak nampilin ikon piringan/nama lagu yang bisa di-tap kayak trending audio asli (karena
+  audio di-bake ke file, bukan dari katalog resmi IG — limitasi API, udah dijelasin ke owner).
+
+### 7 Juli (lanjutan lagi lagi lagi) — FIX double-post (foto + reel jadi 2 unggahan tiap generate)
+- Owner: "kok jd doble post ya" / "campur, tapi jangan sampe doble post" — `POST_MODE=both` bikin TIAP generate
+  jadi 2 post terpisah ke IG (1 foto feed + 1 reel), bukan yang diinginkan.
+- **FIX**: `sk_daily.py` sekarang **acak (50/50) pilih SATU** — reel (kalau kepilih & berhasil di-render) ATAU
+  foto (kalau reel gak kepilih/gagal) — gak pernah dua-duanya di run yang sama. Field baru `meta.json.posted_as`
+  = `"reel"` / `"foto"`. `caption_reel.txt` cuma ditulis kalau reel jadi.
+  Workflow `story-kantor.yml` publish step: `POST_MODE` sekarang **dinamis** (`export POST_MODE=reel` kalau
+  `reel.mp4` ada di `PUB_DIR`, else `carousel`) — bukan hardcode `both` lagi.
+- **DITES lokal** (4x run sk_daily.py): hasil campur foto/foto/reel/foto — konfirmasi gak pernah 2 mode sekaligus.
+  Belum dites end-to-end CI post-fix ini (generate berikutnya dari dashboard jadi tes-nya).
+- Semua perubahan session ini (dashboard/monitor integration, ganti ke 1 foto, musik+reel, fix double-post) udah
+  di-merge ke `claude/halo-bYUsl` (default branch) + push, kedua branch sinkron.
 
 ## Snake game
 
