@@ -432,6 +432,21 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   4. Ulangi query yang sama di Graph API Explorer → `instagram_business_account.id` harusnya muncul → itu IG_USER_ID_SK
 - **Belum di-set** per update ini — `IG_USER_ID_SK` Secret masih kosong, auto-post Story Kantor ke IG belum bisa live sampai step di atas selesai.
 
+### 7 Juli (lanjutan) — Story Kantor: IG User ID DAPET + Secret KE-SET ✅
+- Owner berhasil link @storykantor.idn ke FB Page "Story Kantor" dari sisi Instagram (Settings → linked Facebook
+  Page → pilih Story Kantor → Connect). Sempet muncul "Instagram Account Is Already Linked" di percobaan pertama,
+  tapi ternyata itu link ke Page yang sama juga (override), lanjut "Instagram Connected" ✅.
+- Generate token ulang di Graph API Explorer dengan **centang SEMUA 3 Page** (Story Kantor + Fakta Viral +
+  Beruang Finance) di popup permission — baru muncul semua di `me/accounts`.
+- **IG_USER_ID_SK = `17841425757964215`** (username `storykantor.idn`, FB Page id `1105088592697341`).
+- Secret **`IG_USER_ID_SK` udah di-set** di GitHub repo Secrets (kelihatan "now" di daftar, 7 Juli 2026).
+- Workflow `story-kantor.yml` udah wired ke `secrets.IG_USER_ID_SK` dari awal (line ~93), gak perlu ubah kode.
+  **Auto-post Story Kantor ke IG siap LIVE** mulai jadwal berikutnya (08:37 / 12:37 / 19:37 WIB) — 3 akun
+  (faktaviral, beruang, story-kantor) semua auto-post penuh sekarang.
+- **CATATAN untuk Story Kantor**: belum ada `FB_PAGE_ID_SK` / FB auto-post buat akun ini (cuma IG). Kalau owner
+  mau FB Page "Story Kantor" (id `1105088592697341`) ikut auto-post juga, tambah secret itu + wiring di workflow
+  (pola sama kayak faktaviral/beruang `publish_fb.py`).
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.
