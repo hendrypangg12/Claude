@@ -55,9 +55,10 @@ def compose_statement(text, out_path, idx=0, total=3, last=False) -> str:
     hf = _font("medium", 25)
     if not last:
         d.text((s(PAD), R - s(PAD) - hf.size), "@" + HANDLE, font=hf, fill=MUTED)
-    cnt = f"{idx + 1}/{total}"
-    cf2 = _font("medium", 24)
-    d.text((R - s(PAD) - cf2.getlength(cnt), R - s(PAD) - cf2.size), cnt, font=cf2, fill=MUTED)
+    if total > 1:
+        cnt = f"{idx + 1}/{total}"
+        cf2 = _font("medium", 24)
+        d.text((R - s(PAD) - cf2.getlength(cnt), R - s(PAD) - cf2.size), cnt, font=cf2, fill=MUTED)
 
     canvas.resize((SIZE, SIZE), Image.LANCZOS).save(out_path, "JPEG", quality=92)
     return out_path

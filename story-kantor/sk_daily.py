@@ -55,18 +55,13 @@ def main() -> int:
         c = generate_content(topic=topic, avoid=_recent_hooks(out_root))
     print(f"      → [{c['topic']}] {c['hook']}")
 
-    slides = [c["hook"], c["lines"][0], c["lines"][1]]
-    slides = [sx for sx in slides if sx.strip()] or [c["hook"]]
-    total = len(slides)
-
-    print("[2/2] Compose carousel (gaya Folkative)...")
-    for i, txt in enumerate(slides):
-        compose_statement(txt, str(out_dir / f"post_{i + 1}.jpg"),
-                          idx=i, total=total, last=(i == total - 1))
+    # SATU foto aja — statement paling ngena (hook), bukan carousel 3-slide.
+    print("[2/2] Compose 1 foto (gaya Folkative)...")
+    compose_statement(c["hook"], str(out_dir / "post_1.jpg"), idx=0, total=1, last=True)
     (out_dir / "caption.txt").write_text(c["caption"], encoding="utf-8")
 
     meta = {"id": out_dir.name, "date": now.strftime("%Y-%m-%d"), "time": now.strftime("%H:%M"),
-            "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": total}
+            "topic": c["topic"], "hook": c["hook"], "label": "STORY KANTOR", "slides": 1}
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"      Done → {out_dir} ({total} slide)")

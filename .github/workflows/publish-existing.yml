@@ -10,7 +10,7 @@ on:
         description: "Akun"
         required: true
         type: choice
-        options: [faktaviral, beruang]
+        options: [faktaviral, beruang, storykantor]
       id:
         description: "ID konten (nama folder published, mis. 2026-06-08_22-31-38)"
         required: true
@@ -40,16 +40,16 @@ jobs:
         id: b
         working-directory: ${{ github.workspace }}
         run: |
-          if [ "${{ github.event.inputs.brand }}" = "beruang" ]; then
-            echo "folder=beruang-finance/published" >> "$GITHUB_OUTPUT"
-          else
-            echo "folder=fakta-poster/published" >> "$GITHUB_OUTPUT"
-          fi
+          case "${{ github.event.inputs.brand }}" in
+            beruang) echo "folder=beruang-finance/published" >> "$GITHUB_OUTPUT" ;;
+            storykantor) echo "folder=story-kantor/published" >> "$GITHUB_OUTPUT" ;;
+            *) echo "folder=fakta-poster/published" >> "$GITHUB_OUTPUT" ;;
+          esac
 
       - name: Publish ke Instagram
         run: python publish_ig.py
         env:
-          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || secrets.IG_USER_ID }}
+          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || github.event.inputs.brand == 'storykantor' && secrets.IG_USER_ID_SK || secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_ACCESS_TOKEN_BF || secrets.IG_ACCESS_TOKEN }}
           POST_MODE: ${{ github.event.inputs.mode }}
           PUB_DIR: ${{ github.workspace }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
@@ -60,8 +60,8 @@ jobs:
         run: python publish_fb.py
         env:
           FB_TOKEN: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_ACCESS_TOKEN_BF || secrets.IG_ACCESS_TOKEN }}
-          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || secrets.IG_USER_ID }}
-          FB_PAGE_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.FB_PAGE_ID_BF || secrets.FB_PAGE_ID }}
+          IG_USER_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.IG_USER_ID_BF || github.event.inputs.brand == 'storykantor' && secrets.IG_USER_ID_SK || secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ github.event.inputs.brand == 'beruang' && secrets.FB_PAGE_ID_BF || github.event.inputs.brand == 'storykantor' && secrets.FB_PAGE_ID_SK || secrets.FB_PAGE_ID }}
           POST_MODE: ${{ github.event.inputs.mode }}
           PUB_DIR: ${{ github.workspace }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}
           RAW_DIR: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/${{ steps.b.outputs.folder }}/${{ github.event.inputs.id }}

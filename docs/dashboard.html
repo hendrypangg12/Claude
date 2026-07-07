@@ -76,6 +76,7 @@
   <div class="tabs">
     <div class="tab active" data-brand="faktaviral" onclick="setTab('faktaviral')">🪐 Fakta Viral</div>
     <div class="tab" data-brand="beruang" onclick="setTab('beruang')">🐻 Beruang</div>
+    <div class="tab" data-brand="storykantor" onclick="setTab('storykantor')">⚫ Story Kantor</div>
     <div class="tab" data-brand="clipper" onclick="setTab('clipper')">🎬 Clipper</div>
   </div>
   <div class="status" id="status"><span class="dot"></span> memuat…</div>
@@ -120,6 +121,8 @@ const BF_CATS=[["","🎲 Bebas (AI pilih)"],["tips","💡 Tips Keuangan"],["beri
 const BRANDS={
   faktaviral:{ kind:"content", base:`${RAW}/fakta-poster/published`, path:"docs/faktaviral-manifest.json", manifest:`${RAW}/docs/faktaviral-manifest.json`, accent:"#22d3ee", ink:"#08121a", wf:"daily-fakta.yml", catKey:"category", cats:FV_CATS },
   beruang:{ kind:"content", base:`${RAW}/beruang-finance/published`, path:"docs/beruang-manifest.json", manifest:`${RAW}/docs/beruang-manifest.json`, accent:"#ffc107", ink:"#3a2616", wf:"beruang-finance.yml", catKey:"ctype", cats:BF_CATS },
+  storykantor:{ kind:"content", base:`${RAW}/story-kantor/published`, path:"docs/storykantor-manifest.json", manifest:`${RAW}/docs/storykantor-manifest.json`, accent:"#f4f4f5", ink:"#131316", wf:"story-kantor.yml",
+    modes:[["carousel","⚡ Generate + Post"],["none","👀 Preview aja (nggak post)"]] },
   clipper:{ kind:"clipper", path:"docs/clipper-manifest.json", manifest:`${RAW}/docs/clipper-manifest.json`, accent:"#ffc400", ink:"#0f121a", wf:"clipper.yml" },
 };
 let brand="faktaviral", cache={}, sigs={}, genBusy=false;
@@ -183,15 +186,12 @@ function renderGenPanel(c){
         </select></div>
       </div>`;
   } else {
+    const modes = c.modes || [["both","Generate + Post (feed+reel+story)"],["carousel","Generate + Post carousel aja"],["reel","Generate + Post reel aja"],["none","Preview aja (nggak post)"]];
+    const catSel = c.cats ? `<div><label class="fl">Kategori</label><select id="genCat">${c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>` : "";
     el.innerHTML=`<h3>⚡ Generate konten baru</h3>
       <div class="row">
-        <div><label class="fl">Kategori</label><select id="genCat">${c.cats.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
-        <div><label class="fl">Aksi</label><select id="genMode">
-          <option value="both">Generate + Post (feed+reel+story)</option>
-          <option value="carousel">Generate + Post carousel aja</option>
-          <option value="reel">Generate + Post reel aja</option>
-          <option value="none">Preview aja (nggak post)</option>
-        </select></div>
+        ${catSel}
+        <div><label class="fl">Aksi</label><select id="genMode">${modes.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
       </div>
       <div><label class="fl">Topik spesifik (opsional)</label><input class="tx" id="genTopic" placeholder="kosongin = AI pilih topik hangat"></div>
       <button class="genbtn" id="genBtn" onclick="generate()">⚡ Generate sekarang</button>
@@ -258,7 +258,7 @@ async function generate(){
   if(genBusy){ return; }  // guard: lagi proses → cegah double-generate walau tombol ke-tap/ke-render ulang
   if(!pat()){ msg.innerHTML="⚠️ Belum ada token. Tap ⚙️ di atas buat pasang token GitHub dulu."; openSettings(); return; }
   const inputs={ post_mode:document.getElementById("genMode").value, topic:document.getElementById("genTopic").value.trim() };
-  inputs[c.catKey]=document.getElementById("genCat").value;
+  if(c.catKey) inputs[c.catKey]=document.getElementById("genCat").value;
   btn.disabled=true; msg.innerHTML="⏳ Mengirim perintah…";
   const since=Date.now();
   try{
@@ -318,8 +318,8 @@ async function trackWf(wf, since, el, kind){
 async function postIG(mode){
   if(!pat()){ toast("Pasang token dulu (⚙️)"); openSettings(); return; }
   const p=window._cur.p;
-  const what = mode==="reel" ? "REEL (video + musik)" : "CAROUSEL (3 foto)";
-  const akun = brand==="beruang" ? "@beruangfinance" : "@faktaviral.idn";
+  const what = mode==="reel" ? "REEL (video + musik)" : (p.slides>1?`CAROUSEL (${p.slides} foto)`:"1 FOTO");
+  const akun = brand==="beruang" ? "@beruangfinance" : brand==="storykantor" ? "@storykantor.idn" : "@faktaviral.idn";
   if(!confirm(`Posting ${what} ini ke Instagram ${akun} SEKARANG?`)) return;
   const el=document.getElementById("postMsg"), since=Date.now();
   el.innerHTML="📤 Mengirim perintah…";
@@ -376,7 +376,7 @@ async function openPost(p){
   body.innerHTML=`<div class="slides">${sl}</div><div class="h2">${esc(p.title)}</div>
     <div class="sub">${p.slides} slide${p.reel?" + reel":""} · ${p.date} ${p.time}</div>
     <div class="cap" id="capbox">memuat caption…</div>
-    <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post Carousel ke IG</button>
+    <div class="btnrow"><button class="btn" onclick="postIG('carousel')">📤 Post ${p.slides>1?"Carousel":"Foto"} ke IG</button>
       ${p.reel?`<button class="btn" onclick="postIG('reel')">📤 Post Reel ke IG</button>`:''}</div>
     <div class="genmsg" id="postMsg"></div>
     <div class="btnrow" style="margin-top:14px"><button class="btn ghost" onclick="copyCap()">📋 Salin caption</button>
@@ -402,7 +402,7 @@ function esc(s){ return (s||"").replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">"
 document.getElementById("ov").addEventListener("click",e=>{ if(e.target.id==="ov") closeOv(); });
 document.getElementById("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeSettings(); });
 const _gen=new URLSearchParams(location.search).get("gen");
-setTab(["faktaviral","beruang","clipper"].includes(_gen)?_gen:"faktaviral");
+setTab(["faktaviral","beruang","storykantor","clipper"].includes(_gen)?_gen:"faktaviral");
 if(_gen){ setTimeout(()=>{document.getElementById("genPanel")?.scrollIntoView({behavior:"smooth",block:"center"});},350); }
 </script>
 </body>

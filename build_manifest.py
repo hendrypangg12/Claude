@@ -61,6 +61,7 @@ def main() -> None:
     docs.mkdir(exist_ok=True)
     build(ROOT / "fakta-poster" / "published", "faktaviral", docs / "faktaviral-manifest.json")
     build(ROOT / "beruang-finance" / "published", "beruang", docs / "beruang-manifest.json")
+    build(ROOT / "story-kantor" / "published", "storykantor", docs / "storykantor-manifest.json")
 
 
 if __name__ == "__main__":

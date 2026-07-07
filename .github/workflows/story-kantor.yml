@@ -63,9 +63,10 @@ jobs:
           cp story-kantor/out/$TS/caption.txt "story-kantor/published/$TS/" 2>/dev/null || true
           cp story-kantor/out/$TS/meta.json "story-kantor/published/$TS/" 2>/dev/null || true
           ls -dt story-kantor/published/*/ 2>/dev/null | tail -n +15 | xargs rm -rf 2>/dev/null || true
+          python build_manifest.py || true   # update dashboard monitoring
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A story-kantor
+          git add -A story-kantor docs
           if git diff --staged --quiet; then
             echo "Nothing to commit."
           else

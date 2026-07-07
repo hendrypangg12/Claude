@@ -60,6 +60,15 @@ def publish_carousel(ig_id: str, token: str, image_urls: list[str], caption: str
     return _post(f"{ig_id}/media_publish", {"creation_id": container, "access_token": token}).get("id")
 
 
+def publish_image(ig_id: str, token: str, image_url: str, caption: str) -> str:
+    """Publish 1 foto tunggal (bukan carousel)."""
+    container = _post(f"{ig_id}/media", {
+        "image_url": image_url, "caption": caption, "access_token": token,
+    })["id"]
+    _wait_ready(container, token, max_wait=120)
+    return _post(f"{ig_id}/media_publish", {"creation_id": container, "access_token": token}).get("id")
+
+
 def publish_reel(ig_id: str, token: str, video_url: str, caption: str, cover_url: str | None = None) -> str:
     params = {"media_type": "REELS", "video_url": video_url, "caption": caption,
               "share_to_feed": "true", "access_token": token}

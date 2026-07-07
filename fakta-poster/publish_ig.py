@@ -26,7 +26,7 @@ import sys
 import time
 from pathlib import Path
 
-from instagram_uploader import publish_carousel, publish_reel, publish_story
+from instagram_uploader import publish_carousel, publish_image, publish_reel, publish_story
 
 
 def _load_accounts() -> list[dict]:
@@ -64,7 +64,12 @@ def _publish_one(acc: dict, pub: Path, raw: str, mode: str, caption: str) -> lis
         mode = "carousel"
     if mode in ("both", "carousel"):
         imgs = [f"{raw}/post_{i}.jpg" for i in (1, 2, 3) if (pub / f"post_{i}.jpg").exists()]
-        if imgs:
+        if len(imgs) == 1:
+            print(f"  [{name}] 1 foto (bukan carousel)...")
+            pid = publish_image(ig_id, token, imgs[0], caption)
+            print(f"  [{name}] ✅ image id: {pid}")
+            posted.append(("image", pid))
+        elif imgs:
             print(f"  [{name}] carousel: {len(imgs)} slide...")
             pid = publish_carousel(ig_id, token, imgs, caption)
             print(f"  [{name}] ✅ carousel id: {pid}")
