@@ -550,6 +550,28 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   di GCP project yang sama kayak `GOOGLE_API_KEY`, (3) owner bikin akun IG niche musik baru (nama/handle blm
   ditentuin) kalau udah mau auto-post beneran, (4) semua secrets di-set ke GitHub (`YT_COOKIES`,
   pastiin `GOOGLE_API_KEY` udah ke-scope YouTube Data API).
+- **Dipandu cara ambil `YT_COOKIES`**: harus di laptop (ekstensi browser gak ada di iOS), login akun YouTube
+  cadangan → ekstensi "Get cookies.txt LOCALLY" → export Netscape format → upload/paste ke GitHub Secret
+  `YT_COOKIES`. Belum dikasih owner per akhir sesi ini.
+
+### 8 Juli — Slot 06:37 WIB ke-skip (cron gak reliable, LAGI), + BUG double-post konten Story Kantor
+- Slot 06:37 WIB pertama kalinya (abis ditambah kemarin) **ke-skip total** (bukan gagal, run-nya emang gak pernah
+  ada) — confirmed via cek workflow runs, gak ada run sama sekali sampe 35 menit lewat jadwal. Konsisten sama
+  masalah lama "cron GitHub makin gak reliable". Solusi tetap sama: generate manual dari dashboard kalau gak
+  mau nunggu, gak perlu jadwal ekstra buat "benerin" ini (di luar kendali kita, sisi GitHub).
+- **Owner lapor "kok dobel post"** — screenshot grid @storykantor.idn nunjukin 2 pasang post identik (post #1&#4
+  sama persis, #2&#6 sama persis). **BUG BEDA** dari double-post sebelumnya (yang itu udah fix: foto+reel gak
+  pernah bareng lagi). Ini soal **konten yang sama keulang di post terpisah**.
+- **Root cause**: `sk_quotes.py` bank cuma ~20 quote, tapi posting 4x/hari (nambah + slot 06:37) → bank cepet
+  "exhausted" (semua quote kena dedup `avoid` dari riwayat). Fallback lama `pick_quote()`: `pool[0]` abis di-shuffle
+  — asal pilih siapa aja, BISA balikin quote yang BARU AJA di-post (makanya ada 2 post identik berdekatan).
+- **FIX**: fallback sekarang pilih quote yang **PALING LAMA gak muncul** di `avoid` (avoid diurut dari paling baru
+  → cari yang gak ketemu / posisi paling belakang = udah paling lama gak dipakai). Ditest lokal (simulasi avoid =
+  semua quote) — konfirmasi milih yang paling belakang di riwayat, bukan random lagi.
+- **Catatan jujur ke owner**: ini MENGURANGI (max-in spacing antar repeat) tapi GAK ELIMINASI total risiko
+  repeat — bank cuma ~20 quote + posting 4x/hari means tiap quote bakal keulang tiap ~5 hari. Solusi permanen
+  kalau mau bener-bener unik terus: nyalain AI (`NO_AI=false`) biar generate konten baru tiap kali, bukan pilih
+  dari bank statis. Owner belum mutusin, masih di mode hemat.
 
 ## Snake game
 
