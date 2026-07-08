@@ -89,9 +89,20 @@ def _dup(hook, avoid):
 
 def pick_quote(avoid=None) -> dict:
     """Pilih 1 quote (skip yang mirip avoid). Output = {type,kicker,hook,lines,caption,topic}."""
+    avoid = avoid or []
     pool = QUOTES[:]
     random.shuffle(pool)
-    q = next((x for x in pool if not _dup(x[0], avoid or [])), pool[0])
+    q = next((x for x in pool if not _dup(x[0], avoid)), None)
+    if q is None:
+        # Bank abis (semua quote kena avoid, biasa kejadian krn bank cuma ~20 & posting
+        # 4x/hari) → JANGAN asal pool[0] (bisa balikin yang BARU aja dipost). Pilih yang
+        # PALING LAMA gak muncul di riwayat (avoid diurut dari paling baru).
+        def _last_seen_rank(hook: str) -> int:
+            for i, a in enumerate(avoid):
+                if _dup(hook, [a]):
+                    return i
+            return len(avoid)  # gak ketemu sama sekali di riwayat = paling lama/aman
+        q = max(pool, key=lambda x: _last_seen_rank(x[0]))
     hook, l1, l2 = q
     caption = (f"{hook}\n\n{l1}\n{l2}\n\n"
                f"Yang ngerasa, tag temen kantormu 👇\n\n"
