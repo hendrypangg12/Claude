@@ -571,3 +571,11 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - Owner paham: cara nemu swing high (puncak terakhir sebelum jatuh), beda M1/M5/H4, BOS=lanjut/CHoCH=balik, weak high=bakal ditembus, body candle tebel=kuat/tipis=ragu, batas OB (merah: batas bawah=patokan; biru: batas atas=patokan).
 - ⚠️ **PREFERENSI OWNER: JAWAB SE-EFISIEN MUNGKIN (hemat token).** Singkat, to-the-point, kurangi tabel/emoji berlebih. Tetap auto-save memory tiap abis ngerjain.
 - Aku BISA fetch data harga (Yahoo GC=F, ~$14 di atas OANDA spot) + itung analisa, TAPI gak bisa nonton chart live visual. Owner pakai chart broker utk harga persis.
+
+### 9 Juli — belajar ICT sessions/killzones + praktik intraday
+- Owner pasang indikator TradingView (GRATIS, plan free maks 2 indikator/chart): **"ICT Killzones + Pivots [TFO]"** (all-in-one: kotak sesi Asia/London/NY + level PDH/PDL/PWH/PWL) + **LuxAlgo SMC**. Sesi WIB: Asia 07-11, London 13-16, NY AM 20-22, NY Lunch 23-00, NY PM 00-03.
+- Diajarin & owner PAHAM: kotak sesi = H/L per sesi (AS.H/LO.L dll), NY/London H/L = acuan kuat (likuiditas), Asia lemah; **liquidity model** (harga gerak dari 1 session H/L ke berikutnya); **sweep+reject vs break** (wick nutup balik=sweep/reversal, body nutup di luar=break/continuation); **break-and-retest** (support jebol→jadi resistance→sell di retest); WAJIB tunggu **candle CLOSE** + warna/body (hijau buy, merah sell), jangan entry di rejection sebelum nyentuh level (premature=lemah).
+- **SL discipline (KUNCI):** geser SL ke MODAL (breakeven) setelah profit/TP1 → nyelametin dari reversal. Owner praktik SELL emas real intraday, latihan sweep weak low + CHoCH; sempet reversal tapi selamat karena BE.
+- Metode: **OHLC/session level + SMC = saling lengkap** (level=peta, SMC=konfirmasi). Saran ke owner: sederhanakan — level sesi/prev-day sbg patokan, SMC secukupnya buat konfirmasi, jangan overcomplicate.
+- ⚠️ Owner cenderung **overtrade/kelamaan mantengin M3** (1 jam+ pusing di market sideways). Selalu ingetin: sideways/choppy = JANGAN trade, pasang alert & istirahat, tunggu sesi London.
+- **Cron job**: update GOLD tiap pagi ~06:02 WIB (SMC+Fib+MA bias + berita sentimen) — job session-only (mati kalau sesi tutup).
