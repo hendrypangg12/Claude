@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-07-10_15-51-06",
+      "date": "2026-07-10",
+      "time": "15:51",
+      "label": "STORY KANTOR",
+      "title": "Cuti diambil, tapi laptop tetap dibawa.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-07-10_12-45-31",
       "date": "2026-07-10",
       "time": "12:45",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-07-07_17-27-38",
-      "date": "2026-07-07",
-      "time": "17:27",
-      "label": "STORY KANTOR",
-      "title": "Katanya kerja buat hidup, kok malah hidup buat kerja?",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
