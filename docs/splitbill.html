@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Split Bill Liburan</title>
+<meta name="theme-color" content="#0d9488" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d9488'/%3E%3Ctext x='50' y='66' font-size='50' text-anchor='middle'%3E%F0%9F%A7%B3%3C/text%3E%3C/svg%3E" />
+<style>
+  :root{
+    --bg:#f4f7f6; --card:#ffffff; --line:#e4e9e8; --txt:#122; --muted:#65756f;
+    --accent:#0d9488; --accent-ink:#ffffff; --bad:#dc4545; --good:#0d9488;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e1513; --card:#161f1d; --line:#26332f; --txt:#eef5f3; --muted:#93a49e; --accent:#2dd4bf; --accent-ink:#08201d; --bad:#f27171; --good:#2dd4bf; }
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:var(--bg); color:var(--txt); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding-bottom:40px; }
+  header{ padding:calc(16px + env(safe-area-inset-top)) 16px 14px; background:var(--accent); color:var(--accent-ink); }
+  header h1{ margin:0; font-size:19px; font-weight:800; display:flex; align-items:center; gap:8px; }
+  header p{ margin:4px 0 0; font-size:12.5px; opacity:.85; }
+  main{ max-width:520px; margin:0 auto; padding:14px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:14px; }
+  .card h2{ margin:0 0 10px; font-size:14px; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  .names{ display:flex; gap:10px; }
+  .names input{ flex:1; min-width:0; }
+  label{ font-size:12px; color:var(--muted); font-weight:600; display:block; margin:0 0 4px; }
+  input, select{ width:100%; background:var(--bg); border:1px solid var(--line); color:var(--txt); border-radius:10px; padding:11px 12px; font-size:15px; font-family:inherit; }
+  input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:-1px; }
+  .row{ display:flex; gap:10px; margin-bottom:10px; }
+  .row > div{ flex:1; min-width:0; }
+  .payer{ display:flex; gap:8px; }
+  .payer button{ flex:1; border:1px solid var(--line); background:var(--bg); color:var(--txt); border-radius:10px; padding:11px 6px; font-size:14px; font-weight:700; cursor:pointer; }
+  .payer button.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .addbtn{ width:100%; background:var(--accent); color:var(--accent-ink); border:none; border-radius:10px; padding:13px; font-size:15px; font-weight:800; cursor:pointer; margin-top:2px; }
+  .addbtn:active{ opacity:.85; }
+  .expense{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px 0; border-bottom:1px solid var(--line); }
+  .expense:last-child{ border-bottom:none; }
+  .exp-name{ font-weight:700; font-size:14.5px; }
+  .exp-meta{ font-size:12px; color:var(--muted); margin-top:2px; }
+  .exp-amt{ font-weight:800; font-size:14.5px; white-space:nowrap; }
+  .exp-del{ background:none; border:none; color:var(--bad); font-size:18px; cursor:pointer; padding:4px 2px; line-height:1; }
+  .empty{ color:var(--muted); font-size:13.5px; text-align:center; padding:14px 0; }
+  .sumrow{ display:flex; justify-content:space-between; font-size:14px; padding:5px 0; }
+  .sumrow.total{ font-weight:800; font-size:15.5px; border-top:1px solid var(--line); margin-top:6px; padding-top:10px; }
+  .result{ text-align:center; padding:14px 10px; border-radius:12px; background:var(--bg); font-size:15px; font-weight:700; line-height:1.5; }
+  .result b{ color:var(--good); }
+  .resetbtn{ width:100%; background:none; border:1px solid var(--bad); color:var(--bad); border-radius:10px; padding:11px; font-size:14px; font-weight:700; cursor:pointer; margin-top:4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧳 Split Bill Liburan</h1>
+  <p>Catat siapa bayar apa, sisanya dihitung otomatis</p>
+</header>
+<main>
+  <div class="card">
+    <h2>Peserta</h2>
+    <div class="names">
+      <div><label>Orang 1</label><input id="name1" placeholder="Aku" /></div>
+      <div><label>Orang 2</label><input id="name2" placeholder="Pasangan" /></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tambah Pengeluaran</h2>
+    <div class="row">
+      <div><label>Nama pengeluaran</label><input id="expName" placeholder="Hotel Bandung" /></div>
+    </div>
+    <div class="row">
+      <div><label>Jumlah (Rp)</label><input id="expAmt" type="number" inputmode="numeric" placeholder="1250360" /></div>
+    </div>
+    <label>Dibayar oleh</label>
+    <div class="payer" id="payerPick">
+      <button type="button" data-p="1" class="on">—</button>
+      <button type="button" data-p="2">—</button>
+    </div>
+    <button class="addbtn" id="addBtn" style="margin-top:12px">+ Tambah</button>
+  </div>
+
+  <div class="card">
+    <h2>Daftar Pengeluaran</h2>
+    <div id="list"><div class="empty">Belum ada pengeluaran</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Ringkasan</h2>
+    <div class="sumrow"><span id="sumLabel1">Orang 1 bayar</span><span id="sum1">Rp 0</span></div>
+    <div class="sumrow"><span id="sumLabel2">Orang 2 bayar</span><span id="sum2">Rp 0</span></div>
+    <div class="sumrow total"><span>Total</span><span id="sumTotal">Rp 0</span></div>
+    <div class="result" id="result" style="margin-top:12px">Belum ada data</div>
+  </div>
+
+  <button class="resetbtn" id="resetBtn">🗑️ Trip Baru (hapus semua)</button>
+</main>
+
+<script>
+(function(){
+  const KEY = "splitbill_trip_v1";
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const save = (d) => localStorage.setItem(KEY, JSON.stringify(d));
+  let data = Object.assign({ name1:"", name2:"", expenses:[] }, load());
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => "Rp " + Math.round(n).toLocaleString("id-ID");
+
+  const name1El = $("name1"), name2El = $("name2");
+  name1El.value = data.name1 || "";
+  name2El.value = data.name2 || "";
+
+  let payer = 1;
+  const payerBtns = document.querySelectorAll("#payerPick button");
+
+  function refreshNames(){
+    const n1 = data.name1 || "Orang 1";
+    const n2 = data.name2 || "Orang 2";
+    payerBtns[0].textContent = n1;
+    payerBtns[1].textContent = n2;
+    $("sumLabel1").textContent = n1 + " bayar";
+    $("sumLabel2").textContent = n2 + " bayar";
+  }
+
+  name1El.addEventListener("input", () => { data.name1 = name1El.value.trim(); save(data); refreshNames(); render(); });
+  name2El.addEventListener("input", () => { data.name2 = name2El.value.trim(); save(data); refreshNames(); render(); });
+
+  payerBtns.forEach(btn => btn.addEventListener("click", () => {
+    payer = Number(btn.dataset.p);
+    payerBtns.forEach(b => b.classList.toggle("on", Number(b.dataset.p) === payer));
+  }));
+
+  $("addBtn").addEventListener("click", () => {
+    const nameEl = $("expName"), amtEl = $("expAmt");
+    const name = nameEl.value.trim() || "Pengeluaran";
+    const amt = Number(amtEl.value);
+    if (!amt || amt <= 0) { amtEl.focus(); return; }
+    data.expenses.push({ id: Date.now(), name, amt, payer, date: new Date().toLocaleDateString("id-ID", { day:"numeric", month:"short" }) });
+    save(data);
+    nameEl.value = ""; amtEl.value = "";
+    nameEl.focus();
+    render();
+  });
+
+  $("list").addEventListener("click", (e) => {
+    const btn = e.target.closest(".exp-del");
+    if (!btn) return;
+    const id = Number(btn.dataset.id);
+    data.expenses = data.expenses.filter(x => x.id !== id);
+    save(data);
+    render();
+  });
+
+  $("resetBtn").addEventListener("click", () => {
+    if (!confirm("Hapus semua pengeluaran trip ini?")) return;
+    data.expenses = [];
+    save(data);
+    render();
+  });
+
+  function render(){
+    const n1 = data.name1 || "Orang 1";
+    const n2 = data.name2 || "Orang 2";
+    const list = $("list");
+    if (!data.expenses.length) {
+      list.innerHTML = '<div class="empty">Belum ada pengeluaran</div>';
+    } else {
+      list.innerHTML = data.expenses.slice().reverse().map(x => `
+        <div class="expense">
+          <div>
+            <div class="exp-name">${escapeHtml(x.name)}</div>
+            <div class="exp-meta">${x.date} · dibayar ${escapeHtml(x.payer === 1 ? n1 : n2)}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="exp-amt">${fmt(x.amt)}</div>
+            <button class="exp-del" data-id="${x.id}">✕</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    const paid1 = data.expenses.filter(x => x.payer === 1).reduce((s,x) => s + x.amt, 0);
+    const paid2 = data.expenses.filter(x => x.payer === 2).reduce((s,x) => s + x.amt, 0);
+    const total = paid1 + paid2;
+    $("sum1").textContent = fmt(paid1);
+    $("sum2").textContent = fmt(paid2);
+    $("sumTotal").textContent = fmt(total);
+
+    const result = $("result");
+    if (total === 0) {
+      result.innerHTML = "Belum ada data";
+    } else {
+      const half = total / 2;
+      const diff = paid1 - half; // positif = orang1 nombokin, harus diganti orang2
+      if (Math.abs(diff) < 1) {
+        result.innerHTML = "✅ Impas, gak ada yang perlu transfer";
+      } else if (diff > 0) {
+        result.innerHTML = `${escapeHtml(n2)} transfer ke ${escapeHtml(n1)}<br><b>${fmt(diff)}</b>`;
+      } else {
+        result.innerHTML = `${escapeHtml(n1)} transfer ke ${escapeHtml(n2)}<br><b>${fmt(-diff)}</b>`;
+      }
+    }
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+  }
+
+  refreshNames();
+  render();
+})();
+</script>
+</body>
+</html>
