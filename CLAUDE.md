@@ -572,6 +572,14 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   repeat — bank cuma ~20 quote + posting 4x/hari means tiap quote bakal keulang tiap ~5 hari. Solusi permanen
   kalau mau bener-bener unik terus: nyalain AI (`NO_AI=false`) biar generate konten baru tiap kali, bukan pilih
   dari bank statis. Owner belum mutusin, masih di mode hemat.
+- **Owner lapor lagi "banyak yang post konten sama"** (cek manifest: persis 2 pasang duplikat dari 14 post,
+  semua dari SEBELUM fix di atas). Owner minta "jangan sampe ada duplikat lagi" tapi tetap mode hemat (gak mau
+  nyalain AI). **Fix tambahan**: bank quote di-expand dari **20 → 50** (nulis 30 quote baru, ORIGINAL, tema
+  belum ke-cover: gaji telat/THR, WFH, kerjaan orang lain nempel, review kinerja subjektif, micromanagement,
+  toxic positivity "anggap keluarga", dll). Full-cycle sekarang ~12-13 hari (dari ~5 hari), dikombinasi sama
+  fix least-recently-used kemarin. Ditest: 50 hook unik (no internal dup), false-positive dedup overlap
+  negligible (4/1225 pair). **Post lama yang udah kepost duplikat TETAP ada di IG** (gak bisa dihapus lewat
+  API, owner pilih gak mau hapus manual — dibiarin aja).
 
 ## Snake game
 
