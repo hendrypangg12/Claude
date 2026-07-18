@@ -161,9 +161,16 @@ def get_window_stats(symbol):
     last_red = last_close < last_open
     retrace_pct = (swing_high - last_p) / swing_high * 100 if swing_high > 0 else 0
 
+    # candle yang bikin swing high — cek upper wick-nya (tanda ditolak di puncak)
+    peak_candle = max(kl, key=lambda c: float(c[2]))
+    p_open, p_high, p_low, p_close = (float(peak_candle[i]) for i in (1, 2, 3, 4))
+    p_range = p_high - p_low
+    wick_ratio = (p_high - max(p_open, p_close)) / p_range if p_range > 0 else 0
+
     return {
         "pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct,
+        "wick_ratio": wick_ratio,
     }
 
 
@@ -192,6 +199,42 @@ def _btc_hint(btc_pct):
     if btc_pct >= 1.5:
         return "🌊 market-wide (BTC ikut naik, kurang isolated)"
     return "🎯 isolated (BTC datar/turun, sinyal lebih kuat)"
+
+
+def get_orderbook_ratio(symbol):
+    """Order book depth (20 level tiap sisi) → rasio ask/bid volume di harga sekarang.
+    Versi sederhana dari 'bandarmology' — BUKAN data wallet/whale beneran (itu butuh API
+    berbayar), cuma ngeliat tumpukan order jual vs beli yang KELIATAN di book saat ini."""
+    try:
+        r = requests.get(f"{BASE}/api/v3/depth", params={"symbol": symbol, "limit": 20}, timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        bid_vol = sum(float(q) for _, q in data.get("bids", []))
+        ask_vol = sum(float(q) for _, q in data.get("asks", []))
+        return (ask_vol / bid_vol) if bid_vol > 0 else None
+    except Exception as e:
+        print(f"warn: orderbook {symbol} gagal ({e})")
+        return None
+
+
+def _orderbook_hint(ratio):
+    if ratio is None:
+        return None
+    if ratio >= 1.5:
+        return "🧱 tumpukan jual jauh lebih tebal dari beli — tekanan jual dominan"
+    if ratio <= 0.67:
+        return "🛒 tumpukan beli lebih tebal — hati-hati, bisa ketahan/reversal gak lanjut"
+    return "seimbang"
+
+
+def _wick_hint(wick_ratio):
+    if wick_ratio is None:
+        return None
+    if wick_ratio >= 0.5:
+        return "🔻 wick rejection kuat di puncak (harga ditolak turun lagi — tanda distribusi)"
+    if wick_ratio >= 0.25:
+        return "wick rejection sedang"
+    return None
 
 
 def _is_confirmed(stats, btc_pct):
@@ -232,13 +275,43 @@ def _fmt_price(p):
     return s.rstrip("0").rstrip(".")
 
 
+def _build_reasons(p):
+    """List alasan kenapa sinyal ini keluar — 3 pertama emang syarat wajib (_is_confirmed),
+    sisanya info tambahan/'bandarmology' sederhana dari data yang KELIATAN publik (order book,
+    wick candle) — BUKAN data wallet/whale beneran."""
+    reasons = [
+        f"Candle terakhir merah, retrace {p['retrace_pct']:.2f}% dari puncak (awal reversal)",
+        f"Volume melemah (rasio {p['vol_ratio']:.2f} — daya beli mulai berkurang)",
+    ]
+    bp = p.get("btc_pct")
+    if bp is not None:
+        reasons.append(f"BTC cuma {bp:+.2f}% ({WINDOW_MINUTES}m) — pump ini spesifik ke coin ini, bukan ikut market")
+    wr = p.get("wick_ratio")
+    wick_txt = _wick_hint(wr)
+    if wick_txt:
+        reasons.append(wick_txt)
+    ob = p.get("orderbook_ratio")
+    ob_txt = _orderbook_hint(ob)
+    if ob_txt and ob_txt != "seimbang":
+        reasons.append(ob_txt)
+    fr = p.get("funding_rate")
+    if fr is not None and fr >= 0.05:
+        reasons.append(_funding_hint(fr))
+    return reasons
+
+
 def format_alert(p):
     url = f"https://www.binance.com/en/futures/{p['symbol']}"
     lines = [
         "🚀 <b>PUMP ALERT</b>",
         f"<b>{p['symbol']}</b>  +{p['pct']}% ({WINDOW_MINUTES} menit terakhir)",
         f"Risiko: {p['risk']}",
-        f"Konfirmasi: udah retrace {p['retrace_pct']:.2f}% dari puncak + candle terakhir merah",
+        "",
+        "📋 <b>Alasan sinyal:</b>",
+    ]
+    for r in _build_reasons(p):
+        lines.append(f"• {r}")
+    lines += [
         "",
         f"Entry (short): {_fmt_price(p['price'])}",
         f"SL: {_fmt_price(p['sl'])}",
@@ -250,12 +323,10 @@ def format_alert(p):
     ]
     fr = p.get("funding_rate")
     lines.append(f"Funding rate: {fr:+.4f}% ({_funding_hint(fr)})" if fr is not None else "Funding rate: gak ada / gagal ambil")
-    vr = p.get("vol_ratio")
-    lines.append(f"Volume trend: {_volume_hint(vr)}" if vr is not None else "Volume trend: gak keitung")
-    bp = p.get("btc_pct")
-    lines.append(f"BTC {WINDOW_MINUTES}m: {bp:+.2f}% — {_btc_hint(bp)}" if bp is not None else "BTC: gagal ambil")
+    ob = p.get("orderbook_ratio")
+    lines.append(f"Order book (ask/bid): {ob:.2f}x ({_orderbook_hint(ob)})" if ob is not None else "Order book: gagal ambil")
     lines.append(f"🔗 {url}")
-    lines.append("<i>SL/TP = swing high/low + Fibonacci, bukan SMC. Bukan saran finansial.</i>")
+    lines.append("<i>SL/TP = swing high/low + Fibonacci, bukan SMC. Order book bukan data whale beneran, cuma book publik saat ini. Bukan saran finansial.</i>")
     return "\n".join(lines)
 
 
@@ -363,6 +434,7 @@ def main():
                 "risk": risk_category(s["quote_volume"], stats["pct"]),
                 "vol_ratio": stats["vol_ratio"],
                 "retrace_pct": stats["retrace_pct"],
+                "wick_ratio": stats["wick_ratio"],
                 "btc_pct": btc_pct,
                 **setup,
             })
@@ -378,6 +450,8 @@ def main():
             if elapsed_min < COOLDOWN_MINUTES:
                 continue
         p["funding_rate"] = binance_futures.get(p["symbol"]) if binance_futures else None
+        p["orderbook_ratio"] = get_orderbook_ratio(p["symbol"])
+        time.sleep(REQUEST_SLEEP)
         new_alerts.append(p)
         history["last_alert"][p["symbol"]] = now.isoformat(timespec="seconds")
         history["alerts"].append({**p, "time": now.isoformat(timespec="seconds"), "outcome": None})
