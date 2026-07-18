@@ -2,7 +2,8 @@
   "last_alert": {
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
-    "BUSDT": "2026-07-18T19:26:39+00:00"
+    "BUSDT": "2026-07-18T19:26:39+00:00",
+    "AKEUSDT": "2026-07-18T20:10:46+00:00"
   },
   "alerts": [
     {
@@ -56,11 +57,30 @@
       "time": "2026-07-18T19:26:39+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-18T20:07:41+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 10.69,
+      "price": 0.0019071,
+      "quote_volume": 3952415.6018121,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "vol_ratio": 0.48502665014406243,
+      "retrace_pct": 8.44894628198359,
+      "wick_ratio": 0.4475247524752502,
+      "btc_pct": 0.1033372123531676,
+      "sl": 0.0021039310000000003,
+      "tp1": 0.0020062416,
+      "tp2": 0.0019587584,
+      "tp3": 0.0018819,
+      "funding_rate": 0.074,
+      "orderbook_ratio": 0.6938981388841827,
+      "time": "2026-07-18T20:10:46+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-18T20:08:30+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0
+    "time": "2026-07-18T20:10:46+00:00",
+    "shortlist_count": 11,
+    "confirmed_count": 1
   }
 }
