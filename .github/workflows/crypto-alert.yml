@@ -1,0 +1,62 @@
+name: Crypto Pump Alert
+
+# Scan semua pair USDT di Binance tiap 5 menit, deteksi kenaikan >= threshold
+# dalam 1 jam terakhir, kirim alert ke Telegram. Gratis: Binance public API
+# (no key) + Telegram Bot API. Lihat crypto-alert/README.md buat setup.
+
+concurrency:
+  group: crypto-pump-alert
+  cancel-in-progress: false
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      pump_threshold_pct:
+        description: "Ambang pump (%) buat trigger alert"
+        required: false
+        default: "10"
+        type: string
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: crypto-alert
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: crypto-alert/requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - run: python pump_scanner.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PUMP_THRESHOLD_PCT: ${{ github.event.inputs.pump_threshold_pct || '10' }}
+
+      - name: Commit history (kalau ada alert baru)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add history.json
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Crypto pump alert $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD:${{ github.ref_name }}; then break; fi
+              git fetch origin ${{ github.ref_name }}
+              git rebase --autostash origin/${{ github.ref_name }} || git rebase --abort
+              sleep 3
+            done
+          fi
