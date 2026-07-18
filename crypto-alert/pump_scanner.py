@@ -1,6 +1,7 @@
 """
 Crypto pump scanner — deteksi pair USDT di MEXC yang naik >= PUMP_THRESHOLD_PCT
-dalam 1 jam terakhir, lalu kirim alert ke Telegram. 100% gratis (no API key).
+dalam WINDOW_MINUTES terakhir, lalu kirim alert ke Telegram (lengkap sama entry,
+SL, TP1-3, kategori risiko). 100% gratis (no API key).
 
 Pakai MEXC (bukan Binance) karena Binance nge-block IP dari lokasi yang
 "restricted" (termasuk banyak infra cloud kayak GitHub Actions) — lihat
@@ -9,8 +10,13 @@ crypto-alert/README.md.
 Cara kerja (2 tahap biar hemat API call):
   1. Satu bulk call /ticker/24hr (semua pair) → shortlist coin yang 24h-nya
      udah lumayan naik (>= threshold/2) + likuid.
-  2. Buat tiap shortlist, ambil kline 1 menit (60 candle terakhir) → hitung
-     persis kenaikan trailing 1 jam, filter >= threshold beneran.
+  2. Buat tiap shortlist, ambil kline 1 menit → hitung persis kenaikan
+     trailing WINDOW_MINUTES, filter >= threshold beneran.
+
+SL/TP BUKAN Smart Money Concept (SMC) beneran — SMC (order block, liquidity
+sweep, fair value gap, multi-timeframe structure) butuh baca chart visual,
+susah diotomatisasi presisi. Ini pendekatan lebih sederhana & terukur:
+swing high/low dari window pump + Fibonacci retracement.
 """
 import json
 import os
@@ -27,10 +33,12 @@ HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "10"))
+WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
 SHORTLIST_PCT = PUMP_THRESHOLD_PCT / 2  # prefilter 24h buat batesin jumlah kline call
 MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume 24h min (USDT) — filter coin gak likuid
 COOLDOWN_MINUTES = float(os.environ.get("COOLDOWN_MINUTES", "180"))  # jeda sebelum simbol yg sama boleh alert lagi
 MAX_SHORTLIST = 60  # cap jumlah kline call per run, jaga-jaga market lagi liar
+SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
@@ -98,23 +106,46 @@ def _funding_hint(fr):
     return "netral"
 
 
-def get_1h_change(symbol):
-    """Kline 1 menit x60 → pct kenaikan trailing 1 jam yang sebenernya."""
+def get_window_stats(symbol):
+    """Kline 1 menit x WINDOW_MINUTES → pct kenaikan trailing beneran + swing high/low
+    (buat hitung SL/TP)."""
     r = requests.get(
         f"{BASE}/api/v3/klines",
-        params={"symbol": symbol, "interval": "1m", "limit": 61},
+        params={"symbol": symbol, "interval": "1m", "limit": WINDOW_MINUTES + 1},
         timeout=15,
     )
     r.raise_for_status()
     kl = r.json()
-    if len(kl) < 55:  # data kurang (coin baru listing dll), skip
+    if len(kl) < max(5, int(WINDOW_MINUTES * 0.9)):  # data kurang (coin baru listing dll), skip
         return None
     open_p = float(kl[0][1])
     last_p = float(kl[-1][4])
     if open_p <= 0:
         return None
     pct = (last_p - open_p) / open_p * 100
-    return pct, last_p
+    swing_high = max(float(c[2]) for c in kl)
+    swing_low = min(float(c[3]) for c in kl)
+    return {"pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low}
+
+
+def calc_setup(swing_high, swing_low):
+    """SL + TP1-3. BUKAN SMC — cuma swing high/low + Fibonacci retracement (38.2/61.8/100%)."""
+    sl = swing_high * (1 + SL_BUFFER_PCT / 100)
+    rng = swing_high - swing_low
+    return {
+        "sl": sl,
+        "tp1": swing_high - rng * 0.382,
+        "tp2": swing_high - rng * 0.618,
+        "tp3": swing_low,
+    }
+
+
+def risk_category(quote_volume, pct):
+    if quote_volume < 500_000 or pct >= 20:
+        return "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)"
+    if quote_volume < 3_000_000:
+        return "🟡 MEDIUM RISK"
+    return "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')"
 
 
 def _fmt_price(p):
@@ -126,8 +157,15 @@ def format_alert(p):
     url = f"https://www.mexc.com/exchange/{p['symbol'].replace('USDT', '_USDT')}"
     lines = [
         "🚀 <b>PUMP ALERT</b>",
-        f"<b>{p['symbol']}</b>  +{p['pct']}% (1 jam terakhir)",
-        f"Harga: {_fmt_price(p['price'])}",
+        f"<b>{p['symbol']}</b>  +{p['pct']}% ({WINDOW_MINUTES} menit terakhir)",
+        f"Risiko: {p['risk']}",
+        "",
+        f"Entry (short): {_fmt_price(p['price'])}",
+        f"SL: {_fmt_price(p['sl'])}",
+        f"TP1 (38.2%): {_fmt_price(p['tp1'])}",
+        f"TP2 (61.8%): {_fmt_price(p['tp2'])}",
+        f"TP3 (100%): {_fmt_price(p['tp3'])}",
+        "",
         f"Volume 24h: ${p['quote_volume']:,.0f}",
     ]
     fr = p.get("funding_rate")
@@ -137,6 +175,7 @@ def format_alert(p):
     else:
         lines.append("Funding rate: gak ada kontrak futures / gagal ambil")
     lines.append(f"🔗 {url}")
+    lines.append("<i>SL/TP = swing high/low + Fibonacci, bukan SMC. Bukan saran finansial.</i>")
     return "\n".join(lines)
 
 
@@ -163,19 +202,26 @@ def main():
     pumps = []
     for s in shortlist:
         try:
-            result = get_1h_change(s["symbol"])
+            stats = get_window_stats(s["symbol"])
         except Exception as e:
             print(f"warn: kline {s['symbol']} gagal ({e}), skip")
             continue
         time.sleep(0.15)
-        if result is None:
+        if stats is None:
             continue
-        pct, last_p = result
-        if pct >= PUMP_THRESHOLD_PCT:
-            pumps.append({"symbol": s["symbol"], "pct": round(pct, 2), "price": last_p, "quote_volume": s["quote_volume"]})
+        if stats["pct"] >= PUMP_THRESHOLD_PCT:
+            setup = calc_setup(stats["swing_high"], stats["swing_low"])
+            pumps.append({
+                "symbol": s["symbol"],
+                "pct": round(stats["pct"], 2),
+                "price": stats["price"],
+                "quote_volume": s["quote_volume"],
+                "risk": risk_category(s["quote_volume"], stats["pct"]),
+                **setup,
+            })
 
     pumps.sort(key=lambda p: -p["pct"])
-    print(f"Ketemu {len(pumps)} pump >= {PUMP_THRESHOLD_PCT}% beneran dalam 1 jam (sebelum filter cooldown).")
+    print(f"Ketemu {len(pumps)} pump >= {PUMP_THRESHOLD_PCT}% beneran dalam {WINDOW_MINUTES} menit (sebelum filter cooldown).")
 
     new_alerts = []
     for p in pumps:
