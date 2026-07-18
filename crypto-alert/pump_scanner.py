@@ -14,8 +14,10 @@ Cara kerja (2 tahap biar hemat API call):
   1. Satu bulk call /ticker/24hr MEXC (semua pair) → shortlist coin yang
      24h-nya udah lumayan naik (>= threshold/2), likuid, DAN beneran ada
      kontrak perpetual-nya di Binance Futures.
-  2. Buat tiap shortlist, ambil kline 1 menit → hitung persis kenaikan
-     trailing WINDOW_MINUTES, filter >= threshold beneran.
+  2. Buat tiap shortlist, ambil kline 1 menit → hitung PEAK_PCT (swing low
+     ke swing high di dalam window, bukan cuma harga sekarang vs harga
+     awal window — biar gak keburu ketutup pas harga udah retrace duluan
+     buat konfirmasi), filter >= threshold beneran.
 
 Alert baru dikirim kalau udah ada TANDA REVERSAL (candle terakhir merah +
 udah retrace >= CONFIRM_RETRACE_PCT dari swing high) — bukan langsung pas
@@ -150,6 +152,9 @@ def get_window_stats(symbol):
     pct = (last_p - open_p) / open_p * 100
     swing_high = max(float(c[2]) for c in kl)
     swing_low = min(float(c[3]) for c in kl)
+    # ukuran pump SEBENERNYA (low->high) — dipake buat gate threshold, BUKAN "pct" (yang udah
+    # keburu ketutup retrace pas konfirmasi reversal minta harga udah turun dari puncak)
+    peak_pct = (swing_high - swing_low) / swing_low * 100 if swing_low > 0 else 0
 
     mid = len(kl) // 2
     vols = [float(c[5]) for c in kl]
@@ -168,7 +173,7 @@ def get_window_stats(symbol):
     wick_ratio = (p_high - max(p_open, p_close)) / p_range if p_range > 0 else 0
 
     return {
-        "pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
+        "pct": pct, "peak_pct": peak_pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct,
         "wick_ratio": wick_ratio,
     }
@@ -422,16 +427,16 @@ def main():
         time.sleep(REQUEST_SLEEP)
         if stats is None:
             continue
-        if stats["pct"] >= PUMP_THRESHOLD_PCT:
+        if stats["peak_pct"] >= PUMP_THRESHOLD_PCT:
             if not _is_confirmed(stats, btc_pct):
                 continue  # belum confluence semua sinyal, tunggu run berikutnya
             setup = calc_setup(stats["swing_high"], stats["swing_low"])
             pumps.append({
                 "symbol": s["symbol"],
-                "pct": round(stats["pct"], 2),
+                "pct": round(stats["peak_pct"], 2),
                 "price": stats["price"],
                 "quote_volume": s["quote_volume"],
-                "risk": risk_category(s["quote_volume"], stats["pct"]),
+                "risk": risk_category(s["quote_volume"], stats["peak_pct"]),
                 "vol_ratio": stats["vol_ratio"],
                 "retrace_pct": stats["retrace_pct"],
                 "wick_ratio": stats["wick_ratio"],
