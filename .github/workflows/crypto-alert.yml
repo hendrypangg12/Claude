@@ -49,7 +49,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PUMP_THRESHOLD_PCT: ${{ github.event.inputs.pump_threshold_pct || '10' }}
 
-      - name: Commit history (kalau ada alert baru)
+      - name: Commit history (heartbeat tiap run + alert baru)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

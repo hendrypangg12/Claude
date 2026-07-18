@@ -34,12 +34,17 @@
   .outcome.win{background:#12281a;color:var(--ok)}
   .outcome.loss{background:#3a1414;color:var(--bad)}
   .outcome.pending{background:#242a35;color:var(--mut)}
+  .heartbeat{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:13px}
+  .heartbeat .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .heartbeat.ok .dot{background:var(--ok)} .heartbeat.warn .dot{background:var(--warn)} .heartbeat.bad .dot{background:var(--bad)}
 </style>
 </head>
 <body>
   <h1>🚀 Crypto Pump Alert</h1>
-  <div class="sub" id="clock">Riwayat alert pump ≥ threshold (short candidate). Update tiap 5 menit.</div>
+  <div class="sub" id="clock">Riwayat alert pump ≥ threshold (short candidate). Scan tiap 2 menit.</div>
   <div class="bar"><button onclick="load()">🔄 Refresh</button></div>
+  <div id="heartbeat"></div>
   <div class="stats" id="stats"></div>
   <div id="out"><div class="empty">Loading...</div></div>
   <div class="note">SL/TP dari swing high/low + Fibonacci retracement, BUKAN Smart Money Concept (SMC) beneran, dan BUKAN saran finansial. Selalu pake risk management sendiri.</div>
@@ -66,6 +71,20 @@ function outcomeBadge(o){
   const info = OUTCOME_LABEL[o] || {cls:"pending", tx:"⏳ Pending"};
   return `<span class="outcome ${info.cls}">${info.tx}</span>`;
 }
+function renderHeartbeat(lastScan){
+  const el = document.getElementById("heartbeat");
+  if(!lastScan || !lastScan.time){
+    el.innerHTML = "";
+    return;
+  }
+  const mins = Math.round((Date.now() - new Date(lastScan.time).getTime()) / 60000);
+  let cls = "ok", label = `${mins} menit lalu`;
+  if(mins > 15){ cls = "bad"; label = `${mins} menit lalu — kemungkinan berhenti, cek GitHub Actions`; }
+  else if(mins > 5){ cls = "warn"; label = `${mins} menit lalu`; }
+  else if(mins < 1){ label = "baru aja"; }
+  el.innerHTML = `<div class="heartbeat ${cls}"><span class="dot"></span>
+    Terakhir scan: <b>${label}</b> · ${lastScan.shortlist_count ?? "?"} coin dicek</div>`;
+}
 function renderStats(alerts){
   const wins = alerts.filter(a => a.outcome && a.outcome.startsWith("tp")).length;
   const losses = alerts.filter(a => a.outcome === "sl_hit").length;
@@ -83,10 +102,12 @@ async function load(){
     const res = await fetch(RAW + "?t=" + Date.now());
     if(res.status === 404){
       document.getElementById("out").innerHTML = '<div class="empty">Belum ada alert yang tercatat. Nunggu pump pertama ≥ threshold.</div>';
+      document.getElementById("heartbeat").innerHTML = "";
       return;
     }
     if(!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
+    renderHeartbeat(data.last_scan);
     const alerts = (data.alerts || []).slice().reverse();
     if(!alerts.length){
       document.getElementById("out").innerHTML = '<div class="empty">Belum ada alert. Nunggu pump ≥ threshold.</div>';
