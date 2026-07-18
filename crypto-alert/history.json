@@ -3,7 +3,8 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-18T19:26:39+00:00",
-    "AKEUSDT": "2026-07-18T20:10:46+00:00"
+    "AKEUSDT": "2026-07-18T20:10:46+00:00",
+    "BANKUSDT": "2026-07-18T20:34:32+00:00"
   },
   "alerts": [
     {
@@ -77,11 +78,30 @@
       "time": "2026-07-18T20:10:46+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-07-18T20:18:30+00:00"
+    },
+    {
+      "symbol": "BANKUSDT",
+      "pct": 12.12,
+      "price": 0.10984,
+      "quote_volume": 572563.6203,
+      "risk": "🟡 MEDIUM RISK",
+      "vol_ratio": 0.3357661054714809,
+      "retrace_pct": 8.075989622562563,
+      "wick_ratio": 0.24675324675324575,
+      "btc_pct": 0.12698400893907794,
+      "sl": 0.1206849,
+      "tp1": 0.11455456,
+      "tp2": 0.11150544,
+      "tp3": 0.10657,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.6910126666013137,
+      "time": "2026-07-18T20:34:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-18T20:32:32+00:00",
-    "shortlist_count": 10,
-    "confirmed_count": 0
+    "time": "2026-07-18T20:34:32+00:00",
+    "shortlist_count": 11,
+    "confirmed_count": 1
   }
 }
