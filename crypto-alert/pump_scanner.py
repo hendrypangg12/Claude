@@ -9,9 +9,15 @@ crypto-alert/README.md.
 
 Cara kerja (2 tahap biar hemat API call):
   1. Satu bulk call /ticker/24hr (semua pair) → shortlist coin yang 24h-nya
-     udah lumayan naik (>= threshold/2) + likuid.
+     udah lumayan naik (>= threshold/2), likuid, DAN ada kontrak Futures-nya
+     (biar cuma alert coin yang beneran bisa di-short).
   2. Buat tiap shortlist, ambil kline 1 menit → hitung persis kenaikan
      trailing WINDOW_MINUTES, filter >= threshold beneran.
+
+Alert baru dikirim kalau udah ada TANDA REVERSAL (candle terakhir merah +
+udah retrace >= CONFIRM_RETRACE_PCT dari swing high) — bukan langsung pas
+nyentuh threshold, biar entry-nya lebih deket ke titik balik beneran,
+bukan di tengah pump yang masih ngegas.
 
 Tiap run juga nge-track outcome alert LAMA (kena SL atau nyampe TP berapa)
 pake kline history sejak alert dikirim → data win-rate riil, bukan tebakan.
@@ -43,6 +49,7 @@ COOLDOWN_MINUTES = float(os.environ.get("COOLDOWN_MINUTES", "180"))  # jeda sebe
 MAX_SHORTLIST = 60  # cap jumlah kline call per run, jaga-jaga market lagi liar
 SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
+CONFIRM_RETRACE_PCT = float(os.environ.get("CONFIRM_RETRACE_PCT", "1.0"))  # min retrace dari swing high sebelum alert (konfirmasi reversal)
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
@@ -61,14 +68,31 @@ def save_history(history):
     HISTORY_PATH.write_text(json.dumps(history, indent=2, ensure_ascii=False))
 
 
-def get_shortlist():
-    """Bulk 24hr ticker (1 call, semua pair) → shortlist USDT pair likuid & lagi naik."""
+def get_futures_symbols():
+    """Bulk daftar kontrak Futures MEXC (1 call) → cuma alert coin yang beneran bisa di-short."""
+    try:
+        r = requests.get(f"{BASE_FUT}/api/v1/contract/detail", timeout=20)
+        r.raise_for_status()
+        data = r.json()
+        if not data.get("success"):
+            return None
+        return {c["symbol"].replace("_", "") for c in data["data"] if c.get("state") == 0}
+    except Exception as e:
+        print(f"warn: ambil daftar Futures gagal ({e}), skip filter futures")
+        return None
+
+
+def get_shortlist(futures_symbols):
+    """Bulk 24hr ticker (1 call, semua pair) → shortlist USDT pair likuid, lagi naik,
+    DAN ada kontrak Futures-nya (biar cuma alert coin yang beneran bisa di-short)."""
     r = requests.get(f"{BASE}/api/v3/ticker/24hr", timeout=20)
     r.raise_for_status()
     out = []
     for t in r.json():
         sym = t.get("symbol", "")
         if not sym.endswith("USDT") or _LEVERAGED_RE.search(sym):
+            continue
+        if futures_symbols is not None and sym not in futures_symbols:
             continue
         try:
             quote_vol = float(t["quoteVolume"])
@@ -136,9 +160,13 @@ def get_window_stats(symbol):
     vol_second = sum(vols[mid:]) / max(1, len(vols) - mid)
     vol_ratio = (vol_second / vol_first) if vol_first > 0 else None
 
+    last_open, last_close = float(kl[-1][1]), float(kl[-1][4])
+    last_red = last_close < last_open
+    retrace_pct = (swing_high - last_p) / swing_high * 100 if swing_high > 0 else 0
+
     return {
         "pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
-        "vol_ratio": vol_ratio,
+        "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct,
     }
 
 
@@ -200,6 +228,7 @@ def format_alert(p):
         "🚀 <b>PUMP ALERT</b>",
         f"<b>{p['symbol']}</b>  +{p['pct']}% ({WINDOW_MINUTES} menit terakhir)",
         f"Risiko: {p['risk']}",
+        f"Konfirmasi: udah retrace {p['retrace_pct']:.2f}% dari puncak + candle terakhir merah",
         "",
         f"Entry (short): {_fmt_price(p['price'])}",
         f"SL: {_fmt_price(p['sl'])}",
@@ -289,8 +318,9 @@ def main():
 
     outcomes_changed = track_outcomes(history, now)
 
-    shortlist = get_shortlist()
-    print(f"Shortlist {len(shortlist)} coin (24h >= {SHORTLIST_PCT:.1f}% & likuid) dari MEXC.")
+    futures_symbols = get_futures_symbols()
+    shortlist = get_shortlist(futures_symbols)
+    print(f"Shortlist {len(shortlist)} coin (24h >= {SHORTLIST_PCT:.1f}% & likuid & ada di Futures) dari MEXC.")
 
     btc_pct = get_btc_pct()
 
@@ -305,6 +335,8 @@ def main():
         if stats is None:
             continue
         if stats["pct"] >= PUMP_THRESHOLD_PCT:
+            if not (stats["last_red"] and stats["retrace_pct"] >= CONFIRM_RETRACE_PCT):
+                continue  # belum ada tanda reversal, tunggu run berikutnya
             setup = calc_setup(stats["swing_high"], stats["swing_low"])
             pumps.append({
                 "symbol": s["symbol"],
@@ -313,6 +345,7 @@ def main():
                 "quote_volume": s["quote_volume"],
                 "risk": risk_category(s["quote_volume"], stats["pct"]),
                 "vol_ratio": stats["vol_ratio"],
+                "retrace_pct": stats["retrace_pct"],
                 "btc_pct": btc_pct,
                 **setup,
             })
