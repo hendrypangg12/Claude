@@ -1,8 +1,16 @@
 # Crypto Pump Alert
 
-Scan semua pair USDT di Binance tiap beberapa menit, deteksi kenaikan harga
-**>= 10% dalam 1 jam terakhir**, kirim alert ke Telegram. 100% gratis (no
-API key buat Binance, Telegram Bot API gratis).
+Scan semua pair USDT di MEXC tiap beberapa menit, deteksi kenaikan harga
+**>= 10% dalam 30 menit terakhir**, kirim alert ke Telegram lengkap sama
+entry/SL/TP1-3/kategori risiko/funding rate. 100% gratis (no API key,
+Telegram Bot API gratis).
+
+**SL/TP BUKAN Smart Money Concept (SMC) beneran** — SMC (order block,
+liquidity sweep, fair value gap, multi-timeframe structure) butuh baca
+chart visual/kontekstual, susah diotomatisasi presisi lewat script. Yang
+dipakai di sini pendekatan lebih sederhana & terukur: swing high/low dari
+window pump + Fibonacci retracement (38.2% / 61.8% / 100%). Bukan saran
+finansial — tetep pake risk management sendiri (position size, leverage).
 
 Whale/on-chain outflow detection **belum dibikin** (butuh API berbayar kayak
 Whale Alert buat data real-time yang bagus) — nyusul kalau mau.
