@@ -1,6 +1,7 @@
 {
   "last_alert": {
-    "TENDIESUSDT": "2026-07-18T15:19:13+00:00"
+    "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
+    "NKNUSDT": "2026-07-18T15:28:21+00:00"
   },
   "alerts": [
     {
@@ -14,7 +15,25 @@
       "tp2": 0.02531136,
       "tp3": 0.0236,
       "funding_rate": -0.02,
-      "time": "2026-07-18T15:19:13+00:00"
+      "time": "2026-07-18T15:19:13+00:00",
+      "outcome": "tp3_hit",
+      "outcome_time": "2026-07-18T15:28:21+00:00"
+    },
+    {
+      "symbol": "NKNUSDT",
+      "pct": 10.19,
+      "price": 0.009676,
+      "quote_volume": 242825.8585,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "vol_ratio": 2.9377556007047247,
+      "btc_pct": -0.05500194074044444,
+      "sl": 0.00999294,
+      "tp1": 0.009383266,
+      "tp2": 0.009067734000000001,
+      "tp3": 0.008557,
+      "funding_rate": 0.02,
+      "time": "2026-07-18T15:28:21+00:00",
+      "outcome": null
     }
   ]
 }
