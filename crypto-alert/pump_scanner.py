@@ -1,7 +1,7 @@
 """
 Crypto pump scanner — deteksi pair USDT di MEXC yang naik >= PUMP_THRESHOLD_PCT
 dalam WINDOW_MINUTES terakhir, lalu kirim alert ke Telegram (lengkap sama entry,
-SL, TP1-3, kategori risiko). 100% gratis (no API key).
+SL, TP1-3, kategori risiko, korelasi BTC, tren volume). 100% gratis (no API key).
 
 Pakai MEXC (bukan Binance) karena Binance nge-block IP dari lokasi yang
 "restricted" (termasuk banyak infra cloud kayak GitHub Actions) — lihat
@@ -12,6 +12,9 @@ Cara kerja (2 tahap biar hemat API call):
      udah lumayan naik (>= threshold/2) + likuid.
   2. Buat tiap shortlist, ambil kline 1 menit → hitung persis kenaikan
      trailing WINDOW_MINUTES, filter >= threshold beneran.
+
+Tiap run juga nge-track outcome alert LAMA (kena SL atau nyampe TP berapa)
+pake kline history sejak alert dikirim → data win-rate riil, bukan tebakan.
 
 SL/TP BUKAN Smart Money Concept (SMC) beneran — SMC (order block, liquidity
 sweep, fair value gap, multi-timeframe structure) butuh baca chart visual,
@@ -39,6 +42,7 @@ MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume
 COOLDOWN_MINUTES = float(os.environ.get("COOLDOWN_MINUTES", "180"))  # jeda sebelum simbol yg sama boleh alert lagi
 MAX_SHORTLIST = 60  # cap jumlah kline call per run, jaga-jaga market lagi liar
 SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
+EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
@@ -107,8 +111,8 @@ def _funding_hint(fr):
 
 
 def get_window_stats(symbol):
-    """Kline 1 menit x WINDOW_MINUTES → pct kenaikan trailing beneran + swing high/low
-    (buat hitung SL/TP)."""
+    """Kline 1 menit x WINDOW_MINUTES → pct kenaikan trailing beneran, swing high/low
+    (buat SL/TP), + rasio volume paruh kedua vs paruh pertama (buat deteksi exhaustion)."""
     r = requests.get(
         f"{BASE}/api/v3/klines",
         params={"symbol": symbol, "interval": "1m", "limit": WINDOW_MINUTES + 1},
@@ -125,7 +129,44 @@ def get_window_stats(symbol):
     pct = (last_p - open_p) / open_p * 100
     swing_high = max(float(c[2]) for c in kl)
     swing_low = min(float(c[3]) for c in kl)
-    return {"pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low}
+
+    mid = len(kl) // 2
+    vols = [float(c[5]) for c in kl]
+    vol_first = sum(vols[:mid]) / max(1, mid)
+    vol_second = sum(vols[mid:]) / max(1, len(vols) - mid)
+    vol_ratio = (vol_second / vol_first) if vol_first > 0 else None
+
+    return {
+        "pct": pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
+        "vol_ratio": vol_ratio,
+    }
+
+
+def _volume_hint(ratio):
+    if ratio is None:
+        return None
+    if ratio < 0.6:
+        return "📉 volume melemah — momentum exhaustion, sinyal short lebih valid"
+    if ratio > 1.3:
+        return "📈 volume masih naik — momentum masih kuat, hati-hati lanjut naik"
+    return "netral"
+
+
+def get_btc_pct():
+    try:
+        stats = get_window_stats("BTCUSDT")
+        return None if stats is None else stats["pct"]
+    except Exception as e:
+        print(f"warn: cek BTC gagal ({e})")
+        return None
+
+
+def _btc_hint(btc_pct):
+    if btc_pct is None:
+        return None
+    if btc_pct >= 1.5:
+        return "🌊 market-wide (BTC ikut naik, kurang isolated)"
+    return "🎯 isolated (BTC datar/turun, sinyal lebih kuat)"
 
 
 def calc_setup(swing_high, swing_low):
@@ -169,11 +210,11 @@ def format_alert(p):
         f"Volume 24h: ${p['quote_volume']:,.0f}",
     ]
     fr = p.get("funding_rate")
-    if fr is not None:
-        hint = _funding_hint(fr)
-        lines.append(f"Funding rate: {fr:+.4f}% ({hint})")
-    else:
-        lines.append("Funding rate: gak ada kontrak futures / gagal ambil")
+    lines.append(f"Funding rate: {fr:+.4f}% ({_funding_hint(fr)})" if fr is not None else "Funding rate: gak ada / gagal ambil")
+    vr = p.get("vol_ratio")
+    lines.append(f"Volume trend: {_volume_hint(vr)}" if vr is not None else "Volume trend: gak keitung")
+    bp = p.get("btc_pct")
+    lines.append(f"BTC {WINDOW_MINUTES}m: {bp:+.2f}% — {_btc_hint(bp)}" if bp is not None else "BTC: gagal ambil")
     lines.append(f"🔗 {url}")
     lines.append("<i>SL/TP = swing high/low + Fibonacci, bukan SMC. Bukan saran finansial.</i>")
     return "\n".join(lines)
@@ -192,12 +233,66 @@ def send_telegram(text):
         print(f"warn: gagal kirim Telegram: {r.status_code} {r.text}")
 
 
+def _resolve_outcome(alert, start_ms):
+    """Cek kline sejak alert dikirim: kena SL duluan atau nyampe TP berapa (short trade).
+    Dalam 1 candle, SL dicek duluan (asumsi konservatif, gak overstate win-rate)."""
+    try:
+        r = requests.get(
+            f"{BASE}/api/v3/klines",
+            params={"symbol": alert["symbol"], "interval": "5m", "startTime": start_ms, "limit": 600},
+            timeout=15,
+        )
+        r.raise_for_status()
+        kl = r.json()
+    except Exception as e:
+        print(f"warn: track {alert['symbol']} gagal ({e})")
+        return None
+    for c in kl:
+        high, low = float(c[2]), float(c[3])
+        if high >= alert["sl"]:
+            return "sl_hit"
+        if low <= alert["tp3"]:
+            return "tp3_hit"
+        if low <= alert["tp2"]:
+            return "tp2_hit"
+        if low <= alert["tp1"]:
+            return "tp1_hit"
+    return None
+
+
+def track_outcomes(history, now):
+    """Update outcome alert lama yang belum resolved. Return True kalau ada perubahan."""
+    changed = False
+    for a in history["alerts"]:
+        if a.get("outcome") or "sl" not in a:
+            continue
+        alert_time = datetime.fromisoformat(a["time"])
+        age_hours = (now - alert_time).total_seconds() / 3600
+        if age_hours < 0.1:
+            continue
+        outcome = _resolve_outcome(a, int(alert_time.timestamp() * 1000))
+        time.sleep(0.15)
+        if outcome:
+            a["outcome"] = outcome
+            a["outcome_time"] = now.isoformat(timespec="seconds")
+            changed = True
+        elif age_hours >= EXPIRE_HOURS:
+            a["outcome"] = "expired"
+            a["outcome_time"] = now.isoformat(timespec="seconds")
+            changed = True
+    return changed
+
+
 def main():
     history = load_history()
     now = datetime.now(timezone.utc)
 
+    outcomes_changed = track_outcomes(history, now)
+
     shortlist = get_shortlist()
     print(f"Shortlist {len(shortlist)} coin (24h >= {SHORTLIST_PCT:.1f}% & likuid) dari MEXC.")
+
+    btc_pct = get_btc_pct()
 
     pumps = []
     for s in shortlist:
@@ -217,6 +312,8 @@ def main():
                 "price": stats["price"],
                 "quote_volume": s["quote_volume"],
                 "risk": risk_category(s["quote_volume"], stats["pct"]),
+                "vol_ratio": stats["vol_ratio"],
+                "btc_pct": btc_pct,
                 **setup,
             })
 
@@ -233,17 +330,16 @@ def main():
         p["funding_rate"] = get_funding_rate(p["symbol"])
         new_alerts.append(p)
         history["last_alert"][p["symbol"]] = now.isoformat(timespec="seconds")
-        history["alerts"].append({**p, "time": now.isoformat(timespec="seconds")})
-
-    if not new_alerts:
-        print("Gak ada alert baru (kena cooldown atau emang gak ada pump).")
-        return
+        history["alerts"].append({**p, "time": now.isoformat(timespec="seconds"), "outcome": None})
 
     for p in new_alerts:
         print(f"ALERT: {p['symbol']} +{p['pct']}%")
         send_telegram(format_alert(p))
 
-    save_history(history)
+    if new_alerts or outcomes_changed:
+        save_history(history)
+    else:
+        print("Gak ada alert baru & gak ada outcome yang ke-update.")
 
 
 if __name__ == "__main__":
