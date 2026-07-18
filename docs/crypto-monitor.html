@@ -27,12 +27,20 @@
   a{color:#60a5fa;text-decoration:none}
   .empty{color:var(--mut);font-size:14px;text-align:center;padding:40px 0}
   .note{color:var(--mut);font-size:11px;margin-top:16px;line-height:1.5}
+  .stats{display:flex;gap:8px;margin-bottom:14px}
+  .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+  .stat b{display:block;font-size:18px} .stat span{color:var(--mut);font-size:11px}
+  .outcome{font-size:12px;font-weight:600;padding:3px 8px;border-radius:8px;display:inline-block;margin-bottom:8px;margin-left:6px}
+  .outcome.win{background:#12281a;color:var(--ok)}
+  .outcome.loss{background:#3a1414;color:var(--bad)}
+  .outcome.pending{background:#242a35;color:var(--mut)}
 </style>
 </head>
 <body>
   <h1>🚀 Crypto Pump Alert</h1>
   <div class="sub" id="clock">Riwayat alert pump ≥ threshold (short candidate). Update tiap 5 menit.</div>
   <div class="bar"><button onclick="load()">🔄 Refresh</button></div>
+  <div class="stats" id="stats"></div>
   <div id="out"><div class="empty">Loading...</div></div>
   <div class="note">SL/TP dari swing high/low + Fibonacci retracement, BUKAN Smart Money Concept (SMC) beneran, dan BUKAN saran finansial. Selalu pake risk management sendiri.</div>
 
@@ -46,6 +54,27 @@ function riskClass(risk){
   if(risk.includes("HIGH")) return "high";
   if(risk.includes("MEDIUM")) return "medium";
   return "moderate";
+}
+const OUTCOME_LABEL = {
+  sl_hit: {cls:"loss", tx:"❌ SL Hit"},
+  tp1_hit: {cls:"win", tx:"✅ TP1 Hit"},
+  tp2_hit: {cls:"win", tx:"✅✅ TP2 Hit"},
+  tp3_hit: {cls:"win", tx:"✅✅✅ TP3 Hit"},
+  expired: {cls:"pending", tx:"⏱️ Expired"},
+};
+function outcomeBadge(o){
+  const info = OUTCOME_LABEL[o] || {cls:"pending", tx:"⏳ Pending"};
+  return `<span class="outcome ${info.cls}">${info.tx}</span>`;
+}
+function renderStats(alerts){
+  const wins = alerts.filter(a => a.outcome && a.outcome.startsWith("tp")).length;
+  const losses = alerts.filter(a => a.outcome === "sl_hit").length;
+  const resolved = wins + losses;
+  const winRate = resolved ? Math.round(wins/resolved*100) + "%" : "-";
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><b>${alerts.length}</b><span>Total Alert</span></div>
+    <div class="stat"><b>${resolved}</b><span>Resolved</span></div>
+    <div class="stat"><b style="color:${resolved?'var(--ok)':'var(--mut)'}">${winRate}</b><span>Win Rate</span></div>`;
 }
 
 async function load(){
@@ -61,14 +90,18 @@ async function load(){
     const alerts = (data.alerts || []).slice().reverse();
     if(!alerts.length){
       document.getElementById("out").innerHTML = '<div class="empty">Belum ada alert. Nunggu pump ≥ threshold.</div>';
+      document.getElementById("stats").innerHTML = "";
       return;
     }
+    renderStats(alerts);
     document.getElementById("out").innerHTML = alerts.map(a => {
       const url = "https://www.mexc.com/exchange/" + a.symbol.replace("USDT","_USDT");
       const fr = (a.funding_rate === null || a.funding_rate === undefined) ? "-" : a.funding_rate.toFixed(4) + "%";
+      const vr = (a.vol_ratio === null || a.vol_ratio === undefined) ? "-" : (a.vol_ratio < 0.6 ? "📉 melemah" : a.vol_ratio > 1.3 ? "📈 naik" : "netral");
+      const btc = (a.btc_pct === null || a.btc_pct === undefined) ? "-" : (a.btc_pct.toFixed(2) + "% " + (a.btc_pct >= 1.5 ? "🌊" : "🎯"));
       return `<div class="card">
         <div class="row"><span class="sym">${a.symbol}</span><span class="pct">+${a.pct}%</span></div>
-        <div class="risk ${riskClass(a.risk)}">${a.risk || ""}</div>
+        <div class="risk ${riskClass(a.risk)}">${a.risk || ""}</div>${outcomeBadge(a.outcome)}
         <div class="grid">
           <div><b>Entry</b> ${fmtPrice(a.price)}</div>
           <div><b>SL</b> ${fmtPrice(a.sl)}</div>
@@ -76,6 +109,8 @@ async function load(){
           <div><b>TP2</b> ${fmtPrice(a.tp2)}</div>
           <div><b>TP3</b> ${fmtPrice(a.tp3)}</div>
           <div><b>Funding</b> ${fr}</div>
+          <div><b>Volume trend</b> ${vr}</div>
+          <div><b>BTC</b> ${btc}</div>
         </div>
         <div class="foot">${jam(a.time)} · Vol 24h $${Number(a.quote_volume).toLocaleString("en-US",{maximumFractionDigits:0})} · <a href="${url}" target="_blank">MEXC ↗</a></div>
       </div>`;
