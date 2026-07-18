@@ -1,0 +1,20 @@
+{
+  "last_alert": {
+    "TENDIESUSDT": "2026-07-18T15:19:13+00:00"
+  },
+  "alerts": [
+    {
+      "symbol": "TENDIESUSDT",
+      "pct": 15.61,
+      "price": 0.02807,
+      "quote_volume": 300907.23518,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "sl": 0.028360800000000002,
+      "tp1": 0.02636864,
+      "tp2": 0.02531136,
+      "tp3": 0.0236,
+      "funding_rate": -0.02,
+      "time": "2026-07-18T15:19:13+00:00"
+    }
+  ]
+}
