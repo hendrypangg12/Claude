@@ -1,9 +1,11 @@
 # Crypto Pump Alert
 
-Scan semua pair USDT di MEXC tiap beberapa menit, deteksi kenaikan harga
-**>= 10% dalam 30 menit terakhir**, kirim alert ke Telegram lengkap sama
-entry/SL/TP1-3/kategori risiko/funding rate. 100% gratis (no API key,
-Telegram Bot API gratis).
+Scan semua pair USDT **yang ada kontrak Futures-nya** di MEXC tiap beberapa
+menit, deteksi kenaikan harga **>= 10% dalam 30 menit terakhir** YANG UDAH
+ADA TANDA REVERSAL (candle merah + retrace dari puncak — bukan langsung pas
+nyentuh threshold), kirim alert ke Telegram lengkap sama entry/SL/TP1-3/
+kategori risiko/funding rate/korelasi BTC/tren volume. 100% gratis (no API
+key, Telegram Bot API gratis).
 
 **SL/TP BUKAN Smart Money Concept (SMC) beneran** — SMC (order block,
 liquidity sweep, fair value gap, multi-timeframe structure) butuh baca
