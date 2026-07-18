@@ -333,7 +333,7 @@ def main():
     history = load_history()
     now = datetime.now(timezone.utc)
 
-    outcomes_changed = track_outcomes(history, now)
+    track_outcomes(history, now)
 
     binance_futures = get_binance_futures()  # {symbol: funding_rate}, None kalau CoinGecko gagal
     shortlist = get_shortlist(set(binance_futures) if binance_futures else None)
@@ -386,10 +386,14 @@ def main():
         print(f"ALERT: {p['symbol']} +{p['pct']}%")
         send_telegram(format_alert(p))
 
-    if new_alerts or outcomes_changed:
-        save_history(history)
-    else:
-        print("Gak ada alert baru & gak ada outcome yang ke-update.")
+    # heartbeat — selalu di-update tiap run (walau gak ada alert/outcome baru) biar dashboard
+    # bisa nunjukin "terakhir scan: X menit lalu" = bukti sistem masih hidup.
+    history["last_scan"] = {
+        "time": now.isoformat(timespec="seconds"),
+        "shortlist_count": len(shortlist),
+        "confirmed_count": len(new_alerts),
+    }
+    save_history(history)
 
 
 if __name__ == "__main__":
