@@ -49,10 +49,12 @@ WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu de
 SHORTLIST_PCT = PUMP_THRESHOLD_PCT / 2  # prefilter 24h buat batesin jumlah kline call
 MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume 24h min (USDT) — filter coin gak likuid
 COOLDOWN_MINUTES = float(os.environ.get("COOLDOWN_MINUTES", "180"))  # jeda sebelum simbol yg sama boleh alert lagi
-MAX_SHORTLIST = 60  # cap jumlah kline call per run, jaga-jaga market lagi liar
+MAX_SHORTLIST = 30  # cap jumlah kline call per run — dijaga kecil biar durasi run stabil < 1 menit (scan tiap 2 menit)
 SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
 CONFIRM_RETRACE_PCT = float(os.environ.get("CONFIRM_RETRACE_PCT", "1.0"))  # min retrace dari swing high sebelum alert (konfirmasi reversal)
+MAX_TRACK_PER_RUN = 15  # cap jumlah alert lama yang di-cek outcome-nya per run (biar durasi run stabil)
+REQUEST_SLEEP = 0.08  # jeda antar API call (turun dari 0.15 biar run lebih cepet)
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
@@ -192,6 +194,19 @@ def _btc_hint(btc_pct):
     return "🎯 isolated (BTC datar/turun, sinyal lebih kuat)"
 
 
+def _is_confirmed(stats, btc_pct):
+    """Confluence semua sinyal reversal — biar alert lebih SELEKTIF (jarang tapi kualitas
+    lebih tinggi), bukan langsung nembak begitu pct nyentuh threshold. Tetep BUKAN jaminan
+    pasti — cuma nurunin peluang alert di tengah pump yang masih ngegas."""
+    if not (stats["last_red"] and stats["retrace_pct"] >= CONFIRM_RETRACE_PCT):
+        return False  # belum ada tanda reversal
+    if stats["vol_ratio"] is None or stats["vol_ratio"] >= 0.6:
+        return False  # volume belum keliatan melemah
+    if btc_pct is not None and btc_pct >= 1.5:
+        return False  # market-wide, bukan isolated
+    return True
+
+
 def calc_setup(swing_high, swing_low):
     """SL + TP1-3. BUKAN SMC — cuma swing high/low + Fibonacci retracement (38.2/61.8/100%)."""
     sl = swing_high * (1 + SL_BUFFER_PCT / 100)
@@ -288,17 +303,21 @@ def _resolve_outcome(alert, start_ms):
 
 
 def track_outcomes(history, now):
-    """Update outcome alert lama yang belum resolved. Return True kalau ada perubahan."""
+    """Update outcome alert lama yang belum resolved. Dibatesin MAX_TRACK_PER_RUN per run
+    (yang paling lama nunggu duluan) biar durasi run stabil — sisanya kekejar run berikutnya
+    (2 menit lagi, bukan nunggu lama). Return True kalau ada perubahan."""
+    pending = [
+        a for a in history["alerts"]
+        if not a.get("outcome") and "sl" in a
+        and (now - datetime.fromisoformat(a["time"])).total_seconds() / 3600 >= 0.1
+    ]
+    pending.sort(key=lambda a: a["time"])  # paling lama nunggu duluan
     changed = False
-    for a in history["alerts"]:
-        if a.get("outcome") or "sl" not in a:
-            continue
+    for a in pending[:MAX_TRACK_PER_RUN]:
         alert_time = datetime.fromisoformat(a["time"])
         age_hours = (now - alert_time).total_seconds() / 3600
-        if age_hours < 0.1:
-            continue
         outcome = _resolve_outcome(a, int(alert_time.timestamp() * 1000))
-        time.sleep(0.15)
+        time.sleep(REQUEST_SLEEP)
         if outcome:
             a["outcome"] = outcome
             a["outcome_time"] = now.isoformat(timespec="seconds")
@@ -329,12 +348,12 @@ def main():
         except Exception as e:
             print(f"warn: kline {s['symbol']} gagal ({e}), skip")
             continue
-        time.sleep(0.15)
+        time.sleep(REQUEST_SLEEP)
         if stats is None:
             continue
         if stats["pct"] >= PUMP_THRESHOLD_PCT:
-            if not (stats["last_red"] and stats["retrace_pct"] >= CONFIRM_RETRACE_PCT):
-                continue  # belum ada tanda reversal, tunggu run berikutnya
+            if not _is_confirmed(stats, btc_pct):
+                continue  # belum confluence semua sinyal, tunggu run berikutnya
             setup = calc_setup(stats["swing_high"], stats["swing_low"])
             pumps.append({
                 "symbol": s["symbol"],

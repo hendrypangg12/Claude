@@ -4,7 +4,7 @@ name: Crypto Pump Alert
 # deteksi kenaikan >= threshold dalam WINDOW_MINUTES terakhir, kirim alert ke Telegram.
 # Gratis. Lihat crypto-alert/README.md buat setup.
 #
-# Jadwal PRESISI (tiap 5 menit) dipicu dari LUAR (cron-job.org → workflow_dispatch),
+# Jadwal PRESISI (tiap 2 menit) dipicu dari LUAR (cron-job.org → workflow_dispatch),
 # karena cron bawaan GitHub gak reliable buat interval sesering ini (suka di-throttle
 # jadi ~1x/jam). Schedule cron di bawah cuma fallback/safety-net (1x/jam) kalau-kalau
 # trigger eksternalnya mati.
