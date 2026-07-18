@@ -3,14 +3,17 @@ Crypto pump scanner — deteksi pair USDT di MEXC yang naik >= PUMP_THRESHOLD_PC
 dalam WINDOW_MINUTES terakhir, lalu kirim alert ke Telegram (lengkap sama entry,
 SL, TP1-3, kategori risiko, korelasi BTC, tren volume). 100% gratis (no API key).
 
-Pakai MEXC (bukan Binance) karena Binance nge-block IP dari lokasi yang
-"restricted" (termasuk banyak infra cloud kayak GitHub Actions) — lihat
+Harga/kline dari MEXC (Binance ke-block 451 dari lokasi ini, termasuk banyak
+infra cloud kayak GitHub Actions) — tapi filter "bisa di-short apa enggak" &
+funding rate dari BINANCE FUTURES ASLI (via CoinGecko derivatives, gak
+ke-block) — soalnya user tradingnya di Binance, bukan MEXC, dan listing MEXC
+jauh lebih permisif (banyak micin coin yang gak ada di Binance). Lihat
 crypto-alert/README.md.
 
 Cara kerja (2 tahap biar hemat API call):
-  1. Satu bulk call /ticker/24hr (semua pair) → shortlist coin yang 24h-nya
-     udah lumayan naik (>= threshold/2), likuid, DAN ada kontrak Futures-nya
-     (biar cuma alert coin yang beneran bisa di-short).
+  1. Satu bulk call /ticker/24hr MEXC (semua pair) → shortlist coin yang
+     24h-nya udah lumayan naik (>= threshold/2), likuid, DAN beneran ada
+     kontrak perpetual-nya di Binance Futures.
   2. Buat tiap shortlist, ambil kline 1 menit → hitung persis kenaikan
      trailing WINDOW_MINUTES, filter >= threshold beneran.
 
@@ -36,8 +39,8 @@ from pathlib import Path
 
 import requests
 
-BASE = "https://api.mexc.com"
-BASE_FUT = "https://contract.mexc.com"
+BASE = "https://api.mexc.com"  # sumber harga/kline (Binance ke-block 451 dari lokasi ini)
+COINGECKO = "https://api.coingecko.com/api/v3"  # sumber listing + funding rate Binance Futures ASLI (gak ke-block)
 HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
@@ -68,23 +71,33 @@ def save_history(history):
     HISTORY_PATH.write_text(json.dumps(history, indent=2, ensure_ascii=False))
 
 
-def get_futures_symbols():
-    """Bulk daftar kontrak Futures MEXC (1 call) → cuma alert coin yang beneran bisa di-short."""
+def get_binance_futures():
+    """Daftar kontrak perpetual USDT-M Binance Futures ASLI + funding rate-nya, 1 bulk call
+    lewat CoinGecko (Binance API sendiri ke-block 451 dari lokasi ini). Ini yang dipake buat
+    filter "coin ini bisa di-short di Binance Futures apa enggak" — bukan MEXC — soalnya user
+    tradingnya di Binance, dan listing MEXC jauh lebih permisif/beda dari Binance.
+    Return dict {symbol: funding_rate_pct} atau None kalau gagal total."""
     try:
-        r = requests.get(f"{BASE_FUT}/api/v1/contract/detail", timeout=20)
+        r = requests.get(
+            f"{COINGECKO}/derivatives/exchanges/binance_futures",
+            params={"include_tickers": "all"},
+            timeout=20,
+        )
         r.raise_for_status()
-        data = r.json()
-        if not data.get("success"):
-            return None
-        return {c["symbol"].replace("_", "") for c in data["data"] if c.get("state") == 0}
+        tickers = r.json().get("tickers", [])
+        out = {}
+        for t in tickers:
+            if t.get("contract_type") == "perpetual" and t.get("target") == "USDT":
+                out[t["symbol"]] = t.get("funding_rate")
+        return out if out else None
     except Exception as e:
-        print(f"warn: ambil daftar Futures gagal ({e}), skip filter futures")
+        print(f"warn: ambil daftar Binance Futures gagal ({e}), skip filter futures")
         return None
 
 
 def get_shortlist(futures_symbols):
     """Bulk 24hr ticker (1 call, semua pair) → shortlist USDT pair likuid, lagi naik,
-    DAN ada kontrak Futures-nya (biar cuma alert coin yang beneran bisa di-short)."""
+    DAN ada di Binance Futures (biar cuma alert coin yang beneran bisa di-short di sana)."""
     r = requests.get(f"{BASE}/api/v3/ticker/24hr", timeout=20)
     r.raise_for_status()
     out = []
@@ -104,24 +117,6 @@ def get_shortlist(futures_symbols):
         out.append({"symbol": sym, "pct24": pct24, "quote_volume": quote_vol})
     out.sort(key=lambda x: -x["pct24"])
     return out[:MAX_SHORTLIST]
-
-
-def get_funding_rate(symbol):
-    """Funding rate futures (proxy MEXC — Binance Futures ikut ke-block 451 di lokasi ini,
-    tapi funding rate biasanya deket-deketan antar exchange buat pair yang sama)."""
-    if not symbol.endswith("USDT"):
-        return None
-    fut_symbol = symbol[: -len("USDT")] + "_USDT"
-    try:
-        r = requests.get(f"{BASE_FUT}/api/v1/contract/funding_rate/{fut_symbol}", timeout=10)
-        r.raise_for_status()
-        data = r.json()
-        if not data.get("success"):
-            return None
-        return float(data["data"]["fundingRate"]) * 100  # jadi persen
-    except Exception as e:
-        print(f"warn: funding rate {symbol} gagal ({e}), skip")
-        return None
 
 
 def _funding_hint(fr):
@@ -223,7 +218,7 @@ def _fmt_price(p):
 
 
 def format_alert(p):
-    url = f"https://www.mexc.com/exchange/{p['symbol'].replace('USDT', '_USDT')}"
+    url = f"https://www.binance.com/en/futures/{p['symbol']}"
     lines = [
         "🚀 <b>PUMP ALERT</b>",
         f"<b>{p['symbol']}</b>  +{p['pct']}% ({WINDOW_MINUTES} menit terakhir)",
@@ -321,9 +316,9 @@ def main():
 
     outcomes_changed = track_outcomes(history, now)
 
-    futures_symbols = get_futures_symbols()
-    shortlist = get_shortlist(futures_symbols)
-    print(f"Shortlist {len(shortlist)} coin (24h >= {SHORTLIST_PCT:.1f}% & likuid & ada di Futures) dari MEXC.")
+    binance_futures = get_binance_futures()  # {symbol: funding_rate}, None kalau CoinGecko gagal
+    shortlist = get_shortlist(set(binance_futures) if binance_futures else None)
+    print(f"Shortlist {len(shortlist)} coin (24h >= {SHORTLIST_PCT:.1f}% & likuid & ada di Binance Futures) dari MEXC.")
 
     btc_pct = get_btc_pct()
 
@@ -363,7 +358,7 @@ def main():
             elapsed_min = (now - datetime.fromisoformat(last)).total_seconds() / 60
             if elapsed_min < COOLDOWN_MINUTES:
                 continue
-        p["funding_rate"] = get_funding_rate(p["symbol"])
+        p["funding_rate"] = binance_futures.get(p["symbol"]) if binance_futures else None
         new_alerts.append(p)
         history["last_alert"][p["symbol"]] = now.isoformat(timespec="seconds")
         history["alerts"].append({**p, "time": now.isoformat(timespec="seconds"), "outcome": None})
