@@ -276,6 +276,9 @@ def _resolve_outcome(alert, start_ms):
     except Exception as e:
         print(f"warn: track {alert['symbol']} gagal ({e})")
         return None
+    # MEXC kadang balikin beberapa candle SEBELUM start_ms walau udah dikasih startTime —
+    # filter manual, soalnya TP3 = swing low sebelum pump, candle lama pasti "kesentuh" TP3.
+    kl = [c for c in kl if c[0] >= start_ms]
     for c in kl:
         high, low = float(c[2]), float(c[3])
         if high >= alert["sl"]:
