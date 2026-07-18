@@ -22,6 +22,7 @@ from pathlib import Path
 import requests
 
 BASE = "https://api.mexc.com"
+BASE_FUT = "https://contract.mexc.com"
 HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
@@ -69,6 +70,34 @@ def get_shortlist():
     return out[:MAX_SHORTLIST]
 
 
+def get_funding_rate(symbol):
+    """Funding rate futures (proxy MEXC — Binance Futures ikut ke-block 451 di lokasi ini,
+    tapi funding rate biasanya deket-deketan antar exchange buat pair yang sama)."""
+    if not symbol.endswith("USDT"):
+        return None
+    fut_symbol = symbol[: -len("USDT")] + "_USDT"
+    try:
+        r = requests.get(f"{BASE_FUT}/api/v1/contract/funding_rate/{fut_symbol}", timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        if not data.get("success"):
+            return None
+        return float(data["data"]["fundingRate"]) * 100  # jadi persen
+    except Exception as e:
+        print(f"warn: funding rate {symbol} gagal ({e}), skip")
+        return None
+
+
+def _funding_hint(fr):
+    if fr is None:
+        return None
+    if fr >= 0.05:
+        return "🔥 long crowded — sinyal short lebih valid"
+    if fr <= -0.02:
+        return "⚠️ short crowded — hati-hati short squeeze"
+    return "netral"
+
+
 def get_1h_change(symbol):
     """Kline 1 menit x60 → pct kenaikan trailing 1 jam yang sebenernya."""
     r = requests.get(
@@ -95,13 +124,20 @@ def _fmt_price(p):
 
 def format_alert(p):
     url = f"https://www.mexc.com/exchange/{p['symbol'].replace('USDT', '_USDT')}"
-    return (
-        f"🚀 <b>PUMP ALERT</b>\n"
-        f"<b>{p['symbol']}</b>  +{p['pct']}% (1 jam terakhir)\n"
-        f"Harga: {_fmt_price(p['price'])}\n"
-        f"Volume 24h: ${p['quote_volume']:,.0f}\n"
-        f"🔗 {url}"
-    )
+    lines = [
+        "🚀 <b>PUMP ALERT</b>",
+        f"<b>{p['symbol']}</b>  +{p['pct']}% (1 jam terakhir)",
+        f"Harga: {_fmt_price(p['price'])}",
+        f"Volume 24h: ${p['quote_volume']:,.0f}",
+    ]
+    fr = p.get("funding_rate")
+    if fr is not None:
+        hint = _funding_hint(fr)
+        lines.append(f"Funding rate: {fr:+.4f}% ({hint})")
+    else:
+        lines.append("Funding rate: gak ada kontrak futures / gagal ambil")
+    lines.append(f"🔗 {url}")
+    return "\n".join(lines)
 
 
 def send_telegram(text):
@@ -148,6 +184,7 @@ def main():
             elapsed_min = (now - datetime.fromisoformat(last)).total_seconds() / 60
             if elapsed_min < COOLDOWN_MINUTES:
                 continue
+        p["funding_rate"] = get_funding_rate(p["symbol"])
         new_alerts.append(p)
         history["last_alert"][p["symbol"]] = now.isoformat(timespec="seconds")
         history["alerts"].append({**p, "time": now.isoformat(timespec="seconds")})
