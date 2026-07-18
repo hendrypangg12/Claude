@@ -120,6 +120,8 @@ async function load(){
       const fr = (a.funding_rate === null || a.funding_rate === undefined) ? "-" : a.funding_rate.toFixed(4) + "%";
       const vr = (a.vol_ratio === null || a.vol_ratio === undefined) ? "-" : (a.vol_ratio < 0.6 ? "📉 melemah" : a.vol_ratio > 1.3 ? "📈 naik" : "netral");
       const btc = (a.btc_pct === null || a.btc_pct === undefined) ? "-" : (a.btc_pct.toFixed(2) + "% " + (a.btc_pct >= 1.5 ? "🌊" : "🎯"));
+      const wick = (a.wick_ratio === null || a.wick_ratio === undefined) ? "-" : (a.wick_ratio >= 0.5 ? "🔻 kuat" : a.wick_ratio >= 0.25 ? "sedang" : "tipis");
+      const ob = (a.orderbook_ratio === null || a.orderbook_ratio === undefined) ? "-" : (a.orderbook_ratio.toFixed(2) + "x " + (a.orderbook_ratio >= 1.5 ? "🧱 jual" : a.orderbook_ratio <= 0.67 ? "🛒 beli" : ""));
       return `<div class="card">
         <div class="row"><span class="sym">${a.symbol}</span><span class="pct">+${a.pct}%</span></div>
         <div class="risk ${riskClass(a.risk)}">${a.risk || ""}</div>${outcomeBadge(a.outcome)}
@@ -132,6 +134,8 @@ async function load(){
           <div><b>Funding</b> ${fr}</div>
           <div><b>Volume trend</b> ${vr}</div>
           <div><b>BTC</b> ${btc}</div>
+          <div><b>Wick rejection</b> ${wick}</div>
+          <div><b>Order book</b> ${ob}</div>
         </div>
         <div class="foot">${jam(a.time)} · Vol 24h $${Number(a.quote_volume).toLocaleString("en-US",{maximumFractionDigits:0})} · <a href="${url}" target="_blank">MEXC ↗</a></div>
       </div>`;
