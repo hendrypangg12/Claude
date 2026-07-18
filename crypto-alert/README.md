@@ -1,0 +1,43 @@
+# Crypto Pump Alert
+
+Scan semua pair USDT di Binance tiap beberapa menit, deteksi kenaikan harga
+**>= 10% dalam 1 jam terakhir**, kirim alert ke Telegram. 100% gratis (no
+API key buat Binance, Telegram Bot API gratis).
+
+Whale/on-chain outflow detection **belum dibikin** (butuh API berbayar kayak
+Whale Alert buat data real-time yang bagus) — nyusul kalau mau.
+
+## Cara setup Telegram
+
+1. Chat **@BotFather** di Telegram → `/newbot` → ikutin instruksi → dapet
+   **bot token** (format `123456:ABC-DEF...`).
+2. Chat bot kamu (search username-nya, klik Start / kirim pesan apa aja).
+3. Buka `https://api.telegram.org/bot<TOKEN>/getUpdates` di browser (ganti
+   `<TOKEN>`) → cari `"chat":{"id": ...}` → itu **chat ID** kamu.
+4. Set 2 GitHub Secrets di repo ini (Settings → Secrets and variables →
+   Actions): `TELEGRAM_BOT_TOKEN` dan `TELEGRAM_CHAT_ID`.
+
+Tanpa secret ini, workflow tetap jalan & nyimpen history, cuma gak kirim
+notif (log bakal bilang "Telegram belum di-set").
+
+## Jalan sendiri
+
+```bash
+cd crypto-alert
+pip install -r requirements.txt
+TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=... python pump_scanner.py
+```
+
+## Tuning (env var, opsional)
+
+- `PUMP_THRESHOLD_PCT` (default `10`) — ambang % kenaikan 1 jam buat trigger.
+- `MIN_QUOTE_VOLUME` (default `200000`) — filter volume 1h minimum (USDT),
+  biar gak alert coin gak likuid yang % swing-nya gampang liar.
+- `COOLDOWN_MINUTES` (default `180`) — jeda minimum sebelum simbol yang sama
+  boleh alert lagi.
+
+## File
+
+- `pump_scanner.py` — logic scan + alert.
+- `history.json` — state cooldown + log alert (di-commit otomatis tiap ada
+  alert baru, biar gak spam & ada riwayat).
