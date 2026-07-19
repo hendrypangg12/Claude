@@ -45,6 +45,7 @@ BASE = "https://api.mexc.com"  # sumber harga/kline (Binance ke-block 451 dari l
 COINGECKO = "https://api.coingecko.com/api/v3"  # sumber listing + funding rate Binance Futures ASLI (gak ke-block)
 HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
+POSITIONS_PATH = HERE / "positions.json"
 
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
@@ -81,6 +82,16 @@ def load_history():
 def save_history(history):
     history["alerts"] = history["alerts"][-500:]
     HISTORY_PATH.write_text(json.dumps(history, indent=2, ensure_ascii=False))
+
+
+def load_positions():
+    if POSITIONS_PATH.exists():
+        return json.loads(POSITIONS_PATH.read_text())
+    return {"positions": []}
+
+
+def save_positions(data):
+    POSITIONS_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False))
 
 
 def get_binance_futures():
@@ -518,11 +529,88 @@ def track_outcomes(history, now):
     return changed
 
 
+def _rsi_zone(rsi):
+    if rsi is None:
+        return None
+    if rsi >= 70:
+        return "overbought"
+    if rsi <= 30:
+        return "oversold"
+    return "neutral"
+
+
+def monitor_positions(positions, now):
+    """Mantau posisi yang UDAH DIBUKA MANUAL (bukan dari alert kita) — beda dari pump_scanner
+    yang nyari sinyal BARU, ini ngikutin posisi yang lagi jalan & push notif CUMA pas ada
+    PERUBAHAN kondisi (bukan spam tiap 2 menit): SL/liq kena, TP kena, RSI pindah zona,
+    atau deket likuidasi. Posisi ditambah/dihapus manual di positions.json."""
+    changed = False
+    for pos in positions.get("positions", []):
+        if pos.get("status") != "open":
+            continue
+        try:
+            stats = get_window_stats(pos["symbol"])
+        except Exception as e:
+            print(f"warn: monitor {pos['symbol']} gagal ({e})")
+            continue
+        if stats is None:
+            continue
+        price = stats["price"]
+        is_short = pos.get("side", "short") == "short"
+        msgs = []
+
+        sl_ref = pos.get("sl") or pos.get("liq_price")
+        if sl_ref and ((is_short and price >= sl_ref) or (not is_short and price <= sl_ref)):
+            msgs.append(f"🔴 <b>{pos['symbol']}</b>: harga ({_fmt_price(price)}) udah nembus SL/liq ({_fmt_price(sl_ref)})! Kemungkinan posisi kena stop/liquidated.")
+            pos["status"] = "closed"
+            pos["closed_reason"] = "sl_or_liq_hit"
+
+        for i, tp in enumerate(pos.get("tp") or []):
+            hit_key = f"tp{i+1}_hit"
+            if pos.get(hit_key):
+                continue
+            if (is_short and price <= tp) or (not is_short and price >= tp):
+                msgs.append(f"✅ <b>{pos['symbol']}</b>: harga nyampe TP{i+1} ({_fmt_price(tp)}) — pertimbangin profit-taking sebagian.")
+                pos[hit_key] = True
+                changed = True
+
+        zone = _rsi_zone(stats["rsi"])
+        if zone is not None and zone != pos.get("last_rsi_zone"):
+            hint = ""
+            if is_short and zone == "oversold":
+                hint = " ⚠️ oversold — rawan mantul ngelawan posisi short kamu, pertimbangin amanin profit / geser SL ke breakeven."
+            elif is_short and zone == "overbought":
+                hint = " — momentum long masih/makin kuat, cukup mendukung posisi short."
+            msgs.append(f"📊 <b>{pos['symbol']}</b>: RSI masuk zona <b>{zone}</b> ({stats['rsi']:.0f}){hint}")
+            pos["last_rsi_zone"] = zone
+            changed = True
+
+        if pos.get("liq_price") and pos["status"] == "open":
+            dist = abs(pos["liq_price"] - price) / price * 100
+            if dist < 5 and not pos.get("liq_warned"):
+                msgs.append(f"🚨 <b>{pos['symbol']}</b>: DEKET LIKUIDASI, tinggal {dist:.1f}%! Harga sekarang {_fmt_price(price)}, liq di {_fmt_price(pos['liq_price'])}.")
+                pos["liq_warned"] = True
+                changed = True
+
+        for m in msgs:
+            print(f"POSITION UPDATE: {pos['symbol']} — {m[:60]}...")
+            send_telegram(m)
+        if msgs:
+            changed = True
+        if pos["status"] == "closed":
+            changed = True
+    return changed
+
+
 def main():
     history = load_history()
     now = datetime.now(timezone.utc)
 
     track_outcomes(history, now)
+
+    positions = load_positions()
+    if monitor_positions(positions, now):
+        save_positions(positions)
 
     binance_futures = get_binance_futures()  # {symbol: funding_rate}, None kalau CoinGecko gagal
     shortlist = get_shortlist(set(binance_futures) if binance_futures else None)

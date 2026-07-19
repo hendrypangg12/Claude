@@ -42,19 +42,32 @@
     padding:10px 14px;margin-bottom:14px}
   .chip{display:inline-block;background:#1a2030;border:1px solid var(--line);border-radius:6px;
     padding:2px 7px;margin:2px;font-size:11px;color:var(--txt)}
+  .postitle{font-size:15px;font-weight:700;margin:16px 0 8px}
+  .poscard{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:14px}
+  .poscard.closed{opacity:.55}
+  .side{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px}
+  .side.short{background:#3a1414;color:var(--bad)} .side.long{background:#12281a;color:var(--ok)}
+  .liqbar{height:6px;border-radius:4px;background:#242a35;margin:8px 0;overflow:hidden}
+  .liqbar .fill{height:100%;border-radius:4px}
+  .zone{font-size:11px;font-weight:600;padding:2px 7px;border-radius:6px;display:inline-block}
+  .zone.overbought{background:#3a1414;color:var(--bad)}
+  .zone.oversold{background:#12281a;color:var(--ok)}
+  .zone.neutral{background:#242a35;color:var(--mut)}
 </style>
 </head>
 <body>
   <h1>🚀 Crypto Pump Alert</h1>
   <div class="sub" id="clock">Riwayat alert pump ≥ threshold (short candidate). Scan tiap 2 menit.</div>
-  <div class="bar"><button onclick="load()">🔄 Refresh</button></div>
+  <div class="bar"><button onclick="load();loadPositions()">🔄 Refresh</button></div>
   <div id="heartbeat"></div>
+  <div id="positions"></div>
   <div class="stats" id="stats"></div>
   <div id="out"><div class="empty">Loading...</div></div>
   <div class="note">SL/TP dari swing high/low + Fibonacci retracement, BUKAN Smart Money Concept (SMC) beneran, dan BUKAN saran finansial. Selalu pake risk management sendiri.</div>
 
 <script>
 const RAW = "https://raw.githubusercontent.com/hendrypangg12/Claude/claude/halo-bYUsl/crypto-alert/history.json";
+const RAW_POSITIONS = "https://raw.githubusercontent.com/hendrypangg12/Claude/claude/halo-bYUsl/crypto-alert/positions.json";
 
 function jam(iso){ return new Date(iso).toLocaleString("id-ID",{timeZone:"Asia/Jakarta",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+" WIB"; }
 function fmtPrice(p){ p = Number(p); let s = p < 1 ? p.toFixed(8) : p.toLocaleString("en-US",{maximumFractionDigits:4}); return s.replace(/0+$/,"").replace(/\.$/,""); }
@@ -110,6 +123,66 @@ function renderStats(alerts){
     <div class="stat"><b>${alerts.length}</b><span>Total Alert</span></div>
     <div class="stat"><b>${resolved}</b><span>Resolved</span></div>
     <div class="stat"><b style="color:${resolved?'var(--ok)':'var(--mut)'}">${winRate}</b><span>Win Rate</span></div>`;
+}
+
+async function loadPositions(){
+  const el = document.getElementById("positions");
+  try{
+    const res = await fetch(RAW_POSITIONS + "?t=" + Date.now());
+    if(res.status === 404){ el.innerHTML = ""; return; }
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    const positions = data.positions || [];
+    if(!positions.length){ el.innerHTML = ""; return; }
+    const prices = {};
+    await Promise.all(positions.map(async p => {
+      try{
+        const r = await fetch(`https://api.mexc.com/api/v3/ticker/price?symbol=${p.symbol}`);
+        if(r.ok){ const d = await r.json(); prices[p.symbol] = parseFloat(d.price); }
+      }catch(e){ /* biarin, tampil "-" */ }
+    }));
+    el.innerHTML = '<div class="postitle">📍 Posisi Dipantau (manual)</div>' + positions.map(p => {
+      const price = prices[p.symbol];
+      const isShort = (p.side || "short") === "short";
+      const lev = p.leverage || 1;
+      let pnlHtml = "-";
+      if(price){
+        const rawPct = isShort ? (p.entry - price) / p.entry * 100 : (price - p.entry) / p.entry * 100;
+        const pnlPct = rawPct * lev;
+        pnlHtml = `<span style="color:${pnlPct >= 0 ? 'var(--ok)' : 'var(--bad)'};font-weight:700">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(1)}%</span> <span style="color:var(--mut);font-size:11px">(${lev}x)</span>`;
+      }
+      let liqHtml = "";
+      if(p.liq_price && price){
+        const dist = Math.abs(p.liq_price - price) / price * 100;
+        const fillPct = Math.max(4, Math.min(100, 100 - dist * 4));
+        const color = dist < 5 ? "var(--bad)" : dist < 15 ? "var(--warn)" : "var(--ok)";
+        liqHtml = `<div style="font-size:12px;color:var(--mut);margin-top:6px">Jarak ke likuidasi: <b style="color:${color}">${dist.toFixed(1)}%</b> (liq ${fmtPrice(p.liq_price)})</div>
+          <div class="liqbar"><div class="fill" style="width:${fillPct}%;background:${color}"></div></div>`;
+      }
+      const zoneHtml = p.last_rsi_zone ? `<span class="zone ${p.last_rsi_zone}">RSI ${p.last_rsi_zone}</span>` : "";
+      const tpHtml = (p.tp || []).map((tp, i) => {
+        const hit = p[`tp${i+1}_hit`];
+        return `<div><b>TP${i+1}</b> ${fmtPrice(tp)}${hit ? " ✅" : ""}</div>`;
+      }).join("");
+      const statusHtml = p.status === "closed"
+        ? `<span class="outcome loss" style="margin-left:0">🔴 Closed${p.closed_reason ? " (" + p.closed_reason + ")" : ""}</span>`
+        : `<span class="outcome win" style="margin-left:0">🟢 Open</span>`;
+      return `<div class="poscard ${p.status === 'closed' ? 'closed' : ''}">
+        <div class="row"><span class="sym">${p.symbol}<span class="side ${isShort ? 'short' : 'long'}">${isShort ? 'SHORT' : 'LONG'}</span></span>${pnlHtml}</div>
+        <div style="margin-bottom:6px">${statusHtml} ${zoneHtml}</div>
+        <div class="grid">
+          <div><b>Entry</b> ${fmtPrice(p.entry)}</div>
+          <div><b>Sekarang</b> ${price ? fmtPrice(price) : "-"}</div>
+          ${p.sl ? `<div><b>SL</b> ${fmtPrice(p.sl)}</div>` : ""}
+          ${tpHtml}
+        </div>
+        ${liqHtml}
+        ${p.notes ? `<div class="foot">${p.notes}</div>` : ""}
+      </div>`;
+    }).join("");
+  }catch(e){
+    el.innerHTML = "";
+  }
 }
 
 async function load(){
@@ -168,7 +241,9 @@ async function load(){
   }
 }
 load();
+loadPositions();
 setInterval(load, 60000);
+setInterval(loadPositions, 60000);
 </script>
 </body>
 </html>
