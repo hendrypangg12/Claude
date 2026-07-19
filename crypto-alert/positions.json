@@ -11,8 +11,8 @@
       "tp": [],
       "opened_at": "2026-07-19T19:20:00+07:00",
       "status": "open",
-      "last_rsi_zone": null,
-      "liq_warned": false,
+      "last_rsi_zone": "neutral",
+      "liq_warned": true,
       "notes": "Entry manual, bukan dari alert sistem"
     }
   ]
