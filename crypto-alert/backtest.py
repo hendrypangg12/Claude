@@ -23,7 +23,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 from pump_scanner import (  # noqa: E402
-    BASE, WINDOW_MINUTES, PUMP_THRESHOLD_PCT, COOLDOWN_MINUTES, EXPIRE_HOURS,
+    BASE, WINDOW_MINUTES, PUMP_THRESHOLD_PCT, MAX_PUMP_PCT, COOLDOWN_MINUTES, EXPIRE_HOURS,
     MIN_QUOTE_VOLUME, _LEVERAGED_RE, _compute_stats, _is_confirmed, calc_setup,
     risk_category, get_binance_futures,
 )
@@ -141,7 +141,7 @@ def simulate_symbol(symbol, klines, btc_pct_map):
         i += STEP_MINUTES
         if stats is None:
             continue
-        if stats["peak_pct"] < PUMP_THRESHOLD_PCT:
+        if not (PUMP_THRESHOLD_PCT <= stats["peak_pct"] <= MAX_PUMP_PCT):
             continue
         btc_pct = btc_pct_map.get(window[-1][0])
         if not _is_confirmed(stats, btc_pct):
