@@ -4,7 +4,7 @@
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-18T19:26:39+00:00",
     "AKEUSDT": "2026-07-18T20:10:46+00:00",
-    "BANKUSDT": "2026-07-18T20:34:32+00:00",
+    "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00"
   },
   "alerts": [
@@ -119,11 +119,30 @@
       "time": "2026-07-18T20:58:31+00:00",
       "outcome": "tp3_hit",
       "outcome_time": "2026-07-18T21:04:34+00:00"
+    },
+    {
+      "symbol": "BANKUSDT",
+      "pct": 17.57,
+      "price": 0.10572,
+      "quote_volume": 656924.37998,
+      "risk": "🟡 MEDIUM RISK",
+      "vol_ratio": 0.5592882145971886,
+      "retrace_pct": 4.842484248424851,
+      "wick_ratio": 0.0,
+      "btc_pct": 0.022233338034061002,
+      "sl": 0.112211,
+      "tp1": 0.1047588,
+      "tp2": 0.1008412,
+      "tp3": 0.0945,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.747648512858658,
+      "time": "2026-07-19T02:52:39+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T02:50:44+00:00",
-    "shortlist_count": 13,
-    "confirmed_count": 0
+    "time": "2026-07-19T02:52:39+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 1
   }
 }
