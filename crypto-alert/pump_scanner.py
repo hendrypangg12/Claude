@@ -135,22 +135,32 @@ def _funding_hint(fr):
     return "netral"
 
 
-def _calc_rsi(closes, period=14):
-    """RSI standar (Wilder's smoothing). None kalau data kurang."""
-    if len(closes) < period + 1:
-        return None
-    changes = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
+def _rsi_series(closes, period=14):
+    """RSI (Wilder's smoothing) di TIAP titik yang punya cukup data — bukan cuma 1 angka
+    terakhir. series[i] = RSI pake closes[0..i], None kalau candle ke-i belum cukup histori.
+    Dibikin rolling (dihitung sekali) biar bisa dipake buat divergence (perlu RSI di beberapa
+    titik buat dibandingin), bukan cuma snapshot titik terakhir."""
+    n = len(closes)
+    series = [None] * n
+    if n < period + 1:
+        return series
+    changes = [closes[i] - closes[i - 1] for i in range(1, n)]
     gains = [max(c, 0) for c in changes]
     losses = [max(-c, 0) for c in changes]
     avg_gain = sum(gains[:period]) / period
     avg_loss = sum(losses[:period]) / period
+    series[period] = 100.0 if avg_loss == 0 else 100 - (100 / (1 + avg_gain / avg_loss))
     for i in range(period, len(changes)):
         avg_gain = (avg_gain * (period - 1) + gains[i]) / period
         avg_loss = (avg_loss * (period - 1) + losses[i]) / period
-    if avg_loss == 0:
-        return 100.0
-    rs = avg_gain / avg_loss
-    return 100 - (100 / (1 + rs))
+        series[i + 1] = 100.0 if avg_loss == 0 else 100 - (100 / (1 + avg_gain / avg_loss))
+    return series
+
+
+def _calc_rsi(closes, period=14):
+    """RSI terakhir (buat gate overbought). None kalau data kurang."""
+    series = _rsi_series(closes, period)
+    return series[-1] if series else None
 
 
 def _rsi_hint(rsi):
@@ -161,6 +171,26 @@ def _rsi_hint(rsi):
     if rsi <= 30:
         return "🟢 oversold"
     return "netral"
+
+
+def _detect_bearish_divergence(closes, period=14):
+    """Divergence sederhana: bandingin RSI di puncak harga paruh kedua vs paruh pertama, TAPI
+    cuma di titik-titik yang RSI-nya udah valid (window kita pendek ~30 candle, RSI(14) baru
+    valid mulai candle ke-15 — kalau dipaksa hitung ulang dari titik puncak yang kepagian,
+    hasilnya selalu None. Makanya pake rolling series, terus dibagi 2 di ANTARA titik valid
+    doang, bukan di tengah seluruh window).
+    Kalau harga bikin high LEBIH TINGGI tapi RSI-nya LEBIH RENDAH = momentum udah melemah
+    walau harga masih keliatan naik — salah satu sinyal reversal paling dipercaya di TA.
+    Return True/False/None (None kalau titik valid kurang buat dibandingin)."""
+    series = _rsi_series(closes, period)
+    valid_idx = [i for i, v in enumerate(series) if v is not None]
+    if len(valid_idx) < 6:
+        return None
+    mid = len(valid_idx) // 2
+    first_half, second_half = valid_idx[:mid], valid_idx[mid:]
+    idx1 = max(first_half, key=lambda i: closes[i])
+    idx2 = max(second_half, key=lambda i: closes[i])
+    return closes[idx2] > closes[idx1] and series[idx2] < series[idx1]
 
 
 def get_window_stats(symbol):
@@ -210,11 +240,15 @@ def get_window_stats(symbol):
 
     closes = [float(c[4]) for c in kl]
     rsi = _calc_rsi(closes)
+    divergence = _detect_bearish_divergence(closes)
+
+    avg_vol = sum(vols) / len(vols) if vols else 0
+    vol_spike = (vols[-1] / avg_vol) if avg_vol > 0 else None  # volume candle terakhir vs rata-rata window
 
     return {
         "pct": pct, "peak_pct": peak_pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct, "retrace_frac": retrace_frac,
-        "wick_ratio": wick_ratio, "rsi": rsi,
+        "wick_ratio": wick_ratio, "rsi": rsi, "divergence": divergence, "vol_spike": vol_spike,
     }
 
 
@@ -339,6 +373,11 @@ def _build_reasons(p):
     rsi = p.get("rsi")
     if rsi is not None:
         reasons.append(f"RSI(14) {rsi:.0f} — {_rsi_hint(rsi)}")
+    if p.get("divergence"):
+        reasons.append("📉 Bearish divergence — harga bikin high baru tapi RSI melemah (momentum sebenernya udah turun)")
+    vs = p.get("vol_spike")
+    if vs is not None and vs >= 1.5:
+        reasons.append(f"🔺 Volume candle reversal {vs:.1f}x rata-rata — ada keyakinan jual beneran, bukan cuma ngedrift")
     bp = p.get("btc_pct")
     if bp is not None:
         reasons.append(f"BTC cuma {bp:+.2f}% ({WINDOW_MINUTES}m) — pump ini spesifik ke coin ini, bukan ikut market")
@@ -492,6 +531,8 @@ def main():
                 "retrace_pct": stats["retrace_pct"],
                 "wick_ratio": stats["wick_ratio"],
                 "rsi": stats["rsi"],
+                "divergence": stats["divergence"],
+                "vol_spike": stats["vol_spike"],
                 "btc_pct": btc_pct,
                 **setup,
             })
