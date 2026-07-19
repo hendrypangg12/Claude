@@ -24,8 +24,8 @@ import requests
 sys.path.insert(0, os.path.dirname(__file__))
 from pump_scanner import (  # noqa: E402
     BASE, WINDOW_MINUTES, PUMP_THRESHOLD_PCT, MAX_PUMP_PCT, COOLDOWN_MINUTES, EXPIRE_HOURS,
-    MIN_QUOTE_VOLUME, _LEVERAGED_RE, _compute_stats, _is_confirmed, calc_setup,
-    risk_category, get_binance_futures,
+    MIN_QUOTE_VOLUME, _LEVERAGED_RE, SYMBOL_BLOCKLIST, _compute_stats, _is_confirmed,
+    calc_setup, risk_category, get_binance_futures,
 )
 
 BACKTEST_DAYS = float(os.environ.get("BACKTEST_DAYS", "7"))
@@ -47,7 +47,7 @@ def get_symbol_universe(n, futures_symbols):
     out = []
     for t in r.json():
         sym = t.get("symbol", "")
-        if not sym.endswith("USDT") or _LEVERAGED_RE.search(sym) or sym in _STABLECOINS:
+        if not sym.endswith("USDT") or _LEVERAGED_RE.search(sym) or sym in _STABLECOINS or sym in SYMBOL_BLOCKLIST:
             continue
         if futures_symbols is not None and sym not in futures_symbols:
             continue
