@@ -165,7 +165,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T14:06:32+00:00",
+    "time": "2026-07-19T14:08:31+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -177,14 +177,14 @@
       "BILLUSDT",
       "GUSDT",
       "AKEUSDT",
-      "TRUTHUSDT",
       "BTWUSDT",
+      "TRUTHUSDT",
       "LYNUSDT",
       "RUNEUSDT",
       "STRKUSDT",
-      "BULLAUSDT",
       "ZROUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "BULLAUSDT"
     ]
   }
 }
