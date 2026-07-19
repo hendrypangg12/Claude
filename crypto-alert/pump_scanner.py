@@ -564,6 +564,7 @@ def main():
         "time": now.isoformat(timespec="seconds"),
         "shortlist_count": len(shortlist),
         "confirmed_count": len(new_alerts),
+        "symbols": [s["symbol"] for s in shortlist],
     }
     save_history(history)
 
