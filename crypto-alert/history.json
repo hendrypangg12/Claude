@@ -184,21 +184,21 @@
       "funding_rate": 0.046,
       "orderbook_ratio": 1.7624748286564167,
       "time": "2026-07-19T17:58:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-19T19:02:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T19:00:40+00:00",
-    "shortlist_count": 7,
+    "time": "2026-07-19T19:02:30+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "TLMUSDT",
       "ESPORTSUSDT",
       "BUSDT",
       "KAITOUSDT",
-      "TRUTHUSDT",
       "HOMEUSDT",
-      "BASEDUSDT"
+      "TRUTHUSDT"
     ]
   }
 }
