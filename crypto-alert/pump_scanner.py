@@ -47,6 +47,7 @@ HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
+MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "25"))  # skip pump yang KEGEDEAN — backtest 7 hari nunjukin pump >25% hampir selalu kena SL (momentum kelewat liar), yang menang malah yang "sedang" (8-20%)
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
 SHORTLIST_PCT = PUMP_THRESHOLD_PCT / 2  # prefilter 24h buat batesin jumlah kline call
 MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume 24h min (USDT) — filter coin gak likuid
@@ -522,7 +523,7 @@ def main():
         time.sleep(REQUEST_SLEEP)
         if stats is None:
             continue
-        if stats["peak_pct"] >= PUMP_THRESHOLD_PCT:
+        if PUMP_THRESHOLD_PCT <= stats["peak_pct"] <= MAX_PUMP_PCT:
             if not _is_confirmed(stats, btc_pct):
                 continue  # belum confluence semua sinyal, tunggu run berikutnya
             setup = calc_setup(stats["swing_high"], stats["swing_low"])
