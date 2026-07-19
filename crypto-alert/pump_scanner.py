@@ -193,16 +193,10 @@ def _detect_bearish_divergence(closes, period=14):
     return closes[idx2] > closes[idx1] and series[idx2] < series[idx1]
 
 
-def get_window_stats(symbol):
-    """Kline 1 menit x WINDOW_MINUTES → pct kenaikan trailing beneran, swing high/low
-    (buat SL/TP), + rasio volume paruh kedua vs paruh pertama (buat deteksi exhaustion)."""
-    r = requests.get(
-        f"{BASE}/api/v3/klines",
-        params={"symbol": symbol, "interval": "1m", "limit": WINDOW_MINUTES + 1},
-        timeout=15,
-    )
-    r.raise_for_status()
-    kl = r.json()
+def _compute_stats(kl):
+    """Logic inti murni (gak manggil API) — dipake bareng sama get_window_stats (live) dan
+    backtest.py (data historis), biar dua-duanya SELALU konsisten (gak ada risiko out-of-sync
+    kayak bug retrace_frac 19 Juli, yang muncul gara-gara ada 2 tempat ngitung hal yang sama)."""
     if len(kl) < max(5, int(WINDOW_MINUTES * 0.9)):  # data kurang (coin baru listing dll), skip
         return None
     open_p = float(kl[0][1])
@@ -250,6 +244,17 @@ def get_window_stats(symbol):
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct, "retrace_frac": retrace_frac,
         "wick_ratio": wick_ratio, "rsi": rsi, "divergence": divergence, "vol_spike": vol_spike,
     }
+
+
+def get_window_stats(symbol):
+    """Kline 1 menit x WINDOW_MINUTES (live, dari API) → lihat _compute_stats buat logic-nya."""
+    r = requests.get(
+        f"{BASE}/api/v3/klines",
+        params={"symbol": symbol, "interval": "1m", "limit": WINDOW_MINUTES + 1},
+        timeout=15,
+    )
+    r.raise_for_status()
+    return _compute_stats(r.json())
 
 
 def _volume_hint(ratio):
