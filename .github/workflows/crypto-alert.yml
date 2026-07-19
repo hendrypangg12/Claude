@@ -21,7 +21,7 @@ on:
       pump_threshold_pct:
         description: "Ambang pump (%) buat trigger alert"
         required: false
-        default: "10"
+        default: "8"
         type: string
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          PUMP_THRESHOLD_PCT: ${{ github.event.inputs.pump_threshold_pct || '10' }}
+          PUMP_THRESHOLD_PCT: ${{ github.event.inputs.pump_threshold_pct || '8' }}
 
       - name: Commit history (heartbeat tiap run + alert baru)
         run: |
