@@ -46,7 +46,7 @@ COINGECKO = "https://api.coingecko.com/api/v3"  # sumber listing + funding rate 
 HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
-PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "10"))
+PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
 SHORTLIST_PCT = PUMP_THRESHOLD_PCT / 2  # prefilter 24h buat batesin jumlah kline call
 MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume 24h min (USDT) — filter coin gak likuid
@@ -55,8 +55,8 @@ MAX_SHORTLIST = 30  # cap jumlah kline call per run — dijaga kecil biar durasi
 SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
 CONFIRM_MIN_RETRACE_FRAC = float(os.environ.get("CONFIRM_MIN_RETRACE_FRAC", "0.05"))  # min retrace (% dari RANGE pump) — pastiin ada reversal beneran
-CONFIRM_MAX_RETRACE_FRAC = float(os.environ.get("CONFIRM_MAX_RETRACE_FRAC", "0.25"))  # max retrace — jangan sampe entry udah kelewat deket TP1 (0.382)/udah basi
-RSI_OVERBOUGHT = float(os.environ.get("RSI_OVERBOUGHT", "70"))  # syarat wajib biar alert — RSI(14) >= ini = overbought, rawan koreksi turun
+CONFIRM_MAX_RETRACE_FRAC = float(os.environ.get("CONFIRM_MAX_RETRACE_FRAC", "0.30"))  # max retrace — jangan sampe entry udah kelewat deket TP1 (0.382)/udah basi
+RSI_OVERBOUGHT = float(os.environ.get("RSI_OVERBOUGHT", "65"))  # syarat wajib biar alert — RSI(14) >= ini = overbought, rawan koreksi turun
 MAX_TRACK_PER_RUN = 15  # cap jumlah alert lama yang di-cek outcome-nya per run (biar durasi run stabil)
 REQUEST_SLEEP = 0.08  # jeda antar API call (turun dari 0.15 biar run lebih cepet)
 
