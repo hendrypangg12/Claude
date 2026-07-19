@@ -35,9 +35,13 @@
   .outcome.loss{background:#3a1414;color:var(--bad)}
   .outcome.pending{background:#242a35;color:var(--mut)}
   .heartbeat{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
-    border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:13px}
+    border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:13px}
   .heartbeat .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
   .heartbeat.ok .dot{background:var(--ok)} .heartbeat.warn .dot{background:var(--warn)} .heartbeat.bad .dot{background:var(--bad)}
+  .coinlist{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px 14px;margin-bottom:14px}
+  .chip{display:inline-block;background:#1a2030;border:1px solid var(--line);border-radius:6px;
+    padding:2px 7px;margin:2px;font-size:11px;color:var(--txt)}
 </style>
 </head>
 <body>
@@ -71,6 +75,10 @@ function outcomeBadge(o){
   const info = OUTCOME_LABEL[o] || {cls:"pending", tx:"⏳ Pending"};
   return `<span class="outcome ${info.cls}">${info.tx}</span>`;
 }
+function toggleCoinList(){
+  const el = document.getElementById("coinList");
+  if(el) el.style.display = (el.style.display === "none") ? "block" : "none";
+}
 function renderHeartbeat(lastScan){
   const el = document.getElementById("heartbeat");
   if(!lastScan || !lastScan.time){
@@ -82,8 +90,16 @@ function renderHeartbeat(lastScan){
   if(mins > 15){ cls = "bad"; label = `${mins} menit lalu — kemungkinan berhenti, cek GitHub Actions`; }
   else if(mins > 5){ cls = "warn"; label = `${mins} menit lalu`; }
   else if(mins < 1){ label = "baru aja"; }
-  el.innerHTML = `<div class="heartbeat ${cls}"><span class="dot"></span>
-    Terakhir scan: <b>${label}</b> · ${lastScan.shortlist_count ?? "?"} coin dicek</div>`;
+  const syms = lastScan.symbols || [];
+  const symsHtml = syms.length
+    ? syms.map(s => `<span class="chip">${s}</span>`).join("")
+    : '<span style="color:var(--mut);font-size:12px">Daftar belum ada — nunggu run berikutnya (fitur baru).</span>';
+  el.innerHTML = `<div class="heartbeat ${cls}" onclick="toggleCoinList()" style="cursor:pointer">
+      <span class="dot"></span>
+      <span style="flex:1">Terakhir scan: <b>${label}</b> · ${lastScan.shortlist_count ?? "?"} coin dicek</span>
+      <span style="color:var(--mut)">▾ liat daftar</span>
+    </div>
+    <div id="coinList" class="coinlist" style="display:none">${symsHtml}</div>`;
 }
 function renderStats(alerts){
   const wins = alerts.filter(a => a.outcome && a.outcome.startsWith("tp")).length;
