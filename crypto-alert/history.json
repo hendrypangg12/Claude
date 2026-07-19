@@ -188,7 +188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T18:34:29+00:00",
+    "time": "2026-07-19T18:36:30+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -197,9 +197,9 @@
       "BUSDT",
       "KAITOUSDT",
       "AKEUSDT",
-      "BASEDUSDT",
       "TRUTHUSDT",
-      "BILLUSDT"
+      "BILLUSDT",
+      "BASEDUSDT"
     ]
   }
 }
