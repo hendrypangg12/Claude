@@ -142,21 +142,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T07:42:28+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-19T07:44:34+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "BUSDT",
       "BANKUSDT",
       "BULLAUSDT",
       "ZBTUSDT",
-      "HOMEUSDT",
       "BILLUSDT",
       "ALLOUSDT",
-      "USELESSUSDT",
+      "HOMEUSDT",
       "GUSDT",
+      "USELESSUSDT",
       "TACUSDT",
-      "STRKUSDT"
+      "STRKUSDT",
+      "BTWUSDT"
     ]
   }
 }
