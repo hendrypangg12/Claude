@@ -2,7 +2,7 @@
   "last_alert": {
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
-    "BUSDT": "2026-07-18T19:26:39+00:00",
+    "BUSDT": "2026-07-19T17:58:30+00:00",
     "AKEUSDT": "2026-07-19T08:26:31+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00"
@@ -162,23 +162,46 @@
       "time": "2026-07-19T08:26:31+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-19T08:48:31+00:00"
+    },
+    {
+      "symbol": "BUSDT",
+      "pct": 10.55,
+      "price": 0.23719,
+      "quote_volume": 1048448.01064,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5418495390653736,
+      "retrace_pct": 2.298471804588706,
+      "wick_ratio": 0.37615812229771517,
+      "rsi": 67.5539570733208,
+      "divergence": true,
+      "vol_spike": 0.02604846133514001,
+      "btc_pct": -0.16579026201821553,
+      "sl": 0.24519770000000002,
+      "tp1": 0.23392288,
+      "tp2": 0.22845712,
+      "tp3": 0.21961,
+      "funding_rate": 0.046,
+      "orderbook_ratio": 1.7624748286564167,
+      "time": "2026-07-19T17:58:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T17:56:28+00:00",
+    "time": "2026-07-19T17:58:30+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
-      "ESPORTSUSDT",
       "TLMUSDT",
+      "ESPORTSUSDT",
       "BUSDT",
       "AKEUSDT",
       "KAITOUSDT",
-      "BASEDUSDT",
       "HOMEUSDT",
+      "BASEDUSDT",
       "TRUTHUSDT",
-      "ALLOUSDT",
-      "BILLUSDT"
+      "BILLUSDT",
+      "ALLOUSDT"
     ]
   }
 }
