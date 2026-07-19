@@ -3,3 +3,6 @@ TRADING_BOT_MEMORY.md
 # Python build artifacts
 __pycache__/
 *.pyc
+
+# backtest.py output — one-off local run, not part of the live system
+crypto-alert/backtest_results.json
