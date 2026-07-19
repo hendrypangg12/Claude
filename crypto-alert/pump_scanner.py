@@ -19,10 +19,10 @@ Cara kerja (2 tahap biar hemat API call):
      awal window — biar gak keburu ketutup pas harga udah retrace duluan
      buat konfirmasi), filter >= threshold beneran.
 
-Alert baru dikirim kalau udah ada TANDA REVERSAL (candle terakhir merah +
-udah retrace >= CONFIRM_RETRACE_PCT dari swing high) — bukan langsung pas
-nyentuh threshold, biar entry-nya lebih deket ke titik balik beneran,
-bukan di tengah pump yang masih ngegas.
+Alert baru dikirim kalau udah ada TANDA REVERSAL: candle terakhir merah +
+udah retrace CONFIRM_MIN_RETRACE_FRAC..CONFIRM_MAX_RETRACE_FRAC dari RANGE
+pump (bukan cuma minimal — dibatesin maksimal juga, biar gak alert pas
+harga udah kadung anjlok jauh & entry jadi gak masuk akal).
 
 Tiap run juga nge-track outcome alert LAMA (kena SL atau nyampe TP berapa)
 pake kline history sejak alert dikirim → data win-rate riil, bukan tebakan.
@@ -54,7 +54,8 @@ COOLDOWN_MINUTES = float(os.environ.get("COOLDOWN_MINUTES", "180"))  # jeda sebe
 MAX_SHORTLIST = 30  # cap jumlah kline call per run — dijaga kecil biar durasi run stabil < 1 menit (scan tiap 2 menit)
 SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
-CONFIRM_RETRACE_PCT = float(os.environ.get("CONFIRM_RETRACE_PCT", "1.0"))  # min retrace dari swing high sebelum alert (konfirmasi reversal)
+CONFIRM_MIN_RETRACE_FRAC = float(os.environ.get("CONFIRM_MIN_RETRACE_FRAC", "0.05"))  # min retrace (% dari RANGE pump) — pastiin ada reversal beneran
+CONFIRM_MAX_RETRACE_FRAC = float(os.environ.get("CONFIRM_MAX_RETRACE_FRAC", "0.25"))  # max retrace — jangan sampe entry udah kelewat deket TP1 (0.382)/udah basi
 MAX_TRACK_PER_RUN = 15  # cap jumlah alert lama yang di-cek outcome-nya per run (biar durasi run stabil)
 REQUEST_SLEEP = 0.08  # jeda antar API call (turun dari 0.15 biar run lebih cepet)
 
@@ -165,6 +166,12 @@ def get_window_stats(symbol):
     last_open, last_close = float(kl[-1][1]), float(kl[-1][4])
     last_red = last_close < last_open
     retrace_pct = (swing_high - last_p) / swing_high * 100 if swing_high > 0 else 0
+    # retrace_pct itu % dari HARGA (buat display doang) — buat gating dipake retrace_frac,
+    # % dari RANGE pump (swing_high - swing_low). Ini yang nentuin entry masih di ATAS TP1
+    # (fraksi 0.382) apa udah kelewatan (baru ketauan lewat bug 19 Juli: alert telat, entry
+    # udah di bawah TP1/TP2 duluan pas dikirim — "menang" karena udah kadung basi, bukan sinyal).
+    rng = swing_high - swing_low
+    retrace_frac = (swing_high - last_p) / rng if rng > 0 else None
 
     # candle yang bikin swing high — cek upper wick-nya (tanda ditolak di puncak)
     peak_candle = max(kl, key=lambda c: float(c[2]))
@@ -174,7 +181,7 @@ def get_window_stats(symbol):
 
     return {
         "pct": pct, "peak_pct": peak_pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
-        "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct,
+        "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct, "retrace_frac": retrace_frac,
         "wick_ratio": wick_ratio,
     }
 
@@ -245,9 +252,16 @@ def _wick_hint(wick_ratio):
 def _is_confirmed(stats, btc_pct):
     """Confluence semua sinyal reversal — biar alert lebih SELEKTIF (jarang tapi kualitas
     lebih tinggi), bukan langsung nembak begitu pct nyentuh threshold. Tetep BUKAN jaminan
-    pasti — cuma nurunin peluang alert di tengah pump yang masih ngegas."""
-    if not (stats["last_red"] and stats["retrace_pct"] >= CONFIRM_RETRACE_PCT):
+    pasti — cuma nurunin peluang alert di tengah pump yang masih ngegas.
+
+    retrace_frac DIBATASIN dua sisi (bukan cuma minimal) — kalau cuma dicek minimal, alert
+    bisa lolos pas harga UDAH kadung anjlok jauh (entry jadi di bawah TP1/TP2, "menang" cuma
+    karena telat ngirim, bukan sinyal beneran). Ketauan dari bug nyata 19 Juli."""
+    if not stats["last_red"]:
         return False  # belum ada tanda reversal
+    frac = stats["retrace_frac"]
+    if frac is None or not (CONFIRM_MIN_RETRACE_FRAC <= frac <= CONFIRM_MAX_RETRACE_FRAC):
+        return False  # belum retrace / udah retrace kelewat jauh (basi)
     if stats["vol_ratio"] is None or stats["vol_ratio"] >= 0.6:
         return False  # volume belum keliatan melemah
     if btc_pct is not None and btc_pct >= 1.5:
