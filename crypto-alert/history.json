@@ -165,10 +165,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T09:36:31+00:00",
+    "time": "2026-07-19T09:38:28+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
+      "ESPORTSUSDT",
       "BANKUSDT",
       "BUSDT",
       "BULLAUSDT",
@@ -176,13 +177,12 @@
       "BILLUSDT",
       "ZBTUSDT",
       "ALLOUSDT",
-      "LYNUSDT",
       "AKEUSDT",
+      "LYNUSDT",
       "STRKUSDT",
       "RUNEUSDT",
       "ZECUSDT",
-      "HYPEUSDT",
-      "USELESSUSDT"
+      "HYPEUSDT"
     ]
   }
 }
