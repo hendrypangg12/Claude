@@ -165,12 +165,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T15:28:29+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-19T15:30:44+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "TLMUSDT",
       "ESPORTSUSDT",
+      "TLMUSDT",
       "BUSDT",
       "AKEUSDT",
       "BILLUSDT",
@@ -178,10 +178,9 @@
       "TRUTHUSDT",
       "BTWUSDT",
       "GUSDT",
-      "BULLAUSDT",
       "RUNEUSDT",
-      "ZROUSDT",
-      "STRKUSDT"
+      "BULLAUSDT",
+      "ZROUSDT"
     ]
   }
 }
