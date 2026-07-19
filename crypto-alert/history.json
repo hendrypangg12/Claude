@@ -164,8 +164,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T08:30:38+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-19T08:32:28+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BANKUSDT",
@@ -176,12 +176,13 @@
       "BILLUSDT",
       "ALLOUSDT",
       "USELESSUSDT",
-      "BTWUSDT",
       "AKEUSDT",
+      "BTWUSDT",
+      "LYNUSDT",
       "STRKUSDT",
-      "TACUSDT",
       "RUNEUSDT",
-      "USUSDT"
+      "TACUSDT",
+      "REUSDT"
     ]
   }
 }
