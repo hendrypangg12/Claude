@@ -47,7 +47,7 @@ HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
-MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "25"))  # skip pump yang KEGEDEAN — backtest 7 hari nunjukin pump >25% hampir selalu kena SL (momentum kelewat liar), yang menang malah yang "sedang" (8-20%)
+MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
 SHORTLIST_PCT = PUMP_THRESHOLD_PCT / 2  # prefilter 24h buat batesin jumlah kline call
 MIN_QUOTE_VOLUME = float(os.environ.get("MIN_QUOTE_VOLUME", "200000"))  # volume 24h min (USDT) — filter coin gak likuid
@@ -65,6 +65,11 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 _LEVERAGED_RE = re.compile(r"(UP|DOWN|BULL|BEAR|[0-9]L|[0-9]S)USDT$")
+
+# Coin yang terbukti jelek buat strategi short-the-pump ini dari backtest (BUKAN prasangka —
+# BANKUSDT: 0 menang dari 4 kekalahan di backtest 30 hari, 20 Juli 2026). Update kalau ada
+# data lebih banyak yang mbantah/nguatin.
+SYMBOL_BLOCKLIST = {"BANKUSDT"}
 
 
 def load_history():
@@ -110,7 +115,7 @@ def get_shortlist(futures_symbols):
     out = []
     for t in r.json():
         sym = t.get("symbol", "")
-        if not sym.endswith("USDT") or _LEVERAGED_RE.search(sym):
+        if not sym.endswith("USDT") or _LEVERAGED_RE.search(sym) or sym in SYMBOL_BLOCKLIST:
             continue
         if futures_symbols is not None and sym not in futures_symbols:
             continue
@@ -363,6 +368,17 @@ def risk_category(quote_volume, pct):
     return "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')"
 
 
+def confidence_label(peak_pct):
+    """Dikalibrasi dari backtest 30 hari (71 alert, 20 Juli 2026) — BUKAN skor sembarangan.
+    RSI/volume/divergence SENGAJA gak dipake buat scoring ini: kebukti gak prediktif di data
+    yang ada (win rate hampir sama antara menang & kalah), soalnya semua alert emang udah
+    lolos filter minimum itu duluan — variasinya abis, gak ada bedanya lagi. Yang KEBUKTI
+    beda nyata cuma ukuran pump-nya (peak_pct)."""
+    if peak_pct < 12:
+        return "MEDIUM (historis ~55% win rate dari backtest, n=51)"
+    return "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)"
+
+
 def _fmt_price(p):
     s = f"{p:.8f}" if p < 1 else f"{p:,.4f}"
     return s.rstrip("0").rstrip(".")
@@ -407,6 +423,7 @@ def format_alert(p):
         "🚀 <b>PUMP ALERT</b>",
         f"<b>{p['symbol']}</b>  +{p['pct']}% ({WINDOW_MINUTES} menit terakhir)",
         f"Risiko: {p['risk']}",
+        f"Confidence: {p['confidence']}",
         "",
         "📋 <b>Alasan sinyal:</b>",
     ]
@@ -533,6 +550,7 @@ def main():
                 "price": stats["price"],
                 "quote_volume": s["quote_volume"],
                 "risk": risk_category(s["quote_volume"], stats["peak_pct"]),
+                "confidence": confidence_label(stats["peak_pct"]),
                 "vol_ratio": stats["vol_ratio"],
                 "retrace_pct": stats["retrace_pct"],
                 "wick_ratio": stats["wick_ratio"],
