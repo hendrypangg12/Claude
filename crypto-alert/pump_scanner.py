@@ -56,6 +56,7 @@ SL_BUFFER_PCT = 1.0  # buffer SL di atas swing high (%)
 EXPIRE_HOURS = float(os.environ.get("EXPIRE_HOURS", "48"))  # alert lama yang blm SL/TP dianggap expired
 CONFIRM_MIN_RETRACE_FRAC = float(os.environ.get("CONFIRM_MIN_RETRACE_FRAC", "0.05"))  # min retrace (% dari RANGE pump) — pastiin ada reversal beneran
 CONFIRM_MAX_RETRACE_FRAC = float(os.environ.get("CONFIRM_MAX_RETRACE_FRAC", "0.25"))  # max retrace — jangan sampe entry udah kelewat deket TP1 (0.382)/udah basi
+RSI_OVERBOUGHT = float(os.environ.get("RSI_OVERBOUGHT", "70"))  # syarat wajib biar alert — RSI(14) >= ini = overbought, rawan koreksi turun
 MAX_TRACK_PER_RUN = 15  # cap jumlah alert lama yang di-cek outcome-nya per run (biar durasi run stabil)
 REQUEST_SLEEP = 0.08  # jeda antar API call (turun dari 0.15 biar run lebih cepet)
 
@@ -134,6 +135,34 @@ def _funding_hint(fr):
     return "netral"
 
 
+def _calc_rsi(closes, period=14):
+    """RSI standar (Wilder's smoothing). None kalau data kurang."""
+    if len(closes) < period + 1:
+        return None
+    changes = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
+    gains = [max(c, 0) for c in changes]
+    losses = [max(-c, 0) for c in changes]
+    avg_gain = sum(gains[:period]) / period
+    avg_loss = sum(losses[:period]) / period
+    for i in range(period, len(changes)):
+        avg_gain = (avg_gain * (period - 1) + gains[i]) / period
+        avg_loss = (avg_loss * (period - 1) + losses[i]) / period
+    if avg_loss == 0:
+        return 100.0
+    rs = avg_gain / avg_loss
+    return 100 - (100 / (1 + rs))
+
+
+def _rsi_hint(rsi):
+    if rsi is None:
+        return None
+    if rsi >= 70:
+        return "🔴 overbought — udah kemahalan, rawan koreksi turun"
+    if rsi <= 30:
+        return "🟢 oversold"
+    return "netral"
+
+
 def get_window_stats(symbol):
     """Kline 1 menit x WINDOW_MINUTES → pct kenaikan trailing beneran, swing high/low
     (buat SL/TP), + rasio volume paruh kedua vs paruh pertama (buat deteksi exhaustion)."""
@@ -179,10 +208,13 @@ def get_window_stats(symbol):
     p_range = p_high - p_low
     wick_ratio = (p_high - max(p_open, p_close)) / p_range if p_range > 0 else 0
 
+    closes = [float(c[4]) for c in kl]
+    rsi = _calc_rsi(closes)
+
     return {
         "pct": pct, "peak_pct": peak_pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct, "retrace_frac": retrace_frac,
-        "wick_ratio": wick_ratio,
+        "wick_ratio": wick_ratio, "rsi": rsi,
     }
 
 
@@ -266,6 +298,8 @@ def _is_confirmed(stats, btc_pct):
         return False  # volume belum keliatan melemah
     if btc_pct is not None and btc_pct >= 1.5:
         return False  # market-wide, bukan isolated
+    if stats["rsi"] is None or stats["rsi"] < RSI_OVERBOUGHT:
+        return False  # belum overbought
     return True
 
 
@@ -302,6 +336,9 @@ def _build_reasons(p):
         f"Candle terakhir merah, retrace {p['retrace_pct']:.2f}% dari puncak (awal reversal)",
         f"Volume melemah (rasio {p['vol_ratio']:.2f} — daya beli mulai berkurang)",
     ]
+    rsi = p.get("rsi")
+    if rsi is not None:
+        reasons.append(f"RSI(14) {rsi:.0f} — {_rsi_hint(rsi)}")
     bp = p.get("btc_pct")
     if bp is not None:
         reasons.append(f"BTC cuma {bp:+.2f}% ({WINDOW_MINUTES}m) — pump ini spesifik ke coin ini, bukan ikut market")
@@ -454,6 +491,7 @@ def main():
                 "vol_ratio": stats["vol_ratio"],
                 "retrace_pct": stats["retrace_pct"],
                 "wick_ratio": stats["wick_ratio"],
+                "rsi": stats["rsi"],
                 "btc_pct": btc_pct,
                 **setup,
             })
