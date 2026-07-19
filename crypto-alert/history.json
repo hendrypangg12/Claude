@@ -165,7 +165,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T08:58:26+00:00",
+    "time": "2026-07-19T09:00:42+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -176,15 +176,15 @@
       "ZBTUSDT",
       "BILLUSDT",
       "ALLOUSDT",
-      "TACUSDT",
-      "STRKUSDT",
-      "USELESSUSDT",
       "LYNUSDT",
+      "TACUSDT",
+      "USELESSUSDT",
+      "STRKUSDT",
       "RUNEUSDT",
-      "ZECUSDT",
       "REUSDT",
-      "USUSDT",
-      "HYPEUSDT"
+      "ZECUSDT",
+      "HYPEUSDT",
+      "USUSDT"
     ]
   }
 }
