@@ -123,6 +123,8 @@ async function load(){
       const wick = (a.wick_ratio === null || a.wick_ratio === undefined) ? "-" : (a.wick_ratio >= 0.5 ? "🔻 kuat" : a.wick_ratio >= 0.25 ? "sedang" : "tipis");
       const ob = (a.orderbook_ratio === null || a.orderbook_ratio === undefined) ? "-" : (a.orderbook_ratio.toFixed(2) + "x " + (a.orderbook_ratio >= 1.5 ? "🧱 jual" : a.orderbook_ratio <= 0.67 ? "🛒 beli" : ""));
       const rsi = (a.rsi === null || a.rsi === undefined) ? "-" : (a.rsi.toFixed(0) + (a.rsi >= 70 ? " 🔴 OB" : a.rsi <= 30 ? " 🟢 OS" : ""));
+      const div = a.divergence === true ? "📉 ada" : a.divergence === false ? "gak ada" : "-";
+      const vs = (a.vol_spike === null || a.vol_spike === undefined) ? "-" : (a.vol_spike.toFixed(1) + "x" + (a.vol_spike >= 1.5 ? " 🔺" : ""));
       return `<div class="card">
         <div class="row"><span class="sym">${a.symbol}</span><span class="pct">+${a.pct}%</span></div>
         <div class="risk ${riskClass(a.risk)}">${a.risk || ""}</div>${outcomeBadge(a.outcome)}
@@ -138,6 +140,8 @@ async function load(){
           <div><b>Wick rejection</b> ${wick}</div>
           <div><b>Order book</b> ${ob}</div>
           <div><b>RSI(14)</b> ${rsi}</div>
+          <div><b>Divergence</b> ${div}</div>
+          <div><b>Vol candle reversal</b> ${vs}</div>
         </div>
         <div class="foot">${jam(a.time)} · Vol 24h $${Number(a.quote_volume).toLocaleString("en-US",{maximumFractionDigits:0})} · <a href="${url}" target="_blank">MEXC ↗</a></div>
       </div>`;
