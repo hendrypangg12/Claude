@@ -165,8 +165,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-19T16:12:35+00:00",
-    "shortlist_count": 12,
+    "time": "2026-07-19T16:14:32+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "TLMUSDT",
@@ -176,11 +176,9 @@
       "BILLUSDT",
       "BTWUSDT",
       "TRUTHUSDT",
-      "HOMEUSDT",
-      "LYNUSDT",
       "RUNEUSDT",
-      "GUSDT",
-      "ALLOUSDT"
+      "LYNUSDT",
+      "GUSDT"
     ]
   }
 }
