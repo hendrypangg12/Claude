@@ -99,7 +99,13 @@ def scan_once(history, binance_futures, cycle):
             "symbol": s["symbol"], "quote_volume": s["quote_volume"], "in_range": in_range,
             "confirmed": confirmed,
             "stats": {k: stats[k] for k in ("pct", "peak_pct", "price", "swing_high", "swing_low",
-                                            "vol_ratio", "last_red", "retrace_frac", "rsi")},
+                                            "vol_ratio", "last_red", "retrace_frac", "rsi",
+                                            "wick_ratio", "divergence", "vol_spike")},
+            # setup short (SL/TP dari swing high/low + Fibonacci) — dihitung buat SEMUA koin
+            # biar keliatan di dashboard walau belum confirmed (label beda: "kalau entry sekarang")
+            "setup": calc_setup(stats["swing_high"], stats["swing_low"]),
+            "risk": risk_category(s["quote_volume"], stats["peak_pct"]),
+            "confidence": confidence_label(stats["peak_pct"]) if in_range else None,
             "candles": [[c[0], float(c[1]), float(c[2]), float(c[3]), float(c[4])] for c in kl],
         })
 
