@@ -2,7 +2,7 @@
   "last_alert": {
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
-    "BUSDT": "2026-07-19T17:58:30+00:00",
+    "BUSDT": "2026-07-20T14:40:37+00:00",
     "AKEUSDT": "2026-07-19T08:26:31+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00",
@@ -210,10 +210,33 @@
       "orderbook_ratio": 0.3782427972510648,
       "time": "2026-07-20T14:38:34+00:00",
       "outcome": null
+    },
+    {
+      "symbol": "BUSDT",
+      "pct": 11.05,
+      "price": 0.24241,
+      "quote_volume": 952689.17286,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4697406094693087,
+      "retrace_pct": 0.7451991974777938,
+      "wick_ratio": 0.3571428571428604,
+      "rsi": 72.433497601298,
+      "divergence": false,
+      "vol_spike": 0.3190914914132566,
+      "btc_pct": -0.06913498897438812,
+      "sl": 0.2466723,
+      "tp1": 0.23494358,
+      "tp2": 0.22920642,
+      "tp3": 0.21992,
+      "funding_rate": 0.007,
+      "orderbook_ratio": 1.0096612567833798,
+      "time": "2026-07-20T14:40:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T14:38:34+00:00",
+    "time": "2026-07-20T14:40:37+00:00",
     "shortlist_count": 12,
     "confirmed_count": 1,
     "symbols": [
@@ -225,8 +248,8 @@
       "ZAMAUSDT",
       "BUSDT",
       "BEATUSDT",
-      "DEXEUSDT",
       "AZTECUSDT",
+      "DEXEUSDT",
       "VELVETUSDT",
       "SYNUSDT"
     ]
