@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T17:08:34+00:00",
+    "time": "2026-07-20T17:10:38+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -248,20 +248,20 @@
       "PUMPUSDT",
       "BUSDT",
       "AZTECUSDT",
-      "ZAMAUSDT",
       "VIRTUALUSDT",
       "BLUAIUSDT",
+      "ZAMAUSDT",
       "XPLUSDT",
-      "ALLOUSDT",
       "WLDUSDT",
       "BEATUSDT",
-      "VELVETUSDT",
-      "INJUSDT",
       "ARXUSDT",
-      "FARTCOINUSDT",
-      "PENGUUSDT",
+      "VELVETUSDT",
+      "ALLOUSDT",
+      "INJUSDT",
       "ENAUSDT",
-      "PENDLEUSDT"
+      "FARTCOINUSDT",
+      "PENDLEUSDT",
+      "PENGUUSDT"
     ]
   }
 }
