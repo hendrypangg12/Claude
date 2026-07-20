@@ -238,14 +238,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T20:12:40+00:00",
+    "time": "2026-07-20T20:14:31+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "HEMIUSDT",
-      "PUMPUSDT",
       "EVAAUSDT",
+      "PUMPUSDT",
       "HANAUSDT",
       "AZTECUSDT",
       "ZAMAUSDT",
@@ -253,11 +253,11 @@
       "ALICEUSDT",
       "ARXUSDT",
       "XPLUSDT",
-      "VELVETUSDT",
       "FARTCOINUSDT",
+      "VELVETUSDT",
       "VIRTUALUSDT",
-      "BEATUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "BEATUSDT"
     ]
   }
 }
