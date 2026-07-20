@@ -209,7 +209,8 @@
       "funding_rate": -0.46,
       "orderbook_ratio": 0.3782427972510648,
       "time": "2026-07-20T14:38:34+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-20T14:46:33+00:00"
     },
     {
       "symbol": "BUSDT",
@@ -236,20 +237,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T14:44:27+00:00",
+    "time": "2026-07-20T14:46:33+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "HANAUSDT",
       "EVAAUSDT",
-      "PUMPUSDT",
       "BLUAIUSDT",
+      "PUMPUSDT",
       "ZAMAUSDT",
       "BUSDT",
       "BEATUSDT",
-      "DEXEUSDT",
       "AZTECUSDT",
+      "DEXEUSDT",
       "VELVETUSDT",
       "SYNUSDT"
     ]
