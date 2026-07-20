@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T22:58:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-20T23:00:49+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -253,10 +253,11 @@
       "SYNUSDT",
       "ALLOUSDT",
       "XPLUSDT",
-      "SAGAUSDT",
       "VELVETUSDT",
+      "SAGAUSDT",
       "ARXUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
