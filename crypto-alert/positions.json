@@ -10,12 +10,13 @@
       "sl": null,
       "tp": [],
       "opened_at": "2026-07-19T19:20:00+07:00",
-      "status": "open",
-      "last_rsi_zone": "neutral",
-      "liq_warned": false,
+      "status": "closed",
+      "last_rsi_zone": "overbought",
+      "liq_warned": true,
       "move_alert_pct": 1.0,
-      "last_notify_price": null,
-      "notes": "Entry manual (udah di-average 20 Juli: entry 0.4577014, liq 0.493269)"
+      "last_notify_price": 0.48788,
+      "notes": "Entry manual (udah di-average 20 Juli: entry 0.4577014, liq 0.493269)",
+      "closed_reason": "liquidated (lapor owner 21 Juli)"
     }
   ]
 }
