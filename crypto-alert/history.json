@@ -189,19 +189,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T00:58:37+00:00",
-    "shortlist_count": 9,
+    "time": "2026-07-20T01:06:42+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
-      "BUSDT",
       "ZEREBROUSDT",
+      "BUSDT",
       "TLMUSDT",
       "AVAAIUSDT",
       "ESPORTSUSDT",
       "PUMPUSDT",
       "KAITOUSDT",
       "BTWUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "HOMEUSDT"
     ]
   }
 }
