@@ -574,6 +574,26 @@ def monitor_positions(positions, now):
                 pos[hit_key] = True
                 changed = True
 
+        # alert pergerakan harga: tiap harga geser >= move_alert_pct (%) dari titik notifikasi
+        # terakhir (pertama kali: dari entry), kirim update naik/turun + PNL — diminta owner
+        # 20 Juli biar tiap penurunan/penaikan ALLO ada kabarnya, gak cuma pas RSI pindah zona.
+        move_thr = pos.get("move_alert_pct")
+        if move_thr and pos["status"] == "open":
+            ref = pos.get("last_notify_price") or pos["entry"]
+            move = (price - ref) / ref * 100
+            if abs(move) >= move_thr:
+                raw_pnl = (pos["entry"] - price) / pos["entry"] * 100 if is_short else (price - pos["entry"]) / pos["entry"] * 100
+                roi = raw_pnl * pos.get("leverage", 1)
+                arah = "📈 NAIK" if move > 0 else "📉 TURUN"
+                untung = (move < 0) == is_short
+                mood = "✅ makin cuan" if (untung and roi > 0) else ("🟢 ngarah bagus" if untung else ("⚠️ ngelawan posisi" if roi > 0 else "🔴 makin minus"))
+                msgs.append(
+                    f"{arah} <b>{pos['symbol']}</b> {move:+.2f}% (dari {_fmt_price(ref)} → {_fmt_price(price)})\n"
+                    f"{mood} — est. ROI posisi: <b>{roi:+.1f}%</b> ({pos.get('leverage', 1)}x, entry {_fmt_price(pos['entry'])})"
+                )
+                pos["last_notify_price"] = price
+                changed = True
+
         zone = _rsi_zone(stats["rsi"])
         if zone is not None and zone != pos.get("last_rsi_zone"):
             hint = ""
