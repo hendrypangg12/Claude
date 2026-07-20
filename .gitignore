@@ -6,3 +6,4 @@ __pycache__/
 
 # backtest.py output — one-off local run, not part of the live system
 crypto-alert/backtest_results.json
+crypto-alert/live_data.json
