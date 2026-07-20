@@ -189,7 +189,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T12:32:32+00:00",
+    "time": "2026-07-20T12:34:28+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -198,16 +198,16 @@
       "HANAUSDT",
       "EVAAUSDT",
       "PUMPUSDT",
-      "BLUAIUSDT",
       "SYNUSDT",
+      "BLUAIUSDT",
       "AZTECUSDT",
       "XVGUSDT",
       "USELESSUSDT",
       "BEATUSDT",
-      "INJUSDT",
-      "PENDLEUSDT",
       "ARXUSDT",
-      "BUSDT"
+      "INJUSDT",
+      "BUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
