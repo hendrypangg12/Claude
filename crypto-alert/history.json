@@ -189,8 +189,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T12:40:39+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-20T12:42:33+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -201,12 +201,13 @@
       "SYNUSDT",
       "BLUAIUSDT",
       "AZTECUSDT",
-      "BUSDT",
       "XVGUSDT",
       "BEATUSDT",
+      "BUSDT",
       "USELESSUSDT",
       "ARXUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
