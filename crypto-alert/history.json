@@ -189,7 +189,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T14:34:32+00:00",
+    "time": "2026-07-20T14:36:37+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -201,10 +201,10 @@
       "ZAMAUSDT",
       "BUSDT",
       "BEATUSDT",
-      "AZTECUSDT",
       "DEXEUSDT",
-      "VELVETUSDT",
-      "ARXUSDT"
+      "AZTECUSDT",
+      "SYNUSDT",
+      "VELVETUSDT"
     ]
   }
 }
