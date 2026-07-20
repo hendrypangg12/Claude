@@ -5,7 +5,8 @@
     "BUSDT": "2026-07-19T17:58:30+00:00",
     "AKEUSDT": "2026-07-19T08:26:31+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
-    "SYNUSDT": "2026-07-18T20:58:31+00:00"
+    "SYNUSDT": "2026-07-18T20:58:31+00:00",
+    "ACEUSDT": "2026-07-20T14:38:34+00:00"
   },
   "alerts": [
     {
@@ -186,12 +187,35 @@
       "time": "2026-07-19T17:58:30+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-19T19:02:30+00:00"
+    },
+    {
+      "symbol": "ACEUSDT",
+      "pct": 8.01,
+      "price": 0.13064,
+      "quote_volume": 724218.80469,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3022350586530806,
+      "retrace_pct": 0.41164811709100857,
+      "wick_ratio": 0.0,
+      "rsi": 66.7728337721237,
+      "divergence": false,
+      "vol_spike": 0.031318940830601515,
+      "btc_pct": -0.07272501532564167,
+      "sl": 0.1324918,
+      "tp1": 0.12746314,
+      "tp2": 0.12516686,
+      "tp3": 0.12145,
+      "funding_rate": -0.46,
+      "orderbook_ratio": 0.3782427972510648,
+      "time": "2026-07-20T14:38:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-20T14:36:37+00:00",
+    "time": "2026-07-20T14:38:34+00:00",
     "shortlist_count": 12,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ACEUSDT",
       "HANAUSDT",
@@ -203,8 +227,8 @@
       "BEATUSDT",
       "DEXEUSDT",
       "AZTECUSDT",
-      "SYNUSDT",
-      "VELVETUSDT"
+      "VELVETUSDT",
+      "SYNUSDT"
     ]
   }
 }
