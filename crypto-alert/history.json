@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T19:04:35+00:00",
-    "shortlist_count": 18,
+    "time": "2026-07-21T19:06:36+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "ERAUSDT",
@@ -249,17 +249,16 @@
       "ONDOUSDT",
       "BULLAUSDT",
       "NIGHTUSDT",
-      "AAVEUSDT",
       "GRAMUSDT",
+      "AAVEUSDT",
       "LITUSDT",
       "FILUSDT",
       "SPACEUSDT",
       "ZROUSDT",
-      "ENAUSDT",
-      "DOTUSDT",
-      "HBARUSDT",
       "ALLOUSDT",
-      "XRPUSDT"
+      "ENAUSDT",
+      "HBARUSDT",
+      "DOTUSDT"
     ]
   }
 }
