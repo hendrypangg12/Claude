@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T12:34:27+00:00",
+    "time": "2026-07-21T12:36:28+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -262,10 +262,10 @@
       "ZROUSDT",
       "FILUSDT",
       "PENDLEUSDT",
-      "WLDUSDT",
       "BCHUSDT",
-      "AAVEUSDT",
-      "FETUSDT"
+      "WLDUSDT",
+      "FETUSDT",
+      "AAVEUSDT"
     ]
   }
 }
