@@ -238,27 +238,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T01:26:35+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-21T01:28:27+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
-      "ONUSDT",
       "BULLAUSDT",
+      "ONUSDT",
       "HANAUSDT",
       "ACEUSDT",
-      "ZAMAUSDT",
       "EVAAUSDT",
-      "ARXUSDT",
+      "ZAMAUSDT",
       "BLUAIUSDT",
+      "ARXUSDT",
       "TOWNSUSDT",
-      "DEXEUSDT",
       "VIRTUALUSDT",
       "ALLOUSDT",
-      "BUSDT",
-      "SYNUSDT",
+      "DEXEUSDT",
       "UNIUSDT",
-      "ALICEUSDT"
+      "SYNUSDT"
     ]
   }
 }
