@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T01:30:38+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-21T01:32:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -255,7 +255,8 @@
       "VIRTUALUSDT",
       "UNIUSDT",
       "DEXEUSDT",
-      "ALLOUSDT"
+      "ALLOUSDT",
+      "BUSDT"
     ]
   }
 }
