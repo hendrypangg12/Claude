@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T21:10:33+00:00",
+    "time": "2026-07-21T21:12:35+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -246,21 +246,21 @@
       "ONEUSDT",
       "NIGHTUSDT",
       "EPICUSDT",
-      "ONDOUSDT",
       "BTWUSDT",
+      "ONDOUSDT",
       "BULLAUSDT",
       "LITUSDT",
       "BEATUSDT",
       "GRAMUSDT",
       "AAVEUSDT",
       "SPACEUSDT",
-      "XMRUSDT",
       "HBARUSDT",
+      "XMRUSDT",
       "ZAMAUSDT",
-      "FILUSDT",
-      "APEUSDT",
       "ENAUSDT",
-      "SLXUSDT"
+      "FILUSDT",
+      "SLXUSDT",
+      "APEUSDT"
     ]
   }
 }
