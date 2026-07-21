@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T11:28:28+00:00",
+    "time": "2026-07-21T11:30:35+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -246,29 +246,29 @@
       "EPICUSDT",
       "ONUSDT",
       "ONDOUSDT",
-      "BULLAUSDT",
       "LDOUSDT",
+      "BULLAUSDT",
       "UBUSDT",
+      "TRUTHUSDT",
       "BUSDT",
       "COAIUSDT",
-      "TRUTHUSDT",
       "LITUSDT",
-      "ENAUSDT",
       "VIRTUALUSDT",
+      "ENAUSDT",
       "ALLOUSDT",
       "ADAUSDT",
       "UNIUSDT",
       "PENDLEUSDT",
       "DOTUSDT",
-      "WLDUSDT",
       "FARTCOINUSDT",
       "ZROUSDT",
       "BCHUSDT",
+      "WLDUSDT",
       "FILUSDT",
-      "AAVEUSDT",
       "FETUSDT",
-      "APTUSDT",
-      "SPACEUSDT"
+      "AAVEUSDT",
+      "SPACEUSDT",
+      "APTUSDT"
     ]
   }
 }
