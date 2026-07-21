@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T10:34:32+00:00",
+    "time": "2026-07-21T10:36:31+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -254,21 +254,21 @@
       "BUSDT",
       "ADAUSDT",
       "UNIUSDT",
-      "FILUSDT",
       "PENDLEUSDT",
       "DOTUSDT",
+      "FILUSDT",
       "WLDUSDT",
-      "ALLOUSDT",
       "BCHUSDT",
       "FARTCOINUSDT",
       "FETUSDT",
+      "ALLOUSDT",
       "APTUSDT",
       "METUSDT",
       "SPACEUSDT",
       "AAVEUSDT",
       "ZAMAUSDT",
-      "ARBUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "ARBUSDT"
     ]
   }
 }
