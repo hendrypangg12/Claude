@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T13:08:30+00:00",
-    "shortlist_count": 25,
+    "time": "2026-07-21T13:10:46+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "ERAUSDT",
@@ -254,19 +254,17 @@
       "LITUSDT",
       "VIRTUALUSDT",
       "UBUSDT",
-      "ENAUSDT",
       "ADAUSDT",
+      "ENAUSDT",
       "DOTUSDT",
-      "ZROUSDT",
-      "UNIUSDT",
       "USUSDT",
+      "UNIUSDT",
+      "ZROUSDT",
       "FILUSDT",
-      "BUSDT",
       "BCHUSDT",
       "WLDUSDT",
       "AAVEUSDT",
-      "XPLUSDT",
-      "XRPUSDT"
+      "XPLUSDT"
     ]
   }
 }
