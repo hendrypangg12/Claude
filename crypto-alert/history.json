@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T04:50:44+00:00",
+    "time": "2026-07-21T04:52:26+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -252,12 +252,12 @@
       "BLUAIUSDT",
       "SAGAUSDT",
       "ZAMAUSDT",
-      "BUSDT",
       "VIRTUALUSDT",
       "AKEUSDT",
       "FARTCOINUSDT",
-      "UNIUSDT",
+      "BUSDT",
       "NEARUSDT",
+      "UNIUSDT",
       "PENDLEUSDT",
       "BCHUSDT",
       "ENAUSDT",
@@ -267,8 +267,8 @@
       "ADAUSDT",
       "INJUSDT",
       "HYPEUSDT",
-      "CRVUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "CRVUSDT"
     ]
   }
 }
