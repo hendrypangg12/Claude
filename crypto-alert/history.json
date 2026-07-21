@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-21T02:56:27+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-21T02:58:32+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -252,13 +252,14 @@
       "ZAMAUSDT",
       "BLUAIUSDT",
       "ARXUSDT",
-      "BUSDT",
       "SYNUSDT",
+      "BUSDT",
       "SAGAUSDT",
       "VIRTUALUSDT",
       "UNIUSDT",
       "WLDUSDT",
-      "FARTCOINUSDT"
+      "FARTCOINUSDT",
+      "NEARUSDT"
     ]
   }
 }
