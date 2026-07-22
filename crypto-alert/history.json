@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T11:10:38+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-22T11:12:25+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
@@ -254,11 +254,10 @@
       "SLXUSDT",
       "HMSTRUSDT",
       "ETHFIUSDT",
-      "ALLOUSDT",
-      "HBARUSDT",
       "APEUSDT",
-      "GRAMUSDT",
-      "BULLAUSDT"
+      "HBARUSDT",
+      "ALLOUSDT",
+      "GRAMUSDT"
     ]
   }
 }
