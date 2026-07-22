@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T02:16:28+00:00",
-    "shortlist_count": 22,
+    "time": "2026-07-22T02:18:33+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "NIGHTUSDT",
@@ -252,18 +252,19 @@
       "GRAMUSDT",
       "HMSTRUSDT",
       "AAVEUSDT",
-      "SLXUSDT",
       "XMRUSDT",
-      "FILUSDT",
       "SPXUSDT",
+      "FILUSDT",
       "ENAUSDT",
       "LITUSDT",
-      "HBARUSDT",
       "BEATUSDT",
+      "HBARUSDT",
+      "SLXUSDT",
       "SPACEUSDT",
-      "BULLAUSDT",
+      "UBUSDT",
       "APEUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "BULLAUSDT"
     ]
   }
 }
