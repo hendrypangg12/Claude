@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T15:18:34+00:00",
+    "time": "2026-07-22T15:20:41+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -249,14 +249,14 @@
       "AKEUSDT",
       "BEATUSDT",
       "ARXUSDT",
+      "EPICUSDT",
       "PLAYUSDT",
       "SLXUSDT",
-      "EPICUSDT",
-      "BSBUSDT",
       "HBARUSDT",
       "ZAMAUSDT",
-      "NILUSDT",
-      "ETHFIUSDT"
+      "BSBUSDT",
+      "ETHFIUSDT",
+      "NILUSDT"
     ]
   }
 }
