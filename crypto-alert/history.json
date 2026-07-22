@@ -238,31 +238,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T00:04:34+00:00",
-    "shortlist_count": 21,
+    "time": "2026-07-22T00:06:28+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ERAUSDT",
       "NIGHTUSDT",
-      "EPICUSDT",
       "ONEUSDT",
+      "EPICUSDT",
       "ONDOUSDT",
       "GENIUSUSDT",
-      "LABUSDT",
       "UBUSDT",
       "GRAMUSDT",
-      "PLAYUSDT",
       "LITUSDT",
+      "PLAYUSDT",
       "SPACEUSDT",
       "AAVEUSDT",
       "BEATUSDT",
       "XMRUSDT",
+      "BULLAUSDT",
       "BTWUSDT",
-      "APEUSDT",
-      "FILUSDT",
       "ENAUSDT",
-      "HBARUSDT",
-      "HMSTRUSDT"
+      "FILUSDT",
+      "APEUSDT",
+      "HBARUSDT"
     ]
   }
 }
