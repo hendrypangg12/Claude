@@ -238,10 +238,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T23:20:28+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-22T23:22:26+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
+      "ONUSDT",
       "BROCCOLIF3BUSDT",
       "REUSDT",
       "ZAMAUSDT",
@@ -252,8 +253,8 @@
       "ARXUSDT",
       "ERAUSDT",
       "USUSDT",
-      "SLXUSDT",
       "HBARUSDT",
+      "SLXUSDT",
       "ENAUSDT"
     ]
   }
