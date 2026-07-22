@@ -238,17 +238,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T07:18:31+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-22T07:20:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
       "LABUSDT",
       "EPICUSDT",
       "BEATUSDT",
-      "AKEUSDT",
       "GENIUSUSDT",
       "BULLAUSDT",
+      "AKEUSDT",
       "ONEUSDT",
       "TACUSDT",
       "ZAMAUSDT",
@@ -256,7 +256,8 @@
       "APEUSDT",
       "ARXUSDT",
       "SLXUSDT",
-      "PLAYUSDT"
+      "PLAYUSDT",
+      "UBUSDT"
     ]
   }
 }
