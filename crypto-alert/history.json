@@ -238,7 +238,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T02:08:36+00:00",
+    "time": "2026-07-22T02:10:38+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -252,18 +252,18 @@
       "HMSTRUSDT",
       "GRAMUSDT",
       "AAVEUSDT",
-      "BULLAUSDT",
-      "SLXUSDT",
       "XMRUSDT",
-      "SPACEUSDT",
+      "SLXUSDT",
+      "BULLAUSDT",
       "FILUSDT",
-      "ZAMAUSDT",
+      "SPACEUSDT",
       "SPXUSDT",
+      "ZAMAUSDT",
       "ENAUSDT",
       "HBARUSDT",
-      "BEATUSDT",
       "LITUSDT",
-      "APEUSDT"
+      "APEUSDT",
+      "BEATUSDT"
     ]
   }
 }
