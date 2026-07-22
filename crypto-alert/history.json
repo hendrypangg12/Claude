@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T09:06:31+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-22T09:08:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
@@ -248,16 +248,18 @@
       "BEATUSDT",
       "ONEUSDT",
       "TACUSDT",
-      "BULLAUSDT",
       "GENIUSUSDT",
       "ARXUSDT",
+      "BULLAUSDT",
       "EPICUSDT",
       "SLXUSDT",
       "BTWUSDT",
-      "ALLOUSDT",
       "ZAMAUSDT",
+      "ALLOUSDT",
       "HBARUSDT",
-      "APEUSDT"
+      "APEUSDT",
+      "ONDOUSDT",
+      "PLAYUSDT"
     ]
   }
 }
