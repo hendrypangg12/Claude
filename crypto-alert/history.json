@@ -238,15 +238,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T11:26:41+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-22T11:28:31+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
       "ONEUSDT",
-      "TACUSDT",
       "EPICUSDT",
       "BEATUSDT",
+      "TACUSDT",
       "LABUSDT",
       "ZAMAUSDT",
       "ARXUSDT",
@@ -254,10 +254,8 @@
       "SLXUSDT",
       "ETHFIUSDT",
       "HMSTRUSDT",
-      "ERAUSDT",
-      "HBARUSDT",
       "GRAMUSDT",
-      "APEUSDT"
+      "HBARUSDT"
     ]
   }
 }
