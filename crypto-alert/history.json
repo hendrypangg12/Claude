@@ -238,14 +238,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T15:52:26+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-22T15:54:35+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
       "LABUSDT",
-      "TACUSDT",
       "AKEUSDT",
+      "TACUSDT",
       "AIAUSDT",
       "BEATUSDT",
       "BSBUSDT",
@@ -254,9 +254,7 @@
       "PLAYUSDT",
       "SLXUSDT",
       "ZAMAUSDT",
-      "HBARUSDT",
-      "ENAUSDT",
-      "UNIUSDT"
+      "HBARUSDT"
     ]
   }
 }
