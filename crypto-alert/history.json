@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T17:46:26+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-22T17:48:28+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BROCCOLIF3BUSDT",
@@ -247,17 +247,18 @@
       "REUSDT",
       "LABUSDT",
       "AIAUSDT",
-      "AKEUSDT",
-      "ARXUSDT",
       "TACUSDT",
+      "ARXUSDT",
+      "AKEUSDT",
       "EPICUSDT",
       "ZAMAUSDT",
       "BSBUSDT",
-      "BEATUSDT",
       "ENAUSDT",
+      "BEATUSDT",
       "WLDUSDT",
       "HBARUSDT",
-      "SLXUSDT"
+      "SLXUSDT",
+      "UNIUSDT"
     ]
   }
 }
