@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T02:48:34+00:00",
-    "shortlist_count": 22,
+    "time": "2026-07-22T02:50:33+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "NIGHTUSDT",
@@ -248,22 +248,23 @@
       "ONDOUSDT",
       "LABUSDT",
       "GRAMUSDT",
-      "HMSTRUSDT",
       "GENIUSUSDT",
       "PLAYUSDT",
+      "HMSTRUSDT",
       "BULLAUSDT",
       "AAVEUSDT",
-      "SPXUSDT",
       "HBARUSDT",
-      "SLXUSDT",
-      "FILUSDT",
-      "SPACEUSDT",
       "BEATUSDT",
-      "UBUSDT",
+      "SPXUSDT",
+      "FILUSDT",
       "APEUSDT",
+      "SPACEUSDT",
+      "SLXUSDT",
+      "UBUSDT",
       "ENAUSDT",
       "LITUSDT",
-      "XMRUSDT"
+      "XMRUSDT",
+      "TAOUSDT"
     ]
   }
 }
