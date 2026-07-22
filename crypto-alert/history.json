@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-22T05:30:42+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-22T05:32:31+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "LABUSDT",
@@ -252,11 +252,12 @@
       "GENIUSUSDT",
       "TACUSDT",
       "BEATUSDT",
+      "AKEUSDT",
       "GRAMUSDT",
       "SLXUSDT",
-      "PLAYUSDT",
       "UBUSDT",
-      "AKEUSDT"
+      "PLAYUSDT",
+      "HBARUSDT"
     ]
   }
 }
