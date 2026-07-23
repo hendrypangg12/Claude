@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T01:40:34+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-23T01:42:31+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ZAMAUSDT",
@@ -252,7 +252,9 @@
       "EPICUSDT",
       "USUSDT",
       "BEATUSDT",
-      "HBARUSDT"
+      "HBARUSDT",
+      "LABUSDT",
+      "TACUSDT"
     ]
   }
 }
