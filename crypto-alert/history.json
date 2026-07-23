@@ -263,7 +263,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T13:16:31+00:00",
+    "time": "2026-07-23T13:18:30+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -271,13 +271,13 @@
       "ZAMAUSDT",
       "AIAUSDT",
       "CAPUSDT",
-      "AKEUSDT",
       "POWERUSDT",
-      "LABUSDT",
-      "BEATUSDT",
-      "WLFIUSDT",
+      "AKEUSDT",
       "SPACEUSDT",
-      "MIRAUSDT"
+      "WLFIUSDT",
+      "BEATUSDT",
+      "MIRAUSDT",
+      "LABUSDT"
     ]
   }
 }
