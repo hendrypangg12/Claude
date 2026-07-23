@@ -238,8 +238,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T00:44:28+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-23T00:46:26+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -248,14 +248,15 @@
       "REUSDT",
       "ERAUSDT",
       "AIAUSDT",
-      "ARXUSDT",
       "EPICUSDT",
+      "ARXUSDT",
       "LABUSDT",
       "USUSDT",
       "AKEUSDT",
       "HBARUSDT",
       "TACUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "BEATUSDT"
     ]
   }
 }
