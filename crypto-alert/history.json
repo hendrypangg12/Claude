@@ -287,8 +287,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T16:30:49+00:00",
-    "shortlist_count": 12,
+    "time": "2026-07-23T16:32:35+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "RIFUSDT",
@@ -297,12 +297,11 @@
       "BEATUSDT",
       "ONUSDT",
       "CAPUSDT",
-      "CLOUSDT",
       "REUSDT",
-      "WLFIUSDT",
+      "CLOUSDT",
       "EVAAUSDT",
-      "POWERUSDT",
-      "SPACEUSDT"
+      "WLFIUSDT",
+      "POWERUSDT"
     ]
   }
 }
