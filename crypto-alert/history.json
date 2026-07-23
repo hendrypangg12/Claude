@@ -238,12 +238,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T03:02:25+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-23T03:04:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "ZAMAUSDT",
       "RIFUSDT",
+      "ZAMAUSDT",
       "AIAUSDT",
       "ERAUSDT",
       "OUSDT",
@@ -252,7 +252,8 @@
       "ARXUSDT",
       "REUSDT",
       "BEATUSDT",
-      "USUSDT"
+      "USUSDT",
+      "ENAUSDT"
     ]
   }
 }
