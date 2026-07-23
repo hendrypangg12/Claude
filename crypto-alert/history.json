@@ -6,7 +6,8 @@
     "AKEUSDT": "2026-07-19T08:26:31+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00",
-    "ACEUSDT": "2026-07-20T14:38:34+00:00"
+    "ACEUSDT": "2026-07-20T14:38:34+00:00",
+    "RIFUSDT": "2026-07-23T05:10:32+00:00"
   },
   "alerts": [
     {
@@ -235,25 +236,48 @@
       "time": "2026-07-20T14:40:37+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-20T15:00:55+00:00"
+    },
+    {
+      "symbol": "RIFUSDT",
+      "pct": 12.64,
+      "price": 0.08368,
+      "quote_volume": 258486.71297,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5456247259961406,
+      "retrace_pct": 0.8413319113639083,
+      "wick_ratio": 0.0,
+      "rsi": 74.37754705452713,
+      "divergence": false,
+      "vol_spike": 0.43136930636930637,
+      "btc_pct": -0.034105097622985005,
+      "sl": 0.0852339,
+      "tp1": 0.08077246,
+      "tp2": 0.07853754,
+      "tp3": 0.07492,
+      "funding_rate": -0.434,
+      "orderbook_ratio": 0.48489147324308374,
+      "time": "2026-07-23T05:10:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T05:08:27+00:00",
+    "time": "2026-07-23T05:10:32+00:00",
     "shortlist_count": 14,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "RIFUSDT",
       "ONUSDT",
       "ZAMAUSDT",
       "ERAUSDT",
       "AIAUSDT",
-      "AKEUSDT",
       "MIRAUSDT",
-      "REUSDT",
+      "AKEUSDT",
       "EPICUSDT",
+      "REUSDT",
+      "BROCCOLIF3BUSDT",
       "ARXUSDT",
       "POWERUSDT",
-      "BROCCOLIF3BUSDT",
       "ENAUSDT",
       "HBARUSDT"
     ]
