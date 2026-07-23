@@ -287,23 +287,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T16:18:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-23T16:20:40+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "RIFUSDT",
       "ZAMAUSDT",
       "AKEUSDT",
       "ONUSDT",
-      "CAPUSDT",
       "BEATUSDT",
-      "POWERUSDT",
+      "CAPUSDT",
+      "CLOUSDT",
       "EVAAUSDT",
+      "POWERUSDT",
       "WLFIUSDT",
       "REUSDT",
-      "CLOUSDT",
-      "SPACEUSDT",
-      "TRUMPUSDT"
+      "SPACEUSDT"
     ]
   }
 }
