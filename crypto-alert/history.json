@@ -258,11 +258,12 @@
       "funding_rate": -0.434,
       "orderbook_ratio": 0.48489147324308374,
       "time": "2026-07-23T05:10:32+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-23T05:22:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T05:20:32+00:00",
+    "time": "2026-07-23T05:22:25+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -271,14 +272,14 @@
       "ZAMAUSDT",
       "ERAUSDT",
       "AIAUSDT",
-      "AKEUSDT",
-      "MIRAUSDT",
       "BROCCOLIF3BUSDT",
-      "EPICUSDT",
       "REUSDT",
+      "MIRAUSDT",
+      "AKEUSDT",
+      "EPICUSDT",
       "ENAUSDT",
-      "POWERUSDT",
       "ARXUSDT",
+      "POWERUSDT",
       "HBARUSDT"
     ]
   }
