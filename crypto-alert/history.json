@@ -263,7 +263,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T05:52:29+00:00",
+    "time": "2026-07-23T05:54:31+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -275,14 +275,14 @@
       "AIAUSDT",
       "REUSDT",
       "BROCCOLIF3BUSDT",
+      "USUSDT",
       "ARXUSDT",
       "EPICUSDT",
-      "USUSDT",
       "HBARUSDT",
-      "POWERUSDT",
-      "BEATUSDT",
       "ENAUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "POWERUSDT",
+      "BEATUSDT"
     ]
   }
 }
