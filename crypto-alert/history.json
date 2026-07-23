@@ -263,8 +263,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T10:06:35+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-23T10:08:34+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "RIFUSDT",
@@ -273,14 +273,15 @@
       "CAPUSDT",
       "WLFIUSDT",
       "LABUSDT",
-      "OUSDT",
       "AIAUSDT",
+      "OUSDT",
       "MIRAUSDT",
-      "POWERUSDT",
       "BEATUSDT",
-      "HBARUSDT",
+      "POWERUSDT",
       "SPACEUSDT",
-      "ENAUSDT"
+      "HBARUSDT",
+      "ENAUSDT",
+      "EVAAUSDT"
     ]
   }
 }
