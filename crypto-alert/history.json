@@ -263,27 +263,28 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-23T05:38:34+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-23T05:40:36+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "RIFUSDT",
       "ONUSDT",
-      "ZAMAUSDT",
       "ERAUSDT",
+      "ZAMAUSDT",
       "BROCCOLIF3BUSDT",
       "AIAUSDT",
       "EPICUSDT",
-      "MIRAUSDT",
       "REUSDT",
+      "MIRAUSDT",
       "ENAUSDT",
       "USUSDT",
-      "AKEUSDT",
       "ARXUSDT",
-      "HBARUSDT",
-      "CLOUSDT",
       "POWERUSDT",
-      "UNIUSDT"
+      "HBARUSDT",
+      "AKEUSDT",
+      "BEATUSDT",
+      "UNIUSDT",
+      "CLOUSDT"
     ]
   }
 }
