@@ -433,8 +433,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T19:46:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-07-24T19:48:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "DEXEUSDT",
@@ -445,10 +445,11 @@
       "AIAUSDT",
       "BEATUSDT",
       "SLXUSDT",
-      "ZROUSDT",
       "POWERUSDT",
+      "ZROUSDT",
       "XPLUSDT",
-      "HOMEUSDT"
+      "HOMEUSDT",
+      "EPICUSDT"
     ]
   }
 }
