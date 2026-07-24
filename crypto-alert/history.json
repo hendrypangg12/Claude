@@ -409,30 +409,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T18:02:27+00:00",
-    "shortlist_count": 20,
+    "time": "2026-07-24T18:04:39+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "DEXEUSDT",
       "APRUSDT",
-      "ACEUSDT",
       "AKEUSDT",
+      "ACEUSDT",
       "REUSDT",
       "CAPUSDT",
       "SLXUSDT",
-      "AIAUSDT",
-      "BEATUSDT",
-      "RIFUSDT",
       "LAUSDT",
-      "POWERUSDT",
+      "BEATUSDT",
+      "AIAUSDT",
+      "RIFUSDT",
       "BILLUSDT",
+      "POWERUSDT",
       "ZROUSDT",
-      "ARXUSDT",
+      "EPICUSDT",
       "XPLUSDT",
       "LABUSDT",
-      "EPICUSDT",
-      "BASEDUSDT",
-      "HOMEUSDT"
+      "ARXUSDT",
+      "BASEDUSDT"
     ]
   }
 }
