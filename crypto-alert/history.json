@@ -356,11 +356,12 @@
       "funding_rate": 0.013,
       "orderbook_ratio": 0.8637258278797423,
       "time": "2026-07-24T09:08:36+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-24T09:52:24+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T09:50:30+00:00",
+    "time": "2026-07-24T09:52:24+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -370,15 +371,15 @@
       "RIFUSDT",
       "BILLUSDT",
       "CAPUSDT",
-      "EPICUSDT",
       "ONUSDT",
+      "EPICUSDT",
       "ARXUSDT",
       "EVAAUSDT",
       "SLXUSDT",
-      "ZAMAUSDT",
-      "SYNUSDT",
       "TRUTHUSDT",
-      "IDOLUSDT"
+      "SYNUSDT",
+      "IDOLUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
