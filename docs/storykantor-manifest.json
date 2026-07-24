@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-07-24_11-53-33",
+      "date": "2026-07-24",
+      "time": "11:53",
+      "label": "STORY KANTOR",
+      "title": "Yang paling sibuk belum tentu paling kerja, kadang cuma paling jago keliatan sibuk.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-07-24_08-01-09",
       "date": "2026-07-24",
       "time": "08:01",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-07-20_21-52-17",
-      "date": "2026-07-20",
-      "time": "21:52",
-      "label": "STORY KANTOR",
-      "title": "Semangat kerja awal masuk beda jauh sama semangat tahun ketiga.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
