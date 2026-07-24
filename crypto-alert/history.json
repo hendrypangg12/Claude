@@ -385,8 +385,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T13:42:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-24T13:44:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
@@ -398,11 +398,12 @@
       "ONUSDT",
       "EPICUSDT",
       "HOMEUSDT",
-      "BILLUSDT",
       "ARXUSDT",
-      "POWERUSDT",
+      "BILLUSDT",
       "BEATUSDT",
+      "POWERUSDT",
       "SLXUSDT",
+      "BULLAUSDT",
       "BTWUSDT"
     ]
   }
