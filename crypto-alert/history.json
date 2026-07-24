@@ -385,8 +385,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T14:54:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-24T14:56:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -399,13 +399,12 @@
       "SLXUSDT",
       "ARXUSDT",
       "POWERUSDT",
+      "BILLUSDT",
       "EPICUSDT",
       "BULLAUSDT",
-      "BILLUSDT",
       "EVAAUSDT",
       "BTWUSDT",
-      "ONUSDT",
-      "RIFUSDT"
+      "ONUSDT"
     ]
   }
 }
