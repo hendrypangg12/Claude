@@ -361,7 +361,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T10:16:24+00:00",
+    "time": "2026-07-24T10:18:33+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -372,13 +372,13 @@
       "CAPUSDT",
       "EPICUSDT",
       "ARXUSDT",
-      "ONUSDT",
-      "BEATUSDT",
       "EVAAUSDT",
+      "BEATUSDT",
+      "ONUSDT",
       "SLXUSDT",
       "HOMEUSDT",
-      "ZAMAUSDT",
-      "SYNUSDT"
+      "SYNUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
