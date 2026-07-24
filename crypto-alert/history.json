@@ -408,26 +408,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T16:04:54+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-24T16:06:30+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
       "LAUSDT",
       "DEXEUSDT",
-      "AKEUSDT",
       "CAPUSDT",
+      "AKEUSDT",
       "REUSDT",
       "ACEUSDT",
-      "BILLUSDT",
       "BEATUSDT",
+      "BILLUSDT",
       "HOMEUSDT",
       "SLXUSDT",
       "POWERUSDT",
       "USUSDT",
       "BULLAUSDT",
       "ARXUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "ZROUSDT"
     ]
   }
 }
