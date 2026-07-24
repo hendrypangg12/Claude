@@ -452,12 +452,13 @@
       "funding_rate": -0.848,
       "orderbook_ratio": 1.0205974414934038,
       "time": "2026-07-24T21:44:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-24T21:50:38+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T21:48:26+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-24T21:50:38+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "DEXEUSDT",
@@ -465,16 +466,17 @@
       "GWEIUSDT",
       "CAPUSDT",
       "SLXUSDT",
-      "BEATUSDT",
       "AIAUSDT",
+      "BEATUSDT",
       "BASEDUSDT",
       "ZROUSDT",
+      "AKEUSDT",
       "REUSDT",
       "XPLUSDT",
       "POWERUSDT",
       "HOMEUSDT",
       "LAUSDT",
-      "AKEUSDT"
+      "LABUSDT"
     ]
   }
 }
