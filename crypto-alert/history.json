@@ -3,7 +3,7 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-20T14:40:37+00:00",
-    "AKEUSDT": "2026-07-24T03:20:32+00:00",
+    "AKEUSDT": "2026-07-24T18:06:28+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00",
     "ACEUSDT": "2026-07-24T16:02:33+00:00",
@@ -406,12 +406,35 @@
       "time": "2026-07-24T16:02:33+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-24T16:10:48+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 10.95,
+      "price": 0.0032885,
+      "quote_volume": 11784681.4161216,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4313365237304886,
+      "retrace_pct": 1.2581071342781547,
+      "wick_ratio": 0.22140957446808546,
+      "rsi": 65.24699350683592,
+      "divergence": true,
+      "vol_spike": 0.09253533083721012,
+      "btc_pct": 0.0005452026759884186,
+      "sl": 0.003363704,
+      "tp1": 0.0032048365999999997,
+      "tp2": 0.0031272634,
+      "tp3": 0.0030017,
+      "funding_rate": -0.893,
+      "orderbook_ratio": 2.5122461599948362,
+      "time": "2026-07-24T18:06:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T18:04:39+00:00",
+    "time": "2026-07-24T18:06:28+00:00",
     "shortlist_count": 19,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "DEXEUSDT",
       "APRUSDT",
@@ -420,18 +443,18 @@
       "REUSDT",
       "CAPUSDT",
       "SLXUSDT",
+      "AIAUSDT",
       "LAUSDT",
       "BEATUSDT",
-      "AIAUSDT",
-      "RIFUSDT",
-      "BILLUSDT",
-      "POWERUSDT",
-      "ZROUSDT",
       "EPICUSDT",
+      "POWERUSDT",
+      "BILLUSDT",
       "XPLUSDT",
+      "ZROUSDT",
+      "BASEDUSDT",
       "LABUSDT",
       "ARXUSDT",
-      "BASEDUSDT"
+      "RIFUSDT"
     ]
   }
 }
