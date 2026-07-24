@@ -481,7 +481,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-24T22:46:31+00:00",
+    "time": "2026-07-24T22:48:24+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -498,10 +498,10 @@
       "ZROUSDT",
       "HOMEUSDT",
       "EPICUSDT",
-      "REUSDT",
       "XPLUSDT",
-      "POWERUSDT",
-      "LAUSDT"
+      "REUSDT",
+      "LAUSDT",
+      "POWERUSDT"
     ]
   }
 }
