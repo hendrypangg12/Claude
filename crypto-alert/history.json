@@ -482,7 +482,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T02:18:27+00:00",
+    "time": "2026-07-25T02:20:35+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -495,14 +495,14 @@
       "ZAMAUSDT",
       "BASEDUSDT",
       "EVAAUSDT",
-      "SYNUSDT",
-      "ZROUSDT",
-      "AIAUSDT",
       "EPICUSDT",
+      "AIAUSDT",
+      "ZROUSDT",
       "POWERUSDT",
+      "SYNUSDT",
       "BEATUSDT",
-      "HOMEUSDT",
-      "LABUSDT"
+      "LABUSDT",
+      "HOMEUSDT"
     ]
   }
 }
