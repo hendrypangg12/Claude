@@ -10,7 +10,8 @@
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
     "ONUSDT": "2026-07-24T08:18:26+00:00",
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
-    "DEXEUSDT": "2026-07-25T07:46:32+00:00"
+    "DEXEUSDT": "2026-07-25T07:46:32+00:00",
+    "EULUSDT": "2026-07-25T18:10:34+00:00"
   },
   "alerts": [
     {
@@ -503,23 +504,46 @@
       "time": "2026-07-25T07:46:32+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-25T07:54:34+00:00"
+    },
+    {
+      "symbol": "EULUSDT",
+      "pct": 9.84,
+      "price": 1.6053,
+      "quote_volume": 353251.4836,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.44856392276183527,
+      "retrace_pct": 1.8105082879686873,
+      "wick_ratio": 0.9030716723549489,
+      "rsi": 68.34367736495781,
+      "divergence": false,
+      "vol_spike": 1.2085186656550515,
+      "btc_pct": 0.1464439378496356,
+      "sl": 1.651249,
+      "tp1": 1.578937,
+      "tp2": 1.544363,
+      "tp3": 1.4884,
+      "funding_rate": -0.023,
+      "orderbook_ratio": 2.780044087335887,
+      "time": "2026-07-25T18:10:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T18:08:31+00:00",
+    "time": "2026-07-25T18:10:34+00:00",
     "shortlist_count": 11,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "EULUSDT",
       "SYNUSDT",
-      "DEXEUSDT",
       "VELVETUSDT",
+      "DEXEUSDT",
       "WIFUSDT",
       "AVAXUSDT",
-      "DOGEUSDT",
       "BASEDUSDT",
-      "ZAMAUSDT",
+      "DOGEUSDT",
       "BEATUSDT",
+      "ZAMAUSDT",
       "HANAUSDT"
     ]
   }
