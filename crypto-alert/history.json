@@ -506,19 +506,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T16:58:33+00:00",
-    "shortlist_count": 9,
+    "time": "2026-07-25T17:00:41+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
       "SYNUSDT",
       "DEXEUSDT",
       "AKEUSDT",
-      "BASEDUSDT",
       "AVAXUSDT",
+      "BASEDUSDT",
       "WIFUSDT",
       "DOGEUSDT",
-      "EPICUSDT"
+      "EPICUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
