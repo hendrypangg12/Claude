@@ -506,7 +506,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T15:42:39+00:00",
+    "time": "2026-07-25T15:44:32+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -515,9 +515,9 @@
       "SYNUSDT",
       "AKEUSDT",
       "BASEDUSDT",
-      "SLXUSDT",
       "AVAXUSDT",
-      "BEATUSDT"
+      "SLXUSDT",
+      "EPICUSDT"
     ]
   }
 }
