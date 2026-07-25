@@ -506,20 +506,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T08:22:28+00:00",
-    "shortlist_count": 10,
+    "time": "2026-07-25T08:25:28+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "DEXEUSDT",
-      "GWEIUSDT",
       "AKEUSDT",
+      "GWEIUSDT",
       "ACEUSDT",
-      "ZAMAUSDT",
       "BASEDUSDT",
+      "ZAMAUSDT",
       "SLXUSDT",
       "POWERUSDT",
-      "AIAUSDT",
-      "SYNUSDT"
+      "AIAUSDT"
     ]
   }
 }
