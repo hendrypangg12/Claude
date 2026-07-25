@@ -506,8 +506,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T14:15:02+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-25T14:16:29+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
@@ -517,12 +517,14 @@
       "ACEUSDT",
       "BASEDUSDT",
       "SYNUSDT",
-      "BEATUSDT",
       "龙虾USDT",
+      "BEATUSDT",
       "SPACEUSDT",
       "AVAXUSDT",
       "WIFUSDT",
-      "KATUSDT"
+      "KATUSDT",
+      "XMRUSDT",
+      "SLXUSDT"
     ]
   }
 }
