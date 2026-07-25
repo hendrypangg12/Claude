@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T20:46:30+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-25T20:48:32+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
@@ -566,10 +566,11 @@
       "VELVETUSDT",
       "WIFUSDT",
       "AVAXUSDT",
-      "HANAUSDT",
       "BASEDUSDT",
       "BEATUSDT",
-      "DOGEUSDT"
+      "HANAUSDT",
+      "DOGEUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
