@@ -555,19 +555,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T23:18:32+00:00",
+    "time": "2026-07-25T23:20:37+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
       "DEXEUSDT",
       "SYNUSDT",
-      "WIFUSDT",
       "AKEUSDT",
+      "WIFUSDT",
       "AVAXUSDT",
       "VELVETUSDT",
-      "ZAMAUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
