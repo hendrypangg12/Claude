@@ -10,7 +10,7 @@
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
     "ONUSDT": "2026-07-24T08:18:26+00:00",
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
-    "DEXEUSDT": "2026-07-24T22:38:29+00:00"
+    "DEXEUSDT": "2026-07-25T07:46:32+00:00"
   },
   "alerts": [
     {
@@ -479,12 +479,35 @@
       "time": "2026-07-24T22:38:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-24T22:54:30+00:00"
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "pct": 12.35,
+      "price": 5.981,
+      "quote_volume": 4299023.386,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4876285590418336,
+      "retrace_pct": 1.6121072544826431,
+      "wick_ratio": 0.1165048543689281,
+      "rsi": 65.01251601276445,
+      "divergence": true,
+      "vol_spike": 0.07265284916884497,
+      "btc_pct": 0.020789549932012503,
+      "sl": 6.13979,
+      "tp1": 5.823824,
+      "tp2": 5.666176,
+      "tp3": 5.411,
+      "funding_rate": -0.014,
+      "orderbook_ratio": 1.1824555229354399,
+      "time": "2026-07-25T07:46:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-25T07:44:32+00:00",
+    "time": "2026-07-25T07:46:32+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "DEXEUSDT",
       "GWEIUSDT",
@@ -492,8 +515,8 @@
       "ZAMAUSDT",
       "ACEUSDT",
       "BASEDUSDT",
-      "SLXUSDT",
       "EPICUSDT",
+      "SLXUSDT",
       "POWERUSDT",
       "LABUSDT"
     ]
