@@ -695,7 +695,7 @@ def monitor_watchlist(watchlist, now):
                 fresh = (now - datetime.fromisoformat(last_sp)).total_seconds() / 60 >= cd
             if fresh:
                 ikon = "🚨📈" if fast > 0 else "🚨📉"
-                msg = f"{ikon} {_short_sym(sym)} LONJAKAN {fast:+.2f}%/{SPIKE_WINDOW}m → {_fmt_price(price)}{_rsi_tag(stats['rsi'])}"
+                msg = f"{ikon} {w.get('label') or _short_sym(sym)} LONJAKAN {fast:+.2f}%/{SPIKE_WINDOW}m → {_fmt_price(price)}{_rsi_tag(stats['rsi'])}"
                 print(f"SPIKE: {sym} {fast:+.2f}% dalam {SPIKE_WINDOW}m → {_fmt_price(price)}")
                 send_telegram(msg)
                 w["last_spike_time"] = now.isoformat(timespec="seconds")
@@ -726,7 +726,8 @@ def monitor_watchlist(watchlist, now):
             arah, gerak = "📉", f" {move:+.2f}%"
         else:
             arah, gerak = "➖", ""
-        msg = f"{arah} {_short_sym(sym)} {_fmt_price(price)}{gerak}{_rsi_tag(stats['rsi'])}"
+        nama = w.get("label") or _short_sym(sym)
+        msg = f"{arah} {nama} {_fmt_price(price)}{gerak}{_rsi_tag(stats['rsi'])}"
         print(f"WATCH: {sym} {arah} → {_fmt_price(price)} ({'/'.join(reasons)})")
         send_telegram(msg)
         w["last_notify_price"] = price
