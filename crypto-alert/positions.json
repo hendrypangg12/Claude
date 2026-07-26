@@ -17,6 +17,23 @@
       "last_notify_price": 0.48788,
       "notes": "Entry manual (udah di-average 20 Juli: entry 0.4577014, liq 0.493269)",
       "closed_reason": "liquidated (lapor owner 21 Juli)"
+    },
+    {
+      "id": "btc-long-hfm",
+      "symbol": "BTCUSDT",
+      "side": "long",
+      "entry": 64386.3465,
+      "leverage": 1,
+      "liq_price": null,
+      "sl": null,
+      "tp": [],
+      "opened_at": "2026-07-26T20:43:00+07:00",
+      "status": "open",
+      "last_rsi_zone": null,
+      "liq_warned": false,
+      "move_alert_pct": 0.2,
+      "last_notify_price": null,
+      "notes": "HFM MetaTrader CFD #BTCUSDr — 4x BUY 0.3 lot (total 1.2). Entry: 64406.498 / 64395.282 / 64384.269 / 64359.337, dipakai rata-ratanya. leverage=1 -> angka ROI = gerak harga MENTAH (margin per posisi gak diketahui). Liq CFD = stop-out margin level 20% di HFM, bukan per-posisi -> gak bisa dihitung dari sini."
     }
   ]
 }
