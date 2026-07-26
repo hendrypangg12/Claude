@@ -1,16 +1,17 @@
 {
-  "_catatan": "Koin yang cuma DIPANTAU harganya (bukan posisi). spike_pct = LONJAKAN: kirim langsung tanpa nunggu jadwal kalau gerak sekian persen dalam SPIKE_WINDOW (5) menit. spike_cooldown_min = jeda minimum antar-alert lonjakan. move_alert_pct = kabarin kalau geser sekian persen dari notif terakhir. every_minutes = update rutin tiap N menit walau harga anyep (null = matiin). enabled=false buat stop tanpa hapus.",
+  "_catatan": "Koin yang cuma DIPANTAU harganya (bukan posisi). spike_pct = LONJAKAN: kirim langsung tanpa nunggu jadwal kalau gerak sekian persen dalam SPIKE_WINDOW (5) menit. spike_cooldown_min = jeda minimum antar-alert lonjakan. move_alert_pct = kabarin kalau geser sekian persen dari notif terakhir. every_minutes = update rutin tiap N menit walau harga anyep (null = matiin). enabled=false buat stop tanpa hapus. price_adjust = kalibrasi harga (USD) biar angka yang ditampilin nyambung sama feed broker; MEXC BTCUSDT ~$45-55 di atas harga USD global.",
   "watch": [
     {
       "symbol": "BTCUSDT",
       "enabled": true,
       "move_alert_pct": 0.3,
       "every_minutes": 3,
-      "last_notify_price": 64532.99,
-      "last_notify_time": "2026-07-26T13:58:27+00:00",
+      "last_notify_price": 64648.19,
+      "last_notify_time": "2026-07-26T14:28:27+00:00",
       "spike_pct": 0.6,
       "spike_cooldown_min": 10,
-      "last_spike_time": null
+      "last_spike_time": null,
+      "price_adjust": -45
     }
   ]
 }
