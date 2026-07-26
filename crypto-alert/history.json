@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T09:08:27+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-26T09:10:37+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
@@ -571,7 +571,9 @@
       "FETUSDT",
       "BTWUSDT",
       "FARTCOINUSDT",
-      "FILUSDT"
+      "FILUSDT",
+      "IOUSDT",
+      "ZECUSDT"
     ]
   }
 }
