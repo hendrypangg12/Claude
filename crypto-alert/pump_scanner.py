@@ -46,6 +46,7 @@ COINGECKO = "https://api.coingecko.com/api/v3"  # sumber listing + funding rate 
 HERE = Path(__file__).parent
 HISTORY_PATH = HERE / "history.json"
 POSITIONS_PATH = HERE / "positions.json"
+WATCHLIST_PATH = HERE / "watchlist.json"
 
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
@@ -622,6 +623,74 @@ def monitor_positions(positions, now):
     return changed
 
 
+def monitor_watchlist(watchlist, now):
+    """Pantau koin di watchlist.json (mis. BTCUSDT) — kirim Telegram tiap harga geser
+    >= move_alert_pct dari notif terakhir, PLUS update rutin tiap every_minutes (kalau di-set)
+    walau harga lagi anyep. Beda dari monitor_positions: ini cuma NGABARIN harga, gak ada
+    entry/SL/liq (bukan posisi yang dibuka). Diminta owner 21 Juli buat mantau BTC."""
+    changed = False
+    for w in watchlist.get("watch", []):
+        if not w.get("enabled", True):
+            continue
+        sym = w["symbol"]
+        try:
+            stats = get_window_stats(sym)
+        except Exception as e:
+            print(f"warn: watch {sym} gagal ({e})")
+            continue
+        if stats is None:
+            continue
+        price = stats["price"]
+        ref = w.get("last_notify_price")
+        move = None if not ref else (price - ref) / ref * 100
+
+        reasons = []
+        thr = w.get("move_alert_pct")
+        if ref is None:
+            reasons.append("mulai dipantau")
+        elif thr and abs(move) >= thr:
+            reasons.append("gerak")
+        every = w.get("every_minutes")
+        if every and w.get("last_notify_time"):
+            elapsed = (now - datetime.fromisoformat(w["last_notify_time"])).total_seconds() / 60
+            if elapsed >= every:
+                reasons.append("update rutin")
+        if not reasons:
+            continue
+
+        if move is None:
+            arah = "👀 MULAI PANTAU"
+            gerak = ""
+        elif move > 0:
+            arah = "📈 NAIK"
+            gerak = f" {move:+.2f}% (dari {_fmt_price(ref)})"
+        elif move < 0:
+            arah = "📉 TURUN"
+            gerak = f" {move:+.2f}% (dari {_fmt_price(ref)})"
+        else:
+            arah = "➖ DATAR"
+            gerak = ""
+        rsi = stats["rsi"]
+        extra = f"\nRSI(14) {rsi:.0f} ({_rsi_zone(rsi)}) · {WINDOW_MINUTES}m {stats['pct']:+.2f}%" if rsi is not None else ""
+        msg = f"{arah} <b>{sym}</b>{gerak}\nHarga: <b>{_fmt_price(price)}</b>{extra}"
+        print(f"WATCH: {sym} {arah} → {_fmt_price(price)} ({'/'.join(reasons)})")
+        send_telegram(msg)
+        w["last_notify_price"] = price
+        w["last_notify_time"] = now.isoformat(timespec="seconds")
+        changed = True
+    return changed
+
+
+def load_watchlist():
+    if WATCHLIST_PATH.exists():
+        return json.loads(WATCHLIST_PATH.read_text())
+    return {"watch": []}
+
+
+def save_watchlist(data):
+    WATCHLIST_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+
+
 def main():
     history = load_history()
     now = datetime.now(timezone.utc)
@@ -631,6 +700,10 @@ def main():
     positions = load_positions()
     if monitor_positions(positions, now):
         save_positions(positions)
+
+    watchlist = load_watchlist()
+    if monitor_watchlist(watchlist, now):
+        save_watchlist(watchlist)
 
     binance_futures = get_binance_futures()  # {symbol: funding_rate}, None kalau CoinGecko gagal
     shortlist = get_shortlist(set(binance_futures) if binance_futures else None)

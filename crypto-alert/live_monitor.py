@@ -40,6 +40,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from pump_scanner import (  # noqa: E402
     BASE, load_history, save_history, get_binance_futures, get_shortlist,
     _compute_stats, _is_confirmed, calc_setup, risk_category, confidence_label,
+    load_watchlist, save_watchlist, monitor_watchlist,
     get_orderbook_ratio, format_alert, send_telegram, track_outcomes,
     PUMP_THRESHOLD_PCT, MAX_PUMP_PCT, WINDOW_MINUTES, COOLDOWN_MINUTES, REQUEST_SLEEP,
 )
@@ -204,6 +205,9 @@ def main():
                 last_futures_refresh = time.time()
             try:
                 scan_once(history, binance_futures, cycle)
+                wl = load_watchlist()
+                if monitor_watchlist(wl, datetime.now(timezone.utc)):
+                    save_watchlist(wl)
                 if cycle % OUTCOME_TRACK_EVERY == 0:
                     if track_outcomes(history, datetime.now(timezone.utc)):
                         save_history(history)
