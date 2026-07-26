@@ -55,6 +55,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           [ -f history.json ] && git add history.json
           [ -f positions.json ] && git add positions.json
+          [ -f watchlist.json ] && git add watchlist.json
           if git diff --staged --quiet; then
             echo "Nothing to commit."
           else

@@ -1,0 +1,13 @@
+{
+  "_catatan": "Koin yang cuma DIPANTAU harganya (bukan posisi). move_alert_pct = kabarin kalau geser sekian persen dari notif terakhir. every_minutes = update rutin tiap N menit walau harga anyep (null = matiin). enabled=false buat stop tanpa hapus.",
+  "watch": [
+    {
+      "symbol": "BTCUSDT",
+      "enabled": true,
+      "move_alert_pct": 0.3,
+      "every_minutes": 60,
+      "last_notify_price": null,
+      "last_notify_time": null
+    }
+  ]
+}
