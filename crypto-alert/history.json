@@ -555,7 +555,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T06:50:35+00:00",
+    "time": "2026-07-26T06:52:26+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -565,11 +565,11 @@
       "BEATUSDT",
       "AVAXUSDT",
       "FARTCOINUSDT",
-      "SYNUSDT",
-      "FETUSDT",
       "DOGEUSDT",
-      "TAOUSDT",
-      "EPICUSDT"
+      "FETUSDT",
+      "SYNUSDT",
+      "EPICUSDT",
+      "TAOUSDT"
     ]
   }
 }
