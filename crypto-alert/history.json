@@ -555,24 +555,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T08:08:34+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-26T08:10:32+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
-      "LIGHTUSDT",
       "EPICUSDT",
-      "BEATUSDT",
+      "LIGHTUSDT",
       "WIFUSDT",
+      "BEATUSDT",
       "AVAXUSDT",
       "SYNUSDT",
       "FARTCOINUSDT",
       "DOGEUSDT",
       "FETUSDT",
-      "TAOUSDT",
-      "FILUSDT",
       "BTWUSDT",
-      "VELVETUSDT"
+      "TAOUSDT",
+      "FILUSDT"
     ]
   }
 }
