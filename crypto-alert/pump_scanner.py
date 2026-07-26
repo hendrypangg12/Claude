@@ -602,6 +602,10 @@ def monitor_positions(positions, now):
                 hint = " ⚠️ oversold — rawan mantul ngelawan posisi short kamu, pertimbangin amanin profit / geser SL ke breakeven."
             elif is_short and zone == "overbought":
                 hint = " — momentum long masih/makin kuat, cukup mendukung posisi short."
+            elif not is_short and zone == "overbought":
+                hint = " ⚠️ overbought — udah ketarik jauh ke atas, rawan koreksi ngelawan posisi long kamu. Pertimbangin amanin profit / geser SL ke breakeven."
+            elif not is_short and zone == "oversold":
+                hint = " — tekanan jual masih kuat, kurang mendukung posisi long kamu; awasin SL."
             msgs.append(f"📊 <b>{pos['symbol']}</b>: RSI masuk zona <b>{zone}</b> ({stats['rsi']:.0f}){hint}")
             pos["last_rsi_zone"] = zone
             changed = True
