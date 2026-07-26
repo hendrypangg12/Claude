@@ -555,7 +555,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T01:36:33+00:00",
+    "time": "2026-07-26T01:38:26+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -566,9 +566,9 @@
       "BTWUSDT",
       "AVAXUSDT",
       "WIFUSDT",
-      "VELVETUSDT",
       "LITUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "VELVETUSDT"
     ]
   }
 }
