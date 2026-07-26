@@ -48,6 +48,9 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PUMP_THRESHOLD_PCT: ${{ github.event.inputs.pump_threshold_pct || '8' }}
+          # Alert pump 🚀 ke Telegram DIMATIIN (26 Juli) — owner mau fokus notif BTC dulu.
+          # Scan + catat history/dashboard/win-rate tetep jalan. Hapus baris ini buat nyalain lagi.
+          PUMP_ALERT: "off"
 
       - name: Commit history (heartbeat tiap run + alert baru)
         run: |

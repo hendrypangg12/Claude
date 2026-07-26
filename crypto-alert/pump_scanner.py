@@ -48,6 +48,10 @@ HISTORY_PATH = HERE / "history.json"
 POSITIONS_PATH = HERE / "positions.json"
 WATCHLIST_PATH = HERE / "watchlist.json"
 
+# PUMP_ALERT=off → alert pump 🚀 gak dikirim ke Telegram (tetep dicatat di history +
+# dashboard + win-rate, jadi tinggal dinyalain lagi kapan aja tanpa kehilangan data).
+# Dimatiin 26 Juli: owner mau fokus notif BTC dulu.
+PUMP_ALERT_ON = os.environ.get("PUMP_ALERT", "on").lower() not in ("off", "false", "0")
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
@@ -776,7 +780,10 @@ def main():
 
     for p in new_alerts:
         print(f"ALERT: {p['symbol']} +{p['pct']}%")
-        send_telegram(format_alert(p))
+        if PUMP_ALERT_ON:
+            send_telegram(format_alert(p))
+        else:
+            print("  (PUMP_ALERT=off — gak dikirim ke Telegram, tetep dicatat di history)")
 
     # heartbeat — selalu di-update tiap run (walau gak ada alert/outcome baru) biar dashboard
     # bisa nunjukin "terakhir scan: X menit lalu" = bukti sistem masih hidup.
