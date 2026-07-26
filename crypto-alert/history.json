@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T19:44:26+00:00",
-    "shortlist_count": 12,
+    "time": "2026-07-26T19:46:29+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "EULUSDT",
@@ -570,7 +570,8 @@
       "STRKUSDT",
       "LABUSDT",
       "ONDOUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "BCHUSDT"
     ]
   }
 }
