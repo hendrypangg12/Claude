@@ -608,9 +608,11 @@ def monitor_positions(positions, now):
                 changed = True
 
         zone = _rsi_zone(stats["rsi"])
-        # cuma kabarin masuk zona EKSTREM (OB/OS) — balik ke "neutral" gak dikirim biar hemat
-        # notif; angka RSI toh selalu nempel di alert harga. Zona tetep dicatet di state.
-        if zone is not None and zone != pos.get("last_rsi_zone") and zone != "neutral":
+        # Notif zona RSI terpisah DIMATIIN default (26 Juli, permintaan owner: cukup alert
+        # harga naik/turun, dan angka RSI+zona toh selalu nempel di ekor notif harga itu).
+        # Nyalain per-posisi dengan "rsi_zone_alert": true kalau nanti perlu lagi.
+        if (pos.get("rsi_zone_alert", False) and zone is not None
+                and zone != pos.get("last_rsi_zone") and zone != "neutral"):
             # cue singkat: zona yang NGELAWAN arah posisi = ⚠️ rawan balik
             lawan = (zone == "oversold") if is_short else (zone == "overbought")
             # kalau alert harga udah bunyi di run ini, RSI+zona-nya udah kebawa di situ →
