@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-26T22:16:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-26T22:18:23+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ESPUSDT",
@@ -564,16 +564,15 @@
       "4USDT",
       "BUSDT",
       "PIEVERSEUSDT",
-      "EPICUSDT",
       "PRLUSDT",
+      "EPICUSDT",
+      "ONDOUSDT",
       "ETCUSDT",
       "UNIUSDT",
-      "ONDOUSDT",
-      "LABUSDT",
       "ETHFIUSDT",
+      "LABUSDT",
       "IOUSDT",
-      "ZECUSDT",
-      "LINKUSDT"
+      "ZECUSDT"
     ]
   }
 }
