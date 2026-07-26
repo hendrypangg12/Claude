@@ -5,7 +5,7 @@
       "symbol": "BTCUSDT",
       "enabled": true,
       "move_alert_pct": 0.3,
-      "every_minutes": 5,
+      "every_minutes": 3,
       "last_notify_price": 64461.5,
       "last_notify_time": "2026-07-26T13:02:29+00:00"
     }
