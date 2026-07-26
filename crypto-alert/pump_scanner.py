@@ -52,6 +52,7 @@ WATCHLIST_PATH = HERE / "watchlist.json"
 # dashboard + win-rate, jadi tinggal dinyalain lagi kapan aja tanpa kehilangan data).
 # Dimatiin 26 Juli: owner mau fokus notif BTC dulu.
 PUMP_ALERT_ON = os.environ.get("PUMP_ALERT", "on").lower() not in ("off", "false", "0")
+SPIKE_WINDOW = int(os.environ.get("SPIKE_WINDOW", "5"))  # jumlah candle 1m buat ngukur "lonjakan"
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
@@ -261,10 +262,17 @@ def _compute_stats(kl):
     avg_vol = sum(vols) / len(vols) if vols else 0
     vol_spike = (vols[-1] / avg_vol) if avg_vol > 0 else None  # volume candle terakhir vs rata-rata window
 
+    # KECEPATAN gerak: % perubahan dalam SPIKE_WINDOW candle terakhir. Beda dari "pct" (yang
+    # ngukur seluruh window 30m) — ini buat nangkep LONJAKAN mendadak. Sengaja dihitung dari
+    # candle, bukan dari harga notif terakhir, biar patokannya gak ke-reset tiap ada notif.
+    fast_ref = float(kl[-min(SPIKE_WINDOW + 1, len(kl))][4])
+    pct_fast = (last_p - fast_ref) / fast_ref * 100 if fast_ref > 0 else None
+
     return {
         "pct": pct, "peak_pct": peak_pct, "price": last_p, "swing_high": swing_high, "swing_low": swing_low,
         "vol_ratio": vol_ratio, "last_red": last_red, "retrace_pct": retrace_pct, "retrace_frac": retrace_frac,
         "wick_ratio": wick_ratio, "rsi": rsi, "divergence": divergence, "vol_spike": vol_spike,
+        "pct_fast": pct_fast,
     }
 
 
@@ -668,6 +676,26 @@ def monitor_watchlist(watchlist, now):
         price = stats["price"]
         ref = w.get("last_notify_price")
         move = None if not ref else (price - ref) / ref * 100
+
+        # === LONJAKAN: cek paling awal, GAK nunggu jadwal ===
+        spike_thr = w.get("spike_pct")
+        fast = stats.get("pct_fast")
+        if spike_thr and fast is not None and abs(fast) >= spike_thr:
+            cd = w.get("spike_cooldown_min", 10)
+            last_sp = w.get("last_spike_time")
+            fresh = True
+            if last_sp:
+                fresh = (now - datetime.fromisoformat(last_sp)).total_seconds() / 60 >= cd
+            if fresh:
+                ikon = "🚨📈" if fast > 0 else "🚨📉"
+                msg = f"{ikon} {_short_sym(sym)} LONJAKAN {fast:+.2f}%/{SPIKE_WINDOW}m → {_fmt_price(price)}{_rsi_tag(stats['rsi'])}"
+                print(f"SPIKE: {sym} {fast:+.2f}% dalam {SPIKE_WINDOW}m → {_fmt_price(price)}")
+                send_telegram(msg)
+                w["last_spike_time"] = now.isoformat(timespec="seconds")
+                w["last_notify_price"] = price      # reset patokan biar notif rutin gak ngulang
+                w["last_notify_time"] = now.isoformat(timespec="seconds")
+                changed = True
+                continue                            # cukup 1 notif buat siklus ini
 
         reasons = []
         thr = w.get("move_alert_pct")
