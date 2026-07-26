@@ -562,7 +562,7 @@ def monitor_positions(positions, now):
 
         sl_ref = pos.get("sl") or pos.get("liq_price")
         if sl_ref and ((is_short and price >= sl_ref) or (not is_short and price <= sl_ref)):
-            msgs.append(f"🔴 <b>{pos['symbol']}</b>: harga ({_fmt_price(price)}) udah nembus SL/liq ({_fmt_price(sl_ref)})! Kemungkinan posisi kena stop/liquidated.")
+            msgs.append(f"🔴 {_short_sym(pos['symbol'])} nembus SL {_fmt_price(sl_ref)} — kena stop")
             pos["status"] = "closed"
             pos["closed_reason"] = "sl_or_liq_hit"
 
@@ -571,7 +571,7 @@ def monitor_positions(positions, now):
             if pos.get(hit_key):
                 continue
             if (is_short and price <= tp) or (not is_short and price >= tp):
-                msgs.append(f"✅ <b>{pos['symbol']}</b>: harga nyampe TP{i+1} ({_fmt_price(tp)}) — pertimbangin profit-taking sebagian.")
+                msgs.append(f"✅ {_short_sym(pos['symbol'])} TP{i+1} kena {_fmt_price(tp)}")
                 pos[hit_key] = True
                 changed = True
 
@@ -585,35 +585,36 @@ def monitor_positions(positions, now):
             if abs(move) >= move_thr:
                 raw_pnl = (pos["entry"] - price) / pos["entry"] * 100 if is_short else (price - pos["entry"]) / pos["entry"] * 100
                 roi = raw_pnl * pos.get("leverage", 1)
-                arah = "📈 NAIK" if move > 0 else "📉 TURUN"
+                arah = "📈" if move > 0 else "📉"
                 untung = (move < 0) == is_short
-                mood = "✅ makin cuan" if (untung and roi > 0) else ("🟢 ngarah bagus" if untung else ("⚠️ ngelawan posisi" if roi > 0 else "🔴 makin minus"))
+                rsi_tx = _rsi_tag(stats["rsi"])
                 msgs.append(
-                    f"{arah} <b>{pos['symbol']}</b> {move:+.2f}% (dari {_fmt_price(ref)} → {_fmt_price(price)})\n"
-                    f"{mood} — est. ROI posisi: <b>{roi:+.1f}%</b> ({pos.get('leverage', 1)}x, entry {_fmt_price(pos['entry'])})"
+                    f"{arah} {_short_sym(pos['symbol'])} {_fmt_price(price)} {move:+.2f}%"
+                    f" · PNL {roi:+.1f}%{'' if untung else ' ⚠️'}{rsi_tx}"
                 )
                 pos["last_notify_price"] = price
                 changed = True
 
         zone = _rsi_zone(stats["rsi"])
+        # cuma kabarin masuk zona EKSTREM (OB/OS) — balik ke "neutral" gak dikirim biar hemat
+        # notif; angka RSI toh selalu nempel di alert harga. Zona tetep dicatet di state.
+        if zone is not None and zone != pos.get("last_rsi_zone") and zone != "neutral":
+            # cue singkat: zona yang NGELAWAN arah posisi = ⚠️ rawan balik
+            lawan = (zone == "oversold") if is_short else (zone == "overbought")
+            # kalau alert harga udah bunyi di run ini, RSI+zona-nya udah kebawa di situ →
+            # notif zona terpisah cuma dikirim kalau ada peringatan "rawan balik" (yang penting).
+            if lawan or not msgs:
+                hint = " ⚠️ rawan balik" if lawan else ""
+                msgs.append(f"📊 {_short_sym(pos['symbol'])} RSI {stats['rsi']:.0f} {_ZONE_TAG[zone]}{hint}")
+            changed = True
         if zone is not None and zone != pos.get("last_rsi_zone"):
-            hint = ""
-            if is_short and zone == "oversold":
-                hint = " ⚠️ oversold — rawan mantul ngelawan posisi short kamu, pertimbangin amanin profit / geser SL ke breakeven."
-            elif is_short and zone == "overbought":
-                hint = " — momentum long masih/makin kuat, cukup mendukung posisi short."
-            elif not is_short and zone == "overbought":
-                hint = " ⚠️ overbought — udah ketarik jauh ke atas, rawan koreksi ngelawan posisi long kamu. Pertimbangin amanin profit / geser SL ke breakeven."
-            elif not is_short and zone == "oversold":
-                hint = " — tekanan jual masih kuat, kurang mendukung posisi long kamu; awasin SL."
-            msgs.append(f"📊 <b>{pos['symbol']}</b>: RSI masuk zona <b>{zone}</b> ({stats['rsi']:.0f}){hint}")
             pos["last_rsi_zone"] = zone
             changed = True
 
         if pos.get("liq_price") and pos["status"] == "open":
             dist = abs(pos["liq_price"] - price) / price * 100
             if dist < 5 and not pos.get("liq_warned"):
-                msgs.append(f"🚨 <b>{pos['symbol']}</b>: DEKET LIKUIDASI, tinggal {dist:.1f}%! Harga sekarang {_fmt_price(price)}, liq di {_fmt_price(pos['liq_price'])}.")
+                msgs.append(f"🚨 {_short_sym(pos['symbol'])} DEKET LIQ {dist:.1f}%! ({_fmt_price(price)})")
                 pos["liq_warned"] = True
                 changed = True
 
@@ -625,6 +626,22 @@ def monitor_positions(positions, now):
         if pos["status"] == "closed":
             changed = True
     return changed
+
+
+_ZONE_TAG = {"overbought": "🔴OB", "oversold": "🟢OS", "neutral": ""}
+
+
+def _short_sym(sym):
+    """BTCUSDT -> BTC (biar notif kebaca di layar jam Garmin yang sempit)."""
+    return sym[:-4] if sym.endswith("USDT") else sym
+
+
+def _rsi_tag(rsi):
+    """Ekor singkat ' · RSI 82 🔴OB' — kosong kalau RSI gak keitung."""
+    if rsi is None:
+        return ""
+    tag = _ZONE_TAG.get(_rsi_zone(rsi), "")
+    return f" · RSI {rsi:.0f}" + (f" {tag}" if tag else "")
 
 
 def monitor_watchlist(watchlist, now):
@@ -663,20 +680,14 @@ def monitor_watchlist(watchlist, now):
             continue
 
         if move is None:
-            arah = "👀 MULAI PANTAU"
-            gerak = ""
+            arah, gerak = "👀", ""
         elif move > 0:
-            arah = "📈 NAIK"
-            gerak = f" {move:+.2f}% (dari {_fmt_price(ref)})"
+            arah, gerak = "📈", f" {move:+.2f}%"
         elif move < 0:
-            arah = "📉 TURUN"
-            gerak = f" {move:+.2f}% (dari {_fmt_price(ref)})"
+            arah, gerak = "📉", f" {move:+.2f}%"
         else:
-            arah = "➖ DATAR"
-            gerak = ""
-        rsi = stats["rsi"]
-        extra = f"\nRSI(14) {rsi:.0f} ({_rsi_zone(rsi)}) · {WINDOW_MINUTES}m {stats['pct']:+.2f}%" if rsi is not None else ""
-        msg = f"{arah} <b>{sym}</b>{gerak}\nHarga: <b>{_fmt_price(price)}</b>{extra}"
+            arah, gerak = "➖", ""
+        msg = f"{arah} {_short_sym(sym)} {_fmt_price(price)}{gerak}{_rsi_tag(stats['rsi'])}"
         print(f"WATCH: {sym} {arah} → {_fmt_price(price)} ({'/'.join(reasons)})")
         send_telegram(msg)
         w["last_notify_price"] = price
