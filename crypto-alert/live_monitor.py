@@ -43,6 +43,7 @@ from pump_scanner import (  # noqa: E402
     load_watchlist, save_watchlist, monitor_watchlist,
     get_orderbook_ratio, format_alert, send_telegram, track_outcomes,
     PUMP_THRESHOLD_PCT, MAX_PUMP_PCT, WINDOW_MINUTES, COOLDOWN_MINUTES, REQUEST_SLEEP,
+    PUMP_ALERT_ON,
 )
 
 HERE = Path(__file__).parent
@@ -149,7 +150,10 @@ def scan_once(history, binance_futures, cycle):
         print(f"{C_RED}{'=' * 72}{C_RESET}")
         print(f"{C_RED}🚀 ALERT BARU: {p['symbol']} +{p['pct']}% — kirim Telegram...{C_RESET}")
         print(f"{C_RED}{'=' * 72}{C_RESET}")
-        send_telegram(format_alert(p))
+        if PUMP_ALERT_ON:
+            send_telegram(format_alert(p))
+        else:
+            print(f"  {C_DIM}(PUMP_ALERT=off — gak dikirim ke Telegram){C_RESET}")
 
     history["last_scan"] = {
         "time": now.isoformat(timespec="seconds"), "shortlist_count": len(shortlist),
