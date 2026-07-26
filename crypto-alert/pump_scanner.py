@@ -568,7 +568,12 @@ def monitor_positions(positions, now):
             continue
         if stats is None:
             continue
-        price = stats["price"]
+        # KALIBRASI harga ke feed tempat owner beneran trading. Data kita dari MEXC (BTCUSDT),
+        # yang konsisten ~$45-55 di ATAS harga USD global / broker CFD (premium USDT+bursa, diukur
+        # 26 Juli). Offset ini cuma nyetel ANGKA yang ditampilin biar nyambung sama layar broker —
+        # persentase gerak gak kepengaruh (offset-nya nyaris habis pas dibagi). Setel ulang kalau
+        # premium-nya geser: bandingin harga di app vs angka di alert, selisihnya taruh di sini.
+        price = stats["price"] + pos.get("price_adjust", 0)
         is_short = pos.get("side", "short") == "short"
         msgs = []
 
@@ -675,7 +680,7 @@ def monitor_watchlist(watchlist, now):
             continue
         if stats is None:
             continue
-        price = stats["price"]
+        price = stats["price"] + w.get("price_adjust", 0)   # lihat catatan kalibrasi di monitor_positions
         ref = w.get("last_notify_price")
         move = None if not ref else (price - ref) / ref * 100
 
