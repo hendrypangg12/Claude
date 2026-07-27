@@ -629,27 +629,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T16:06:33+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-27T16:08:30+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
-      "AKEUSDT",
       "ONUSDT",
+      "AKEUSDT",
       "BTWUSDT",
       "BEATUSDT",
-      "BULLAUSDT",
       "IDOLUSDT",
-      "NILUSDT",
+      "BULLAUSDT",
       "ZAMAUSDT",
+      "NILUSDT",
       "4USDT",
       "PUMPUSDT",
       "龙虾USDT",
       "ZROUSDT",
       "IRYSUSDT",
       "APEUSDT",
-      "BUSDT",
-      "USUSDT",
-      "ENAUSDT"
+      "BUSDT"
     ]
   }
 }
