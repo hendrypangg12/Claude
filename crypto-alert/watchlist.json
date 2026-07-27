@@ -16,14 +16,14 @@
     {
       "symbol": "GOLD(PAXG)USDT",
       "label": "XAU",
-      "enabled": false,
+      "enabled": true,
       "move_alert_pct": 0.3,
       "every_minutes": 3,
       "spike_pct": 0.6,
       "spike_cooldown_min": 10,
       "price_adjust": 0,
-      "last_notify_price": 4062.06,
-      "last_notify_time": "2026-07-26T20:14:24+00:00",
+      "last_notify_price": null,
+      "last_notify_time": null,
       "last_spike_time": null,
       "catatan": "PAXG = token yang di-back emas fisik (1 token = 1 oz), diperdagangkan 24/7 di MEXC. Dipakai sbg PROKSI XAU/USD karena MEXC gak punya pair forex. Harga bisa beda dari XAUUSD broker (premium/diskon token + forex tutup weekend) -> kalibrasi price_adjust setelah pasar forex buka. [DIMATIIN 26 Juli: pasar forex emas masih tutup (Minggu). Nyalain lagi enabled:true pas market buka Senin ~04:00 WIB.]"
     }
