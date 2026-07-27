@@ -574,12 +574,13 @@ def monitor_positions(positions, now):
         # persentase gerak gak kepengaruh (offset-nya nyaris habis pas dibagi). Setel ulang kalau
         # premium-nya geser: bandingin harga di app vs angka di alert, selisihnya taruh di sini.
         price = stats["price"] + pos.get("price_adjust", 0)
+        nama = pos.get("label") or _short_sym(pos["symbol"])
         is_short = pos.get("side", "short") == "short"
         msgs = []
 
         sl_ref = pos.get("sl") or pos.get("liq_price")
         if sl_ref and ((is_short and price >= sl_ref) or (not is_short and price <= sl_ref)):
-            msgs.append(f"🔴 {_short_sym(pos['symbol'])} nembus SL {_fmt_price(sl_ref)} — kena stop")
+            msgs.append(f"🔴 {nama} nembus SL {_fmt_price(sl_ref)} — kena stop")
             pos["status"] = "closed"
             pos["closed_reason"] = "sl_or_liq_hit"
 
@@ -588,7 +589,7 @@ def monitor_positions(positions, now):
             if pos.get(hit_key):
                 continue
             if (is_short and price <= tp) or (not is_short and price >= tp):
-                msgs.append(f"✅ {_short_sym(pos['symbol'])} TP{i+1} kena {_fmt_price(tp)}")
+                msgs.append(f"✅ {nama} TP{i+1} kena {_fmt_price(tp)}")
                 pos[hit_key] = True
                 changed = True
 
@@ -606,7 +607,7 @@ def monitor_positions(positions, now):
                 untung = (move < 0) == is_short
                 rsi_tx = _rsi_tag(stats["rsi"])
                 msgs.append(
-                    f"{arah} {_short_sym(pos['symbol'])} {_fmt_price(price)} {move:+.2f}%"
+                    f"{arah} {nama} {_fmt_price(price)} {move:+.2f}%"
                     f" · PNL {roi:+.1f}%{'' if untung else ' ⚠️'}{rsi_tx}"
                 )
                 pos["last_notify_price"] = price
@@ -624,7 +625,7 @@ def monitor_positions(positions, now):
             # notif zona terpisah cuma dikirim kalau ada peringatan "rawan balik" (yang penting).
             if lawan or not msgs:
                 hint = " ⚠️ rawan balik" if lawan else ""
-                msgs.append(f"📊 {_short_sym(pos['symbol'])} RSI {stats['rsi']:.0f} {_ZONE_TAG[zone]}{hint}")
+                msgs.append(f"📊 {nama} RSI {stats['rsi']:.0f} {_ZONE_TAG[zone]}{hint}")
             changed = True
         if zone is not None and zone != pos.get("last_rsi_zone"):
             pos["last_rsi_zone"] = zone
@@ -633,7 +634,7 @@ def monitor_positions(positions, now):
         if pos.get("liq_price") and pos["status"] == "open":
             dist = abs(pos["liq_price"] - price) / price * 100
             if dist < 5 and not pos.get("liq_warned"):
-                msgs.append(f"🚨 {_short_sym(pos['symbol'])} DEKET LIQ {dist:.1f}%! ({_fmt_price(price)})")
+                msgs.append(f"🚨 {nama} DEKET LIQ {dist:.1f}%! ({_fmt_price(price)})")
                 pos["liq_warned"] = True
                 changed = True
 
