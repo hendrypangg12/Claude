@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T09:56:31+00:00",
-    "shortlist_count": 25,
+    "time": "2026-07-27T09:58:34+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -567,15 +567,15 @@
       "ESPUSDT",
       "PUMPUSDT",
       "龙虾USDT",
+      "4USDT",
       "LITUSDT",
       "KAITOUSDT",
-      "4USDT",
       "APEUSDT",
       "AAVEUSDT",
       "TRUTHUSDT",
-      "BEATUSDT",
-      "ONDOUSDT",
       "UNIUSDT",
+      "ONDOUSDT",
+      "BEATUSDT",
       "ZROUSDT",
       "ENAUSDT",
       "ETHFIUSDT",
@@ -583,7 +583,8 @@
       "PYTHUSDT",
       "LINKUSDT",
       "ETHUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "KASUSDT"
     ]
   }
 }
