@@ -6,8 +6,8 @@
       "enabled": true,
       "move_alert_pct": 0.3,
       "every_minutes": 3,
-      "last_notify_price": 65189.76,
-      "last_notify_time": "2026-07-27T09:32:34+00:00",
+      "last_notify_price": 65257.59,
+      "last_notify_time": "2026-07-27T09:36:27+00:00",
       "spike_pct": 0.6,
       "spike_cooldown_min": 10,
       "last_spike_time": null,
@@ -22,8 +22,8 @@
       "spike_pct": 0.6,
       "spike_cooldown_min": 10,
       "price_adjust": 0,
-      "last_notify_price": 4087.53,
-      "last_notify_time": "2026-07-27T09:32:34+00:00",
+      "last_notify_price": 4087.85,
+      "last_notify_time": "2026-07-27T09:36:27+00:00",
       "last_spike_time": null,
       "catatan": "PAXG = token yang di-back emas fisik (1 token = 1 oz), diperdagangkan 24/7 di MEXC. Dipakai sbg PROKSI XAU/USD karena MEXC gak punya pair forex. Harga bisa beda dari XAUUSD broker (premium/diskon token + forex tutup weekend) -> kalibrasi price_adjust setelah pasar forex buka. [DIMATIIN 26 Juli: pasar forex emas masih tutup (Minggu). Nyalain lagi enabled:true pas market buka Senin ~04:00 WIB.]"
     }
