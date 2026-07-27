@@ -12,7 +12,8 @@
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
     "DEXEUSDT": "2026-07-25T19:42:32+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
-    "NILUSDT": "2026-07-27T12:14:29+00:00"
+    "NILUSDT": "2026-07-27T12:14:29+00:00",
+    "BTWUSDT": "2026-07-27T15:08:38+00:00"
   },
   "alerts": [
     {
@@ -601,28 +602,51 @@
       "time": "2026-07-27T12:14:29+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-27T12:20:30+00:00"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "pct": 13.28,
+      "price": 0.110894,
+      "quote_volume": 1337755.480228,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3866464722905963,
+      "retrace_pct": 1.281891502127581,
+      "wick_ratio": 0.8539852645679781,
+      "rsi": 67.81626306094913,
+      "divergence": true,
+      "vol_spike": 0.042207154623315216,
+      "btc_pct": 0.18013827181307893,
+      "sl": 0.11345734,
+      "tp1": 0.107303442,
+      "tp2": 0.10419555800000001,
+      "tp3": 0.099165,
+      "funding_rate": 0.053,
+      "orderbook_ratio": 0.622909817575544,
+      "time": "2026-07-27T15:08:38+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T15:06:31+00:00",
+    "time": "2026-07-27T15:08:38+00:00",
     "shortlist_count": 18,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTWUSDT",
       "ONUSDT",
       "AKEUSDT",
-      "NILUSDT",
       "BEATUSDT",
-      "BULLAUSDT",
+      "NILUSDT",
       "ZAMAUSDT",
+      "BULLAUSDT",
       "PUMPUSDT",
       "龙虾USDT",
       "4USDT",
-      "ZROUSDT",
       "IRYSUSDT",
       "APEUSDT",
-      "BUSDT",
+      "ZROUSDT",
       "IDOLUSDT",
+      "BUSDT",
       "LITUSDT",
       "ENAUSDT",
       "ONDOUSDT"
