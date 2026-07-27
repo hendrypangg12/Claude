@@ -36,6 +36,25 @@
       "notes": "HFM MetaTrader CFD #BTCUSDr — 5x BUY 0.3 lot (total 1.5). Entry: 64359.337 / 64384.269 / 64395.282 / 64406.498 / 64407.788, dipakai rata-ratanya. leverage=1 -> angka PNL = gerak harga MENTAH (margin per posisi gak diketahui). Liq CFD = stop-out margin level 20% di HFM, bukan per-posisi -> gak bisa dihitung dari sini. Harga dari MEXC (BTCUSDT) biasanya beda ~0.05-0.1% dari feed broker (CFD BTCUSD) — normal.",
       "price_adjust": -45,
       "closed_reason": "take profit (ditutup manual owner, 26 Juli)"
+    },
+    {
+      "id": "xau-short-hfm",
+      "symbol": "GOLD(PAXG)USDT",
+      "label": "XAU",
+      "side": "short",
+      "entry": 4098.7086,
+      "leverage": 1,
+      "liq_price": null,
+      "sl": null,
+      "tp": [],
+      "opened_at": "2026-07-27T18:48:00+07:00",
+      "status": "open",
+      "last_rsi_zone": null,
+      "liq_warned": false,
+      "move_alert_pct": 0.1,
+      "last_notify_price": null,
+      "price_adjust": 5.3,
+      "notes": "HFM MetaTrader XAUUSDb (Gold Spot) — 7x SELL 0.05 lot (total 0.35). Entry: 4099.91 / 4099.43 / 4099.12 / 4098.63 / 4098.31 / 4098.0 / 4097.56, dipakai rata-ratanya. Harga dari PAXG (MEXC) + kalibrasi 5.3. leverage=1 -> PNL = gerak harga mentah. Stop-out CFD = margin level, bukan per-posisi -> gak bisa dihitung dari sini."
     }
   ]
 }
