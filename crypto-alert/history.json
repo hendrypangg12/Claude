@@ -604,8 +604,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T12:22:30+00:00",
-    "shortlist_count": 23,
+    "time": "2026-07-27T12:24:35+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -614,7 +614,6 @@
       "NILUSDT",
       "BUSDT",
       "BULLAUSDT",
-      "EPICUSDT",
       "PUMPUSDT",
       "BEATUSDT",
       "ESPUSDT",
@@ -625,12 +624,10 @@
       "APEUSDT",
       "LITUSDT",
       "ONDOUSDT",
+      "TRUTHUSDT",
       "AAVEUSDT",
       "ENAUSDT",
-      "TRUTHUSDT",
-      "PENDLEUSDT",
-      "EVAAUSDT",
-      "PYTHUSDT"
+      "PENDLEUSDT"
     ]
   }
 }
