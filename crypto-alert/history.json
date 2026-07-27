@@ -555,29 +555,32 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T05:50:40+00:00",
-    "shortlist_count": 19,
+    "time": "2026-07-27T05:52:26+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "ESPUSDT",
       "BUSDT",
       "BTWUSDT",
-      "AKEUSDT",
       "4USDT",
+      "AKEUSDT",
       "ZAMAUSDT",
-      "AAVEUSDT",
       "PUMPUSDT",
+      "AAVEUSDT",
       "LITUSDT",
-      "TRUTHUSDT",
       "ETHFIUSDT",
-      "UNIUSDT",
+      "TRUTHUSDT",
       "ONDOUSDT",
       "ZROUSDT",
+      "UNIUSDT",
       "WLDUSDT",
       "STRKUSDT",
-      "LINKUSDT",
       "LABUSDT",
-      "CRVUSDT"
+      "LINKUSDT",
+      "DEXEUSDT",
+      "PENDLEUSDT",
+      "BLESSUSDT",
+      "ETHUSDT"
     ]
   }
 }
