@@ -624,16 +624,17 @@
       "funding_rate": 0.053,
       "orderbook_ratio": 0.622909817575544,
       "time": "2026-07-27T15:08:38+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-27T15:14:39+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T15:12:40+00:00",
+    "time": "2026-07-27T15:14:39+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
-      "BTWUSDT",
       "ONUSDT",
+      "BTWUSDT",
       "AKEUSDT",
       "BEATUSDT",
       "NILUSDT",
