@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T04:50:29+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-27T04:52:29+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "ESPUSDT",
@@ -572,10 +572,11 @@
       "AKEUSDT",
       "ZAMAUSDT",
       "WLDUSDT",
-      "KASUSDT",
       "ONDOUSDT",
       "PENDLEUSDT",
-      "STRKUSDT"
+      "KASUSDT",
+      "STRKUSDT",
+      "CRVUSDT"
     ]
   }
 }
