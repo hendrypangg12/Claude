@@ -8,7 +8,7 @@
     "SYNUSDT": "2026-07-18T20:58:31+00:00",
     "ACEUSDT": "2026-07-24T21:44:27+00:00",
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
-    "ONUSDT": "2026-07-24T08:18:26+00:00",
+    "ONUSDT": "2026-07-27T11:00:42+00:00",
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
     "DEXEUSDT": "2026-07-25T19:42:32+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00"
@@ -552,20 +552,43 @@
       "time": "2026-07-25T19:42:32+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-25T19:50:40+00:00"
+    },
+    {
+      "symbol": "ONUSDT",
+      "pct": 13.11,
+      "price": 0.1783,
+      "quote_volume": 245103.46237,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3219245689633836,
+      "retrace_pct": 1.4808266106752213,
+      "wick_ratio": 0.15185185185185204,
+      "rsi": 65.28634345025685,
+      "divergence": false,
+      "vol_spike": 0.09123609206662543,
+      "btc_pct": -0.05488861375721872,
+      "sl": 0.1827898,
+      "tp1": 0.17296564,
+      "tp2": 0.16801436,
+      "tp3": 0.16,
+      "funding_rate": 0.054,
+      "orderbook_ratio": 0.8239520259458619,
+      "time": "2026-07-27T11:00:42+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T10:58:33+00:00",
-    "shortlist_count": 26,
-    "confirmed_count": 0,
+    "time": "2026-07-27T11:00:42+00:00",
+    "shortlist_count": 24,
+    "confirmed_count": 1,
     "symbols": [
-      "BTWUSDT",
       "ONUSDT",
+      "BTWUSDT",
       "AKEUSDT",
       "NILUSDT",
       "BUSDT",
-      "PUMPUSDT",
       "BEATUSDT",
+      "PUMPUSDT",
       "4USDT",
       "ESPUSDT",
       "龙虾USDT",
@@ -575,16 +598,14 @@
       "TRUTHUSDT",
       "ONDOUSDT",
       "ENAUSDT",
+      "KAITOUSDT",
       "PENDLEUSDT",
       "AAVEUSDT",
-      "KAITOUSDT",
       "UNIUSDT",
-      "ETHFIUSDT",
-      "PYTHUSDT",
       "LINKUSDT",
-      "WLDUSDT",
       "ETHUSDT",
-      "BCHUSDT"
+      "ETHFIUSDT",
+      "WLDUSDT"
     ]
   }
 }
