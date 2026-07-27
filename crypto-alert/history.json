@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T07:46:38+00:00",
-    "shortlist_count": 22,
+    "time": "2026-07-27T07:48:27+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -574,13 +574,14 @@
       "ETHFIUSDT",
       "ZROUSDT",
       "UNIUSDT",
-      "ZAMAUSDT",
-      "APEUSDT",
       "ENAUSDT",
+      "APEUSDT",
       "PENDLEUSDT",
+      "ZAMAUSDT",
       "LINKUSDT",
       "ETHUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "CRVUSDT"
     ]
   }
 }
