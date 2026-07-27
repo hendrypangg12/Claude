@@ -629,14 +629,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T18:04:47+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-27T18:06:37+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
       "AKEUSDT",
-      "TAGUSDT",
       "BULLAUSDT",
+      "TAGUSDT",
       "4USDT",
       "IRYSUSDT",
       "ZAMAUSDT",
@@ -645,10 +645,9 @@
       "NILUSDT",
       "IDOLUSDT",
       "APEUSDT",
-      "龙虾USDT",
       "BTWUSDT",
-      "LITUSDT",
-      "KAITOUSDT"
+      "龙虾USDT",
+      "LITUSDT"
     ]
   }
 }
