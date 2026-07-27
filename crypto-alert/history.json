@@ -604,16 +604,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T13:34:27+00:00",
-    "shortlist_count": 21,
+    "time": "2026-07-27T13:36:36+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
       "ONUSDT",
       "AKEUSDT",
-      "BEATUSDT",
       "NILUSDT",
       "BULLAUSDT",
+      "BEATUSDT",
       "PUMPUSDT",
       "ZAMAUSDT",
       "4USDT",
@@ -623,11 +623,13 @@
       "ESPUSDT",
       "ZROUSDT",
       "LITUSDT",
-      "ONDOUSDT",
       "ENAUSDT",
+      "ONDOUSDT",
       "XPLUSDT",
-      "PYTHUSDT",
       "AAVEUSDT",
+      "PYTHUSDT",
+      "WLDUSDT",
+      "ETHUSDT",
       "EVAAUSDT"
     ]
   }
