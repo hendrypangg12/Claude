@@ -629,18 +629,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T20:44:39+00:00",
+    "time": "2026-07-27T20:46:35+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
       "AKEUSDT",
-      "BULLAUSDT",
       "SOONUSDT",
+      "BULLAUSDT",
       "BROCCOLIF3BUSDT",
       "TAGUSDT",
-      "PUMPUSDT",
       "NILUSDT",
+      "PUMPUSDT",
       "IRYSUSDT",
       "RIFUSDT",
       "IDOLUSDT",
@@ -649,8 +649,8 @@
       "KAITOUSDT",
       "ZAMAUSDT",
       "BTWUSDT",
-      "BUSDT",
-      "ALLOUSDT"
+      "ALLOUSDT",
+      "BUSDT"
     ]
   }
 }
