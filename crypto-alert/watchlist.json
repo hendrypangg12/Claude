@@ -3,7 +3,7 @@
   "watch": [
     {
       "symbol": "BTCUSDT",
-      "enabled": true,
+      "enabled": false,
       "move_alert_pct": 0.3,
       "every_minutes": 3,
       "last_notify_price": 65130.43,
