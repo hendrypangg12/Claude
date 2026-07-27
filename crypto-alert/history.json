@@ -629,8 +629,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T20:02:41+00:00",
-    "shortlist_count": 18,
+    "time": "2026-07-27T20:04:36+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "BROCCOLIF3BUSDT",
@@ -642,15 +642,17 @@
       "PUMPUSDT",
       "RIFUSDT",
       "IRYSUSDT",
-      "NILUSDT",
       "IDOLUSDT",
+      "NILUSDT",
       "ZAMAUSDT",
       "ZROUSDT",
       "APEUSDT",
       "KAITOUSDT",
-      "龙虾USDT",
       "BUSDT",
-      "LITUSDT"
+      "龙虾USDT",
+      "LITUSDT",
+      "EVAAUSDT",
+      "BTWUSDT"
     ]
   }
 }
