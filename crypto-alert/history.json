@@ -11,7 +11,8 @@
     "ONUSDT": "2026-07-27T11:00:42+00:00",
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
     "DEXEUSDT": "2026-07-25T19:42:32+00:00",
-    "EULUSDT": "2026-07-25T18:10:34+00:00"
+    "EULUSDT": "2026-07-25T18:10:34+00:00",
+    "NILUSDT": "2026-07-27T12:14:29+00:00"
   },
   "alerts": [
     {
@@ -576,12 +577,35 @@
       "time": "2026-07-27T11:00:42+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-27T11:08:30+00:00"
+    },
+    {
+      "symbol": "NILUSDT",
+      "pct": 8.94,
+      "price": 0.048,
+      "quote_volume": 276502.02515,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5294031573867216,
+      "retrace_pct": 0.8264462809917306,
+      "wick_ratio": 0.10687022900763464,
+      "rsi": 76.95264891686216,
+      "divergence": false,
+      "vol_spike": 0.11523243157216835,
+      "btc_pct": -0.10825441859858924,
+      "sl": 0.048884,
+      "tp1": 0.046883459999999995,
+      "tp2": 0.04594654,
+      "tp3": 0.04443,
+      "funding_rate": -0.497,
+      "orderbook_ratio": 0.48509435462179706,
+      "time": "2026-07-27T12:14:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T12:12:25+00:00",
-    "shortlist_count": 22,
-    "confirmed_count": 0,
+    "time": "2026-07-27T12:14:29+00:00",
+    "shortlist_count": 23,
+    "confirmed_count": 1,
     "symbols": [
       "BTWUSDT",
       "ONUSDT",
@@ -592,19 +616,20 @@
       "BEATUSDT",
       "PUMPUSDT",
       "4USDT",
+      "EPICUSDT",
       "ESPUSDT",
       "龙虾USDT",
       "ZAMAUSDT",
       "ZROUSDT",
       "LITUSDT",
       "APEUSDT",
-      "EPICUSDT",
       "ONDOUSDT",
-      "ENAUSDT",
       "TRUTHUSDT",
+      "ENAUSDT",
       "AAVEUSDT",
+      "PENDLEUSDT",
       "XPLUSDT",
-      "PENDLEUSDT"
+      "EVAAUSDT"
     ]
   }
 }
