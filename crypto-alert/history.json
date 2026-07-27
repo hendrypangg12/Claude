@@ -629,8 +629,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T22:16:35+00:00",
-    "shortlist_count": 15,
+    "time": "2026-07-27T22:18:29+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -645,9 +645,11 @@
       "IRYSUSDT",
       "PUMPUSDT",
       "ZROUSDT",
-      "ZAMAUSDT",
       "APEUSDT",
-      "BUSDT"
+      "ZAMAUSDT",
+      "BUSDT",
+      "USUSDT",
+      "PYTHUSDT"
     ]
   }
 }
