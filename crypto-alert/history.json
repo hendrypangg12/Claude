@@ -555,7 +555,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T05:28:28+00:00",
+    "time": "2026-07-27T05:30:33+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -569,18 +569,18 @@
       "ETHFIUSDT",
       "LITUSDT",
       "TRUTHUSDT",
-      "AKEUSDT",
       "UNIUSDT",
       "WLDUSDT",
+      "AKEUSDT",
       "ONDOUSDT",
-      "BEATUSDT",
-      "ZROUSDT",
-      "STRKUSDT",
       "LABUSDT",
+      "BEATUSDT",
+      "STRKUSDT",
+      "ZROUSDT",
       "CRVUSDT",
-      "ENAUSDT",
       "LINKUSDT",
-      "BLESSUSDT"
+      "ENAUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
