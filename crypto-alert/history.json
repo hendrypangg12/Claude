@@ -555,8 +555,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-27T09:20:33+00:00",
-    "shortlist_count": 22,
+    "time": "2026-07-27T09:22:27+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -572,14 +572,15 @@
       "LITUSDT",
       "AAVEUSDT",
       "APEUSDT",
-      "UNIUSDT",
-      "BEATUSDT",
       "ONDOUSDT",
+      "BEATUSDT",
       "TRUTHUSDT",
+      "UNIUSDT",
       "ETHFIUSDT",
-      "ZROUSDT",
       "ENAUSDT",
       "PENDLEUSDT",
+      "ZROUSDT",
+      "ZAMAUSDT",
       "LINKUSDT"
     ]
   }
