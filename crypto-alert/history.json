@@ -775,7 +775,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T11:58:37+00:00",
+    "time": "2026-07-28T12:00:44+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -787,10 +787,10 @@
       "COAIUSDT",
       "RIFUSDT",
       "AKEUSDT",
-      "SYNUSDT",
-      "ZAMAUSDT",
       "ALLOUSDT",
-      "REZUSDT"
+      "SYNUSDT",
+      "REZUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
