@@ -697,7 +697,8 @@
       "funding_rate": 0.001,
       "orderbook_ratio": 1.2551566028008718,
       "time": "2026-07-28T08:16:41+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-28T09:26:32+00:00"
     },
     {
       "symbol": "AKEUSDT",
@@ -749,19 +750,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T09:24:47+00:00",
+    "time": "2026-07-28T09:26:32+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "COTIUSDT",
       "ONUSDT",
-      "DEXEUSDT",
       "BULLAUSDT",
+      "DEXEUSDT",
       "KGENUSDT",
       "RIFUSDT",
+      "AKEUSDT",
       "OUSDT",
       "COAIUSDT",
-      "AKEUSDT",
       "ALLOUSDT",
       "ZAMAUSDT"
     ]
