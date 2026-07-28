@@ -775,18 +775,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T11:28:38+00:00",
-    "shortlist_count": 18,
+    "time": "2026-07-28T11:30:56+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "AETUSDT",
-      "MCNUSDT",
       "COTIUSDT",
-      "NUTXUSDT",
-      "ONUSDT",
       "DEXEUSDT",
-      "TOFUUSDT",
-      "PLBUSDT",
+      "ONUSDT",
       "KGENUSDT",
       "COAIUSDT",
       "BULLAUSDT",
@@ -795,7 +790,6 @@
       "ZAMAUSDT",
       "ALLOUSDT",
       "SYNUSDT",
-      "TRACUSDT",
       "OUSDT"
     ]
   }
