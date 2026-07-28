@@ -818,12 +818,13 @@
       "funding_rate": 0.051,
       "orderbook_ratio": 1.0900037642036644,
       "time": "2026-07-28T19:32:28+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-28T19:38:49+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T19:36:29+00:00",
-    "shortlist_count": 9,
+    "time": "2026-07-28T19:38:49+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -833,8 +834,9 @@
       "DEXEUSDT",
       "SOONUSDT",
       "OUSDT",
-      "COAIUSDT",
-      "CRVUSDT"
+      "LITUSDT",
+      "CRVUSDT",
+      "COAIUSDT"
     ]
   }
 }
