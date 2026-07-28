@@ -14,7 +14,8 @@
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
     "BTWUSDT": "2026-07-27T15:08:38+00:00",
-    "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00"
+    "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
+    "COTIUSDT": "2026-07-28T11:20:36+00:00"
   },
   "alerts": [
     {
@@ -747,20 +748,43 @@
       "time": "2026-07-28T08:32:35+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-28T08:44:34+00:00"
+    },
+    {
+      "symbol": "COTIUSDT",
+      "pct": 9.08,
+      "price": 0.011725,
+      "quote_volume": 433175.147731,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5689411514845889,
+      "retrace_pct": 1.5285126396237496,
+      "wick_ratio": 0.3139841688654343,
+      "rsi": 70.06458093376628,
+      "divergence": false,
+      "vol_spike": 1.1137070928475956,
+      "btc_pct": 0.07492888366035794,
+      "sl": 0.01202607,
+      "tp1": 0.011528438,
+      "tp2": 0.011294562,
+      "tp3": 0.010916,
+      "funding_rate": -0.133,
+      "orderbook_ratio": 3.8415761833681197,
+      "time": "2026-07-28T11:20:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T11:18:29+00:00",
+    "time": "2026-07-28T11:20:36+00:00",
     "shortlist_count": 12,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "COTIUSDT",
       "ONUSDT",
       "DEXEUSDT",
       "BULLAUSDT",
       "KGENUSDT",
-      "RIFUSDT",
       "COAIUSDT",
+      "RIFUSDT",
       "ZAMAUSDT",
       "AKEUSDT",
       "SYNUSDT",
