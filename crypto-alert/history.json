@@ -799,7 +799,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T16:13:22+00:00",
+    "time": "2026-07-28T16:14:34+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -811,9 +811,9 @@
       "COAIUSDT",
       "KGENUSDT",
       "LITUSDT",
-      "REZUSDT",
       "CRVUSDT",
-      "BASEDUSDT"
+      "BASEDUSDT",
+      "REZUSDT"
     ]
   }
 }
