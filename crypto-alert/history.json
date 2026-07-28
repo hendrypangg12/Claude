@@ -750,8 +750,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T10:10:39+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-28T10:12:40+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "COTIUSDT",
@@ -760,11 +760,10 @@
       "BULLAUSDT",
       "KGENUSDT",
       "COAIUSDT",
-      "RIFUSDT",
       "AKEUSDT",
+      "RIFUSDT",
       "ALLOUSDT",
-      "SYNUSDT",
-      "OUSDT"
+      "SYNUSDT"
     ]
   }
 }
