@@ -10,7 +10,7 @@
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
     "ONUSDT": "2026-07-28T03:14:35+00:00",
     "EVAAUSDT": "2026-07-24T09:08:36+00:00",
-    "DEXEUSDT": "2026-07-25T19:42:32+00:00",
+    "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
     "BTWUSDT": "2026-07-27T15:08:38+00:00",
@@ -721,22 +721,46 @@
       "orderbook_ratio": 0.9964894188620329,
       "time": "2026-07-28T08:26:35+00:00",
       "outcome": null
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "pct": 8.41,
+      "price": 3.548,
+      "quote_volume": 1663868.362,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5546459756170351,
+      "retrace_pct": 0.6162464985994341,
+      "wick_ratio": 0.4687499999999896,
+      "rsi": 77.10958152147134,
+      "divergence": false,
+      "vol_spike": 0.6490501742235846,
+      "btc_pct": -0.074216077914134,
+      "sl": 3.6056999999999997,
+      "tp1": 3.4641859999999998,
+      "tp2": 3.3988140000000002,
+      "tp3": 3.293,
+      "funding_rate": -0.023,
+      "orderbook_ratio": 2.0799401821502554,
+      "time": "2026-07-28T08:32:35+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T08:30:36+00:00",
-    "shortlist_count": 9,
-    "confirmed_count": 0,
+    "time": "2026-07-28T08:32:35+00:00",
+    "shortlist_count": 10,
+    "confirmed_count": 1,
     "symbols": [
       "COTIUSDT",
-      "AKEUSDT",
       "ONUSDT",
+      "AKEUSDT",
       "DEXEUSDT",
       "BULLAUSDT",
       "RIFUSDT",
       "ZAMAUSDT",
+      "COAIUSDT",
       "OUSDT",
-      "COAIUSDT"
+      "ALLOUSDT"
     ]
   }
 }
