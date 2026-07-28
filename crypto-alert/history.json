@@ -775,8 +775,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T15:02:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-28T15:04:32+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "COTIUSDT",
@@ -786,10 +786,9 @@
       "DEXEUSDT",
       "KGENUSDT",
       "RIFUSDT",
-      "REZUSDT",
       "ALLOUSDT",
-      "OUSDT",
-      "SYNUSDT"
+      "REZUSDT",
+      "OUSDT"
     ]
   }
 }
