@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-07-28_08-00-20",
+      "date": "2026-07-28",
+      "time": "08:00",
+      "label": "STORY KANTOR",
+      "title": "THR cair, abis buat nutup utang bulan lalu.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-07-27_22-27-30",
       "date": "2026-07-27",
       "time": "22:27",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-07-24_14-57-21",
-      "date": "2026-07-24",
-      "time": "14:57",
-      "label": "STORY KANTOR",
-      "title": "Katanya kerja buat hidup, kok malah hidup buat kerja?",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
