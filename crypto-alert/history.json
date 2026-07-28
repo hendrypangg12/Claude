@@ -677,22 +677,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T06:22:32+00:00",
-    "shortlist_count": 12,
+    "time": "2026-07-28T06:24:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "COTIUSDT",
       "ONUSDT",
-      "AKEUSDT",
       "BULLAUSDT",
-      "REZUSDT",
+      "AKEUSDT",
       "RIFUSDT",
       "IDOLUSDT",
+      "REZUSDT",
       "ZAMAUSDT",
       "TAGUSDT",
       "ALLOUSDT",
       "KAITOUSDT",
-      "COAIUSDT"
+      "COAIUSDT",
+      "DEXEUSDT"
     ]
   }
 }
