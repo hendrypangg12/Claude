@@ -13,7 +13,8 @@
     "DEXEUSDT": "2026-07-25T19:42:32+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
-    "BTWUSDT": "2026-07-27T15:08:38+00:00"
+    "BTWUSDT": "2026-07-27T15:08:38+00:00",
+    "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00"
   },
   "alerts": [
     {
@@ -674,12 +675,35 @@
       "time": "2026-07-28T03:14:35+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-28T03:36:33+00:00"
+    },
+    {
+      "symbol": "BROCCOLIF3BUSDT",
+      "pct": 15.06,
+      "price": 0.005885,
+      "quote_volume": 357343.204708,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.2410127747862019,
+      "retrace_pct": 0.9925975773889641,
+      "wick_ratio": 0.0,
+      "rsi": 75.66803476157779,
+      "divergence": true,
+      "vol_spike": 0.13797167806033167,
+      "btc_pct": -0.05811115135671657,
+      "sl": 0.00600344,
+      "tp1": 0.005646804,
+      "tp2": 0.005463196,
+      "tp3": 0.005166,
+      "funding_rate": 0.001,
+      "orderbook_ratio": 1.2551566028008718,
+      "time": "2026-07-28T08:16:41+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T08:14:36+00:00",
+    "time": "2026-07-28T08:16:41+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "COTIUSDT",
       "ONUSDT",
@@ -689,8 +713,8 @@
       "DEXEUSDT",
       "ZAMAUSDT",
       "COAIUSDT",
-      "OUSDT",
-      "BROCCOLIF3BUSDT"
+      "BROCCOLIF3BUSDT",
+      "OUSDT"
     ]
   }
 }
