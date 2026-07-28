@@ -744,11 +744,12 @@
       "funding_rate": -0.023,
       "orderbook_ratio": 2.0799401821502554,
       "time": "2026-07-28T08:32:35+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-28T08:44:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-28T08:42:40+00:00",
+    "time": "2026-07-28T08:44:34+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -759,9 +760,9 @@
       "RIFUSDT",
       "ZAMAUSDT",
       "AKEUSDT",
-      "OUSDT",
       "COAIUSDT",
-      "ALLOUSDT"
+      "OUSDT",
+      "BROCCOLIF3BUSDT"
     ]
   }
 }
