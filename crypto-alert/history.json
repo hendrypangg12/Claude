@@ -823,19 +823,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-29T16:00:44+00:00",
+    "time": "2026-07-29T16:02:30+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
-      "COTIUSDT",
       "BEATUSDT",
-      "BTWUSDT",
+      "COTIUSDT",
       "RIFUSDT",
+      "BTWUSDT",
       "VELVETUSDT",
       "ONUSDT",
-      "UBUSDT",
-      "EPICUSDT"
+      "EPICUSDT",
+      "UBUSDT"
     ]
   }
 }
