@@ -823,7 +823,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-29T09:24:34+00:00",
+    "time": "2026-07-29T09:26:41+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -831,9 +831,9 @@
       "COTIUSDT",
       "EULUSDT",
       "ONUSDT",
-      "EPICUSDT",
       "UNIUSDT",
-      "BTWUSDT",
+      "EPICUSDT",
+      "ONDOUSDT",
       "ADAUSDT"
     ]
   }
