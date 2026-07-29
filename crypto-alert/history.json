@@ -823,8 +823,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-29T02:20:36+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-29T02:22:32+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -833,11 +833,10 @@
       "SOONUSDT",
       "BULLAUSDT",
       "LITUSDT",
-      "EULUSDT",
       "OUSDT",
+      "EULUSDT",
       "ADAUSDT",
-      "TAOUSDT",
-      "SLXUSDT"
+      "TAOUSDT"
     ]
   }
 }
