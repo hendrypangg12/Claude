@@ -823,8 +823,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-29T01:04:35+00:00",
-    "shortlist_count": 10,
+    "time": "2026-07-29T01:06:31+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ONUSDT",
@@ -836,7 +836,9 @@
       "TAOUSDT",
       "XPLUSDT",
       "ADAUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "EULUSDT",
+      "ARXUSDT"
     ]
   }
 }
