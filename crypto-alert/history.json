@@ -823,8 +823,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-29T18:44:34+00:00",
-    "shortlist_count": 9,
+    "time": "2026-07-29T18:46:32+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -835,7 +835,9 @@
       "REUSDT",
       "LABUSDT",
       "ADAUSDT",
-      "XMRUSDT"
+      "EULUSDT",
+      "XMRUSDT",
+      "EPICUSDT"
     ]
   }
 }
