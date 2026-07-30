@@ -823,12 +823,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T08:56:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-30T08:58:25+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
-      "AKEUSDT",
       "COTIUSDT",
+      "CAPUSDT",
+      "AKEUSDT",
       "REUSDT",
       "ARXUSDT",
       "RIFUSDT",
@@ -838,9 +839,7 @@
       "VELVETUSDT",
       "BULLAUSDT",
       "FETUSDT",
-      "POWERUSDT",
-      "UNIUSDT",
-      "BEATUSDT"
+      "POWERUSDT"
     ]
   }
 }
