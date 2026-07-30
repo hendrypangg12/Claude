@@ -3,7 +3,7 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-20T14:40:37+00:00",
-    "AKEUSDT": "2026-07-28T08:26:35+00:00",
+    "AKEUSDT": "2026-07-30T11:38:26+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-07-18T20:58:31+00:00",
     "ACEUSDT": "2026-07-24T21:44:27+00:00",
@@ -820,12 +820,35 @@
       "time": "2026-07-28T19:32:28+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-07-28T19:38:49+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 8.3,
+      "price": 0.0043151,
+      "quote_volume": 1547480.3716736,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2984858625084816,
+      "retrace_pct": 0.9480304838857817,
+      "wick_ratio": 0.13675213675214118,
+      "rsi": 66.92547862824622,
+      "divergence": true,
+      "vol_spike": 0.05170248632107743,
+      "btc_pct": 0.16952147584349808,
+      "sl": 0.004399964,
+      "tp1": 0.004228812,
+      "tp2": 0.004149987999999999,
+      "tp3": 0.0040224,
+      "funding_rate": 0.019,
+      "orderbook_ratio": 1.0391567323166844,
+      "time": "2026-07-30T11:38:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T11:36:30+00:00",
+    "time": "2026-07-30T11:38:26+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ESPUSDT",
       "UAIUSDT",
@@ -836,10 +859,10 @@
       "ARXUSDT",
       "COTIUSDT",
       "LABUSDT",
+      "BTWUSDT",
       "BULLAUSDT",
       "INJUSDT",
-      "NEARUSDT",
-      "BTWUSDT"
+      "NEARUSDT"
     ]
   }
 }
