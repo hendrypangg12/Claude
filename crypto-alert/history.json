@@ -823,14 +823,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T06:24:37+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-30T06:26:37+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "COTIUSDT",
       "UAIUSDT",
-      "REUSDT",
       "EPICUSDT",
+      "REUSDT",
       "AKEUSDT",
       "LABUSDT",
       "HOLOUSDT",
@@ -838,7 +838,6 @@
       "VELVETUSDT",
       "ARXUSDT",
       "INJUSDT",
-      "BEATUSDT",
       "UNIUSDT"
     ]
   }
