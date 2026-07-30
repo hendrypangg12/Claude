@@ -846,22 +846,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T11:42:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-30T11:44:37+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ESPUSDT",
       "AKEUSDT",
       "CAPUSDT",
       "REUSDT",
-      "UAIUSDT",
       "RIFUSDT",
-      "ARXUSDT",
+      "UAIUSDT",
       "COTIUSDT",
+      "ARXUSDT",
       "LABUSDT",
-      "INJUSDT",
-      "BULLAUSDT",
       "BTWUSDT",
+      "INJUSDT",
       "NEARUSDT"
     ]
   }
