@@ -872,8 +872,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T20:54:37+00:00",
-    "shortlist_count": 27,
+    "time": "2026-07-30T20:56:27+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -887,22 +887,23 @@
       "UNIUSDT",
       "FILUSDT",
       "FETUSDT",
-      "IOUSDT",
       "CAKEUSDT",
+      "IOUSDT",
       "NEARUSDT",
       "ENAUSDT",
-      "TIAUSDT",
-      "BCHUSDT",
       "ONDOUSDT",
-      "BTWUSDT",
+      "BCHUSDT",
+      "TIAUSDT",
       "INJUSDT",
       "ADAUSDT",
       "LDOUSDT",
+      "BTWUSDT",
       "PYTHUSDT",
       "CRVUSDT",
       "BNBUSDT",
       "KATUSDT",
-      "XMRUSDT"
+      "XMRUSDT",
+      "LITUSDT"
     ]
   }
 }
