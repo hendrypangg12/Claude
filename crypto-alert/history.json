@@ -867,12 +867,13 @@
       "funding_rate": -0.004,
       "orderbook_ratio": 1.3095763946543575,
       "time": "2026-07-30T14:04:33+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-30T14:12:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T14:10:37+00:00",
-    "shortlist_count": 11,
+    "time": "2026-07-30T14:12:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "CAPUSDT",
@@ -880,12 +881,14 @@
       "EPICUSDT",
       "REUSDT",
       "ARXUSDT",
+      "UAIUSDT",
       "UNIUSDT",
       "LABUSDT",
-      "UAIUSDT",
       "ONDOUSDT",
       "INJUSDT",
-      "BCHUSDT"
+      "BTWUSDT",
+      "BCHUSDT",
+      "NEARUSDT"
     ]
   }
 }
