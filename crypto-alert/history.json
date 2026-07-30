@@ -872,8 +872,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T19:56:41+00:00",
-    "shortlist_count": 22,
+    "time": "2026-07-30T19:58:26+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "CAPUSDT",
@@ -889,15 +889,16 @@
       "IOUSDT",
       "CAKEUSDT",
       "ENAUSDT",
-      "BCHUSDT",
-      "INJUSDT",
       "ADAUSDT",
+      "BCHUSDT",
       "FETUSDT",
-      "ONDOUSDT",
-      "TIAUSDT",
       "LDOUSDT",
+      "INJUSDT",
+      "TIAUSDT",
+      "ONDOUSDT",
       "NEARUSDT",
-      "BNBUSDT"
+      "BNBUSDT",
+      "HYPEUSDT"
     ]
   }
 }
