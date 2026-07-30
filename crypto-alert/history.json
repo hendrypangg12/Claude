@@ -872,8 +872,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T18:10:37+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-30T18:12:36+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "MMTUSDT",
@@ -883,12 +883,9 @@
       "AKEUSDT",
       "GIGGLEUSDT",
       "UNIUSDT",
-      "CAKEUSDT",
       "EPICUSDT",
-      "FILUSDT",
-      "BNBUSDT",
-      "ONDOUSDT",
-      "INJUSDT"
+      "CAKEUSDT",
+      "FILUSDT"
     ]
   }
 }
