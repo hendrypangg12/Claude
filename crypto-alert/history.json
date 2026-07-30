@@ -872,7 +872,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T16:54:32+00:00",
+    "time": "2026-07-30T16:56:30+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -887,16 +887,16 @@
       "ARXUSDT",
       "CAKEUSDT",
       "PUMPUSDT",
-      "NEARUSDT",
       "FILUSDT",
-      "LDOUSDT",
       "ONDOUSDT",
+      "LDOUSDT",
+      "NEARUSDT",
       "INJUSDT",
-      "FETUSDT",
       "BCHUSDT",
+      "FETUSDT",
+      "ADAUSDT",
       "KATUSDT",
-      "BNBUSDT",
-      "ADAUSDT"
+      "BNBUSDT"
     ]
   }
 }
