@@ -872,7 +872,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T21:34:29+00:00",
+    "time": "2026-07-30T21:36:33+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -894,13 +894,13 @@
       "INJUSDT",
       "BCHUSDT",
       "ADAUSDT",
-      "TIAUSDT",
       "XMRUSDT",
+      "TIAUSDT",
       "ONDOUSDT",
       "BNBUSDT",
-      "HYPEUSDT",
+      "LDOUSDT",
       "KATUSDT",
-      "LDOUSDT"
+      "AAVEUSDT"
     ]
   }
 }
