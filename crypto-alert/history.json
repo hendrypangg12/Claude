@@ -847,8 +847,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T12:36:26+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-30T12:38:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ESPUSDT",
@@ -860,10 +860,11 @@
       "ARXUSDT",
       "ONDOUSDT",
       "LABUSDT",
-      "COTIUSDT",
-      "RIFUSDT",
+      "UBUSDT",
       "INJUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "RIFUSDT",
+      "COTIUSDT"
     ]
   }
 }
