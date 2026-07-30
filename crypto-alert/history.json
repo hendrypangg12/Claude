@@ -872,8 +872,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T15:00:48+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-30T15:02:30+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "CAPUSDT",
@@ -885,14 +885,12 @@
       "LABUSDT",
       "UNIUSDT",
       "ADAUSDT",
-      "ONDOUSDT",
       "INJUSDT",
-      "REUSDT",
-      "AKEUSDT",
-      "CAKEUSDT",
+      "ONDOUSDT",
       "KATUSDT",
+      "CAKEUSDT",
       "BCHUSDT",
-      "NEARUSDT"
+      "REUSDT"
     ]
   }
 }
