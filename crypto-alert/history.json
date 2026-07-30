@@ -823,7 +823,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-30T09:56:29+00:00",
+    "time": "2026-07-30T09:58:25+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -833,10 +833,10 @@
       "RIFUSDT",
       "AKEUSDT",
       "ARXUSDT",
-      "FETUSDT",
       "LABUSDT",
-      "UAIUSDT",
-      "POWERUSDT"
+      "FETUSDT",
+      "INJUSDT",
+      "NEARUSDT"
     ]
   }
 }
