@@ -897,7 +897,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T08:18:27+00:00",
+    "time": "2026-07-31T08:20:41+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -910,16 +910,16 @@
       "FHEUSDT",
       "ROBOUSDT",
       "EVAAUSDT",
-      "CFXUSDT",
       "UNIUSDT",
+      "CFXUSDT",
       "EPICUSDT",
       "PUMPUSDT",
-      "IOUSDT",
-      "ENAUSDT",
-      "CAKEUSDT",
       "FILUSDT",
-      "XPLUSDT",
-      "ADAUSDT"
+      "CAKEUSDT",
+      "ENAUSDT",
+      "IOUSDT",
+      "ADAUSDT",
+      "XPLUSDT"
     ]
   }
 }
