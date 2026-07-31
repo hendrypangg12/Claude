@@ -922,8 +922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T15:00:50+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-31T15:05:23+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -933,12 +933,13 @@
       "EVAAUSDT",
       "BEATUSDT",
       "MUBARAKUSDT",
-      "BTWUSDT",
       "PUMPUSDT",
-      "RLCUSDT",
+      "BTWUSDT",
       "MMTUSDT",
+      "RLCUSDT",
+      "POWERUSDT",
       "CFXUSDT",
-      "POWERUSDT"
+      "BULLAUSDT"
     ]
   }
 }
