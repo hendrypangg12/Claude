@@ -872,7 +872,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T00:54:26+00:00",
+    "time": "2026-07-31T00:56:27+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -890,12 +890,12 @@
       "CAKEUSDT",
       "LITUSDT",
       "FILUSDT",
-      "AAVEUSDT",
-      "RIFUSDT",
-      "BTWUSDT",
       "FETUSDT",
+      "BTWUSDT",
+      "AAVEUSDT",
       "ADAUSDT",
-      "BULLAUSDT"
+      "BULLAUSDT",
+      "RIFUSDT"
     ]
   }
 }
