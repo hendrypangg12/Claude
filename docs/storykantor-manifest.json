@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-07-31_08-08-46",
+      "date": "2026-07-31",
+      "time": "08:08",
+      "label": "STORY KANTOR",
+      "title": "Kerja giat bertahun-tahun, jabatan gitu-gitu aja.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-07-30_21-53-20",
       "date": "2026-07-30",
       "time": "21:53",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-07-27_15-58-12",
-      "date": "2026-07-27",
-      "time": "15:58",
-      "label": "STORY KANTOR",
-      "title": "Kerja keras dipuji sebentar, kerja cerdas malah dicurigai males.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
