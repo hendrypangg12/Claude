@@ -17,7 +17,8 @@
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-07-28T11:20:36+00:00",
     "EPICUSDT": "2026-07-30T14:04:33+00:00",
-    "BULLAUSDT": "2026-07-31T00:58:28+00:00"
+    "BULLAUSDT": "2026-07-31T00:58:28+00:00",
+    "KOMAUSDT": "2026-07-31T13:24:28+00:00"
   },
   "alerts": [
     {
@@ -894,12 +895,35 @@
       "time": "2026-07-31T00:58:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-31T01:38:35+00:00"
+    },
+    {
+      "symbol": "KOMAUSDT",
+      "pct": 12.43,
+      "price": 0.02501,
+      "quote_volume": 754354.75044,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.24180096225615558,
+      "retrace_pct": 1.5741833923652013,
+      "wick_ratio": 0.7333333333333395,
+      "rsi": 67.0298418809117,
+      "divergence": false,
+      "vol_spike": 0.007673097961112194,
+      "btc_pct": 0.12811732013768062,
+      "sl": 0.0256641,
+      "tp1": 0.02433658,
+      "tp2": 0.023673419999999997,
+      "tp3": 0.0226,
+      "funding_rate": 0.03,
+      "orderbook_ratio": 1.3185984315685815,
+      "time": "2026-07-31T13:24:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T13:22:30+00:00",
+    "time": "2026-07-31T13:24:28+00:00",
     "shortlist_count": 20,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
@@ -907,8 +931,8 @@
       "MMTUSDT",
       "EVAAUSDT",
       "ROBOUSDT",
-      "BTWUSDT",
       "BEATUSDT",
+      "BTWUSDT",
       "COTIUSDT",
       "EPICUSDT",
       "4USDT",
@@ -917,9 +941,9 @@
       "FHEUSDT",
       "PUMPUSDT",
       "IOUSDT",
-      "HYPEUSDT",
       "FILUSDT",
       "RLCUSDT",
+      "HYPEUSDT",
       "POWERUSDT"
     ]
   }
