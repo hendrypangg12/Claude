@@ -897,8 +897,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T05:38:42+00:00",
-    "shortlist_count": 16,
+    "time": "2026-07-31T05:40:44+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -911,12 +911,13 @@
       "FHEUSDT",
       "EVAAUSDT",
       "AKEUSDT",
-      "ROBOUSDT",
       "EULUSDT",
+      "ROBOUSDT",
       "FILUSDT",
       "IOUSDT",
-      "INJUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "BEATUSDT",
+      "INJUSDT"
     ]
   }
 }
