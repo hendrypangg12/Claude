@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-07-31_15-41-04",
+      "date": "2026-07-31",
+      "time": "15:41",
+      "label": "STORY KANTOR",
+      "title": "Rekan kerja toxic bikin senin makin berat.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-07-31_12-05-49",
       "date": "2026-07-31",
       "time": "12:05",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-07-28_08-00-20",
-      "date": "2026-07-28",
-      "time": "08:00",
-      "label": "STORY KANTOR",
-      "title": "THR cair, abis buat nutup utang bulan lalu.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
