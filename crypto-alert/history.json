@@ -922,8 +922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T15:36:34+00:00",
-    "shortlist_count": 14,
+    "time": "2026-07-31T15:38:34+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -934,12 +934,13 @@
       "MUBARAKUSDT",
       "BEATUSDT",
       "PUMPUSDT",
-      "BTWUSDT",
       "4USDT",
-      "BULLAUSDT",
+      "BTWUSDT",
       "CFXUSDT",
-      "POWERUSDT",
-      "FILUSDT"
+      "ROBOUSDT",
+      "BULLAUSDT",
+      "FILUSDT",
+      "POWERUSDT"
     ]
   }
 }
