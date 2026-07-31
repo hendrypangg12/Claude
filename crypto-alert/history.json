@@ -897,7 +897,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T12:50:36+00:00",
+    "time": "2026-07-31T12:52:32+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -911,14 +911,14 @@
       "BULLAUSDT",
       "EPICUSDT",
       "4USDT",
-      "ONUSDT",
-      "BTWUSDT",
       "FHEUSDT",
-      "IOUSDT",
+      "BTWUSDT",
+      "ONUSDT",
       "PUMPUSDT",
+      "IOUSDT",
       "UNIUSDT",
-      "HYPEUSDT",
-      "RLCUSDT"
+      "RLCUSDT",
+      "HYPEUSDT"
     ]
   }
 }
