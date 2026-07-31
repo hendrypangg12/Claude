@@ -897,8 +897,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T10:42:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-31T10:44:26+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -911,13 +911,12 @@
       "ROBOUSDT",
       "UAIUSDT",
       "UNIUSDT",
+      "4USDT",
       "MYXUSDT",
       "EPICUSDT",
-      "RLCUSDT",
       "PUMPUSDT",
-      "BTWUSDT",
-      "IOUSDT",
-      "4USDT"
+      "RLCUSDT",
+      "IOUSDT"
     ]
   }
 }
