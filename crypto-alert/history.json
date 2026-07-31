@@ -922,19 +922,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T15:46:35+00:00",
-    "shortlist_count": 9,
+    "time": "2026-07-31T15:48:34+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
       "COTIUSDT",
-      "CAPUSDT",
       "MUBARAKUSDT",
+      "CAPUSDT",
       "EVAAUSDT",
       "BEATUSDT",
       "BTWUSDT",
-      "4USDT"
+      "4USDT",
+      "CFXUSDT"
     ]
   }
 }
