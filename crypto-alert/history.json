@@ -922,23 +922,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T13:46:36+00:00",
-    "shortlist_count": 13,
+    "time": "2026-07-31T13:48:36+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
       "CAPUSDT",
       "MMTUSDT",
-      "ROBOUSDT",
       "EVAAUSDT",
-      "BEATUSDT",
-      "BTWUSDT",
       "COTIUSDT",
-      "4USDT",
+      "BEATUSDT",
+      "ROBOUSDT",
+      "BTWUSDT",
       "BULLAUSDT",
-      "PUMPUSDT",
-      "FHEUSDT"
+      "4USDT",
+      "PUMPUSDT"
     ]
   }
 }
