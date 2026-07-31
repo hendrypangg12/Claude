@@ -16,7 +16,8 @@
     "BTWUSDT": "2026-07-27T15:08:38+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-07-28T11:20:36+00:00",
-    "EPICUSDT": "2026-07-30T14:04:33+00:00"
+    "EPICUSDT": "2026-07-30T14:04:33+00:00",
+    "BULLAUSDT": "2026-07-31T00:58:28+00:00"
   },
   "alerts": [
     {
@@ -869,19 +870,42 @@
       "time": "2026-07-30T14:04:33+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-07-30T14:12:30+00:00"
+    },
+    {
+      "symbol": "BULLAUSDT",
+      "pct": 9.29,
+      "price": 0.017733,
+      "quote_volume": 907006.460537,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.30003403034380205,
+      "retrace_pct": 0.7833044256700119,
+      "wick_ratio": 0.4784422809457582,
+      "rsi": 78.76359334988277,
+      "divergence": true,
+      "vol_spike": 0.005036171538189115,
+      "btc_pct": -0.06598884955268483,
+      "sl": 0.01805173,
+      "tp1": 0.017292742,
+      "tp2": 0.016934258,
+      "tp3": 0.016354,
+      "funding_rate": 0.051,
+      "orderbook_ratio": 1.507877576501995,
+      "time": "2026-07-31T00:58:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T00:56:27+00:00",
-    "shortlist_count": 20,
-    "confirmed_count": 0,
+    "time": "2026-07-31T00:58:28+00:00",
+    "shortlist_count": 21,
+    "confirmed_count": 1,
     "symbols": [
       "KOMAUSDT",
       "MMTUSDT",
       "CAPUSDT",
       "ROBOUSDT",
-      "GIGGLEUSDT",
       "EVAAUSDT",
+      "GIGGLEUSDT",
       "AKEUSDT",
       "UNIUSDT",
       "ESPUSDT",
@@ -889,13 +913,14 @@
       "IOUSDT",
       "CAKEUSDT",
       "LITUSDT",
+      "RIFUSDT",
       "FILUSDT",
       "FETUSDT",
       "BTWUSDT",
       "AAVEUSDT",
       "ADAUSDT",
       "BULLAUSDT",
-      "RIFUSDT"
+      "KATUSDT"
     ]
   }
 }
