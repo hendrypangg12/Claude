@@ -917,12 +917,13 @@
       "funding_rate": 0.03,
       "orderbook_ratio": 1.3185984315685815,
       "time": "2026-07-31T13:24:28+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-07-31T13:38:31+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T13:36:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-07-31T13:38:31+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -934,15 +935,14 @@
       "BEATUSDT",
       "COTIUSDT",
       "BTWUSDT",
-      "BULLAUSDT",
-      "PUMPUSDT",
-      "MYXUSDT",
       "4USDT",
+      "PUMPUSDT",
+      "BULLAUSDT",
+      "MYXUSDT",
       "RLCUSDT",
-      "EPICUSDT",
       "FHEUSDT",
-      "FILUSDT",
-      "IOUSDT"
+      "EPICUSDT",
+      "FILUSDT"
     ]
   }
 }
