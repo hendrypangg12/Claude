@@ -897,13 +897,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T09:10:57+00:00",
-    "shortlist_count": 17,
+    "time": "2026-07-31T09:12:35+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
-      "MMTUSDT",
       "GIGGLEUSDT",
+      "MMTUSDT",
       "CAPUSDT",
       "BULLAUSDT",
       "4USDT",
@@ -911,13 +911,14 @@
       "ROBOUSDT",
       "EVAAUSDT",
       "UNIUSDT",
-      "BTWUSDT",
       "EPICUSDT",
       "CAKEUSDT",
+      "BTWUSDT",
       "PUMPUSDT",
-      "CFXUSDT",
       "FILUSDT",
-      "ENAUSDT"
+      "CFXUSDT",
+      "ENAUSDT",
+      "IOUSDT"
     ]
   }
 }
