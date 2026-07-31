@@ -892,11 +892,12 @@
       "funding_rate": 0.051,
       "orderbook_ratio": 1.507877576501995,
       "time": "2026-07-31T00:58:28+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-07-31T01:38:35+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-07-31T01:36:37+00:00",
+    "time": "2026-07-31T01:38:35+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -912,13 +913,13 @@
       "RIFUSDT",
       "IOUSDT",
       "INJUSDT",
+      "BULLAUSDT",
       "EPICUSDT",
       "AAVEUSDT",
-      "BULLAUSDT",
       "FILUSDT",
       "CAKEUSDT",
-      "LITUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "LITUSDT"
     ]
   }
 }
