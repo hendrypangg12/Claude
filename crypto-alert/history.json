@@ -19,7 +19,8 @@
     "EPICUSDT": "2026-07-30T14:04:33+00:00",
     "BULLAUSDT": "2026-07-31T00:58:28+00:00",
     "KOMAUSDT": "2026-07-31T13:24:28+00:00",
-    "BEATUSDT": "2026-08-01T01:34:30+00:00"
+    "BEATUSDT": "2026-08-01T01:34:30+00:00",
+    "GIGGLEUSDT": "2026-08-01T03:18:36+00:00"
   },
   "alerts": [
     {
@@ -943,31 +944,54 @@
       "orderbook_ratio": 1.210183226538554,
       "time": "2026-08-01T01:34:30+00:00",
       "outcome": null
+    },
+    {
+      "symbol": "GIGGLEUSDT",
+      "pct": 10.81,
+      "price": 45.67,
+      "quote_volume": 1490088.97,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.24862048318492608,
+      "retrace_pct": 0.5444250871080138,
+      "wick_ratio": 0.3392857142857215,
+      "rsi": 72.05292918038539,
+      "divergence": false,
+      "vol_spike": 0.039447328939823584,
+      "btc_pct": -0.11842887007666432,
+      "sl": 46.379200000000004,
+      "tp1": 44.20864,
+      "tp2": 43.15136,
+      "tp3": 41.44,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.1164449037592041,
+      "time": "2026-08-01T03:18:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T03:16:32+00:00",
+    "time": "2026-08-01T03:18:36+00:00",
     "shortlist_count": 18,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
       "BTWUSDT",
       "COTIUSDT",
       "BEATUSDT",
-      "EVAAUSDT",
-      "4USDT",
-      "USUSDT",
-      "SOONUSDT",
       "ONUSDT",
+      "4USDT",
+      "EVAAUSDT",
+      "SOONUSDT",
+      "USUSDT",
       "PUMPUSDT",
       "ZAMAUSDT",
-      "DEXEUSDT",
       "ARXUSDT",
+      "MUBARAKUSDT",
       "POWERUSDT",
+      "DEXEUSDT",
       "UAIUSDT",
-      "FOLKSUSDT",
-      "MUBARAKUSDT"
+      "FOLKSUSDT"
     ]
   }
 }
