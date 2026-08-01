@@ -1069,9 +1069,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T16:32:38+00:00",
-    "shortlist_count": 18,
-    "confirmed_count": 1,
+    "time": "2026-08-01T16:34:32+00:00",
+    "shortlist_count": 19,
+    "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "BTWUSDT",
@@ -1080,17 +1080,18 @@
       "BEATUSDT",
       "TAKEUSDT",
       "FIGHTUSDT",
-      "TUTUSDT",
       "AKEUSDT",
       "EULUSDT",
       "APRUSDT",
+      "TUTUSDT",
       "MYXUSDT",
       "FOLKSUSDT",
       "ORDIUSDT",
       "USUSDT",
       "ARXUSDT",
       "DASHUSDT",
-      "SOONUSDT"
+      "SOONUSDT",
+      "TAGUSDT"
     ]
   }
 }
