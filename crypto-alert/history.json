@@ -1094,7 +1094,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T19:30:46+00:00",
+    "time": "2026-08-01T19:32:39+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -1102,16 +1102,16 @@
       "BLESSUSDT",
       "UAIUSDT",
       "AKEUSDT",
-      "BTWUSDT",
       "EPICUSDT",
       "APRUSDT",
+      "BTWUSDT",
       "EULUSDT",
       "MYXUSDT",
-      "TUTUSDT",
       "TAGUSDT",
-      "ZAMAUSDT",
+      "TUTUSDT",
       "FOLKSUSDT",
-      "ARXUSDT"
+      "ARXUSDT",
+      "ZAMAUSDT"
     ]
   }
 }
