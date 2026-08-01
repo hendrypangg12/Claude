@@ -971,30 +971,32 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T07:06:26+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-01T07:08:26+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "GIGGLEUSDT",
       "BTWUSDT",
+      "GIGGLEUSDT",
       "TLMUSDT",
       "KOMAUSDT",
       "GRVTUSDT",
       "EVAAUSDT",
       "SOONUSDT",
       "BEATUSDT",
-      "BLESSUSDT",
-      "UAIUSDT",
-      "ONUSDT",
       "TAGUSDT",
+      "BLESSUSDT",
+      "ONUSDT",
       "USUSDT",
+      "UAIUSDT",
       "4USDT",
       "PUMPUSDT",
       "DASHUSDT",
-      "FOLKSUSDT",
       "ZROUSDT",
-      "EPICUSDT"
+      "FOLKSUSDT",
+      "EPICUSDT",
+      "ZAMAUSDT",
+      "XMRUSDT"
     ]
   }
 }
