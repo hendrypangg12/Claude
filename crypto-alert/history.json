@@ -922,8 +922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T00:44:34+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-01T00:46:39+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -941,8 +941,10 @@
       "SOONUSDT",
       "PUMPUSDT",
       "POWERUSDT",
+      "UAIUSDT",
+      "DASHUSDT",
       "FOLKSUSDT",
-      "DASHUSDT"
+      "ARXUSDT"
     ]
   }
 }
