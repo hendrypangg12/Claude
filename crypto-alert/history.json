@@ -922,16 +922,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T00:20:37+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-01T00:22:36+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
       "USUSDT",
       "XNYUSDT",
-      "BTWUSDT",
       "COTIUSDT",
+      "BTWUSDT",
       "CAPUSDT",
       "ONUSDT",
       "4USDT",
@@ -939,12 +939,13 @@
       "GRVTUSDT",
       "DEXEUSDT",
       "UAIUSDT",
-      "POWERUSDT",
       "SOONUSDT",
-      "EVAAUSDT",
       "PUMPUSDT",
-      "ETHFIUSDT",
-      "BEATUSDT"
+      "POWERUSDT",
+      "EVAAUSDT",
+      "FOLKSUSDT",
+      "BEATUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
