@@ -922,7 +922,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T00:12:38+00:00",
+    "time": "2026-08-01T00:14:32+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -932,10 +932,10 @@
       "XNYUSDT",
       "COTIUSDT",
       "BTWUSDT",
-      "GRVTUSDT",
-      "CAPUSDT",
       "ONUSDT",
+      "CAPUSDT",
       "4USDT",
+      "GRVTUSDT",
       "DEXEUSDT",
       "MUBARAKUSDT",
       "UAIUSDT",
@@ -943,9 +943,9 @@
       "SOONUSDT",
       "BEATUSDT",
       "EVAAUSDT",
-      "EPICUSDT",
       "PUMPUSDT",
-      "FOLKSUSDT"
+      "FOLKSUSDT",
+      "EPICUSDT"
     ]
   }
 }
