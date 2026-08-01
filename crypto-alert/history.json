@@ -966,12 +966,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.1164449037592041,
       "time": "2026-08-01T03:18:36+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-01T03:30:40+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T03:28:33+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-01T03:30:40+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -984,14 +985,15 @@
       "4USDT",
       "SOONUSDT",
       "DEXEUSDT",
-      "USUSDT",
       "PUMPUSDT",
       "MUBARAKUSDT",
       "ZAMAUSDT",
       "UAIUSDT",
+      "USUSDT",
       "ARXUSDT",
       "POWERUSDT",
-      "CAPUSDT"
+      "CAPUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
