@@ -972,8 +972,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T08:32:24+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-01T08:34:29+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -981,18 +981,19 @@
       "TLMUSDT",
       "KOMAUSDT",
       "GIGGLEUSDT",
-      "GRVTUSDT",
       "BEATUSDT",
+      "GRVTUSDT",
+      "CAPUSDT",
       "EVAAUSDT",
       "TAGUSDT",
-      "CAPUSDT",
       "PUMPUSDT",
       "BLESSUSDT",
       "SOONUSDT",
       "ONUSDT",
       "MYXUSDT",
       "DASHUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "ARXUSDT"
     ]
   }
 }
