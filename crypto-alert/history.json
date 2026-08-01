@@ -1015,11 +1015,12 @@
       "funding_rate": 0.049,
       "orderbook_ratio": 1.5954563951194944,
       "time": "2026-08-01T12:12:33+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-01T12:34:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T12:32:30+00:00",
+    "time": "2026-08-01T12:34:34+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -1033,11 +1034,11 @@
       "GIGGLEUSDT",
       "BEATUSDT",
       "MYXUSDT",
-      "FOLKSUSDT",
       "SOONUSDT",
-      "EVAAUSDT",
+      "FOLKSUSDT",
       "ARXUSDT",
       "TLMUSDT",
+      "EVAAUSDT",
       "ZAMAUSDT",
       "GRVTUSDT",
       "PUMPUSDT",
