@@ -20,7 +20,8 @@
     "BULLAUSDT": "2026-07-31T00:58:28+00:00",
     "KOMAUSDT": "2026-08-01T09:22:31+00:00",
     "BEATUSDT": "2026-08-01T01:34:30+00:00",
-    "GIGGLEUSDT": "2026-08-01T03:18:36+00:00"
+    "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
+    "UAIUSDT": "2026-08-01T16:16:28+00:00"
   },
   "alerts": [
     {
@@ -1017,33 +1018,57 @@
       "time": "2026-08-01T12:12:33+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-01T12:34:34+00:00"
+    },
+    {
+      "symbol": "UAIUSDT",
+      "pct": 8.82,
+      "price": 0.4343,
+      "quote_volume": 423616.7345,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5736915182708443,
+      "retrace_pct": 0.549576368216157,
+      "wick_ratio": 0.7916666666666629,
+      "rsi": 74.34818773736299,
+      "divergence": true,
+      "vol_spike": 0.1954306016803589,
+      "btc_pct": -0.13536977945795406,
+      "sl": 0.441067,
+      "tp1": 0.4231772,
+      "tp2": 0.4148228,
+      "tp3": 0.4013,
+      "funding_rate": 0.067,
+      "orderbook_ratio": 1.7049803804374808,
+      "time": "2026-08-01T16:16:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T16:14:39+00:00",
-    "shortlist_count": 20,
-    "confirmed_count": 0,
+    "time": "2026-08-01T16:16:28+00:00",
+    "shortlist_count": 21,
+    "confirmed_count": 1,
     "symbols": [
       "IDOLUSDT",
       "BTWUSDT",
       "EPICUSDT",
       "BEATUSDT",
       "UAIUSDT",
-      "EULUSDT",
       "TUTUSDT",
       "TAKEUSDT",
+      "EULUSDT",
       "FIGHTUSDT",
-      "FOLKSUSDT",
       "APRUSDT",
+      "FOLKSUSDT",
       "MYXUSDT",
       "AKEUSDT",
       "ORDIUSDT",
       "USUSDT",
+      "EVAAUSDT",
       "SOONUSDT",
-      "ZAMAUSDT",
       "DASHUSDT",
       "ARXUSDT",
-      "EVAAUSDT"
+      "ZAMAUSDT",
+      "TAGUSDT"
     ]
   }
 }
