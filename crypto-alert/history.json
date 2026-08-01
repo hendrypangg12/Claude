@@ -995,21 +995,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T09:24:38+00:00",
+    "time": "2026-08-01T09:26:32+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
-      "IDOLUSDT",
       "KOMAUSDT",
+      "IDOLUSDT",
       "GIGGLEUSDT",
       "TLMUSDT",
       "BEATUSDT",
       "GRVTUSDT",
       "EVAAUSDT",
-      "ONUSDT",
-      "TAGUSDT",
       "CAPUSDT",
+      "TAGUSDT",
+      "ONUSDT",
       "PUMPUSDT",
       "MYXUSDT",
       "SOONUSDT",
@@ -1018,8 +1018,8 @@
       "ARXUSDT",
       "DASHUSDT",
       "APRUSDT",
-      "TIAUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "TIAUSDT"
     ]
   }
 }
