@@ -21,7 +21,8 @@
     "KOMAUSDT": "2026-08-01T09:22:31+00:00",
     "BEATUSDT": "2026-08-01T01:34:30+00:00",
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
-    "UAIUSDT": "2026-08-01T16:16:28+00:00"
+    "UAIUSDT": "2026-08-01T16:16:28+00:00",
+    "IDOLUSDT": "2026-08-01T16:32:38+00:00"
   },
   "alerts": [
     {
@@ -1040,33 +1041,56 @@
       "funding_rate": 0.067,
       "orderbook_ratio": 1.7049803804374808,
       "time": "2026-08-01T16:16:28+00:00",
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-01T16:32:38+00:00"
+    },
+    {
+      "symbol": "IDOLUSDT",
+      "pct": 8.21,
+      "price": 0.02543,
+      "quote_volume": 1352925.13673,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4194745168307697,
+      "retrace_pct": 1.0120669521214474,
+      "wick_ratio": 0.4074074074074084,
+      "rsi": 78.75703837195658,
+      "divergence": false,
+      "vol_spike": 0.17272376364915912,
+      "btc_pct": -0.020995351165513824,
+      "sl": 0.025946900000000002,
+      "tp1": 0.0249451,
+      "tp2": 0.0244849,
+      "tp3": 0.02374,
+      "funding_rate": -0.008,
+      "orderbook_ratio": 1.3892520946322544,
+      "time": "2026-08-01T16:32:38+00:00",
       "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T16:30:39+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 0,
+    "time": "2026-08-01T16:32:38+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "IDOLUSDT",
-      "EPICUSDT",
       "BTWUSDT",
-      "BEATUSDT",
+      "EPICUSDT",
       "UAIUSDT",
+      "BEATUSDT",
       "TAKEUSDT",
       "FIGHTUSDT",
       "TUTUSDT",
-      "EULUSDT",
       "AKEUSDT",
+      "EULUSDT",
       "APRUSDT",
       "MYXUSDT",
-      "ORDIUSDT",
       "FOLKSUSDT",
+      "ORDIUSDT",
       "USUSDT",
       "ARXUSDT",
       "DASHUSDT",
-      "SOONUSDT",
-      "ZAMAUSDT"
+      "SOONUSDT"
     ]
   }
 }
