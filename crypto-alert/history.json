@@ -996,26 +996,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T10:28:29+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-01T10:30:38+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
-      "KOMAUSDT",
       "IDOLUSDT",
+      "KOMAUSDT",
       "BEATUSDT",
       "GRVTUSDT",
-      "GIGGLEUSDT",
       "EVAAUSDT",
-      "TLMUSDT",
+      "GIGGLEUSDT",
       "AKEUSDT",
+      "FOLKSUSDT",
+      "TLMUSDT",
       "TAGUSDT",
       "MYXUSDT",
-      "FOLKSUSDT",
-      "PUMPUSDT",
       "SOONUSDT",
+      "PUMPUSDT",
       "DASHUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "TIAUSDT"
     ]
   }
 }
