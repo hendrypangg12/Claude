@@ -943,7 +943,8 @@
       "funding_rate": 0.017,
       "orderbook_ratio": 1.210183226538554,
       "time": "2026-08-01T01:34:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-01T07:12:28+00:00"
     },
     {
       "symbol": "GIGGLEUSDT",
@@ -971,13 +972,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T07:10:36+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-01T07:12:28+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "GIGGLEUSDT",
       "BTWUSDT",
+      "GIGGLEUSDT",
       "TLMUSDT",
       "KOMAUSDT",
       "GRVTUSDT",
@@ -986,18 +987,16 @@
       "BEATUSDT",
       "TAGUSDT",
       "BLESSUSDT",
-      "USUSDT",
       "ONUSDT",
       "PUMPUSDT",
       "MYXUSDT",
-      "4USDT",
-      "UAIUSDT",
+      "USUSDT",
       "DASHUSDT",
+      "4USDT",
       "ZROUSDT",
       "FOLKSUSDT",
-      "EPICUSDT",
       "XMRUSDT",
-      "LABUSDT"
+      "ARXUSDT"
     ]
   }
 }
