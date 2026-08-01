@@ -946,28 +946,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T02:36:31+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-01T02:38:27+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
       "GIGGLEUSDT",
-      "BTWUSDT",
       "COTIUSDT",
+      "BTWUSDT",
       "USUSDT",
       "SOONUSDT",
       "BEATUSDT",
+      "ONUSDT",
       "DEXEUSDT",
       "4USDT",
-      "ONUSDT",
       "XNYUSDT",
-      "POWERUSDT",
       "UAIUSDT",
       "CAPUSDT",
-      "EVAAUSDT",
-      "PUMPUSDT",
       "ZAMAUSDT",
-      "MUBARAKUSDT"
+      "PUMPUSDT",
+      "EVAAUSDT",
+      "POWERUSDT",
+      "MUBARAKUSDT",
+      "DASHUSDT"
     ]
   }
 }
