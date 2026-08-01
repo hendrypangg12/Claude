@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-01_11-59-49",
+      "date": "2026-08-01",
+      "time": "11:59",
+      "label": "STORY KANTOR",
+      "title": "Semangat kerja awal masuk beda jauh sama semangat tahun ketiga.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-08-01_08-08-05",
       "date": "2026-08-01",
       "time": "08:08",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-07-28_22-03-23",
-      "date": "2026-07-28",
-      "time": "22:03",
-      "label": "STORY KANTOR",
-      "title": "Kamu bukan malas, kamu cuma capek yang gak pernah dikasih istirahat.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
