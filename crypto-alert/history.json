@@ -1069,8 +1069,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T16:44:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-01T16:46:34+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -1082,14 +1082,15 @@
       "FIGHTUSDT",
       "APRUSDT",
       "EULUSDT",
-      "MYXUSDT",
       "TUTUSDT",
+      "MYXUSDT",
+      "FOLKSUSDT",
+      "TAKEUSDT",
       "USUSDT",
       "ORDIUSDT",
-      "TAKEUSDT",
-      "FOLKSUSDT",
       "ZAMAUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "GIGGLEUSDT"
     ]
   }
 }
