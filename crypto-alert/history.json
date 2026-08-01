@@ -922,8 +922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T00:06:35+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-01T00:08:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "KOMAUSDT",
@@ -932,19 +932,21 @@
       "XNYUSDT",
       "COTIUSDT",
       "BTWUSDT",
-      "CAPUSDT",
       "GRVTUSDT",
+      "CAPUSDT",
       "ONUSDT",
       "DEXEUSDT",
       "4USDT",
       "MUBARAKUSDT",
       "SOONUSDT",
-      "EPICUSDT",
       "POWERUSDT",
+      "UAIUSDT",
+      "EPICUSDT",
       "EVAAUSDT",
       "BEATUSDT",
-      "UAIUSDT",
-      "FOLKSUSDT"
+      "FOLKSUSDT",
+      "PUMPUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
