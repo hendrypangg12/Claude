@@ -1065,12 +1065,13 @@
       "funding_rate": -0.008,
       "orderbook_ratio": 1.3892520946322544,
       "time": "2026-08-01T16:32:38+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-01T16:50:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T16:48:32+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-01T16:50:34+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -1081,16 +1082,15 @@
       "BEATUSDT",
       "FIGHTUSDT",
       "APRUSDT",
-      "EULUSDT",
       "TUTUSDT",
+      "EULUSDT",
       "MYXUSDT",
-      "USUSDT",
       "FOLKSUSDT",
+      "USUSDT",
       "TAKEUSDT",
       "ORDIUSDT",
-      "ZAMAUSDT",
-      "GIGGLEUSDT",
       "TAGUSDT",
+      "ZAMAUSDT",
       "DASHUSDT"
     ]
   }
