@@ -971,8 +971,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T05:12:34+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-01T05:14:34+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GIGGLEUSDT",
@@ -983,19 +983,20 @@
       "BEATUSDT",
       "ONUSDT",
       "EVAAUSDT",
-      "UAIUSDT",
       "PUMPUSDT",
       "SOONUSDT",
+      "UAIUSDT",
       "USUSDT",
+      "GRVTUSDT",
       "CAPUSDT",
       "LABUSDT",
-      "DEXEUSDT",
       "4USDT",
-      "GRVTUSDT",
+      "DEXEUSDT",
       "POWERUSDT",
-      "DASHUSDT",
       "MUBARAKUSDT",
-      "FOLKSUSDT"
+      "DASHUSDT",
+      "FOLKSUSDT",
+      "ARXUSDT"
     ]
   }
 }
