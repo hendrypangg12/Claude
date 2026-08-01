@@ -996,8 +996,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-01T10:30:38+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-01T10:32:33+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -1012,11 +1012,12 @@
       "TLMUSDT",
       "TAGUSDT",
       "MYXUSDT",
-      "SOONUSDT",
       "PUMPUSDT",
-      "DASHUSDT",
+      "SOONUSDT",
       "ZROUSDT",
-      "TIAUSDT"
+      "DASHUSDT",
+      "ARXUSDT",
+      "UAIUSDT"
     ]
   }
 }
