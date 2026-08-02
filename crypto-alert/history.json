@@ -1167,14 +1167,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T18:36:30+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-02T18:38:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
-      "KOMAUSDT",
       "HOMEUSDT",
       "FHEUSDT",
+      "KOMAUSDT",
       "SKYAIUSDT",
       "HUSDT",
       "ENAUSDT",
@@ -1184,11 +1184,9 @@
       "AVAXUSDT",
       "GIGGLEUSDT",
       "XPLUSDT",
-      "FIGHTUSDT",
-      "UAIUSDT",
-      "WLDUSDT",
       "LINKUSDT",
-      "APTUSDT"
+      "WLDUSDT",
+      "FIGHTUSDT"
     ]
   }
 }
