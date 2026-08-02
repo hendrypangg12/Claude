@@ -22,7 +22,8 @@
     "BEATUSDT": "2026-08-01T01:34:30+00:00",
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
     "UAIUSDT": "2026-08-01T16:16:28+00:00",
-    "IDOLUSDT": "2026-08-01T16:32:38+00:00"
+    "IDOLUSDT": "2026-08-01T16:32:38+00:00",
+    "BLESSUSDT": "2026-08-02T05:06:33+00:00"
   },
   "alerts": [
     {
@@ -1091,12 +1092,35 @@
       "time": "2026-08-01T17:14:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-01T17:20:31+00:00"
+    },
+    {
+      "symbol": "BLESSUSDT",
+      "pct": 15.13,
+      "price": 0.0129,
+      "quote_volume": 341960.167208,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4527875478226241,
+      "retrace_pct": 0.8073817762399016,
+      "wick_ratio": 0.2634146341463359,
+      "rsi": 68.65740736552964,
+      "divergence": true,
+      "vol_spike": 0.7273298991585636,
+      "btc_pct": -0.05716145017954288,
+      "sl": 0.013135049999999999,
+      "tp1": 0.012352162,
+      "tp2": 0.011948838,
+      "tp3": 0.011296,
+      "funding_rate": 0.08,
+      "orderbook_ratio": 1.2732937387685963,
+      "time": "2026-08-02T05:06:33+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T05:04:32+00:00",
-    "shortlist_count": 11,
-    "confirmed_count": 0,
+    "time": "2026-08-02T05:06:33+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 1,
     "symbols": [
       "BLESSUSDT",
       "UAIUSDT",
@@ -1104,11 +1128,12 @@
       "EPICUSDT",
       "ONUSDT",
       "ELSAUSDT",
-      "ENAUSDT",
       "AKEUSDT",
+      "ENAUSDT",
       "TUTUSDT",
       "USUSDT",
-      "ADAUSDT"
+      "ADAUSDT",
+      "TAGUSDT"
     ]
   }
 }
