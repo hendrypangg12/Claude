@@ -1094,8 +1094,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T03:14:33+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-02T03:16:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1104,13 +1104,14 @@
       "EPICUSDT",
       "EULUSDT",
       "APRUSDT",
-      "USUSDT",
       "ELSAUSDT",
+      "USUSDT",
       "AKEUSDT",
       "TUTUSDT",
       "ONUSDT",
       "ADAUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "ENAUSDT"
     ]
   }
 }
