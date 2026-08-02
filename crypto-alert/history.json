@@ -1162,12 +1162,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.109396251548746,
       "time": "2026-08-02T14:18:45+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-02T14:26:39+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T14:24:30+00:00",
-    "shortlist_count": 9,
+    "time": "2026-08-02T14:26:39+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1177,8 +1178,9 @@
       "ADAUSDT",
       "ENAUSDT",
       "APRUSDT",
+      "NILUSDT",
       "ELSAUSDT",
-      "NILUSDT"
+      "AKEUSDT"
     ]
   }
 }
