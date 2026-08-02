@@ -1167,8 +1167,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T23:36:29+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-02T23:38:40+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1177,16 +1177,15 @@
       "SKYAIUSDT",
       "ENAUSDT",
       "HUSDT",
-      "CAPUSDT",
       "NILUSDT",
       "ADAUSDT",
+      "CAPUSDT",
       "STRKUSDT",
-      "AVAXUSDT",
-      "ZECUSDT",
-      "WLDUSDT",
       "EPICUSDT",
-      "INJUSDT",
-      "LINKUSDT"
+      "ZECUSDT",
+      "AVAXUSDT",
+      "WLDUSDT",
+      "INJUSDT"
     ]
   }
 }
