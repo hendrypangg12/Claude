@@ -1167,7 +1167,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T21:34:33+00:00",
+    "time": "2026-08-02T21:36:30+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -1177,14 +1177,14 @@
       "SKYAIUSDT",
       "HUSDT",
       "ENAUSDT",
-      "NILUSDT",
       "ADAUSDT",
+      "NILUSDT",
       "EPICUSDT",
       "AVAXUSDT",
       "ZECUSDT",
-      "SYNUSDT",
       "WLDUSDT",
-      "CAPUSDT"
+      "CAPUSDT",
+      "SYNUSDT"
     ]
   }
 }
