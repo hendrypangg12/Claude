@@ -1094,8 +1094,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T03:10:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-02T03:12:34+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1108,11 +1108,12 @@
       "USUSDT",
       "AKEUSDT",
       "TUTUSDT",
-      "ONUSDT",
       "ADAUSDT",
-      "TAGUSDT",
+      "ONUSDT",
       "PUMPUSDT",
-      "DOTUSDT"
+      "ENAUSDT",
+      "DOTUSDT",
+      "TAGUSDT"
     ]
   }
 }
