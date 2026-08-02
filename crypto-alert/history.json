@@ -17,7 +17,7 @@
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-07-28T11:20:36+00:00",
     "EPICUSDT": "2026-07-30T14:04:33+00:00",
-    "BULLAUSDT": "2026-07-31T00:58:28+00:00",
+    "BULLAUSDT": "2026-08-02T11:26:26+00:00",
     "KOMAUSDT": "2026-08-01T09:22:31+00:00",
     "BEATUSDT": "2026-08-01T01:34:30+00:00",
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
@@ -1116,28 +1116,51 @@
       "time": "2026-08-02T05:06:33+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-02T06:04:36+00:00"
+    },
+    {
+      "symbol": "BULLAUSDT",
+      "pct": 13.51,
+      "price": 0.014904,
+      "quote_volume": 1468593.27612,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.2939237753265623,
+      "retrace_pct": 3.333765728369431,
+      "wick_ratio": 0.7399267399267393,
+      "rsi": 77.05294709102522,
+      "divergence": true,
+      "vol_spike": 0.27480758650136083,
+      "btc_pct": -0.051833983156806714,
+      "sl": 0.01557218,
+      "tp1": 0.014717029999999999,
+      "tp2": 0.01428397,
+      "tp3": 0.013583,
+      "funding_rate": 0.009,
+      "orderbook_ratio": 0.8388045640465553,
+      "time": "2026-08-02T11:26:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-02T11:24:28+00:00",
+    "time": "2026-08-02T11:26:26+00:00",
     "shortlist_count": 15,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BLESSUSDT",
       "HOMEUSDT",
       "UAIUSDT",
       "ONUSDT",
       "SKYAIUSDT",
-      "BULLAUSDT",
       "ELSAUSDT",
+      "BULLAUSDT",
       "EULUSDT",
       "ENAUSDT",
       "ADAUSDT",
       "AKEUSDT",
       "EPICUSDT",
+      "GIGGLEUSDT",
       "TAGUSDT",
-      "AVAXUSDT",
-      "GIGGLEUSDT"
+      "AVAXUSDT"
     ]
   }
 }
