@@ -1167,8 +1167,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T13:04:36+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-03T13:06:36+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BICOUSDT",
@@ -1176,12 +1176,11 @@
       "BLESSUSDT",
       "TUTUSDT",
       "GRVTUSDT",
-      "BULLAUSDT",
-      "USUSDT",
-      "FHEUSDT",
       "BTWUSDT",
+      "FHEUSDT",
+      "USUSDT",
       "ALLOUSDT",
-      "HUSDT"
+      "BULLAUSDT"
     ]
   }
 }
