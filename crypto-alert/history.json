@@ -1167,24 +1167,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T08:57:27+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-03T09:00:45+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
+      "CATEUSDT",
       "BLESSUSDT",
+      "SMARTUSDT",
+      "SHOTUSDT",
       "SKYAIUSDT",
+      "MCNUSDT",
       "TUTUSDT",
+      "CASHCATUSDT",
       "BTWUSDT",
-      "UBUSDT",
-      "AKEUSDT",
-      "NILUSDT",
       "BULLAUSDT",
+      "AKEUSDT",
+      "UBUSDT",
+      "NILUSDT",
       "FHEUSDT",
-      "HUSDT",
       "GRVTUSDT",
+      "HUSDT",
       "GIGGLEUSDT",
+      "ATSUSDT",
       "MANTRAUSDT",
-      "USUSDT"
+      "QUBICUSDT"
     ]
   }
 }
