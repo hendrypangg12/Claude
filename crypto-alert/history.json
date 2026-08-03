@@ -1167,14 +1167,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T17:34:38+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-03T17:36:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BICOUSDT",
       "SKYAIUSDT",
-      "VICUSDT",
       "BTWUSDT",
+      "VICUSDT",
       "UBUSDT",
       "TUTUSDT",
       "BULLAUSDT",
@@ -1182,9 +1182,8 @@
       "ATOMUSDT",
       "NILUSDT",
       "GRVTUSDT",
-      "VELVETUSDT",
       "HYPEUSDT",
-      "AKEUSDT"
+      "VELVETUSDT"
     ]
   }
 }
