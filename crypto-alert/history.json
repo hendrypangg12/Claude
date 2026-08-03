@@ -1167,26 +1167,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T16:38:33+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-03T16:40:35+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BICOUSDT",
       "VICUSDT",
-      "BTWUSDT",
       "SKYAIUSDT",
+      "BTWUSDT",
       "TUTUSDT",
-      "BULLAUSDT",
       "BLESSUSDT",
+      "BULLAUSDT",
       "GRVTUSDT",
       "ALLOUSDT",
       "ATOMUSDT",
       "HYPEUSDT",
       "AKEUSDT",
-      "ENAUSDT",
-      "NILUSDT",
       "TIAUSDT",
-      "ZECUSDT"
+      "NILUSDT",
+      "ENAUSDT"
     ]
   }
 }
