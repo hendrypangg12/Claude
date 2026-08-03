@@ -1167,24 +1167,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T00:00:44+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-03T00:02:33+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
       "FHEUSDT",
-      "SKYAIUSDT",
       "ENAUSDT",
-      "HUSDT",
       "HOMEUSDT",
+      "SKYAIUSDT",
+      "HUSDT",
       "NILUSDT",
       "ADAUSDT",
       "CAPUSDT",
-      "ZECUSDT",
       "STRKUSDT",
-      "AVAXUSDT",
-      "WLDUSDT",
       "EPICUSDT",
+      "AVAXUSDT",
+      "ZECUSDT",
+      "WLDUSDT",
+      "ELSAUSDT",
       "INJUSDT"
     ]
   }
