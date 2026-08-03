@@ -1190,7 +1190,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T19:40:33+00:00",
+    "time": "2026-08-03T19:42:33+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -1202,11 +1202,11 @@
       "UBUSDT",
       "TUTUSDT",
       "BULLAUSDT",
-      "ATOMUSDT",
       "NILUSDT",
+      "ATOMUSDT",
       "VELVETUSDT",
-      "GENIUSUSDT",
-      "ALLOUSDT"
+      "ALLOUSDT",
+      "GENIUSUSDT"
     ]
   }
 }
