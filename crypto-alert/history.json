@@ -1191,7 +1191,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-03T20:48:37+00:00",
+    "time": "2026-08-03T20:50:44+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -1206,9 +1206,9 @@
       "KOMAUSDT",
       "ATOMUSDT",
       "NILUSDT",
-      "ALLOUSDT",
       "BULLAUSDT",
-      "GENIUSUSDT"
+      "GENIUSUSDT",
+      "ALLOUSDT"
     ]
   }
 }
