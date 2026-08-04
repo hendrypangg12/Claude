@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T02:50:33+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-04T02:52:29+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "VICUSDT",
@@ -1207,13 +1207,14 @@
       "UBUSDT",
       "ATOMUSDT",
       "AVAXUSDT",
-      "GENIUSUSDT",
       "DOTUSDT",
+      "GENIUSUSDT",
       "GRVTUSDT",
-      "WLDUSDT",
       "ENAUSDT",
       "TIAUSDT",
-      "WUSDT"
+      "ADAUSDT",
+      "WUSDT",
+      "WLDUSDT"
     ]
   }
 }
