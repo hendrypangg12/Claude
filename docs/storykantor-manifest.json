@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-04_08-03-45",
+      "date": "2026-08-04",
+      "time": "08:03",
+      "label": "STORY KANTOR",
+      "title": "Yang paling sibuk belum tentu paling kerja, kadang cuma paling jago keliatan sibuk.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-08-03_22-28-32",
       "date": "2026-08-03",
       "time": "22:28",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-07-31_15-41-04",
-      "date": "2026-07-31",
-      "time": "15:41",
-      "label": "STORY KANTOR",
-      "title": "Rekan kerja toxic bikin senin makin berat.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
