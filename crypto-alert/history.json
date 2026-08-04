@@ -1215,7 +1215,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T21:56:39+00:00",
+    "time": "2026-08-04T21:58:36+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -1225,11 +1225,11 @@
       "HOMEUSDT",
       "PUMPUSDT",
       "SYNUSDT",
-      "EPICUSDT",
       "COTIUSDT",
+      "EPICUSDT",
       "ZEREBROUSDT",
-      "BSBUSDT",
-      "LABUSDT"
+      "LABUSDT",
+      "BSBUSDT"
     ]
   }
 }
