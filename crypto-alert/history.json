@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T00:08:41+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-04T00:10:33+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "VICUSDT",
@@ -1204,8 +1204,9 @@
       "NILUSDT",
       "ATOMUSDT",
       "GENIUSUSDT",
-      "VELVETUSDT",
-      "ENAUSDT"
+      "BICOUSDT",
+      "ENAUSDT",
+      "VELVETUSDT"
     ]
   }
 }
