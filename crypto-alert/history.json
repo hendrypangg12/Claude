@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T14:40:40+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-04T15:06:14+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
@@ -1202,13 +1202,14 @@
       "TUTUSDT",
       "MYXUSDT",
       "PIPPINUSDT",
-      "VELVETUSDT",
       "PUMPUSDT",
-      "FHEUSDT",
+      "VELVETUSDT",
       "ZROUSDT",
-      "ATOMUSDT",
+      "ONUSDT",
+      "BSBUSDT",
+      "FHEUSDT",
       "DEXEUSDT",
-      "BSBUSDT"
+      "COTIUSDT"
     ]
   }
 }
