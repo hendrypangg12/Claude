@@ -15,7 +15,7 @@
     "NILUSDT": "2026-07-27T12:14:29+00:00",
     "BTWUSDT": "2026-08-01T12:12:33+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
-    "COTIUSDT": "2026-07-28T11:20:36+00:00",
+    "COTIUSDT": "2026-08-04T21:21:01+00:00",
     "EPICUSDT": "2026-07-30T14:04:33+00:00",
     "BULLAUSDT": "2026-08-02T11:26:26+00:00",
     "KOMAUSDT": "2026-08-03T19:36:31+00:00",
@@ -1188,12 +1188,35 @@
       "time": "2026-08-03T19:36:31+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-03T19:46:41+00:00"
+    },
+    {
+      "symbol": "COTIUSDT",
+      "pct": 8.11,
+      "price": 0.012824,
+      "quote_volume": 519556.176444,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4791548180557916,
+      "retrace_pct": 1.7769607843137223,
+      "wick_ratio": 0.5159574468085081,
+      "rsi": 74.7224748339096,
+      "divergence": false,
+      "vol_spike": 0.17089665745616944,
+      "btc_pct": -0.121975404735151,
+      "sl": 0.01318656,
+      "tp1": 0.012682022,
+      "tp2": 0.012450978,
+      "tp3": 0.012077,
+      "funding_rate": -0.155,
+      "orderbook_ratio": 1.4136318232661265,
+      "time": "2026-08-04T21:21:01+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T21:19:09+00:00",
-    "shortlist_count": 13,
-    "confirmed_count": 0,
+    "time": "2026-08-04T21:21:01+00:00",
+    "shortlist_count": 14,
+    "confirmed_count": 1,
     "symbols": [
       "CYSUSDT",
       "BTWUSDT",
@@ -1205,9 +1228,10 @@
       "ZEREBROUSDT",
       "EPICUSDT",
       "ZROUSDT",
+      "LABUSDT",
       "TUTUSDT",
       "ZECUSDT",
-      "LABUSDT"
+      "BSBUSDT"
     ]
   }
 }
