@@ -1191,14 +1191,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T11:42:38+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-04T11:44:33+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "HOMEUSDT",
-      "CYSUSDT",
       "SKYAIUSDT",
       "VICUSDT",
+      "CYSUSDT",
       "BTWUSDT",
       "TUTUSDT",
       "MYXUSDT",
@@ -1208,11 +1208,12 @@
       "ATOMUSDT",
       "COTIUSDT",
       "ZROUSDT",
-      "AVAXUSDT",
-      "WLDUSDT",
       "PUMPUSDT",
+      "WLDUSDT",
+      "AVAXUSDT",
       "KATUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "ADAUSDT"
     ]
   }
 }
