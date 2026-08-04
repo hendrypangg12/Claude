@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T06:18:34+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-04T06:20:36+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "VICUSDT",
@@ -1203,10 +1203,10 @@
       "ZEREBROUSDT",
       "UBUSDT",
       "MYXUSDT",
-      "BICOUSDT",
       "PIPPINUSDT",
-      "ATOMUSDT",
+      "BICOUSDT",
       "PUMPUSDT",
+      "ATOMUSDT",
       "FHEUSDT",
       "NILUSDT",
       "ADAUSDT",
@@ -1214,7 +1214,8 @@
       "VELVETUSDT",
       "ENAUSDT",
       "GENIUSUSDT",
-      "DOTUSDT"
+      "DOTUSDT",
+      "FETUSDT"
     ]
   }
 }
