@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T07:00:44+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-04T07:02:28+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "VICUSDT",
@@ -1200,22 +1200,24 @@
       "HOMEUSDT",
       "BTWUSDT",
       "TUTUSDT",
+      "BICOUSDT",
       "ZEREBROUSDT",
       "MYXUSDT",
-      "BICOUSDT",
-      "UBUSDT",
       "PIPPINUSDT",
+      "UBUSDT",
       "FHEUSDT",
       "ATOMUSDT",
       "PUMPUSDT",
+      "GENIUSUSDT",
       "NILUSDT",
-      "VELVETUSDT",
       "AVAXUSDT",
       "ADAUSDT",
-      "GENIUSUSDT",
+      "VELVETUSDT",
       "DOTUSDT",
       "ENAUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "WLDUSDT",
+      "HYPEUSDT"
     ]
   }
 }
