@@ -1191,7 +1191,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T16:34:39+00:00",
+    "time": "2026-08-04T16:37:09+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -1202,12 +1202,12 @@
       "EPICUSDT",
       "SYNUSDT",
       "TUTUSDT",
-      "BSBUSDT",
       "MYXUSDT",
+      "BSBUSDT",
       "VELVETUSDT",
       "PUMPUSDT",
-      "ZROUSDT",
-      "DEXEUSDT"
+      "DEXEUSDT",
+      "ZROUSDT"
     ]
   }
 }
