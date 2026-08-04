@@ -1191,8 +1191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T13:28:40+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-04T13:30:45+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HOMEUSDT",
@@ -1201,17 +1201,18 @@
       "BTWUSDT",
       "TUTUSDT",
       "PIPPINUSDT",
-      "MYXUSDT",
       "VELVETUSDT",
-      "ZROUSDT",
+      "MYXUSDT",
       "ONUSDT",
-      "ATOMUSDT",
+      "ZROUSDT",
       "PUMPUSDT",
-      "COTIUSDT",
+      "ATOMUSDT",
       "DEXEUSDT",
       "WLDUSDT",
-      "AVAXUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "COTIUSDT",
+      "BASEDUSDT",
+      "AVAXUSDT"
     ]
   }
 }
