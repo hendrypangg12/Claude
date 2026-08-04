@@ -1191,20 +1191,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-04T00:54:36+00:00",
-    "shortlist_count": 10,
+    "time": "2026-08-04T00:56:34+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "VICUSDT",
-      "SKYAIUSDT",
       "BTWUSDT",
+      "SKYAIUSDT",
       "TUTUSDT",
       "PIPPINUSDT",
       "UBUSDT",
       "NILUSDT",
-      "GENIUSUSDT",
       "ATOMUSDT",
-      "VELVETUSDT"
+      "GENIUSUSDT",
+      "VELVETUSDT",
+      "BICOUSDT"
     ]
   }
 }
