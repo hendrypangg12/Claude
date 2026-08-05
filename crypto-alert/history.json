@@ -1240,7 +1240,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T02:36:40+00:00",
+    "time": "2026-08-05T02:38:40+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -1256,11 +1256,11 @@
       "DEXEUSDT",
       "ZECUSDT",
       "ZROUSDT",
-      "ICNTUSDT",
-      "BSBUSDT",
       "LABUSDT",
+      "BSBUSDT",
+      "FHEUSDT",
       "LITUSDT",
-      "FHEUSDT"
+      "ICNTUSDT"
     ]
   }
 }
