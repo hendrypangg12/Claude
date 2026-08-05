@@ -13,7 +13,7 @@
     "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
-    "BTWUSDT": "2026-08-01T12:12:33+00:00",
+    "BTWUSDT": "2026-08-05T03:36:36+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-08-04T21:21:01+00:00",
     "EPICUSDT": "2026-07-30T14:04:33+00:00",
@@ -1237,12 +1237,35 @@
       "time": "2026-08-05T01:08:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-05T01:32:30+00:00"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "pct": 9.68,
+      "price": 0.133507,
+      "quote_volume": 1116062.116723,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2522735703684166,
+      "retrace_pct": 0.965076256602,
+      "wick_ratio": 0.0,
+      "rsi": 66.36887433042554,
+      "divergence": false,
+      "vol_spike": 0.03372227047746436,
+      "btc_pct": -0.3630080901785921,
+      "sl": 0.13615608,
+      "tp1": 0.1302622,
+      "tp2": 0.1274538,
+      "tp3": 0.122908,
+      "funding_rate": 0.055,
+      "orderbook_ratio": 1.324496587996443,
+      "time": "2026-08-05T03:36:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T03:34:28+00:00",
-    "shortlist_count": 18,
-    "confirmed_count": 0,
+    "time": "2026-08-05T03:36:36+00:00",
+    "shortlist_count": 17,
+    "confirmed_count": 1,
     "symbols": [
       "HEIUSDT",
       "CYSUSDT",
@@ -1256,12 +1279,11 @@
       "BLESSUSDT",
       "DEXEUSDT",
       "LABUSDT",
+      "BSBUSDT",
       "ZECUSDT",
       "FHEUSDT",
-      "BSBUSDT",
-      "LITUSDT",
       "ZROUSDT",
-      "BASEDUSDT"
+      "LITUSDT"
     ]
   }
 }
