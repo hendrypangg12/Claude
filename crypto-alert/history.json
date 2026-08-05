@@ -25,7 +25,8 @@
     "IDOLUSDT": "2026-08-01T16:32:38+00:00",
     "BLESSUSDT": "2026-08-02T05:06:33+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
-    "CYSUSDT": "2026-08-05T04:36:27+00:00"
+    "CYSUSDT": "2026-08-05T04:36:27+00:00",
+    "GRVTUSDT": "2026-08-05T08:36:25+00:00"
   },
   "alerts": [
     {
@@ -1310,12 +1311,35 @@
       "time": "2026-08-05T06:02:27+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-05T06:14:33+00:00"
+    },
+    {
+      "symbol": "GRVTUSDT",
+      "pct": 9.5,
+      "price": 0.3329,
+      "quote_volume": 1216145.5507,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.44934105175506023,
+      "retrace_pct": 1.0698365527488995,
+      "wick_ratio": 0.4250000000000014,
+      "rsi": 71.74356432629817,
+      "divergence": true,
+      "vol_spike": 0.050720826460690406,
+      "btc_pct": 0.11142640286869937,
+      "sl": 0.33986500000000003,
+      "tp1": 0.3253456,
+      "tp2": 0.3184544,
+      "tp3": 0.3073,
+      "funding_rate": -0.125,
+      "orderbook_ratio": 2.0435821107042447,
+      "time": "2026-08-05T08:36:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T08:34:33+00:00",
+    "time": "2026-08-05T08:36:25+00:00",
     "shortlist_count": 22,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "CYSUSDT",
       "HEIUSDT",
@@ -1323,21 +1347,21 @@
       "BICOUSDT",
       "SYNUSDT",
       "GRVTUSDT",
-      "SKYAIUSDT",
-      "HOMEUSDT",
       "BTWUSDT",
+      "HOMEUSDT",
+      "SKYAIUSDT",
       "PUMPUSDT",
       "VELVETUSDT",
       "EPICUSDT",
-      "TUTUSDT",
       "ZECUSDT",
+      "TUTUSDT",
+      "LITUSDT",
       "USUSDT",
       "ZROUSDT",
-      "LITUSDT",
-      "HYPEUSDT",
       "LABUSDT",
-      "FETUSDT",
+      "HYPEUSDT",
       "龙虾USDT",
+      "FETUSDT",
       "DEXEUSDT"
     ]
   }
