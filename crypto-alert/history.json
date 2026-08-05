@@ -1387,16 +1387,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T22:20:34+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-05T22:22:27+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
       "HEIUSDT",
       "CYSUSDT",
       "SYNUSDT",
-      "龙虾USDT",
       "ONUSDT",
+      "龙虾USDT",
       "TUTUSDT",
       "SKYAIUSDT",
       "BICOUSDT",
@@ -1407,12 +1407,13 @@
       "VELVETUSDT",
       "RESOLVUSDT",
       "4USDT",
-      "ZAMAUSDT",
       "XPINUSDT",
+      "ZAMAUSDT",
       "UNIUSDT",
       "GIGGLEUSDT",
-      "LDOUSDT",
-      "BASEDUSDT"
+      "CAPUSDT",
+      "BASEDUSDT",
+      "LDOUSDT"
     ]
   }
 }
