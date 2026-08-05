@@ -26,7 +26,8 @@
     "BLESSUSDT": "2026-08-05T16:53:35+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
     "CYSUSDT": "2026-08-05T04:36:27+00:00",
-    "GRVTUSDT": "2026-08-05T08:36:25+00:00"
+    "GRVTUSDT": "2026-08-05T08:36:25+00:00",
+    "BICOUSDT": "2026-08-05T18:44:50+00:00"
   },
   "alerts": [
     {
@@ -1359,12 +1360,35 @@
       "time": "2026-08-05T16:53:35+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-05T17:02:30+00:00"
+    },
+    {
+      "symbol": "BICOUSDT",
+      "pct": 8.63,
+      "price": 0.02729,
+      "quote_volume": 287525.71126,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.25164605642663834,
+      "retrace_pct": 0.5828779599271419,
+      "wick_ratio": 0.0,
+      "rsi": 68.08697185232509,
+      "divergence": true,
+      "vol_spike": 0.7710439583964236,
+      "btc_pct": 0.04392566696377157,
+      "sl": 0.0277245,
+      "tp1": 0.02661724,
+      "tp2": 0.02610276,
+      "tp3": 0.02527,
+      "funding_rate": -0.003,
+      "orderbook_ratio": 0.6360295907111742,
+      "time": "2026-08-05T18:44:50+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T18:42:45+00:00",
-    "shortlist_count": 24,
-    "confirmed_count": 0,
+    "time": "2026-08-05T18:44:50+00:00",
+    "shortlist_count": 25,
+    "confirmed_count": 1,
     "symbols": [
       "BLESSUSDT",
       "HEIUSDT",
@@ -1374,22 +1398,23 @@
       "TUTUSDT",
       "SYNUSDT",
       "龙虾USDT",
-      "SKYAIUSDT",
       "GRVTUSDT",
+      "SKYAIUSDT",
       "BTWUSDT",
       "VELVETUSDT",
       "CAPUSDT",
       "4USDT",
       "GIGGLEUSDT",
-      "XPINUSDT",
       "UAIUSDT",
+      "XPINUSDT",
       "BULLAUSDT",
       "UNIUSDT",
       "LDOUSDT",
-      "PUMPUSDT",
       "ZAMAUSDT",
+      "PUMPUSDT",
       "FHEUSDT",
-      "PENDLEUSDT"
+      "PENDLEUSDT",
+      "POWERUSDT"
     ]
   }
 }
