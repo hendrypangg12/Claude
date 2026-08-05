@@ -1411,8 +1411,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T23:52:26+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-05T23:54:26+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1433,12 +1433,11 @@
       "XPINUSDT",
       "LITUSDT",
       "VELVETUSDT",
-      "UNIUSDT",
       "ALLOUSDT",
+      "UNIUSDT",
       "LDOUSDT",
       "BASEDUSDT",
-      "XMRUSDT",
-      "MYXUSDT"
+      "XMRUSDT"
     ]
   }
 }
