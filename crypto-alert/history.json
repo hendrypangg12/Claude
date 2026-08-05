@@ -1338,18 +1338,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T11:18:33+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-05T11:20:31+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
       "BLESSUSDT",
       "CYSUSDT",
-      "SYNUSDT",
       "BICOUSDT",
+      "SYNUSDT",
       "GRVTUSDT",
-      "SKYAIUSDT",
       "BTWUSDT",
+      "SKYAIUSDT",
       "PUMPUSDT",
       "UAIUSDT",
       "TUTUSDT",
@@ -1357,8 +1357,7 @@
       "LABUSDT",
       "ZECUSDT",
       "BASEDUSDT",
-      "FETUSDT",
-      "HOMEUSDT"
+      "FETUSDT"
     ]
   }
 }
