@@ -23,7 +23,8 @@
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
     "UAIUSDT": "2026-08-01T16:16:28+00:00",
     "IDOLUSDT": "2026-08-01T16:32:38+00:00",
-    "BLESSUSDT": "2026-08-02T05:06:33+00:00"
+    "BLESSUSDT": "2026-08-02T05:06:33+00:00",
+    "HOMEUSDT": "2026-08-05T01:08:28+00:00"
   },
   "alerts": [
     {
@@ -1212,12 +1213,35 @@
       "time": "2026-08-04T21:21:01+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-04T21:32:28+00:00"
+    },
+    {
+      "symbol": "HOMEUSDT",
+      "pct": 8.87,
+      "price": 0.010146,
+      "quote_volume": 541756.135897,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.36738771408222237,
+      "retrace_pct": 1.1881573821581501,
+      "wick_ratio": 0.0,
+      "rsi": 67.90116129846291,
+      "divergence": false,
+      "vol_spike": 0.8218290110867335,
+      "btc_pct": -0.178996571324498,
+      "sl": 0.01037068,
+      "tp1": 0.009948265999999999,
+      "tp2": 0.009750734,
+      "tp3": 0.009431,
+      "funding_rate": -0.581,
+      "orderbook_ratio": 1.3376012033526887,
+      "time": "2026-08-05T01:08:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T01:06:36+00:00",
+    "time": "2026-08-05T01:08:28+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "CYSUSDT",
       "SKYAIUSDT",
@@ -1227,10 +1251,10 @@
       "PUMPUSDT",
       "EPICUSDT",
       "ZROUSDT",
-      "VELVETUSDT",
-      "ZECUSDT",
-      "DOTUSDT",
       "DEXEUSDT",
+      "ZECUSDT",
+      "VELVETUSDT",
+      "DOTUSDT",
       "TUTUSDT"
     ]
   }
