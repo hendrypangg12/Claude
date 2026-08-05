@@ -1387,8 +1387,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T20:51:22+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-05T20:52:40+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -1408,13 +1408,14 @@
       "XPINUSDT",
       "ZAMAUSDT",
       "4USDT",
-      "BULLAUSDT",
-      "UNIUSDT",
       "BASEDUSDT",
+      "UNIUSDT",
       "PENDLEUSDT",
       "GIGGLEUSDT",
+      "BULLAUSDT",
       "LDOUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "MYXUSDT"
     ]
   }
 }
