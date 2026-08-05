@@ -1313,8 +1313,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T07:18:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-05T07:20:34+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
@@ -1330,16 +1330,17 @@
       "VELVETUSDT",
       "ZROUSDT",
       "USUSDT",
-      "TUTUSDT",
-      "ZECUSDT",
       "龙虾USDT",
+      "ZECUSDT",
+      "TUTUSDT",
       "LITUSDT",
       "FETUSDT",
-      "HYPEUSDT",
-      "DEXEUSDT",
       "ALLOUSDT",
       "ONDOUSDT",
-      "LABUSDT"
+      "HYPEUSDT",
+      "LABUSDT",
+      "DEXEUSDT",
+      "BSBUSDT"
     ]
   }
 }
