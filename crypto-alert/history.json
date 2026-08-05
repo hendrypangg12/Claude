@@ -1386,14 +1386,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T19:02:35+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-05T19:04:32+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
       "BLESSUSDT",
+      "FRONGUSDT",
       "CYSUSDT",
+      "CASHCATUSDT",
       "ONUSDT",
+      "TOFUUSDT",
       "TUTUSDT",
       "SYNUSDT",
       "BICOUSDT",
@@ -1402,18 +1405,21 @@
       "SKYAIUSDT",
       "VELVETUSDT",
       "BTWUSDT",
+      "ATSUSDT",
+      "PLBUSDT",
+      "ZIGUSDT",
       "UAIUSDT",
       "4USDT",
       "GIGGLEUSDT",
+      "QUIDUSDT",
       "XPINUSDT",
-      "BULLAUSDT",
       "CAPUSDT",
-      "UNIUSDT",
+      "BULLAUSDT",
       "LDOUSDT",
-      "UBUSDT",
+      "UNIUSDT",
+      "WOJAKUSDT",
       "ZAMAUSDT",
-      "POWERUSDT",
-      "PENDLEUSDT"
+      "UBUSDT"
     ]
   }
 }
