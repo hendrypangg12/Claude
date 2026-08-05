@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-05_15-06-39",
+      "date": "2026-08-05",
+      "time": "15:06",
+      "label": "STORY KANTOR",
+      "title": "Karyawan lama dianggap paham semua tanpa pernah diajarin ulang.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-08-05_11-47-49",
       "date": "2026-08-05",
       "time": "11:47",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-08-02_08-10-25",
-      "date": "2026-08-02",
-      "time": "08:10",
-      "label": "STORY KANTOR",
-      "title": "Meeting yang harusnya 10 menit, molor jadi 2 jam tanpa keputusan.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
