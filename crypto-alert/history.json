@@ -1362,8 +1362,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T17:30:50+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-05T17:32:53+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1380,19 +1380,20 @@
       "BTWUSDT",
       "CAPUSDT",
       "PUMPUSDT",
-      "GIGGLEUSDT",
       "4USDT",
-      "UNIUSDT",
-      "BULLAUSDT",
       "LDOUSDT",
+      "UNIUSDT",
+      "GIGGLEUSDT",
+      "BULLAUSDT",
       "FHEUSDT",
       "BASEDUSDT",
       "XPINUSDT",
       "POWERUSDT",
       "ZAMAUSDT",
       "UAIUSDT",
-      "ZECUSDT",
-      "HYPEUSDT"
+      "PENDLEUSDT",
+      "HYPEUSDT",
+      "ZECUSDT"
     ]
   }
 }
