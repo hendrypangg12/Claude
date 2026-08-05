@@ -1338,8 +1338,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T15:47:26+00:00",
-    "shortlist_count": 25,
+    "time": "2026-08-05T15:48:44+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1360,13 +1360,12 @@
       "LABUSDT",
       "BASEDUSDT",
       "XPINUSDT",
-      "COTIUSDT",
       "UNIUSDT",
-      "FHEUSDT",
       "ZECUSDT",
-      "EVAAUSDT",
+      "FHEUSDT",
       "LDOUSDT",
-      "POWERUSDT"
+      "COTIUSDT",
+      "EVAAUSDT"
     ]
   }
 }
