@@ -1308,12 +1308,13 @@
       "funding_rate": -0.012,
       "orderbook_ratio": 2.8946258425098157,
       "time": "2026-08-05T06:02:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-05T06:14:33+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T06:12:29+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-05T06:14:33+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1327,16 +1328,15 @@
       "PUMPUSDT",
       "VELVETUSDT",
       "BTWUSDT",
-      "ZECUSDT",
       "TUTUSDT",
+      "ZECUSDT",
       "龙虾USDT",
       "USUSDT",
-      "BSBUSDT",
-      "LABUSDT",
       "LITUSDT",
       "ZROUSDT",
-      "HYPEUSDT",
-      "ONDOUSDT"
+      "BSBUSDT",
+      "LABUSDT",
+      "HYPEUSDT"
     ]
   }
 }
