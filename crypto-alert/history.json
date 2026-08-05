@@ -1235,12 +1235,13 @@
       "funding_rate": -0.581,
       "orderbook_ratio": 1.3376012033526887,
       "time": "2026-08-05T01:08:28+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-05T01:32:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T01:30:38+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-05T01:32:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
@@ -1251,13 +1252,12 @@
       "PUMPUSDT",
       "EPICUSDT",
       "TUTUSDT",
-      "ZROUSDT",
       "DEXEUSDT",
+      "ZROUSDT",
       "ZECUSDT",
+      "ICNTUSDT",
       "GRAMUSDT",
-      "COTIUSDT",
-      "LABUSDT",
-      "ICNTUSDT"
+      "LABUSDT"
     ]
   }
 }
