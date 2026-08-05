@@ -1289,7 +1289,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T05:24:25+00:00",
+    "time": "2026-08-05T05:26:25+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -1305,15 +1305,15 @@
       "PUMPUSDT",
       "EPICUSDT",
       "BSBUSDT",
-      "LABUSDT",
       "ZECUSDT",
       "DEXEUSDT",
+      "LABUSDT",
       "VELVETUSDT",
       "ZROUSDT",
       "USUSDT",
+      "FHEUSDT",
       "LITUSDT",
-      "HYPEUSDT",
-      "FHEUSDT"
+      "HYPEUSDT"
     ]
   }
 }
