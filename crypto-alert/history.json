@@ -1240,8 +1240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T02:12:37+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-05T02:14:28+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
@@ -1255,9 +1255,10 @@
       "EPICUSDT",
       "DEXEUSDT",
       "ZECUSDT",
-      "ICNTUSDT",
       "LABUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "ICNTUSDT",
+      "LITUSDT"
     ]
   }
 }
