@@ -1289,8 +1289,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T05:26:25+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-05T05:28:38+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1306,14 +1306,15 @@
       "EPICUSDT",
       "BSBUSDT",
       "ZECUSDT",
-      "DEXEUSDT",
       "LABUSDT",
       "VELVETUSDT",
+      "DEXEUSDT",
       "ZROUSDT",
-      "USUSDT",
       "FHEUSDT",
+      "USUSDT",
       "LITUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "ICNTUSDT"
     ]
   }
 }
