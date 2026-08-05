@@ -1264,8 +1264,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-05T04:14:40+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-05T04:16:35+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1279,11 +1279,13 @@
       "EPICUSDT",
       "PUMPUSDT",
       "LABUSDT",
-      "LITUSDT",
       "ZECUSDT",
+      "LITUSDT",
       "BSBUSDT",
       "DEXEUSDT",
-      "ZROUSDT"
+      "VELVETUSDT",
+      "ZROUSDT",
+      "龙虾USDT"
     ]
   }
 }
