@@ -1533,32 +1533,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T12:30:37+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-06T12:32:32+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "SKYAIUSDT",
-      "HEIUSDT",
       "TAKEUSDT",
       "ZBTUSDT",
+      "HEIUSDT",
       "ONUSDT",
-      "BICOUSDT",
-      "UBUSDT",
       "BLESSUSDT",
+      "BICOUSDT",
       "BTWUSDT",
       "CYSUSDT",
+      "UBUSDT",
       "POWERUSDT",
       "COTIUSDT",
       "RESOLVUSDT",
-      "4USDT",
       "TUTUSDT",
+      "4USDT",
       "SYNUSDT",
       "HOMEUSDT",
       "HUSDT",
       "ZROUSDT",
-      "BASEDUSDT",
-      "FHEUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "FHEUSDT"
     ]
   }
 }
