@@ -1508,8 +1508,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T09:56:35+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-06T09:58:36+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1522,13 +1522,14 @@
       "BICOUSDT",
       "BTWUSDT",
       "COTIUSDT",
+      "SYNUSDT",
       "4USDT",
       "POWERUSDT",
-      "SYNUSDT",
       "HUSDT",
       "BASEDUSDT",
       "龙虾USDT",
-      "CAPUSDT"
+      "CAPUSDT",
+      "BULLAUSDT"
     ]
   }
 }
