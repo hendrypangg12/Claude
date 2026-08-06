@@ -1411,12 +1411,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T04:00:40+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-06T04:02:40+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "BLESSUSDT",
       "HEIUSDT",
+      "BLESSUSDT",
       "CYSUSDT",
       "BICOUSDT",
       "SYNUSDT",
@@ -1430,11 +1430,12 @@
       "ONUSDT",
       "HUSDT",
       "LDOUSDT",
-      "RESOLVUSDT",
       "BULLAUSDT",
-      "VELVETUSDT",
       "GRVTUSDT",
-      "UNIUSDT"
+      "VELVETUSDT",
+      "RESOLVUSDT",
+      "UNIUSDT",
+      "MYXUSDT"
     ]
   }
 }
