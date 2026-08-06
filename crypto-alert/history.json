@@ -1533,22 +1533,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T12:40:34+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-06T12:42:33+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "SKYAIUSDT",
       "ZBTUSDT",
       "TAKEUSDT",
       "HEIUSDT",
-      "BLESSUSDT",
       "ONUSDT",
+      "BLESSUSDT",
       "BICOUSDT",
       "BTWUSDT",
       "UBUSDT",
       "CYSUSDT",
-      "POWERUSDT",
       "COTIUSDT",
+      "POWERUSDT",
       "SYNUSDT",
       "4USDT",
       "TUTUSDT",
@@ -1556,7 +1556,9 @@
       "HUSDT",
       "HOMEUSDT",
       "ZROUSDT",
-      "FHEUSDT"
+      "BSBUSDT",
+      "FHEUSDT",
+      "LITUSDT"
     ]
   }
 }
