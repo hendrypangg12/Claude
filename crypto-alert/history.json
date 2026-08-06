@@ -1557,8 +1557,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T23:34:37+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-06T23:36:34+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "TAKEUSDT",
@@ -1583,8 +1583,9 @@
       "ZROUSDT",
       "COTIUSDT",
       "LIGHTUSDT",
+      "CRVUSDT",
       "BASEDUSDT",
-      "CRVUSDT"
+      "ADAUSDT"
     ]
   }
 }
