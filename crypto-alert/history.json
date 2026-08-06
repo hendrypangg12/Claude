@@ -1533,8 +1533,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T13:12:34+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-06T13:14:28+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "ZBTUSDT",
@@ -1547,17 +1547,19 @@
       "BLESSUSDT",
       "BTWUSDT",
       "4USDT",
+      "CYSUSDT",
       "SYNUSDT",
       "COTIUSDT",
       "POWERUSDT",
-      "CYSUSDT",
-      "TUTUSDT",
       "RESOLVUSDT",
+      "TUTUSDT",
+      "CAPUSDT",
       "HUSDT",
       "BSBUSDT",
-      "CAPUSDT",
       "FHEUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "BASEDUSDT",
+      "LITUSDT"
     ]
   }
 }
