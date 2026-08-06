@@ -1557,8 +1557,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T15:04:38+00:00",
-    "shortlist_count": 28,
+    "time": "2026-08-06T15:06:40+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "HFTUSDT",
@@ -1569,26 +1569,27 @@
       "UBUSDT",
       "BLESSUSDT",
       "BTWUSDT",
-      "TRADOORUSDT",
-      "RESOLVUSDT",
       "HEIUSDT",
-      "CYSUSDT",
+      "RESOLVUSDT",
+      "TRADOORUSDT",
       "COTIUSDT",
+      "CYSUSDT",
       "BSBUSDT",
-      "CAPUSDT",
       "SYNUSDT",
       "ONUSDT",
-      "NILUSDT",
+      "CAPUSDT",
       "ZROUSDT",
-      "BASEDUSDT",
       "ALLOUSDT",
       "LITUSDT",
+      "BASEDUSDT",
       "HUSDT",
       "AKEUSDT",
-      "POWERUSDT",
+      "NILUSDT",
       "FHEUSDT",
+      "CRVUSDT",
+      "POWERUSDT",
       "ADAUSDT",
-      "CRVUSDT"
+      "TUTUSDT"
     ]
   }
 }
