@@ -1484,8 +1484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T06:52:34+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-06T06:54:47+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "HEIUSDT",
@@ -1504,7 +1504,9 @@
       "HUSDT",
       "VELVETUSDT",
       "SYNUSDT",
-      "TRUTHUSDT"
+      "FHEUSDT",
+      "TRUTHUSDT",
+      "BASEDUSDT"
     ]
   }
 }
