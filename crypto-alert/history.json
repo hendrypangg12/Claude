@@ -1533,7 +1533,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T14:22:37+00:00",
+    "time": "2026-08-06T14:24:31+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -1541,12 +1541,12 @@
       "BICOUSDT",
       "SKYAIUSDT",
       "TAKEUSDT",
-      "HEIUSDT",
       "BLESSUSDT",
-      "BTWUSDT",
-      "TRADOORUSDT",
-      "CYSUSDT",
+      "HEIUSDT",
       "UBUSDT",
+      "TRADOORUSDT",
+      "BTWUSDT",
+      "CYSUSDT",
       "RESOLVUSDT",
       "ONUSDT",
       "COTIUSDT",
@@ -1555,10 +1555,10 @@
       "FHEUSDT",
       "ZROUSDT",
       "BSBUSDT",
-      "BASEDUSDT",
       "LITUSDT",
+      "BASEDUSDT",
       "HUSDT",
-      "4USDT"
+      "ALLOUSDT"
     ]
   }
 }
