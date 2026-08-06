@@ -1557,8 +1557,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T22:20:42+00:00",
-    "shortlist_count": 25,
+    "time": "2026-08-06T22:22:30+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "HFTUSDT",
@@ -1572,20 +1572,19 @@
       "ONUSDT",
       "BSBUSDT",
       "UBUSDT",
-      "RESOLVUSDT",
       "PLUMEUSDT",
+      "RESOLVUSDT",
       "COTIUSDT",
       "CAPUSDT",
       "ALLOUSDT",
       "UAIUSDT",
       "FHEUSDT",
+      "LITUSDT",
       "ZROUSDT",
       "ADAUSDT",
-      "LITUSDT",
-      "AKEUSDT",
       "LIGHTUSDT",
       "CRVUSDT",
-      "REUSDT"
+      "AKEUSDT"
     ]
   }
 }
