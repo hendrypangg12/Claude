@@ -1460,7 +1460,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T05:54:33+00:00",
+    "time": "2026-08-06T05:56:33+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -1473,14 +1473,14 @@
       "ONUSDT",
       "TUTUSDT",
       "BICOUSDT",
-      "COTIUSDT",
-      "SYNUSDT",
       "4USDT",
+      "SYNUSDT",
+      "COTIUSDT",
       "BULLAUSDT",
       "HUSDT",
-      "龙虾USDT",
       "TRUTHUSDT",
-      "VELVETUSDT"
+      "VELVETUSDT",
+      "龙虾USDT"
     ]
   }
 }
