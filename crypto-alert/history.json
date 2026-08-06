@@ -27,7 +27,8 @@
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
     "CYSUSDT": "2026-08-05T04:36:27+00:00",
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
-    "BICOUSDT": "2026-08-05T18:44:50+00:00"
+    "BICOUSDT": "2026-08-05T18:44:50+00:00",
+    "SKYAIUSDT": "2026-08-06T04:24:26+00:00"
   },
   "alerts": [
     {
@@ -1408,12 +1409,35 @@
       "time": "2026-08-05T22:28:26+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-05T22:40:29+00:00"
+    },
+    {
+      "symbol": "SKYAIUSDT",
+      "pct": 8.83,
+      "price": 0.07251,
+      "quote_volume": 3700230.55561,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4127156770548938,
+      "retrace_pct": 0.8071135430916461,
+      "wick_ratio": 0.3853211009174368,
+      "rsi": 66.97160787982577,
+      "divergence": false,
+      "vol_spike": 0.32846486831484467,
+      "btc_pct": 0.2345530993287952,
+      "sl": 0.073831,
+      "tp1": 0.07083474,
+      "tp2": 0.06943526,
+      "tp3": 0.06717,
+      "funding_rate": 0.014,
+      "orderbook_ratio": 1.3892996801403728,
+      "time": "2026-08-06T04:24:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-06T04:22:39+00:00",
+    "time": "2026-08-06T04:24:26+00:00",
     "shortlist_count": 21,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "HEIUSDT",
       "BLESSUSDT",
@@ -1433,9 +1457,9 @@
       "HUSDT",
       "BULLAUSDT",
       "MYXUSDT",
+      "UNIUSDT",
       "UAIUSDT",
-      "FHEUSDT",
-      "UNIUSDT"
+      "FHEUSDT"
     ]
   }
 }
