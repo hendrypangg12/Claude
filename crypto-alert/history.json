@@ -1702,8 +1702,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T19:38:27+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-07T19:40:47+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "GWEIUSDT",
@@ -1723,11 +1723,12 @@
       "KGENUSDT",
       "BTWUSDT",
       "TRUTHUSDT",
-      "HUSDT",
-      "GRVTUSDT",
       "GIGGLEUSDT",
-      "CYSUSDT",
-      "ZECUSDT"
+      "GRVTUSDT",
+      "HUSDT",
+      "ACEUSDT",
+      "ZECUSDT",
+      "LITUSDT"
     ]
   }
 }
