@@ -1600,40 +1600,40 @@
       "funding_rate": -1.336,
       "orderbook_ratio": 0.6528732515840351,
       "time": "2026-08-07T02:10:41+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-08-07T02:21:38+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T02:14:40+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-07T02:21:38+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "TAKEUSDT",
       "HFTUSDT",
       "ONUSDT",
-      "SKYAIUSDT",
       "ZBTUSDT",
+      "SKYAIUSDT",
       "RIVERUSDT",
       "BICOUSDT",
-      "BSBUSDT",
       "PLUMEUSDT",
+      "BSBUSDT",
       "TRADOORUSDT",
       "COTIUSDT",
       "ALLOUSDT",
-      "LITUSDT",
-      "RESOLVUSDT",
-      "UBUSDT",
-      "FHEUSDT",
-      "LIGHTUSDT",
       "BTWUSDT",
-      "ZROUSDT",
+      "LITUSDT",
+      "UBUSDT",
+      "RESOLVUSDT",
+      "LIGHTUSDT",
       "HEMIUSDT",
-      "BASEDUSDT",
-      "ADAUSDT",
-      "REUSDT",
       "CRVUSDT",
-      "AKEUSDT"
+      "REUSDT",
+      "ADAUSDT",
+      "BASEDUSDT",
+      "ZROUSDT",
+      "FHEUSDT"
     ]
   }
 }
