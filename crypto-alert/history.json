@@ -1727,7 +1727,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T23:42:35+00:00",
+    "time": "2026-08-07T23:44:30+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -1738,8 +1738,8 @@
       "C98USDT",
       "TSTUSDT",
       "CAPUSDT",
-      "CYSUSDT",
       "HEIUSDT",
+      "CYSUSDT",
       "SLXUSDT",
       "SKYAIUSDT",
       "TAKEUSDT",
@@ -1751,9 +1751,9 @@
       "POWERUSDT",
       "ETHFIUSDT",
       "BEATUSDT",
-      "BSBUSDT",
+      "ALLOUSDT",
       "TRUTHUSDT",
-      "ALLOUSDT"
+      "BSBUSDT"
     ]
   }
 }
