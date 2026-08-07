@@ -28,7 +28,7 @@
     "CYSUSDT": "2026-08-05T04:36:27+00:00",
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
     "BICOUSDT": "2026-08-07T04:16:37+00:00",
-    "SKYAIUSDT": "2026-08-06T04:24:26+00:00",
+    "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
     "CAPUSDT": "2026-08-06T11:14:38+00:00",
     "TAKEUSDT": "2026-08-07T08:50:35+00:00"
   },
@@ -1651,12 +1651,35 @@
       "time": "2026-08-07T08:50:35+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-07T09:04:28+00:00"
+    },
+    {
+      "symbol": "SKYAIUSDT",
+      "pct": 8.61,
+      "price": 0.11602,
+      "quote_volume": 4423164.73105,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.405505393176055,
+      "retrace_pct": 1.561174274563048,
+      "wick_ratio": 0.7337883959044385,
+      "rsi": 73.67033966260533,
+      "divergence": false,
+      "vol_spike": 0.37055443793422976,
+      "btc_pct": -0.12348431313812787,
+      "sl": 0.11903860000000001,
+      "tp1": 0.11429212000000001,
+      "tp2": 0.11208788,
+      "tp3": 0.10852,
+      "funding_rate": 0.019,
+      "orderbook_ratio": 2.3716842044913617,
+      "time": "2026-08-07T16:52:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T16:50:34+00:00",
-    "shortlist_count": 22,
-    "confirmed_count": 0,
+    "time": "2026-08-07T16:52:37+00:00",
+    "shortlist_count": 23,
+    "confirmed_count": 1,
     "symbols": [
       "GWEIUSDT",
       "BICOUSDT",
@@ -1671,15 +1694,16 @@
       "CAPUSDT",
       "BSBUSDT",
       "NILUSDT",
-      "TAKEUSDT",
       "BTWUSDT",
       "GRVTUSDT",
-      "COAIUSDT",
+      "TAKEUSDT",
       "ETHFIUSDT",
+      "COAIUSDT",
       "TRUTHUSDT",
       "GIGGLEUSDT",
       "RIVERUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "LITUSDT"
     ]
   }
 }
