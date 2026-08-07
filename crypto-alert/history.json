@@ -16,7 +16,7 @@
     "BTWUSDT": "2026-08-05T03:36:36+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-08-06T06:24:41+00:00",
-    "EPICUSDT": "2026-07-30T14:04:33+00:00",
+    "EPICUSDT": "2026-08-07T16:56:29+00:00",
     "BULLAUSDT": "2026-08-02T11:26:26+00:00",
     "KOMAUSDT": "2026-08-03T19:36:31+00:00",
     "BEATUSDT": "2026-08-01T01:34:30+00:00",
@@ -1674,24 +1674,47 @@
       "orderbook_ratio": 2.3716842044913617,
       "time": "2026-08-07T16:52:37+00:00",
       "outcome": null
+    },
+    {
+      "symbol": "EPICUSDT",
+      "pct": 14.8,
+      "price": 1.1433,
+      "quote_volume": 3310056.8377,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4308646113285842,
+      "retrace_pct": 1.0986159169550116,
+      "wick_ratio": 0.33552631578946857,
+      "rsi": 67.71874286493332,
+      "divergence": false,
+      "vol_spike": 0.024200975357043072,
+      "btc_pct": -0.10909431391318486,
+      "sl": 1.16756,
+      "tp1": 1.099082,
+      "tp2": 1.063918,
+      "tp3": 1.007,
+      "funding_rate": -0.002,
+      "orderbook_ratio": 0.6406208521756139,
+      "time": "2026-08-07T16:56:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T16:54:34+00:00",
-    "shortlist_count": 23,
-    "confirmed_count": 0,
+    "time": "2026-08-07T16:56:29+00:00",
+    "shortlist_count": 22,
+    "confirmed_count": 1,
     "symbols": [
       "GWEIUSDT",
-      "TUTUSDT",
       "BICOUSDT",
+      "TUTUSDT",
       "SKYAIUSDT",
       "C98USDT",
-      "ALLOUSDT",
       "TSTUSDT",
+      "ALLOUSDT",
       "EPICUSDT",
       "KGENUSDT",
-      "HEIUSDT",
       "CAPUSDT",
+      "HEIUSDT",
       "BSBUSDT",
       "TAKEUSDT",
       "BTWUSDT",
@@ -1702,8 +1725,7 @@
       "ETHFIUSDT",
       "GIGGLEUSDT",
       "RIVERUSDT",
-      "SLXUSDT",
-      "ZECUSDT"
+      "SLXUSDT"
     ]
   }
 }
