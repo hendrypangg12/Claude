@@ -1629,7 +1629,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T06:42:34+00:00",
+    "time": "2026-08-07T06:44:29+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -1644,16 +1644,16 @@
       "TRADOORUSDT",
       "BSBUSDT",
       "LITUSDT",
-      "LIGHTUSDT",
       "XPLUSDT",
-      "ADAUSDT",
       "ZBTUSDT",
-      "BTWUSDT",
-      "RESOLVUSDT",
+      "LIGHTUSDT",
+      "ADAUSDT",
+      "AKEUSDT",
       "FHEUSDT",
-      "ZROUSDT",
+      "BTWUSDT",
       "HEMIUSDT",
-      "AKEUSDT"
+      "ZROUSDT",
+      "RESOLVUSDT"
     ]
   }
 }
