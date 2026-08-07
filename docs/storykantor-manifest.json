@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-07_08-52-38",
+      "date": "2026-08-07",
+      "time": "08:52",
+      "label": "STORY KANTOR",
+      "title": "Yang penting bukan seberapa lama di kantor, tapi seberapa dihargai.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-08-06_21-58-37",
       "date": "2026-08-06",
       "time": "21:58",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-08-03_16-32-37",
-      "date": "2026-08-03",
-      "time": "16:32",
-      "label": "STORY KANTOR",
-      "title": "Kopi bukan lagi kenikmatan, tapi kebutuhan buat bertahan hidup.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
