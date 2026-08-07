@@ -1654,8 +1654,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T10:58:33+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-07T11:00:44+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -1667,19 +1667,20 @@
       "TUTUSDT",
       "BEATUSDT",
       "ALLOUSDT",
+      "TAKEUSDT",
       "BSBUSDT",
       "BTWUSDT",
-      "TAKEUSDT",
       "RIVERUSDT",
       "LITUSDT",
       "PLUMEUSDT",
       "ADAUSDT",
-      "ENAUSDT",
       "HEMIUSDT",
+      "ENAUSDT",
       "LIGHTUSDT",
       "GRVTUSDT",
       "COAIUSDT",
-      "CYSUSDT"
+      "ETHFIUSDT",
+      "XPLUSDT"
     ]
   }
 }
