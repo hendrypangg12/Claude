@@ -1581,8 +1581,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T02:02:50+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-07T02:04:31+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -1600,17 +1600,18 @@
       "RESOLVUSDT",
       "ALLOUSDT",
       "LITUSDT",
-      "UBUSDT",
       "BASEDUSDT",
-      "LIGHTUSDT",
-      "BTWUSDT",
+      "UBUSDT",
       "REUSDT",
-      "ADAUSDT",
-      "CRVUSDT",
+      "LIGHTUSDT",
       "HEMIUSDT",
+      "ADAUSDT",
+      "BTWUSDT",
+      "FHEUSDT",
+      "CRVUSDT",
       "ZROUSDT",
       "AKEUSDT",
-      "FHEUSDT"
+      "UAIUSDT"
     ]
   }
 }
