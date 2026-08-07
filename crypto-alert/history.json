@@ -29,7 +29,8 @@
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
     "BICOUSDT": "2026-08-07T04:16:37+00:00",
     "SKYAIUSDT": "2026-08-06T04:24:26+00:00",
-    "CAPUSDT": "2026-08-06T11:14:38+00:00"
+    "CAPUSDT": "2026-08-06T11:14:38+00:00",
+    "TAKEUSDT": "2026-08-07T08:50:35+00:00"
   },
   "alerts": [
     {
@@ -1626,38 +1627,61 @@
       "time": "2026-08-07T04:16:37+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-08-07T04:24:39+00:00"
+    },
+    {
+      "symbol": "TAKEUSDT",
+      "pct": 11.0,
+      "price": 0.07647,
+      "quote_volume": 430991.74261,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5401071617204715,
+      "retrace_pct": 1.7221436833312014,
+      "wick_ratio": 0.9225352112676066,
+      "rsi": 66.02532126955887,
+      "divergence": true,
+      "vol_spike": 0.5194977630602348,
+      "btc_pct": 0.2822751069396753,
+      "sl": 0.07858810000000001,
+      "tp1": 0.07486478,
+      "tp2": 0.07304522,
+      "tp3": 0.0701,
+      "funding_rate": 0.01,
+      "orderbook_ratio": 0.16706838674938496,
+      "time": "2026-08-07T08:50:35+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T08:48:35+00:00",
+    "time": "2026-08-07T08:50:35+00:00",
     "shortlist_count": 25,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ACEUSDT",
       "BICOUSDT",
       "ONUSDT",
       "BEATUSDT",
       "SKYAIUSDT",
-      "TAKEUSDT",
+      "TUTUSDT",
       "ALLOUSDT",
       "BTWUSDT",
-      "TUTUSDT",
+      "TAKEUSDT",
       "BSBUSDT",
       "RIVERUSDT",
       "CAPUSDT",
+      "TRADOORUSDT",
       "LITUSDT",
       "UAIUSDT",
-      "TRADOORUSDT",
-      "XPLUSDT",
       "FHEUSDT",
+      "XPLUSDT",
       "ADAUSDT",
       "LIGHTUSDT",
-      "GRVTUSDT",
-      "PLUMEUSDT",
-      "AKEUSDT",
       "ZROUSDT",
-      "ENAUSDT",
-      "COAIUSDT"
+      "AKEUSDT",
+      "PLUMEUSDT",
+      "GRVTUSDT",
+      "COAIUSDT",
+      "ENAUSDT"
     ]
   }
 }
