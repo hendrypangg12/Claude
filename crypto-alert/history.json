@@ -1702,18 +1702,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T20:06:27+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-07T20:08:32+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GWEIUSDT",
       "TUTUSDT",
       "BICOUSDT",
       "SKYAIUSDT",
-      "C98USDT",
       "EPICUSDT",
-      "TSTUSDT",
+      "C98USDT",
       "ALLOUSDT",
+      "TSTUSDT",
       "NILUSDT",
       "CAPUSDT",
       "TAKEUSDT",
@@ -1726,7 +1726,8 @@
       "SLXUSDT",
       "TRUTHUSDT",
       "GIGGLEUSDT",
-      "HUSDT"
+      "HUSDT",
+      "HEIUSDT"
     ]
   }
 }
