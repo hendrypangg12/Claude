@@ -1673,7 +1673,8 @@
       "funding_rate": 0.019,
       "orderbook_ratio": 2.3716842044913617,
       "time": "2026-08-07T16:52:37+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-07T17:44:10+00:00"
     },
     {
       "symbol": "EPICUSDT",
@@ -1700,34 +1701,32 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T17:30:46+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-07T17:44:10+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GWEIUSDT",
       "BICOUSDT",
-      "SKYAIUSDT",
       "TUTUSDT",
       "C98USDT",
+      "SKYAIUSDT",
       "ALLOUSDT",
       "TSTUSDT",
       "EPICUSDT",
-      "ACEUSDT",
       "HUSDT",
+      "ACEUSDT",
       "CAPUSDT",
       "BSBUSDT",
       "BTWUSDT",
       "KGENUSDT",
-      "HEIUSDT",
+      "TAKEUSDT",
       "ETHFIUSDT",
       "NILUSDT",
       "XAIUSDT",
       "SLXUSDT",
       "TRUTHUSDT",
       "GIGGLEUSDT",
-      "GRVTUSDT",
-      "TAKEUSDT",
-      "COAIUSDT"
+      "GRVTUSDT"
     ]
   }
 }
