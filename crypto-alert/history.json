@@ -1581,7 +1581,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T01:56:32+00:00",
+    "time": "2026-08-07T01:58:33+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -1597,19 +1597,19 @@
       "PLUMEUSDT",
       "TRADOORUSDT",
       "COTIUSDT",
-      "RESOLVUSDT",
       "LITUSDT",
+      "RESOLVUSDT",
       "ALLOUSDT",
-      "BASEDUSDT",
       "BTWUSDT",
+      "BASEDUSDT",
+      "UBUSDT",
       "LIGHTUSDT",
-      "HEMIUSDT",
-      "FHEUSDT",
+      "REUSDT",
       "CRVUSDT",
       "ADAUSDT",
+      "FHEUSDT",
       "ZROUSDT",
-      "REUSDT",
-      "UBUSDT"
+      "HEMIUSDT"
     ]
   }
 }
