@@ -1557,34 +1557,35 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T01:12:31+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-07T01:16:36+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "TAKEUSDT",
       "HFTUSDT",
       "ACEUSDT",
-      "SKYAIUSDT",
-      "ONUSDT",
       "ZBTUSDT",
+      "ONUSDT",
+      "SKYAIUSDT",
       "BICOUSDT",
       "RIVERUSDT",
       "TRADOORUSDT",
       "BSBUSDT",
       "PLUMEUSDT",
       "RESOLVUSDT",
-      "ALLOUSDT",
       "COTIUSDT",
-      "LITUSDT",
       "BTWUSDT",
       "CAPUSDT",
+      "LITUSDT",
+      "ALLOUSDT",
       "BASEDUSDT",
       "AKEUSDT",
       "ZROUSDT",
-      "FHEUSDT",
-      "CRVUSDT",
       "UBUSDT",
-      "ADAUSDT"
+      "FHEUSDT",
+      "UAIUSDT",
+      "ADAUSDT",
+      "CRVUSDT"
     ]
   }
 }
