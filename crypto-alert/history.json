@@ -1701,8 +1701,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-07T18:24:36+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-07T18:26:31+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "GWEIUSDT",
@@ -1714,21 +1714,22 @@
       "EPICUSDT",
       "TSTUSDT",
       "NILUSDT",
-      "HEIUSDT",
       "HUSDT",
+      "HEIUSDT",
       "CAPUSDT",
       "ACEUSDT",
-      "TAKEUSDT",
       "KGENUSDT",
+      "TAKEUSDT",
       "BTWUSDT",
-      "BSBUSDT",
       "ETHFIUSDT",
-      "XAIUSDT",
       "SLXUSDT",
+      "XAIUSDT",
+      "BSBUSDT",
       "TRUTHUSDT",
-      "CYSUSDT",
       "GIGGLEUSDT",
-      "RIVERUSDT"
+      "CYSUSDT",
+      "RIVERUSDT",
+      "GRVTUSDT"
     ]
   }
 }
