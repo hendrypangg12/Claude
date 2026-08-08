@@ -1751,8 +1751,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T07:52:26+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-08T07:54:34+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
@@ -1769,14 +1769,15 @@
       "CAPUSDT",
       "SKYAIUSDT",
       "REUSDT",
-      "GWEIUSDT",
       "POWERUSDT",
+      "GWEIUSDT",
       "TRUTHUSDT",
       "KGENUSDT",
-      "ETHFIUSDT",
-      "NILUSDT",
       "龙虾USDT",
-      "FETUSDT"
+      "FETUSDT",
+      "ETHFIUSDT",
+      "UBUSDT",
+      "NILUSDT"
     ]
   }
 }
