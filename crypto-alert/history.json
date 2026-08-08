@@ -1898,14 +1898,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T23:44:30+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-08T23:46:28+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "BLUAIUSDT",
-      "ACEUSDT",
       "BEATUSDT",
+      "ACEUSDT",
       "TSTUSDT",
       "LIGHTUSDT",
       "BICOUSDT",
@@ -1918,9 +1918,10 @@
       "PYTHUSDT",
       "CHZUSDT",
       "PENGUUSDT",
-      "BULLAUSDT",
-      "REUSDT",
       "MMTUSDT",
+      "BULLAUSDT",
+      "SKYAIUSDT",
+      "REUSDT",
       "GIGGLEUSDT",
       "TAOUSDT"
     ]
