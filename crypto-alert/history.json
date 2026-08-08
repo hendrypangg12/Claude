@@ -25,7 +25,7 @@
     "IDOLUSDT": "2026-08-01T16:32:38+00:00",
     "BLESSUSDT": "2026-08-05T16:53:35+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
-    "CYSUSDT": "2026-08-05T04:36:27+00:00",
+    "CYSUSDT": "2026-08-08T18:02:29+00:00",
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
     "BICOUSDT": "2026-08-07T04:16:37+00:00",
     "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
@@ -1847,12 +1847,35 @@
       "time": "2026-08-08T16:46:35+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-08T16:54:34+00:00"
+    },
+    {
+      "symbol": "CYSUSDT",
+      "pct": 11.29,
+      "price": 0.9299,
+      "quote_volume": 3913729.0702,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3810049179563958,
+      "retrace_pct": 1.032354193273738,
+      "wick_ratio": 0.02857142857142549,
+      "rsi": 66.55792175610324,
+      "divergence": true,
+      "vol_spike": 0.19270696571853174,
+      "btc_pct": 0.015265248278363073,
+      "sl": 0.948996,
+      "tp1": 0.9031954,
+      "tp2": 0.8807046000000001,
+      "tp3": 0.8443,
+      "funding_rate": -0.246,
+      "orderbook_ratio": 0.4190058607270797,
+      "time": "2026-08-08T18:02:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T18:00:42+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 0,
+    "time": "2026-08-08T18:02:29+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "BLUAIUSDT",
@@ -1861,18 +1884,17 @@
       "POWERUSDT",
       "4USDT",
       "MMTUSDT",
-      "TSTUSDT",
       "REUSDT",
+      "TSTUSDT",
       "SLXUSDT",
       "MUBARAKUSDT",
-      "BICOUSDT",
       "CHZUSDT",
+      "CYSUSDT",
+      "BICOUSDT",
       "CRVUSDT",
-      "SKYAIUSDT",
       "KGENUSDT",
       "FILUSDT",
-      "SOLUSDT",
-      "TAOUSDT"
+      "SKYAIUSDT"
     ]
   }
 }
