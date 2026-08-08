@@ -5,7 +5,7 @@
     "BUSDT": "2026-07-20T14:40:37+00:00",
     "AKEUSDT": "2026-08-02T14:18:45+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
-    "SYNUSDT": "2026-08-06T14:44:33+00:00",
+    "SYNUSDT": "2026-08-08T06:14:26+00:00",
     "ACEUSDT": "2026-08-07T02:10:41+00:00",
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
     "ONUSDT": "2026-08-07T01:18:40+00:00",
@@ -1724,18 +1724,41 @@
       "time": "2026-08-07T23:14:32+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-07T23:20:37+00:00"
+    },
+    {
+      "symbol": "SYNUSDT",
+      "pct": 14.87,
+      "price": 0.12405,
+      "quote_volume": 330137.40929,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4550537006026435,
+      "retrace_pct": 1.3754173954523845,
+      "wick_ratio": 0.883333333333333,
+      "rsi": 72.3492366279711,
+      "divergence": true,
+      "vol_spike": 0.06064796836202518,
+      "btc_pct": -0.05403254595727915,
+      "sl": 0.1270378,
+      "tp1": 0.11956104000000001,
+      "tp2": 0.11571896,
+      "tp3": 0.1095,
+      "funding_rate": -0.01,
+      "orderbook_ratio": 1.0411603018224553,
+      "time": "2026-08-08T06:14:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T06:12:31+00:00",
+    "time": "2026-08-08T06:14:26+00:00",
     "shortlist_count": 18,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "CYSUSDT",
       "BICOUSDT",
-      "BLESSUSDT",
       "EPICUSDT",
+      "BLESSUSDT",
       "TSTUSDT",
       "SYNUSDT",
       "CAPUSDT",
@@ -1743,12 +1766,12 @@
       "SKYAIUSDT",
       "4USDT",
       "BEATUSDT",
-      "NILUSDT",
       "ALLOUSDT",
+      "NILUSDT",
       "POWERUSDT",
-      "COAIUSDT",
       "ETHFIUSDT",
-      "KGENUSDT"
+      "COAIUSDT",
+      "龙虾USDT"
     ]
   }
 }
