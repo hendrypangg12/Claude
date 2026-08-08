@@ -1874,8 +1874,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T20:08:42+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-08T20:10:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -1887,15 +1887,16 @@
       "4USDT",
       "TSTUSDT",
       "MUBARAKUSDT",
-      "BICOUSDT",
       "CRVUSDT",
       "POWERUSDT",
       "CHZUSDT",
       "SLXUSDT",
+      "BICOUSDT",
       "PENGUUSDT",
-      "FILUSDT",
       "CCUSDT",
-      "GIGGLEUSDT"
+      "FILUSDT",
+      "GIGGLEUSDT",
+      "DEXEUSDT"
     ]
   }
 }
