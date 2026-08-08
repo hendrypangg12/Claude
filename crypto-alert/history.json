@@ -31,7 +31,8 @@
     "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
     "CAPUSDT": "2026-08-06T11:14:38+00:00",
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
-    "GWEIUSDT": "2026-08-07T23:14:32+00:00"
+    "GWEIUSDT": "2026-08-07T23:14:32+00:00",
+    "MMTUSDT": "2026-08-08T08:24:27+00:00"
   },
   "alerts": [
     {
@@ -1748,12 +1749,35 @@
       "time": "2026-08-08T06:14:26+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-08T07:08:32+00:00"
+    },
+    {
+      "symbol": "MMTUSDT",
+      "pct": 9.42,
+      "price": 0.2353,
+      "quote_volume": 237318.0029,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.48422318392581143,
+      "retrace_pct": 0.6753904601097469,
+      "wick_ratio": 0.3636363636363774,
+      "rsi": 67.70344332471964,
+      "divergence": true,
+      "vol_spike": 0.04831707696507351,
+      "btc_pct": 0.009822039424861677,
+      "sl": 0.239269,
+      "tp1": 0.2291072,
+      "tp2": 0.2242928,
+      "tp3": 0.2165,
+      "funding_rate": -0.007,
+      "orderbook_ratio": 1.6456506969175695,
+      "time": "2026-08-08T08:24:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T08:22:33+00:00",
-    "shortlist_count": 22,
-    "confirmed_count": 0,
+    "time": "2026-08-08T08:24:27+00:00",
+    "shortlist_count": 21,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "BLUAIUSDT",
@@ -1765,8 +1789,8 @@
       "SYNUSDT",
       "4USDT",
       "BLESSUSDT",
-      "SKYAIUSDT",
       "TSTUSDT",
+      "SKYAIUSDT",
       "REUSDT",
       "CAPUSDT",
       "POWERUSDT",
@@ -1774,9 +1798,8 @@
       "KGENUSDT",
       "TRUTHUSDT",
       "龙虾USDT",
-      "CRVUSDT",
       "ETHFIUSDT",
-      "UBUSDT"
+      "CRVUSDT"
     ]
   }
 }
