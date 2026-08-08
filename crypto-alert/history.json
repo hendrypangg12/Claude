@@ -1751,14 +1751,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T07:36:35+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-08T07:38:28+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
       "TUTUSDT",
-      "CYSUSDT",
       "BICOUSDT",
+      "CYSUSDT",
       "MMTUSDT",
       "EPICUSDT",
       "BLESSUSDT",
@@ -1767,15 +1767,16 @@
       "TSTUSDT",
       "4USDT",
       "GWEIUSDT",
-      "SKYAIUSDT",
       "CAPUSDT",
+      "SKYAIUSDT",
       "REUSDT",
       "POWERUSDT",
       "TRUTHUSDT",
       "ETHFIUSDT",
-      "龙虾USDT",
       "NILUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "龙虾USDT",
+      "KGENUSDT"
     ]
   }
 }
