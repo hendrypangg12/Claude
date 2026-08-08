@@ -1893,12 +1893,13 @@
       "funding_rate": 0.01,
       "orderbook_ratio": 1.2608693066462726,
       "time": "2026-08-08T22:08:32+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-08T22:14:35+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T22:12:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-08T22:14:35+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -1911,14 +1912,15 @@
       "MUBARAKUSDT",
       "MMTUSDT",
       "FHEUSDT",
-      "CRVUSDT",
       "REUSDT",
       "POWERUSDT",
+      "CRVUSDT",
       "PENGUUSDT",
+      "BULLAUSDT",
       "CCUSDT",
-      "CHZUSDT",
       "FILUSDT",
       "CYSUSDT",
+      "CHZUSDT",
       "DEXEUSDT"
     ]
   }
