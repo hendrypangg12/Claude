@@ -32,7 +32,8 @@
     "CAPUSDT": "2026-08-06T11:14:38+00:00",
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
     "GWEIUSDT": "2026-08-07T23:14:32+00:00",
-    "MMTUSDT": "2026-08-08T08:24:27+00:00"
+    "MMTUSDT": "2026-08-08T08:24:27+00:00",
+    "TSTUSDT": "2026-08-08T10:02:32+00:00"
   },
   "alerts": [
     {
@@ -1773,17 +1774,40 @@
       "time": "2026-08-08T08:24:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-08T08:34:33+00:00"
+    },
+    {
+      "symbol": "TSTUSDT",
+      "pct": 8.2,
+      "price": 0.014494,
+      "quote_volume": 228056.662643,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.26051927004386033,
+      "retrace_pct": 1.159301691216585,
+      "wick_ratio": 0.04580152671756362,
+      "rsi": 73.41616441379529,
+      "divergence": true,
+      "vol_spike": 0.1337404272143785,
+      "btc_pct": -0.04689151834090143,
+      "sl": 0.01481064,
+      "tp1": 0.014239598000000001,
+      "tp2": 0.013977402,
+      "tp3": 0.013553,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.7586633348673374,
+      "time": "2026-08-08T10:02:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T10:00:37+00:00",
+    "time": "2026-08-08T10:02:32+00:00",
     "shortlist_count": 24,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "CYSUSDT",
-      "BLUAIUSDT",
       "MMTUSDT",
+      "BLUAIUSDT",
       "SLXUSDT",
       "BEATUSDT",
       "SYNUSDT",
@@ -1792,17 +1816,17 @@
       "TSTUSDT",
       "REUSDT",
       "POWERUSDT",
-      "4USDT",
       "CAPUSDT",
+      "4USDT",
       "BLESSUSDT",
-      "UBUSDT",
       "龙虾USDT",
-      "EPICUSDT",
+      "UBUSDT",
       "GWEIUSDT",
-      "SKYAIUSDT",
+      "EPICUSDT",
       "TRUTHUSDT",
-      "CRVUSDT",
+      "SKYAIUSDT",
       "ETHFIUSDT",
+      "CRVUSDT",
       "FETUSDT"
     ]
   }
