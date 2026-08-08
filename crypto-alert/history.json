@@ -1727,19 +1727,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T01:54:32+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-08T01:56:41+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "GWEIUSDT",
       "BICOUSDT",
-      "EPICUSDT",
       "BTWUSDT",
+      "EPICUSDT",
       "CYSUSDT",
       "HEIUSDT",
-      "SLXUSDT",
       "CAPUSDT",
+      "SLXUSDT",
       "GRVTUSDT",
       "SKYAIUSDT",
       "KGENUSDT",
@@ -1747,11 +1747,9 @@
       "ALLOUSDT",
       "C98USDT",
       "POWERUSDT",
-      "ETHFIUSDT",
       "TAKEUSDT",
-      "NILUSDT",
-      "BEATUSDT",
-      "TRUTHUSDT"
+      "ETHFIUSDT",
+      "BEATUSDT"
     ]
   }
 }
