@@ -33,7 +33,8 @@
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
     "GWEIUSDT": "2026-08-07T23:14:32+00:00",
     "MMTUSDT": "2026-08-08T08:24:27+00:00",
-    "TSTUSDT": "2026-08-08T10:02:32+00:00"
+    "TSTUSDT": "2026-08-08T10:02:32+00:00",
+    "TUTUSDT": "2026-08-08T16:46:35+00:00"
   },
   "alerts": [
     {
@@ -1822,33 +1823,56 @@
       "time": "2026-08-08T15:46:34+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-08T15:54:28+00:00"
+    },
+    {
+      "symbol": "TUTUSDT",
+      "pct": 8.78,
+      "price": 0.07714,
+      "quote_volume": 2706814.708951,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5093875661496537,
+      "retrace_pct": 1.9822109275730697,
+      "wick_ratio": 0.8027397260273985,
+      "rsi": 67.75639528514395,
+      "divergence": false,
+      "vol_spike": 1.0472326058498829,
+      "btc_pct": -0.039084945228844085,
+      "sl": 0.079487,
+      "tp1": 0.07627468200000001,
+      "tp2": 0.07477631800000001,
+      "tp3": 0.072351,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.151532237116154,
+      "time": "2026-08-08T16:46:35+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T16:44:28+00:00",
+    "time": "2026-08-08T16:46:35+00:00",
     "shortlist_count": 20,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "ACEUSDT",
       "BLUAIUSDT",
       "BEATUSDT",
       "TSTUSDT",
-      "POWERUSDT",
       "4USDT",
+      "POWERUSDT",
       "REUSDT",
       "MMTUSDT",
       "SLXUSDT",
       "MUBARAKUSDT",
-      "BLESSUSDT",
-      "BICOUSDT",
-      "SKYAIUSDT",
       "CRVUSDT",
-      "CHZUSDT",
-      "DEXEUSDT",
+      "CAPUSDT",
+      "SKYAIUSDT",
+      "BLESSUSDT",
       "AIAUSDT",
+      "CHZUSDT",
       "SYNUSDT",
-      "CAPUSDT"
+      "DEXEUSDT",
+      "BICOUSDT"
     ]
   }
 }
