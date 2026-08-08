@@ -1727,14 +1727,10 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T04:42:30+00:00",
-    "shortlist_count": 30,
+    "time": "2026-08-08T04:44:32+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
-      "ZAYUSDT",
-      "UMXUSDT",
-      "JIMOTHYUSDT",
-      "PONSUSDT",
       "TUTUSDT",
       "CYSUSDT",
       "BICOUSDT",
@@ -1743,24 +1739,22 @@
       "CAPUSDT",
       "SKYAIUSDT",
       "TSTUSDT",
-      "DEODUSDT",
       "SLXUSDT",
-      "SPCXONUSDT",
-      "CASHCATUSDT",
       "BEATUSDT",
       "KGENUSDT",
-      "GOMININGUSDT",
       "ALLOUSDT",
       "POWERUSDT",
       "4USDT",
-      "AIXUSDT",
-      "FLTUSDT",
-      "MCNUSDT",
+      "REUSDT",
       "BTWUSDT",
       "NILUSDT",
       "C98USDT",
-      "TAKEUSDT",
-      "ETHFIUSDT"
+      "BSBUSDT",
+      "ETHFIUSDT",
+      "GRVTUSDT",
+      "TRUTHUSDT",
+      "KASUSDT",
+      "TAKEUSDT"
     ]
   }
 }
