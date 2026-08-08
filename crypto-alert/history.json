@@ -1746,20 +1746,21 @@
       "funding_rate": -0.01,
       "orderbook_ratio": 1.0411603018224553,
       "time": "2026-08-08T06:14:26+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-08T07:08:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T07:06:33+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-08T07:08:32+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "BLUAIUSDT",
-      "BLESSUSDT",
       "CYSUSDT",
       "MMTUSDT",
       "BICOUSDT",
+      "BLESSUSDT",
       "EPICUSDT",
       "SLXUSDT",
       "TSTUSDT",
@@ -1767,16 +1768,17 @@
       "4USDT",
       "SKYAIUSDT",
       "CAPUSDT",
-      "GWEIUSDT",
       "REUSDT",
+      "GWEIUSDT",
       "POWERUSDT",
       "COAIUSDT",
       "TRUTHUSDT",
       "KGENUSDT",
       "NILUSDT",
-      "龙虾USDT",
       "CCUSDT",
-      "ETHFIUSDT"
+      "龙虾USDT",
+      "ETHFIUSDT",
+      "GRVTUSDT"
     ]
   }
 }
