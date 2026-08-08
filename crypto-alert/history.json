@@ -1874,15 +1874,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-08T18:08:31+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-08T18:10:30+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "BLUAIUSDT",
       "BEATUSDT",
-      "4USDT",
       "ACEUSDT",
+      "4USDT",
       "MMTUSDT",
       "REUSDT",
       "TSTUSDT",
@@ -1894,7 +1894,8 @@
       "CYSUSDT",
       "CRVUSDT",
       "FILUSDT",
-      "KGENUSDT"
+      "KGENUSDT",
+      "GIGGLEUSDT"
     ]
   }
 }
