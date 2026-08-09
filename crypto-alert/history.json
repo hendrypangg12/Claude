@@ -1922,8 +1922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T12:54:28+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-09T12:56:31+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -1933,22 +1933,24 @@
       "XANUSDT",
       "MUBARAKUSDT",
       "IOTXUSDT",
+      "CYSUSDT",
       "ONUSDT",
       "SAGAUSDT",
-      "CYSUSDT",
       "PUMPUSDT",
       "FHEUSDT",
       "BTWUSDT",
       "NILUSDT",
-      "PYTHUSDT",
       "CCUSDT",
+      "PYTHUSDT",
       "CRVUSDT",
+      "CAPUSDT",
       "GIGGLEUSDT",
+      "4USDT",
       "TSTUSDT",
-      "SKYAIUSDT",
       "TAOUSDT",
       "ZECUSDT",
-      "4USDT"
+      "SKYAIUSDT",
+      "ACEUSDT"
     ]
   }
 }
