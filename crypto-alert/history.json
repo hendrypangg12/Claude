@@ -1990,12 +1990,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 3.1724789984936774,
       "time": "2026-08-09T18:58:31+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-09T19:08:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T19:06:30+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-09T19:08:25+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2006,23 +2007,25 @@
       "BEATUSDT",
       "TSTUSDT",
       "IOTXUSDT",
-      "BTWUSDT",
       "ESPUSDT",
-      "CYSUSDT",
+      "BTWUSDT",
       "PUMPUSDT",
+      "CYSUSDT",
       "NILUSDT",
       "CAPUSDT",
       "ONUSDT",
-      "IOUSDT",
       "4USDT",
-      "FHEUSDT",
+      "IOUSDT",
       "CRVUSDT",
+      "FHEUSDT",
       "PYTHUSDT",
       "AKEUSDT",
-      "MMTUSDT",
-      "TAOUSDT",
-      "HUSDT",
       "WLDUSDT",
+      "TAOUSDT",
+      "MMTUSDT",
+      "ZROUSDT",
+      "HUSDT",
+      "RECALLUSDT",
       "PENGUUSDT"
     ]
   }
