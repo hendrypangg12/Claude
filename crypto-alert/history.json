@@ -34,7 +34,8 @@
     "GWEIUSDT": "2026-08-07T23:14:32+00:00",
     "MMTUSDT": "2026-08-08T08:24:27+00:00",
     "TSTUSDT": "2026-08-08T10:02:32+00:00",
-    "TUTUSDT": "2026-08-08T16:46:35+00:00"
+    "TUTUSDT": "2026-08-08T16:46:35+00:00",
+    "COOKIEUSDT": "2026-08-09T18:20:47+00:00"
   },
   "alerts": [
     {
@@ -1943,12 +1944,35 @@
       "time": "2026-08-09T13:46:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-09T13:54:27+00:00"
+    },
+    {
+      "symbol": "COOKIEUSDT",
+      "pct": 9.34,
+      "price": 0.014542,
+      "quote_volume": 247009.772755,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5472549192154011,
+      "retrace_pct": 0.444992127062373,
+      "wick_ratio": 0.3641618497109868,
+      "rsi": 85.20853539893075,
+      "divergence": false,
+      "vol_spike": 1.8683539775714286,
+      "btc_pct": -0.02767328536017725,
+      "sl": 0.01475307,
+      "tp1": 0.014130264,
+      "tp2": 0.013835736,
+      "tp3": 0.013359,
+      "funding_rate": -0.002,
+      "orderbook_ratio": 2.851799301710022,
+      "time": "2026-08-09T18:20:47+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T18:18:30+00:00",
+    "time": "2026-08-09T18:20:47+00:00",
     "shortlist_count": 27,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BMTUSDT",
       "TUTUSDT",
@@ -1959,24 +1983,24 @@
       "IOTXUSDT",
       "ESPUSDT",
       "PUMPUSDT",
+      "NILUSDT",
       "TSTUSDT",
       "CYSUSDT",
-      "NILUSDT",
       "4USDT",
       "BTWUSDT",
       "IOUSDT",
-      "CAPUSDT",
       "ONUSDT",
-      "PENGUUSDT",
-      "MMTUSDT",
+      "CAPUSDT",
       "WLDUSDT",
-      "PYTHUSDT",
+      "PENGUUSDT",
       "AKEUSDT",
+      "MMTUSDT",
+      "PYTHUSDT",
       "CRVUSDT",
-      "SAGAUSDT",
       "CCUSDT",
-      "FHEUSDT",
-      "TAOUSDT"
+      "SAGAUSDT",
+      "TAOUSDT",
+      "FHEUSDT"
     ]
   }
 }
