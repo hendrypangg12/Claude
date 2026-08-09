@@ -1898,7 +1898,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T04:12:27+00:00",
+    "time": "2026-08-09T04:14:29+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -1915,11 +1915,11 @@
       "PUMPUSDT",
       "MMTUSDT",
       "POWERUSDT",
+      "CCUSDT",
       "GIGGLEUSDT",
-      "SYNUSDT",
       "CRVUSDT",
-      "TAOUSDT",
-      "CCUSDT"
+      "SYNUSDT",
+      "TAOUSDT"
     ]
   }
 }
