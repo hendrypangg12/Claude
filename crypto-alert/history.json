@@ -33,7 +33,7 @@
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
     "GWEIUSDT": "2026-08-07T23:14:32+00:00",
     "MMTUSDT": "2026-08-08T08:24:27+00:00",
-    "TSTUSDT": "2026-08-08T10:02:32+00:00",
+    "TSTUSDT": "2026-08-09T18:58:31+00:00",
     "TUTUSDT": "2026-08-08T16:46:35+00:00",
     "COOKIEUSDT": "2026-08-09T18:20:47+00:00"
   },
@@ -1968,12 +1968,35 @@
       "time": "2026-08-09T18:20:47+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-09T18:28:27+00:00"
+    },
+    {
+      "symbol": "TSTUSDT",
+      "pct": 15.24,
+      "price": 0.019618,
+      "quote_volume": 546470.036958,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5598978606839818,
+      "retrace_pct": 0.7336942771846344,
+      "wick_ratio": 0.0,
+      "rsi": 71.5722046804128,
+      "divergence": true,
+      "vol_spike": 0.35688499363613135,
+      "btc_pct": -0.014735936917310358,
+      "sl": 0.01996063,
+      "tp1": 0.018764452,
+      "tp2": 0.018147548,
+      "tp3": 0.017149,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 3.1724789984936774,
+      "time": "2026-08-09T18:58:31+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T18:57:40+00:00",
+    "time": "2026-08-09T18:58:31+00:00",
     "shortlist_count": 28,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BMTUSDT",
       "TUTUSDT",
@@ -1990,19 +2013,19 @@
       "PUMPUSDT",
       "ONUSDT",
       "CAPUSDT",
-      "FHEUSDT",
       "IOUSDT",
-      "PYTHUSDT",
+      "FHEUSDT",
       "CRVUSDT",
-      "AKEUSDT",
+      "PYTHUSDT",
       "HUSDT",
+      "4USDT",
+      "AKEUSDT",
       "TAOUSDT",
       "WLDUSDT",
       "CCUSDT",
       "PENGUUSDT",
       "GUAUSDT",
-      "4USDT",
-      "SAGAUSDT"
+      "MMTUSDT"
     ]
   }
 }
