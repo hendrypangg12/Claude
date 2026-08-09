@@ -1995,7 +1995,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T20:26:30+00:00",
+    "time": "2026-08-09T20:28:29+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -2018,14 +2018,14 @@
       "CAPUSDT",
       "BBUSDT",
       "IOUSDT",
-      "GUAUSDT",
       "SAGAUSDT",
-      "WLDUSDT",
-      "HUSDT",
+      "GUAUSDT",
       "AKEUSDT",
+      "WLDUSDT",
       "CRVUSDT",
       "PENGUUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "HUSDT"
     ]
   }
 }
