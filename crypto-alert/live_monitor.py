@@ -43,7 +43,7 @@ from pump_scanner import (  # noqa: E402
     load_watchlist, save_watchlist, monitor_watchlist,
     get_orderbook_ratio, format_alert, send_telegram, track_outcomes,
     PUMP_THRESHOLD_PCT, MAX_PUMP_PCT, WINDOW_MINUTES, COOLDOWN_MINUTES, REQUEST_SLEEP,
-    PUMP_ALERT_ON,
+    PUMP_ALERT_ON, in_pump_range,
 )
 
 HERE = Path(__file__).parent
@@ -95,7 +95,7 @@ def scan_once(history, binance_futures, cycle):
         stats = _compute_stats(kl[-(WINDOW_MINUTES + 1):])
         if stats is None:
             continue
-        in_range = PUMP_THRESHOLD_PCT <= stats["peak_pct"] <= MAX_PUMP_PCT
+        in_range = in_pump_range(stats["peak_pct"])
         confirmed = in_range and _is_confirmed(stats, btc_pct)
         coins.append({
             "symbol": s["symbol"], "quote_volume": s["quote_volume"], "in_range": in_range,
