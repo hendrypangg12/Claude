@@ -1994,9 +1994,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T18:58:31+00:00",
-    "shortlist_count": 28,
-    "confirmed_count": 1,
+    "time": "2026-08-09T19:00:37+00:00",
+    "shortlist_count": 25,
+    "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
       "TUTUSDT",
@@ -2017,15 +2017,12 @@
       "FHEUSDT",
       "CRVUSDT",
       "PYTHUSDT",
-      "HUSDT",
       "4USDT",
+      "HUSDT",
       "AKEUSDT",
       "TAOUSDT",
-      "WLDUSDT",
-      "CCUSDT",
-      "PENGUUSDT",
-      "GUAUSDT",
-      "MMTUSDT"
+      "MMTUSDT",
+      "WLDUSDT"
     ]
   }
 }
