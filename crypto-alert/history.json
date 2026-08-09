@@ -1946,15 +1946,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T15:44:28+00:00",
+    "time": "2026-08-09T15:46:32+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "BMTUSDT",
       "MUBARAKUSDT",
-      "COOKIEUSDT",
       "BEATUSDT",
+      "COOKIEUSDT",
       "IOTXUSDT",
       "XANUSDT",
       "CYSUSDT",
@@ -1966,17 +1966,17 @@
       "CCUSDT",
       "SAGAUSDT",
       "PYTHUSDT",
-      "IOUSDT",
-      "BULLAUSDT",
       "CRVUSDT",
+      "CAPUSDT",
+      "IOUSDT",
       "FHEUSDT",
       "TAOUSDT",
-      "XMRUSDT",
-      "RECALLUSDT",
-      "CAPUSDT",
+      "BULLAUSDT",
       "TSTUSDT",
+      "RECALLUSDT",
       "WLDUSDT",
-      "ONUSDT"
+      "ONUSDT",
+      "XMRUSDT"
     ]
   }
 }
