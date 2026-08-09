@@ -1922,15 +1922,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T09:08:25+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-09T09:10:33+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "BMTUSDT",
       "IOTXUSDT",
-      "MUBARAKUSDT",
       "BEATUSDT",
+      "MUBARAKUSDT",
       "ACEUSDT",
       "SAGAUSDT",
       "FHEUSDT",
@@ -1941,9 +1941,8 @@
       "PUMPUSDT",
       "PYTHUSDT",
       "GIGGLEUSDT",
-      "CAPUSDT",
       "TAOUSDT",
-      "AIAUSDT"
+      "CAPUSDT"
     ]
   }
 }
