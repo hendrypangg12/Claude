@@ -2019,8 +2019,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T23:06:39+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-09T23:08:33+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2036,17 +2036,16 @@
       "BBUSDT",
       "PUMPUSDT",
       "IOTXUSDT",
-      "GUAUSDT",
-      "ESPUSDT",
       "ONUSDT",
+      "ESPUSDT",
+      "GUAUSDT",
       "AKEUSDT",
       "CCUSDT",
       "RECALLUSDT",
-      "BTWUSDT",
       "CAPUSDT",
       "IOUSDT",
-      "CRVUSDT",
-      "PYTHUSDT"
+      "BTWUSDT",
+      "CRVUSDT"
     ]
   }
 }
