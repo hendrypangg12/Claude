@@ -1922,30 +1922,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T08:00:38+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-09T08:02:31+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
-      "BMTUSDT",
       "BEATUSDT",
       "IOTXUSDT",
+      "BMTUSDT",
       "BTWUSDT",
       "SAGAUSDT",
       "MUBARAKUSDT",
       "TSTUSDT",
       "BICOUSDT",
       "ACEUSDT",
-      "CCUSDT",
       "FHEUSDT",
       "PYTHUSDT",
-      "SKYAIUSDT",
+      "CCUSDT",
       "PUMPUSDT",
-      "POWERUSDT",
+      "SKYAIUSDT",
       "GIGGLEUSDT",
+      "POWERUSDT",
       "CAPUSDT",
       "TAOUSDT",
-      "LIGHTUSDT"
+      "LIGHTUSDT",
+      "AIAUSDT"
     ]
   }
 }
