@@ -53,6 +53,26 @@ WATCHLIST_PATH = HERE / "watchlist.json"
 # Dimatiin 26 Juli: owner mau fokus notif BTC dulu.
 PUMP_ALERT_ON = os.environ.get("PUMP_ALERT", "on").lower() not in ("off", "false", "0")
 SPIKE_WINDOW = int(os.environ.get("SPIKE_WINDOW", "5"))  # jumlah candle 1m buat ngukur "lonjakan"
+# ZONA MATI: pump 10-12% dilewatin. Dari 79 alert live (18 Jul - 8 Agu): zona ini 22 trade,
+# menang cuma 8 (36%), -5.75 R — satu-satunya zona yang RUGI. Yang bikin yakin bukan p-value
+# (0.14, belum signifikan kalau data digabung) tapi UJI OUT-OF-SAMPLE: pola ini muncul di Juli
+# (14 trade, 36%, -3.49 R) DAN berulang di Agustus (8 trade, 38%, -2.26 R) — dua periode
+# terpisah, hasil nyaris sama. Plus untung-ruginya berat sebelah: skip zona yang ternyata
+# netral nyaris gak ngerugiin, skip zona yang beneran jelek ngehemat banyak.
+# Tanpa zona ini: edge naik dari +0.078 jadi +0.209 R/trade.
+# Setel DEAD_ZONE_MIN=0 buat matiin filter ini.
+DEAD_ZONE_MIN = float(os.environ.get("DEAD_ZONE_MIN", "10"))
+DEAD_ZONE_MAX = float(os.environ.get("DEAD_ZONE_MAX", "12"))
+
+
+def in_pump_range(peak_pct):
+    """Satu-satunya tempat yang nentuin ukuran pump layak dialert apa nggak — dipake bareng
+    pump_scanner, live_monitor, dan backtest biar gak ada risiko logikanya beda-beda."""
+    if not (PUMP_THRESHOLD_PCT <= peak_pct <= MAX_PUMP_PCT):
+        return False
+    if DEAD_ZONE_MIN and DEAD_ZONE_MIN <= peak_pct < DEAD_ZONE_MAX:
+        return False
+    return True
 PUMP_THRESHOLD_PCT = float(os.environ.get("PUMP_THRESHOLD_PCT", "8"))
 MAX_PUMP_PCT = float(os.environ.get("MAX_PUMP_PCT", "16"))  # skip pump yang KEGEDEAN — backtest 30 hari (71 alert): bucket 8-12%=54.9% wr, 12-16%=61.5% wr, 16-20%=cuma 16.7% wr. Direvisi dari 25 (backtest 7 hari) turun ke 16 pas sampel lebih banyak.
 WINDOW_MINUTES = int(os.environ.get("WINDOW_MINUTES", "30"))  # rentang waktu deteksi pump
@@ -777,7 +797,7 @@ def main():
         time.sleep(REQUEST_SLEEP)
         if stats is None:
             continue
-        if PUMP_THRESHOLD_PCT <= stats["peak_pct"] <= MAX_PUMP_PCT:
+        if in_pump_range(stats["peak_pct"]):
             if not _is_confirmed(stats, btc_pct):
                 continue  # belum confluence semua sinyal, tunggu run berikutnya
             setup = calc_setup(stats["swing_high"], stats["swing_low"])
