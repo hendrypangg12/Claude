@@ -2014,11 +2014,12 @@
       "funding_rate": 0.022,
       "orderbook_ratio": 1.5047982956237378,
       "time": "2026-08-09T22:26:28+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-09T22:36:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T22:34:32+00:00",
+    "time": "2026-08-09T22:36:27+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
@@ -2028,8 +2029,8 @@
       "XANUSDT",
       "BEATUSDT",
       "TSTUSDT",
-      "CYSUSDT",
       "COOKIEUSDT",
+      "CYSUSDT",
       "NILUSDT",
       "4USDT",
       "BBUSDT",
@@ -2045,8 +2046,8 @@
       "CAPUSDT",
       "CRVUSDT",
       "PENGUUSDT",
-      "WLDUSDT",
       "RECALLUSDT",
+      "WLDUSDT",
       "XMRUSDT"
     ]
   }
