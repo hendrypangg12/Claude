@@ -1898,8 +1898,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T01:08:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-09T01:10:35+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -1910,16 +1910,18 @@
       "TSTUSDT",
       "4USDT",
       "MUBARAKUSDT",
+      "CRVUSDT",
       "PYTHUSDT",
       "TAOUSDT",
-      "CRVUSDT",
       "PUMPUSDT",
-      "SKYAIUSDT",
       "MMTUSDT",
       "ICPUSDT",
       "POWERUSDT",
+      "CAPUSDT",
       "PENGUUSDT",
-      "CHZUSDT"
+      "CHZUSDT",
+      "SKYAIUSDT",
+      "FHEUSDT"
     ]
   }
 }
