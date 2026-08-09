@@ -1898,7 +1898,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-09T00:58:28+00:00",
+    "time": "2026-08-09T01:00:35+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -1916,12 +1916,12 @@
       "PUMPUSDT",
       "SKYAIUSDT",
       "ICPUSDT",
-      "POWERUSDT",
-      "MMTUSDT",
       "CHZUSDT",
-      "LIGHTUSDT",
+      "POWERUSDT",
       "PENGUUSDT",
-      "FHEUSDT"
+      "FHEUSDT",
+      "LIGHTUSDT",
+      "MMTUSDT"
     ]
   }
 }
