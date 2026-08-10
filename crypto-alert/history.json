@@ -2043,8 +2043,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T03:00:39+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-10T03:02:32+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2053,14 +2053,14 @@
       "NILUSDT",
       "CAPUSDT",
       "ESPUSDT",
-      "CYSUSDT",
       "BOMEUSDT",
       "GRVTUSDT",
+      "CYSUSDT",
       "BANANAS31USDT",
       "COOKIEUSDT",
       "ONUSDT",
-      "PUMPUSDT",
       "AKEUSDT",
+      "PUMPUSDT",
       "WLDUSDT",
       "IOUSDT",
       "CRVUSDT",
@@ -2068,7 +2068,8 @@
       "CCUSDT",
       "PENGUUSDT",
       "BTWUSDT",
-      "XMRUSDT"
+      "XMRUSDT",
+      "BBUSDT"
     ]
   }
 }
