@@ -2043,8 +2043,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T03:28:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-10T03:30:38+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2061,13 +2061,15 @@
       "PUMPUSDT",
       "ONUSDT",
       "AKEUSDT",
-      "WLDUSDT",
       "GUAUSDT",
       "IOUSDT",
+      "WLDUSDT",
       "CCUSDT",
       "BTWUSDT",
       "CRVUSDT",
-      "PENGUUSDT"
+      "PENGUUSDT",
+      "BBUSDT",
+      "BLESSUSDT"
     ]
   }
 }
