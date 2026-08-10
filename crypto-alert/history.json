@@ -2165,9 +2165,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T18:56:43+00:00",
-    "shortlist_count": 16,
-    "confirmed_count": 1,
+    "time": "2026-08-10T18:58:27+00:00",
+    "shortlist_count": 15,
+    "confirmed_count": 0,
     "symbols": [
       "GUAUSDT",
       "龙虾USDT",
@@ -2177,14 +2177,13 @@
       "CYSUSDT",
       "BULLAUSDT",
       "CAPUSDT",
-      "RIVERUSDT",
       "BOMEUSDT",
       "CRVUSDT",
       "BLESSUSDT",
       "MONUSDT",
       "ICPUSDT",
-      "BASEDUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "BASEDUSDT"
     ]
   }
 }
