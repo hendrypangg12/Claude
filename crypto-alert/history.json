@@ -2068,7 +2068,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T04:30:33+00:00",
+    "time": "2026-08-10T04:32:42+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -2079,20 +2079,20 @@
       "CAPUSDT",
       "CYSUSDT",
       "BOMEUSDT",
-      "BANANAS31USDT",
-      "GRVTUSDT",
-      "COAIUSDT",
       "ESPUSDT",
+      "GRVTUSDT",
+      "BANANAS31USDT",
+      "COAIUSDT",
       "ONUSDT",
       "COOKIEUSDT",
       "PUMPUSDT",
       "TSTUSDT",
       "GUAUSDT",
-      "CCUSDT",
       "WLDUSDT",
       "CRVUSDT",
       "IOUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "CCUSDT"
     ]
   }
 }
