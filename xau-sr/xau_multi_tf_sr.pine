@@ -37,7 +37,7 @@ pivRight = input.int(10, "Bar kanan", minval = 2, maxval = 50, group = grpPiv,
      tooltip = "Level baru dikonfirmasi setelah sekian bar. Makin besar = makin telat tapi makin valid")
 
 grpStr = "Kekuatan level"
-tolMult = input.float(0.35, "Toleransi zona (x ATR)", minval = 0.05, step = 0.05, group = grpStr,
+tolMult = input.float(0.15, "Toleransi zona (x ATR 4H)", minval = 0.02, step = 0.01, group = grpStr,
      tooltip = "Dua pivot yang jaraknya di bawah ini dianggap level yang SAMA. Naikkan kalau level kembar terus dihitung terpisah")
 maxPer  = input.int(12, "Simpan berapa level per timeframe", minval = 3, maxval = 30, group = grpStr)
 kuat2   = input.int(3, "Skor minimum untuk 2 bintang", minval = 2, group = grpStr)
@@ -46,9 +46,11 @@ kuat3   = input.int(5, "Skor minimum untuk 3 bintang", minval = 3, group = grpSt
 grpVis = "Tampilan"
 showLabel = input.bool(true, "Tampilkan label", group = grpVis)
 filterFar = input.bool(true, "Sembunyikan level yang jauh", group = grpVis,
-     tooltip = "Level di luar jarak X ATR dari harga sekarang tidak digambar, biar chart tidak penuh")
-atrMult   = input.float(6.0, "Batas jarak (x ATR)", minval = 1.0, step = 0.5, group = grpVis)
-labelOff  = input.int(12, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
+     tooltip = "Level di luar jarak ini dari harga sekarang tidak digambar, biar chart tidak penuh")
+atrMult   = input.float(3.0, "Batas jarak (x ATR 4H)", minval = 0.5, step = 0.5, group = grpVis)
+labelOff  = input.int(10, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
+labelStep = input.int(16, "Selisih posisi label antar timeframe (bar)", minval = 0, group = grpVis,
+     tooltip = "Label tiap timeframe digeser ke kanan supaya tidak tumpang tindih waktu beberapa timeframe punya level di harga yang sama. Nol = semua sejajar")
 
 grpCol = "Warna per timeframe"
 c4H = input.color(#ef5350, "4 jam",    group = grpCol)
@@ -69,7 +71,10 @@ var array<int>   aTf    = array.new_int()     // asal timeframe (0=4H .. 4=3m)
 var array<float> lastH = array.new_float(5, na)
 var array<float> lastL = array.new_float(5, na)
 
-atrRef = ta.atr(14)
+// Patokan jarak diambil dari ATR 4H, BUKAN ATR chart yang sedang dibuka.
+// Kalau pakai ATR chart, setelan jarak jadi berubah arti tiap kali ganti
+// timeframe chart — di 3m nilainya kekecilan, di 4H kebesaran.
+atrRef = request.security(syminfo.tickerid, "240", ta.atr(14), lookahead = barmerge.lookahead_off)
 tol    = atrRef * tolMult
 
 // Masukkan satu pivot ke kolam. Kalau sudah ada level sejenis di area yang
@@ -209,7 +214,7 @@ render(simple bool aktif, simple int tfIdx, simple color col, simple int baseW, 
                      color = color.new(col, transp(skor)), width = tebal(baseW, skor),
                      style = line.style_solid)
                 if showLabel
-                    lbR := label.new(bar_index + labelOff, rP,
+                    lbR := label.new(bar_index + labelOff + tfIdx * labelStep, rP,
                          nama + " R " + bintang(skor) + "  " + str.tostring(rP, format.mintick)
                          + "  (" + str.tostring(rT) + "x)",
                          style = label.style_label_left, color = color.new(col, 88),
@@ -221,7 +226,7 @@ render(simple bool aktif, simple int tfIdx, simple color col, simple int baseW, 
                      color = color.new(col, transp(skor)), width = tebal(baseW, skor),
                      style = line.style_dashed)
                 if showLabel
-                    lbS := label.new(bar_index + labelOff, sP,
+                    lbS := label.new(bar_index + labelOff + tfIdx * labelStep, sP,
                          nama + " S " + bintang(skor) + "  " + str.tostring(sP, format.mintick)
                          + "  (" + str.tostring(sT) + "x)",
                          style = label.style_label_left, color = color.new(col, 88),

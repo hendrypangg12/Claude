@@ -59,11 +59,18 @@ bukan garis yang salah label.
 
 - **Bar kiri / Bar kanan** — sensitivitas pivot. Naikkan (misal 15–20) kalau garisnya
   kebanyakan; turunkan (5–8) kalau terlalu sedikit.
-- **Batas jarak (x ATR)** — level yang jauh dari harga sekarang disembunyikan biar
-  chart nggak penuh. Kecilkan kalau masih ramai.
-- **Toleransi zona (x ATR)** — dua pivot yang jaraknya di bawah nilai ini dianggap
+- **Batas jarak (x ATR 4H)** — level yang jauh dari harga sekarang disembunyikan biar
+  chart nggak penuh. Naikkan kalau level timeframe besar nggak kelihatan.
+- **Toleransi zona (x ATR 4H)** — dua pivot yang jaraknya di bawah nilai ini dianggap
   level yang sama. Naikkan kalau level kembar terus dihitung terpisah (jumlah `(x)`
   nggak naik-naik padahal harga jelas sudah beberapa kali mantul di situ).
+- **Selisih posisi label antar timeframe** — label tiap timeframe digeser ke kanan
+  supaya nggak tumpang tindih saat beberapa timeframe punya level di harga yang sama.
+  Kecilkan kalau label paling kanan keluar layar; nol bikin semua sejajar.
+
+Kedua setelan jarak di atas diukur pakai **ATR 4H**, bukan ATR chart yang sedang dibuka.
+Jadi angkanya tetap berarti sama walau kamu pindah-pindah timeframe chart — nggak perlu
+disetel ulang tiap ganti dari 3m ke 1H.
 
 ## Batasan yang perlu diketahui
 
