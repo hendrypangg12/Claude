@@ -1,127 +1,245 @@
 //@version=6
 // =============================================================
-// XAU Multi-Timeframe Support & Resistance
-// Plot otomatis level support/resistance dari 4H, 1H, 30m, 15m, 3m
+// XAU Multi-Timeframe Support & Resistance  (v2 — dengan kekuatan level)
+// Plot otomatis support/resistance dari 4H, 1H, 30m, 15m, 3m
 // dalam SATU indikator (hemat slot plan free TradingView).
 //
 // Cara pakai:
-//   1. Buka TradingView -> chart XAUUSD -> menu "Pine Editor" (bawah)
+//   1. TradingView -> chart XAUUSD -> panel bawah -> tab "Pine Editor"
 //   2. Hapus isi editor, paste seluruh file ini
-//   3. Klik "Save" -> kasih nama -> klik "Add to chart"
-//   4. Sekali di-save, indikator ini nempel di AKUN kamu -> otomatis
-//      muncul juga di app TradingView di HP.
+//   3. "Save" -> kasih nama -> "Add to chart"
+//   Indikator tersimpan di AKUN kamu, jadi otomatis muncul juga di app HP.
 //
-// Level dihitung dari swing pivot (titik balik harga) tiap timeframe.
-// Garis solid = resistance (di atas harga), garis putus = support.
-// Makin tebal garisnya = makin besar timeframe-nya = makin penting.
+// Beda dengan v1:
+//   - Menyimpan BANYAK pivot per timeframe, bukan cuma yang terakhir.
+//     Yang digambar = level terdekat DI ATAS harga (R) dan DI BAWAH (S),
+//     jadi labelnya selalu benar walau harga sudah menembus level lama.
+//   - Tiap level punya skor kekuatan dari 2 hal:
+//       (a) berapa kali harga membentuk swing di area yang sama
+//       (b) berapa timeframe lain yang punya level di area yang sama
+//     Level kuat = garis tebal & pekat. Level lemah = tipis & transparan.
 // =============================================================
 
 indicator("XAU Multi-TF S/R", overlay = true, max_lines_count = 60, max_labels_count = 60)
 
 // ------------------------- INPUT -----------------------------
 grpTF = "Timeframe yang ditampilkan"
-use4H  = input.bool(true,  "4 jam",   group = grpTF, inline = "a")
-use1H  = input.bool(true,  "1 jam",   group = grpTF, inline = "a")
-use30  = input.bool(true,  "30 menit", group = grpTF, inline = "b")
-use15  = input.bool(true,  "15 menit", group = grpTF, inline = "b")
-use3   = input.bool(true,  "3 menit",  group = grpTF, inline = "b")
+use4H = input.bool(true, "4 jam",    group = grpTF, inline = "a")
+use1H = input.bool(true, "1 jam",    group = grpTF, inline = "a")
+use30 = input.bool(true, "30 menit", group = grpTF, inline = "b")
+use15 = input.bool(true, "15 menit", group = grpTF, inline = "b")
+use3  = input.bool(true, "3 menit",  group = grpTF, inline = "b")
 
 grpPiv = "Sensitivitas pivot"
 pivLeft  = input.int(10, "Bar kiri",  minval = 2, maxval = 50, group = grpPiv,
      tooltip = "Makin besar = level makin sedikit tapi makin kuat")
 pivRight = input.int(10, "Bar kanan", minval = 2, maxval = 50, group = grpPiv,
-     tooltip = "Level baru baru dikonfirmasi setelah sekian bar. Makin besar = makin telat tapi makin valid")
+     tooltip = "Level baru dikonfirmasi setelah sekian bar. Makin besar = makin telat tapi makin valid")
+
+grpStr = "Kekuatan level"
+tolMult = input.float(0.35, "Toleransi zona (x ATR)", minval = 0.05, step = 0.05, group = grpStr,
+     tooltip = "Dua pivot yang jaraknya di bawah ini dianggap level yang SAMA. Naikkan kalau level kembar terus dihitung terpisah")
+maxPer  = input.int(12, "Simpan berapa level per timeframe", minval = 3, maxval = 30, group = grpStr)
+kuat2   = input.int(3, "Skor minimum untuk 2 bintang", minval = 2, group = grpStr)
+kuat3   = input.int(5, "Skor minimum untuk 3 bintang", minval = 3, group = grpStr)
 
 grpVis = "Tampilan"
-showLabel  = input.bool(true, "Tampilkan label harga", group = grpVis)
-filterFar  = input.bool(true, "Sembunyikan level yang jauh", group = grpVis,
-     tooltip = "Level yang jaraknya lebih dari X ATR dari harga sekarang tidak digambar, biar chart tidak penuh")
-atrMult    = input.float(6.0, "Batas jarak (x ATR)", minval = 1.0, step = 0.5, group = grpVis)
-labelOff   = input.int(12, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
+showLabel = input.bool(true, "Tampilkan label", group = grpVis)
+filterFar = input.bool(true, "Sembunyikan level yang jauh", group = grpVis,
+     tooltip = "Level di luar jarak X ATR dari harga sekarang tidak digambar, biar chart tidak penuh")
+atrMult   = input.float(6.0, "Batas jarak (x ATR)", minval = 1.0, step = 0.5, group = grpVis)
+labelOff  = input.int(12, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
 
 grpCol = "Warna per timeframe"
-c4H = input.color(color.new(#ef5350, 0),  "4 jam",   group = grpCol)
-c1H = input.color(color.new(#ff9800, 0),  "1 jam",   group = grpCol)
-c30 = input.color(color.new(#ffd54f, 10), "30 menit", group = grpCol)
-c15 = input.color(color.new(#4dd0e1, 20), "15 menit", group = grpCol)
-c3  = input.color(color.new(#9e9e9e, 35), "3 menit",  group = grpCol)
+c4H = input.color(#ef5350, "4 jam",    group = grpCol)
+c1H = input.color(#ff9800, "1 jam",    group = grpCol)
+c30 = input.color(#ffd54f, "30 menit", group = grpCol)
+c15 = input.color(#4dd0e1, "15 menit", group = grpCol)
+c3  = input.color(#9e9e9e, "3 menit",  group = grpCol)
 
-// ------------------------- HELPER ----------------------------
+// ------------------------- KOLAM LEVEL ------------------------
+// Semua level dari semua timeframe disimpan di satu kolam bersama.
+// Itu yang bikin perhitungan confluence antar-timeframe jadi gampang.
+var array<float> aPrice = array.new_float()   // harga level
+var array<int>   aTouch = array.new_int()     // berapa kali disentuh swing
+var array<int>   aTf    = array.new_int()     // asal timeframe (0=4H .. 4=3m)
+
+// Anti-duplikat: request.security bisa mengembalikan nilai pivot yang sama
+// berkali-kali selama bar timeframe itu belum berganti.
+var array<float> lastH = array.new_float(5, na)
+var array<float> lastL = array.new_float(5, na)
+
 atrRef = ta.atr(14)
+tol    = atrRef * tolMult
 
-// Jarak level masih wajar buat digambar?
-dekat(float lvl) =>
-    na(lvl) ? false : not filterFar or math.abs(close - lvl) <= atrRef * atrMult
+// Masukkan satu pivot ke kolam. Kalau sudah ada level sejenis di area yang
+// sama, jangan bikin garis baru — naikkan hitungan sentuhannya.
+addLevel(float p, int tfIdx) =>
+    if not na(p) and not na(tol) and tol > 0
+        int found = -1
+        if array.size(aPrice) > 0
+            for i = 0 to array.size(aPrice) - 1
+                if array.get(aTf, i) == tfIdx and math.abs(array.get(aPrice, i) - p) <= tol
+                    found := i
+                    break
+        if found >= 0
+            // Geser sedikit ke rata-rata supaya level "mengikuti" zona sebenarnya
+            oldP = array.get(aPrice, found)
+            oldT = array.get(aTouch, found)
+            array.set(aPrice, found, (oldP * oldT + p) / (oldT + 1))
+            array.set(aTouch, found, oldT + 1)
+        else
+            array.push(aPrice, p)
+            array.push(aTouch, 1)
+            array.push(aTf, tfIdx)
+            // Buang level tertua dari timeframe ini kalau sudah kebanyakan
+            int cnt = 0
+            for i = 0 to array.size(aPrice) - 1
+                if array.get(aTf, i) == tfIdx
+                    cnt += 1
+            if cnt > maxPer
+                for i = 0 to array.size(aPrice) - 1
+                    if array.get(aTf, i) == tfIdx
+                        array.remove(aPrice, i)
+                        array.remove(aTouch, i)
+                        array.remove(aTf, i)
+                        break
 
-// Render sepasang garis (resistance + support) untuk satu timeframe.
-// Catatan Pine: variabel `var` di dalam function itu terpisah per call-site,
-// jadi tiap timeframe otomatis punya garis & label sendiri.
-render(simple bool aktif, simple string tf, simple color col, simple int lebar, simple string nama) =>
-    var line   lnR = na
-    var line   lnS = na
-    var label  lbR = na
-    var label  lbS = na
-    var float  lastR = na
-    var float  lastS = na
+// Berapa timeframe LAIN yang punya level di area harga yang sama.
+// Inilah sinyal terbaik di chart: level yang muncul di banyak timeframe.
+confluence(float p) =>
+    var array<bool> seen = array.new_bool(5, false)
+    for i = 0 to 4
+        array.set(seen, i, false)
+    if array.size(aPrice) > 0
+        for i = 0 to array.size(aPrice) - 1
+            if math.abs(array.get(aPrice, i) - p) <= tol * 1.5
+                array.set(seen, array.get(aTf, i), true)
+    int n = 0
+    for i = 0 to 4
+        if array.get(seen, i)
+            n += 1
+    n  // termasuk timeframe sendiri, jadi minimal 1
 
-    // Ambil pivot dari timeframe lain. lookahead_off = tidak melihat masa depan
-    // (tanpa ini indikator akan terlihat akurat di backtest tapi bohong di realtime).
-    [ph, pl] = request.security(syminfo.tickerid, tf,
+// ------------------------- AMBIL PIVOT ------------------------
+// lookahead_off itu wajib. Tanpa itu indikator terlihat sangat akurat
+// waktu digeser ke belakang, tapi menyesatkan saat dipakai live.
+piv(simple string tf) =>
+    request.security(syminfo.tickerid, tf,
          [ta.pivothigh(high, pivLeft, pivRight), ta.pivotlow(low, pivLeft, pivRight)],
          lookahead = barmerge.lookahead_off)
 
-    if not na(ph)
-        lastR := ph
-    if not na(pl)
-        lastS := pl
+serap(float ph, float pl, int tfIdx) =>
+    if not na(ph) and array.get(lastH, tfIdx) != ph
+        array.set(lastH, tfIdx, ph)
+        addLevel(ph, tfIdx)
+    if not na(pl) and array.get(lastL, tfIdx) != pl
+        array.set(lastL, tfIdx, pl)
+        addLevel(pl, tfIdx)
+
+[h0, l0] = piv("240")
+[h1, l1] = piv("60")
+[h2, l2] = piv("30")
+[h3, l3] = piv("15")
+[h4, l4] = piv("3")
+
+serap(h0, l0, 0)
+serap(h1, l1, 1)
+serap(h2, l2, 2)
+serap(h3, l3, 3)
+serap(h4, l4, 4)
+
+// ------------------------- GAMBAR -----------------------------
+bintang(int skor) =>
+    skor >= kuat3 ? "***" : skor >= kuat2 ? "**" : "*"
+
+// Level yang kuat digambar tebal & pekat, yang lemah tipis & transparan.
+// Jadi mata langsung tertarik ke level yang memang berarti.
+transp(int skor) =>
+    skor >= kuat3 ? 0 : skor >= kuat2 ? 25 : 55
+
+// Level di luar jangkauan harga sekarang tidak usah digambar
+jauh(float p) =>
+    na(p) or (filterFar and math.abs(close - p) > atrRef * atrMult)
+
+tebal(simple int baseW, int skor) =>
+    skor >= kuat3 ? baseW + 1 : skor >= kuat2 ? baseW : 1
+
+render(simple bool aktif, simple int tfIdx, simple color col, simple int baseW, simple string nama) =>
+    var line  lnR = na
+    var line  lnS = na
+    var label lbR = na
+    var label lbS = na
 
     if barstate.islast
-        // Bersihkan dulu, gambar ulang tiap tick terakhir
         line.delete(lnR),  line.delete(lnS)
         label.delete(lbR), label.delete(lbS)
         lnR := na, lnS := na, lbR := na, lbS := na
 
-        if aktif
-            if dekat(lastR)
-                lnR := line.new(bar_index - 1, lastR, bar_index, lastR,
-                     extend = extend.right, color = col, width = lebar, style = line.style_solid)
+        if aktif and array.size(aPrice) > 0
+            // Cari level terdekat di atas harga (resistance) dan di bawah (support).
+            // Pivot high yang sudah ditembus ke atas otomatis jadi kandidat support —
+            // itu memang perilaku S/R yang benar (level flip).
+            float rP = na
+            int   rT = 0
+            float sP = na
+            int   sT = 0
+            for i = 0 to array.size(aPrice) - 1
+                if array.get(aTf, i) == tfIdx
+                    p = array.get(aPrice, i)
+                    if p > close and (na(rP) or p < rP)
+                        rP := p
+                        rT := array.get(aTouch, i)
+                    if p < close and (na(sP) or p > sP)
+                        sP := p
+                        sT := array.get(aTouch, i)
+
+            if not jauh(rP)
+                skor = rT + confluence(rP) - 1
+                lnR := line.new(bar_index - 1, rP, bar_index, rP, extend = extend.right,
+                     color = color.new(col, transp(skor)), width = tebal(baseW, skor),
+                     style = line.style_solid)
                 if showLabel
-                    lbR := label.new(bar_index + labelOff, lastR,
-                         nama + "  R " + str.tostring(lastR, format.mintick),
-                         style = label.style_label_left, color = color.new(col, 85),
-                         textcolor = col, size = size.small)
-            if dekat(lastS)
-                lnS := line.new(bar_index - 1, lastS, bar_index, lastS,
-                     extend = extend.right, color = col, width = lebar, style = line.style_dashed)
-                if showLabel
-                    lbS := label.new(bar_index + labelOff, lastS,
-                         nama + "  S " + str.tostring(lastS, format.mintick),
-                         style = label.style_label_left, color = color.new(col, 85),
+                    lbR := label.new(bar_index + labelOff, rP,
+                         nama + " R " + bintang(skor) + "  " + str.tostring(rP, format.mintick)
+                         + "  (" + str.tostring(rT) + "x)",
+                         style = label.style_label_left, color = color.new(col, 88),
                          textcolor = col, size = size.small)
 
-// ------------------------- RENDER ----------------------------
-// Urutan sengaja dari TF besar ke kecil supaya garis besar ada di lapisan bawah.
-render(use4H, "240", c4H, 3, "4H")
-render(use1H, "60",  c1H, 2, "1H")
-render(use30, "30",  c30, 2, "30m")
-render(use15, "15",  c15, 1, "15m")
-render(use3,  "3",   c3,  1, "3m")
+            if not jauh(sP)
+                skor = sT + confluence(sP) - 1
+                lnS := line.new(bar_index - 1, sP, bar_index, sP, extend = extend.right,
+                     color = color.new(col, transp(skor)), width = tebal(baseW, skor),
+                     style = line.style_dashed)
+                if showLabel
+                    lbS := label.new(bar_index + labelOff, sP,
+                         nama + " S " + bintang(skor) + "  " + str.tostring(sP, format.mintick)
+                         + "  (" + str.tostring(sT) + "x)",
+                         style = label.style_label_left, color = color.new(col, 88),
+                         textcolor = col, size = size.small)
 
-// ------------------------- ALERT -----------------------------
-// Alert dasar: harga menembus level 4H atau 1H (level paling berarti).
-// Di plan free, alert bisa dikirim ke app TradingView di HP.
-[ph4, pl4] = request.security(syminfo.tickerid, "240",
-     [ta.pivothigh(high, pivLeft, pivRight), ta.pivotlow(low, pivLeft, pivRight)],
-     lookahead = barmerge.lookahead_off)
+// Urutan dari TF besar ke kecil supaya garis penting ada di lapisan bawah.
+render(use4H, 0, c4H, 3, "4H")
+render(use1H, 1, c1H, 2, "1H")
+render(use30, 2, c30, 2, "30m")
+render(use15, 3, c15, 1, "15m")
+render(use3,  4, c3,  1, "3m")
+
+// ------------------------- ALERT ------------------------------
+// Alert hanya untuk level 4H — level yang paling berarti.
+// Di plan free, alert bisa masuk ke app TradingView di HP.
 var float r4 = na
 var float s4 = na
-if not na(ph4)
-    r4 := ph4
-if not na(pl4)
-    s4 := pl4
+if barstate.islast and array.size(aPrice) > 0
+    r4 := na
+    s4 := na
+    for i = 0 to array.size(aPrice) - 1
+        if array.get(aTf, i) == 0
+            p = array.get(aPrice, i)
+            if p > close and (na(r4) or p < r4)
+                r4 := p
+            if p < close and (na(s4) or p > s4)
+                s4 := p
 
-tembusAtas  = not na(r4) and ta.crossover(close, r4)
-tembusBawah = not na(s4) and ta.crossunder(close, s4)
-
-alertcondition(tembusAtas,  "XAU tembus resistance 4H", "Harga menembus resistance 4H")
-alertcondition(tembusBawah, "XAU tembus support 4H",    "Harga menembus support 4H")
+alertcondition(not na(r4) and ta.crossover(close, r4),  "XAU tembus resistance 4H", "Harga menembus resistance 4H")
+alertcondition(not na(s4) and ta.crossunder(close, s4), "XAU tembus support 4H",    "Harga menembus support 4H")

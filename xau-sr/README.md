@@ -27,11 +27,33 @@ Jadi buka app TradingView di HP, chart XAU, garisnya udah ada dan update sendiri
 |---|---|
 | Garis **solid** | Resistance (level di atas, harga cenderung tertahan) |
 | Garis **putus-putus** | Support (level di bawah, harga cenderung memantul) |
-| Garis makin **tebal** | Timeframe makin besar → level makin penting |
 | Warna | Merah 4H · oranye 1H · kuning 30m · cyan 15m · abu 3m |
+| Garis **tebal & pekat** | Level kuat (★★★) |
+| Garis **tipis & transparan** | Level lemah (★) |
 
 Level 4H yang tertembus jauh lebih berarti daripada level 3m yang tertembus.
-Kalau beberapa timeframe punya level di harga yang berdekatan, itu zona yang kuat.
+
+### Kekuatan level (★)
+
+Tiap level dinilai dari dua hal yang memang punya arti di pasar:
+
+1. **Berapa kali disentuh** — tiap kali harga membentuk swing di area yang sama,
+   hitungannya naik. Muncul di label sebagai `(3x)`. Level yang sudah 3x menahan
+   harga jelas lebih teruji daripada yang baru sekali.
+2. **Confluence antar timeframe** — kalau 15m, 1H, dan 4H sama-sama punya level di
+   harga yang berdekatan, itu zona terkuat di chart. Tiap timeframe tambahan
+   menambah skor.
+
+Skor = jumlah sentuhan + jumlah timeframe yang setuju. Ambang ★★ dan ★★★ bisa
+diatur di setelan. Contoh label: `4H R ***  3412.50  (3x)`.
+
+### Kenapa label R/S-nya selalu benar
+
+Skrip ini menyimpan banyak pivot per timeframe, lalu tiap saat memilih level
+**terdekat di atas harga** sebagai resistance dan **terdekat di bawah** sebagai
+support. Jadi kalau harga menembus naik, level yang tadinya resistance otomatis
+diperlakukan sebagai support — itu memang perilaku S/R yang benar (level flip),
+bukan garis yang salah label.
 
 ## Setelan yang biasanya perlu disesuaikan
 
@@ -39,6 +61,9 @@ Kalau beberapa timeframe punya level di harga yang berdekatan, itu zona yang kua
   kebanyakan; turunkan (5–8) kalau terlalu sedikit.
 - **Batas jarak (x ATR)** — level yang jauh dari harga sekarang disembunyikan biar
   chart nggak penuh. Kecilkan kalau masih ramai.
+- **Toleransi zona (x ATR)** — dua pivot yang jaraknya di bawah nilai ini dianggap
+  level yang sama. Naikkan kalau level kembar terus dihitung terpisah (jumlah `(x)`
+  nggak naik-naik padahal harga jelas sudah beberapa kali mantul di situ).
 
 ## Batasan yang perlu diketahui
 
@@ -46,8 +71,11 @@ Kalau beberapa timeframe punya level di harga yang berdekatan, itu zona yang kua
   memang baru bisa disebut pivot setelah harga berbalik dan tidak dilewati lagi.
   Skrip ini sengaja pakai `lookahead_off`: tanpa itu, garis akan terlihat sangat akurat
   saat digeser ke belakang tapi menyesatkan saat dipakai live.
-- Indikator ini **menggambar**, bukan **menganalisa**. Dia bilang "ada level di 3.412",
-  bukan "level ini sudah 3x ditolak dan volumenya menurun".
+- Skor kekuatan dihitung dari **struktur harga**, bukan volume. Dia tahu level sudah
+  3x ditahan, tapi tidak tahu volumenya menurun atau ada berita.
+- Hitungan sentuhan mulai dari nol saat indikator dipasang, lalu terisi dari riwayat
+  chart yang dimuat. Kalau chart-nya baru digeser jauh ke belakang, angkanya bisa
+  berubah — itu normal, bukan error.
 - Alert bawaan cuma untuk tembus level 4H. Di plan free, alert bisa masuk ke app
   TradingView di HP, tapi **belum bisa kirim webhook** ke server sendiri
   (butuh plan Essential ke atas).
