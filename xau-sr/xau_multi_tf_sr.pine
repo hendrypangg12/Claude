@@ -49,8 +49,8 @@ filterFar = input.bool(true, "Sembunyikan level yang jauh", group = grpVis,
      tooltip = "Level di luar jarak ini dari harga sekarang tidak digambar, biar chart tidak penuh")
 atrMult   = input.float(3.0, "Batas jarak (x ATR 4H)", minval = 0.5, step = 0.5, group = grpVis)
 labelOff  = input.int(10, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
-labelStep = input.int(16, "Selisih posisi label antar timeframe (bar)", minval = 0, group = grpVis,
-     tooltip = "Label tiap timeframe digeser ke kanan supaya tidak tumpang tindih waktu beberapa timeframe punya level di harga yang sama. Nol = semua sejajar")
+labelStep = input.int(8, "Selisih posisi label antar timeframe (bar)", minval = 0, group = grpVis,
+     tooltip = "Geser label ke kanan sedikit demi sedikit supaya level yang berdekatan tidak tumpang tindih. Nol = semua sejajar")
 
 grpCol = "Warna per timeframe"
 c4H = input.color(#ef5350, "4 jam",    group = grpCol)
@@ -171,73 +171,110 @@ transp(int skor) =>
 jauh(float p) =>
     na(p) or (filterFar and math.abs(close - p) > atrRef * atrMult)
 
-tebal(simple int baseW, int skor) =>
+namaTf(int i) =>
+    i == 0 ? "4H" : i == 1 ? "1H" : i == 2 ? "30m" : i == 3 ? "15m" : "3m"
+
+warnaTf(int i) =>
+    i == 0 ? c4H : i == 1 ? c1H : i == 2 ? c30 : i == 3 ? c15 : c3
+
+aktifTf(int i) =>
+    i == 0 ? use4H : i == 1 ? use1H : i == 2 ? use30 : i == 3 ? use15 : use3
+
+tebal(int skor, int tfIdx) =>
+    baseW = tfIdx == 0 ? 3 : tfIdx <= 2 ? 2 : 1
     skor >= kuat3 ? baseW + 1 : skor >= kuat2 ? baseW : 1
 
-render(simple bool aktif, simple int tfIdx, simple color col, simple int baseW, simple string nama) =>
-    var line  lnR = na
-    var line  lnS = na
-    var label lbR = na
-    var label lbS = na
+// ---- Kandidat level yang akan digambar ----------------------
+// Kalau beberapa timeframe menunjuk harga yang (hampir) sama, itu SATU level,
+// bukan tiga. Digabung jadi satu garis dengan satu label "4H+30m", supaya
+// justru saat level paling kuat chart-nya tetap terbaca.
+var array<float>  gP   = array.new_float()
+var array<string> gN   = array.new_string()
+var array<int>    gTf  = array.new_int()
+var array<int>    gT   = array.new_int()
+var array<bool>   gIsR = array.new_bool()
 
-    if barstate.islast
-        line.delete(lnR)
-        line.delete(lnS)
-        label.delete(lbR)
-        label.delete(lbS)
-        lnR := na
-        lnS := na
-        lbR := na
-        lbS := na
+var array<line>  gLine  = array.new<line>()
+var array<label> gLabel = array.new<label>()
 
-        if aktif and array.size(aPrice) > 0
-            // Cari level terdekat di atas harga (resistance) dan di bawah (support).
-            // Pivot high yang sudah ditembus ke atas otomatis jadi kandidat support —
-            // itu memang perilaku S/R yang benar (level flip).
-            float rP = na
-            int   rT = 0
-            float sP = na
-            int   sT = 0
-            for i = 0 to array.size(aPrice) - 1
-                if array.get(aTf, i) == tfIdx
-                    p = array.get(aPrice, i)
-                    if p > close and (na(rP) or p < rP)
-                        rP := p
-                        rT := array.get(aTouch, i)
-                    if p < close and (na(sP) or p > sP)
-                        sP := p
-                        sT := array.get(aTouch, i)
+tambahGrup(float p, int t, int tfIdx, bool isR) =>
+    if not na(p)
+        int found = -1
+        if array.size(gP) > 0
+            for i = 0 to array.size(gP) - 1
+                if array.get(gIsR, i) == isR and math.abs(array.get(gP, i) - p) <= tol
+                    found := i
+                    break
+        if found >= 0
+            // Timeframe besar diproses lebih dulu, jadi nama & warna grup
+            // tetap mengikuti timeframe terbesar yang ada di dalamnya.
+            array.set(gN, found, array.get(gN, found) + "+" + namaTf(tfIdx))
+            array.set(gT, found, math.max(array.get(gT, found), t))
+        else
+            array.push(gP, p)
+            array.push(gN, namaTf(tfIdx))
+            array.push(gTf, tfIdx)
+            array.push(gT, t)
+            array.push(gIsR, isR)
 
-            if not jauh(rP)
-                skor = rT + confluence(rP) - 1
-                lnR := line.new(bar_index - 1, rP, bar_index, rP, extend = extend.right,
-                     color = color.new(col, transp(skor)), width = tebal(baseW, skor),
-                     style = line.style_solid)
-                if showLabel
-                    lbR := label.new(bar_index + labelOff + tfIdx * labelStep, rP,
-                         nama + " R " + bintang(skor) + "  " + str.tostring(rP, format.mintick)
-                         + "  (" + str.tostring(rT) + "x)",
-                         style = label.style_label_left, color = color.new(col, 88),
-                         textcolor = col, size = size.small)
+if barstate.islast
+    if array.size(gLine) > 0
+        for i = 0 to array.size(gLine) - 1
+            line.delete(array.get(gLine, i))
+    if array.size(gLabel) > 0
+        for i = 0 to array.size(gLabel) - 1
+            label.delete(array.get(gLabel, i))
+    array.clear(gLine)
+    array.clear(gLabel)
+    array.clear(gP)
+    array.clear(gN)
+    array.clear(gTf)
+    array.clear(gT)
+    array.clear(gIsR)
 
-            if not jauh(sP)
-                skor = sT + confluence(sP) - 1
-                lnS := line.new(bar_index - 1, sP, bar_index, sP, extend = extend.right,
-                     color = color.new(col, transp(skor)), width = tebal(baseW, skor),
-                     style = line.style_dashed)
-                if showLabel
-                    lbS := label.new(bar_index + labelOff + tfIdx * labelStep, sP,
-                         nama + " S " + bintang(skor) + "  " + str.tostring(sP, format.mintick)
-                         + "  (" + str.tostring(sT) + "x)",
-                         style = label.style_label_left, color = color.new(col, 88),
-                         textcolor = col, size = size.small)
+    if array.size(aPrice) > 0
+        // Urutan 0..4 = dari timeframe terbesar ke terkecil.
+        for tfIdx = 0 to 4
+            if aktifTf(tfIdx)
+                // Level terdekat di atas harga (resistance) dan di bawah (support).
+                // Pivot high yang sudah ditembus ke atas otomatis jadi kandidat
+                // support — itu memang perilaku S/R yang benar (level flip).
+                float rP = na
+                int   rT = 0
+                float sP = na
+                int   sT = 0
+                for i = 0 to array.size(aPrice) - 1
+                    if array.get(aTf, i) == tfIdx
+                        p = array.get(aPrice, i)
+                        if p > close and (na(rP) or p < rP)
+                            rP := p
+                            rT := array.get(aTouch, i)
+                        if p < close and (na(sP) or p > sP)
+                            sP := p
+                            sT := array.get(aTouch, i)
+                tambahGrup(rP, rT, tfIdx, true)
+                tambahGrup(sP, sT, tfIdx, false)
 
-// Urutan dari TF besar ke kecil supaya garis penting ada di lapisan bawah.
-render(use4H, 0, c4H, 3, "4H")
-render(use1H, 1, c1H, 2, "1H")
-render(use30, 2, c30, 2, "30m")
-render(use15, 3, c15, 1, "15m")
-render(use3,  4, c3,  1, "3m")
+        if array.size(gP) > 0
+            for i = 0 to array.size(gP) - 1
+                p = array.get(gP, i)
+                if not jauh(p)
+                    t    = array.get(gT, i)
+                    tfi  = array.get(gTf, i)
+                    isR  = array.get(gIsR, i)
+                    skor = t + confluence(p) - 1
+                    col  = warnaTf(tfi)
+                    array.push(gLine, line.new(bar_index - 1, p, bar_index, p,
+                         extend = extend.right, color = color.new(col, transp(skor)),
+                         width = tebal(skor, tfi),
+                         style = isR ? line.style_solid : line.style_dashed))
+                    if showLabel
+                        array.push(gLabel, label.new(bar_index + labelOff + i * labelStep, p,
+                             array.get(gN, i) + (isR ? " R " : " S ") + bintang(skor) + "  "
+                             + str.tostring(p, format.mintick) + "  (" + str.tostring(t) + "x)",
+                             style = label.style_label_left, color = color.new(col, 88),
+                             textcolor = col, size = size.small))
+
 
 // ------------------------- ALERT ------------------------------
 // Alert hanya untuk level 4H — level yang paling berarti.
