@@ -2068,28 +2068,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T06:24:30+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-10T06:26:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
-      "CAPUSDT",
       "NILUSDT",
+      "CAPUSDT",
       "BOMEUSDT",
+      "ESPUSDT",
       "COAIUSDT",
       "MUBARAKUSDT",
-      "ESPUSDT",
       "GRVTUSDT",
-      "CYSUSDT",
       "ONUSDT",
       "BANANAS31USDT",
       "PUMPUSDT",
       "WLDUSDT",
+      "CYSUSDT",
       "GUAUSDT",
       "BTWUSDT",
       "PENGUUSDT",
       "CRVUSDT",
-      "XMRUSDT"
+      "XMRUSDT",
+      "AKEUSDT"
     ]
   }
 }
