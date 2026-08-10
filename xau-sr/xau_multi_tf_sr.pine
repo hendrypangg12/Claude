@@ -64,6 +64,17 @@ alertDist = input.float(0.5, "Bunyi kalau harga sedekat ini (x ATR 4H)", minval 
      group = grpAlert,
      tooltip = "Alert berbunyi saat harga MENDEKAT, bukan setelah menembus — supaya masih sempat dipikirkan")
 
+grpSesi = "Sesi pasar (high / low)"
+showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
+     tooltip = "High/low sesi dibentuk oleh jam kerja pelaku pasar, bukan oleh pola harga — sifatnya beda dari level pivot di atas")
+tzSesi   = input.string("UTC", "Zona waktu jam sesi", options = ["UTC", "Asia/Jakarta"], group = grpSesi)
+sesAsia  = input.session("0000-0900", "Asia (Tokyo)", group = grpSesi)
+sesLon   = input.session("0800-1700", "London",       group = grpSesi)
+sesNY    = input.session("1300-2200", "New York",     group = grpSesi)
+cAsia    = input.color(#ab47bc, "Warna Asia",     group = grpSesi)
+cLon     = input.color(#26a69a, "Warna London",   group = grpSesi)
+cNY      = input.color(#42a5f5, "Warna New York", group = grpSesi)
+
 grpCol = "Warna per timeframe"
 c4H = input.color(#ef5350, "4 jam",    group = grpCol)
 c1H = input.color(#ff9800, "1 jam",    group = grpCol)
@@ -331,3 +342,57 @@ if barstate.islast
              + bintang(nearSkor) + " di " + str.tostring(nearP, format.mintick)
              + "  (harga " + str.tostring(close, format.mintick) + ")",
              alert.freq_once_per_bar)
+
+// ==================== HIGH / LOW SESI PASAR ===================
+// Level ini terbentuk dari jam kerja pelaku pasar, bukan dari pola harga,
+// jadi dia melengkapi level pivot di atas — bukan mengulanginya.
+// High/low sesi yang baru selesai sering jadi acuan sesi berikutnya.
+sesiHL(simple string spec) =>
+    var float h = na
+    var float l = na
+    var int   b = na
+    dalamSesi = not na(time(timeframe.period, spec, tzSesi))
+    if dalamSesi and not dalamSesi[1]
+        // Sesi baru dimulai — hitung ulang dari nol
+        h := high
+        l := low
+        b := bar_index
+    else if dalamSesi
+        h := math.max(h, high)
+        l := math.min(l, low)
+    [h, l, b]
+
+[asiaH, asiaL, asiaB] = sesiHL(sesAsia)
+[lonH,  lonL,  lonB]  = sesiHL(sesLon)
+[nyH,   nyL,   nyB]   = sesiHL(sesNY)
+
+gambarSesi(float h, float l, int b, simple color col, simple string nama) =>
+    var line  lnH = na
+    var line  lnL = na
+    var label lbH = na
+    var label lbL = na
+    if barstate.islast
+        line.delete(lnH)
+        line.delete(lnL)
+        label.delete(lbH)
+        label.delete(lbL)
+        lnH := na
+        lnL := na
+        lbH := na
+        lbL := na
+        if showSesi and not na(h) and not na(b)
+            lnH := line.new(b, h, bar_index, h, extend = extend.right,
+                 color = color.new(col, 25), width = 1, style = line.style_dotted)
+            lnL := line.new(b, l, bar_index, l, extend = extend.right,
+                 color = color.new(col, 25), width = 1, style = line.style_dotted)
+            if showLabel
+                lbH := label.new(bar_index + labelOff, h, nama + " H " + str.tostring(h, format.mintick),
+                     style = label.style_label_left, color = color.new(col, 90),
+                     textcolor = col, size = size.tiny)
+                lbL := label.new(bar_index + labelOff, l, nama + " L " + str.tostring(l, format.mintick),
+                     style = label.style_label_left, color = color.new(col, 90),
+                     textcolor = col, size = size.tiny)
+
+gambarSesi(asiaH, asiaL, asiaB, cAsia, "Asia")
+gambarSesi(lonH,  lonL,  lonB,  cLon,  "London")
+gambarSesi(nyH,   nyL,   nyB,   cNY,   "NY")

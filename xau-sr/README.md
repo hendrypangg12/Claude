@@ -86,6 +86,31 @@ disetel ulang tiap ganti dari 3m ke 1H.
 - Di plan free, alert bisa masuk ke app TradingView di HP, tapi **belum bisa kirim
   webhook** ke server sendiri (butuh plan Essential ke atas).
 
+## High / low sesi pasar
+
+Selain level pivot, indikator ini menggambar **high dan low tiap sesi** —
+Asia (Tokyo), London, dan New York — sebagai garis titik-titik berwarna.
+
+Level ini melengkapi level pivot, bukan mengulanginya: pivot terbentuk dari
+**pola harga**, sedangkan high/low sesi terbentuk dari **jam kerja pelaku pasar**.
+High sesi London yang baru selesai sering jadi acuan sesi New York berikutnya.
+
+Jam bawaan (UTC):
+
+| Sesi | Jam UTC | Jam WIB |
+|---|---|---|
+| Asia (Tokyo) | 00:00–09:00 | 07:00–16:00 |
+| London | 08:00–17:00 | 15:00–00:00 |
+| New York | 13:00–22:00 | 20:00–05:00 |
+
+Jamnya sengaja tumpang tindih — memang begitu kenyataannya, dan justru jam
+tumpang tindih London–New York yang biasanya paling ramai.
+
+Semua bisa diubah di grup setelan **Sesi pasar**, termasuk zona waktunya
+(kalau lebih nyaman memakai jam WIB, ganti "Zona waktu jam sesi" ke
+`Asia/Jakarta` lalu tulis jamnya dalam WIB). Matikan lewat centang
+**"Tampilkan high & low tiap sesi"** kalau chart terasa penuh.
+
 ## Alert (notifikasi ke HP)
 
 Alert berbunyi saat harga **mendekati** level kuat — bukan setelah menembusnya,
