@@ -36,7 +36,8 @@
     "TSTUSDT": "2026-08-10T07:36:37+00:00",
     "TUTUSDT": "2026-08-08T16:46:35+00:00",
     "COOKIEUSDT": "2026-08-09T18:20:47+00:00",
-    "BMTUSDT": "2026-08-10T03:44:33+00:00"
+    "BMTUSDT": "2026-08-10T03:44:33+00:00",
+    "GUAUSDT": "2026-08-10T09:58:39+00:00"
   },
   "alerts": [
     {
@@ -2089,30 +2090,54 @@
       "time": "2026-08-10T07:36:37+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-10T08:04:28+00:00"
+    },
+    {
+      "symbol": "GUAUSDT",
+      "pct": 8.56,
+      "price": 0.04204,
+      "quote_volume": 1242633.51396,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.44589161126599325,
+      "retrace_pct": 1.9132057862809175,
+      "wick_ratio": 0.21393034825870585,
+      "rsi": 65.7252828997644,
+      "divergence": false,
+      "vol_spike": 0.46523108168947075,
+      "btc_pct": -0.2816141890214233,
+      "sl": 0.0432886,
+      "tp1": 0.04156884,
+      "tp2": 0.04077116,
+      "tp3": 0.03948,
+      "funding_rate": 0.103,
+      "orderbook_ratio": 0.6822443677168752,
+      "time": "2026-08-10T09:58:39+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T09:56:37+00:00",
-    "shortlist_count": 18,
-    "confirmed_count": 0,
+    "time": "2026-08-10T09:58:39+00:00",
+    "shortlist_count": 19,
+    "confirmed_count": 1,
     "symbols": [
       "TSTUSDT",
       "GRVTUSDT",
-      "龙虾USDT",
       "NILUSDT",
+      "龙虾USDT",
       "BOMEUSDT",
       "CAPUSDT",
-      "GUAUSDT",
       "BMTUSDT",
+      "GUAUSDT",
       "ONUSDT",
-      "CYSUSDT",
       "PUMPUSDT",
       "WLDUSDT",
-      "COAIUSDT",
+      "CYSUSDT",
       "MUBARAKUSDT",
+      "COAIUSDT",
       "BULLAUSDT",
-      "CRVUSDT",
       "4USDT",
+      "BTWUSDT",
+      "CRVUSDT",
       "PENGUUSDT"
     ]
   }
