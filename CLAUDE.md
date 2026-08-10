@@ -600,6 +600,16 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   (pakai `na(x) or x != y`), (2) Pine gak dukung statement dipisah koma, (3) function gak boleh bersarang,
   (4) nilai buat `ta.crossover` harus dihitung TIAP BAR, bukan cuma `barstate.islast`.
 - Setelan yang paling sering perlu diutak-atik: **Toleransi zona (x ATR)** kalau hitungan sentuhan `(x)` gak naik.
+- **v3 (dipasang & DITES JALAN di TradingView owner, 10 Agt)**: level yang dipakai beberapa TF digabung
+  jadi SATU garis + label gabungan (`1H+30m+15m S ★★★ 4304.310 (2x)`). Sebelumnya label numpuk gak kebaca
+  justru pas confluence-nya paling kuat. Patokan jarak/toleransi pakai **ATR 4H** (bukan ATR chart) biar
+  setelan gak berubah arti tiap ganti TF chart. Bawaan: batas jarak 3 (naikin ke 6 kalau mau level 4H
+  kelihatan di chart 3m), toleransi 0.15, geser label 8.
+- **Cara owner update**: copy raw file dari GitHub → paste di Editor Pine → **Simpan** (JANGAN "Tambah ke
+  Chart", nanti dobel) → ⚙️ → "Bawaan" → Reset settings. Owner pakai TradingView bahasa Indonesia
+  ("Editor Pine", "Simpan"). ⚠️ Tombol **"Publikasikan Skrip" = terbitin ke publik**, owner sempat
+  hampir keklik — ingetin jangan disentuh.
+- Plan free = 2 indikator/chart. Owner udah punya LuxAlgo SMC + ICT Killzones (sempat LuxAlgo dobel).
 
 ## Snake game
 
