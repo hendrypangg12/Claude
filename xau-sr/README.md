@@ -83,9 +83,41 @@ disetel ulang tiap ganti dari 3m ke 1H.
 - Hitungan sentuhan mulai dari nol saat indikator dipasang, lalu terisi dari riwayat
   chart yang dimuat. Kalau chart-nya baru digeser jauh ke belakang, angkanya bisa
   berubah — itu normal, bukan error.
-- Alert bawaan cuma untuk tembus level 4H. Di plan free, alert bisa masuk ke app
-  TradingView di HP, tapi **belum bisa kirim webhook** ke server sendiri
-  (butuh plan Essential ke atas).
+- Di plan free, alert bisa masuk ke app TradingView di HP, tapi **belum bisa kirim
+  webhook** ke server sendiri (butuh plan Essential ke atas).
+
+## Alert (notifikasi ke HP)
+
+Alert berbunyi saat harga **mendekati** level kuat — bukan setelah menembusnya,
+karena saat menembus kesempatan mengambil keputusan sudah lewat.
+
+Contoh pesan yang masuk:
+
+```
+XAU mendekati support 1H+30m+15m ★★★ di 4304.31  (harga 4306.80)
+```
+
+Cara pasang (sekali saja):
+
+1. Klik **Peringatan / Alert** (ikon jam beker di toolbar atas) → **Buat alert**
+2. **Kondisi**: pilih **XAU Multi-TF S/R**
+3. Di bawahnya pilih **Any alert() function call**
+4. **Notifikasi**: centang **Notifikasi aplikasi** (biar masuk ke HP)
+5. Buat
+
+Alert hanya berbunyi sekali per zona. Selama harga masih menempel di level yang
+sama, dia diam; baru berbunyi lagi kalau harga menjauh lalu mendekati level lain
+(atau kembali ke level itu setelah pergi).
+
+Dua setelan yang mengatur ini, ada di grup **Alert**:
+
+- **Skor minimum supaya alert bunyi** — bawaan `5` (setara ★★★). Turunkan ke `3`
+  kalau mau ★★ ikut membunyikan alert. Makin rendah, makin sering bunyi.
+- **Bunyi kalau harga sedekat ini (x ATR 4H)** — seberapa dekat harga harus
+  mendekat sebelum alert berbunyi.
+
+Catatan plan free: TradingView membatasi jumlah alert aktif, dan alert bisa
+berhenti sendiri setelah beberapa waktu — cek sesekali kalau tiba-tiba sepi.
 
 ## Kalau nanti upgrade ke plan berbayar
 
