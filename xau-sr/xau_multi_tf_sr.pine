@@ -37,8 +37,8 @@ pivRight = input.int(10, "Bar kanan", minval = 2, maxval = 50, group = grpPiv,
      tooltip = "Level baru dikonfirmasi setelah sekian bar. Makin besar = makin telat tapi makin valid")
 
 grpStr = "Kekuatan level"
-tolMult = input.float(0.15, "Toleransi zona (x ATR 4H)", minval = 0.02, step = 0.01, group = grpStr,
-     tooltip = "Dua pivot yang jaraknya di bawah ini dianggap level yang SAMA. Naikkan kalau level kembar terus dihitung terpisah")
+tolMult = input.float(0.10, "Toleransi zona (x ATR 4H)", minval = 0.02, step = 0.01, group = grpStr,
+     tooltip = "Dua pivot yang jaraknya di bawah ini dianggap level yang SAMA. Naikkan kalau level kembar dihitung terpisah; turunkan kalau dua level yang jelas beda malah dilebur jadi satu")
 maxPer  = input.int(12, "Simpan berapa level per timeframe", minval = 3, maxval = 30, group = grpStr)
 kuat2   = input.int(3, "Skor minimum untuk 2 bintang", minval = 2, group = grpStr)
 kuat3   = input.int(5, "Skor minimum untuk 3 bintang", minval = 3, group = grpStr)
