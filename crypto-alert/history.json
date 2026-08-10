@@ -2166,8 +2166,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T23:28:35+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-10T23:30:57+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GUAUSDT",
@@ -2181,9 +2181,11 @@
       "GRVTUSDT",
       "CYSUSDT",
       "WLDUSDT",
+      "RIVERUSDT",
       "ICPUSDT",
       "LDOUSDT",
-      "RIVERUSDT"
+      "PUMPUSDT",
+      "MONUSDT"
     ]
   }
 }
