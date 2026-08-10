@@ -70,6 +70,17 @@ alertDist = input.float(0.5, "Bunyi kalau harga sedekat ini (x ATR 4H)", minval 
      group = grpAlert,
      tooltip = "Alert berbunyi saat harga MENDEKAT, bukan setelah menembus — supaya masih sempat dipikirkan")
 
+grpBrk = "Sinyal break"
+showBreak  = input.bool(true, "Tandai break yang terkonfirmasi", group = grpBrk,
+     tooltip = "Break baru dianggap sah kalau harga BERTAHAN di seberang level, bukan sekadar lewat sekali — itu yang membedakan tembusan asli dari jebakan (false break)")
+konfirBar  = input.int(3, "Berapa lilin harus bertahan di seberang", minval = 1, group = grpBrk,
+     tooltip = "Makin besar = makin jarang tertipu false break, tapi sinyalnya makin telat")
+brkMargin  = input.float(0.15, "Jarak minimum dari level (x ATR 4H)", minval = 0.0, step = 0.05,
+     group = grpBrk,
+     tooltip = "Harga harus benar-benar menjauh dari level, bukan cuma menempel di sekitarnya")
+brkMinSkor = input.int(3, "Skor minimum level yang dipantau", minval = 1, group = grpBrk,
+     tooltip = "Break dari level lemah tidak menarik — bawaan 3, setara level SEDANG ke atas")
+
 grpSesi = "Sesi pasar (high / low)"
 showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
      tooltip = "High/low sesi dibentuk oleh jam kerja pelaku pasar, bukan oleh pola harga — sifatnya beda dari level pivot di atas")
@@ -110,6 +121,8 @@ var array<int>   aTouch = array.new_int()     // berapa kali disentuh swing
 var array<int>   aTf    = array.new_int()     // asal timeframe (0=4H .. 4=3m)
 var array<int>   aBreak = array.new_int()     // berapa kali harga menembusnya
 var array<int>   aSide  = array.new_int()     // posisi harga terakhir: 1 di atas, -1 di bawah
+var array<int>   aPend  = array.new_int()     // break yang sedang menunggu konfirmasi (0 = tidak ada)
+var array<int>   aArah  = array.new_int()     // arah break yang sedang ditunggu
 
 // Anti-duplikat: request.security bisa mengembalikan nilai pivot yang sama
 // berkali-kali selama bar timeframe itu belum berganti.
@@ -144,6 +157,8 @@ addLevel(float p, int tfIdx) =>
             array.push(aTf, tfIdx)
             array.push(aBreak, 0)
             array.push(aSide, close > p ? 1 : close < p ? -1 : 0)
+            array.push(aPend, 0)
+            array.push(aArah, 0)
             // Buang level tertua dari timeframe ini kalau sudah kebanyakan
             int cnt = 0
             for i = 0 to array.size(aPrice) - 1
@@ -157,6 +172,8 @@ addLevel(float p, int tfIdx) =>
                         array.remove(aTf, i)
                         array.remove(aBreak, i)
                         array.remove(aSide, i)
+                        array.remove(aPend, i)
+                        array.remove(aArah, i)
                         break
 
 // Berapa timeframe LAIN yang punya level di area harga yang sama.
@@ -207,20 +224,6 @@ serap(h2, l2, 2)
 serap(h3, l3, 3)
 serap(h4, l4, 4)
 
-// ---- Hitung berapa kali tiap level TERTEMBUS -----------------
-// Level yang sering dijebol itu lemah, walau sering disentuh. Tanpa ini,
-// level yang 8 kali disentuh tapi 5 kali jebol malah dapat skor tinggi.
-// Yang dipakai harga PENUTUPAN, bukan sumbu — sumbu menembus itu biasa
-// dan justru sering jadi tanda level bekerja.
-if array.size(aPrice) > 0
-    for i = 0 to array.size(aPrice) - 1
-        p    = array.get(aPrice, i)
-        sisi = close > p ? 1 : close < p ? -1 : 0
-        lama = array.get(aSide, i)
-        if sisi != 0 and lama != 0 and sisi != lama
-            array.set(aBreak, i, array.get(aBreak, i) + 1)
-        if sisi != 0
-            array.set(aSide, i, sisi)
 
 // ------------------------- GAMBAR -----------------------------
 bintang(int skor) =>
@@ -301,6 +304,52 @@ tambahGrup(float p, int t, int brk, int tfIdx, bool isR) =>
             array.push(gT, t)
             array.push(gBrk, brk)
             array.push(gIsR, isR)
+
+// ---- Hitung berapa kali tiap level TERTEMBUS -----------------
+// Level yang sering dijebol itu lemah, walau sering disentuh. Tanpa ini,
+// level yang 8 kali disentuh tapi 5 kali jebol malah dapat skor tinggi.
+// Yang dipakai harga PENUTUPAN, bukan sumbu — sumbu menembus itu biasa
+// dan justru sering jadi tanda level bekerja.
+// Break dianggap SAH kalau harga bertahan di seberang selama beberapa lilin
+// DAN benar-benar menjauh. Kalau harga balik sebelum itu, hitungannya batal —
+// persis pola false break yang sering muncul di emas.
+bool brkNaik  = false
+bool brkTurun = false
+float brkP    = na
+string brkNama = ""
+int brkSkor   = 0
+
+if array.size(aPrice) > 0
+    for i = 0 to array.size(aPrice) - 1
+        p    = array.get(aPrice, i)
+        sisi = close > p ? 1 : close < p ? -1 : 0
+        lama = array.get(aSide, i)
+
+        if sisi != 0 and lama != 0 and sisi != lama
+            array.set(aBreak, i, array.get(aBreak, i) + 1)
+            array.set(aPend, i, 1)
+            array.set(aArah, i, sisi)
+        else if array.get(aPend, i) > 0
+            if sisi == array.get(aArah, i)
+                array.set(aPend, i, array.get(aPend, i) + 1)
+                cukupJauh = math.abs(close - p) >= atrRef * brkMargin
+                if array.get(aPend, i) >= konfirBar and cukupJauh
+                    array.set(aPend, i, 0)
+                    skorLvl = hitungSkor(p, array.get(aTouch, i), array.get(aBreak, i) - 1)
+                    if skorLvl >= brkMinSkor
+                        brkP    := p
+                        brkNama := namaTf(array.get(aTf, i))
+                        brkSkor := skorLvl
+                        if sisi == 1
+                            brkNaik := true
+                        else
+                            brkTurun := true
+            else
+                // Harga balik sebelum sempat terkonfirmasi = false break
+                array.set(aPend, i, 0)
+
+        if sisi != 0
+            array.set(aSide, i, sisi)
 
 if barstate.islast
     if array.size(gLine) > 0
@@ -504,3 +553,21 @@ if barstate.islast
              text_size = size.tiny, bgcolor = color.new(color.black, 20))
     else
         table.clear(info, 0, 0, 1, 2)
+
+// ---- Tanda break yang terkonfirmasi di chart ------------------
+plotshape(showBreak and brkNaik,  title = "Break naik",  style = shape.triangleup,
+     location = location.belowbar, color = color.new(#26a69a, 0), size = size.small)
+plotshape(showBreak and brkTurun, title = "Break turun", style = shape.triangledown,
+     location = location.abovebar, color = color.new(#ef5350, 0), size = size.small)
+
+if showBreak and (brkNaik or brkTurun)
+    label.new(bar_index, brkNaik ? low : high,
+         "BREAK " + (brkNaik ? "▲ " : "▼ ") + katakuat(brkSkor) + " " + brkNama + "  "
+         + str.tostring(brkP, format.mintick),
+         style = brkNaik ? label.style_label_up : label.style_label_down,
+         color = color.new(brkNaik ? #26a69a : #ef5350, 15),
+         textcolor = color.white, size = size.tiny)
+    alert("XAU BREAK " + (brkNaik ? "NAIK" : "TURUN") + " menembus " + katakuat(brkSkor)
+         + " (" + brkNama + ") di " + str.tostring(brkP, format.mintick)
+         + " — bertahan " + str.tostring(konfirBar) + " lilin",
+         alert.freq_once_per_bar)
