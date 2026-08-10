@@ -2117,18 +2117,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T10:52:38+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-10T10:54:33+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
-      "TSTUSDT",
       "龙虾USDT",
+      "TSTUSDT",
       "GRVTUSDT",
       "GUAUSDT",
       "NILUSDT",
-      "CAPUSDT",
-      "CYSUSDT",
       "BOMEUSDT",
+      "CYSUSDT",
+      "CAPUSDT",
       "BMTUSDT",
       "ONUSDT",
       "WLDUSDT",
@@ -2137,8 +2137,7 @@
       "4USDT",
       "PENGUUSDT",
       "BULLAUSDT",
-      "XPLUSDT",
-      "XMRUSDT"
+      "XPLUSDT"
     ]
   }
 }
