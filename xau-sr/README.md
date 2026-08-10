@@ -44,8 +44,16 @@ Tiap level dinilai dari dua hal yang memang punya arti di pasar:
    harga yang berdekatan, itu zona terkuat di chart. Tiap timeframe tambahan
    menambah skor.
 
-Skor = jumlah sentuhan + jumlah timeframe yang setuju. Ambang ★★ dan ★★★ bisa
-diatur di setelan. Contoh label: `4H R ***  3412.50  (3x)`.
+3. **Berapa kali tertembus** — ini justru **mengurangi** skor. Level yang sudah
+   3 kali dijebol itu lemah, walau sering disentuh. Muncul di label sebagai
+   `· jebol 2x` (cuma ditampilkan kalau memang pernah jebol).
+
+Skor = sentuhan + timeframe yang setuju − tembusan. Ambang ★★ dan ★★★ serta
+bobot tembusan bisa diatur di setelan. Contoh label:
+`4H R ★★★  3412.50  (5x · jebol 1x)`.
+
+Yang dihitung sebagai tembus adalah **harga penutupan** yang pindah sisi, bukan
+sumbu. Sumbu menembus level itu biasa — malah sering jadi tanda level bekerja.
 
 ### Kenapa label R/S-nya selalu benar
 
