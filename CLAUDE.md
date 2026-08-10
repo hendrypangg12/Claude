@@ -581,6 +581,26 @@ Owner WAJIB visual = foto/video KEJADIAN ASLI (mis. presiden pidato → foto pid
   negligible (4/1225 pair). **Post lama yang udah kepost duplikat TETAP ada di IG** (gak bisa dihapus lewat
   API, owner pilih gak mau hapus manual — dibiarin aja).
 
+## SESSION MEMORY — 10 Agustus 2026 — XAU Multi-TF S/R (TradingView Pine)
+
+- Owner nanya cara analisa chart XAU realtime + gambar S/R dari 4H/1H/30m/15m/3m. Keputusan:
+  **Pine Script**, BUKAN otomasi browser. Alasan: TradingView **gak punya API publik buat gambar**;
+  Pine nempel di AKUN → otomatis muncul di app HP owner, gak butuh laptop nyala.
+- **Kondisi owner: TradingView masih FREE + "server" cuma laptop biasa.** Konsekuensi:
+  **webhook TradingView butuh plan Essential+ (~$15/bln)** → lapisan server (alert → konteks → Telegram)
+  BELUM ada gunanya. Disaranin jangan nyalain laptop 24 jam dulu. Plan free = maks **2 indikator per chart**
+  → makanya dibikin SATU skrip yang handle 5 timeframe via `request.security`.
+- **Folder `xau-sr/`** (branch `claude/xau-chart-realtime-analysis-a1mp7q`): `xau_multi_tf_sr.pine` + README.
+  v2 fitur: kolam banyak pivot per TF (bukan cuma terakhir) → pilih terdekat di atas harga = R, di bawah = S
+  (label selalu bener walau harga nembus / level flip); skor kekuatan = jumlah sentuhan + confluence antar-TF;
+  level kuat tebal+pekat (★★★), lemah tipis+transparan (★); pivot berdekatan (toleransi ATR) digabung.
+- **`lookahead_off` WAJIB** — tanpa itu indikator keliatan akurat pas digeser ke belakang tapi bohong live.
+- ⚠️ **BELUM PERNAH DI-COMPILE** (gak ada Pine compiler di container). Kalau owner lapor error merah pas Save,
+  langsung minta pesan errornya. Jebakan Pine yang udah di-fix duluan: (1) jangan bandingin langsung dengan `na`
+  (pakai `na(x) or x != y`), (2) Pine gak dukung statement dipisah koma, (3) function gak boleh bersarang,
+  (4) nilai buat `ta.crossover` harus dihitung TIAP BAR, bukan cuma `barstate.islast`.
+- Setelan yang paling sering perlu diutak-atik: **Toleransi zona (x ATR)** kalau hitungan sentuhan `(x)` gak naik.
+
 ## Snake game
 
 Single-file browser game: a Nokia 3310-style Snake clone. Everything (HTML, CSS, game logic) lives in `index.html`. There is no build system, no package manager, no test runner, and no external dependencies.

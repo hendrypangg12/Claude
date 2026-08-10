@@ -130,10 +130,14 @@ piv(simple string tf) =>
          lookahead = barmerge.lookahead_off)
 
 serap(float ph, float pl, int tfIdx) =>
-    if not na(ph) and array.get(lastH, tfIdx) != ph
+    prevH = array.get(lastH, tfIdx)
+    prevL = array.get(lastL, tfIdx)
+    // Pakai na(prevH) di depan: perbandingan langsung dengan na hasilnya
+    // bukan true/false, jadi pivot pertama tiap timeframe bisa tidak pernah masuk.
+    if not na(ph) and (na(prevH) or prevH != ph)
         array.set(lastH, tfIdx, ph)
         addLevel(ph, tfIdx)
-    if not na(pl) and array.get(lastL, tfIdx) != pl
+    if not na(pl) and (na(prevL) or prevL != pl)
         array.set(lastL, tfIdx, pl)
         addLevel(pl, tfIdx)
 
@@ -151,7 +155,7 @@ serap(h4, l4, 4)
 
 // ------------------------- GAMBAR -----------------------------
 bintang(int skor) =>
-    skor >= kuat3 ? "***" : skor >= kuat2 ? "**" : "*"
+    skor >= kuat3 ? "★★★" : skor >= kuat2 ? "★★" : "★"
 
 // Level yang kuat digambar tebal & pekat, yang lemah tipis & transparan.
 // Jadi mata langsung tertarik ke level yang memang berarti.
@@ -172,9 +176,14 @@ render(simple bool aktif, simple int tfIdx, simple color col, simple int baseW, 
     var label lbS = na
 
     if barstate.islast
-        line.delete(lnR),  line.delete(lnS)
-        label.delete(lbR), label.delete(lbS)
-        lnR := na, lnS := na, lbR := na, lbS := na
+        line.delete(lnR)
+        line.delete(lnS)
+        label.delete(lbR)
+        label.delete(lbS)
+        lnR := na
+        lnS := na
+        lbR := na
+        lbS := na
 
         if aktif and array.size(aPrice) > 0
             // Cari level terdekat di atas harga (resistance) dan di bawah (support).
@@ -228,11 +237,11 @@ render(use3,  4, c3,  1, "3m")
 // ------------------------- ALERT ------------------------------
 // Alert hanya untuk level 4H — level yang paling berarti.
 // Di plan free, alert bisa masuk ke app TradingView di HP.
-var float r4 = na
-var float s4 = na
-if barstate.islast and array.size(aPrice) > 0
-    r4 := na
-    s4 := na
+// Dihitung tiap bar (bukan cuma bar terakhir) supaya ta.crossover punya
+// nilai sebelumnya untuk dibandingkan — kalau tidak, alert tidak pernah bunyi.
+float r4 = na
+float s4 = na
+if array.size(aPrice) > 0
     for i = 0 to array.size(aPrice) - 1
         if array.get(aTf, i) == 0
             p = array.get(aPrice, i)
