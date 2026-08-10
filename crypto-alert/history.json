@@ -2142,8 +2142,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T13:50:41+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-10T13:53:05+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "GUAUSDT",
@@ -2151,16 +2151,19 @@
       "TSTUSDT",
       "GRVTUSDT",
       "NILUSDT",
-      "CAPUSDT",
-      "BOMEUSDT",
       "CYSUSDT",
       "BMTUSDT",
+      "CAPUSDT",
+      "BOMEUSDT",
+      "ACTUSDT",
       "REUSDT",
       "WLDUSDT",
-      "ACTUSDT",
-      "MONUSDT",
       "COAIUSDT",
-      "BLESSUSDT"
+      "MONUSDT",
+      "PENGUUSDT",
+      "ESPUSDT",
+      "BLESSUSDT",
+      "CRVUSDT"
     ]
   }
 }
