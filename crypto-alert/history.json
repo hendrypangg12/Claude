@@ -2063,12 +2063,13 @@
       "funding_rate": -0.011,
       "orderbook_ratio": 1.778448633321694,
       "time": "2026-08-10T03:44:33+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-10T03:52:31+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T03:50:35+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-10T03:52:31+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2082,16 +2083,15 @@
       "BANANAS31USDT",
       "GRVTUSDT",
       "COOKIEUSDT",
-      "PUMPUSDT",
       "ONUSDT",
+      "PUMPUSDT",
       "AKEUSDT",
       "WLDUSDT",
       "IOUSDT",
       "CCUSDT",
       "CRVUSDT",
       "GUAUSDT",
-      "BBUSDT",
-      "PENGUUSDT"
+      "BBUSDT"
     ]
   }
 }
