@@ -1,0 +1,127 @@
+//@version=6
+// =============================================================
+// XAU Multi-Timeframe Support & Resistance
+// Plot otomatis level support/resistance dari 4H, 1H, 30m, 15m, 3m
+// dalam SATU indikator (hemat slot plan free TradingView).
+//
+// Cara pakai:
+//   1. Buka TradingView -> chart XAUUSD -> menu "Pine Editor" (bawah)
+//   2. Hapus isi editor, paste seluruh file ini
+//   3. Klik "Save" -> kasih nama -> klik "Add to chart"
+//   4. Sekali di-save, indikator ini nempel di AKUN kamu -> otomatis
+//      muncul juga di app TradingView di HP.
+//
+// Level dihitung dari swing pivot (titik balik harga) tiap timeframe.
+// Garis solid = resistance (di atas harga), garis putus = support.
+// Makin tebal garisnya = makin besar timeframe-nya = makin penting.
+// =============================================================
+
+indicator("XAU Multi-TF S/R", overlay = true, max_lines_count = 60, max_labels_count = 60)
+
+// ------------------------- INPUT -----------------------------
+grpTF = "Timeframe yang ditampilkan"
+use4H  = input.bool(true,  "4 jam",   group = grpTF, inline = "a")
+use1H  = input.bool(true,  "1 jam",   group = grpTF, inline = "a")
+use30  = input.bool(true,  "30 menit", group = grpTF, inline = "b")
+use15  = input.bool(true,  "15 menit", group = grpTF, inline = "b")
+use3   = input.bool(true,  "3 menit",  group = grpTF, inline = "b")
+
+grpPiv = "Sensitivitas pivot"
+pivLeft  = input.int(10, "Bar kiri",  minval = 2, maxval = 50, group = grpPiv,
+     tooltip = "Makin besar = level makin sedikit tapi makin kuat")
+pivRight = input.int(10, "Bar kanan", minval = 2, maxval = 50, group = grpPiv,
+     tooltip = "Level baru baru dikonfirmasi setelah sekian bar. Makin besar = makin telat tapi makin valid")
+
+grpVis = "Tampilan"
+showLabel  = input.bool(true, "Tampilkan label harga", group = grpVis)
+filterFar  = input.bool(true, "Sembunyikan level yang jauh", group = grpVis,
+     tooltip = "Level yang jaraknya lebih dari X ATR dari harga sekarang tidak digambar, biar chart tidak penuh")
+atrMult    = input.float(6.0, "Batas jarak (x ATR)", minval = 1.0, step = 0.5, group = grpVis)
+labelOff   = input.int(12, "Jarak label ke kanan (bar)", minval = 1, group = grpVis)
+
+grpCol = "Warna per timeframe"
+c4H = input.color(color.new(#ef5350, 0),  "4 jam",   group = grpCol)
+c1H = input.color(color.new(#ff9800, 0),  "1 jam",   group = grpCol)
+c30 = input.color(color.new(#ffd54f, 10), "30 menit", group = grpCol)
+c15 = input.color(color.new(#4dd0e1, 20), "15 menit", group = grpCol)
+c3  = input.color(color.new(#9e9e9e, 35), "3 menit",  group = grpCol)
+
+// ------------------------- HELPER ----------------------------
+atrRef = ta.atr(14)
+
+// Jarak level masih wajar buat digambar?
+dekat(float lvl) =>
+    na(lvl) ? false : not filterFar or math.abs(close - lvl) <= atrRef * atrMult
+
+// Render sepasang garis (resistance + support) untuk satu timeframe.
+// Catatan Pine: variabel `var` di dalam function itu terpisah per call-site,
+// jadi tiap timeframe otomatis punya garis & label sendiri.
+render(simple bool aktif, simple string tf, simple color col, simple int lebar, simple string nama) =>
+    var line   lnR = na
+    var line   lnS = na
+    var label  lbR = na
+    var label  lbS = na
+    var float  lastR = na
+    var float  lastS = na
+
+    // Ambil pivot dari timeframe lain. lookahead_off = tidak melihat masa depan
+    // (tanpa ini indikator akan terlihat akurat di backtest tapi bohong di realtime).
+    [ph, pl] = request.security(syminfo.tickerid, tf,
+         [ta.pivothigh(high, pivLeft, pivRight), ta.pivotlow(low, pivLeft, pivRight)],
+         lookahead = barmerge.lookahead_off)
+
+    if not na(ph)
+        lastR := ph
+    if not na(pl)
+        lastS := pl
+
+    if barstate.islast
+        // Bersihkan dulu, gambar ulang tiap tick terakhir
+        line.delete(lnR),  line.delete(lnS)
+        label.delete(lbR), label.delete(lbS)
+        lnR := na, lnS := na, lbR := na, lbS := na
+
+        if aktif
+            if dekat(lastR)
+                lnR := line.new(bar_index - 1, lastR, bar_index, lastR,
+                     extend = extend.right, color = col, width = lebar, style = line.style_solid)
+                if showLabel
+                    lbR := label.new(bar_index + labelOff, lastR,
+                         nama + "  R " + str.tostring(lastR, format.mintick),
+                         style = label.style_label_left, color = color.new(col, 85),
+                         textcolor = col, size = size.small)
+            if dekat(lastS)
+                lnS := line.new(bar_index - 1, lastS, bar_index, lastS,
+                     extend = extend.right, color = col, width = lebar, style = line.style_dashed)
+                if showLabel
+                    lbS := label.new(bar_index + labelOff, lastS,
+                         nama + "  S " + str.tostring(lastS, format.mintick),
+                         style = label.style_label_left, color = color.new(col, 85),
+                         textcolor = col, size = size.small)
+
+// ------------------------- RENDER ----------------------------
+// Urutan sengaja dari TF besar ke kecil supaya garis besar ada di lapisan bawah.
+render(use4H, "240", c4H, 3, "4H")
+render(use1H, "60",  c1H, 2, "1H")
+render(use30, "30",  c30, 2, "30m")
+render(use15, "15",  c15, 1, "15m")
+render(use3,  "3",   c3,  1, "3m")
+
+// ------------------------- ALERT -----------------------------
+// Alert dasar: harga menembus level 4H atau 1H (level paling berarti).
+// Di plan free, alert bisa dikirim ke app TradingView di HP.
+[ph4, pl4] = request.security(syminfo.tickerid, "240",
+     [ta.pivothigh(high, pivLeft, pivRight), ta.pivotlow(low, pivLeft, pivRight)],
+     lookahead = barmerge.lookahead_off)
+var float r4 = na
+var float s4 = na
+if not na(ph4)
+    r4 := ph4
+if not na(pl4)
+    s4 := pl4
+
+tembusAtas  = not na(r4) and ta.crossover(close, r4)
+tembusBawah = not na(s4) and ta.crossunder(close, s4)
+
+alertcondition(tembusAtas,  "XAU tembus resistance 4H", "Harga menembus resistance 4H")
+alertcondition(tembusBawah, "XAU tembus support 4H",    "Harga menembus support 4H")
