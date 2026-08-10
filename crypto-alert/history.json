@@ -2166,8 +2166,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-10T20:38:36+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-10T20:40:32+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
@@ -2178,14 +2178,15 @@
       "GRVTUSDT",
       "CYSUSDT",
       "CAPUSDT",
-      "TSTUSDT",
       "BLESSUSDT",
+      "TSTUSDT",
       "CRVUSDT",
       "BASEDUSDT",
       "RIVERUSDT",
       "ACTUSDT",
       "ICPUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "PUMPUSDT"
     ]
   }
 }
