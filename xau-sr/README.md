@@ -97,19 +97,25 @@ High sesi London yang baru selesai sering jadi acuan sesi New York berikutnya.
 
 Jam bawaan (UTC):
 
-| Sesi | Jam UTC | Jam WIB |
-|---|---|---|
-| Asia (Tokyo) | 00:00–09:00 | 07:00–16:00 |
-| London | 08:00–17:00 | 15:00–00:00 |
-| New York | 13:00–22:00 | 20:00–05:00 |
+| Sesi | Jam UTC | Jam WIB | Bawaan |
+|---|---|---|---|
+| Sydney | 21:00–06:00 | 04:00–13:00 | aktif |
+| Tokyo | 00:00–09:00 | 07:00–16:00 | aktif |
+| Frankfurt | 07:00–16:00 | 14:00–23:00 | **mati** |
+| London | 08:00–17:00 | 15:00–00:00 | aktif |
+| New York | 13:00–22:00 | 20:00–05:00 | aktif |
+
+Frankfurt sengaja dimatikan dari bawaan karena jamnya hampir seluruhnya
+tertutup London (beda sejam), jadi garisnya cenderung menempel dan menambah
+ramai tanpa menambah informasi. Nyalakan kalau memang butuh.
 
 Jamnya sengaja tumpang tindih — memang begitu kenyataannya, dan justru jam
 tumpang tindih London–New York yang biasanya paling ramai.
 
-Semua bisa diubah di grup setelan **Sesi pasar**, termasuk zona waktunya
-(kalau lebih nyaman memakai jam WIB, ganti "Zona waktu jam sesi" ke
-`Asia/Jakarta` lalu tulis jamnya dalam WIB). Matikan lewat centang
-**"Tampilkan high & low tiap sesi"** kalau chart terasa penuh.
+Tiap sesi punya centang, jam, dan warnanya sendiri di grup setelan
+**Sesi pasar**. Kalau lebih nyaman memakai jam WIB, ganti "Zona waktu jam sesi"
+ke `Asia/Jakarta` lalu tulis jamnya dalam WIB. Centang paling atas
+(**"Tampilkan high & low tiap sesi"**) mematikan semuanya sekaligus.
 
 ## Alert (notifikasi ke HP)
 

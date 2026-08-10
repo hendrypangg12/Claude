@@ -68,12 +68,26 @@ grpSesi = "Sesi pasar (high / low)"
 showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
      tooltip = "High/low sesi dibentuk oleh jam kerja pelaku pasar, bukan oleh pola harga — sifatnya beda dari level pivot di atas")
 tzSesi   = input.string("UTC", "Zona waktu jam sesi", options = ["UTC", "Asia/Jakarta"], group = grpSesi)
-sesAsia  = input.session("0000-0900", "Asia (Tokyo)", group = grpSesi)
-sesLon   = input.session("0800-1700", "London",       group = grpSesi)
-sesNY    = input.session("1300-2200", "New York",     group = grpSesi)
-cAsia    = input.color(#ab47bc, "Warna Asia",     group = grpSesi)
-cLon     = input.color(#26a69a, "Warna London",   group = grpSesi)
-cNY      = input.color(#42a5f5, "Warna New York", group = grpSesi)
+
+useSyd  = input.bool(true,  "Sydney",    group = grpSesi, inline = "syd")
+sesSyd  = input.session("2100-0600", "", group = grpSesi, inline = "syd")
+cSyd    = input.color(#8d6e63, "",       group = grpSesi, inline = "syd")
+
+useTok  = input.bool(true,  "Tokyo",     group = grpSesi, inline = "tok")
+sesTok  = input.session("0000-0900", "", group = grpSesi, inline = "tok")
+cTok    = input.color(#ab47bc, "",       group = grpSesi, inline = "tok")
+
+useFra  = input.bool(false, "Frankfurt", group = grpSesi, inline = "fra")
+sesFra  = input.session("0700-1600", "", group = grpSesi, inline = "fra")
+cFra    = input.color(#66bb6a, "",       group = grpSesi, inline = "fra")
+
+useLon  = input.bool(true,  "London",    group = grpSesi, inline = "lon")
+sesLon  = input.session("0800-1700", "", group = grpSesi, inline = "lon")
+cLon    = input.color(#26a69a, "",       group = grpSesi, inline = "lon")
+
+useNY   = input.bool(true,  "New York",  group = grpSesi, inline = "ny")
+sesNY   = input.session("1300-2200", "", group = grpSesi, inline = "ny")
+cNY     = input.color(#42a5f5, "",       group = grpSesi, inline = "ny")
 
 grpCol = "Warna per timeframe"
 c4H = input.color(#ef5350, "4 jam",    group = grpCol)
@@ -362,11 +376,13 @@ sesiHL(simple string spec) =>
         l := math.min(l, low)
     [h, l, b]
 
-[asiaH, asiaL, asiaB] = sesiHL(sesAsia)
-[lonH,  lonL,  lonB]  = sesiHL(sesLon)
-[nyH,   nyL,   nyB]   = sesiHL(sesNY)
+[sydH, sydL, sydB] = sesiHL(sesSyd)
+[tokH, tokL, tokB] = sesiHL(sesTok)
+[fraH, fraL, fraB] = sesiHL(sesFra)
+[lonH, lonL, lonB] = sesiHL(sesLon)
+[nyH,  nyL,  nyB]  = sesiHL(sesNY)
 
-gambarSesi(float h, float l, int b, simple color col, simple string nama) =>
+gambarSesi(simple bool aktif, float h, float l, int b, simple color col, simple string nama) =>
     var line  lnH = na
     var line  lnL = na
     var label lbH = na
@@ -380,7 +396,7 @@ gambarSesi(float h, float l, int b, simple color col, simple string nama) =>
         lnL := na
         lbH := na
         lbL := na
-        if showSesi and not na(h) and not na(b)
+        if showSesi and aktif and not na(h) and not na(b)
             lnH := line.new(b, h, bar_index, h, extend = extend.right,
                  color = color.new(col, 25), width = 1, style = line.style_dotted)
             lnL := line.new(b, l, bar_index, l, extend = extend.right,
@@ -393,6 +409,8 @@ gambarSesi(float h, float l, int b, simple color col, simple string nama) =>
                      style = label.style_label_left, color = color.new(col, 90),
                      textcolor = col, size = size.tiny)
 
-gambarSesi(asiaH, asiaL, asiaB, cAsia, "Asia")
-gambarSesi(lonH,  lonL,  lonB,  cLon,  "London")
-gambarSesi(nyH,   nyL,   nyB,   cNY,   "NY")
+gambarSesi(useSyd, sydH, sydL, sydB, cSyd, "Sydney")
+gambarSesi(useTok, tokH, tokL, tokB, cTok, "Tokyo")
+gambarSesi(useFra, fraH, fraL, fraB, cFra, "Frankfurt")
+gambarSesi(useLon, lonH, lonL, lonB, cLon, "London")
+gambarSesi(useNY,  nyH,  nyL,  nyB,  cNY,  "NY")
