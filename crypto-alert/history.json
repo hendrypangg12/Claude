@@ -2235,12 +2235,13 @@
       "funding_rate": -0.019,
       "orderbook_ratio": 0.9901422619111669,
       "time": "2026-08-11T09:58:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-11T10:04:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T10:02:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-11T10:04:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
@@ -2248,12 +2249,13 @@
       "CYSUSDT",
       "GUAUSDT",
       "CLOUSDT",
-      "HEIUSDT",
       "UBUSDT",
       "CRVUSDT",
+      "HEIUSDT",
       "CAPUSDT",
       "LITUSDT",
       "BUSDT",
+      "BTWUSDT",
       "LINKUSDT"
     ]
   }
