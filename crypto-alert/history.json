@@ -2216,8 +2216,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T09:32:35+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-11T09:34:31+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
@@ -2231,11 +2231,10 @@
       "BTWUSDT",
       "BUSDT",
       "LITUSDT",
+      "CAPUSDT",
       "LINKUSDT",
-      "SQDUSDT",
       "ICPUSDT",
-      "BASEDUSDT",
-      "REUSDT"
+      "BASEDUSDT"
     ]
   }
 }
