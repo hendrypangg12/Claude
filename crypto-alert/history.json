@@ -2166,12 +2166,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T00:08:30+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-11T00:10:37+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
-      "BLUAIUSDT",
       "GUAUSDT",
+      "BLUAIUSDT",
       "龙虾USDT",
       "GWEIUSDT",
       "CYSUSDT",
@@ -2182,7 +2182,8 @@
       "BULLAUSDT",
       "WLDUSDT",
       "GRVTUSDT",
-      "ICPUSDT"
+      "ICPUSDT",
+      "COAIUSDT"
     ]
   }
 }
