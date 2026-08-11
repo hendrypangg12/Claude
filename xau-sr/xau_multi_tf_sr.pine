@@ -497,26 +497,34 @@ if barstate.islast
 // jadi dia melengkapi level pivot di atas — bukan mengulanginya.
 // High/low sesi yang baru selesai sering jadi acuan sesi berikutnya.
 sesiHL(simple string spec, simple string tz) =>
-    var float h = na
-    var float l = na
-    var int   b = na
+    var float h    = na
+    var float l    = na
+    var int   b    = na
+    var float vJml = 0.0   // total volume selama killzone berjalan
+    var int   vN   = 0     // berapa lilin sudah masuk hitungan
     dalamSesi = not na(time(timeframe.period, spec, tz))
     if dalamSesi and not dalamSesi[1]
-        // Sesi baru dimulai — hitung ulang dari nol
-        h := high
-        l := low
-        b := bar_index
+        // Killzone baru dimulai — hitung ulang dari nol
+        h    := high
+        l    := low
+        b    := bar_index
+        vJml := volume
+        vN   := 1
     else if dalamSesi
-        h := math.max(h, high)
-        l := math.min(l, low)
-    [h, l, b]
+        h    := math.max(h, high)
+        l    := math.min(l, low)
+        vJml := vJml + volume
+        vN   := vN + 1
+    // Rata-rata volume killzone ini dibanding volume rata-rata biasa
+    vRel = vN == 0 or na(volRata) or volRata == 0 ? na : (vJml / vN) / volRata
+    [h, l, b, vRel]
 
-[asH, asL, asB] = sesiHL(sesAsia, tzKz)
-[loH, loL, loB] = sesiHL(sesLon,  tzKz)
-[nyH, nyL, nyB] = sesiHL(sesNY,   tzKz)
-[lcH, lcL, lcB] = sesiHL(sesLc,   tzKz)
+[asH, asL, asB, asV] = sesiHL(sesAsia, tzKz)
+[loH, loL, loB, loV] = sesiHL(sesLon,  tzKz)
+[nyH, nyL, nyB, nyV] = sesiHL(sesNY,   tzKz)
+[lcH, lcL, lcB, lcV] = sesiHL(sesLc,   tzKz)
 
-gambarSesi(simple bool aktif, float h, float l, int b, simple color col, simple string nama) =>
+gambarSesi(simple bool aktif, float h, float l, int b, simple color col, simple string nama, float vRel) =>
     var line  lnH = na
     var line  lnL = na
     var label lbH = na
@@ -536,17 +544,18 @@ gambarSesi(simple bool aktif, float h, float l, int b, simple color col, simple 
             lnL := line.new(b, l, bar_index, l, extend = extend.right,
                  color = color.new(col, 25), width = 1, style = line.style_dotted)
             if showLabel
-                lbH := label.new(bar_index + labelOff, h, nama + " H " + str.tostring(h, format.mintick),
+                lbH := label.new(bar_index + labelOff, h, nama + " H " + str.tostring(h, format.mintick)
+                     + (na(vRel) ? "" : "  " + str.tostring(vRel, "#.0") + "x"),
                      style = label.style_label_left, color = color.new(col, 90),
                      textcolor = col, size = size.tiny)
                 lbL := label.new(bar_index + labelOff, l, nama + " L " + str.tostring(l, format.mintick),
                      style = label.style_label_left, color = color.new(col, 90),
                      textcolor = col, size = size.tiny)
 
-gambarSesi(useAsia, asH, asL, asB, cAsia, "Asia KZ")
-gambarSesi(useLon,  loH, loL, loB, cLon,  "London KZ")
-gambarSesi(useNY,   nyH, nyL, nyB, cNY,   "NY KZ")
-gambarSesi(useLc,   lcH, lcL, lcB, cLc,   "London Close")
+gambarSesi(useAsia, asH, asL, asB, cAsia, "Asia KZ", asV)
+gambarSesi(useLon,  loH, loL, loB, cLon,  "London KZ", loV)
+gambarSesi(useNY,   nyH, nyL, nyB, cNY,   "NY KZ", nyV)
+gambarSesi(useLc,   lcH, lcL, lcB, cLc,   "London Close", lcV)
 
 // ============ KETERANGAN JENDELA DATA =========================
 // Level 4H dihitung dari data 4H yang ikut termuat bersama chart. Di chart
@@ -594,11 +603,16 @@ sedangBuka(simple string spec, simple string tz) =>
 
 // Sesi bisa lebih dari satu sekaligus — jam kerjanya memang tumpang tindih,
 // dan justru jam tumpang tindih itu yang biasanya paling ramai.
-barisSesi(simple bool aktif, simple string spec, simple string tz, simple string nama) =>
-    aktif and sedangBuka(spec, tz) ? nama + "  " + jamWib(spec, tz) + "\n" : ""
+// Volume rata-rata killzone ikut ditulis, supaya kelihatan killzone ini sedang
+// ramai atau sepi dibanding biasanya — bukan cuma tahu jamnya sudah masuk.
+barisSesi(simple bool aktif, simple string spec, simple string tz, simple string nama, float vRel) =>
+    aktif and sedangBuka(spec, tz) ?
+         nama + "  " + jamWib(spec, tz) + (na(vRel) ? "" : "  " + str.tostring(vRel, "#.0") + "x") + "\n" : ""
 
-teksSesi = barisSesi(useAsia, sesAsia, tzKz, "Asia KZ") + barisSesi(useLon, sesLon, tzKz, "London KZ")
-     + barisSesi(useNY, sesNY, tzKz, "NY KZ") + barisSesi(useLc, sesLc, tzKz, "London Close")
+teksSesi = barisSesi(useAsia, sesAsia, tzKz, "Asia KZ", asV)
+     + barisSesi(useLon, sesLon, tzKz, "London KZ", loV)
+     + barisSesi(useNY, sesNY, tzKz, "NY KZ", nyV)
+     + barisSesi(useLc, sesLc, tzKz, "London Close", lcV)
 
 var table info = table.new(position.top_right, 2, 7, border_width = 1)
 if barstate.islast
