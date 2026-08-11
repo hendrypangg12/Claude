@@ -2191,24 +2191,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T04:00:39+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-11T04:02:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
-      "龙虾USDT",
       "BLUAIUSDT",
+      "龙虾USDT",
       "GUAUSDT",
       "BICOUSDT",
       "CYSUSDT",
       "BUSDT",
       "CRVUSDT",
       "ICPUSDT",
-      "BLESSUSDT",
       "SQDUSDT",
       "CLOUSDT",
-      "LITUSDT",
       "BULLAUSDT",
-      "TSTUSDT"
+      "BLESSUSDT",
+      "LITUSDT",
+      "TSTUSDT",
+      "ENAUSDT"
     ]
   }
 }
