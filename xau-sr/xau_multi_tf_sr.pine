@@ -80,6 +80,11 @@ brkMargin  = input.float(0.15, "Jarak minimum dari level (x ATR 4H)", minval = 0
      tooltip = "Harga harus benar-benar menjauh dari level, bukan cuma menempel di sekitarnya")
 brkMinSkor = input.int(3, "Skor minimum level yang dipantau", minval = 1, group = grpBrk,
      tooltip = "Break dari level lemah tidak menarik — bawaan 3, setara level SEDANG ke atas")
+brkMinTf   = input.string("15 menit", "Timeframe terkecil yang ditandai",
+     options = ["4 jam", "1 jam", "30 menit", "15 menit", "3 menit"], group = grpBrk,
+     tooltip = "Break dari level kecil hampir selalu cuma riak. Bawaan 15 menit: level 3 menit diabaikan")
+brkMaxJebol = input.int(3, "Abaikan level yang sudah jebol lebih dari", minval = 1, group = grpBrk,
+     tooltip = "Level yang sudah berkali-kali dijebol berarti sedang jadi zona bolak-balik. Break di situ jarang berarti")
 
 grpSesi = "Sesi pasar (high / low)"
 showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
@@ -313,11 +318,15 @@ tambahGrup(float p, int t, int brk, int tfIdx, bool isR) =>
 // Break dianggap SAH kalau harga bertahan di seberang selama beberapa lilin
 // DAN benar-benar menjauh. Kalau harga balik sebelum itu, hitungannya batal —
 // persis pola false break yang sering muncul di emas.
+brkTfMax = brkMinTf == "4 jam" ? 0 : brkMinTf == "1 jam" ? 1 :
+     brkMinTf == "30 menit" ? 2 : brkMinTf == "15 menit" ? 3 : 4
+
 bool brkNaik  = false
 bool brkTurun = false
 float brkP    = na
 string brkNama = ""
 int brkSkor   = 0
+int brkJebol  = 0
 
 if array.size(aPrice) > 0
     for i = 0 to array.size(aPrice) - 1
@@ -336,10 +345,14 @@ if array.size(aPrice) > 0
                 if array.get(aPend, i) >= konfirBar and cukupJauh
                     array.set(aPend, i, 0)
                     skorLvl = hitungSkor(p, array.get(aTouch, i), array.get(aBreak, i) - 1)
-                    if skorLvl >= brkMinSkor
+                    // Diabaikan kalau levelnya terlalu kecil atau sudah jadi zona
+                    // bolak-balik — dua sumber sinyal palsu yang paling sering.
+                    if skorLvl >= brkMinSkor and array.get(aTf, i) <= brkTfMax
+                         and array.get(aBreak, i) <= brkMaxJebol
                         brkP    := p
                         brkNama := namaTf(array.get(aTf, i))
-                        brkSkor := skorLvl
+                        brkSkor  := skorLvl
+                        brkJebol := array.get(aBreak, i)
                         if sisi == 1
                             brkNaik := true
                         else
@@ -591,12 +604,13 @@ plotshape(showBreak and brkTurun, title = "Break turun", style = shape.triangled
 
 if showBreak and (brkNaik or brkTurun)
     label.new(bar_index, brkNaik ? low : high,
-         "BREAK " + (brkNaik ? "▲ " : "▼ ") + katakuat(brkSkor) + " " + brkNama + "  "
-         + str.tostring(brkP, format.mintick),
+         (brkNaik ? "▲ " : "▼ ") + "TEMBUS LEVEL " + katakuat(brkSkor) + "  " + brkNama + "  "
+         + str.tostring(brkP, format.mintick) + "  · tembus ke-" + str.tostring(brkJebol),
          style = brkNaik ? label.style_label_up : label.style_label_down,
          color = color.new(brkNaik ? #26a69a : #ef5350, 15),
          textcolor = color.white, size = size.tiny)
-    alert("XAU BREAK " + (brkNaik ? "NAIK" : "TURUN") + " menembus " + katakuat(brkSkor)
+    alert("XAU tembus " + (brkNaik ? "NAIK" : "TURUN") + " lewat LEVEL " + katakuat(brkSkor)
          + " (" + brkNama + ") di " + str.tostring(brkP, format.mintick)
-         + " — bertahan " + str.tostring(konfirBar) + " lilin",
+         + " — tembusan ke-" + str.tostring(brkJebol) + " di level ini, bertahan "
+         + str.tostring(konfirBar) + " lilin",
          alert.freq_once_per_bar)
