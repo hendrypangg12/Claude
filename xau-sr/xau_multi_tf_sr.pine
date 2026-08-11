@@ -154,8 +154,11 @@ tol    = atrRef * tolMult
 // CATATAN: di CFD emas, ini volume TICK (jumlah perubahan harga), bukan
 // jumlah lot yang benar-benar diperdagangkan. Berguna sebagai perbandingan
 // ramai/sepi, bukan sebagai ukuran uang yang masuk.
+// Dipakai lilin yang SUDAH TUTUP (volume[1]), bukan lilin berjalan. Lilin yang
+// baru mulai selalu terbaca sepi hanya karena belum selesai — angkanya jadi
+// menyesatkan justru saat paling sering dilihat.
 volRata = ta.sma(volume, volPer)
-rvol    = na(volRata) or volRata == 0 ? na : volume / volRata
+rvol    = na(volRata[1]) or volRata[1] == 0 ? na : volume[1] / volRata[1]
 volKata = na(rvol) ? "-" : rvol >= 1.5 ? "RAMAI" : rvol >= 0.7 ? "sedang" : "SEPI"
 
 // Masukkan satu pivot ke kolam. Kalau sudah ada level sejenis di area yang
@@ -603,7 +606,7 @@ if barstate.islast
         table.cell(info, 0, 1, "", text_size = size.tiny, bgcolor = bg)
         table.cell(info, 1, 1, teksSesi == "" ? "(tidak ada sesi utama)" : teksSesi,
              text_color = teksSesi == "" ? color.gray : color.aqua, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 0, 2, "Volume", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 0, 2, "Volume\n(lilin tutup)", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
         table.cell(info, 1, 2, not showVol or na(rvol) ? "-" :
              str.tostring(rvol, "#.0") + "x  " + volKata,
              text_color = na(rvol) or not showVol ? color.gray :
