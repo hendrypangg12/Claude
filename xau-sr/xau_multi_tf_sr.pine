@@ -97,18 +97,25 @@ brkMinVol = input.float(0.0, "Volume minimum untuk sinyal break (0 = tidak dipak
 grpSesi = "Sesi pasar (high / low)"
 showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
      tooltip = "High/low sesi dibentuk oleh jam kerja pelaku pasar, bukan oleh pola harga — sifatnya beda dari level pivot di atas")
-tzSesi   = input.string("UTC", "Zona waktu jam sesi", options = ["UTC", "Asia/Jakarta"], group = grpSesi)
+// Jam ditulis dalam WAKTU LOKAL KOTANYA, bukan UTC. Dengan begitu daylight
+// saving terurus sendiri: London dan New York maju sejam tiap musim panas,
+// dan kalau jamnya dipatok UTC, tiap tahun dua kali jadi salah satu jam.
+tzSyd = "Australia/Sydney"
+tzTok = "Asia/Tokyo"
+tzFra = "Europe/Berlin"
+tzLon = "Europe/London"
+tzNy  = "America/New_York"
 
 useSyd  = input.bool(true,  "Sydney",    group = grpSesi, inline = "syd")
-sesSyd  = input.session("2100-0600", "", group = grpSesi, inline = "syd")
+sesSyd  = input.session("0800-1700", "", group = grpSesi, inline = "syd")
 cSyd    = input.color(#8d6e63, "",       group = grpSesi, inline = "syd")
 
 useTok  = input.bool(true,  "Tokyo",     group = grpSesi, inline = "tok")
-sesTok  = input.session("0000-0900", "", group = grpSesi, inline = "tok")
+sesTok  = input.session("0900-1800", "", group = grpSesi, inline = "tok")
 cTok    = input.color(#ab47bc, "",       group = grpSesi, inline = "tok")
 
 useFra  = input.bool(false, "Frankfurt", group = grpSesi, inline = "fra")
-sesFra  = input.session("0700-1600", "", group = grpSesi, inline = "fra")
+sesFra  = input.session("0900-1800", "", group = grpSesi, inline = "fra")
 cFra    = input.color(#66bb6a, "",       group = grpSesi, inline = "fra")
 
 useLon  = input.bool(true,  "London",    group = grpSesi, inline = "lon")
@@ -116,7 +123,7 @@ sesLon  = input.session("0800-1700", "", group = grpSesi, inline = "lon")
 cLon    = input.color(#26a69a, "",       group = grpSesi, inline = "lon")
 
 useNY   = input.bool(true,  "New York",  group = grpSesi, inline = "ny")
-sesNY   = input.session("1300-2200", "", group = grpSesi, inline = "ny")
+sesNY   = input.session("0800-1700", "", group = grpSesi, inline = "ny")
 cNY     = input.color(#42a5f5, "",       group = grpSesi, inline = "ny")
 
 grpCol = "Warna per timeframe"
@@ -496,11 +503,11 @@ if barstate.islast
 // Level ini terbentuk dari jam kerja pelaku pasar, bukan dari pola harga,
 // jadi dia melengkapi level pivot di atas — bukan mengulanginya.
 // High/low sesi yang baru selesai sering jadi acuan sesi berikutnya.
-sesiHL(simple string spec) =>
+sesiHL(simple string spec, simple string tz) =>
     var float h = na
     var float l = na
     var int   b = na
-    dalamSesi = not na(time(timeframe.period, spec, tzSesi))
+    dalamSesi = not na(time(timeframe.period, spec, tz))
     if dalamSesi and not dalamSesi[1]
         // Sesi baru dimulai — hitung ulang dari nol
         h := high
@@ -511,11 +518,11 @@ sesiHL(simple string spec) =>
         l := math.min(l, low)
     [h, l, b]
 
-[sydH, sydL, sydB] = sesiHL(sesSyd)
-[tokH, tokL, tokB] = sesiHL(sesTok)
-[fraH, fraL, fraB] = sesiHL(sesFra)
-[lonH, lonL, lonB] = sesiHL(sesLon)
-[nyH,  nyL,  nyB]  = sesiHL(sesNY)
+[sydH, sydL, sydB] = sesiHL(sesSyd, tzSyd)
+[tokH, tokL, tokB] = sesiHL(sesTok, tzTok)
+[fraH, fraL, fraB] = sesiHL(sesFra, tzFra)
+[lonH, lonL, lonB] = sesiHL(sesLon, tzLon)
+[nyH,  nyL,  nyB]  = sesiHL(sesNY,  tzNy)
 
 gambarSesi(simple bool aktif, float h, float l, int b, simple color col, simple string nama) =>
     var line  lnH = na
@@ -576,25 +583,32 @@ mutu4H = jml4H >= (pivLeft + pivRight + 1) * 8 ? "cukup" :
 jamDua(int j, string m) =>
     (j < 10 ? "0" : "") + str.tostring(j) + ":" + m
 
-jamWib(simple string spec) =>
-    off = tzSesi == "UTC" ? 7 : 0
+// Selisih jam kota itu terhadap WIB dihitung dari waktu sekarang, jadi ikut
+// berubah sendiri saat daylight saving mulai atau berakhir.
+selisihWib(simple string tz) =>
+    jJkt = int(str.tonumber(str.format_time(timenow, "HH", "Asia/Jakarta")))
+    jKota = int(str.tonumber(str.format_time(timenow, "HH", tz)))
+    (jJkt - jKota + 24) % 24
+
+jamWib(simple string spec, simple string tz) =>
+    off = selisihWib(tz)
     j1  = (int(str.tonumber(str.substring(spec, 0, 2))) + off) % 24
     m1  = str.substring(spec, 2, 4)
     j2  = (int(str.tonumber(str.substring(spec, 5, 7))) + off) % 24
     m2  = str.substring(spec, 7, 9)
     jamDua(j1, m1) + "-" + jamDua(j2, m2)
 
-sedangBuka(simple string spec) =>
-    not na(time(timeframe.period, spec, tzSesi))
+sedangBuka(simple string spec, simple string tz) =>
+    not na(time(timeframe.period, spec, tz))
 
 // Sesi bisa lebih dari satu sekaligus — jam kerjanya memang tumpang tindih,
 // dan justru jam tumpang tindih itu yang biasanya paling ramai.
-barisSesi(simple bool aktif, simple string spec, simple string nama) =>
-    aktif and sedangBuka(spec) ? nama + "  " + jamWib(spec) + "\n" : ""
+barisSesi(simple bool aktif, simple string spec, simple string tz, simple string nama) =>
+    aktif and sedangBuka(spec, tz) ? nama + "  " + jamWib(spec, tz) + "\n" : ""
 
-teksSesi = barisSesi(useSyd, sesSyd, "Sydney") + barisSesi(useTok, sesTok, "Tokyo")
-     + barisSesi(useFra, sesFra, "Frankfurt") + barisSesi(useLon, sesLon, "London")
-     + barisSesi(useNY, sesNY, "New York")
+teksSesi = barisSesi(useSyd, sesSyd, tzSyd, "Sydney") + barisSesi(useTok, sesTok, tzTok, "Tokyo")
+     + barisSesi(useFra, sesFra, tzFra, "Frankfurt") + barisSesi(useLon, sesLon, tzLon, "London")
+     + barisSesi(useNY, sesNY, tzNy, "New York")
 
 var table info = table.new(position.top_right, 2, 7, border_width = 1)
 if barstate.islast

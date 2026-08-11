@@ -103,15 +103,20 @@ Level ini melengkapi level pivot, bukan mengulanginya: pivot terbentuk dari
 **pola harga**, sedangkan high/low sesi terbentuk dari **jam kerja pelaku pasar**.
 High sesi London yang baru selesai sering jadi acuan sesi New York berikutnya.
 
-Jam bawaan (UTC):
+Jam ditulis dalam **waktu lokal kotanya**, bukan UTC — dengan begitu daylight
+saving terurus sendiri. Kalau jam dipatok ke UTC, London dan New York jadi
+meleset satu jam setiap musim panas.
 
-| Sesi | Jam UTC | Jam WIB | Bawaan |
+| Sesi | Jam lokal | Jam WIB (Agustus) | Bawaan |
 |---|---|---|---|
-| Sydney | 21:00–06:00 | 04:00–13:00 | aktif |
-| Tokyo | 00:00–09:00 | 07:00–16:00 | aktif |
-| Frankfurt | 07:00–16:00 | 14:00–23:00 | **mati** |
-| London | 08:00–17:00 | 15:00–00:00 | aktif |
-| New York | 13:00–22:00 | 20:00–05:00 | aktif |
+| Sydney | 08:00–17:00 | 05:00–14:00 | aktif |
+| Tokyo | 09:00–18:00 | 07:00–16:00 | aktif |
+| Frankfurt | 09:00–18:00 | 14:00–23:00 | **mati** |
+| London | 08:00–17:00 | 14:00–23:00 | aktif |
+| New York | 08:00–17:00 | 19:00–04:00 | aktif |
+
+Kolom WIB berubah sendiri saat daylight saving mulai atau berakhir; kotak info
+di chart selalu menampilkan jam WIB yang berlaku saat itu.
 
 Frankfurt sengaja dimatikan dari bawaan karena jamnya hampir seluruhnya
 tertutup London (beda sejam), jadi garisnya cenderung menempel dan menambah
@@ -121,8 +126,8 @@ Jamnya sengaja tumpang tindih — memang begitu kenyataannya, dan justru jam
 tumpang tindih London–New York yang biasanya paling ramai.
 
 Tiap sesi punya centang, jam, dan warnanya sendiri di grup setelan
-**Sesi pasar**. Kalau lebih nyaman memakai jam WIB, ganti "Zona waktu jam sesi"
-ke `Asia/Jakarta` lalu tulis jamnya dalam WIB. Centang paling atas
+**Sesi pasar**. Jam yang diisi selalu dibaca sebagai waktu lokal kota tersebut.
+Centang paling atas
 (**"Tampilkan high & low tiap sesi"**) mematikan semuanya sekaligus.
 
 ## Alert (notifikasi ke HP)
