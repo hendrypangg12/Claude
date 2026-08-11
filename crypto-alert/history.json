@@ -2216,14 +2216,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T09:16:30+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-11T09:18:28+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
       "CYSUSDT",
-      "GUAUSDT",
       "HEIUSDT",
+      "GUAUSDT",
       "CLOUSDT",
       "UBUSDT",
       "CRVUSDT",
@@ -2231,7 +2231,8 @@
       "LITUSDT",
       "REUSDT",
       "BLESSUSDT",
-      "ICPUSDT"
+      "ICPUSDT",
+      "LINKUSDT"
     ]
   }
 }
