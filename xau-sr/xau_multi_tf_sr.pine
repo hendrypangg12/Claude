@@ -536,23 +536,52 @@ jml4H = na(bar4H) or na(bar4Awal) ? 0 : bar4H - bar4Awal + 1
 mutu4H = jml4H >= (pivLeft + pivRight + 1) * 8 ? "cukup" :
      jml4H >= (pivLeft + pivRight + 1) * 3 ? "tipis" : "SANGAT TIPIS"
 
-var table info = table.new(position.top_right, 2, 3, border_width = 1)
+// Jam sesi ditulis dalam zona waktu pilihan (bawaan UTC). Ditampilkan ulang
+// dalam WIB supaya tidak perlu menghitung sendiri tiap kali melihat.
+jamDua(int j, string m) =>
+    (j < 10 ? "0" : "") + str.tostring(j) + ":" + m
+
+jamWib(simple string spec) =>
+    off = tzSesi == "UTC" ? 7 : 0
+    j1  = (int(str.tonumber(str.substring(spec, 0, 2))) + off) % 24
+    m1  = str.substring(spec, 2, 4)
+    j2  = (int(str.tonumber(str.substring(spec, 5, 7))) + off) % 24
+    m2  = str.substring(spec, 7, 9)
+    jamDua(j1, m1) + "-" + jamDua(j2, m2)
+
+sedangBuka(simple string spec) =>
+    not na(time(timeframe.period, spec, tzSesi))
+
+// Sesi bisa lebih dari satu sekaligus — jam kerjanya memang tumpang tindih,
+// dan justru jam tumpang tindih itu yang biasanya paling ramai.
+barisSesi(simple bool aktif, simple string spec, simple string nama) =>
+    aktif and sedangBuka(spec) ? nama + "  " + jamWib(spec) + "\n" : ""
+
+teksSesi = barisSesi(useSyd, sesSyd, "Sydney") + barisSesi(useTok, sesTok, "Tokyo")
+     + barisSesi(useFra, sesFra, "Frankfurt") + barisSesi(useLon, sesLon, "London")
+     + barisSesi(useNY, sesNY, "New York")
+
+var table info = table.new(position.top_right, 2, 6, border_width = 1)
 if barstate.islast
     if showInfo
-        table.cell(info, 0, 0, "Jendela data", text_color = color.gray, text_size = size.tiny,
-             bgcolor = color.new(color.black, 20))
-        table.cell(info, 1, 0, "", bgcolor = color.new(color.black, 20))
-        table.cell(info, 0, 1, "sejak", text_color = color.gray, text_size = size.tiny,
-             bgcolor = color.new(color.black, 20))
-        table.cell(info, 1, 1, str.format_time(waktuAwal, "d MMM yyyy", "Asia/Jakarta"),
-             text_color = color.white, text_size = size.tiny, bgcolor = color.new(color.black, 20))
-        table.cell(info, 0, 2, "lilin 4H", text_color = color.gray, text_size = size.tiny,
-             bgcolor = color.new(color.black, 20))
-        table.cell(info, 1, 2, str.tostring(jml4H) + " (" + mutu4H + ")",
+        bg = color.new(color.black, 20)
+        table.cell(info, 0, 0, "Sesi sekarang", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 0, str.format_time(timenow, "HH:mm", "Asia/Jakarta") + " WIB",
+             text_color = color.white, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 0, 1, "", text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 1, teksSesi == "" ? "(tidak ada sesi utama)" : teksSesi,
+             text_color = teksSesi == "" ? color.gray : color.aqua, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 0, 2, "Jendela data", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 2, "", bgcolor = bg)
+        table.cell(info, 0, 3, "sejak", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 3, str.format_time(waktuAwal, "d MMM yyyy", "Asia/Jakarta"),
+             text_color = color.white, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 0, 4, "lilin 4H", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 4, str.tostring(jml4H) + " (" + mutu4H + ")",
              text_color = mutu4H == "cukup" ? color.lime : mutu4H == "tipis" ? color.orange : color.red,
-             text_size = size.tiny, bgcolor = color.new(color.black, 20))
+             text_size = size.tiny, bgcolor = bg)
     else
-        table.clear(info, 0, 0, 1, 2)
+        table.clear(info, 0, 0, 1, 5)
 
 // ---- Tanda break yang terkonfirmasi di chart ------------------
 plotshape(showBreak and brkNaik,  title = "Break naik",  style = shape.triangleup,
