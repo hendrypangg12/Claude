@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T14:38:27+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-11T14:40:40+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "VELVETUSDT",
@@ -2254,9 +2254,10 @@
       "CRVUSDT",
       "LITUSDT",
       "UBUSDT",
-      "UAIUSDT",
       "GIGGLEUSDT",
-      "ICPUSDT"
+      "UAIUSDT",
+      "ICPUSDT",
+      "BASEDUSDT"
     ]
   }
 }
