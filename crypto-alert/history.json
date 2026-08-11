@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-11T13:18:38+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-11T13:20:46+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BLUAIUSDT",
@@ -2251,14 +2251,15 @@
       "CLOUSDT",
       "CAPUSDT",
       "UBUSDT",
-      "BTWUSDT",
       "UAIUSDT",
+      "BTWUSDT",
       "CRVUSDT",
       "LITUSDT",
-      "BANANAS31USDT",
       "GIGGLEUSDT",
-      "LINKUSDT",
-      "BASEDUSDT"
+      "BANANAS31USDT",
+      "POWERUSDT",
+      "BASEDUSDT",
+      "LINKUSDT"
     ]
   }
 }
