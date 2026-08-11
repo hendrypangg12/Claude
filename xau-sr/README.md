@@ -94,41 +94,33 @@ disetel ulang tiap ganti dari 3m ke 1H.
 - Di plan free, alert bisa masuk ke app TradingView di HP, tapi **belum bisa kirim
   webhook** ke server sendiri (butuh plan Essential ke atas).
 
-## High / low sesi pasar
+## High / low Killzone
 
-Selain level pivot, indikator ini menggambar **high dan low tiap sesi** —
-Asia (Tokyo), London, dan New York — sebagai garis titik-titik berwarna.
+Selain level pivot, indikator ini menggambar **high dan low tiap killzone**
+sebagai garis titik-titik berwarna.
+
+Yang dipakai patokan **ICT Killzone**, bukan jam kerja bursa. Killzone adalah
+jendela sempit tempat pergerakan besar paling sering muncul — bukan seluruh jam
+buka pasar. Jamnya ditulis dalam **waktu New York** sesuai definisi ICT, jadi
+daylight saving terurus sendiri.
+
+| Killzone | Jam New York | Jam WIB (Agustus) |
+|---|---|---|
+| Asia | 20:00–00:00 | 07:00–11:00 |
+| London | 02:00–05:00 | 13:00–16:00 |
+| New York | 07:00–10:00 | 18:00–21:00 |
+| London Close | 10:00–12:00 | 21:00–23:00 |
+
+Kolom WIB bergeser sendiri saat daylight saving berganti; kotak info di chart
+selalu menampilkan jam WIB yang berlaku saat itu.
 
 Level ini melengkapi level pivot, bukan mengulanginya: pivot terbentuk dari
-**pola harga**, sedangkan high/low sesi terbentuk dari **jam kerja pelaku pasar**.
-High sesi London yang baru selesai sering jadi acuan sesi New York berikutnya.
+**pola harga**, sedangkan high/low killzone terbentuk dari **jam aktif pelaku
+pasar**. High killzone London yang baru selesai sering jadi acuan killzone
+New York berikutnya.
 
-Jam ditulis dalam **waktu lokal kotanya**, bukan UTC — dengan begitu daylight
-saving terurus sendiri. Kalau jam dipatok ke UTC, London dan New York jadi
-meleset satu jam setiap musim panas.
-
-| Sesi | Jam lokal | Jam WIB (Agustus) | Bawaan |
-|---|---|---|---|
-| Sydney | 08:00–17:00 | 05:00–14:00 | aktif |
-| Tokyo | 09:00–18:00 | 07:00–16:00 | aktif |
-| Frankfurt | 09:00–18:00 | 14:00–23:00 | **mati** |
-| London | 08:00–17:00 | 14:00–23:00 | aktif |
-| New York | 08:00–17:00 | 19:00–04:00 | aktif |
-
-Kolom WIB berubah sendiri saat daylight saving mulai atau berakhir; kotak info
-di chart selalu menampilkan jam WIB yang berlaku saat itu.
-
-Frankfurt sengaja dimatikan dari bawaan karena jamnya hampir seluruhnya
-tertutup London (beda sejam), jadi garisnya cenderung menempel dan menambah
-ramai tanpa menambah informasi. Nyalakan kalau memang butuh.
-
-Jamnya sengaja tumpang tindih — memang begitu kenyataannya, dan justru jam
-tumpang tindih London–New York yang biasanya paling ramai.
-
-Tiap sesi punya centang, jam, dan warnanya sendiri di grup setelan
-**Sesi pasar**. Jam yang diisi selalu dibaca sebagai waktu lokal kota tersebut.
-Centang paling atas
-(**"Tampilkan high & low tiap sesi"**) mematikan semuanya sekaligus.
+Tiap killzone punya centang, jam, dan warnanya sendiri di grup setelan
+**Killzone**. Centang paling atas mematikan semuanya sekaligus.
 
 ## Alert (notifikasi ke HP)
 
