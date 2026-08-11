@@ -86,6 +86,14 @@ brkMinTf   = input.string("15 menit", "Timeframe terkecil yang ditandai",
 brkMaxJebol = input.int(3, "Abaikan level yang sudah jebol lebih dari", minval = 1, group = grpBrk,
      tooltip = "Level yang sudah berkali-kali dijebol berarti sedang jadi zona bolak-balik. Break di situ jarang berarti")
 
+grpVol = "Volume"
+showVol = input.bool(true, "Tampilkan kekuatan volume", group = grpVol,
+     tooltip = "Volume relatif = volume lilin sekarang dibanding rata-rata. Di atas 1,5x berarti ramai; di bawah 0,7x berarti sepi")
+volPer  = input.int(20, "Rata-rata volume berapa lilin", minval = 5, group = grpVol)
+brkMinVol = input.float(0.0, "Volume minimum untuk sinyal break (0 = tidak dipakai)", minval = 0.0,
+     step = 0.1, group = grpVol,
+     tooltip = "Isi 1.2 kalau mau break hanya ditandai saat volumenya di atas rata-rata. Tembusan dengan volume sepi sering palsu")
+
 grpSesi = "Sesi pasar (high / low)"
 showSesi = input.bool(true, "Tampilkan high & low tiap sesi", group = grpSesi,
      tooltip = "High/low sesi dibentuk oleh jam kerja pelaku pasar, bukan oleh pola harga — sifatnya beda dari level pivot di atas")
@@ -139,6 +147,16 @@ var array<float> lastL = array.new_float(5, na)
 // timeframe chart — di 3m nilainya kekecilan, di 4H kebesaran.
 atrRef = request.security(syminfo.tickerid, "240", ta.atr(14), lookahead = barmerge.lookahead_off)
 tol    = atrRef * tolMult
+
+// Volume relatif: volume lilin ini dibanding rata-ratanya. Ini satu-satunya
+// bahan di indikator ini yang BUKAN berasal dari harga, jadi dia memberi
+// informasi baru — bukan cara lain untuk mengatakan hal yang sama.
+// CATATAN: di CFD emas, ini volume TICK (jumlah perubahan harga), bukan
+// jumlah lot yang benar-benar diperdagangkan. Berguna sebagai perbandingan
+// ramai/sepi, bukan sebagai ukuran uang yang masuk.
+volRata = ta.sma(volume, volPer)
+rvol    = na(volRata) or volRata == 0 ? na : volume / volRata
+volKata = na(rvol) ? "-" : rvol >= 1.5 ? "RAMAI" : rvol >= 0.7 ? "sedang" : "SEPI"
 
 // Masukkan satu pivot ke kolam. Kalau sudah ada level sejenis di area yang
 // sama, jangan bikin garis baru — naikkan hitungan sentuhannya.
@@ -347,8 +365,9 @@ if array.size(aPrice) > 0
                     skorLvl = hitungSkor(p, array.get(aTouch, i), array.get(aBreak, i) - 1)
                     // Diabaikan kalau levelnya terlalu kecil atau sudah jadi zona
                     // bolak-balik — dua sumber sinyal palsu yang paling sering.
+                    volCukup = brkMinVol <= 0 or (not na(rvol) and rvol >= brkMinVol)
                     if skorLvl >= brkMinSkor and array.get(aTf, i) <= brkTfMax
-                         and array.get(aBreak, i) <= brkMaxJebol
+                         and array.get(aBreak, i) <= brkMaxJebol and volCukup
                         brkP    := p
                         brkNama := namaTf(array.get(aTf, i))
                         brkSkor  := skorLvl
@@ -574,7 +593,7 @@ teksSesi = barisSesi(useSyd, sesSyd, "Sydney") + barisSesi(useTok, sesTok, "Toky
      + barisSesi(useFra, sesFra, "Frankfurt") + barisSesi(useLon, sesLon, "London")
      + barisSesi(useNY, sesNY, "New York")
 
-var table info = table.new(position.top_right, 2, 6, border_width = 1)
+var table info = table.new(position.top_right, 2, 7, border_width = 1)
 if barstate.islast
     if showInfo
         bg = color.new(color.black, 20)
@@ -584,17 +603,23 @@ if barstate.islast
         table.cell(info, 0, 1, "", text_size = size.tiny, bgcolor = bg)
         table.cell(info, 1, 1, teksSesi == "" ? "(tidak ada sesi utama)" : teksSesi,
              text_color = teksSesi == "" ? color.gray : color.aqua, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 0, 2, "Jendela data", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 1, 2, "", bgcolor = bg)
-        table.cell(info, 0, 3, "sejak", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 1, 3, str.format_time(waktuAwal, "d MMM yyyy", "Asia/Jakarta"),
+        table.cell(info, 0, 2, "Volume", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 2, not showVol or na(rvol) ? "-" :
+             str.tostring(rvol, "#.0") + "x  " + volKata,
+             text_color = na(rvol) or not showVol ? color.gray :
+                  rvol >= 1.5 ? color.lime : rvol >= 0.7 ? color.white : color.orange,
+             text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 0, 3, "Jendela data", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 3, "", bgcolor = bg)
+        table.cell(info, 0, 4, "sejak", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 4, str.format_time(waktuAwal, "d MMM yyyy", "Asia/Jakarta"),
              text_color = color.white, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 0, 4, "lilin 4H", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
-        table.cell(info, 1, 4, str.tostring(jml4H) + " (" + mutu4H + ")",
+        table.cell(info, 0, 5, "lilin 4H", text_color = color.gray, text_size = size.tiny, bgcolor = bg)
+        table.cell(info, 1, 5, str.tostring(jml4H) + " (" + mutu4H + ")",
              text_color = mutu4H == "cukup" ? color.lime : mutu4H == "tipis" ? color.orange : color.red,
              text_size = size.tiny, bgcolor = bg)
     else
-        table.clear(info, 0, 0, 1, 5)
+        table.clear(info, 0, 0, 1, 6)
 
 // ---- Tanda break yang terkonfirmasi di chart ------------------
 plotshape(showBreak and brkNaik,  title = "Break naik",  style = shape.triangleup,
@@ -605,12 +630,14 @@ plotshape(showBreak and brkTurun, title = "Break turun", style = shape.triangled
 if showBreak and (brkNaik or brkTurun)
     label.new(bar_index, brkNaik ? low : high,
          (brkNaik ? "▲ " : "▼ ") + "TEMBUS LEVEL " + katakuat(brkSkor) + "  " + brkNama + "  "
-         + str.tostring(brkP, format.mintick) + "  · tembus ke-" + str.tostring(brkJebol),
+         + str.tostring(brkP, format.mintick) + "  · tembus ke-" + str.tostring(brkJebol)
+         + (na(rvol) ? "" : "  · vol " + str.tostring(rvol, "#.0") + "x"),
          style = brkNaik ? label.style_label_up : label.style_label_down,
          color = color.new(brkNaik ? #26a69a : #ef5350, 15),
          textcolor = color.white, size = size.tiny)
     alert("XAU tembus " + (brkNaik ? "NAIK" : "TURUN") + " lewat LEVEL " + katakuat(brkSkor)
          + " (" + brkNama + ") di " + str.tostring(brkP, format.mintick)
-         + " — tembusan ke-" + str.tostring(brkJebol) + " di level ini, bertahan "
+         + " — tembusan ke-" + str.tostring(brkJebol) + " di level ini, volume "
+         + (na(rvol) ? "?" : str.tostring(rvol, "#.0") + "x") + ", bertahan "
          + str.tostring(konfirBar) + " lilin",
          alert.freq_once_per_bar)
