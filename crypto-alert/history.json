@@ -2240,22 +2240,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T14:00:40+00:00",
+    "time": "2026-08-12T14:02:26+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
-      "NILUSDT",
       "BEATUSDT",
+      "NILUSDT",
       "CAPUSDT",
+      "FHEUSDT",
       "BTWUSDT",
       "HOLOUSDT",
-      "FHEUSDT",
-      "HUSDT",
       "ACEUSDT",
+      "HUSDT",
       "GUAUSDT",
-      "VIRTUALUSDT",
-      "CYSUSDT"
+      "CYSUSDT",
+      "VIRTUALUSDT"
     ]
   }
 }
