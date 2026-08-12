@@ -86,6 +86,12 @@ brkMinTf   = input.string("15 menit", "Timeframe terkecil yang ditandai",
 brkMaxJebol = input.int(3, "Abaikan level yang sudah jebol lebih dari", minval = 1, group = grpBrk,
      tooltip = "Level yang sudah berkali-kali dijebol berarti sedang jadi zona bolak-balik. Break di situ jarang berarti")
 
+grpHari = "Level harian"
+showHari = input.bool(true, "Tampilkan PDH, PDL, dan open harian", group = grpHari,
+     tooltip = "Level paling banyak dilihat orang, apa pun alirannya. Makin banyak yang memperhatikan harga yang sama, makin sering harga bereaksi di situ")
+cPdh  = input.color(#e0e0e0, "Warna PDH / PDL", group = grpHari)
+cOpen = input.color(#7e9fd4, "Warna open harian", group = grpHari)
+
 grpVol = "Volume"
 showVol = input.bool(true, "Tampilkan kekuatan volume", group = grpVol,
      tooltip = "Volume relatif = volume lilin sekarang dibanding rata-rata. Di atas 1,5x berarti ramai; di bawah 0,7x berarti sepi")
@@ -662,3 +668,35 @@ if showBreak and (brkNaik or brkTurun)
          + (na(rvol) ? "?" : str.tostring(rvol, "#.0") + "x") + ", bertahan "
          + str.tostring(konfirBar) + " lilin",
          alert.freq_once_per_bar)
+
+// ============ LEVEL HARIAN: PDH / PDL / OPEN ==================
+// High dan low hari sebelumnya, plus harga pembukaan hari ini. Berbeda dari
+// killzone yang khas aliran ICT, tiga level ini diperhatikan hampir semua
+// trader emas — dan level yang dilihat banyak orang lebih sering direspons.
+// Batas harinya mengikuti penutupan New York, sama seperti lilin harian.
+// Memakai [1] dengan lookahead_on: nilai hari kemarin memang sudah final,
+// jadi tidak ada informasi masa depan yang bocor.
+[pdh, pdl] = request.security(syminfo.tickerid, "D", [high[1], low[1]],
+     lookahead = barmerge.lookahead_on)
+dOpen = request.security(syminfo.tickerid, "D", open, lookahead = barmerge.lookahead_on)
+
+gambarHarian(float harga, simple color col, simple string nama) =>
+    var line  ln = na
+    var label lb = na
+    if barstate.islast
+        line.delete(ln)
+        label.delete(lb)
+        ln := na
+        lb := na
+        if showHari and not na(harga)
+            ln := line.new(bar_index - 1, harga, bar_index, harga, extend = extend.right,
+                 color = color.new(col, 20), width = 1, style = line.style_solid)
+            if showLabel
+                lb := label.new(bar_index + labelOff, harga,
+                     nama + "  " + str.tostring(harga, format.mintick),
+                     style = label.style_label_left, color = color.new(col, 88),
+                     textcolor = col, size = size.tiny)
+
+gambarHarian(pdh,   cPdh,  "PDH")
+gambarHarian(pdl,   cPdh,  "PDL")
+gambarHarian(dOpen, cOpen, "Open hari ini")
