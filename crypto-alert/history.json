@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T03:48:35+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-12T03:50:39+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "HOLOUSDT",
@@ -2249,12 +2249,13 @@
       "VELVETUSDT",
       "CAPUSDT",
       "FHEUSDT",
-      "AKEUSDT",
       "BTWUSDT",
+      "AKEUSDT",
       "REUSDT",
       "SQDUSDT",
       "GIGGLEUSDT",
-      "CCUSDT"
+      "CCUSDT",
+      "NEARUSDT"
     ]
   }
 }
