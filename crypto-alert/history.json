@@ -2264,25 +2264,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T18:28:26+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-12T18:37:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
       "BTWUSDT",
       "CYSUSDT",
       "NILUSDT",
-      "VIRTUALUSDT",
       "COTIUSDT",
-      "VELVETUSDT",
+      "VIRTUALUSDT",
       "BEATUSDT",
-      "GUAUSDT",
-      "GRVTUSDT",
-      "AIAUSDT",
+      "VELVETUSDT",
       "POWERUSDT",
+      "GRVTUSDT",
+      "GUAUSDT",
+      "AIAUSDT",
       "NEARUSDT",
       "ZECUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "4USDT"
     ]
   }
 }
