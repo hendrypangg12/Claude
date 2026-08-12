@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T13:26:35+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-12T13:28:35+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -2251,12 +2251,13 @@
       "BTWUSDT",
       "CAPUSDT",
       "HOLOUSDT",
-      "ACEUSDT",
       "BLESSUSDT",
-      "HUSDT",
-      "AIAUSDT",
       "CYSUSDT",
-      "CCUSDT"
+      "HUSDT",
+      "ACEUSDT",
+      "AIAUSDT",
+      "CCUSDT",
+      "VIRTUALUSDT"
     ]
   }
 }
