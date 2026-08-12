@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T11:46:27+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-12T11:48:32+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -2254,10 +2254,12 @@
       "BLESSUSDT",
       "HOLOUSDT",
       "HUSDT",
-      "CCUSDT",
+      "CYSUSDT",
       "POWERUSDT",
-      "KGENUSDT",
-      "AKEUSDT"
+      "CCUSDT",
+      "AKEUSDT",
+      "CRVUSDT",
+      "KGENUSDT"
     ]
   }
 }
