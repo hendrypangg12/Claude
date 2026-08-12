@@ -2240,7 +2240,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T12:52:30+00:00",
+    "time": "2026-08-12T12:54:36+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -2250,16 +2250,16 @@
       "SQDUSDT",
       "NILUSDT",
       "FHEUSDT",
+      "CAPUSDT",
       "BLESSUSDT",
       "HUSDT",
       "HOLOUSDT",
-      "CAPUSDT",
       "AIAUSDT",
-      "AKEUSDT",
+      "CYSUSDT",
       "CCUSDT",
-      "GUAUSDT",
       "NEARUSDT",
-      "ACEUSDT"
+      "ACEUSDT",
+      "AKEUSDT"
     ]
   }
 }
