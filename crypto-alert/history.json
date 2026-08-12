@@ -2240,7 +2240,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T11:48:32+00:00",
+    "time": "2026-08-12T11:50:32+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -2252,14 +2252,14 @@
       "FHEUSDT",
       "NILUSDT",
       "BLESSUSDT",
-      "HOLOUSDT",
       "HUSDT",
-      "CYSUSDT",
+      "HOLOUSDT",
       "POWERUSDT",
-      "CCUSDT",
       "AKEUSDT",
+      "CYSUSDT",
+      "CCUSDT",
       "CRVUSDT",
-      "KGENUSDT"
+      "AIAUSDT"
     ]
   }
 }
