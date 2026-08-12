@@ -2240,12 +2240,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T01:36:37+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-12T01:38:44+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
-      "BTRUSDT",
       "VELVETUSDT",
+      "BTRUSDT",
       "HOLOUSDT",
       "CAPUSDT",
       "SQDUSDT",
@@ -2253,9 +2253,10 @@
       "GIGGLEUSDT",
       "AKEUSDT",
       "INJUSDT",
-      "KGENUSDT",
       "BTWUSDT",
-      "CCUSDT"
+      "KGENUSDT",
+      "SLXUSDT",
+      "LINKUSDT"
     ]
   }
 }
