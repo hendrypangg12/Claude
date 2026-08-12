@@ -2240,8 +2240,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T02:28:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-12T02:30:39+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -2257,7 +2257,8 @@
       "INJUSDT",
       "KGENUSDT",
       "CRVUSDT",
-      "LINKUSDT"
+      "LINKUSDT",
+      "CCUSDT"
     ]
   }
 }
