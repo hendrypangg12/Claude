@@ -13,7 +13,7 @@
     "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
-    "BTWUSDT": "2026-08-05T03:36:36+00:00",
+    "BTWUSDT": "2026-08-12T14:48:30+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-08-06T06:24:41+00:00",
     "EPICUSDT": "2026-08-07T16:56:29+00:00",
@@ -2237,25 +2237,50 @@
       "time": "2026-08-11T09:58:30+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-11T10:04:34+00:00"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "pct": 8.34,
+      "price": 0.214706,
+      "quote_volume": 1815577.276627,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5089280775190999,
+      "retrace_pct": 0.7759317882477926,
+      "wick_ratio": 0.17728319263237258,
+      "rsi": 66.69878773534082,
+      "divergence": false,
+      "vol_spike": 0.026953592738015907,
+      "btc_pct": -0.29855968661970883,
+      "sl": 0.21854885,
+      "tp1": 0.210023936,
+      "tp2": 0.206094064,
+      "tp3": 0.199733,
+      "funding_rate": 0.039,
+      "orderbook_ratio": 1.5906540908382951,
+      "time": "2026-08-12T14:48:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T14:46:33+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-08-12T14:48:30+00:00",
+    "shortlist_count": 14,
+    "confirmed_count": 1,
     "symbols": [
       "APRUSDT",
       "NILUSDT",
       "GUAUSDT",
       "BTWUSDT",
-      "BEATUSDT",
       "CAPUSDT",
       "HUSDT",
-      "GRVTUSDT",
       "FHEUSDT",
-      "VIRTUALUSDT",
+      "BEATUSDT",
+      "GRVTUSDT",
       "MUBARAKUSDT",
-      "HOLOUSDT"
+      "HOLOUSDT",
+      "VIRTUALUSDT",
+      "CYSUSDT",
+      "NEARUSDT"
     ]
   }
 }
