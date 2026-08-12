@@ -2240,7 +2240,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T06:26:30+00:00",
+    "time": "2026-08-12T06:28:26+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -2250,11 +2250,11 @@
       "BTWUSDT",
       "CAPUSDT",
       "AKEUSDT",
-      "BTRUSDT",
       "CCUSDT",
-      "BLESSUSDT",
-      "SYNUSDT",
-      "GIGGLEUSDT"
+      "BTRUSDT",
+      "CRVUSDT",
+      "GIGGLEUSDT",
+      "BLESSUSDT"
     ]
   }
 }
