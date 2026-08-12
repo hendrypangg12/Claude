@@ -2259,26 +2259,28 @@
       "funding_rate": 0.039,
       "orderbook_ratio": 1.5906540908382951,
       "time": "2026-08-12T14:48:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-12T15:28:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-12T15:26:35+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-12T15:28:28+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
       "NILUSDT",
       "CAPUSDT",
-      "BEATUSDT",
       "GUAUSDT",
+      "BEATUSDT",
       "BTWUSDT",
       "VIRTUALUSDT",
-      "FHEUSDT",
       "HUSDT",
       "CYSUSDT",
       "NEARUSDT",
-      "MUBARAKUSDT"
+      "FHEUSDT",
+      "MUBARAKUSDT",
+      "VELVETUSDT"
     ]
   }
 }
