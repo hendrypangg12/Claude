@@ -2288,7 +2288,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T17:56:34+00:00",
+    "time": "2026-08-13T17:58:37+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -2301,10 +2301,10 @@
       "MYXUSDT",
       "ETHFIUSDT",
       "ATOMUSDT",
-      "BTWUSDT",
       "BULLAUSDT",
-      "ROBOUSDT",
-      "REUSDT"
+      "BTWUSDT",
+      "REUSDT",
+      "ROBOUSDT"
     ]
   }
 }
