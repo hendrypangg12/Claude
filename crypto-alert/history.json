@@ -2283,11 +2283,12 @@
       "funding_rate": -0.006,
       "orderbook_ratio": 0.1043508324068659,
       "time": "2026-08-13T10:19:44+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-13T10:30:39+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T10:28:26+00:00",
+    "time": "2026-08-13T10:30:39+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -2295,14 +2296,14 @@
       "ACUUSDT",
       "VELVETUSDT",
       "BRUSDT",
-      "AKEUSDT",
       "BTWUSDT",
+      "AKEUSDT",
       "TSTUSDT",
-      "COTIUSDT",
-      "BLUAIUSDT",
       "REUSDT",
+      "COTIUSDT",
       "VIRTUALUSDT",
       "ROBOUSDT",
+      "BLUAIUSDT",
       "HYPEUSDT"
     ]
   }
