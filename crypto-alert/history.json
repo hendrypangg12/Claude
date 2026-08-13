@@ -2264,8 +2264,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T08:42:34+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-13T08:44:31+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -2275,14 +2275,16 @@
       "NILUSDT",
       "VIRTUALUSDT",
       "TSTUSDT",
+      "BTWUSDT",
       "COTIUSDT",
       "SKYAIUSDT",
-      "BTWUSDT",
       "PUMPUSDT",
-      "REUSDT",
-      "AVAXUSDT",
       "ONEUSDT",
-      "ZECUSDT"
+      "REUSDT",
+      "GRVTUSDT",
+      "AVAXUSDT",
+      "ZECUSDT",
+      "ROBOUSDT"
     ]
   }
 }
