@@ -2264,8 +2264,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T10:10:34+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-13T10:12:33+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -2274,13 +2274,14 @@
       "BRUSDT",
       "BTWUSDT",
       "TSTUSDT",
-      "AKEUSDT",
       "BLUAIUSDT",
-      "REUSDT",
+      "AKEUSDT",
       "VIRTUALUSDT",
-      "COTIUSDT",
+      "REUSDT",
       "ROBOUSDT",
-      "HYPEUSDT"
+      "COTIUSDT",
+      "HYPEUSDT",
+      "ONEUSDT"
     ]
   }
 }
