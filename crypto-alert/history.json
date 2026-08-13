@@ -2264,8 +2264,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T00:50:31+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-13T00:52:33+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -2281,11 +2281,10 @@
       "POWERUSDT",
       "GUAUSDT",
       "MUBARAKUSDT",
-      "GRVTUSDT",
       "XMRUSDT",
-      "DEXEUSDT",
       "AIAUSDT",
-      "BLUAIUSDT"
+      "GRVTUSDT",
+      "DEXEUSDT"
     ]
   }
 }
