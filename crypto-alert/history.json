@@ -2264,12 +2264,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T09:34:32+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-13T09:36:27+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
-      "APRUSDT",
       "BTWUSDT",
+      "APRUSDT",
       "ACUUSDT",
       "BRUSDT",
       "VELVETUSDT",
@@ -2277,9 +2277,7 @@
       "VIRTUALUSDT",
       "REUSDT",
       "NILUSDT",
-      "COTIUSDT",
-      "BLUAIUSDT",
-      "AVAXUSDT"
+      "COTIUSDT"
     ]
   }
 }
