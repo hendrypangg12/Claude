@@ -2307,12 +2307,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.0762686600323899,
       "time": "2026-08-13T18:54:33+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-13T19:00:55+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T18:58:35+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-13T19:00:55+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -2329,8 +2330,7 @@
       "ROBOUSDT",
       "PUMPUSDT",
       "BLUAIUSDT",
-      "CAPUSDT",
-      "BTWUSDT"
+      "CAPUSDT"
     ]
   }
 }
