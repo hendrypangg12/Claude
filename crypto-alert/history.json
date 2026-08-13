@@ -2264,16 +2264,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T06:44:36+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-13T06:46:31+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
       "APRUSDT",
       "VELVETUSDT",
       "CYSUSDT",
-      "BTWUSDT",
       "NILUSDT",
+      "BTWUSDT",
       "COTIUSDT",
       "VIRTUALUSDT",
       "龙虾USDT",
@@ -2282,9 +2282,10 @@
       "DEXEUSDT",
       "LITUSDT",
       "HYPEUSDT",
+      "4USDT",
       "AVAXUSDT",
-      "AIAUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
