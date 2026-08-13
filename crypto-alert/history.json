@@ -2288,7 +2288,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T15:50:31+00:00",
+    "time": "2026-08-13T15:52:34+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -2303,12 +2303,12 @@
       "REUSDT",
       "VELVETUSDT",
       "ATOMUSDT",
-      "ONEUSDT",
-      "BULLAUSDT",
-      "PUMPUSDT",
-      "ETHFIUSDT",
       "BLUAIUSDT",
-      "LITUSDT"
+      "BULLAUSDT",
+      "ONEUSDT",
+      "ETHFIUSDT",
+      "LITUSDT",
+      "PUMPUSDT"
     ]
   }
 }
