@@ -2264,7 +2264,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T08:08:35+00:00",
+    "time": "2026-08-13T08:10:38+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -2275,13 +2275,13 @@
       "TSTUSDT",
       "VIRTUALUSDT",
       "CYSUSDT",
-      "COTIUSDT",
       "BTWUSDT",
-      "PUMPUSDT",
+      "COTIUSDT",
       "AVAXUSDT",
       "SKYAIUSDT",
-      "REUSDT",
-      "HYPEUSDT"
+      "PUMPUSDT",
+      "HYPEUSDT",
+      "REUSDT"
     ]
   }
 }
