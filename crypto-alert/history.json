@@ -2312,8 +2312,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-13T22:22:29+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-13T22:24:32+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -2328,13 +2328,11 @@
       "ROBOUSDT",
       "MYXUSDT",
       "ATOMUSDT",
+      "EPICUSDT",
+      "REUSDT",
       "PUMPUSDT",
       "BTWUSDT",
-      "REUSDT",
-      "EPICUSDT",
-      "CAPUSDT",
-      "IOUSDT",
-      "BLUAIUSDT"
+      "IOUSDT"
     ]
   }
 }
