@@ -2385,7 +2385,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T14:50:34+00:00",
+    "time": "2026-08-14T14:52:33+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -2397,11 +2397,11 @@
       "HEIUSDT",
       "BTWUSDT",
       "BLESSUSDT",
-      "EDENUSDT",
       "ROBOUSDT",
-      "ETHFIUSDT",
+      "EDENUSDT",
       "BLUAIUSDT",
-      "APRUSDT"
+      "APRUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
