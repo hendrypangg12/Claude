@@ -2409,7 +2409,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T20:38:35+00:00",
+    "time": "2026-08-14T20:40:40+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -2419,12 +2419,12 @@
       "CYSUSDT",
       "BTWUSDT",
       "HUSDT",
-      "CAPUSDT",
       "HEIUSDT",
+      "CAPUSDT",
       "XAIUSDT",
       "BLESSUSDT",
-      "ETHFIUSDT",
-      "TRUMPUSDT"
+      "TRUMPUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
