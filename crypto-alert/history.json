@@ -2337,26 +2337,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T00:12:38+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-14T00:14:33+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
-      "AKEUSDT",
       "EDENUSDT",
+      "AKEUSDT",
       "AVAAIUSDT",
-      "HUSDT",
       "AVNTUSDT",
+      "HUSDT",
       "ETHFIUSDT",
       "ACUUSDT",
       "PLUMEUSDT",
-      "ROBOUSDT",
       "BTWUSDT",
+      "ROBOUSDT",
       "ATOMUSDT",
       "GRASSUSDT",
       "BULLAUSDT",
-      "MYXUSDT",
       "PUMPUSDT",
-      "BLUAIUSDT"
+      "MYXUSDT",
+      "BLUAIUSDT",
+      "EPICUSDT"
     ]
   }
 }
