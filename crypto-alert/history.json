@@ -29,7 +29,7 @@
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
     "BICOUSDT": "2026-08-09T07:50:28+00:00",
     "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
-    "CAPUSDT": "2026-08-11T09:58:30+00:00",
+    "CAPUSDT": "2026-08-14T19:28:27+00:00",
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
     "GWEIUSDT": "2026-08-07T23:14:32+00:00",
     "MMTUSDT": "2026-08-08T08:24:27+00:00",
@@ -2382,12 +2382,35 @@
       "time": "2026-08-14T13:22:35+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-14T13:32:32+00:00"
+    },
+    {
+      "symbol": "CAPUSDT",
+      "pct": 12.42,
+      "price": 0.06402,
+      "quote_volume": 1830711.19957,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4127489531188664,
+      "retrace_pct": 1.2037037037037082,
+      "wick_ratio": 0.180032733224221,
+      "rsi": 68.23366041212367,
+      "divergence": false,
+      "vol_spike": 1.628349755239863,
+      "btc_pct": -0.0075977297729102715,
+      "sl": 0.06544799999999999,
+      "tp1": 0.062064879999999996,
+      "tp2": 0.06037512,
+      "tp3": 0.05764,
+      "funding_rate": -0.547,
+      "orderbook_ratio": 0.8984583193447896,
+      "time": "2026-08-14T19:28:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T19:26:34+00:00",
-    "shortlist_count": 9,
-    "confirmed_count": 0,
+    "time": "2026-08-14T19:28:27+00:00",
+    "shortlist_count": 8,
+    "confirmed_count": 1,
     "symbols": [
       "ACEUSDT",
       "AKEUSDT",
@@ -2396,7 +2419,6 @@
       "BTWUSDT",
       "CAPUSDT",
       "CYSUSDT",
-      "BLESSUSDT",
       "HEIUSDT"
     ]
   }
