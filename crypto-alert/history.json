@@ -2337,8 +2337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T06:22:27+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-14T06:24:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -2352,12 +2352,11 @@
       "ATOMUSDT",
       "SYNUSDT",
       "CAPUSDT",
-      "SLXUSDT",
       "GRASSUSDT",
-      "AVNTUSDT",
-      "REUSDT",
       "HOLOUSDT",
-      "HUSDT"
+      "REUSDT",
+      "AVNTUSDT",
+      "FHEUSDT"
     ]
   }
 }
