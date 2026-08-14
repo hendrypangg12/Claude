@@ -2385,7 +2385,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T15:32:29+00:00",
+    "time": "2026-08-14T15:34:36+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -2394,12 +2394,12 @@
       "VELVETUSDT",
       "HUSDT",
       "CAPUSDT",
-      "HEIUSDT",
       "BTWUSDT",
-      "BLESSUSDT",
       "EDENUSDT",
-      "APRUSDT",
-      "ETHFIUSDT"
+      "HEIUSDT",
+      "BLESSUSDT",
+      "ETHFIUSDT",
+      "APRUSDT"
     ]
   }
 }
