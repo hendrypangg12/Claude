@@ -2337,8 +2337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T07:20:30+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-14T07:22:27+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -2347,14 +2347,13 @@
       "ACEUSDT",
       "EDENUSDT",
       "ETHFIUSDT",
-      "BTWUSDT",
       "PLUMEUSDT",
+      "BTWUSDT",
       "ATOMUSDT",
-      "BLUAIUSDT",
-      "SYNUSDT",
       "CAPUSDT",
-      "SLXUSDT",
-      "FHEUSDT"
+      "SYNUSDT",
+      "BLUAIUSDT",
+      "SLXUSDT"
     ]
   }
 }
