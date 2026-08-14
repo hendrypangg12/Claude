@@ -2380,25 +2380,26 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 10.153194752768112,
       "time": "2026-08-14T13:22:35+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-14T13:32:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T13:30:41+00:00",
+    "time": "2026-08-14T13:32:32+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "AKEUSDT",
-      "VELVETUSDT",
       "HEIUSDT",
+      "VELVETUSDT",
       "CAPUSDT",
       "HUSDT",
       "AVAAIUSDT",
-      "BTWUSDT",
       "ETHFIUSDT",
-      "ROBOUSDT",
+      "BTWUSDT",
       "EDENUSDT",
+      "ROBOUSDT",
       "PLUMEUSDT",
       "BLESSUSDT",
       "DOSUSDT"
