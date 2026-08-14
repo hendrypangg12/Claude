@@ -2404,12 +2404,13 @@
       "funding_rate": -0.547,
       "orderbook_ratio": 0.8984583193447896,
       "time": "2026-08-14T19:28:27+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-14T19:42:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T19:40:39+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-14T19:42:28+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2422,7 +2423,8 @@
       "HEIUSDT",
       "ETHFIUSDT",
       "EPICUSDT",
-      "APRUSDT"
+      "APRUSDT",
+      "BLESSUSDT"
     ]
   }
 }
