@@ -2337,8 +2337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T02:24:32+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-14T02:26:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "EDENUSDT",
@@ -2350,13 +2350,12 @@
       "ETHFIUSDT",
       "ATOMUSDT",
       "PLUMEUSDT",
+      "BLUAIUSDT",
       "PUMPUSDT",
       "ACUUSDT",
-      "BLUAIUSDT",
-      "GRASSUSDT",
       "REUSDT",
-      "ROBOUSDT",
-      "HOLOUSDT"
+      "GRASSUSDT",
+      "ROBOUSDT"
     ]
   }
 }
