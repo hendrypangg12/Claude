@@ -2385,8 +2385,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T16:38:35+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-14T16:40:32+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2398,9 +2398,11 @@
       "BTWUSDT",
       "BLESSUSDT",
       "APRUSDT",
-      "ETHFIUSDT",
       "CAPUSDT",
-      "EPICUSDT"
+      "ETHFIUSDT",
+      "EPICUSDT",
+      "MUBARAKUSDT",
+      "CYSUSDT"
     ]
   }
 }
