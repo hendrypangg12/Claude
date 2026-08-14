@@ -2337,8 +2337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T01:18:35+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-14T01:20:32+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "EDENUSDT",
@@ -2353,11 +2353,12 @@
       "ATOMUSDT",
       "GRASSUSDT",
       "BULLAUSDT",
-      "BTWUSDT",
       "MYXUSDT",
-      "ROBOUSDT",
       "PUMPUSDT",
-      "BLUAIUSDT"
+      "BTWUSDT",
+      "ROBOUSDT",
+      "BLUAIUSDT",
+      "REUSDT"
     ]
   }
 }
