@@ -2409,22 +2409,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T21:22:26+00:00",
+    "time": "2026-08-14T21:24:48+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
-      "AKEUSDT",
       "VELVETUSDT",
-      "GUNUSDT",
-      "HEIUSDT",
+      "AKEUSDT",
       "CAPUSDT",
-      "BTWUSDT",
       "HUSDT",
+      "GUNUSDT",
+      "BTWUSDT",
+      "HEIUSDT",
       "XAIUSDT",
       "NILUSDT",
-      "CYSUSDT",
-      "BLESSUSDT"
+      "BLESSUSDT",
+      "CYSUSDT"
     ]
   }
 }
