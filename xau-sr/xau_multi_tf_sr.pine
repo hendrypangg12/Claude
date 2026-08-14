@@ -83,6 +83,9 @@ brkMinSkor = input.int(3, "Skor minimum level yang dipantau", minval = 1, group 
 brkMinTf   = input.string("15 menit", "Timeframe terkecil yang ditandai",
      options = ["4 jam", "1 jam", "30 menit", "15 menit", "3 menit"], group = grpBrk,
      tooltip = "Break dari level kecil hampir selalu cuma riak. Bawaan 15 menit: level 3 menit diabaikan")
+brkMaxLabel = input.int(8, "Berapa tanda break terakhir yang diberi label", minval = 1, maxval = 50,
+     group = grpBrk,
+     tooltip = "Di timeframe besar, label dari berbulan-bulan lalu menumpuk sampai chart tidak terbaca. Segitiganya tetap semua; yang dibatasi cuma tulisannya")
 brkMaxJebol = input.int(3, "Abaikan level yang sudah jebol lebih dari", minval = 1, group = grpBrk,
      tooltip = "Level yang sudah berkali-kali dijebol berarti sedang jadi zona bolak-balik. Break di situ jarang berarti")
 
@@ -654,14 +657,21 @@ plotshape(showBreak and brkNaik,  title = "Break naik",  style = shape.triangleu
 plotshape(showBreak and brkTurun, title = "Break turun", style = shape.triangledown,
      location = location.abovebar, color = color.new(#ef5350, 0), size = size.small)
 
+// Label break lama dibuang, sisakan yang terbaru saja. Segitiga penandanya
+// tetap utuh sepanjang riwayat — yang menumpuk dan menutupi chart itu
+// tulisannya, bukan tandanya.
+var array<label> brkLabel = array.new<label>()
+
 if showBreak and (brkNaik or brkTurun)
-    label.new(bar_index, brkNaik ? low : high,
+    array.push(brkLabel, label.new(bar_index, brkNaik ? low : high,
          (brkNaik ? "▲ " : "▼ ") + "TEMBUS LEVEL " + katakuat(brkSkor) + "  " + brkNama + "  "
          + str.tostring(brkP, format.mintick) + "  · tembus ke-" + str.tostring(brkJebol)
          + (na(rvol) ? "" : "  · vol " + str.tostring(rvol, "#.0") + "x"),
          style = brkNaik ? label.style_label_up : label.style_label_down,
          color = color.new(brkNaik ? #26a69a : #ef5350, 15),
-         textcolor = color.white, size = size.tiny)
+         textcolor = color.white, size = size.tiny))
+    if array.size(brkLabel) > brkMaxLabel
+        label.delete(array.shift(brkLabel))
     alert("XAU tembus " + (brkNaik ? "NAIK" : "TURUN") + " lewat LEVEL " + katakuat(brkSkor)
          + " (" + brkNama + ") di " + str.tostring(brkP, format.mintick)
          + " — tembusan ke-" + str.tostring(brkJebol) + " di level ini, volume "
