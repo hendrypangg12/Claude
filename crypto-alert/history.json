@@ -2385,22 +2385,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-14T15:56:29+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-14T15:58:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "AKEUSDT",
       "VELVETUSDT",
       "HUSDT",
-      "EDENUSDT",
       "HEIUSDT",
+      "EDENUSDT",
       "BLESSUSDT",
       "BTWUSDT",
       "CAPUSDT",
-      "ETHFIUSDT",
       "APRUSDT",
-      "EPICUSDT"
+      "ETHFIUSDT",
+      "EPICUSDT",
+      "XPLUSDT"
     ]
   }
 }
