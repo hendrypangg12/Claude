@@ -41,7 +41,8 @@
     "龙虾USDT": "2026-08-10T12:24:31+00:00",
     "BLUAIUSDT": "2026-08-14T09:44:33+00:00",
     "SQDUSDT": "2026-08-11T04:22:25+00:00",
-    "EDENUSDT": "2026-08-13T23:02:30+00:00"
+    "EDENUSDT": "2026-08-13T23:02:30+00:00",
+    "HUSDT": "2026-08-15T01:02:32+00:00"
   },
   "alerts": [
     {
@@ -2406,12 +2407,35 @@
       "time": "2026-08-14T19:28:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-14T19:42:28+00:00"
+    },
+    {
+      "symbol": "HUSDT",
+      "pct": 8.19,
+      "price": 0.11723,
+      "quote_volume": 864577.06305,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.13404212129539836,
+      "retrace_pct": 0.719850948509488,
+      "wick_ratio": 0.11428571428572845,
+      "rsi": 65.41068740293274,
+      "divergence": false,
+      "vol_spike": 0.08798411272297148,
+      "btc_pct": -0.01948809472610393,
+      "sl": 0.1192608,
+      "tp1": 0.11466492,
+      "tp2": 0.11255508,
+      "tp3": 0.10914,
+      "funding_rate": 0.035,
+      "orderbook_ratio": 0.9370671242811005,
+      "time": "2026-08-15T01:02:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T01:00:43+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-08-15T01:02:32+00:00",
+    "shortlist_count": 16,
+    "confirmed_count": 1,
     "symbols": [
       "ACEUSDT",
       "AKEUSDT",
@@ -2425,11 +2449,10 @@
       "APRUSDT",
       "HUSDT",
       "GUNUSDT",
-      "NILUSDT",
       "BBUSDT",
+      "NILUSDT",
       "XAIUSDT",
-      "DOSUSDT",
-      "ETHFIUSDT"
+      "DOSUSDT"
     ]
   }
 }
