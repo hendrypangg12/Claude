@@ -2484,8 +2484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T13:20:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-15T13:22:56+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "COWUSDT",
@@ -2497,10 +2497,12 @@
       "FOLKSUSDT",
       "ONEUSDT",
       "LINKUSDT",
+      "BMTUSDT",
+      "VELVETUSDT",
       "PLUMEUSDT",
       "龙虾USDT",
-      "VELVETUSDT",
-      "FILUSDT"
+      "FILUSDT",
+      "TUTUSDT"
     ]
   }
 }
