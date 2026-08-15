@@ -2479,11 +2479,12 @@
       "funding_rate": 0.068,
       "orderbook_ratio": 0.8300222564117883,
       "time": "2026-08-15T07:24:31+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-15T07:46:35+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T07:44:32+00:00",
+    "time": "2026-08-15T07:46:35+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -2495,16 +2496,16 @@
       "HUSDT",
       "HEIUSDT",
       "AKEUSDT",
-      "ALICEUSDT",
       "EPICUSDT",
+      "ALICEUSDT",
       "FOLKSUSDT",
       "BTWUSDT",
       "CAPUSDT",
       "LINKUSDT",
       "GUNUSDT",
       "ICPUSDT",
-      "ETHFIUSDT",
       "XPLUSDT",
+      "ETHFIUSDT",
       "IOUSDT",
       "DOSUSDT"
     ]
