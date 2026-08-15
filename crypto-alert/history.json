@@ -2459,8 +2459,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T02:42:35+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-15T02:44:42+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2469,17 +2469,16 @@
       "ROBOUSDT",
       "CYSUSDT",
       "CAPUSDT",
-      "BTWUSDT",
-      "ALICEUSDT",
       "HEIUSDT",
+      "ALICEUSDT",
+      "BTWUSDT",
       "APRUSDT",
       "LINKUSDT",
       "HUSDT",
       "DOSUSDT",
       "GUNUSDT",
       "ICPUSDT",
-      "BBUSDT",
-      "PLUMEUSDT"
+      "BBUSDT"
     ]
   }
 }
