@@ -2528,11 +2528,12 @@
       "funding_rate": -0.002,
       "orderbook_ratio": 1.2374904788422445,
       "time": "2026-08-15T17:48:37+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-15T17:56:35+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T17:54:29+00:00",
+    "time": "2026-08-15T17:56:35+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -2541,13 +2542,13 @@
       "HUSDT",
       "WALUSDT",
       "NILUSDT",
-      "USUSDT",
       "TUTUSDT",
+      "USUSDT",
       "BULLAUSDT",
       "ETHFIUSDT",
       "PRLUSDT",
-      "FOLKSUSDT",
       "LINKUSDT",
+      "FOLKSUSDT",
       "ONEUSDT",
       "FHEUSDT",
       "PLUMEUSDT",
