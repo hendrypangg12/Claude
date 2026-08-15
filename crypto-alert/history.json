@@ -2533,8 +2533,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T21:42:32+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-15T21:44:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -2545,12 +2545,11 @@
       "BASEDUSDT",
       "FHEUSDT",
       "TUTUSDT",
-      "ETHFIUSDT",
       "LINKUSDT",
-      "PLUMEUSDT",
+      "ETHFIUSDT",
       "NILUSDT",
-      "FOLKSUSDT",
-      "USUSDT"
+      "PLUMEUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
