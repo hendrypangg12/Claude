@@ -2484,7 +2484,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T07:48:34+00:00",
+    "time": "2026-08-15T07:50:32+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -2502,12 +2502,12 @@
       "BTWUSDT",
       "CAPUSDT",
       "LINKUSDT",
-      "GUNUSDT",
       "ICPUSDT",
+      "GUNUSDT",
       "ETHFIUSDT",
       "XPLUSDT",
-      "IOUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "IOUSDT"
     ]
   }
 }
