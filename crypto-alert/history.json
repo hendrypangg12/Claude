@@ -2459,15 +2459,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T03:32:35+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-15T03:34:34+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "VELVETUSDT",
       "ACEUSDT",
       "CYSUSDT",
-      "AKEUSDT",
       "ROBOUSDT",
+      "AKEUSDT",
       "HEIUSDT",
       "CAPUSDT",
       "ALICEUSDT",
@@ -2475,8 +2475,10 @@
       "HUSDT",
       "LINKUSDT",
       "DOSUSDT",
-      "ICPUSDT",
       "AVAXUSDT",
+      "ICPUSDT",
+      "BBUSDT",
+      "NILUSDT",
       "GUNUSDT"
     ]
   }
