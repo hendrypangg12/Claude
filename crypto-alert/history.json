@@ -25,7 +25,7 @@
     "IDOLUSDT": "2026-08-01T16:32:38+00:00",
     "BLESSUSDT": "2026-08-05T16:53:35+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
-    "CYSUSDT": "2026-08-09T22:26:28+00:00",
+    "CYSUSDT": "2026-08-15T14:22:28+00:00",
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
     "BICOUSDT": "2026-08-09T07:50:28+00:00",
     "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
@@ -2481,12 +2481,35 @@
       "time": "2026-08-15T07:24:31+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-15T07:46:35+00:00"
+    },
+    {
+      "symbol": "CYSUSDT",
+      "pct": 8.91,
+      "price": 1.6617,
+      "quote_volume": 5525215.267,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2054119201673267,
+      "retrace_pct": 0.6516800191318983,
+      "wick_ratio": 0.0,
+      "rsi": 66.07289998018257,
+      "divergence": true,
+      "vol_spike": 0.0027330312558645864,
+      "btc_pct": -0.04026585295495171,
+      "sl": 1.689326,
+      "tp1": 1.6203424000000002,
+      "tp2": 1.5880576,
+      "tp3": 1.5358,
+      "funding_rate": 0.016,
+      "orderbook_ratio": 0.9741068809479158,
+      "time": "2026-08-15T14:22:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T14:20:36+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-08-15T14:22:28+00:00",
+    "shortlist_count": 15,
+    "confirmed_count": 1,
     "symbols": [
       "COWUSDT",
       "CYSUSDT",
@@ -2495,11 +2518,14 @@
       "PRLUSDT",
       "ETHFIUSDT",
       "NILUSDT",
-      "FHEUSDT",
       "FOLKSUSDT",
+      "FHEUSDT",
       "LINKUSDT",
       "TAKEUSDT",
-      "ALICEUSDT"
+      "ALICEUSDT",
+      "TUTUSDT",
+      "BBUSDT",
+      "ONEUSDT"
     ]
   }
 }
