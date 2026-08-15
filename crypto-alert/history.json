@@ -44,7 +44,8 @@
     "EDENUSDT": "2026-08-13T23:02:30+00:00",
     "HUSDT": "2026-08-15T01:02:32+00:00",
     "ROBOUSDT": "2026-08-15T02:18:27+00:00",
-    "VELVETUSDT": "2026-08-15T07:24:31+00:00"
+    "VELVETUSDT": "2026-08-15T07:24:31+00:00",
+    "HEMIUSDT": "2026-08-15T17:48:37+00:00"
   },
   "alerts": [
     {
@@ -2505,12 +2506,35 @@
       "time": "2026-08-15T14:22:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-15T14:28:36+00:00"
+    },
+    {
+      "symbol": "HEMIUSDT",
+      "pct": 8.06,
+      "price": 0.006914,
+      "quote_volume": 263417.838997,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4826067417095172,
+      "retrace_pct": 0.4320276497695802,
+      "wick_ratio": 0.5507246376811602,
+      "rsi": 66.43539355600154,
+      "divergence": true,
+      "vol_spike": 0.020239636196197626,
+      "btc_pct": -0.04373339992642302,
+      "sl": 0.00701344,
+      "tp1": 0.006746124,
+      "tp2": 0.006623876,
+      "tp3": 0.006426,
+      "funding_rate": -0.002,
+      "orderbook_ratio": 1.2374904788422445,
+      "time": "2026-08-15T17:48:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T17:46:29+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-08-15T17:48:37+00:00",
+    "shortlist_count": 16,
+    "confirmed_count": 1,
     "symbols": [
       "HEMIUSDT",
       "COWUSDT",
@@ -2519,15 +2543,14 @@
       "NILUSDT",
       "USUSDT",
       "TUTUSDT",
-      "ETHFIUSDT",
       "BULLAUSDT",
+      "ETHFIUSDT",
       "PRLUSDT",
       "LINKUSDT",
       "FOLKSUSDT",
       "ONEUSDT",
-      "龙虾USDT",
       "FHEUSDT",
-      "BASEDUSDT",
+      "龙虾USDT",
       "PLUMEUSDT"
     ]
   }
