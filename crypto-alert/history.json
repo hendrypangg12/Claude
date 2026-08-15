@@ -2507,25 +2507,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T14:22:28+00:00",
-    "shortlist_count": 15,
-    "confirmed_count": 1,
+    "time": "2026-08-15T14:24:39+00:00",
+    "shortlist_count": 16,
+    "confirmed_count": 0,
     "symbols": [
       "COWUSDT",
       "CYSUSDT",
+      "WALUSDT",
       "VELVETUSDT",
       "HUSDT",
       "PRLUSDT",
       "ETHFIUSDT",
       "NILUSDT",
       "FOLKSUSDT",
-      "FHEUSDT",
       "LINKUSDT",
-      "TAKEUSDT",
+      "FHEUSDT",
       "ALICEUSDT",
       "TUTUSDT",
-      "BBUSDT",
-      "ONEUSDT"
+      "ONEUSDT",
+      "TAKEUSDT",
+      "BBUSDT"
     ]
   }
 }
