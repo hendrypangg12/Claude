@@ -42,7 +42,8 @@
     "BLUAIUSDT": "2026-08-14T09:44:33+00:00",
     "SQDUSDT": "2026-08-11T04:22:25+00:00",
     "EDENUSDT": "2026-08-13T23:02:30+00:00",
-    "HUSDT": "2026-08-15T01:02:32+00:00"
+    "HUSDT": "2026-08-15T01:02:32+00:00",
+    "ROBOUSDT": "2026-08-15T02:18:27+00:00"
   },
   "alerts": [
     {
@@ -2431,12 +2432,35 @@
       "time": "2026-08-15T01:02:32+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-15T01:10:48+00:00"
+    },
+    {
+      "symbol": "ROBOUSDT",
+      "pct": 8.2,
+      "price": 0.0193,
+      "quote_volume": 225337.52621,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5677285858303135,
+      "retrace_pct": 0.4641567818463115,
+      "wick_ratio": 0.0,
+      "rsi": 66.98497046509655,
+      "divergence": false,
+      "vol_spike": 0.13369712301368966,
+      "btc_pct": 0.07111766117147023,
+      "sl": 0.0195839,
+      "tp1": 0.018828459999999998,
+      "tp2": 0.018481539999999998,
+      "tp3": 0.01792,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.563929902426741,
+      "time": "2026-08-15T02:18:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T02:16:33+00:00",
+    "time": "2026-08-15T02:18:27+00:00",
     "shortlist_count": 15,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ACEUSDT",
       "VELVETUSDT",
@@ -2446,8 +2470,8 @@
       "CAPUSDT",
       "HEIUSDT",
       "BTWUSDT",
-      "ALICEUSDT",
       "APRUSDT",
+      "ALICEUSDT",
       "HUSDT",
       "LINKUSDT",
       "GUNUSDT",
