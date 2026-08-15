@@ -2484,31 +2484,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T08:52:31+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-15T08:54:34+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "CYSUSDT",
       "HUSDT",
-      "AKEUSDT",
       "VELVETUSDT",
+      "AKEUSDT",
       "ROBOUSDT",
       "NILUSDT",
       "FOLKSUSDT",
       "ALICEUSDT",
       "ETHFIUSDT",
-      "EPICUSDT",
       "HEIUSDT",
+      "EPICUSDT",
       "DOSUSDT",
+      "CAPUSDT",
       "LINKUSDT",
       "IOUSDT",
       "BTWUSDT",
       "ICPUSDT",
-      "XPLUSDT",
-      "CAPUSDT",
-      "BBUSDT",
-      "龙虾USDT"
+      "龙虾USDT",
+      "XPLUSDT"
     ]
   }
 }
