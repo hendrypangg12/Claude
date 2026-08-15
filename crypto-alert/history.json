@@ -2484,23 +2484,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T13:10:42+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-15T13:12:31+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
-      "HUSDT",
       "CYSUSDT",
-      "PRLUSDT",
+      "HUSDT",
       "ETHFIUSDT",
+      "PRLUSDT",
       "NILUSDT",
       "FOLKSUSDT",
-      "ONEUSDT",
       "LINKUSDT",
-      "VELVETUSDT",
+      "ONEUSDT",
       "龙虾USDT",
       "PLUMEUSDT",
+      "FILUSDT",
       "IOUSDT",
-      "FILUSDT"
+      "VELVETUSDT",
+      "XPLUSDT"
     ]
   }
 }
