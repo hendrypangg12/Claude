@@ -2454,11 +2454,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.563929902426741,
       "time": "2026-08-15T02:18:27+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-08-15T02:24:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T02:22:31+00:00",
+    "time": "2026-08-15T02:24:32+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2470,8 +2471,8 @@
       "CYSUSDT",
       "HEIUSDT",
       "ALICEUSDT",
-      "BTWUSDT",
       "APRUSDT",
+      "BTWUSDT",
       "HUSDT",
       "LINKUSDT",
       "GUNUSDT",
