@@ -2459,7 +2459,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T03:12:29+00:00",
+    "time": "2026-08-15T03:14:29+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -2477,10 +2477,10 @@
       "HUSDT",
       "DOSUSDT",
       "AVAXUSDT",
+      "PLUMEUSDT",
       "ICPUSDT",
       "GUNUSDT",
-      "ETHFIUSDT",
-      "PLUMEUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
