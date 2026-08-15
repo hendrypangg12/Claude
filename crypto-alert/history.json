@@ -2533,27 +2533,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T18:28:32+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-15T18:30:34+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
       "COWUSDT",
+      "CAPUSDT",
       "HUSDT",
       "WALUSDT",
-      "CAPUSDT",
       "NILUSDT",
       "BULLAUSDT",
       "TUTUSDT",
       "ETHFIUSDT",
-      "PRLUSDT",
-      "FOLKSUSDT",
       "LINKUSDT",
+      "FOLKSUSDT",
       "FHEUSDT",
+      "PRLUSDT",
       "龙虾USDT",
       "PLUMEUSDT",
-      "ONEUSDT",
-      "AKEUSDT"
+      "ONEUSDT"
     ]
   }
 }
