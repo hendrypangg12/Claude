@@ -2484,8 +2484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T12:52:31+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-15T12:54:31+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
@@ -2495,10 +2495,11 @@
       "PRLUSDT",
       "FOLKSUSDT",
       "VELVETUSDT",
-      "LINKUSDT",
-      "PLUMEUSDT",
       "ONEUSDT",
-      "FILUSDT"
+      "PLUMEUSDT",
+      "LINKUSDT",
+      "FILUSDT",
+      "IOUSDT"
     ]
   }
 }
