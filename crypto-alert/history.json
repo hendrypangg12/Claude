@@ -2484,17 +2484,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T09:30:43+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-15T09:32:34+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "CYSUSDT",
       "AKEUSDT",
-      "ACEUSDT",
       "HUSDT",
+      "ACEUSDT",
+      "FOLKSUSDT",
       "VELVETUSDT",
       "NILUSDT",
-      "FOLKSUSDT",
       "PRLUSDT",
       "ROBOUSDT",
       "ETHFIUSDT",
@@ -2502,14 +2502,13 @@
       "ONEUSDT",
       "BTWUSDT",
       "BBUSDT",
-      "IOUSDT",
-      "CAPUSDT",
       "ALICEUSDT",
       "LINKUSDT",
-      "龙虾USDT",
+      "IOUSDT",
       "DOSUSDT",
-      "ICPUSDT",
-      "HEIUSDT"
+      "龙虾USDT",
+      "CAPUSDT",
+      "ICPUSDT"
     ]
   }
 }
