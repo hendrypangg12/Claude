@@ -2459,27 +2459,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T05:00:40+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-15T05:02:31+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "VELVETUSDT",
       "ROBOUSDT",
-      "AKEUSDT",
       "CYSUSDT",
+      "AKEUSDT",
       "HEIUSDT",
-      "EPICUSDT",
       "HUSDT",
+      "EPICUSDT",
       "ALICEUSDT",
-      "CAPUSDT",
       "BTWUSDT",
-      "NILUSDT",
+      "CAPUSDT",
       "LINKUSDT",
+      "NILUSDT",
       "DOSUSDT",
       "ICPUSDT",
+      "GUNUSDT",
       "AVAXUSDT",
-      "GUNUSDT"
+      "XPLUSDT",
+      "TUTUSDT"
     ]
   }
 }
