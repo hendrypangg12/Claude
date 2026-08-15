@@ -2409,7 +2409,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T00:52:27+00:00",
+    "time": "2026-08-15T00:54:35+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -2423,12 +2423,12 @@
       "BTWUSDT",
       "CYSUSDT",
       "HUSDT",
-      "NILUSDT",
       "GUNUSDT",
+      "NILUSDT",
       "BBUSDT",
       "XAIUSDT",
-      "ETHFIUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
