@@ -2533,7 +2533,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T20:06:33+00:00",
+    "time": "2026-08-15T20:08:34+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2543,15 +2543,15 @@
       "WALUSDT",
       "BULLAUSDT",
       "NILUSDT",
+      "AKEUSDT",
       "FHEUSDT",
       "BASEDUSDT",
-      "AKEUSDT",
       "FOLKSUSDT",
       "LINKUSDT",
-      "TUTUSDT",
-      "USUSDT",
       "ETHFIUSDT",
-      "CAPUSDT"
+      "CAPUSDT",
+      "USUSDT",
+      "TUTUSDT"
     ]
   }
 }
