@@ -2483,8 +2483,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-15T07:40:40+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-15T07:42:28+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2503,11 +2503,10 @@
       "LINKUSDT",
       "GUNUSDT",
       "ICPUSDT",
-      "IOUSDT",
-      "DOSUSDT",
-      "XPLUSDT",
       "ETHFIUSDT",
-      "AVAXUSDT"
+      "DOSUSDT",
+      "IOUSDT",
+      "XPLUSDT"
     ]
   }
 }
