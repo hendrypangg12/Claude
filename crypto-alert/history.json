@@ -2582,15 +2582,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T17:20:37+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-16T17:22:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AIOUSDT",
-      "BTWUSDT",
       "DOLOUSDT",
-      "CHIPUSDT",
+      "BTWUSDT",
       "VELVETUSDT",
+      "CHIPUSDT",
       "BSBUSDT",
       "ALICEUSDT",
       "ETHFIUSDT",
@@ -2598,9 +2598,10 @@
       "ROBOUSDT",
       "龙虾USDT",
       "GUAUSDT",
-      "WLDUSDT",
       "CRVUSDT",
-      "GIGGLEUSDT"
+      "WLDUSDT",
+      "GIGGLEUSDT",
+      "BICOUSDT"
     ]
   }
 }
