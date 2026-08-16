@@ -2582,8 +2582,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T13:16:34+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-16T13:18:35+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "AIOUSDT",
@@ -2593,10 +2593,11 @@
       "BASEDUSDT",
       "BTWUSDT",
       "SKYAIUSDT",
-      "ALICEUSDT",
       "KASUSDT",
+      "ALICEUSDT",
       "ROBOUSDT",
-      "FHEUSDT"
+      "FHEUSDT",
+      "CAPUSDT"
     ]
   }
 }
