@@ -2557,26 +2557,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T12:12:32+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-16T12:14:35+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "CHIPUSDT",
-      "AIOUSDT",
       "HEMIUSDT",
+      "AIOUSDT",
       "HUSDT",
       "SKYAIUSDT",
       "BULLAUSDT",
       "BASEDUSDT",
       "FHEUSDT",
       "USUSDT",
-      "KASUSDT",
-      "HEIUSDT",
-      "MOVRUSDT",
-      "BTWUSDT",
-      "CRVUSDT",
       "龙虾USDT",
-      "GUAUSDT"
+      "KASUSDT",
+      "BTWUSDT",
+      "HEIUSDT",
+      "CRVUSDT"
     ]
   }
 }
