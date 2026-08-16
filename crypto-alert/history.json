@@ -45,7 +45,8 @@
     "HUSDT": "2026-08-15T01:02:32+00:00",
     "ROBOUSDT": "2026-08-15T02:18:27+00:00",
     "VELVETUSDT": "2026-08-15T07:24:31+00:00",
-    "HEMIUSDT": "2026-08-16T02:32:29+00:00"
+    "HEMIUSDT": "2026-08-16T02:32:29+00:00",
+    "AIOUSDT": "2026-08-16T13:00:41+00:00"
   },
   "alerts": [
     {
@@ -2554,25 +2555,48 @@
       "time": "2026-08-16T02:32:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-16T03:00:45+00:00"
+    },
+    {
+      "symbol": "AIOUSDT",
+      "pct": 9.83,
+      "price": 0.06296,
+      "quote_volume": 222480.97422,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2641884313983715,
+      "retrace_pct": 1.6403686923918068,
+      "wick_ratio": 0.4999999999999306,
+      "rsi": 65.23931923794702,
+      "divergence": false,
+      "vol_spike": 1.784072070081526,
+      "btc_pct": -0.006488253960089953,
+      "sl": 0.0646501,
+      "tp1": 0.06182114,
+      "tp2": 0.06046886,
+      "tp3": 0.05828,
+      "funding_rate": 0.024,
+      "orderbook_ratio": 0.4977589368508682,
+      "time": "2026-08-16T13:00:41+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T12:58:34+00:00",
+    "time": "2026-08-16T13:00:41+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AIOUSDT",
       "CHIPUSDT",
       "HEMIUSDT",
       "BULLAUSDT",
-      "ALICEUSDT",
       "BASEDUSDT",
+      "ALICEUSDT",
       "SKYAIUSDT",
       "HUSDT",
       "BTWUSDT",
       "KASUSDT",
-      "HEIUSDT",
       "龙虾USDT",
+      "HEIUSDT",
       "FHEUSDT"
     ]
   }
