@@ -2582,25 +2582,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T14:14:33+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-16T14:16:32+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AIOUSDT",
       "CHIPUSDT",
       "HEMIUSDT",
-      "BULLAUSDT",
-      "ROBOUSDT",
       "SKYAIUSDT",
+      "ROBOUSDT",
+      "BULLAUSDT",
+      "BTWUSDT",
       "GIGGLEUSDT",
       "BASEDUSDT",
-      "BTWUSDT",
       "4USDT",
       "龙虾USDT",
       "BSBUSDT",
       "CAPUSDT",
       "KASUSDT",
-      "USUSDT"
+      "USUSDT",
+      "GUAUSDT"
     ]
   }
 }
