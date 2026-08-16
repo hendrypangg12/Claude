@@ -2557,13 +2557,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T11:58:31+00:00",
+    "time": "2026-08-16T12:00:45+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "AIOUSDT",
-      "CHIPUSDT",
       "HUSDT",
+      "CHIPUSDT",
       "HEMIUSDT",
       "SKYAIUSDT",
       "BULLAUSDT",
@@ -2571,11 +2571,11 @@
       "FHEUSDT",
       "BTWUSDT",
       "KASUSDT",
-      "GUAUSDT",
-      "CRVUSDT",
-      "USUSDT",
       "HEIUSDT",
-      "MOVRUSDT"
+      "USUSDT",
+      "GUAUSDT",
+      "MOVRUSDT",
+      "CRVUSDT"
     ]
   }
 }
