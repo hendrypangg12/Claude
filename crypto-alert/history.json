@@ -2552,11 +2552,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.7127017047966382,
       "time": "2026-08-16T02:32:29+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-16T03:00:45+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T02:58:35+00:00",
+    "time": "2026-08-16T03:00:45+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2565,8 +2566,8 @@
       "USUSDT",
       "COWUSDT",
       "BASEDUSDT",
-      "WALUSDT",
       "BULLAUSDT",
+      "WALUSDT",
       "龙虾USDT",
       "FHEUSDT",
       "ETHFIUSDT"
