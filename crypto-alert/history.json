@@ -2557,7 +2557,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T11:38:33+00:00",
+    "time": "2026-08-16T11:40:33+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -2568,11 +2568,11 @@
       "BULLAUSDT",
       "FHEUSDT",
       "BASEDUSDT",
-      "APRUSDT",
       "MOVRUSDT",
-      "BTWUSDT",
       "GUAUSDT",
-      "CRVUSDT"
+      "APRUSDT",
+      "CRVUSDT",
+      "BTWUSDT"
     ]
   }
 }
