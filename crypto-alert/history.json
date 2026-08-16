@@ -2557,7 +2557,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T07:54:33+00:00",
+    "time": "2026-08-16T07:56:31+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2567,10 +2567,10 @@
       "BASEDUSDT",
       "BULLAUSDT",
       "WALUSDT",
+      "USUSDT",
       "GUAUSDT",
       "FHEUSDT",
-      "ETHFIUSDT",
-      "USUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
