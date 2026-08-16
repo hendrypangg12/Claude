@@ -2557,8 +2557,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T07:14:32+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-16T07:16:28+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -2567,11 +2567,10 @@
       "BASEDUSDT",
       "BULLAUSDT",
       "WALUSDT",
-      "AKEUSDT",
       "FHEUSDT",
-      "ETHFIUSDT",
       "GUAUSDT",
-      "USUSDT"
+      "AKEUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
