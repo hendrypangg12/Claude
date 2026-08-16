@@ -2582,7 +2582,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T15:10:39+00:00",
+    "time": "2026-08-16T15:12:35+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2591,16 +2591,16 @@
       "CHIPUSDT",
       "BTWUSDT",
       "SKYAIUSDT",
-      "BULLAUSDT",
       "ROBOUSDT",
+      "BULLAUSDT",
       "ALICEUSDT",
       "GIGGLEUSDT",
       "4USDT",
-      "BSBUSDT",
       "ETHFIUSDT",
-      "GUAUSDT",
+      "BSBUSDT",
       "BASEDUSDT",
-      "USUSDT"
+      "USUSDT",
+      "GUAUSDT"
     ]
   }
 }
