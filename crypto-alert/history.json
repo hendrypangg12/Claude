@@ -2557,7 +2557,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T08:22:34+00:00",
+    "time": "2026-08-16T08:24:28+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2567,10 +2567,10 @@
       "BASEDUSDT",
       "BULLAUSDT",
       "WALUSDT",
-      "GUAUSDT",
       "FHEUSDT",
-      "USUSDT",
-      "TUTUSDT"
+      "GUAUSDT",
+      "TUTUSDT",
+      "USUSDT"
     ]
   }
 }
