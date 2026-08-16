@@ -2582,24 +2582,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T15:20:39+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-16T15:22:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "DOLOUSDT",
       "AIOUSDT",
       "CHIPUSDT",
-      "BTWUSDT",
       "SKYAIUSDT",
+      "BTWUSDT",
       "ROBOUSDT",
       "BULLAUSDT",
-      "GIGGLEUSDT",
       "ALICEUSDT",
-      "BSBUSDT",
+      "GIGGLEUSDT",
       "ETHFIUSDT",
+      "BSBUSDT",
       "4USDT",
       "BASEDUSDT",
-      "USUSDT"
+      "USUSDT",
+      "GUAUSDT"
     ]
   }
 }
