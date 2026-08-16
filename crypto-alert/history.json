@@ -2577,27 +2577,28 @@
       "funding_rate": 0.024,
       "orderbook_ratio": 0.4977589368508682,
       "time": "2026-08-16T13:00:41+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-16T13:08:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T13:06:30+00:00",
+    "time": "2026-08-16T13:08:34+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AIOUSDT",
       "HEMIUSDT",
       "CHIPUSDT",
+      "ALICEUSDT",
       "BULLAUSDT",
       "BASEDUSDT",
-      "ALICEUSDT",
       "SKYAIUSDT",
       "BTWUSDT",
       "HUSDT",
       "KASUSDT",
       "ROBOUSDT",
       "龙虾USDT",
-      "CAPUSDT"
+      "FHEUSDT"
     ]
   }
 }
