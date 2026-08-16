@@ -2557,19 +2557,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-16T09:04:33+00:00",
-    "shortlist_count": 9,
+    "time": "2026-08-16T09:06:32+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
       "HUSDT",
       "BASEDUSDT",
       "BULLAUSDT",
-      "FHEUSDT",
       "GUAUSDT",
+      "FHEUSDT",
       "WALUSDT",
-      "USUSDT",
-      "CAPUSDT"
+      "USUSDT"
     ]
   }
 }
