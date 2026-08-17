@@ -2606,8 +2606,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T10:38:30+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-17T10:40:33+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2619,12 +2619,11 @@
       "AKEUSDT",
       "PUMPUSDT",
       "ZECUSDT",
-      "PRLUSDT",
-      "GIGGLEUSDT",
       "WLDUSDT",
       "ETHFIUSDT",
-      "HYPEUSDT",
-      "AIOUSDT"
+      "GIGGLEUSDT",
+      "PRLUSDT",
+      "HYPEUSDT"
     ]
   }
 }
