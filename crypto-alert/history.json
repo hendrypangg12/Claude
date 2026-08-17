@@ -2606,18 +2606,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T15:16:29+00:00",
-    "shortlist_count": 8,
+    "time": "2026-08-17T15:18:30+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
       "ACEUSDT",
-      "HEMIUSDT",
       "TUTUSDT",
+      "HEMIUSDT",
       "PORTALUSDT",
-      "PUMPUSDT",
+      "KAITOUSDT",
       "SKYAIUSDT",
-      "KAITOUSDT"
+      "PUMPUSDT",
+      "APRUSDT"
     ]
   }
 }
