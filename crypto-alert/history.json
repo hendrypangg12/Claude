@@ -2582,28 +2582,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T01:34:31+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-17T01:36:32+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "PORTALUSDT",
       "BTWUSDT",
-      "VELVETUSDT",
       "APRUSDT",
+      "VELVETUSDT",
       "AIOUSDT",
       "CAPUSDT",
       "USUSDT",
       "ALICEUSDT",
-      "EPICUSDT",
-      "SKYAIUSDT",
       "TUTUSDT",
+      "SKYAIUSDT",
+      "EPICUSDT",
       "HEIUSDT",
       "ETHFIUSDT",
-      "4USDT",
       "BSBUSDT",
-      "PRLUSDT",
+      "4USDT",
       "BEATUSDT",
-      "WLDUSDT"
+      "PRLUSDT",
+      "WLDUSDT",
+      "CYSUSDT"
     ]
   }
 }
