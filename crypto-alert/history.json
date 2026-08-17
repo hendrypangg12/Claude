@@ -2605,9 +2605,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T04:34:28+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 1,
+    "time": "2026-08-17T04:36:29+00:00",
+    "shortlist_count": 21,
+    "confirmed_count": 0,
     "symbols": [
       "PORTALUSDT",
       "BTWUSDT",
@@ -2621,13 +2621,15 @@
       "PRLUSDT",
       "BSBUSDT",
       "4USDT",
-      "HEIUSDT",
       "ETHFIUSDT",
+      "HEIUSDT",
       "EPICUSDT",
       "GIGGLEUSDT",
+      "AKEUSDT",
       "CAPUSDT",
       "XAIUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "ROBOUSDT"
     ]
   }
 }
