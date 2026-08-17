@@ -2631,7 +2631,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T23:12:31+00:00",
+    "time": "2026-08-17T23:14:38+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -2643,9 +2643,9 @@
       "GIGGLEUSDT",
       "POLUSDT",
       "MORPHOUSDT",
-      "CAPUSDT",
       "ZECUSDT",
-      "PENDLEUSDT"
+      "PENDLEUSDT",
+      "CAPUSDT"
     ]
   }
 }
