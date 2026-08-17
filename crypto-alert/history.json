@@ -2606,8 +2606,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T06:36:44+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-17T06:38:28+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "PORTALUSDT",
@@ -2617,15 +2617,14 @@
       "CHIPUSDT",
       "VELVETUSDT",
       "ETHFIUSDT",
-      "BSBUSDT",
       "APRUSDT",
-      "PRLUSDT",
-      "GIGGLEUSDT",
-      "PUMPUSDT",
-      "ZECUSDT",
-      "ONDOUSDT",
       "AKEUSDT",
-      "WLDUSDT"
+      "PUMPUSDT",
+      "BSBUSDT",
+      "PRLUSDT",
+      "ZECUSDT",
+      "GIGGLEUSDT",
+      "ONDOUSDT"
     ]
   }
 }
