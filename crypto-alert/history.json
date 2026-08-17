@@ -2606,7 +2606,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T14:10:43+00:00",
+    "time": "2026-08-17T14:12:49+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2616,10 +2616,10 @@
       "PORTALUSDT",
       "BTWUSDT",
       "PUMPUSDT",
-      "AIOUSDT",
       "SKYAIUSDT",
-      "ZECUSDT",
-      "TUTUSDT"
+      "TUTUSDT",
+      "AIOUSDT",
+      "ZECUSDT"
     ]
   }
 }
