@@ -2606,19 +2606,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T14:32:29+00:00",
-    "shortlist_count": 9,
+    "time": "2026-08-17T14:34:28+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
       "ACEUSDT",
       "PORTALUSDT",
-      "TUTUSDT",
       "AIOUSDT",
-      "HUSDT",
+      "TUTUSDT",
       "BTWUSDT",
       "PUMPUSDT",
-      "SKYAIUSDT"
+      "SKYAIUSDT",
+      "CHIPUSDT",
+      "APRUSDT"
     ]
   }
 }
