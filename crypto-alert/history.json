@@ -2606,8 +2606,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T10:00:45+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-17T10:02:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2615,15 +2615,14 @@
       "TUTUSDT",
       "ACEUSDT",
       "AKEUSDT",
-      "BSBUSDT",
       "BTWUSDT",
-      "PRLUSDT",
+      "BSBUSDT",
       "CHIPUSDT",
+      "PRLUSDT",
+      "SKYAIUSDT",
       "GIGGLEUSDT",
       "ZECUSDT",
-      "SKYAIUSDT",
-      "PUMPUSDT",
-      "AIOUSDT"
+      "PUMPUSDT"
     ]
   }
 }
