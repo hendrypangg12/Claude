@@ -46,7 +46,8 @@
     "ROBOUSDT": "2026-08-15T02:18:27+00:00",
     "VELVETUSDT": "2026-08-15T07:24:31+00:00",
     "HEMIUSDT": "2026-08-16T02:32:29+00:00",
-    "AIOUSDT": "2026-08-16T13:00:41+00:00"
+    "AIOUSDT": "2026-08-16T13:00:41+00:00",
+    "GPSUSDT": "2026-08-17T16:41:56+00:00"
   },
   "alerts": [
     {
@@ -2603,12 +2604,35 @@
       "time": "2026-08-17T04:34:28+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-17T04:58:28+00:00"
+    },
+    {
+      "symbol": "GPSUSDT",
+      "pct": 8.89,
+      "price": 0.016753,
+      "quote_volume": 426722.536728,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.11696397426285227,
+      "retrace_pct": 0.986997635933809,
+      "wick_ratio": 0.28598484848485156,
+      "rsi": 68.06897498002769,
+      "divergence": true,
+      "vol_spike": 0.10274929372683636,
+      "btc_pct": 0.035498214951364696,
+      "sl": 0.017089200000000002,
+      "tp1": 0.016392458000000002,
+      "tp2": 0.016066542,
+      "tp3": 0.015539,
+      "funding_rate": -0.017,
+      "orderbook_ratio": 1.0574362017487502,
+      "time": "2026-08-17T16:41:56+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T16:40:37+00:00",
+    "time": "2026-08-17T16:41:56+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TUTUSDT",
       "GPSUSDT",
