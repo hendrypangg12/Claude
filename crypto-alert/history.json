@@ -2606,8 +2606,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T16:28:35+00:00",
-    "shortlist_count": 9,
+    "time": "2026-08-17T16:34:30+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2616,9 +2616,12 @@
       "PORTALUSDT",
       "HEMIUSDT",
       "FHEUSDT",
-      "APRUSDT",
       "PUMPUSDT",
-      "GIGGLEUSDT"
+      "APRUSDT",
+      "SKYAIUSDT",
+      "GIGGLEUSDT",
+      "KAITOUSDT",
+      "ZECUSDT"
     ]
   }
 }
