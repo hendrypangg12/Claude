@@ -2606,7 +2606,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T11:54:32+00:00",
+    "time": "2026-08-17T11:56:33+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -2618,10 +2618,10 @@
       "AKEUSDT",
       "PUMPUSDT",
       "GIGGLEUSDT",
-      "BTWUSDT",
       "ZECUSDT",
-      "ONDOUSDT",
-      "CHIPUSDT"
+      "CHIPUSDT",
+      "BTWUSDT",
+      "ONDOUSDT"
     ]
   }
 }
