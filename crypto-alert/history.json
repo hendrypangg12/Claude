@@ -2606,8 +2606,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T11:48:52+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-17T11:50:32+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2619,11 +2619,9 @@
       "PUMPUSDT",
       "BTWUSDT",
       "ZECUSDT",
-      "GIGGLEUSDT",
-      "ALICEUSDT",
       "CHIPUSDT",
-      "ONDOUSDT",
-      "HYPEUSDT"
+      "GIGGLEUSDT",
+      "ONDOUSDT"
     ]
   }
 }
