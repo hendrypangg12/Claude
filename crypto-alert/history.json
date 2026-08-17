@@ -2606,25 +2606,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-17T08:48:30+00:00",
+    "time": "2026-08-17T08:50:34+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
       "PORTALUSDT",
       "BSBUSDT",
-      "BTWUSDT",
       "SKYAIUSDT",
+      "BTWUSDT",
       "TUTUSDT",
       "AIOUSDT",
-      "CHIPUSDT",
       "ACEUSDT",
-      "AKEUSDT",
+      "CHIPUSDT",
+      "ALICEUSDT",
       "ETHFIUSDT",
       "PUMPUSDT",
-      "ALICEUSDT",
       "ZECUSDT",
-      "GIGGLEUSDT"
+      "GIGGLEUSDT",
+      "AKEUSDT"
     ]
   }
 }
