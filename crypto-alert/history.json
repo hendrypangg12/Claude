@@ -2631,7 +2631,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T06:36:37+00:00",
+    "time": "2026-08-18T06:38:29+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2639,12 +2639,12 @@
       "GPSUSDT",
       "HUSDT",
       "PRLUSDT",
-      "TUTUSDT",
       "EDENUSDT",
+      "TUTUSDT",
       "HEMIUSDT",
       "POLUSDT",
       "APRUSDT",
-      "MORPHOUSDT"
+      "PENDLEUSDT"
     ]
   }
 }
