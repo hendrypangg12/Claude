@@ -2655,7 +2655,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T08:02:29+00:00",
+    "time": "2026-08-18T08:04:33+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -2666,9 +2666,9 @@
       "HUSDT",
       "GPSUSDT",
       "HEMIUSDT",
+      "HEIUSDT",
       "POLUSDT",
-      "APRUSDT",
-      "HEIUSDT"
+      "APRUSDT"
     ]
   }
 }
