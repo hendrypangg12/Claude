@@ -2655,23 +2655,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T13:14:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-18T13:16:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
-      "ACEUSDT",
       "GPSUSDT",
-      "TUTUSDT",
+      "ACEUSDT",
       "VVVUSDT",
+      "TUTUSDT",
       "EDENUSDT",
       "PRLUSDT",
-      "BTWUSDT",
-      "APRUSDT",
       "FHEUSDT",
+      "APRUSDT",
+      "BTWUSDT",
       "CAPUSDT",
       "MORPHOUSDT",
       "LABUSDT",
-      "HEIUSDT",
       "PENDLEUSDT"
     ]
   }
