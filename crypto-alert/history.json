@@ -2655,8 +2655,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T10:18:35+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-18T10:20:37+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "EDENUSDT",
@@ -2665,11 +2665,12 @@
       "HUSDT",
       "BTWUSDT",
       "POLUSDT",
-      "HEMIUSDT",
       "CAPUSDT",
+      "HEMIUSDT",
+      "ACEUSDT",
       "FHEUSDT",
-      "GPSUSDT",
       "PENDLEUSDT",
+      "GPSUSDT",
       "GIGGLEUSDT"
     ]
   }
