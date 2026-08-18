@@ -2631,8 +2631,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T03:38:40+00:00",
-    "shortlist_count": 6,
+    "time": "2026-08-18T03:40:31+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -2640,7 +2640,9 @@
       "EDENUSDT",
       "POLUSDT",
       "PRLUSDT",
-      "GIGGLEUSDT"
+      "HEMIUSDT",
+      "GIGGLEUSDT",
+      "MORPHOUSDT"
     ]
   }
 }
