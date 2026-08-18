@@ -2631,15 +2631,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T04:24:40+00:00",
-    "shortlist_count": 6,
+    "time": "2026-08-18T04:26:31+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
       "EDENUSDT",
-      "TUTUSDT",
       "PRLUSDT",
+      "TUTUSDT",
       "POLUSDT",
+      "HEMIUSDT",
       "GIGGLEUSDT"
     ]
   }
