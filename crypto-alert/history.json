@@ -2631,8 +2631,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T01:54:31+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-18T01:56:29+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2640,14 +2640,13 @@
       "ACEUSDT",
       "HEMIUSDT",
       "GIGGLEUSDT",
-      "GUAUSDT",
-      "PRLUSDT",
       "POLUSDT",
+      "PRLUSDT",
+      "GUAUSDT",
       "SKYAIUSDT",
-      "ZECUSDT",
-      "PENDLEUSDT",
       "LABUSDT",
-      "MORPHOUSDT"
+      "ZECUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
