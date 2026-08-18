@@ -2678,8 +2678,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T18:12:41+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-18T18:14:28+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2687,13 +2687,12 @@
       "PRLUSDT",
       "CYSUSDT",
       "GPSUSDT",
-      "VVVUSDT",
       "BTWUSDT",
+      "VVVUSDT",
       "FHEUSDT",
       "APRUSDT",
       "VELVETUSDT",
-      "POLUSDT",
-      "EDENUSDT"
+      "POLUSDT"
     ]
   }
 }
