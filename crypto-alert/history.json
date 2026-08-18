@@ -2631,8 +2631,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-18T06:22:31+00:00",
-    "shortlist_count": 7,
+    "time": "2026-08-18T06:24:29+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "GPSUSDT",
@@ -2641,7 +2641,9 @@
       "ACEUSDT",
       "TUTUSDT",
       "HUSDT",
-      "POLUSDT"
+      "POLUSDT",
+      "PENDLEUSDT",
+      "APRUSDT"
     ]
   }
 }
