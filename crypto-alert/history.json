@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T06:00:37+00:00",
+    "time": "2026-08-19T06:02:38+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -2690,13 +2690,13 @@
       "ALPINEUSDT",
       "DOSUSDT",
       "HEIUSDT",
-      "AKEUSDT",
-      "GRVTUSDT",
       "ZROUSDT",
+      "GRVTUSDT",
+      "AKEUSDT",
       "APRUSDT",
       "PUMPUSDT",
-      "CAKEUSDT",
-      "CYSUSDT"
+      "CYSUSDT",
+      "CAKEUSDT"
     ]
   }
 }
