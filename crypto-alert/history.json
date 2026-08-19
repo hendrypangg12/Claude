@@ -2679,24 +2679,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T02:06:30+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-19T02:08:32+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
       "BTWUSDT",
-      "CLOUSDT",
-      "ALPINEUSDT",
       "VELVETUSDT",
+      "ALPINEUSDT",
+      "CLOUSDT",
       "DOSUSDT",
       "PUMPUSDT",
       "PRLUSDT",
       "CYSUSDT",
-      "VVVUSDT",
       "APRUSDT",
-      "CAKEUSDT",
-      "IOUSDT",
-      "KAITOUSDT"
+      "VVVUSDT",
+      "AKEUSDT",
+      "IOUSDT"
     ]
   }
 }
