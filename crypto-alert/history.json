@@ -2679,8 +2679,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T02:56:33+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-19T02:58:32+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2694,10 +2694,12 @@
       "AKEUSDT",
       "PRLUSDT",
       "APRUSDT",
+      "KAITOUSDT",
       "VVVUSDT",
       "IOUSDT",
-      "KAITOUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "ZROUSDT",
+      "GRVTUSDT"
     ]
   }
 }
