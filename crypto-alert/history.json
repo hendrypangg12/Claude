@@ -2679,8 +2679,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T06:54:30+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-19T06:56:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -2690,12 +2690,13 @@
       "ACEUSDT",
       "HEIUSDT",
       "ALPINEUSDT",
-      "ZROUSDT",
       "APRUSDT",
+      "ZROUSDT",
       "AKEUSDT",
       "PUMPUSDT",
       "CAKEUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "INJUSDT"
     ]
   }
 }
