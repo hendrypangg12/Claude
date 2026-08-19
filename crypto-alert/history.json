@@ -2679,8 +2679,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T17:32:39+00:00",
-    "shortlist_count": 29,
+    "time": "2026-08-19T17:34:42+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -2694,24 +2694,25 @@
       "ETHUSDT",
       "INJUSDT",
       "ZECUSDT",
-      "UNIUSDT",
       "CCUSDT",
-      "XLMUSDT",
       "EPICUSDT",
+      "UNIUSDT",
+      "XLMUSDT",
       "ARBUSDT",
       "SOLUSDT",
       "HYPEUSDT",
       "CAKEUSDT",
-      "ENAUSDT",
       "XRPUSDT",
-      "DEXEUSDT",
-      "CRVUSDT",
-      "WLDUSDT",
+      "ENAUSDT",
       "PLUMEUSDT",
       "BTCUSDT",
-      "HBARUSDT",
+      "CRVUSDT",
+      "WLDUSDT",
+      "NEARUSDT",
       "VELVETUSDT",
-      "NEARUSDT"
+      "HBARUSDT",
+      "DEXEUSDT",
+      "LINKUSDT"
     ]
   }
 }
