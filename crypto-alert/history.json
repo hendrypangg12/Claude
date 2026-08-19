@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T03:02:30+00:00",
+    "time": "2026-08-19T03:04:27+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -2694,12 +2694,12 @@
       "HEIUSDT",
       "KAITOUSDT",
       "PRLUSDT",
+      "BBUSDT",
       "APRUSDT",
       "VVVUSDT",
-      "BBUSDT",
-      "CAKEUSDT",
-      "GRVTUSDT",
-      "IOUSDT"
+      "ZROUSDT",
+      "IOUSDT",
+      "CAKEUSDT"
     ]
   }
 }
