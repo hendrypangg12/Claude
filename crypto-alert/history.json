@@ -2679,16 +2679,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T15:21:42+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-19T15:24:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
       "HEMIUSDT",
       "DOSUSDT",
+      "CYSUSDT",
       "GRVTUSDT",
       "EDENUSDT",
-      "CYSUSDT",
       "ZROUSDT",
       "PUMPUSDT",
       "INJUSDT",
@@ -2699,8 +2699,9 @@
       "UNIUSDT",
       "SOLUSDT",
       "SUIUSDT",
+      "XRPUSDT",
       "DOTUSDT",
-      "XRPUSDT"
+      "CRVUSDT"
     ]
   }
 }
