@@ -2679,8 +2679,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T00:20:30+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-19T00:22:32+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ACEUSDT",
@@ -2690,14 +2690,15 @@
       "PRLUSDT",
       "CYSUSDT",
       "GPSUSDT",
-      "PUMPUSDT",
       "VELVETUSDT",
+      "PUMPUSDT",
       "APRUSDT",
-      "HEIUSDT",
       "DOSUSDT",
+      "HEIUSDT",
       "EDENUSDT",
       "KAITOUSDT",
-      "VVVUSDT"
+      "VVVUSDT",
+      "CAKEUSDT"
     ]
   }
 }
