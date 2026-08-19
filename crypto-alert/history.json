@@ -2679,15 +2679,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-19T09:36:36+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-19T09:38:55+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
       "VELVETUSDT",
       "ACEUSDT",
-      "DOSUSDT",
       "APRUSDT",
+      "DOSUSDT",
       "HEMIUSDT",
       "ZROUSDT",
       "ALPINEUSDT",
@@ -2695,7 +2695,8 @@
       "GRVTUSDT",
       "CAKEUSDT",
       "INJUSDT",
-      "HEIUSDT"
+      "HEIUSDT",
+      "CYSUSDT"
     ]
   }
 }
