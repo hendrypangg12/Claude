@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T03:50:29+00:00",
+    "time": "2026-08-20T03:52:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2700,10 +2700,10 @@
       "WLDUSDT",
       "INJUSDT",
       "MONUSDT",
-      "CCUSDT",
-      "CRVUSDT",
       "CHIPUSDT",
+      "CCUSDT",
       "TREEUSDT",
+      "CRVUSDT",
       "ENAUSDT",
       "SOLUSDT",
       "ZECUSDT",
@@ -2711,8 +2711,8 @@
       "XRPUSDT",
       "AAVEUSDT",
       "UNIUSDT",
-      "PUMPUSDT",
-      "LDOUSDT"
+      "LDOUSDT",
+      "ZROUSDT"
     ]
   }
 }
