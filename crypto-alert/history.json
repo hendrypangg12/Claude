@@ -2703,15 +2703,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T19:54:56+00:00",
+    "time": "2026-08-20T19:56:33+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
-      "ACEUSDT",
       "BOMEUSDT",
+      "ACEUSDT",
       "ENAUSDT",
-      "PUMPUSDT",
       "ORDIUSDT",
+      "PUMPUSDT",
       "METUSDT",
       "MONUSDT",
       "MOODENGUSDT",
@@ -2723,11 +2723,11 @@
       "PENGUUSDT",
       "BIOUSDT",
       "AEROUSDT",
+      "MAGMAUSDT",
       "HEIUSDT",
       "GALAUSDT",
-      "MAGMAUSDT",
-      "FETUSDT",
       "ETHUSDT",
+      "FETUSDT",
       "VELVETUSDT",
       "TRUMPUSDT",
       "FILUSDT",
@@ -2735,8 +2735,8 @@
       "DOGEUSDT",
       "MINAUSDT",
       "AVAXUSDT",
-      "ADAUSDT",
-      "XLMUSDT"
+      "BTWUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
