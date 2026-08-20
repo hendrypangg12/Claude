@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T02:10:47+00:00",
+    "time": "2026-08-20T02:12:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2698,21 +2698,21 @@
       "AEROUSDT",
       "LITUSDT",
       "INJUSDT",
-      "EDENUSDT",
       "ENAUSDT",
       "UNIUSDT",
       "XRPUSDT",
-      "XLMUSDT",
       "PYTHUSDT",
-      "ZECUSDT",
-      "AAVEUSDT",
       "SOLUSDT",
-      "LINKUSDT",
-      "NEARUSDT",
-      "ZROUSDT",
-      "LDOUSDT",
+      "XLMUSDT",
+      "EDENUSDT",
+      "AAVEUSDT",
       "TREEUSDT",
-      "ZENUSDT"
+      "LINKUSDT",
+      "ZECUSDT",
+      "NEARUSDT",
+      "LDOUSDT",
+      "ZENUSDT",
+      "ZROUSDT"
     ]
   }
 }
