@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T04:34:29+00:00",
+    "time": "2026-08-20T04:36:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2690,16 +2690,16 @@
       "METUSDT",
       "MUBARAKUSDT",
       "HYPEUSDT",
-      "CYSUSDT",
       "LITUSDT",
       "ETHUSDT",
+      "CYSUSDT",
       "TRUMPUSDT",
       "ARBUSDT",
       "CHIPUSDT",
       "AEROUSDT",
-      "WLDUSDT",
       "PENDLEUSDT",
       "MONUSDT",
+      "WLDUSDT",
       "INJUSDT",
       "CCUSDT",
       "TREEUSDT",
@@ -2708,11 +2708,11 @@
       "ZENUSDT",
       "SOLUSDT",
       "XRPUSDT",
+      "ZROUSDT",
       "ZECUSDT",
       "LDOUSDT",
       "PYTHUSDT",
-      "AAVEUSDT",
-      "ZROUSDT"
+      "AAVEUSDT"
     ]
   }
 }
