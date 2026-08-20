@@ -2703,10 +2703,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T20:41:32+00:00",
+    "time": "2026-08-20T20:43:07+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
+      "ONGUSDT",
       "BOMEUSDT",
       "ACEUSDT",
       "ENAUSDT",
@@ -2717,26 +2718,25 @@
       "EDGEUSDT",
       "XRPUSDT",
       "BIOUSDT",
-      "MONUSDT",
       "WIFUSDT",
+      "MONUSDT",
       "GALAUSDT",
-      "SKYAIUSDT",
       "PENGUUSDT",
+      "SKYAIUSDT",
       "FETUSDT",
       "FARTCOINUSDT",
       "AEROUSDT",
       "MINAUSDT",
       "FILUSDT",
       "CRVUSDT",
-      "ETHUSDT",
+      "BTWUSDT",
       "MAGMAUSDT",
+      "ETHUSDT",
       "DOGEUSDT",
       "VELVETUSDT",
       "AVAXUSDT",
       "BICOUSDT",
-      "BTWUSDT",
-      "ADAUSDT",
-      "BASEDUSDT"
+      "ADAUSDT"
     ]
   }
 }
