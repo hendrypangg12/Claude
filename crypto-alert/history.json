@@ -2679,17 +2679,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T08:34:30+00:00",
+    "time": "2026-08-20T08:36:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "REUSDT",
       "MAGMAUSDT",
-      "METUSDT",
       "EDGEUSDT",
-      "LITUSDT",
-      "BIOUSDT",
+      "METUSDT",
       "SKYAIUSDT",
+      "BIOUSDT",
+      "LITUSDT",
       "HYPEUSDT",
       "TRUMPUSDT",
       "ETHUSDT",
@@ -2698,21 +2698,21 @@
       "ETHFIUSDT",
       "PENDLEUSDT",
       "CRVUSDT",
-      "WLDUSDT",
       "CCUSDT",
+      "WLDUSDT",
       "XRPUSDT",
       "MONUSDT",
-      "SOLUSDT",
       "CHIPUSDT",
+      "SOLUSDT",
       "ENAUSDT",
       "WIFUSDT",
-      "LDOUSDT",
       "INJUSDT",
+      "LDOUSDT",
       "UNIUSDT",
-      "ZECUSDT",
-      "ZENUSDT",
       "PYTHUSDT",
-      "PUMPUSDT"
+      "ZECUSDT",
+      "ASTERUSDT",
+      "XLMUSDT"
     ]
   }
 }
