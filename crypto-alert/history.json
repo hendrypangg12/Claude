@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T07:56:25+00:00",
+    "time": "2026-08-20T07:58:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2687,11 +2687,11 @@
       "MAGMAUSDT",
       "LITUSDT",
       "METUSDT",
-      "HYPEUSDT",
       "SKYAIUSDT",
+      "HYPEUSDT",
+      "ETHFIUSDT",
       "TRUMPUSDT",
       "ETHUSDT",
-      "ETHFIUSDT",
       "MONUSDT",
       "ARBUSDT",
       "AEROUSDT",
@@ -2707,12 +2707,12 @@
       "LDOUSDT",
       "WIFUSDT",
       "ZENUSDT",
-      "TREEUSDT",
-      "AAVEUSDT",
-      "ENAUSDT",
       "ASTERUSDT",
+      "AAVEUSDT",
       "MINAUSDT",
-      "INJUSDT"
+      "ENAUSDT",
+      "PUMPUSDT",
+      "RUNEUSDT"
     ]
   }
 }
