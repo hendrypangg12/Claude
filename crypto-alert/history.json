@@ -2698,44 +2698,45 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.372870759001095,
       "time": "2026-08-20T09:42:34+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-20T10:00:42+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T09:58:26+00:00",
+    "time": "2026-08-20T10:00:42+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "BOMEUSDT",
       "MAGMAUSDT",
-      "BIOUSDT",
       "REUSDT",
+      "BIOUSDT",
       "HYPEUSDT",
       "METUSDT",
-      "EDGEUSDT",
       "LITUSDT",
+      "EDGEUSDT",
       "SKYAIUSDT",
       "ETHUSDT",
       "TRUMPUSDT",
-      "HEMIUSDT",
       "MONUSDT",
+      "HEMIUSDT",
       "AEROUSDT",
-      "ETHFIUSDT",
       "ARBUSDT",
+      "ETHFIUSDT",
+      "ENAUSDT",
       "CCUSDT",
       "XRPUSDT",
-      "ENAUSDT",
       "PYTHUSDT",
       "WLDUSDT",
-      "INJUSDT",
       "VIRTUALUSDT",
+      "INJUSDT",
       "XLMUSDT",
       "SOLUSDT",
       "CRVUSDT",
       "ASTERUSDT",
       "UNIUSDT",
-      "LDOUSDT",
-      "WIFUSDT"
+      "WIFUSDT",
+      "LDOUSDT"
     ]
   }
 }
