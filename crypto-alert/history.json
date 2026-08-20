@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T07:01:13+00:00",
+    "time": "2026-08-20T07:02:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2695,24 +2695,24 @@
       "ARBUSDT",
       "MONUSDT",
       "CHIPUSDT",
+      "WLDUSDT",
       "CRVUSDT",
       "CYSUSDT",
-      "WLDUSDT",
       "TREEUSDT",
       "CCUSDT",
       "PENDLEUSDT",
       "MUBARAKUSDT",
       "SOLUSDT",
+      "MINAUSDT",
       "XRPUSDT",
-      "ZECUSDT",
       "PYTHUSDT",
-      "ZENUSDT",
       "ASTERUSDT",
-      "AAVEUSDT",
+      "ZECUSDT",
+      "ZENUSDT",
       "ETHFIUSDT",
-      "INJUSDT",
-      "RUNEUSDT",
-      "LINKUSDT"
+      "AAVEUSDT",
+      "LINKUSDT",
+      "INJUSDT"
     ]
   }
 }
