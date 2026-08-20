@@ -2703,7 +2703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T22:14:29+00:00",
+    "time": "2026-08-20T22:16:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2722,21 +2722,21 @@
       "CHIPUSDT",
       "MINAUSDT",
       "PENGUUSDT",
-      "SKYAIUSDT",
       "FETUSDT",
-      "GRASSUSDT",
       "AEROUSDT",
+      "SKYAIUSDT",
+      "GRASSUSDT",
+      "BTWUSDT",
       "XPLUSDT",
       "VELVETUSDT",
       "EDGEUSDT",
       "CRVUSDT",
-      "STABLEUSDT",
-      "ASTERUSDT",
-      "HEIUSDT",
       "FILUSDT",
-      "MAGMAUSDT",
-      "BTWUSDT",
-      "LABUSDT"
+      "ASTERUSDT",
+      "LABUSDT",
+      "BASEDUSDT",
+      "STABLEUSDT",
+      "MAGMAUSDT"
     ]
   }
 }
