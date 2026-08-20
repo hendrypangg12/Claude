@@ -2679,7 +2679,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-20T08:16:32+00:00",
+    "time": "2026-08-20T08:18:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2704,15 +2704,15 @@
       "CCUSDT",
       "CHIPUSDT",
       "SOLUSDT",
+      "ASTERUSDT",
       "XRPUSDT",
       "LDOUSDT",
       "WIFUSDT",
       "PYTHUSDT",
-      "ASTERUSDT",
       "ZECUSDT",
-      "RUNEUSDT",
       "ZENUSDT",
-      "AAVEUSDT"
+      "RUNEUSDT",
+      "INJUSDT"
     ]
   }
 }
