@@ -2703,7 +2703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-21T06:38:28+00:00",
+    "time": "2026-08-21T06:40:33+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2721,12 +2721,13 @@
       "MOODENGUSDT",
       "CRVUSDT",
       "SPXUSDT",
-      "WIFUSDT",
-      "PENGUUSDT",
       "XPLUSDT",
+      "PENGUUSDT",
+      "WIFUSDT",
       "CHIPUSDT",
-      "ADAUSDT",
       "FARTCOINUSDT",
+      "ADAUSDT",
+      "MUBARAKUSDT",
       "FETUSDT",
       "ORDIUSDT",
       "PYTHUSDT",
@@ -2734,9 +2735,8 @@
       "FILUSDT",
       "DOGEUSDT",
       "XLMUSDT",
-      "SUIUSDT",
-      "EDGEUSDT",
-      "STABLEUSDT"
+      "GIGGLEUSDT",
+      "SUIUSDT"
     ]
   }
 }
