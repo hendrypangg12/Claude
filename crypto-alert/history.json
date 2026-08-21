@@ -2703,7 +2703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-21T05:20:30+00:00",
+    "time": "2026-08-21T05:22:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2717,9 +2717,9 @@
       "MOODENGUSDT",
       "HEMIUSDT",
       "ORDIUSDT",
-      "GALAUSDT",
-      "PENGUUSDT",
       "XPLUSDT",
+      "PENGUUSDT",
+      "GALAUSDT",
       "WIFUSDT",
       "FARTCOINUSDT",
       "ADAUSDT",
@@ -2730,13 +2730,13 @@
       "EDGEUSDT",
       "DOGEUSDT",
       "CHIPUSDT",
-      "MONUSDT",
-      "PYTHUSDT",
       "ZECUSDT",
-      "BCHUSDT",
+      "MONUSDT",
       "MINAUSDT",
-      "AVAXUSDT",
-      "BIOUSDT"
+      "PYTHUSDT",
+      "ZENUSDT",
+      "BIOUSDT",
+      "BCHUSDT"
     ]
   }
 }
