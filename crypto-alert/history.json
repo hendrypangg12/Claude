@@ -2728,7 +2728,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-21T22:26:34+00:00",
+    "time": "2026-08-21T22:28:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2747,21 +2747,21 @@
       "WIFUSDT",
       "FARTCOINUSDT",
       "XPLUSDT",
-      "HEMIUSDT",
       "FETUSDT",
+      "HEMIUSDT",
       "DASHUSDT",
       "LITUSDT",
       "DOGEUSDT",
-      "SPXUSDT",
-      "ETHFIUSDT",
-      "ADAUSDT",
       "ZENUSDT",
-      "ROBOUSDT",
+      "ETHFIUSDT",
+      "SPXUSDT",
+      "ADAUSDT",
       "TIAUSDT",
-      "ETCUSDT",
-      "LINKUSDT",
       "POLUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "ROBOUSDT",
+      "ETCUSDT",
+      "LINKUSDT"
     ]
   }
 }
