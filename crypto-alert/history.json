@@ -2703,7 +2703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-21T04:46:32+00:00",
+    "time": "2026-08-21T04:48:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2720,23 +2720,23 @@
       "ORDIUSDT",
       "PENGUUSDT",
       "FARTCOINUSDT",
-      "FETUSDT",
       "WIFUSDT",
+      "FETUSDT",
       "ADAUSDT",
       "MOODENGUSDT",
       "CHIPUSDT",
       "EDGEUSDT",
       "EPICUSDT",
       "FILUSDT",
-      "MAGMAUSDT",
       "BIOUSDT",
       "XLMUSDT",
-      "MINAUSDT",
+      "MAGMAUSDT",
       "DOGEUSDT",
+      "MINAUSDT",
       "MONUSDT",
-      "KASUSDT",
       "HEIUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "KASUSDT"
     ]
   }
 }
