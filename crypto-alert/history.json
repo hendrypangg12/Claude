@@ -2801,20 +2801,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T22:40:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-22T22:42:34+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "TRUMPUSDT",
       "PUMPUSDT",
-      "STXUSDT",
-      "ZROUSDT",
       "MELANIAUSDT",
+      "ZROUSDT",
+      "STXUSDT",
       "PORTALUSDT",
       "MUBARAKUSDT",
-      "ENAUSDT",
       "POLUSDT",
+      "ENAUSDT",
       "TSTUSDT",
       "ZECUSDT",
       "CVXUSDT",
@@ -2822,12 +2822,11 @@
       "FFUSDT",
       "DASHUSDT",
       "MOVEUSDT",
-      "AKEUSDT",
       "XMRUSDT",
+      "AKEUSDT",
       "PYTHUSDT",
-      "CCUSDT",
-      "HYPEUSDT",
-      "ZENUSDT"
+      "ZENUSDT",
+      "CCUSDT"
     ]
   }
 }
