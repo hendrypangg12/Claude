@@ -2752,7 +2752,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T00:50:35+00:00",
+    "time": "2026-08-22T00:52:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2765,16 +2765,16 @@
       "ZECUSDT",
       "ZORAUSDT",
       "BLESSUSDT",
+      "AAVEUSDT",
       "PENGUUSDT",
       "ETCUSDT",
-      "AAVEUSDT",
       "WIFUSDT",
       "TUTUSDT",
       "DASHUSDT",
+      "HEMIUSDT",
       "SPXUSDT",
       "ENAUSDT",
       "FARTCOINUSDT",
-      "HEMIUSDT",
       "MINAUSDT",
       "POLUSDT",
       "KAITOUSDT",
@@ -2783,9 +2783,9 @@
       "TIAUSDT",
       "CRVUSDT",
       "LITUSDT",
-      "TRUMPUSDT",
       "ROBOUSDT",
-      "SKYAIUSDT"
+      "TRUMPUSDT",
+      "XPLUSDT"
     ]
   }
 }
