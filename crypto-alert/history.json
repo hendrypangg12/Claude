@@ -2777,7 +2777,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T13:44:31+00:00",
+    "time": "2026-08-22T13:46:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2788,13 +2788,13 @@
       "POLUSDT",
       "STXUSDT",
       "MUBARAKUSDT",
-      "USUSDT",
-      "CVXUSDT",
       "USELESSUSDT",
+      "CVXUSDT",
       "PUMPUSDT",
-      "CCUSDT",
+      "USUSDT",
       "DASHUSDT",
       "LITUSDT",
+      "CCUSDT",
       "AAVEUSDT",
       "MOVEUSDT",
       "BEATUSDT",
@@ -2802,15 +2802,15 @@
       "MINAUSDT",
       "ZAMAUSDT",
       "COTIUSDT",
-      "ACEUSDT",
       "WIFUSDT",
       "ENAUSDT",
+      "ACEUSDT",
       "DOGEUSDT",
       "VVVUSDT",
-      "FOLKSUSDT",
       "UNIUSDT",
       "ZENUSDT",
-      "AIAUSDT"
+      "AIAUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
