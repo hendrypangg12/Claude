@@ -22,8 +22,8 @@
       "spike_pct": 0.15,
       "spike_cooldown_min": 10,
       "price_adjust": 5.3,
-      "last_notify_price": 4601.29,
-      "last_notify_time": "2026-08-22T02:32:29+00:00",
+      "last_notify_price": 4601.28,
+      "last_notify_time": "2026-08-22T02:36:29+00:00",
       "last_spike_time": "2026-08-21T15:36:26+00:00",
       "catatan": "PAXG = token 1:1 emas fisik, proksi XAU/USD (MEXC gak punya pair forex). Kalibrasi +5.3 diukur 27 Juli vs XAUUSDb HFM (3 sampel: -5.19/-5.42/-5.42). Threshold disesuaikan karakter emas: gerak 5m emas jauh lebih kecil dari BTC (median 0.031%, maks 0.134% dalam 8.3 jam) — pakai angka BTC (0.6%) gak bakal pernah bunyi."
     }
