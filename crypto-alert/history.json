@@ -2801,16 +2801,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T22:10:30+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-22T22:12:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "TRUMPUSDT",
       "PUMPUSDT",
+      "ZROUSDT",
       "STXUSDT",
       "PORTALUSDT",
-      "ZROUSDT",
       "POLUSDT",
       "MUBARAKUSDT",
       "MELANIAUSDT",
@@ -2822,11 +2822,9 @@
       "DASHUSDT",
       "CCUSDT",
       "XMRUSDT",
-      "AAVEUSDT",
       "MOVEUSDT",
       "FOLKSUSDT",
-      "UNIUSDT",
-      "ZENUSDT"
+      "AAVEUSDT"
     ]
   }
 }
