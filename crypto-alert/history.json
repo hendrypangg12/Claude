@@ -48,7 +48,8 @@
     "HEMIUSDT": "2026-08-20T09:42:34+00:00",
     "AIOUSDT": "2026-08-16T13:00:41+00:00",
     "GPSUSDT": "2026-08-17T16:41:56+00:00",
-    "ONGUSDT": "2026-08-21T09:56:44+00:00"
+    "ONGUSDT": "2026-08-21T09:56:44+00:00",
+    "TRUMPUSDT": "2026-08-22T10:54:32+00:00"
   },
   "alerts": [
     {
@@ -2749,12 +2750,35 @@
       "time": "2026-08-22T00:44:27+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-22T00:50:35+00:00"
+    },
+    {
+      "symbol": "TRUMPUSDT",
+      "pct": 13.1,
+      "price": 2.694,
+      "quote_volume": 66812965.07,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5864948101330747,
+      "retrace_pct": 1.5710632078918578,
+      "wick_ratio": 0.3750000000000028,
+      "rsi": 68.04712010054043,
+      "divergence": false,
+      "vol_spike": 0.25616658004574305,
+      "btc_pct": 0.4671248767805795,
+      "sl": 2.76437,
+      "tp1": 2.615906,
+      "tp2": 2.541094,
+      "tp3": 2.42,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.4263429721627052,
+      "time": "2026-08-22T10:54:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T10:52:30+00:00",
+    "time": "2026-08-22T10:54:32+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TRUMPUSDT",
       "MAGMAUSDT",
@@ -2770,22 +2794,22 @@
       "POPCATUSDT",
       "TUTUSDT",
       "CCUSDT",
-      "ZAMAUSDT",
       "MUBARAKUSDT",
-      "CVXUSDT",
+      "ZAMAUSDT",
       "LITUSDT",
       "MINAUSDT",
       "AIAUSDT",
-      "WIFUSDT",
-      "ZORAUSDT",
-      "REUSDT",
+      "CVXUSDT",
       "USELESSUSDT",
-      "FOLKSUSDT",
+      "ZORAUSDT",
+      "WIFUSDT",
+      "REUSDT",
       "FARTCOINUSDT",
-      "AAVEUSDT",
+      "ENAUSDT",
       "XANUSDT",
       "XRPUSDT",
-      "ENAUSDT"
+      "AAVEUSDT",
+      "ETCUSDT"
     ]
   }
 }
