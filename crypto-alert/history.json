@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-22T21:14:26+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-22T21:16:33+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -2821,17 +2821,18 @@
       "CCUSDT",
       "ENAUSDT",
       "PYTHUSDT",
-      "MOVEUSDT",
       "ZENUSDT",
+      "AAVEUSDT",
       "XRPUSDT",
       "VVVUSDT",
-      "AAVEUSDT",
-      "USELESSUSDT",
-      "UNIUSDT",
       "DOGEUSDT",
-      "POPCATUSDT",
+      "MOVEUSDT",
+      "UNIUSDT",
       "FOLKSUSDT",
-      "LITUSDT"
+      "USELESSUSDT",
+      "POPCATUSDT",
+      "LITUSDT",
+      "XMRUSDT"
     ]
   }
 }
