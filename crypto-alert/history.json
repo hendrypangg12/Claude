@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T10:36:21+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-23T10:38:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -2812,20 +2812,18 @@
       "STXUSDT",
       "FFUSDT",
       "CYSUSDT",
-      "BOMEUSDT",
       "GIGGLEUSDT",
       "ETHFIUSDT",
+      "BOMEUSDT",
       "MONUSDT",
       "VVVUSDT",
       "LITUSDT",
+      "SPXUSDT",
       "USELESSUSDT",
       "AAVEUSDT",
       "PENDLEUSDT",
-      "SPXUSDT",
       "PYTHUSDT",
-      "ZENUSDT",
-      "INJUSDT",
-      "HEMIUSDT"
+      "ZENUSDT"
     ]
   }
 }
