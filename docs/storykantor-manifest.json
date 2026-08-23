@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-23_09-48-54",
+      "date": "2026-08-23",
+      "time": "09:48",
+      "label": "STORY KANTOR",
+      "title": "Kerja giat bertahun-tahun, jabatan gitu-gitu aja.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-08-23_06-50-51",
       "date": "2026-08-23",
       "time": "06:50",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-08-19_09-43-54",
-      "date": "2026-08-19",
-      "time": "09:43",
-      "label": "STORY KANTOR",
-      "title": "Kadang yang kamu butuhin bukan motivasi, tapi lingkungan kerja yang sehat.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
