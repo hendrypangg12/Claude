@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T00:16:24+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-23T00:18:27+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -2815,16 +2815,19 @@
       "MUBARAKUSDT",
       "POLUSDT",
       "ENAUSDT",
-      "TSTUSDT",
       "MOVEUSDT",
+      "TSTUSDT",
       "FFUSDT",
-      "CCUSDT",
       "ZECUSDT",
+      "CCUSDT",
       "PYTHUSDT",
       "HYPEUSDT",
       "XMRUSDT",
       "AKEUSDT",
-      "UNIUSDT"
+      "DASHUSDT",
+      "UNIUSDT",
+      "LITUSDT",
+      "VVVUSDT"
     ]
   }
 }
