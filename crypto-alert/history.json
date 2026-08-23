@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T13:12:28+00:00",
+    "time": "2026-08-23T13:14:26+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -2816,18 +2816,18 @@
       "ETHFIUSDT",
       "BOMEUSDT",
       "AAVEUSDT",
-      "MONUSDT",
       "CHIPUSDT",
+      "MONUSDT",
       "LDOUSDT",
       "INJUSDT",
       "ZENUSDT",
+      "GIGGLEUSDT",
       "XPLUSDT",
       "SPXUSDT",
-      "GIGGLEUSDT",
-      "GRAMUSDT",
       "PYTHUSDT",
-      "TRUMPUSDT",
-      "HYPEUSDT"
+      "GRAMUSDT",
+      "HYPEUSDT",
+      "TRUMPUSDT"
     ]
   }
 }
