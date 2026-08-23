@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T13:16:28+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-23T13:18:26+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
@@ -2813,22 +2813,26 @@
       "CYSUSDT",
       "ENAUSDT",
       "PENDLEUSDT",
+      "AAVEUSDT",
       "ETHFIUSDT",
       "BOMEUSDT",
       "MONUSDT",
-      "AAVEUSDT",
-      "CHIPUSDT",
       "LDOUSDT",
-      "INJUSDT",
       "ZENUSDT",
-      "XPLUSDT",
-      "SPXUSDT",
-      "GIGGLEUSDT",
-      "PORTALUSDT",
       "TRUMPUSDT",
-      "GRAMUSDT",
+      "CHIPUSDT",
+      "INJUSDT",
+      "SPXUSDT",
+      "XPLUSDT",
+      "GIGGLEUSDT",
       "PYTHUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "UNIUSDT",
+      "GRAMUSDT",
+      "DASHUSDT",
+      "PORTALUSDT",
+      "ZECUSDT",
+      "HBARUSDT"
     ]
   }
 }
