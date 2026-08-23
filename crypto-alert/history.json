@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T01:52:24+00:00",
+    "time": "2026-08-23T01:54:22+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -2814,17 +2814,17 @@
       "MELANIAUSDT",
       "STXUSDT",
       "POLUSDT",
-      "FFUSDT",
-      "CYSUSDT",
-      "MOVEUSDT",
       "ENAUSDT",
+      "FFUSDT",
+      "MOVEUSDT",
+      "CYSUSDT",
       "XMRUSDT",
       "VVVUSDT",
       "TSTUSDT",
       "HYPEUSDT",
-      "DASHUSDT",
       "FOLKSUSDT",
-      "CCUSDT"
+      "CCUSDT",
+      "DASHUSDT"
     ]
   }
 }
