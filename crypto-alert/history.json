@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T10:38:24+00:00",
+    "time": "2026-08-23T10:40:28+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -2810,20 +2810,20 @@
       "ENAUSDT",
       "PUMPUSDT",
       "STXUSDT",
-      "FFUSDT",
       "CYSUSDT",
-      "GIGGLEUSDT",
       "ETHFIUSDT",
+      "GIGGLEUSDT",
       "BOMEUSDT",
       "MONUSDT",
+      "FFUSDT",
       "VVVUSDT",
-      "LITUSDT",
       "SPXUSDT",
+      "LITUSDT",
       "USELESSUSDT",
       "AAVEUSDT",
       "PENDLEUSDT",
-      "PYTHUSDT",
-      "ZENUSDT"
+      "INJUSDT",
+      "PYTHUSDT"
     ]
   }
 }
