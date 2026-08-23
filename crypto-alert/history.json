@@ -2801,14 +2801,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T10:30:34+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-23T10:32:24+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "ZROUSDT",
-      "PUMPUSDT",
       "ENAUSDT",
+      "PUMPUSDT",
       "STXUSDT",
       "FFUSDT",
       "CYSUSDT",
@@ -2819,15 +2819,13 @@
       "VVVUSDT",
       "LITUSDT",
       "AAVEUSDT",
-      "SPXUSDT",
       "USELESSUSDT",
+      "SPXUSDT",
       "PENDLEUSDT",
       "ZENUSDT",
-      "HEMIUSDT",
       "PYTHUSDT",
-      "INJUSDT",
-      "GRAMUSDT",
-      "UNIUSDT"
+      "HEMIUSDT",
+      "INJUSDT"
     ]
   }
 }
