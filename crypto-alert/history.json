@@ -2801,13 +2801,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T09:58:34+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-23T10:00:38+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
-      "ZROUSDT",
       "PUMPUSDT",
+      "ZROUSDT",
       "ENAUSDT",
       "STXUSDT",
       "FFUSDT",
@@ -2815,9 +2815,10 @@
       "PORTALUSDT",
       "MONUSDT",
       "LITUSDT",
+      "USELESSUSDT",
       "ETHFIUSDT",
       "VVVUSDT",
-      "USELESSUSDT"
+      "BOMEUSDT"
     ]
   }
 }
