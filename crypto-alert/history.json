@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T12:24:24+00:00",
+    "time": "2026-08-23T12:26:26+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -2813,14 +2813,14 @@
       "ENAUSDT",
       "CYSUSDT",
       "ETHFIUSDT",
-      "MONUSDT",
       "XPLUSDT",
-      "BOMEUSDT",
+      "MONUSDT",
       "PENDLEUSDT",
+      "BOMEUSDT",
+      "SPXUSDT",
       "GIGGLEUSDT",
       "INJUSDT",
-      "GRAMUSDT",
-      "SPXUSDT"
+      "GRAMUSDT"
     ]
   }
 }
