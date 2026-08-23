@@ -2801,21 +2801,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T06:36:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-23T06:38:24+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
-      "ZROUSDT",
       "PORTALUSDT",
+      "ZROUSDT",
       "FFUSDT",
-      "PUMPUSDT",
       "STXUSDT",
+      "PUMPUSDT",
       "VVVUSDT",
-      "USELESSUSDT",
       "ACEUSDT",
-      "HEMIUSDT",
-      "LITUSDT"
+      "USELESSUSDT",
+      "HEMIUSDT"
     ]
   }
 }
