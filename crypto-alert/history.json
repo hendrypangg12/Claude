@@ -2801,16 +2801,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-23T03:24:29+00:00",
-    "shortlist_count": 6,
+    "time": "2026-08-23T03:26:29+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "TUTUSDT",
       "PUMPUSDT",
       "PORTALUSDT",
-      "ZROUSDT",
       "FFUSDT",
-      "VVVUSDT"
+      "ZROUSDT",
+      "VVVUSDT",
+      "CYSUSDT"
     ]
   }
 }
