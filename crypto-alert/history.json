@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T09:59:49+00:00",
+    "time": "2026-08-24T10:00:38+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2820,21 +2820,21 @@
       "INJUSDT",
       "STXUSDT",
       "ZORAUSDT",
-      "REUSDT",
       "BLESSUSDT",
+      "REUSDT",
       "FHEUSDT",
       "FFUSDT",
-      "PENDLEUSDT",
       "CCUSDT",
+      "PENDLEUSDT",
       "POLUSDT",
       "EIGENUSDT",
-      "LDOUSDT",
       "TAOUSDT",
+      "LDOUSDT",
       "XPLUSDT",
       "WLDUSDT",
       "ZENUSDT",
-      "NEARUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "ONDOUSDT"
     ]
   }
 }
