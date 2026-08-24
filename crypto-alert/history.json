@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T18:46:25+00:00",
+    "time": "2026-08-24T18:49:30+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -2811,12 +2811,12 @@
       "TACUSDT",
       "GRASSUSDT",
       "INJUSDT",
-      "VIRTUALUSDT",
       "AEROUSDT",
       "FHEUSDT",
+      "VIRTUALUSDT",
+      "MONUSDT",
       "POLUSDT",
       "ZAMAUSDT",
-      "MONUSDT",
       "ARXUSDT"
     ]
   }
