@@ -2801,12 +2801,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T16:29:06+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-24T16:31:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "STORJUSDT",
       "UAIUSDT",
+      "STORJUSDT",
       "PORTALUSDT",
       "VIRTUALUSDT",
       "GRASSUSDT",
@@ -2815,14 +2815,17 @@
       "INJUSDT",
       "TACUSDT",
       "POLUSDT",
-      "BTWUSDT",
       "FETUSDT",
       "ZAMAUSDT",
       "CCUSDT",
       "FFUSDT",
       "ARXUSDT",
+      "BTWUSDT",
       "MONUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "LITUSDT",
+      "ETHFIUSDT",
+      "CYSUSDT"
     ]
   }
 }
