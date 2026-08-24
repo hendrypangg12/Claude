@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T20:44:57+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-24T20:46:30+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -2810,14 +2810,16 @@
       "STORJUSDT",
       "AEROUSDT",
       "INJUSDT",
-      "LITUSDT",
-      "CYSUSDT",
       "VIRTUALUSDT",
-      "FHEUSDT",
-      "FFUSDT",
+      "CYSUSDT",
+      "LITUSDT",
       "POLUSDT",
+      "FFUSDT",
+      "FHEUSDT",
       "FETUSDT",
-      "龙虾USDT"
+      "TACUSDT",
+      "龙虾USDT",
+      "CCUSDT"
     ]
   }
 }
