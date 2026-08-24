@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T01:02:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-24T01:04:37+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "GRASSUSDT",
@@ -2811,23 +2811,24 @@
       "LITUSDT",
       "龙虾USDT",
       "AAVEUSDT",
-      "UAIUSDT",
-      "TAOUSDT",
       "INJUSDT",
       "PENDLEUSDT",
+      "TAOUSDT",
+      "UAIUSDT",
       "EIGENUSDT",
-      "CYSUSDT",
-      "MONUSDT",
-      "ZAMAUSDT",
       "TRUMPUSDT",
+      "MONUSDT",
       "NEARUSDT",
       "LDOUSDT",
+      "ZAMAUSDT",
       "XPLUSDT",
-      "FFUSDT",
+      "CYSUSDT",
       "ETHFIUSDT",
       "ZORAUSDT",
+      "FFUSDT",
       "VIRTUALUSDT",
-      "ZECUSDT"
+      "FHEUSDT",
+      "UNIUSDT"
     ]
   }
 }
