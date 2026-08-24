@@ -2801,32 +2801,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T00:44:32+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-24T00:46:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "GRASSUSDT",
       "MORPHOUSDT",
+      "GRASSUSDT",
       "PENGUUSDT",
       "龙虾USDT",
       "AAVEUSDT",
-      "LITUSDT",
       "UAIUSDT",
+      "LITUSDT",
       "CYSUSDT",
       "ZORAUSDT",
-      "PENDLEUSDT",
-      "INJUSDT",
-      "TAOUSDT",
+      "TRUMPUSDT",
       "MONUSDT",
+      "INJUSDT",
+      "PENDLEUSDT",
+      "TAOUSDT",
       "EIGENUSDT",
       "ZAMAUSDT",
-      "TRUMPUSDT",
       "NEARUSDT",
       "LDOUSDT",
       "FFUSDT",
-      "XPLUSDT",
       "ETHFIUSDT",
-      "ZECUSDT"
+      "XPLUSDT"
     ]
   }
 }
