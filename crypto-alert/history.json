@@ -2801,22 +2801,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T17:30:40+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-24T17:34:54+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
-      "PORTALUSDT",
       "UAIUSDT",
+      "PORTALUSDT",
       "STORJUSDT",
       "GRASSUSDT",
       "INJUSDT",
-      "TACUSDT",
       "AEROUSDT",
       "VIRTUALUSDT",
-      "ZAMAUSDT",
+      "TACUSDT",
       "POLUSDT",
-      "FHEUSDT",
-      "CYSUSDT"
+      "ZAMAUSDT",
+      "FHEUSDT"
     ]
   }
 }
