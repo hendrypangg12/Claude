@@ -2801,7 +2801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T17:03:12+00:00",
+    "time": "2026-08-24T17:05:27+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -2812,12 +2812,12 @@
       "INJUSDT",
       "VIRTUALUSDT",
       "AEROUSDT",
-      "POLUSDT",
       "FHEUSDT",
+      "POLUSDT",
       "TACUSDT",
       "ZAMAUSDT",
-      "CCUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "CCUSDT"
     ]
   }
 }
