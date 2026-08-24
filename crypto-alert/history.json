@@ -2801,27 +2801,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T06:26:29+00:00",
+    "time": "2026-08-24T06:28:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
       "GRASSUSDT",
-      "MORPHOUSDT",
-      "LITUSDT",
       "TUTUSDT",
+      "LITUSDT",
+      "MORPHOUSDT",
       "PENGUUSDT",
       "AAVEUSDT",
       "EIGENUSDT",
+      "ZAMAUSDT",
       "LDOUSDT",
       "PENDLEUSDT",
-      "ZORAUSDT",
       "ETHFIUSDT",
-      "ZAMAUSDT",
       "CHIPUSDT",
+      "ZORAUSDT",
       "MONUSDT",
-      "ZENUSDT",
       "AEROUSDT",
+      "ZENUSDT",
       "INJUSDT",
       "ENAUSDT",
       "XPLUSDT",
@@ -2832,9 +2832,9 @@
       "VIRTUALUSDT",
       "TAOUSDT",
       "ASTERUSDT",
-      "WLDUSDT",
-      "FETUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "ZECUSDT",
+      "WLDUSDT"
     ]
   }
 }
