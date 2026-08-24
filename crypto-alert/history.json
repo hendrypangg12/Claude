@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T08:30:39+00:00",
-    "shortlist_count": 28,
+    "time": "2026-08-24T08:32:28+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -2816,23 +2816,25 @@
       "ETHFIUSDT",
       "INJUSDT",
       "AEROUSDT",
-      "CCUSDT",
-      "LITUSDT",
       "REUSDT",
+      "CCUSDT",
       "PENDLEUSDT",
+      "LITUSDT",
       "EIGENUSDT",
       "ZAMAUSDT",
       "LDOUSDT",
       "ZORAUSDT",
-      "FHEUSDT",
       "XPLUSDT",
       "ZENUSDT",
+      "FFUSDT",
       "UNIUSDT",
       "TAOUSDT",
+      "VIRTUALUSDT",
+      "FHEUSDT",
       "STXUSDT",
       "PLUMEUSDT",
-      "VIRTUALUSDT",
-      "ASTERUSDT"
+      "ASTERUSDT",
+      "NEARUSDT"
     ]
   }
 }
