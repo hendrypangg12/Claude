@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T12:58:27+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-24T13:00:40+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -2812,10 +2812,10 @@
       "AEROUSDT",
       "GRASSUSDT",
       "VIRTUALUSDT",
-      "FHEUSDT",
       "CCUSDT",
-      "INJUSDT",
+      "FHEUSDT",
       "POLUSDT",
+      "INJUSDT",
       "LITUSDT",
       "CHIPUSDT",
       "TAOUSDT",
@@ -2823,8 +2823,7 @@
       "CYSUSDT",
       "ZECUSDT",
       "FETUSDT",
-      "ASTERUSDT",
-      "ONUSDT"
+      "ASTERUSDT"
     ]
   }
 }
