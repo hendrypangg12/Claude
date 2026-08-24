@@ -2801,24 +2801,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-24T16:56:34+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-24T16:58:31+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
-      "UAIUSDT",
       "PORTALUSDT",
+      "UAIUSDT",
       "GRASSUSDT",
-      "VIRTUALUSDT",
       "INJUSDT",
+      "VIRTUALUSDT",
       "AEROUSDT",
-      "POLUSDT",
       "FHEUSDT",
+      "POLUSDT",
       "TACUSDT",
       "ZAMAUSDT",
       "FETUSDT",
       "CCUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "FFUSDT"
     ]
   }
 }
