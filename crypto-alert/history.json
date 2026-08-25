@@ -2826,8 +2826,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T07:05:23+00:00",
-    "shortlist_count": 28,
+    "time": "2026-08-25T07:06:30+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "ONGUSDT",
@@ -2843,8 +2843,8 @@
       "INJUSDT",
       "SPXUSDT",
       "POLUSDT",
-      "BTWUSDT",
       "EDGEUSDT",
+      "BTWUSDT",
       "FETUSDT",
       "SOLUSDT",
       "KASUSDT",
@@ -2855,8 +2855,9 @@
       "ONDOUSDT",
       "RENDERUSDT",
       "PENGUUSDT",
-      "BTCUSDT",
       "UAIUSDT",
+      "PORTALUSDT",
+      "BTCUSDT",
       "ETCUSDT"
     ]
   }
