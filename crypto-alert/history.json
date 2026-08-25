@@ -2873,13 +2873,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T19:16:52+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 1,
+    "time": "2026-08-25T19:18:25+00:00",
+    "shortlist_count": 20,
+    "confirmed_count": 0,
     "symbols": [
+      "BMTUSDT",
       "TACUSDT",
       "龙虾USDT",
-      "BMTUSDT",
       "ONGUSDT",
       "SPXUSDT",
       "STXUSDT",
@@ -2891,11 +2891,12 @@
       "FARTCOINUSDT",
       "DOSUSDT",
       "HYPEUSDT",
-      "POLUSDT",
       "PENGUUSDT",
-      "HOLOUSDT",
       "PYTHUSDT",
-      "ASTERUSDT"
+      "POLUSDT",
+      "HOLOUSDT",
+      "ASTERUSDT",
+      "BSBUSDT"
     ]
   }
 }
