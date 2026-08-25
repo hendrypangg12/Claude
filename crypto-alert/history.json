@@ -2826,7 +2826,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T05:18:23+00:00",
+    "time": "2026-08-25T05:20:27+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -2841,22 +2841,22 @@
       "INJUSDT",
       "CYSUSDT",
       "STXUSDT",
-      "BTWUSDT",
-      "POLUSDT",
       "SPXUSDT",
-      "EDGEUSDT",
-      "SOLUSDT",
+      "POLUSDT",
+      "BTWUSDT",
       "PENGUUSDT",
+      "SOLUSDT",
+      "EDGEUSDT",
       "XMRUSDT",
       "MONUSDT",
+      "PORTALUSDT",
       "FETUSDT",
       "ONDOUSDT",
-      "RUNEUSDT",
       "ZAMAUSDT",
-      "PORTALUSDT",
+      "RUNEUSDT",
       "FARTCOINUSDT",
       "BTCUSDT",
-      "REUSDT"
+      "WLDUSDT"
     ]
   }
 }
