@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-25_20-31-21",
+      "date": "2026-08-25",
+      "time": "20:31",
+      "label": "STORY KANTOR",
+      "title": "Yang paling sibuk belum tentu paling kerja, kadang cuma paling jago keliatan sibuk.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-08-25_13-02-03",
       "date": "2026-08-25",
       "time": "13:02",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-08-22_09-39-25",
-      "date": "2026-08-22",
-      "time": "09:39",
-      "label": "STORY KANTOR",
-      "title": "Interview kerja nanya soal passion, giliran diterima nanya kenapa lambat submit laporan.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
