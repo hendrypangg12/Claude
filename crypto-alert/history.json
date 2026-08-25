@@ -2826,8 +2826,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T07:04:33+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-25T07:05:23+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "ONGUSDT",
@@ -2835,28 +2835,29 @@
       "STXUSDT",
       "PROMUSDT",
       "CYSUSDT",
-      "WIFUSDT",
       "VIRTUALUSDT",
-      "AEROUSDT",
       "STORJUSDT",
-      "INJUSDT",
+      "WIFUSDT",
+      "AEROUSDT",
       "龙虾USDT",
-      "POLUSDT",
+      "INJUSDT",
       "SPXUSDT",
+      "POLUSDT",
       "BTWUSDT",
       "EDGEUSDT",
-      "SOLUSDT",
       "FETUSDT",
-      "XMRUSDT",
+      "SOLUSDT",
       "KASUSDT",
+      "XMRUSDT",
       "ZAMAUSDT",
       "RUNEUSDT",
       "WLDUSDT",
       "ONDOUSDT",
       "RENDERUSDT",
-      "UAIUSDT",
       "PENGUUSDT",
-      "BTCUSDT"
+      "BTCUSDT",
+      "UAIUSDT",
+      "ETCUSDT"
     ]
   }
 }
