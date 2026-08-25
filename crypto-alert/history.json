@@ -2893,11 +2893,12 @@
       "funding_rate": 0.159,
       "orderbook_ratio": 1.2698696992240164,
       "time": "2026-08-25T23:26:24+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-25T23:40:42+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T23:38:28+00:00",
+    "time": "2026-08-25T23:40:42+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2905,13 +2906,13 @@
       "BMTUSDT",
       "TACUSDT",
       "ONGUSDT",
-      "HUSDT",
       "STXUSDT",
-      "PROMUSDT",
+      "HUSDT",
       "HANAUSDT",
+      "PROMUSDT",
       "SPXUSDT",
-      "ZROUSDT",
       "TWTUSDT",
+      "ZROUSDT",
       "DOSUSDT",
       "JASMYUSDT",
       "ACEUSDT",
