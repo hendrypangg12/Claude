@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T01:02:31+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-25T01:04:22+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
@@ -2810,20 +2810,21 @@
       "PORTALUSDT",
       "AEROUSDT",
       "VIRTUALUSDT",
-      "STORJUSDT",
       "INJUSDT",
       "POLUSDT",
       "龙虾USDT",
-      "ZAMAUSDT",
       "SOLUSDT",
+      "STORJUSDT",
+      "ZAMAUSDT",
       "FETUSDT",
-      "EDGEUSDT",
       "CYSUSDT",
-      "MONUSDT",
+      "EDGEUSDT",
       "XMRUSDT",
-      "REUSDT",
       "CRVUSDT",
-      "ASTERUSDT"
+      "MONUSDT",
+      "REUSDT",
+      "ASTERUSDT",
+      "PENGUUSDT"
     ]
   }
 }
