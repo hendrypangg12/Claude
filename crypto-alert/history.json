@@ -2850,8 +2850,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T17:06:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-25T17:08:29+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
@@ -2867,12 +2867,10 @@
       "DOSUSDT",
       "POLUSDT",
       "VVVUSDT",
-      "LITUSDT",
       "AKEUSDT",
+      "LITUSDT",
       "ACEUSDT",
-      "PYTHUSDT",
-      "BTWUSDT",
-      "ASTERUSDT"
+      "PYTHUSDT"
     ]
   }
 }
