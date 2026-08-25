@@ -2898,7 +2898,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T23:40:42+00:00",
+    "time": "2026-08-25T23:42:24+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2906,17 +2906,17 @@
       "BMTUSDT",
       "TACUSDT",
       "ONGUSDT",
-      "STXUSDT",
       "HUSDT",
       "HANAUSDT",
+      "STXUSDT",
       "PROMUSDT",
       "SPXUSDT",
       "TWTUSDT",
       "ZROUSDT",
       "DOSUSDT",
-      "JASMYUSDT",
       "ACEUSDT",
-      "POLUSDT"
+      "POLUSDT",
+      "JASMYUSDT"
     ]
   }
 }
