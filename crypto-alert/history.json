@@ -2850,15 +2850,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T10:24:24+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-25T10:26:26+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
       "ONGUSDT",
       "龙虾USDT",
-      "STORJUSDT",
       "BTWUSDT",
+      "STORJUSDT",
       "JASMYUSDT",
       "CYSUSDT",
       "STXUSDT",
@@ -2866,12 +2866,11 @@
       "SPXUSDT",
       "INJUSDT",
       "AEROUSDT",
-      "XMRUSDT",
       "WIFUSDT",
+      "XMRUSDT",
       "SOLUSDT",
       "DOSUSDT",
-      "EDGEUSDT",
-      "POLUSDT"
+      "EDGEUSDT"
     ]
   }
 }
