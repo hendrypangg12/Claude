@@ -49,7 +49,8 @@
     "AIOUSDT": "2026-08-16T13:00:41+00:00",
     "GPSUSDT": "2026-08-17T16:41:56+00:00",
     "ONGUSDT": "2026-08-21T09:56:44+00:00",
-    "TRUMPUSDT": "2026-08-22T10:54:32+00:00"
+    "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
+    "PROMUSDT": "2026-08-25T03:12:27+00:00"
   },
   "alerts": [
     {
@@ -2798,12 +2799,35 @@
       "time": "2026-08-22T18:04:31+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-22T18:14:34+00:00"
+    },
+    {
+      "symbol": "PROMUSDT",
+      "pct": 8.54,
+      "price": 4.2223,
+      "quote_volume": 235391.1243,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.06374863519380249,
+      "retrace_pct": 1.6537395476673096,
+      "wick_ratio": 0.0,
+      "rsi": 65.45823521293525,
+      "divergence": false,
+      "vol_spike": 0.023052282347557487,
+      "btc_pct": -0.3661452922970978,
+      "sl": 4.336233,
+      "tp1": 4.1642604,
+      "tp2": 4.0845396,
+      "tp3": 3.9555,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.0607169201937836,
+      "time": "2026-08-25T03:12:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T03:10:28+00:00",
+    "time": "2026-08-25T03:12:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "TACUSDT",
       "PROMUSDT",
@@ -2815,26 +2839,26 @@
       "WIFUSDT",
       "龙虾USDT",
       "INJUSDT",
+      "CYSUSDT",
       "POLUSDT",
       "FETUSDT",
-      "CYSUSDT",
       "ZAMAUSDT",
       "MONUSDT",
       "SOLUSDT",
       "BTWUSDT",
-      "PENGUUSDT",
       "ONDOUSDT",
+      "PENGUUSDT",
+      "XMRUSDT",
       "FARTCOINUSDT",
       "STXUSDT",
-      "PLUMEUSDT",
       "WLDUSDT",
-      "XMRUSDT",
       "IOUSDT",
-      "RUNEUSDT",
+      "PLUMEUSDT",
       "GRASSUSDT",
-      "CRVUSDT",
-      "EDGEUSDT",
-      "HBARUSDT"
+      "RUNEUSDT",
+      "HBARUSDT",
+      "RENDERUSDT",
+      "KASUSDT"
     ]
   }
 }
