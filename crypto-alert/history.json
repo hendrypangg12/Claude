@@ -2850,7 +2850,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T13:52:40+00:00",
+    "time": "2026-08-25T13:54:25+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -2859,18 +2859,18 @@
       "HUSDT",
       "CYSUSDT",
       "龙虾USDT",
-      "STXUSDT",
       "PROMUSDT",
-      "HOLOUSDT",
+      "STXUSDT",
       "JASMYUSDT",
+      "HOLOUSDT",
       "STORJUSDT",
       "INJUSDT",
       "BTWUSDT",
-      "AKEUSDT",
       "AEROUSDT",
-      "ZROUSDT",
       "POLUSDT",
-      "XMRUSDT"
+      "XMRUSDT",
+      "AKEUSDT",
+      "ZROUSDT"
     ]
   }
 }
