@@ -2850,36 +2850,38 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T08:22:26+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-25T08:24:30+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
       "ONGUSDT",
-      "龙虾USDT",
       "STXUSDT",
+      "龙虾USDT",
       "STORJUSDT",
       "VIRTUALUSDT",
-      "INJUSDT",
       "CYSUSDT",
+      "INJUSDT",
       "AEROUSDT",
       "POLUSDT",
       "BTWUSDT",
-      "EDGEUSDT",
       "SPXUSDT",
-      "WIFUSDT",
       "PROMUSDT",
-      "EVAAUSDT",
+      "EDGEUSDT",
+      "WIFUSDT",
       "SOLUSDT",
+      "EVAAUSDT",
       "KASUSDT",
       "FETUSDT",
       "FARTCOINUSDT",
       "XMRUSDT",
       "ZAMAUSDT",
       "HYPEUSDT",
-      "RUNEUSDT",
       "PENGUUSDT",
-      "ONDOUSDT"
+      "RUNEUSDT",
+      "ONDOUSDT",
+      "BTCUSDT",
+      "WLDUSDT"
     ]
   }
 }
