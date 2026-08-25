@@ -2826,17 +2826,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T07:12:27+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-25T07:14:25+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
-      "ONGUSDT",
       "TACUSDT",
+      "ONGUSDT",
       "STXUSDT",
       "PROMUSDT",
       "CYSUSDT",
-      "STORJUSDT",
       "WIFUSDT",
+      "STORJUSDT",
       "龙虾USDT",
       "VIRTUALUSDT",
       "POLUSDT",
@@ -2846,16 +2846,13 @@
       "BTWUSDT",
       "EDGEUSDT",
       "SOLUSDT",
+      "UAIUSDT",
       "XMRUSDT",
       "FETUSDT",
-      "UAIUSDT",
       "KASUSDT",
       "RUNEUSDT",
       "RENDERUSDT",
-      "WLDUSDT",
-      "ZAMAUSDT",
-      "PORTALUSDT",
-      "ONDOUSDT"
+      "WLDUSDT"
     ]
   }
 }
