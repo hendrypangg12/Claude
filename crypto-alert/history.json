@@ -2845,11 +2845,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.06805661361772675,
       "time": "2026-08-25T07:30:35+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-25T07:38:23+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T07:36:25+00:00",
+    "time": "2026-08-25T07:38:23+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -2863,21 +2864,21 @@
       "VIRTUALUSDT",
       "INJUSDT",
       "EDGEUSDT",
-      "BTWUSDT",
       "SPXUSDT",
+      "BTWUSDT",
       "AEROUSDT",
       "SOLUSDT",
-      "FETUSDT",
       "KASUSDT",
+      "FETUSDT",
+      "PROMUSDT",
       "STORJUSDT",
       "WLDUSDT",
       "RUNEUSDT",
       "RENDERUSDT",
-      "PENGUUSDT",
-      "XMRUSDT",
-      "ONDOUSDT",
       "FARTCOINUSDT",
-      "BTCUSDT"
+      "ONDOUSDT",
+      "XMRUSDT",
+      "PENGUUSDT"
     ]
   }
 }
