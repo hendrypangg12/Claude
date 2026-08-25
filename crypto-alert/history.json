@@ -2821,11 +2821,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.0607169201937836,
       "time": "2026-08-25T03:12:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-25T03:20:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T03:18:25+00:00",
+    "time": "2026-08-25T03:20:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -2833,32 +2834,32 @@
       "PROMUSDT",
       "UAIUSDT",
       "STORJUSDT",
-      "PORTALUSDT",
       "AEROUSDT",
+      "PORTALUSDT",
       "VIRTUALUSDT",
-      "龙虾USDT",
       "WIFUSDT",
+      "龙虾USDT",
       "INJUSDT",
-      "CYSUSDT",
       "FETUSDT",
-      "POLUSDT",
+      "CYSUSDT",
       "ZAMAUSDT",
+      "POLUSDT",
       "SOLUSDT",
-      "BTWUSDT",
       "MONUSDT",
+      "BTWUSDT",
       "PENGUUSDT",
-      "FARTCOINUSDT",
       "ONDOUSDT",
+      "FARTCOINUSDT",
       "REUSDT",
-      "WLDUSDT",
       "STXUSDT",
-      "XMRUSDT",
-      "PLUMEUSDT",
+      "WLDUSDT",
       "RUNEUSDT",
       "HBARUSDT",
-      "KASUSDT",
+      "XMRUSDT",
+      "PLUMEUSDT",
       "IOUSDT",
-      "RENDERUSDT"
+      "RENDERUSDT",
+      "KASUSDT"
     ]
   }
 }
