@@ -2874,13 +2874,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T21:04:27+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-25T21:07:25+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
-      "TACUSDT",
       "龙虾USDT",
+      "TACUSDT",
       "ONGUSDT",
       "HUSDT",
       "STXUSDT",
@@ -2889,9 +2889,10 @@
       "PROMUSDT",
       "ZROUSDT",
       "TWTUSDT",
-      "DOSUSDT",
       "POLUSDT",
-      "JASMYUSDT"
+      "DOSUSDT",
+      "JASMYUSDT",
+      "REUSDT"
     ]
   }
 }
