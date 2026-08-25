@@ -2801,8 +2801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T00:50:27+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-25T00:52:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
@@ -2818,15 +2818,14 @@
       "SOLUSDT",
       "FETUSDT",
       "CYSUSDT",
-      "REUSDT",
       "XMRUSDT",
-      "EDGEUSDT",
-      "CRVUSDT",
-      "FARTCOINUSDT",
-      "ASTERUSDT",
+      "REUSDT",
       "MONUSDT",
+      "EDGEUSDT",
       "CCUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "CRVUSDT",
+      "ASTERUSDT"
     ]
   }
 }
