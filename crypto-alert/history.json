@@ -2850,14 +2850,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T07:44:27+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-25T07:46:23+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
       "ONGUSDT",
-      "CYSUSDT",
       "STXUSDT",
+      "CYSUSDT",
       "龙虾USDT",
       "POLUSDT",
       "WIFUSDT",
@@ -2875,11 +2875,10 @@
       "FARTCOINUSDT",
       "RENDERUSDT",
       "RUNEUSDT",
-      "WLDUSDT",
       "PENGUUSDT",
-      "ONDOUSDT",
       "XMRUSDT",
-      "BTCUSDT"
+      "WLDUSDT",
+      "ONDOUSDT"
     ]
   }
 }
