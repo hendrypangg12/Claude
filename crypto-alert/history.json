@@ -2826,8 +2826,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T04:30:32+00:00",
-    "shortlist_count": 25,
+    "time": "2026-08-25T04:32:59+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "PROMUSDT",
@@ -2838,23 +2838,24 @@
       "龙虾USDT",
       "VIRTUALUSDT",
       "WIFUSDT",
+      "PORTALUSDT",
       "INJUSDT",
       "STXUSDT",
-      "PORTALUSDT",
-      "POLUSDT",
       "CYSUSDT",
+      "POLUSDT",
       "BTWUSDT",
       "PENGUUSDT",
       "SOLUSDT",
-      "XMRUSDT",
       "MONUSDT",
+      "XMRUSDT",
+      "EDGEUSDT",
       "SPXUSDT",
       "ZAMAUSDT",
-      "EDGEUSDT",
-      "REUSDT",
       "FETUSDT",
+      "REUSDT",
       "ONDOUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "BTCUSDT"
     ]
   }
 }
