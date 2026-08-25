@@ -36,7 +36,7 @@
     "TSTUSDT": "2026-08-10T18:56:43+00:00",
     "TUTUSDT": "2026-08-22T18:04:31+00:00",
     "COOKIEUSDT": "2026-08-09T18:20:47+00:00",
-    "BMTUSDT": "2026-08-10T03:44:33+00:00",
+    "BMTUSDT": "2026-08-25T19:16:52+00:00",
     "GUAUSDT": "2026-08-10T09:58:39+00:00",
     "龙虾USDT": "2026-08-10T12:24:31+00:00",
     "BLUAIUSDT": "2026-08-14T09:44:33+00:00",
@@ -2847,12 +2847,35 @@
       "time": "2026-08-25T07:30:35+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-25T07:38:23+00:00"
+    },
+    {
+      "symbol": "BMTUSDT",
+      "pct": 12.83,
+      "price": 0.01964,
+      "quote_volume": 345301.99949,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3597091112702199,
+      "retrace_pct": 1.6032064128256382,
+      "wick_ratio": 0.7812500000000071,
+      "rsi": 71.88750841039922,
+      "divergence": false,
+      "vol_spike": 0.10564016791317386,
+      "btc_pct": -0.01622811603821711,
+      "sl": 0.0201596,
+      "tp1": 0.01909286,
+      "tp2": 0.01855714,
+      "tp3": 0.01769,
+      "funding_rate": -0.692,
+      "orderbook_ratio": 2.6099301284045846,
+      "time": "2026-08-25T19:16:52+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T19:14:14+00:00",
-    "shortlist_count": 20,
-    "confirmed_count": 0,
+    "time": "2026-08-25T19:16:52+00:00",
+    "shortlist_count": 19,
+    "confirmed_count": 1,
     "symbols": [
       "TACUSDT",
       "龙虾USDT",
@@ -2860,20 +2883,19 @@
       "ONGUSDT",
       "SPXUSDT",
       "STXUSDT",
+      "PROMUSDT",
       "JASMYUSDT",
       "ZROUSDT",
-      "PROMUSDT",
       "HUSDT",
       "VVVUSDT",
-      "DOSUSDT",
       "FARTCOINUSDT",
+      "DOSUSDT",
       "HYPEUSDT",
-      "PENGUUSDT",
-      "PYTHUSDT",
       "POLUSDT",
+      "PENGUUSDT",
       "HOLOUSDT",
-      "ASTERUSDT",
-      "CYSUSDT"
+      "PYTHUSDT",
+      "ASTERUSDT"
     ]
   }
 }
