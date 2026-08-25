@@ -2850,8 +2850,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T11:28:24+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-25T11:30:33+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "ONGUSDT",
@@ -2863,17 +2863,18 @@
       "JASMYUSDT",
       "SLXUSDT",
       "CYSUSDT",
-      "INJUSDT",
       "STORJUSDT",
-      "REUSDT",
+      "INJUSDT",
       "SPXUSDT",
-      "XMRUSDT",
       "AEROUSDT",
-      "PROMUSDT",
+      "REUSDT",
+      "XMRUSDT",
       "EDGEUSDT",
       "VIRTUALUSDT",
+      "PROMUSDT",
       "WIFUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "SOLUSDT"
     ]
   }
 }
