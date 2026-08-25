@@ -2850,8 +2850,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T17:32:33+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-25T17:34:29+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
@@ -2861,20 +2861,21 @@
       "STXUSDT",
       "JASMYUSDT",
       "SPXUSDT",
-      "HUSDT",
       "PROMUSDT",
+      "HUSDT",
       "CYSUSDT",
-      "DOSUSDT",
       "VVVUSDT",
-      "ACEUSDT",
+      "DOSUSDT",
       "PYTHUSDT",
+      "ACEUSDT",
       "AKEUSDT",
       "POLUSDT",
-      "HYPEUSDT",
-      "PENGUUSDT",
       "BEATUSDT",
+      "HYPEUSDT",
       "LITUSDT",
-      "ASTERUSDT"
+      "FARTCOINUSDT",
+      "ASTERUSDT",
+      "PENGUUSDT"
     ]
   }
 }
