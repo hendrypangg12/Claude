@@ -2850,8 +2850,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-25T17:28:45+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-25T17:31:31+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "TACUSDT",
@@ -2865,13 +2865,14 @@
       "PROMUSDT",
       "CYSUSDT",
       "DOSUSDT",
-      "ACEUSDT",
       "VVVUSDT",
+      "ACEUSDT",
       "PYTHUSDT",
       "AKEUSDT",
+      "PENGUUSDT",
       "POLUSDT",
-      "BEATUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "LITUSDT"
     ]
   }
 }
