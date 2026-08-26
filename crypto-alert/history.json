@@ -48,7 +48,7 @@
     "HEMIUSDT": "2026-08-20T09:42:34+00:00",
     "AIOUSDT": "2026-08-16T13:00:41+00:00",
     "GPSUSDT": "2026-08-17T16:41:56+00:00",
-    "ONGUSDT": "2026-08-25T07:30:35+00:00",
+    "ONGUSDT": "2026-08-26T19:50:29+00:00",
     "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
     "PROMUSDT": "2026-08-25T03:12:27+00:00",
     "TACUSDT": "2026-08-26T10:46:48+00:00"
@@ -2992,12 +2992,35 @@
       "time": "2026-08-26T13:46:33+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-26T14:00:42+00:00"
+    },
+    {
+      "symbol": "ONGUSDT",
+      "pct": 14.76,
+      "price": 0.15372,
+      "quote_volume": 1063385.73045,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.1928813185373532,
+      "retrace_pct": 2.7949917794359473,
+      "wick_ratio": 0.6241721854304639,
+      "rsi": 67.7055604337754,
+      "divergence": false,
+      "vol_spike": 0.13841534112795048,
+      "btc_pct": 0.09211560106098375,
+      "sl": 0.1597214,
+      "tp1": 0.15037012,
+      "tp2": 0.14556988,
+      "tp3": 0.1378,
+      "funding_rate": -2.0,
+      "orderbook_ratio": 2.0713277351831567,
+      "time": "2026-08-26T19:50:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T19:49:00+00:00",
+    "time": "2026-08-26T19:50:29+00:00",
     "shortlist_count": 19,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTRUSDT",
       "TACUSDT",
@@ -3008,15 +3031,15 @@
       "CYSUSDT",
       "PORTALUSDT",
       "GUAUSDT",
-      "BTWUSDT",
-      "SKYAIUSDT",
       "TUTUSDT",
+      "SKYAIUSDT",
       "GIGGLEUSDT",
       "GRASSUSDT",
       "PUMPUSDT",
-      "FARTCOINUSDT",
+      "BTWUSDT",
       "SPXUSDT",
       "HEMIUSDT",
+      "FARTCOINUSDT",
       "BLESSUSDT"
     ]
   }
