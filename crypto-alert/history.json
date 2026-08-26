@@ -2922,24 +2922,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T05:48:29+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-26T05:50:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
+      "BTRUSDT",
       "BMTUSDT",
       "龙虾USDT",
       "PORTALUSDT",
       "ONGUSDT",
       "ZROUSDT",
-      "SPXUSDT",
       "TACUSDT",
-      "HANAUSDT",
       "CYSUSDT",
-      "HEIUSDT",
+      "HANAUSDT",
+      "SPXUSDT",
       "HUSDT",
+      "TUTUSDT",
+      "HEIUSDT",
       "FARTCOINUSDT",
-      "TWTUSDT",
-      "TUTUSDT"
+      "TWTUSDT"
     ]
   }
 }
