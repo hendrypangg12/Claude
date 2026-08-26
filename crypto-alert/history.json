@@ -2922,7 +2922,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T07:30:37+00:00",
+    "time": "2026-08-26T07:32:53+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -2932,17 +2932,17 @@
       "TACUSDT",
       "PORTALUSDT",
       "ZROUSDT",
-      "FARTCOINUSDT",
       "CYSUSDT",
+      "FARTCOINUSDT",
       "TWTUSDT",
       "HEIUSDT",
       "SPXUSDT",
       "HUSDT",
-      "ONGUSDT",
       "TLMUSDT",
-      "AKEUSDT",
       "PYTHUSDT",
-      "SKYAIUSDT"
+      "AKEUSDT",
+      "SKYAIUSDT",
+      "ONGUSDT"
     ]
   }
 }
