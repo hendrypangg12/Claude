@@ -2990,12 +2990,13 @@
       "funding_rate": 0.028,
       "orderbook_ratio": 0.763761264014157,
       "time": "2026-08-26T13:46:33+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-26T14:00:42+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T13:58:28+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-26T14:00:42+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3012,10 +3013,9 @@
       "CYSUSDT",
       "FFUSDT",
       "GIGGLEUSDT",
-      "FOLKSUSDT",
-      "HEIUSDT",
       "GUAUSDT",
-      "SKYAIUSDT"
+      "FOLKSUSDT",
+      "HEIUSDT"
     ]
   }
 }
