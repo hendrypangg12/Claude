@@ -3018,8 +3018,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T19:53:49+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-26T19:55:14+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3029,8 +3029,8 @@
       "HEIUSDT",
       "BICOUSDT",
       "CYSUSDT",
-      "PORTALUSDT",
       "SKYAIUSDT",
+      "PORTALUSDT",
       "GIGGLEUSDT",
       "GUAUSDT",
       "TUTUSDT",
@@ -3038,7 +3038,8 @@
       "PUMPUSDT",
       "FARTCOINUSDT",
       "SPXUSDT",
-      "BLESSUSDT"
+      "BLESSUSDT",
+      "HEMIUSDT"
     ]
   }
 }
