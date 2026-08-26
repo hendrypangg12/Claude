@@ -2966,11 +2966,12 @@
       "funding_rate": -0.273,
       "orderbook_ratio": 0.22443212220225542,
       "time": "2026-08-26T11:58:30+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-08-26T12:06:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T12:04:27+00:00",
+    "time": "2026-08-26T12:06:30+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -2984,13 +2985,13 @@
       "PORTALUSDT",
       "SPXUSDT",
       "FFUSDT",
-      "CYSUSDT",
       "ZROUSDT",
+      "CYSUSDT",
       "GUAUSDT",
       "BLESSUSDT",
       "FOLKSUSDT",
-      "HEIUSDT",
-      "STXUSDT"
+      "STXUSDT",
+      "HEIUSDT"
     ]
   }
 }
