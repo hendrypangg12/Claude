@@ -51,7 +51,7 @@
     "ONGUSDT": "2026-08-26T19:50:29+00:00",
     "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
     "PROMUSDT": "2026-08-25T03:12:27+00:00",
-    "TACUSDT": "2026-08-26T10:46:48+00:00"
+    "TACUSDT": "2026-08-26T21:30:30+00:00"
   },
   "alerts": [
     {
@@ -3016,12 +3016,35 @@
       "time": "2026-08-26T19:50:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-26T19:56:54+00:00"
+    },
+    {
+      "symbol": "TACUSDT",
+      "pct": 9.87,
+      "price": 0.004629,
+      "quote_volume": 1112903.2794,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5831237803836123,
+      "retrace_pct": 0.47301655557943345,
+      "wick_ratio": 0.0,
+      "rsi": 66.95601453379115,
+      "divergence": false,
+      "vol_spike": 0.15862729164251868,
+      "btc_pct": 0.33480967619469754,
+      "sl": 0.004697509999999999,
+      "tp1": 0.004491324,
+      "tp2": 0.004392676,
+      "tp3": 0.004233,
+      "funding_rate": 0.014,
+      "orderbook_ratio": 2.1004122332656014,
+      "time": "2026-08-26T21:30:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T21:28:28+00:00",
+    "time": "2026-08-26T21:30:30+00:00",
     "shortlist_count": 21,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTRUSDT",
       "TACUSDT",
@@ -3031,19 +3054,19 @@
       "HEIUSDT",
       "BICOUSDT",
       "GIGGLEUSDT",
-      "SPXUSDT",
       "FARTCOINUSDT",
+      "SPXUSDT",
       "GRASSUSDT",
       "PORTALUSDT",
-      "CHIPUSDT",
       "HEMIUSDT",
+      "CHIPUSDT",
       "TUTUSDT",
-      "BLESSUSDT",
       "SKYAIUSDT",
+      "BLESSUSDT",
       "GUAUSDT",
       "PUMPUSDT",
-      "LITUSDT",
-      "WIFUSDT"
+      "WIFUSDT",
+      "LITUSDT"
     ]
   }
 }
