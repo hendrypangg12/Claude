@@ -50,7 +50,8 @@
     "GPSUSDT": "2026-08-17T16:41:56+00:00",
     "ONGUSDT": "2026-08-25T07:30:35+00:00",
     "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
-    "PROMUSDT": "2026-08-25T03:12:27+00:00"
+    "PROMUSDT": "2026-08-25T03:12:27+00:00",
+    "TACUSDT": "2026-08-26T10:46:48+00:00"
   },
   "alerts": [
     {
@@ -2919,12 +2920,35 @@
       "time": "2026-08-26T02:52:25+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-26T03:00:41+00:00"
+    },
+    {
+      "symbol": "TACUSDT",
+      "pct": 8.27,
+      "price": 0.003859,
+      "quote_volume": 684276.638388,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.21986438377119358,
+      "retrace_pct": 0.7714065312419665,
+      "wick_ratio": 0.0,
+      "rsi": 65.32984831748104,
+      "divergence": false,
+      "vol_spike": 0.09568420800318006,
+      "btc_pct": 0.35957541514505326,
+      "sl": 0.00392789,
+      "tp1": 0.0037755460000000003,
+      "tp2": 0.003705454,
+      "tp3": 0.003592,
+      "funding_rate": 0.03,
+      "orderbook_ratio": 1.780255292583231,
+      "time": "2026-08-26T10:46:48+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T10:44:26+00:00",
+    "time": "2026-08-26T10:46:48+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTRUSDT",
       "BMTUSDT",
