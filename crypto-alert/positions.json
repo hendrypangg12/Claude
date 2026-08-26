@@ -52,7 +52,7 @@
       "last_rsi_zone": "neutral",
       "liq_warned": false,
       "move_alert_pct": 0.1,
-      "last_notify_price": 4621.71,
+      "last_notify_price": 4613.02,
       "price_adjust": 5.3,
       "notes": "HFM MetaTrader XAUUSDb (Gold Spot) — 7x SELL 0.05 lot (total 0.35). Entry: 4099.91 / 4099.43 / 4099.12 / 4098.63 / 4098.31 / 4098.0 / 4097.56, dipakai rata-ratanya. Harga dari PAXG (MEXC) + kalibrasi 5.3. leverage=1 -> PNL = gerak harga mentah. Stop-out CFD = margin level, bukan per-posisi -> gak bisa dihitung dari sini."
     }
