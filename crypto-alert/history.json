@@ -2922,7 +2922,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T05:26:31+00:00",
+    "time": "2026-08-26T05:28:34+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -2932,15 +2932,15 @@
       "ONGUSDT",
       "ZROUSDT",
       "FARTCOINUSDT",
-      "HANAUSDT",
-      "HUSDT",
-      "SPXUSDT",
-      "HEIUSDT",
-      "TUTUSDT",
       "TACUSDT",
+      "HUSDT",
+      "HANAUSDT",
+      "SPXUSDT",
+      "TUTUSDT",
+      "HEIUSDT",
       "CYSUSDT",
-      "STXUSDT",
-      "TWTUSDT"
+      "TWTUSDT",
+      "STXUSDT"
     ]
   }
 }
