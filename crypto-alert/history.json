@@ -2922,8 +2922,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T07:10:32+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-26T07:12:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -2933,14 +2933,15 @@
       "PORTALUSDT",
       "ZROUSDT",
       "FARTCOINUSDT",
-      "HEIUSDT",
       "CYSUSDT",
       "ONGUSDT",
-      "SPXUSDT",
+      "HEIUSDT",
       "TWTUSDT",
+      "SPXUSDT",
       "HUSDT",
       "TLMUSDT",
-      "PYTHUSDT"
+      "PYTHUSDT",
+      "EPICUSDT"
     ]
   }
 }
