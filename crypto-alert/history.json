@@ -2917,12 +2917,13 @@
       "funding_rate": -0.105,
       "orderbook_ratio": 0.8201866772116507,
       "time": "2026-08-26T02:52:25+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-26T03:00:41+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T02:58:29+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-26T03:00:41+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BMTUSDT",
@@ -2934,14 +2935,15 @@
       "HANAUSDT",
       "FARTCOINUSDT",
       "TWTUSDT",
-      "CYSUSDT",
       "POLUSDT",
       "HEIUSDT",
+      "CYSUSDT",
       "JASMYUSDT",
-      "AKEUSDT",
       "ZROUSDT",
+      "AKEUSDT",
       "TUTUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "ACEUSDT"
     ]
   }
 }
