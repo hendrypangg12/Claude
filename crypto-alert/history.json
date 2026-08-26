@@ -2970,9 +2970,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T11:58:30+00:00",
-    "shortlist_count": 16,
-    "confirmed_count": 1,
+    "time": "2026-08-26T12:00:37+00:00",
+    "shortlist_count": 17,
+    "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
       "TACUSDT",
@@ -2985,11 +2985,12 @@
       "SPXUSDT",
       "FFUSDT",
       "ZROUSDT",
-      "FOLKSUSDT",
       "GUAUSDT",
       "CYSUSDT",
       "BLESSUSDT",
-      "HEIUSDT"
+      "FOLKSUSDT",
+      "HEIUSDT",
+      "STXUSDT"
     ]
   }
 }
