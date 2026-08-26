@@ -3019,13 +3019,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T20:38:25+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-26T20:40:38+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
-      "TACUSDT",
       "ONGUSDT",
+      "TACUSDT",
       "EDENUSDT",
       "HEIUSDT",
       "BICOUSDT",
@@ -3034,12 +3034,13 @@
       "GIGGLEUSDT",
       "SPXUSDT",
       "BLESSUSDT",
-      "TUTUSDT",
       "GUAUSDT",
+      "TUTUSDT",
       "SKYAIUSDT",
       "HEMIUSDT",
       "FARTCOINUSDT",
-      "GRASSUSDT"
+      "GRASSUSDT",
+      "CHIPUSDT"
     ]
   }
 }
