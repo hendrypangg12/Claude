@@ -3038,11 +3038,12 @@
       "funding_rate": 0.014,
       "orderbook_ratio": 2.1004122332656014,
       "time": "2026-08-26T21:30:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-26T22:06:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T22:04:39+00:00",
+    "time": "2026-08-26T22:06:28+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3060,8 +3061,8 @@
       "HEMIUSDT",
       "HEIUSDT",
       "CHIPUSDT",
-      "GUAUSDT",
       "TUTUSDT",
+      "GUAUSDT",
       "BLESSUSDT",
       "WIFUSDT"
     ]
