@@ -2971,17 +2971,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T12:34:41+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-26T12:36:34+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
-      "BMTUSDT",
       "TACUSDT",
+      "BMTUSDT",
       "龙虾USDT",
       "EDENUSDT",
-      "BICOUSDT",
       "FARTCOINUSDT",
+      "BICOUSDT",
       "PORTALUSDT",
       "SPXUSDT",
       "ZROUSDT",
@@ -2990,7 +2990,8 @@
       "FOLKSUSDT",
       "GUAUSDT",
       "HEIUSDT",
-      "BLESSUSDT"
+      "BLESSUSDT",
+      "TUTUSDT"
     ]
   }
 }
