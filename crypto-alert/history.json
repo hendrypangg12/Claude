@@ -36,7 +36,7 @@
     "TSTUSDT": "2026-08-10T18:56:43+00:00",
     "TUTUSDT": "2026-08-22T18:04:31+00:00",
     "COOKIEUSDT": "2026-08-09T18:20:47+00:00",
-    "BMTUSDT": "2026-08-25T19:16:52+00:00",
+    "BMTUSDT": "2026-08-26T02:52:25+00:00",
     "GUAUSDT": "2026-08-10T09:58:39+00:00",
     "龙虾USDT": "2026-08-25T23:26:24+00:00",
     "BLUAIUSDT": "2026-08-14T09:44:33+00:00",
@@ -2895,12 +2895,35 @@
       "time": "2026-08-25T23:26:24+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-25T23:40:42+00:00"
+    },
+    {
+      "symbol": "BMTUSDT",
+      "pct": 12.48,
+      "price": 0.02646,
+      "quote_volume": 553512.21735,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.40330252133061856,
+      "retrace_pct": 1.1210762331838497,
+      "wick_ratio": 0.8965517241379347,
+      "rsi": 69.1006139100789,
+      "divergence": false,
+      "vol_spike": 0.03479049866185965,
+      "btc_pct": 0.258878289560405,
+      "sl": 0.0270276,
+      "tp1": 0.02562546,
+      "tp2": 0.02492454,
+      "tp3": 0.02379,
+      "funding_rate": -0.105,
+      "orderbook_ratio": 0.8201866772116507,
+      "time": "2026-08-26T02:52:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T02:50:29+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-08-26T02:52:25+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "BMTUSDT",
       "龙虾USDT",
@@ -2912,13 +2935,14 @@
       "FARTCOINUSDT",
       "TWTUSDT",
       "POLUSDT",
-      "JASMYUSDT",
       "HEIUSDT",
+      "JASMYUSDT",
       "CYSUSDT",
-      "TUTUSDT",
       "DOSUSDT",
-      "REUSDT",
-      "ACEUSDT"
+      "TUTUSDT",
+      "ZROUSDT",
+      "AKEUSDT",
+      "VVVUSDT"
     ]
   }
 }
