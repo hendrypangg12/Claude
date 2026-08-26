@@ -3014,11 +3014,12 @@
       "funding_rate": -2.0,
       "orderbook_ratio": 2.0713277351831567,
       "time": "2026-08-26T19:50:29+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-26T19:56:54+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T19:55:14+00:00",
+    "time": "2026-08-26T19:56:54+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3032,8 +3033,8 @@
       "SKYAIUSDT",
       "PORTALUSDT",
       "GIGGLEUSDT",
-      "GUAUSDT",
       "TUTUSDT",
+      "GUAUSDT",
       "GRASSUSDT",
       "PUMPUSDT",
       "FARTCOINUSDT",
