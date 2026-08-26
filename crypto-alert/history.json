@@ -27,7 +27,7 @@
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
     "CYSUSDT": "2026-08-15T14:22:28+00:00",
     "GRVTUSDT": "2026-08-05T08:36:25+00:00",
-    "BICOUSDT": "2026-08-09T07:50:28+00:00",
+    "BICOUSDT": "2026-08-26T11:58:30+00:00",
     "SKYAIUSDT": "2026-08-07T16:52:37+00:00",
     "CAPUSDT": "2026-08-14T19:28:27+00:00",
     "TAKEUSDT": "2026-08-07T08:50:35+00:00",
@@ -2944,12 +2944,35 @@
       "time": "2026-08-26T10:46:48+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-26T10:54:33+00:00"
+    },
+    {
+      "symbol": "BICOUSDT",
+      "pct": 15.51,
+      "price": 0.02436,
+      "quote_volume": 253152.84205,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.32572901694761625,
+      "retrace_pct": 2.0900321543408347,
+      "wick_ratio": 0.907407407407411,
+      "rsi": 75.01032632363135,
+      "divergence": true,
+      "vol_spike": 0.6869606821787081,
+      "btc_pct": -0.13869879497234663,
+      "sl": 0.0251288,
+      "tp1": 0.02360412,
+      "tp2": 0.02281588,
+      "tp3": 0.02154,
+      "funding_rate": -0.273,
+      "orderbook_ratio": 0.22443212220225542,
+      "time": "2026-08-26T11:58:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T11:56:29+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-08-26T11:58:30+00:00",
+    "shortlist_count": 16,
+    "confirmed_count": 1,
     "symbols": [
       "BTRUSDT",
       "TACUSDT",
@@ -2966,8 +2989,7 @@
       "GUAUSDT",
       "CYSUSDT",
       "BLESSUSDT",
-      "HEIUSDT",
-      "STXUSDT"
+      "HEIUSDT"
     ]
   }
 }
