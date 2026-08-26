@@ -2942,12 +2942,13 @@
       "funding_rate": 0.03,
       "orderbook_ratio": 1.780255292583231,
       "time": "2026-08-26T10:46:48+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-26T10:54:33+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-26T10:52:28+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-26T10:54:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -2955,15 +2956,14 @@
       "TACUSDT",
       "龙虾USDT",
       "PORTALUSDT",
-      "FARTCOINUSDT",
       "EDENUSDT",
+      "FARTCOINUSDT",
       "FFUSDT",
       "CYSUSDT",
       "ZROUSDT",
       "SPXUSDT",
       "GUAUSDT",
-      "PYTHUSDT",
-      "TLMUSDT"
+      "PYTHUSDT"
     ]
   }
 }
