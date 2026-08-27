@@ -3067,13 +3067,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T13:42:26+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-27T13:44:32+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
       "MOVRUSDT",
       "VETUSDT",
+      "BTRUSDT",
       "BEAMXUSDT",
       "HEMIUSDT",
       "CLOUSDT",
@@ -3081,7 +3082,6 @@
       "BICOUSDT",
       "BLESSUSDT",
       "4USDT",
-      "BTRUSDT",
       "CHIPUSDT",
       "RUNEUSDT",
       "SPXUSDT",
@@ -3093,10 +3093,12 @@
       "SOLUSDT",
       "CVXUSDT",
       "SKYAIUSDT",
+      "ARIAUSDT",
       "UNIUSDT",
       "TRUMPUSDT",
       "CRVUSDT",
       "PENGUUSDT",
+      "CYSUSDT",
       "ENAUSDT"
     ]
   }
