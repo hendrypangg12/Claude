@@ -3114,7 +3114,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T19:24:29+00:00",
+    "time": "2026-08-27T19:26:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3132,8 +3132,8 @@
       "SOLUSDT",
       "RUNEUSDT",
       "TRUMPUSDT",
-      "WIFUSDT",
       "TAOUSDT",
+      "WIFUSDT",
       "FARTCOINUSDT",
       "LITUSDT",
       "USELESSUSDT",
@@ -3141,13 +3141,13 @@
       "BICOUSDT",
       "UNIUSDT",
       "XMRUSDT",
-      "CRVUSDT",
       "SPXUSDT",
       "MINAUSDT",
-      "HYPEUSDT",
-      "WLDUSDT",
+      "CRVUSDT",
       "BTRUSDT",
-      "PENGUUSDT"
+      "PENGUUSDT",
+      "WLDUSDT",
+      "HYPEUSDT"
     ]
   }
 }
