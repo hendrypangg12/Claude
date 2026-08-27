@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-27_19-00-30",
+      "date": "2026-08-27",
+      "time": "19:00",
+      "label": "STORY KANTOR",
+      "title": "Kopi bukan lagi kenikmatan, tapi kebutuhan buat bertahan hidup.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-08-27_11-58-55",
       "date": "2026-08-27",
       "time": "11:58",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-08-23_20-17-17",
-      "date": "2026-08-23",
-      "time": "20:17",
-      "label": "STORY KANTOR",
-      "title": "Kamu bukan malas, kamu cuma capek yang gak pernah dikasih istirahat.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
