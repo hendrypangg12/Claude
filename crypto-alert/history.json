@@ -3115,14 +3115,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T22:22:37+00:00",
-    "shortlist_count": 28,
+    "time": "2026-08-27T22:24:26+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
       "HEMIUSDT",
-      "BMTUSDT",
       "BTRUSDT",
+      "BMTUSDT",
       "CLOUSDT",
       "MAGMAUSDT",
       "4USDT",
@@ -3130,23 +3130,24 @@
       "BEAMXUSDT",
       "ENAUSDT",
       "PROMUSDT",
-      "CHIPUSDT",
       "BICOUSDT",
-      "TRUMPUSDT",
+      "CHIPUSDT",
       "VETUSDT",
+      "TRUMPUSDT",
       "LITUSDT",
       "TAOUSDT",
       "SOLUSDT",
       "BSBUSDT",
       "UNIUSDT",
-      "USELESSUSDT",
-      "STRKUSDT",
       "XMRUSDT",
-      "KASUSDT",
+      "STRKUSDT",
       "RUNEUSDT",
+      "KASUSDT",
+      "USELESSUSDT",
       "CRVUSDT",
       "WIFUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "GALAUSDT"
     ]
   }
 }
