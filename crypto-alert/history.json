@@ -3043,15 +3043,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T00:50:29+00:00",
-    "shortlist_count": 25,
+    "time": "2026-08-27T00:52:26+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
       "TACUSDT",
-      "ONGUSDT",
       "ARIAUSDT",
       "BICOUSDT",
+      "ONGUSDT",
       "EDENUSDT",
       "CYSUSDT",
       "ONTUSDT",
@@ -3061,17 +3061,16 @@
       "CHIPUSDT",
       "GIGGLEUSDT",
       "GRASSUSDT",
-      "PUMPUSDT",
-      "HEMIUSDT",
       "HEIUSDT",
+      "HEMIUSDT",
       "GUAUSDT",
-      "WIFUSDT",
       "PORTALUSDT",
+      "PUMPUSDT",
+      "WIFUSDT",
       "TUTUSDT",
       "BLESSUSDT",
       "WLDUSDT",
-      "SOLUSDT",
-      "TRUMPUSDT"
+      "SOLUSDT"
     ]
   }
 }
