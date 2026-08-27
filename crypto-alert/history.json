@@ -3115,8 +3115,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T23:28:26+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-27T23:30:34+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -3135,14 +3135,15 @@
       "VETUSDT",
       "TAOUSDT",
       "SOLUSDT",
-      "BSBUSDT",
       "LITUSDT",
+      "BSBUSDT",
       "UNIUSDT",
       "RUNEUSDT",
+      "KASUSDT",
+      "USELESSUSDT",
       "WIFUSDT",
       "XMRUSDT",
-      "USELESSUSDT",
-      "KASUSDT"
+      "BICOUSDT"
     ]
   }
 }
