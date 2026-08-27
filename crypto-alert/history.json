@@ -3115,7 +3115,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T20:44:25+00:00",
+    "time": "2026-08-27T20:46:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3130,11 +3130,11 @@
       "PROMUSDT",
       "BLESSUSDT",
       "CHIPUSDT",
+      "BTRUSDT",
       "TRUMPUSDT",
-      "BMTUSDT",
       "RUNEUSDT",
       "SOLUSDT",
-      "BTRUSDT",
+      "BMTUSDT",
       "LITUSDT",
       "WIFUSDT",
       "FARTCOINUSDT",
@@ -3144,11 +3144,11 @@
       "UNIUSDT",
       "USELESSUSDT",
       "STRKUSDT",
-      "WLDUSDT",
-      "XMRUSDT",
       "PUMPUSDT",
-      "DASHUSDT",
-      "GALAUSDT"
+      "XMRUSDT",
+      "WLDUSDT",
+      "GALAUSDT",
+      "HYPEUSDT"
     ]
   }
 }
