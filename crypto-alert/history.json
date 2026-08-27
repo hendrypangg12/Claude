@@ -3043,8 +3043,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T00:36:28+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-27T00:38:25+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3061,19 +3061,21 @@
       "GIGGLEUSDT",
       "GRASSUSDT",
       "HEMIUSDT",
-      "PORTALUSDT",
-      "WIFUSDT",
       "PUMPUSDT",
+      "WIFUSDT",
       "GUAUSDT",
+      "PORTALUSDT",
       "STEEMUSDT",
-      "TUTUSDT",
       "HEIUSDT",
+      "TUTUSDT",
       "BLESSUSDT",
       "WLDUSDT",
       "TRUMPUSDT",
-      "ZECUSDT",
       "SOLUSDT",
-      "LITUSDT"
+      "BSBUSDT",
+      "LITUSDT",
+      "ZECUSDT",
+      "RUNEUSDT"
     ]
   }
 }
