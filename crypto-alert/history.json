@@ -3067,8 +3067,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-27T11:56:36+00:00",
-    "shortlist_count": 27,
+    "time": "2026-08-27T11:58:27+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3085,19 +3085,21 @@
       "ONTUSDT",
       "CHIPUSDT",
       "BLESSUSDT",
-      "BSBUSDT",
       "BICOUSDT",
-      "CYSUSDT",
+      "BSBUSDT",
       "TAOUSDT",
+      "CYSUSDT",
       "CVXUSDT",
-      "EDENUSDT",
       "SOLUSDT",
       "GRASSUSDT",
+      "EDENUSDT",
       "XMRUSDT",
-      "HEIUSDT",
       "WIFUSDT",
+      "HEIUSDT",
       "TRUMPUSDT",
-      "LDOUSDT"
+      "LDOUSDT",
+      "STRKUSDT",
+      "UNIUSDT"
     ]
   }
 }
