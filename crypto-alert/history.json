@@ -3163,8 +3163,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T07:24:24+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-28T07:26:27+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -3177,13 +3177,15 @@
       "ENAUSDT",
       "CHIPUSDT",
       "BEAMXUSDT",
-      "DOSUSDT",
-      "4USDT",
       "UNIUSDT",
+      "DOSUSDT",
       "SOLUSDT",
       "WLFIUSDT",
+      "4USDT",
       "AKEUSDT",
-      "BTRUSDT"
+      "VETUSDT",
+      "LITUSDT",
+      "BICOUSDT"
     ]
   }
 }
