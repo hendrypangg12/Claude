@@ -3115,8 +3115,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T05:30:40+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-28T05:32:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -3130,13 +3130,16 @@
       "ENAUSDT",
       "CHIPUSDT",
       "PROMUSDT",
+      "MOVRUSDT",
       "VETUSDT",
-      "DOSUSDT",
-      "LITUSDT",
       "UNIUSDT",
+      "LITUSDT",
+      "DOSUSDT",
       "SOLUSDT",
-      "BLESSUSDT",
-      "KASUSDT"
+      "FARTCOINUSDT",
+      "KASUSDT",
+      "PUMPUSDT",
+      "GALAUSDT"
     ]
   }
 }
