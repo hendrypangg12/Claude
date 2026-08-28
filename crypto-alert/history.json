@@ -3115,28 +3115,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T04:00:32+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-28T04:02:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
-      "MOVRUSDT",
       "TRUMPUSDT",
+      "MOVRUSDT",
       "MAGMAUSDT",
       "龙虾USDT",
       "BEAMXUSDT",
-      "4USDT",
-      "ENAUSDT",
       "BMTUSDT",
+      "4USDT",
       "HEIUSDT",
+      "ENAUSDT",
       "VETUSDT",
       "ONGUSDT",
-      "UNIUSDT",
       "LITUSDT",
+      "UNIUSDT",
       "SOLUSDT",
       "PROMUSDT",
       "XMRUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "CLOUSDT",
+      "BLESSUSDT"
     ]
   }
 }
