@@ -3158,12 +3158,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.0279905909703713,
       "time": "2026-08-28T07:00:32+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-28T07:08:24+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T07:06:22+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-28T07:08:24+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -3171,22 +3172,19 @@
       "MAGMAUSDT",
       "BMTUSDT",
       "TRUMPUSDT",
-      "SKYAIUSDT",
       "HEIUSDT",
+      "SKYAIUSDT",
       "BEAMXUSDT",
       "ENAUSDT",
       "CHIPUSDT",
       "AKEUSDT",
-      "UNIUSDT",
-      "SOLUSDT",
       "CYSUSDT",
-      "4USDT",
       "DOSUSDT",
+      "SOLUSDT",
+      "UNIUSDT",
+      "4USDT",
       "WLFIUSDT",
-      "PYTHUSDT",
-      "KASUSDT",
-      "LITUSDT",
-      "FARTCOINUSDT"
+      "PYTHUSDT"
     ]
   }
 }
