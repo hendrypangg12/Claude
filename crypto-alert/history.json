@@ -3163,7 +3163,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T10:00:38+00:00",
+    "time": "2026-08-28T10:02:26+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -3171,18 +3171,18 @@
       "HEMIUSDT",
       "LIGHTUSDT",
       "MAGMAUSDT",
-      "BMTUSDT",
-      "TRUMPUSDT",
-      "HEIUSDT",
-      "CHIPUSDT",
       "BTRUSDT",
+      "BMTUSDT",
+      "HEIUSDT",
+      "TRUMPUSDT",
+      "CHIPUSDT",
       "LABUSDT",
-      "DOSUSDT",
       "SKYAIUSDT",
       "AKEUSDT",
+      "DOSUSDT",
+      "MOVRUSDT",
       "ENAUSDT",
-      "XMRUSDT",
-      "MOVRUSDT"
+      "XMRUSDT"
     ]
   }
 }
