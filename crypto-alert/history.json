@@ -3163,8 +3163,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T08:02:37+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-28T08:04:22+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -3178,10 +3178,11 @@
       "CHIPUSDT",
       "BEAMXUSDT",
       "UNIUSDT",
-      "AKEUSDT",
-      "SOLUSDT",
       "WLFIUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "SOLUSDT",
+      "KASUSDT",
+      "AKEUSDT"
     ]
   }
 }
