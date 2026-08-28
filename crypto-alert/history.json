@@ -3115,8 +3115,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T06:18:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-08-28T06:20:30+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "HEMIUSDT",
@@ -3130,16 +3130,17 @@
       "SKYAIUSDT",
       "PROMUSDT",
       "UNIUSDT",
-      "CHIPUSDT",
       "DOSUSDT",
+      "CHIPUSDT",
       "SOLUSDT",
-      "VETUSDT",
-      "AKEUSDT",
       "LITUSDT",
-      "KASUSDT",
       "FARTCOINUSDT",
+      "VETUSDT",
+      "KASUSDT",
+      "AKEUSDT",
       "CYSUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "GALAUSDT"
     ]
   }
 }
