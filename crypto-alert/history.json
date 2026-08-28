@@ -3138,9 +3138,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T06:24:25+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 1,
+    "time": "2026-08-28T06:26:23+00:00",
+    "shortlist_count": 22,
+    "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "HEMIUSDT",
@@ -3157,10 +3157,13 @@
       "CHIPUSDT",
       "SOLUSDT",
       "FARTCOINUSDT",
-      "KASUSDT",
       "LITUSDT",
+      "KASUSDT",
+      "VETUSDT",
+      "CYSUSDT",
       "USELESSUSDT",
-      "CYSUSDT"
+      "PYTHUSDT",
+      "GALAUSDT"
     ]
   }
 }
