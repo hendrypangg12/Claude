@@ -3115,7 +3115,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T04:20:25+00:00",
+    "time": "2026-08-28T04:22:21+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3131,14 +3131,14 @@
       "VETUSDT",
       "BLESSUSDT",
       "BTWUSDT",
-      "UNIUSDT",
       "PROMUSDT",
-      "LITUSDT",
+      "UNIUSDT",
       "SOLUSDT",
+      "LITUSDT",
       "XMRUSDT",
       "CHIPUSDT",
-      "ONGUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "DOSUSDT"
     ]
   }
 }
