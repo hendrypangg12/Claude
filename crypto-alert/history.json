@@ -3163,7 +3163,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T18:02:26+00:00",
+    "time": "2026-08-28T18:04:26+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -3172,13 +3172,13 @@
       "HEMIUSDT",
       "DEXEUSDT",
       "LIGHTUSDT",
-      "EDENUSDT",
       "AKEUSDT",
-      "LABUSDT",
+      "EDENUSDT",
       "CHILLGUYUSDT",
+      "LABUSDT",
       "TSTUSDT",
-      "CHIPUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "CHIPUSDT"
     ]
   }
 }
