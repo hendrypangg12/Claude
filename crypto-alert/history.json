@@ -45,7 +45,7 @@
     "HUSDT": "2026-08-15T01:02:32+00:00",
     "ROBOUSDT": "2026-08-15T02:18:27+00:00",
     "VELVETUSDT": "2026-08-18T18:06:34+00:00",
-    "HEMIUSDT": "2026-08-27T19:16:45+00:00",
+    "HEMIUSDT": "2026-08-28T07:00:32+00:00",
     "AIOUSDT": "2026-08-16T13:00:41+00:00",
     "GPSUSDT": "2026-08-17T16:41:56+00:00",
     "ONGUSDT": "2026-08-26T19:50:29+00:00",
@@ -3136,12 +3136,35 @@
       "time": "2026-08-28T06:24:25+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-28T06:30:47+00:00"
+    },
+    {
+      "symbol": "HEMIUSDT",
+      "pct": 9.18,
+      "price": 0.012245,
+      "quote_volume": 710396.713262,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.34459901067204163,
+      "retrace_pct": 1.0025062656641532,
+      "wick_ratio": 0.0,
+      "rsi": 66.56048152060518,
+      "divergence": false,
+      "vol_spike": 0.9365323173358718,
+      "btc_pct": 0.09337872904207954,
+      "sl": 0.01249269,
+      "tp1": 0.01197172,
+      "tp2": 0.01172628,
+      "tp3": 0.011329,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.0279905909703713,
+      "time": "2026-08-28T07:00:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-28T06:58:23+00:00",
-    "shortlist_count": 23,
-    "confirmed_count": 0,
+    "time": "2026-08-28T07:00:32+00:00",
+    "shortlist_count": 21,
+    "confirmed_count": 1,
     "symbols": [
       "HEMIUSDT",
       "龙虾USDT",
@@ -3161,11 +3184,9 @@
       "PYTHUSDT",
       "KASUSDT",
       "GALAUSDT",
-      "FARTCOINUSDT",
       "VETUSDT",
-      "XMRUSDT",
-      "WLFIUSDT",
-      "LITUSDT"
+      "FARTCOINUSDT",
+      "XMRUSDT"
     ]
   }
 }
