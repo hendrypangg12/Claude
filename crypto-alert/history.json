@@ -3188,14 +3188,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T07:44:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-08-29T07:46:24+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "MAGMAUSDT",
-      "BEATUSDT",
       "DEXEUSDT",
+      "BEATUSDT",
       "CLOUSDT",
       "BLESSUSDT",
       "ROBOUSDT",
@@ -3203,7 +3203,8 @@
       "DOSUSDT",
       "GRVTUSDT",
       "HUSDT",
-      "TURBOUSDT"
+      "TURBOUSDT",
+      "HEMIUSDT"
     ]
   }
 }
