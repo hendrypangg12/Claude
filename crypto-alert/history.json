@@ -3188,24 +3188,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T06:22:27+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-29T06:24:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
+      "SOLYUSDT",
+      "TOADUSDT",
+      "MYUSDT",
       "龙虾USDT",
       "MAGMAUSDT",
       "DEXEUSDT",
-      "CLOUSDT",
       "BEATUSDT",
+      "CLOUSDT",
+      "MARSCOINUSDT",
       "BLESSUSDT",
+      "AIXPLAYUSDT",
       "HEMIUSDT",
+      "PONSUSDT",
       "ROBOUSDT",
       "CHIPUSDT",
+      "ZIGUSDT",
+      "AEONUSDT",
       "GRVTUSDT",
-      "AKEUSDT",
       "DOSUSDT",
-      "LABUSDT",
-      "HUSDT"
+      "AKEUSDT",
+      "NPCUSDT"
     ]
   }
 }
