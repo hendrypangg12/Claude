@@ -3188,8 +3188,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T19:34:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-29T19:36:24+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3200,21 +3200,23 @@
       "DOSUSDT",
       "GIGGLEUSDT",
       "DASHUSDT",
-      "VELVETUSDT",
       "BTRUSDT",
-      "TSTUSDT",
+      "VELVETUSDT",
       "ONGUSDT",
       "CCUSDT",
+      "TSTUSDT",
       "POWERUSDT",
-      "TACUSDT",
       "ICPUSDT",
-      "UNIUSDT",
       "CYSUSDT",
       "RIVERUSDT",
+      "UNIUSDT",
       "BEATUSDT",
+      "TACUSDT",
       "ZECUSDT",
+      "MAGMAUSDT",
       "PUMPUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "HYPEUSDT"
     ]
   }
 }
