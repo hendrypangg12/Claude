@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-08-29_11-18-01",
+      "date": "2026-08-29",
+      "time": "11:18",
+      "label": "STORY KANTOR",
+      "title": "Diawasin ketat tiap 10 menit, katanya biar kerjaan lebih rapi.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-08-29_05-36-10",
       "date": "2026-08-29",
       "time": "05:36",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-08-25_13-02-03",
-      "date": "2026-08-25",
-      "time": "13:02",
-      "label": "STORY KANTOR",
-      "title": "Meeting yang harusnya 10 menit, molor jadi 2 jam tanpa keputusan.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
