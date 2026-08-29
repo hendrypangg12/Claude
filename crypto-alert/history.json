@@ -3188,17 +3188,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T12:22:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-08-29T12:24:29+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
       "CLOUSDT",
       "龙虾USDT",
-      "BTRUSDT",
       "DEXEUSDT",
-      "BEATUSDT",
+      "BTRUSDT",
       "ONGUSDT",
+      "BEATUSDT",
       "ROBOUSDT",
       "AKEUSDT",
       "TACUSDT",
@@ -3206,7 +3206,8 @@
       "GRVTUSDT",
       "BLESSUSDT",
       "BSBUSDT",
-      "GIGGLEUSDT"
+      "GIGGLEUSDT",
+      "TURBOUSDT"
     ]
   }
 }
