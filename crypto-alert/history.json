@@ -3188,7 +3188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T20:12:24+00:00",
+    "time": "2026-08-29T20:14:24+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -3210,12 +3210,12 @@
       "ICPUSDT",
       "UNIUSDT",
       "VELVETUSDT",
-      "GRVTUSDT",
       "ZECUSDT",
       "RIVERUSDT",
-      "PUMPUSDT",
+      "GRVTUSDT",
       "BEATUSDT",
-      "LITUSDT"
+      "PUMPUSDT",
+      "HYPEUSDT"
     ]
   }
 }
