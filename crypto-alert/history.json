@@ -3188,7 +3188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T18:44:26+00:00",
+    "time": "2026-08-29T18:46:29+00:00",
     "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
@@ -3202,12 +3202,12 @@
       "GIGGLEUSDT",
       "DASHUSDT",
       "VELVETUSDT",
-      "POWERUSDT",
       "CCUSDT",
-      "GRVTUSDT",
+      "POWERUSDT",
       "TSTUSDT",
-      "UNIUSDT",
       "TACUSDT",
+      "UNIUSDT",
+      "GRVTUSDT",
       "ONGUSDT",
       "ZECUSDT",
       "ICPUSDT",
@@ -3215,11 +3215,11 @@
       "XPLUSDT",
       "HYPEUSDT",
       "BSBUSDT",
-      "BEATUSDT",
-      "LITUSDT",
       "TRUMPUSDT",
-      "PYTHUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "LITUSDT",
+      "BEATUSDT",
+      "PYTHUSDT"
     ]
   }
 }
