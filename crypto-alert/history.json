@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T21:56:24+00:00",
-    "shortlist_count": 25,
+    "time": "2026-08-29T21:58:23+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3223,14 +3223,14 @@
       "NILUSDT",
       "BTRUSDT",
       "GIGGLEUSDT",
-      "PUMPUSDT",
       "DOSUSDT",
+      "PUMPUSDT",
       "CYSUSDT",
       "ONGUSDT",
       "DASHUSDT",
-      "TSTUSDT",
       "BTWUSDT",
       "CCUSDT",
+      "TSTUSDT",
       "GRVTUSDT",
       "UNIUSDT",
       "POWERUSDT",
@@ -3239,8 +3239,9 @@
       "ZECUSDT",
       "BSBUSDT",
       "XPLUSDT",
+      "HYPEUSDT",
       "VELVETUSDT",
-      "HYPEUSDT"
+      "NEARUSDT"
     ]
   }
 }
