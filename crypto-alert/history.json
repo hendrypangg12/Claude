@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T22:38:27+00:00",
+    "time": "2026-08-29T22:40:29+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -3233,13 +3233,13 @@
       "RIVERUSDT",
       "GRVTUSDT",
       "UNIUSDT",
+      "TSTUSDT",
+      "POWERUSDT",
       "ZECUSDT",
       "ICPUSDT",
-      "POWERUSDT",
-      "TSTUSDT",
-      "BSBUSDT",
       "TACUSDT",
-      "LIGHTUSDT"
+      "BSBUSDT",
+      "BEATUSDT"
     ]
   }
 }
