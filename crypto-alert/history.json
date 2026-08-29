@@ -3188,8 +3188,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T12:56:25+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-29T12:58:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3204,10 +3204,12 @@
       "BLESSUSDT",
       "ROBOUSDT",
       "AKEUSDT",
-      "DOSUSDT",
       "BSBUSDT",
+      "DOSUSDT",
       "GRVTUSDT",
-      "TURBOUSDT"
+      "VELVETUSDT",
+      "TURBOUSDT",
+      "POWERUSDT"
     ]
   }
 }
