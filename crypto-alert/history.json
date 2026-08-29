@@ -3207,11 +3207,12 @@
       "funding_rate": 0.063,
       "orderbook_ratio": 9.8875340191363,
       "time": "2026-08-29T20:20:27+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-08-29T20:32:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T20:30:35+00:00",
+    "time": "2026-08-29T20:32:25+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -3221,8 +3222,8 @@
       "NILUSDT",
       "龙虾USDT",
       "DOSUSDT",
-      "GIGGLEUSDT",
       "BTRUSDT",
+      "GIGGLEUSDT",
       "DASHUSDT",
       "TSTUSDT",
       "ONGUSDT",
@@ -3231,11 +3232,11 @@
       "CYSUSDT",
       "POWERUSDT",
       "ICPUSDT",
-      "PUMPUSDT",
       "UNIUSDT",
+      "PUMPUSDT",
       "VELVETUSDT",
-      "RIVERUSDT",
       "ZECUSDT",
+      "RIVERUSDT",
       "MAGMAUSDT",
       "GRVTUSDT"
     ]
