@@ -3163,7 +3163,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T02:14:27+00:00",
+    "time": "2026-08-29T02:16:24+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -3174,13 +3174,13 @@
       "DOSUSDT",
       "TURBOUSDT",
       "BEATUSDT",
-      "ROBOUSDT",
-      "CLOUSDT",
-      "LIGHTUSDT",
       "HEMIUSDT",
+      "ROBOUSDT",
+      "LIGHTUSDT",
+      "CLOUSDT",
       "LABUSDT",
-      "TSTUSDT",
-      "EPICUSDT"
+      "EPICUSDT",
+      "TSTUSDT"
     ]
   }
 }
