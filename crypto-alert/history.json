@@ -3188,7 +3188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T15:18:26+00:00",
+    "time": "2026-08-29T15:20:30+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3201,15 +3201,15 @@
       "ONGUSDT",
       "BEATUSDT",
       "DOSUSDT",
-      "RIVERUSDT",
       "DEXEUSDT",
-      "DASHUSDT",
+      "RIVERUSDT",
       "AKEUSDT",
+      "DASHUSDT",
       "GRVTUSDT",
       "POWERUSDT",
       "BSBUSDT",
-      "ICPUSDT",
-      "VELVETUSDT"
+      "VELVETUSDT",
+      "ICPUSDT"
     ]
   }
 }
