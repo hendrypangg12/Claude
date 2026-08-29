@@ -51,7 +51,8 @@
     "ONGUSDT": "2026-08-26T19:50:29+00:00",
     "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
     "PROMUSDT": "2026-08-25T03:12:27+00:00",
-    "TACUSDT": "2026-08-26T21:30:30+00:00"
+    "TACUSDT": "2026-08-26T21:30:30+00:00",
+    "CLOUSDT": "2026-08-29T02:28:29+00:00"
   },
   "alerts": [
     {
@@ -3160,12 +3161,35 @@
       "time": "2026-08-28T07:00:32+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-28T07:08:24+00:00"
+    },
+    {
+      "symbol": "CLOUSDT",
+      "pct": 8.13,
+      "price": 0.11659,
+      "quote_volume": 232910.18709,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.29864501525894976,
+      "retrace_pct": 0.9262406526172736,
+      "wick_ratio": 0.5236051502145949,
+      "rsi": 72.60115800383682,
+      "divergence": false,
+      "vol_spike": 1.3741423561493054,
+      "btc_pct": -0.20992667996313075,
+      "sl": 0.11885680000000001,
+      "tp1": 0.1142993,
+      "tp2": 0.1122107,
+      "tp3": 0.10883,
+      "funding_rate": 0.281,
+      "orderbook_ratio": 1.041340594080324,
+      "time": "2026-08-29T02:28:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T02:26:27+00:00",
+    "time": "2026-08-29T02:28:29+00:00",
     "shortlist_count": 16,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "龙虾USDT",
       "AKEUSDT",
@@ -3173,16 +3197,16 @@
       "DEXEUSDT",
       "DOSUSDT",
       "HEMIUSDT",
-      "BEATUSDT",
       "CLOUSDT",
-      "LIGHTUSDT",
+      "BEATUSDT",
       "ROBOUSDT",
-      "LABUSDT",
-      "TURBOUSDT",
+      "LIGHTUSDT",
       "CHIPUSDT",
-      "EPICUSDT",
+      "TURBOUSDT",
+      "LABUSDT",
+      "GRVTUSDT",
       "TSTUSDT",
-      "GRVTUSDT"
+      "EPICUSDT"
     ]
   }
 }
