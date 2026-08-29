@@ -3212,15 +3212,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T23:24:25+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-29T23:26:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
       "PROMUSDT",
       "BTRUSDT",
-      "CLOUSDT",
       "CYSUSDT",
+      "CLOUSDT",
       "龙虾USDT",
       "BTWUSDT",
       "NILUSDT",
@@ -3230,15 +3230,13 @@
       "PUMPUSDT",
       "DASHUSDT",
       "RIVERUSDT",
-      "BSBUSDT",
       "BEATUSDT",
-      "CCUSDT",
-      "UNIUSDT",
-      "TSTUSDT",
+      "BSBUSDT",
       "POWERUSDT",
-      "ZECUSDT",
-      "ICPUSDT",
-      "BMTUSDT"
+      "CCUSDT",
+      "TSTUSDT",
+      "UNIUSDT",
+      "ZECUSDT"
     ]
   }
 }
