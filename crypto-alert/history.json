@@ -3211,9 +3211,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T20:20:27+00:00",
-    "shortlist_count": 28,
-    "confirmed_count": 1,
+    "time": "2026-08-29T20:22:27+00:00",
+    "shortlist_count": 24,
+    "confirmed_count": 0,
     "symbols": [
       "4USDT",
       "PROMUSDT",
@@ -3227,22 +3227,18 @@
       "ONGUSDT",
       "TSTUSDT",
       "TACUSDT",
-      "CCUSDT",
       "CYSUSDT",
+      "CCUSDT",
       "POWERUSDT",
       "ICPUSDT",
-      "UNIUSDT",
       "PUMPUSDT",
-      "BTWUSDT",
-      "ZECUSDT",
-      "GRVTUSDT",
+      "UNIUSDT",
       "RIVERUSDT",
+      "ZECUSDT",
+      "BTWUSDT",
+      "GRVTUSDT",
       "VELVETUSDT",
-      "BEATUSDT",
-      "MAGMAUSDT",
-      "HYPEUSDT",
-      "HEMIUSDT",
-      "LITUSDT"
+      "HYPEUSDT"
     ]
   }
 }
