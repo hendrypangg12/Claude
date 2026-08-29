@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T20:54:27+00:00",
-    "shortlist_count": 24,
+    "time": "2026-08-29T20:56:24+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3232,14 +3232,15 @@
       "TACUSDT",
       "RIVERUSDT",
       "CCUSDT",
-      "ICPUSDT",
       "POWERUSDT",
+      "ICPUSDT",
       "UNIUSDT",
       "GRVTUSDT",
-      "PUMPUSDT",
       "VELVETUSDT",
+      "PUMPUSDT",
       "ZECUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "MAGMAUSDT"
     ]
   }
 }
