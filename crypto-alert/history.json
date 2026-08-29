@@ -3188,7 +3188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T10:04:24+00:00",
+    "time": "2026-08-29T10:06:46+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3202,14 +3202,14 @@
       "ROBOUSDT",
       "AKEUSDT",
       "BLESSUSDT",
-      "COLLECTUSDT",
       "DOSUSDT",
-      "HUSDT",
       "GRVTUSDT",
+      "COLLECTUSDT",
+      "HUSDT",
       "TURBOUSDT",
-      "TSTUSDT",
       "BTRUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "TSTUSDT"
     ]
   }
 }
