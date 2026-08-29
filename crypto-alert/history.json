@@ -3188,7 +3188,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-29T17:00:36+00:00",
+    "time": "2026-08-29T17:02:28+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -3204,16 +3204,16 @@
       "CYSUSDT",
       "TACUSDT",
       "BEATUSDT",
+      "TSTUSDT",
       "GRVTUSDT",
-      "RIVERUSDT",
       "POWERUSDT",
       "ICPUSDT",
-      "BSBUSDT",
       "CCUSDT",
+      "RIVERUSDT",
+      "BSBUSDT",
+      "ZECUSDT",
       "MAGMAUSDT",
-      "TSTUSDT",
-      "UNIUSDT",
-      "ZECUSDT"
+      "UNIUSDT"
     ]
   }
 }
