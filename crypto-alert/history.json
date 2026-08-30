@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T05:18:25+00:00",
+    "time": "2026-08-30T05:20:29+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -3227,11 +3227,11 @@
       "CCUSDT",
       "DOSUSDT",
       "RIVERUSDT",
-      "TSTUSDT",
       "PUMPUSDT",
+      "TSTUSDT",
       "STRKUSDT",
-      "NILUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "NILUSDT"
     ]
   }
 }
