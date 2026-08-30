@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T11:54:31+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-30T11:56:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "ZKCUSDT",
@@ -3222,20 +3222,21 @@
       "ZKPUSDT",
       "CYSUSDT",
       "4USDT",
-      "ZKUSDT",
-      "ZORAUSDT",
-      "DOSUSDT",
       "UNIUSDT",
+      "ZKUSDT",
+      "DOSUSDT",
+      "ZORAUSDT",
       "MAGMAUSDT",
       "STRKUSDT",
       "NILUSDT",
-      "FETUSDT",
       "DASHUSDT",
-      "XPLUSDT",
+      "FETUSDT",
       "WUSDT",
+      "XPLUSDT",
       "CCUSDT",
       "NEARUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
