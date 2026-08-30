@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T04:04:23+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-30T04:06:28+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3226,13 +3226,15 @@
       "CCUSDT",
       "BEATUSDT",
       "PUMPUSDT",
-      "RIVERUSDT",
       "GIGGLEUSDT",
       "DASHUSDT",
+      "RIVERUSDT",
       "TSTUSDT",
+      "NILUSDT",
       "ZECUSDT",
       "LITUSDT",
-      "XPLUSDT"
+      "XPLUSDT",
+      "NEARUSDT"
     ]
   }
 }
