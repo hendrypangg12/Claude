@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T12:06:28+00:00",
+    "time": "2026-08-30T12:08:28+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -3225,21 +3225,21 @@
       "UNIUSDT",
       "4USDT",
       "MAGMAUSDT",
-      "ZORAUSDT",
       "ZKUSDT",
+      "ZORAUSDT",
       "STRKUSDT",
-      "NILUSDT",
-      "DASHUSDT",
       "FETUSDT",
+      "DASHUSDT",
       "XPLUSDT",
+      "NILUSDT",
       "NEARUSDT",
       "PUMPUSDT",
       "INJUSDT",
-      "WUSDT",
-      "CCUSDT",
+      "PENDLEUSDT",
       "ZECUSDT",
+      "CCUSDT",
       "CAKEUSDT",
-      "PENDLEUSDT"
+      "WUSDT"
     ]
   }
 }
