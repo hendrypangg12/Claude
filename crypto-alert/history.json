@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T07:42:33+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-30T07:44:29+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "PROMUSDT",
@@ -3225,16 +3225,15 @@
       "UNIUSDT",
       "BTRUSDT",
       "CCUSDT",
+      "NILUSDT",
       "DASHUSDT",
       "GIGGLEUSDT",
-      "NILUSDT",
-      "ZECUSDT",
-      "STRKUSDT",
       "PUMPUSDT",
+      "STRKUSDT",
+      "ZECUSDT",
       "NEARUSDT",
       "RIVERUSDT",
-      "FETUSDT",
-      "XPLUSDT"
+      "FETUSDT"
     ]
   }
 }
