@@ -3212,14 +3212,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T06:38:22+00:00",
-    "shortlist_count": 17,
+    "time": "2026-08-30T06:40:35+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "PROMUSDT",
       "4USDT",
-      "ZKPUSDT",
       "CYSUSDT",
+      "ZKPUSDT",
       "龙虾USDT",
       "BTRUSDT",
       "DOSUSDT",
@@ -3228,11 +3228,13 @@
       "CCUSDT",
       "DASHUSDT",
       "PUMPUSDT",
+      "TSTUSDT",
       "STRKUSDT",
       "ZECUSDT",
-      "TSTUSDT",
       "NEARUSDT",
-      "XPLUSDT"
+      "XPLUSDT",
+      "NILUSDT",
+      "RIVERUSDT"
     ]
   }
 }
