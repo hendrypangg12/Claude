@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T14:54:26+00:00",
+    "time": "2026-08-30T14:56:24+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -3229,12 +3229,12 @@
       "DOSUSDT",
       "XMRUSDT",
       "4USDT",
-      "MAGMAUSDT",
       "CAKEUSDT",
       "STRKUSDT",
+      "MAGMAUSDT",
       "COLLECTUSDT",
-      "WUSDT",
-      "PENDLEUSDT"
+      "PENDLEUSDT",
+      "WUSDT"
     ]
   }
 }
