@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T02:30:33+00:00",
+    "time": "2026-08-30T02:32:28+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -3228,15 +3228,15 @@
       "CCUSDT",
       "BEATUSDT",
       "UNIUSDT",
-      "DASHUSDT",
-      "GIGGLEUSDT",
       "TSTUSDT",
-      "POWERUSDT",
-      "NILUSDT",
-      "LITUSDT",
-      "RIVERUSDT",
+      "GIGGLEUSDT",
+      "DASHUSDT",
       "ONGUSDT",
-      "DOSUSDT"
+      "NILUSDT",
+      "POWERUSDT",
+      "DOSUSDT",
+      "LITUSDT",
+      "RIVERUSDT"
     ]
   }
 }
