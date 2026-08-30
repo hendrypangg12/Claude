@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T01:36:24+00:00",
-    "shortlist_count": 18,
+    "time": "2026-08-30T01:38:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
@@ -3228,12 +3228,13 @@
       "PUMPUSDT",
       "GIGGLEUSDT",
       "DASHUSDT",
+      "TSTUSDT",
       "CCUSDT",
       "ONGUSDT",
-      "TSTUSDT",
-      "POWERUSDT",
       "UNIUSDT",
-      "BTRUSDT"
+      "POWERUSDT",
+      "BTRUSDT",
+      "NILUSDT"
     ]
   }
 }
