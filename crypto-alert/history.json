@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T18:28:27+00:00",
-    "shortlist_count": 23,
+    "time": "2026-08-30T18:30:50+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
@@ -3225,20 +3225,22 @@
       "ZKPUSDT",
       "ZORAUSDT",
       "ZKUSDT",
+      "BLESSUSDT",
       "LABUSDT",
       "COLLECTUSDT",
       "CAKEUSDT",
       "DOSUSDT",
-      "LITUSDT",
-      "STRKUSDT",
       "HEMIUSDT",
+      "STRKUSDT",
+      "LITUSDT",
       "GRVTUSDT",
       "FETUSDT",
       "PENDLEUSDT",
       "XMRUSDT",
       "TUTUSDT",
+      "INJUSDT",
       "ENAUSDT",
-      "INJUSDT"
+      "ZECUSDT"
     ]
   }
 }
