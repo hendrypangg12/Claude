@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T02:38:28+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-30T02:40:28+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "PROMUSDT",
@@ -3226,18 +3226,17 @@
       "COLLECTUSDT",
       "PUMPUSDT",
       "BEATUSDT",
-      "NILUSDT",
-      "UNIUSDT",
       "CCUSDT",
-      "DASHUSDT",
+      "UNIUSDT",
+      "NILUSDT",
       "GIGGLEUSDT",
       "TSTUSDT",
+      "DASHUSDT",
+      "DOSUSDT",
       "RIVERUSDT",
       "ONGUSDT",
-      "DOSUSDT",
-      "LITUSDT",
       "POWERUSDT",
-      "XPLUSDT"
+      "LITUSDT"
     ]
   }
 }
