@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T07:12:25+00:00",
-    "shortlist_count": 20,
+    "time": "2026-08-30T07:14:25+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "PROMUSDT",
@@ -3222,20 +3222,22 @@
       "ZKPUSDT",
       "龙虾USDT",
       "BTRUSDT",
-      "DOSUSDT",
       "UNIUSDT",
+      "DOSUSDT",
       "DASHUSDT",
-      "HEMIUSDT",
       "CCUSDT",
-      "STRKUSDT",
-      "GIGGLEUSDT",
+      "HEMIUSDT",
       "RIVERUSDT",
-      "PUMPUSDT",
+      "GIGGLEUSDT",
+      "STRKUSDT",
       "NEARUSDT",
-      "ZECUSDT",
+      "PUMPUSDT",
       "XPLUSDT",
+      "ZECUSDT",
       "BTWUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "NILUSDT",
+      "TSTUSDT"
     ]
   }
 }
