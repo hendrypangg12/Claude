@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T03:16:25+00:00",
+    "time": "2026-08-30T03:18:22+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3228,12 +3228,12 @@
       "BEATUSDT",
       "CCUSDT",
       "GIGGLEUSDT",
-      "MAGMAUSDT",
       "TSTUSDT",
-      "PUMPUSDT",
       "NILUSDT",
+      "PUMPUSDT",
       "DASHUSDT",
-      "RIVERUSDT"
+      "RIVERUSDT",
+      "MAGMAUSDT"
     ]
   }
 }
