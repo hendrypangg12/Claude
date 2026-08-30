@@ -3212,7 +3212,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T17:18:25+00:00",
+    "time": "2026-08-30T17:20:32+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -3231,13 +3231,13 @@
       "4USDT",
       "XMRUSDT",
       "STRKUSDT",
-      "PENDLEUSDT",
       "TUTUSDT",
-      "ZECUSDT",
-      "FETUSDT",
-      "WUSDT",
+      "PENDLEUSDT",
       "INJUSDT",
-      "LITUSDT"
+      "WUSDT",
+      "FETUSDT",
+      "LITUSDT",
+      "ZECUSDT"
     ]
   }
 }
