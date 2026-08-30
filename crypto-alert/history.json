@@ -3212,18 +3212,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T06:28:25+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-30T06:30:31+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "4USDT",
       "PROMUSDT",
-      "ZKPUSDT",
       "CYSUSDT",
-      "龙虾USDT",
+      "ZKPUSDT",
       "BTRUSDT",
-      "UNIUSDT",
+      "龙虾USDT",
       "GIGGLEUSDT",
+      "UNIUSDT",
       "DOSUSDT",
       "CCUSDT",
       "DASHUSDT",
@@ -3231,10 +3231,9 @@
       "PUMPUSDT",
       "TSTUSDT",
       "NEARUSDT",
-      "ZECUSDT",
-      "XPLUSDT",
       "RIVERUSDT",
-      "ETHFIUSDT"
+      "ZECUSDT",
+      "XPLUSDT"
     ]
   }
 }
