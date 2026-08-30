@@ -3212,19 +3212,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T13:44:23+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-30T13:46:35+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
-      "ZKCUSDT",
       "SKRUSDT",
+      "ZKCUSDT",
       "UAIUSDT",
       "PROMUSDT",
       "ZKPUSDT",
       "MAGMAUSDT",
-      "CYSUSDT",
       "DOSUSDT",
       "UNIUSDT",
+      "CYSUSDT",
       "ZKUSDT",
       "ZORAUSDT",
       "CAKEUSDT",
@@ -3235,9 +3235,10 @@
       "PUMPUSDT",
       "FETUSDT",
       "ZECUSDT",
-      "XPLUSDT",
       "WUSDT",
-      "ETHFIUSDT"
+      "XPLUSDT",
+      "ETHFIUSDT",
+      "ENAUSDT"
     ]
   }
 }
