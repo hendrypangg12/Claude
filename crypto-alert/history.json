@@ -3212,8 +3212,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-30T13:10:39+00:00",
-    "shortlist_count": 26,
+    "time": "2026-08-30T13:12:28+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "ZKCUSDT",
@@ -3234,14 +3234,13 @@
       "FETUSDT",
       "NILUSDT",
       "PUMPUSDT",
-      "XPLUSDT",
-      "ZECUSDT",
-      "NEARUSDT",
       "XMRUSDT",
-      "CCUSDT",
+      "ZECUSDT",
+      "XPLUSDT",
+      "NEARUSDT",
       "WUSDT",
-      "ENAUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "CCUSDT"
     ]
   }
 }
