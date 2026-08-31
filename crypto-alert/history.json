@@ -3257,11 +3257,12 @@
       "funding_rate": -0.221,
       "orderbook_ratio": 0.23750372572259595,
       "time": "2026-08-31T02:52:26+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-31T03:00:38+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T02:58:25+00:00",
+    "time": "2026-08-31T03:00:38+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
