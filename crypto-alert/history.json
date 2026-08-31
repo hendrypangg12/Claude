@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T23:24:27+00:00",
+    "time": "2026-08-31T23:26:26+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -3353,16 +3353,16 @@
       "CRVUSDT",
       "TWTUSDT",
       "HEMIUSDT",
-      "PLAYUSDT",
       "XMRUSDT",
+      "PLAYUSDT",
       "ETHFIUSDT",
       "POWERUSDT",
-      "DASHUSDT",
       "STXUSDT",
-      "ENSOUSDT",
-      "RUNEUSDT",
       "HYPEUSDT",
-      "NEARUSDT"
+      "DASHUSDT",
+      "RUNEUSDT",
+      "NEARUSDT",
+      "ENSOUSDT"
     ]
   }
 }
