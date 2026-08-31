@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T23:26:26+00:00",
-    "shortlist_count": 22,
+    "time": "2026-08-31T23:28:23+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "0GUSDT",
@@ -3355,14 +3355,15 @@
       "HEMIUSDT",
       "XMRUSDT",
       "PLAYUSDT",
-      "ETHFIUSDT",
-      "POWERUSDT",
-      "STXUSDT",
-      "HYPEUSDT",
       "DASHUSDT",
+      "ETHFIUSDT",
+      "HYPEUSDT",
+      "STXUSDT",
+      "ENSOUSDT",
+      "ZENUSDT",
+      "POWERUSDT",
       "RUNEUSDT",
-      "NEARUSDT",
-      "ENSOUSDT"
+      "NEARUSDT"
     ]
   }
 }
