@@ -3287,8 +3287,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T15:34:28+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-31T15:36:33+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
@@ -3298,12 +3298,11 @@
       "0GUSDT",
       "CLOUSDT",
       "USELESSUSDT",
-      "NOTUSDT",
       "POWERUSDT",
+      "NOTUSDT",
       "ZENUSDT",
       "SKYAIUSDT",
-      "UAIUSDT",
-      "DASHUSDT"
+      "UAIUSDT"
     ]
   }
 }
