@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T19:14:38+00:00",
-    "shortlist_count": 13,
+    "time": "2026-08-31T19:16:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
@@ -3352,8 +3352,9 @@
       "XMRUSDT",
       "ARBUSDT",
       "ZENUSDT",
-      "CCUSDT",
-      "SKYAIUSDT"
+      "DASHUSDT",
+      "SKYAIUSDT",
+      "CCUSDT"
     ]
   }
 }
