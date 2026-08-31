@@ -3262,12 +3262,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T08:46:28+00:00",
+    "time": "2026-08-31T08:48:33+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
-      "ZORAUSDT",
       "SKRUSDT",
+      "ZORAUSDT",
       "HEMIUSDT",
       "CYSUSDT",
       "UAIUSDT",
@@ -3282,8 +3282,8 @@
       "CAKEUSDT",
       "ZKUSDT",
       "ZENUSDT",
-      "ERAUSDT",
-      "DASHUSDT"
+      "COLLECTUSDT",
+      "ERAUSDT"
     ]
   }
 }
