@@ -55,7 +55,8 @@
     "CLOUSDT": "2026-08-29T02:28:29+00:00",
     "ZKPUSDT": "2026-08-31T00:34:26+00:00",
     "ZORAUSDT": "2026-08-31T02:52:26+00:00",
-    "SKRUSDT": "2026-08-31T13:47:03+00:00"
+    "SKRUSDT": "2026-08-31T13:47:03+00:00",
+    "POWERUSDT": "2026-08-31T15:46:31+00:00"
   },
   "alerts": [
     {
@@ -3284,12 +3285,35 @@
       "time": "2026-08-31T13:47:03+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-08-31T13:54:27+00:00"
+    },
+    {
+      "symbol": "POWERUSDT",
+      "pct": 8.89,
+      "price": 0.0908,
+      "quote_volume": 228099.61243,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.45599910804382987,
+      "retrace_pct": 1.3043478260869485,
+      "wick_ratio": 0.29044117647058787,
+      "rsi": 75.80597980138201,
+      "divergence": false,
+      "vol_spike": 0.16511687102560674,
+      "btc_pct": 0.43391435814825,
+      "sl": 0.09292,
+      "tp1": 0.08913118,
+      "tp2": 0.08735882,
+      "tp3": 0.08449,
+      "funding_rate": 0.05,
+      "orderbook_ratio": 1.2721453910271912,
+      "time": "2026-08-31T15:46:31+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T15:44:27+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-08-31T15:46:31+00:00",
+    "shortlist_count": 13,
+    "confirmed_count": 1,
     "symbols": [
       "SKRUSDT",
       "ZORAUSDT",
@@ -3302,7 +3326,8 @@
       "NOTUSDT",
       "ZENUSDT",
       "DASHUSDT",
-      "SKYAIUSDT"
+      "SKYAIUSDT",
+      "UAIUSDT"
     ]
   }
 }
