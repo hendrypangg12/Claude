@@ -3232,11 +3232,12 @@
       "funding_rate": -0.503,
       "orderbook_ratio": 1.3054858261563953,
       "time": "2026-08-31T00:34:26+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-08-31T00:40:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T00:38:57+00:00",
+    "time": "2026-08-31T00:40:27+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -3251,10 +3252,10 @@
       "ZKUSDT",
       "TNSRUSDT",
       "UNIUSDT",
-      "DOSUSDT",
       "MIRAUSDT",
-      "CAKEUSDT",
+      "DOSUSDT",
       "USELESSUSDT",
+      "CAKEUSDT",
       "ZENUSDT"
     ]
   }
