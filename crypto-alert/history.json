@@ -3262,17 +3262,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T10:14:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-08-31T10:16:28+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
       "ZORAUSDT",
+      "FLOCKUSDT",
       "HEMIUSDT",
       "CYSUSDT",
-      "FLOCKUSDT",
-      "CLOUSDT",
       "UAIUSDT",
+      "CLOUSDT",
       "TNSRUSDT",
       "BLESSUSDT",
       "XMRUSDT",
@@ -3281,10 +3281,9 @@
       "CAKEUSDT",
       "UNIUSDT",
       "USELESSUSDT",
-      "DASHUSDT",
       "MIRAUSDT",
       "COLLECTUSDT",
-      "CRVUSDT"
+      "DASHUSDT"
     ]
   }
 }
