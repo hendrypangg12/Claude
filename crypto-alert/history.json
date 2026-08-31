@@ -3262,7 +3262,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T04:00:39+00:00",
+    "time": "2026-08-31T04:02:28+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -3275,11 +3275,11 @@
       "AUCTIONUSDT",
       "COLLECTUSDT",
       "MIRAUSDT",
-      "CYSUSDT",
       "ZKUSDT",
+      "CYSUSDT",
+      "BLESSUSDT",
       "XMRUSDT",
       "USELESSUSDT",
-      "BLESSUSDT",
       "CAKEUSDT"
     ]
   }
