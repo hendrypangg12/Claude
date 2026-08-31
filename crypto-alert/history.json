@@ -3312,21 +3312,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T16:06:31+00:00",
-    "shortlist_count": 11,
+    "time": "2026-08-31T16:08:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
       "HEMIUSDT",
       "ZORAUSDT",
-      "0GUSDT",
       "FLOCKUSDT",
+      "0GUSDT",
       "USELESSUSDT",
       "CLOUSDT",
       "POWERUSDT",
       "NOTUSDT",
       "ZENUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "MIRAUSDT"
     ]
   }
 }
