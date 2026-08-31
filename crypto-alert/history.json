@@ -52,7 +52,8 @@
     "TRUMPUSDT": "2026-08-22T10:54:32+00:00",
     "PROMUSDT": "2026-08-25T03:12:27+00:00",
     "TACUSDT": "2026-08-26T21:30:30+00:00",
-    "CLOUSDT": "2026-08-29T02:28:29+00:00"
+    "CLOUSDT": "2026-08-29T02:28:29+00:00",
+    "ZKPUSDT": "2026-08-31T00:34:26+00:00"
   },
   "alerts": [
     {
@@ -3209,27 +3210,50 @@
       "time": "2026-08-29T20:20:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-08-29T20:32:25+00:00"
+    },
+    {
+      "symbol": "ZKPUSDT",
+      "pct": 13.31,
+      "price": 0.05863,
+      "quote_volume": 560281.51775,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.491516029736504,
+      "retrace_pct": 1.0297096556380814,
+      "wick_ratio": 0.8787878787878839,
+      "rsi": 79.51640928966557,
+      "divergence": false,
+      "vol_spike": 0.44951548742313013,
+      "btc_pct": 0.24554788530982488,
+      "sl": 0.0598324,
+      "tp1": 0.05658128,
+      "tp2": 0.05493872,
+      "tp3": 0.05228,
+      "funding_rate": -0.503,
+      "orderbook_ratio": 1.3054858261563953,
+      "time": "2026-08-31T00:34:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T00:32:33+00:00",
+    "time": "2026-08-31T00:34:26+00:00",
     "shortlist_count": 16,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "SKRUSDT",
       "ZKCUSDT",
       "UAIUSDT",
       "ZORAUSDT",
       "HEMIUSDT",
+      "ZKPUSDT",
       "AUCTIONUSDT",
+      "ZKUSDT",
       "CYSUSDT",
       "UNIUSDT",
       "TNSRUSDT",
-      "ZKUSDT",
-      "ZKPUSDT",
       "DOSUSDT",
-      "CAKEUSDT",
       "MIRAUSDT",
+      "CAKEUSDT",
       "USELESSUSDT",
       "ZENUSDT"
     ]
