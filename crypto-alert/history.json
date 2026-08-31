@@ -3262,8 +3262,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T09:00:41+00:00",
-    "shortlist_count": 16,
+    "time": "2026-08-31T09:02:26+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "SKRUSDT",
@@ -3272,16 +3272,15 @@
       "CYSUSDT",
       "UAIUSDT",
       "CLOUSDT",
-      "BLESSUSDT",
       "TNSRUSDT",
-      "XMRUSDT",
+      "BLESSUSDT",
       "USELESSUSDT",
+      "XMRUSDT",
       "LITUSDT",
       "MIRAUSDT",
       "UNIUSDT",
       "CAKEUSDT",
-      "COLLECTUSDT",
-      "ZENUSDT"
+      "CRVUSDT"
     ]
   }
 }
