@@ -3262,7 +3262,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T10:54:28+00:00",
+    "time": "2026-08-31T10:56:26+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3277,15 +3277,15 @@
       "TNSRUSDT",
       "XMRUSDT",
       "ZENUSDT",
+      "USELESSUSDT",
       "CAKEUSDT",
       "LITUSDT",
-      "USELESSUSDT",
       "DASHUSDT",
-      "CYSUSDT",
       "CHIPUSDT",
-      "MIRAUSDT",
+      "CYSUSDT",
+      "SKYAIUSDT",
       "UNIUSDT",
-      "SKYAIUSDT"
+      "MIRAUSDT"
     ]
   }
 }
