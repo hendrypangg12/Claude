@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-08-31T20:58:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-08-31T21:00:49+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
@@ -3348,13 +3348,15 @@
       "ZORAUSDT",
       "NOTUSDT",
       "FLOCKUSDT",
-      "DOGSUSDT",
       "ARBUSDT",
+      "DOGSUSDT",
       "CRVUSDT",
       "DASHUSDT",
       "ZENUSDT",
+      "XMRUSDT",
       "CCUSDT",
-      "XMRUSDT"
+      "ETHFIUSDT",
+      "POWERUSDT"
     ]
   }
 }
