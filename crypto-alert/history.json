@@ -3361,13 +3361,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T20:06:31+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-01T20:08:31+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
-      "ONGUSDT",
       "USELESSUSDT",
+      "ONGUSDT",
       "ACEUSDT",
       "FILUSDT",
       "CRVUSDT",
@@ -3376,16 +3376,15 @@
       "AKEUSDT",
       "ARBUSDT",
       "UNIUSDT",
-      "龙虾USDT",
       "OPUSDT",
+      "龙虾USDT",
       "WUSDT",
-      "APTUSDT",
       "TIAUSDT",
-      "ETHFIUSDT",
+      "APTUSDT",
       "ENAUSDT",
+      "ETHFIUSDT",
       "STRKUSDT",
-      "DOTUSDT",
-      "ICPUSDT"
+      "DOTUSDT"
     ]
   }
 }
