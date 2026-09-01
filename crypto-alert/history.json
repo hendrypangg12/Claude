@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T07:32:44+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-01T07:34:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3346,9 +3346,9 @@
       "ARBUSDT",
       "0GUSDT",
       "CRVUSDT",
-      "AKEUSDT",
       "TWTUSDT",
       "UNIUSDT",
+      "AKEUSDT",
       "DASHUSDT",
       "SKRUSDT",
       "OPUSDT",
@@ -3358,7 +3358,8 @@
       "MINAUSDT",
       "DOTUSDT",
       "LDOUSDT",
-      "TIAUSDT"
+      "PENDLEUSDT",
+      "VIRTUALUSDT"
     ]
   }
 }
