@@ -3361,14 +3361,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T23:40:31+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-01T23:42:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
       "MARSCOINUSDT",
-      "MAGMAUSDT",
       "ACEUSDT",
+      "MAGMAUSDT",
       "USELESSUSDT",
       "ONGUSDT",
       "FILUSDT",
@@ -3380,11 +3380,12 @@
       "ROBOUSDT",
       "BEATUSDT",
       "ENAUSDT",
-      "PYTHUSDT",
-      "4USDT",
       "TIAUSDT",
+      "PYTHUSDT",
       "WUSDT",
-      "DOTUSDT"
+      "4USDT",
+      "DOTUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
