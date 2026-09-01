@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T03:26:23+00:00",
+    "time": "2026-09-01T03:28:46+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -3348,24 +3348,24 @@
       "MAGMAUSDT",
       "NOTUSDT",
       "TWTUSDT",
-      "BTWUSDT",
       "DASHUSDT",
+      "BTWUSDT",
       "AKEUSDT",
-      "DOGSUSDT",
       "PYTHUSDT",
+      "DOGSUSDT",
       "NEARUSDT",
-      "LITUSDT",
       "PUMPUSDT",
       "STRKUSDT",
       "ZENUSDT",
-      "STXUSDT",
+      "LITUSDT",
       "ETHFIUSDT",
+      "STXUSDT",
       "BSBUSDT",
-      "MINAUSDT",
-      "CCUSDT",
       "ZECUSDT",
+      "MINAUSDT",
       "UNIUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "CCUSDT"
     ]
   }
 }
