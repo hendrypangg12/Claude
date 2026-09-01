@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T07:34:24+00:00",
+    "time": "2026-09-01T07:36:26+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -3347,8 +3347,8 @@
       "0GUSDT",
       "CRVUSDT",
       "TWTUSDT",
-      "UNIUSDT",
       "AKEUSDT",
+      "UNIUSDT",
       "DASHUSDT",
       "SKRUSDT",
       "OPUSDT",
@@ -3358,8 +3358,8 @@
       "MINAUSDT",
       "DOTUSDT",
       "LDOUSDT",
-      "PENDLEUSDT",
-      "VIRTUALUSDT"
+      "VIRTUALUSDT",
+      "POWERUSDT"
     ]
   }
 }
