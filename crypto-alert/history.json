@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T02:28:25+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-01T02:30:52+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "0GUSDT",
@@ -3350,20 +3350,19 @@
       "DASHUSDT",
       "DOGSUSDT",
       "PYTHUSDT",
+      "MAGMAUSDT",
       "STXUSDT",
       "STRKUSDT",
-      "MAGMAUSDT",
-      "AKEUSDT",
-      "BSBUSDT",
       "ETHFIUSDT",
-      "ZENUSDT",
+      "BSBUSDT",
       "PLAYUSDT",
-      "CCUSDT",
+      "ZENUSDT",
+      "AKEUSDT",
       "MINAUSDT",
+      "CCUSDT",
       "NEARUSDT",
       "RUNEUSDT",
-      "GRAMUSDT",
-      "TIAUSDT"
+      "LITUSDT"
     ]
   }
 }
