@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T11:44:28+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-01T11:46:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
@@ -3348,19 +3348,20 @@
       "OPUSDT",
       "HEMIUSDT",
       "TWTUSDT",
-      "TIAUSDT",
       "ENAUSDT",
+      "TIAUSDT",
       "MINAUSDT",
       "PYTHUSDT",
       "AKEUSDT",
-      "ETHFIUSDT",
       "NEARUSDT",
+      "ETHFIUSDT",
       "DOTUSDT",
       "LDOUSDT",
-      "APTUSDT",
-      "STRKUSDT",
       "UAIUSDT",
-      "FILUSDT"
+      "STRKUSDT",
+      "APTUSDT",
+      "FILUSDT",
+      "POLUSDT"
     ]
   }
 }
