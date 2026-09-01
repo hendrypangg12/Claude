@@ -3337,13 +3337,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T03:16:30+00:00",
-    "shortlist_count": 29,
+    "time": "2026-09-01T03:18:24+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
-      "0GUSDT",
       "ARBUSDT",
+      "0GUSDT",
       "CRVUSDT",
       "MAGMAUSDT",
       "NOTUSDT",
@@ -3351,25 +3351,26 @@
       "DASHUSDT",
       "BTWUSDT",
       "DOGSUSDT",
-      "PYTHUSDT",
       "AKEUSDT",
+      "PYTHUSDT",
       "NEARUSDT",
+      "ZENUSDT",
+      "PUMPUSDT",
       "ETHFIUSDT",
       "STRKUSDT",
-      "ZENUSDT",
       "STXUSDT",
       "LITUSDT",
-      "PUMPUSDT",
       "MINAUSDT",
       "FLOCKUSDT",
-      "BSBUSDT",
+      "FETUSDT",
       "ZECUSDT",
-      "CCUSDT",
+      "BSBUSDT",
       "UNIUSDT",
+      "CCUSDT",
       "HYPEUSDT",
-      "RUNEUSDT",
       "DOTUSDT",
-      "FETUSDT"
+      "VIRTUALUSDT",
+      "RUNEUSDT"
     ]
   }
 }
