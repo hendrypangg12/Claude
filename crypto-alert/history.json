@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T10:56:32+00:00",
+    "time": "2026-09-01T10:58:37+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -3351,9 +3351,9 @@
       "MINAUSDT",
       "PYTHUSDT",
       "ETHFIUSDT",
-      "TIAUSDT",
       "UAIUSDT",
-      "FILUSDT"
+      "TIAUSDT",
+      "SKRUSDT"
     ]
   }
 }
