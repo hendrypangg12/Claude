@@ -3337,14 +3337,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T14:10:31+00:00",
-    "shortlist_count": 29,
+    "time": "2026-09-01T14:12:28+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
       "ARBUSDT",
-      "CRVUSDT",
       "ONGUSDT",
+      "CRVUSDT",
       "OPUSDT",
       "MINAUSDT",
       "UNIUSDT",
@@ -3356,20 +3356,21 @@
       "ENAUSDT",
       "APTUSDT",
       "HEMIUSDT",
+      "CHIPUSDT",
       "PYTHUSDT",
-      "ETHFIUSDT",
-      "WUSDT",
       "LDOUSDT",
       "STRKUSDT",
-      "CHIPUSDT",
+      "ETHFIUSDT",
       "DASHUSDT",
+      "WUSDT",
       "DOTUSDT",
-      "FILUSDT",
       "LITUSDT",
+      "FILUSDT",
       "WLDUSDT",
+      "BSBUSDT",
       "ZECUSDT",
-      "POWERUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
