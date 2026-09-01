@@ -3361,7 +3361,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T22:32:43+00:00",
+    "time": "2026-09-01T22:34:31+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3379,10 +3379,10 @@
       "CRVUSDT",
       "PYTHUSDT",
       "WUSDT",
-      "OPUSDT",
-      "ENAUSDT",
       "TIAUSDT",
-      "STRKUSDT"
+      "STRKUSDT",
+      "OPUSDT",
+      "ENAUSDT"
     ]
   }
 }
