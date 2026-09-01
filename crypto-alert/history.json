@@ -3356,11 +3356,12 @@
       "funding_rate": 0.04,
       "orderbook_ratio": 0.8022441171832331,
       "time": "2026-09-01T16:28:32+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-01T16:34:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T16:32:28+00:00",
+    "time": "2026-09-01T16:34:34+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
@@ -3372,22 +3373,22 @@
       "OPUSDT",
       "UAIUSDT",
       "ACEUSDT",
-      "CHIPUSDT",
       "UNIUSDT",
       "AKEUSDT",
+      "CHIPUSDT",
       "TWTUSDT",
       "MINAUSDT",
-      "APTUSDT",
       "ETHFIUSDT",
-      "TIAUSDT",
-      "HEMIUSDT",
+      "APTUSDT",
       "ENAUSDT",
+      "TIAUSDT",
       "NEARUSDT",
+      "HEMIUSDT",
       "PYTHUSDT",
       "SPXUSDT",
       "FILUSDT",
-      "BEATUSDT",
       "WUSDT",
+      "BEATUSDT",
       "STRKUSDT",
       "DOTUSDT"
     ]
