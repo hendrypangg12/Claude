@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T06:22:30+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-01T06:24:45+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
@@ -3347,8 +3347,8 @@
       "0GUSDT",
       "CRVUSDT",
       "TWTUSDT",
-      "AKEUSDT",
       "DASHUSDT",
+      "AKEUSDT",
       "OPUSDT",
       "UNIUSDT",
       "NOTUSDT",
@@ -3359,10 +3359,12 @@
       "NEARUSDT",
       "VIRTUALUSDT",
       "LDOUSDT",
-      "PUMPUSDT",
-      "HEMIUSDT",
       "ETHFIUSDT",
+      "PUMPUSDT",
       "PENDLEUSDT",
+      "SKRUSDT",
+      "CCUSDT",
+      "HYPEUSDT",
       "TIAUSDT"
     ]
   }
