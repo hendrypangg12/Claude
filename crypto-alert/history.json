@@ -3361,8 +3361,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T16:38:27+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-01T16:40:30+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -3375,21 +3375,22 @@
       "UAIUSDT",
       "AKEUSDT",
       "UNIUSDT",
-      "CHIPUSDT",
       "TWTUSDT",
-      "MINAUSDT",
+      "CHIPUSDT",
       "HEMIUSDT",
-      "ETHFIUSDT",
+      "MINAUSDT",
       "ENAUSDT",
-      "PYTHUSDT",
+      "ETHFIUSDT",
       "TIAUSDT",
+      "PYTHUSDT",
       "FILUSDT",
-      "SPXUSDT",
-      "APTUSDT",
       "NEARUSDT",
+      "APTUSDT",
+      "SPXUSDT",
       "BEATUSDT",
       "WUSDT",
-      "STRKUSDT"
+      "STRKUSDT",
+      "DOTUSDT"
     ]
   }
 }
