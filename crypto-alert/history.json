@@ -3337,29 +3337,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T08:16:25+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-01T08:18:31+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BTRUSDT",
-      "0GUSDT",
       "ARBUSDT",
       "USELESSUSDT",
+      "0GUSDT",
       "TWTUSDT",
-      "CRVUSDT",
       "AKEUSDT",
+      "CRVUSDT",
       "UNIUSDT",
-      "DASHUSDT",
       "OPUSDT",
+      "DASHUSDT",
       "SKRUSDT",
-      "UAIUSDT",
       "NOTUSDT",
       "ZENUSDT",
+      "UAIUSDT",
       "MINAUSDT",
-      "NEARUSDT",
-      "DOTUSDT",
-      "PYTHUSDT",
-      "ETHFIUSDT"
+      "NEARUSDT"
     ]
   }
 }
