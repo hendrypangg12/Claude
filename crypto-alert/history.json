@@ -3361,8 +3361,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T22:42:29+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-01T22:44:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
@@ -3371,16 +3371,18 @@
       "MAGMAUSDT",
       "ONGUSDT",
       "USELESSUSDT",
-      "AKEUSDT",
       "CHIPUSDT",
+      "AKEUSDT",
       "FILUSDT",
       "FFUSDT",
       "UNIUSDT",
+      "ARUSDT",
       "BEATUSDT",
       "CRVUSDT",
       "PYTHUSDT",
       "WUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "TIAUSDT"
     ]
   }
 }
