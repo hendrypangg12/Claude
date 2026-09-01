@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T12:38:33+00:00",
+    "time": "2026-09-01T12:40:30+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3350,17 +3350,17 @@
       "TWTUSDT",
       "MINAUSDT",
       "AKEUSDT",
-      "ENAUSDT",
       "PYTHUSDT",
-      "BTRUSDT",
+      "ENAUSDT",
       "NEARUSDT",
-      "HEMIUSDT",
       "TIAUSDT",
-      "UAIUSDT",
+      "ETHFIUSDT",
       "APTUSDT",
       "LDOUSDT",
-      "ETHFIUSDT",
-      "DOTUSDT"
+      "UAIUSDT",
+      "DOTUSDT",
+      "STRKUSDT",
+      "DASHUSDT"
     ]
   }
 }
