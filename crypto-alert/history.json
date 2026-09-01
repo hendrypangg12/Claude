@@ -3337,8 +3337,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T03:04:25+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-01T03:06:26+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
@@ -3348,25 +3348,29 @@
       "TWTUSDT",
       "DASHUSDT",
       "MAGMAUSDT",
+      "BTWUSDT",
       "NOTUSDT",
-      "PYTHUSDT",
       "DOGSUSDT",
       "AKEUSDT",
+      "PYTHUSDT",
       "NEARUSDT",
       "ETHFIUSDT",
+      "ZENUSDT",
       "BSBUSDT",
       "STXUSDT",
       "STRKUSDT",
-      "ZENUSDT",
-      "BTWUSDT",
-      "LITUSDT",
       "PUMPUSDT",
       "MINAUSDT",
+      "LITUSDT",
       "ZECUSDT",
-      "HYPEUSDT",
       "DOTUSDT",
+      "HYPEUSDT",
       "VIRTUALUSDT",
-      "CCUSDT"
+      "FETUSDT",
+      "CCUSDT",
+      "POWERUSDT",
+      "FLOCKUSDT",
+      "RUNEUSDT"
     ]
   }
 }
