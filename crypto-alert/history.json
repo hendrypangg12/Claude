@@ -3361,8 +3361,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T20:32:30+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-01T20:34:30+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -3383,7 +3383,8 @@
       "ENAUSDT",
       "TIAUSDT",
       "APTUSDT",
-      "STRKUSDT"
+      "STRKUSDT",
+      "DOTUSDT"
     ]
   }
 }
