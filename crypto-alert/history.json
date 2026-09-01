@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T06:42:29+00:00",
+    "time": "2026-09-01T06:44:29+00:00",
     "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
@@ -3353,23 +3353,23 @@
       "OPUSDT",
       "ZENUSDT",
       "SKRUSDT",
+      "PYTHUSDT",
       "NEARUSDT",
       "BULLAUSDT",
-      "PYTHUSDT",
       "NOTUSDT",
       "ENSOUSDT",
+      "MINAUSDT",
       "VIRTUALUSDT",
       "PENDLEUSDT",
-      "MINAUSDT",
       "LDOUSDT",
       "DOTUSDT",
       "ETHFIUSDT",
-      "TIAUSDT",
       "STRKUSDT",
+      "TIAUSDT",
       "HYPEUSDT",
+      "ZECUSDT",
       "RUNEUSDT",
-      "PUMPUSDT",
-      "ZECUSDT"
+      "PUMPUSDT"
     ]
   }
 }
