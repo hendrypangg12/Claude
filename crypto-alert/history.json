@@ -3361,7 +3361,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T23:28:27+00:00",
+    "time": "2026-09-01T23:30:34+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -3374,16 +3374,16 @@
       "AKEUSDT",
       "CHIPUSDT",
       "FILUSDT",
-      "FFUSDT",
       "UNIUSDT",
-      "BEATUSDT",
+      "FFUSDT",
       "CRVUSDT",
+      "BEATUSDT",
       "ROBOUSDT",
       "PYTHUSDT",
-      "龙虾USDT",
       "TIAUSDT",
       "ENAUSDT",
-      "WUSDT"
+      "WUSDT",
+      "龙虾USDT"
     ]
   }
 }
