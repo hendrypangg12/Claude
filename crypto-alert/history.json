@@ -3337,7 +3337,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T13:54:27+00:00",
+    "time": "2026-09-01T13:56:28+00:00",
     "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
@@ -3353,22 +3353,22 @@
       "NEARUSDT",
       "AKEUSDT",
       "ENAUSDT",
+      "UAIUSDT",
       "PYTHUSDT",
       "APTUSDT",
-      "UAIUSDT",
-      "LDOUSDT",
       "ETHFIUSDT",
       "DASHUSDT",
+      "LDOUSDT",
       "HEMIUSDT",
       "WUSDT",
       "STRKUSDT",
-      "DOTUSDT",
-      "LITUSDT",
-      "FILUSDT",
-      "CHIPUSDT",
       "PUMPUSDT",
+      "LITUSDT",
+      "DOTUSDT",
+      "CHIPUSDT",
+      "FILUSDT",
       "POWERUSDT",
-      "WLDUSDT"
+      "DOGSUSDT"
     ]
   }
 }
