@@ -3361,8 +3361,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-01T17:38:27+00:00",
-    "shortlist_count": 27,
+    "time": "2026-09-01T17:40:38+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "ONGUSDT",
@@ -3381,17 +3381,15 @@
       "APTUSDT",
       "ETHFIUSDT",
       "WUSDT",
-      "TIAUSDT",
-      "BEATUSDT",
       "MINAUSDT",
+      "BEATUSDT",
+      "TIAUSDT",
       "PYTHUSDT",
-      "DOTUSDT",
       "STRKUSDT",
-      "SPXUSDT",
       "NEARUSDT",
-      "LITUSDT",
-      "FETUSDT",
-      "ICPUSDT"
+      "DOTUSDT",
+      "SPXUSDT",
+      "LITUSDT"
     ]
   }
 }
