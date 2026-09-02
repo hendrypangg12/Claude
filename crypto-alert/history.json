@@ -3361,8 +3361,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T02:32:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-02T02:34:32+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -3372,17 +3372,19 @@
       "ACEUSDT",
       "USELESSUSDT",
       "FFUSDT",
-      "ONGUSDT",
       "UNIUSDT",
       "FILUSDT",
+      "ONGUSDT",
       "CHIPUSDT",
-      "BEATUSDT",
       "CLOUSDT",
+      "BEATUSDT",
+      "ARUSDT",
       "ROBOUSDT",
       "BTWUSDT",
       "PYTHUSDT",
       "CRVUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "TIAUSDT"
     ]
   }
 }
