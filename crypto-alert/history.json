@@ -3410,8 +3410,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T14:34:41+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-02T14:36:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -3423,13 +3423,12 @@
       "BTWUSDT",
       "ROBOUSDT",
       "SKYAIUSDT",
-      "FFUSDT",
-      "USELESSUSDT",
       "FILUSDT",
+      "USELESSUSDT",
+      "FFUSDT",
       "BEATUSDT",
-      "BLUAIUSDT",
       "ASTERUSDT",
-      "ARBUSDT"
+      "BLUAIUSDT"
     ]
   }
 }
