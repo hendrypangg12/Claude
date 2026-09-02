@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-09-02_08-19-15",
+      "date": "2026-09-02",
+      "time": "08:19",
+      "label": "STORY KANTOR",
+      "title": "Katanya kerja buat hidup, kok malah hidup buat kerja?",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-09-01_23-54-32",
       "date": "2026-09-01",
       "time": "23:54",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-08-29_18-47-12",
-      "date": "2026-08-29",
-      "time": "18:47",
-      "label": "STORY KANTOR",
-      "title": "Gaji naik ikut standar tahunan, harga-harga naik ikut standar sendiri.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
