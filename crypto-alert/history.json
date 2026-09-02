@@ -3385,7 +3385,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T04:48:29+00:00",
+    "time": "2026-09-02T04:50:30+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -3395,13 +3395,13 @@
       "ACEUSDT",
       "FFUSDT",
       "CLOUSDT",
+      "USELESSUSDT",
       "FILUSDT",
       "UNIUSDT",
-      "USELESSUSDT",
       "CHIPUSDT",
       "BLUAIUSDT",
-      "PYTHUSDT",
       "龙虾USDT",
+      "PYTHUSDT",
       "ARUSDT",
       "ONGUSDT",
       "ROBOUSDT",
@@ -3409,9 +3409,9 @@
       "TIAUSDT",
       "GALAUSDT",
       "ICPUSDT",
-      "CRVUSDT",
       "DOTUSDT",
-      "AAVEUSDT"
+      "AAVEUSDT",
+      "CRVUSDT"
     ]
   }
 }
