@@ -3410,7 +3410,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T08:02:26+00:00",
+    "time": "2026-09-02T08:04:25+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3422,18 +3422,18 @@
       "FFUSDT",
       "CLOUSDT",
       "FILUSDT",
-      "CHIPUSDT",
       "BTWUSDT",
+      "CHIPUSDT",
       "龙虾USDT",
       "PYTHUSDT",
-      "UNIUSDT",
       "MINAUSDT",
       "CRVUSDT",
+      "UNIUSDT",
       "ROBOUSDT",
       "TIAUSDT",
-      "ICPUSDT",
       "ETHFIUSDT",
-      "BLUAIUSDT"
+      "BLUAIUSDT",
+      "ICPUSDT"
     ]
   }
 }
