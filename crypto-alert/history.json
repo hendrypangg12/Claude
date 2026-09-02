@@ -3459,8 +3459,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T17:18:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-02T17:20:32+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -3476,8 +3476,10 @@
       "ARBUSDT",
       "SKYAIUSDT",
       "FILUSDT",
+      "UAIUSDT",
       "POWERUSDT",
-      "UAIUSDT"
+      "SKRUSDT",
+      "FFUSDT"
     ]
   }
 }
