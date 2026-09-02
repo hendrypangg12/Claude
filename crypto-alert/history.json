@@ -3361,7 +3361,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T02:26:25+00:00",
+    "time": "2026-09-02T02:28:25+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -3370,19 +3370,19 @@
       "HEMIUSDT",
       "MAGMAUSDT",
       "ACEUSDT",
-      "FFUSDT",
       "USELESSUSDT",
+      "FFUSDT",
       "ONGUSDT",
       "UNIUSDT",
-      "CLOUSDT",
       "FILUSDT",
       "CHIPUSDT",
+      "CLOUSDT",
       "BEATUSDT",
       "BTWUSDT",
       "ROBOUSDT",
       "CRVUSDT",
-      "PYTHUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "PYTHUSDT"
     ]
   }
 }
