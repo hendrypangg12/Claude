@@ -3410,30 +3410,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T09:48:28+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-02T09:50:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
       "UAIUSDT",
-      "FFUSDT",
       "ACEUSDT",
+      "FFUSDT",
       "CLOUSDT",
       "USELESSUSDT",
       "CHIPUSDT",
       "FILUSDT",
       "BTWUSDT",
-      "PYTHUSDT",
       "龙虾USDT",
+      "PYTHUSDT",
       "UNIUSDT",
       "BLUAIUSDT",
       "TIAUSDT",
       "MINAUSDT",
       "ICPUSDT",
-      "ROBOUSDT",
+      "APTUSDT",
       "ARBUSDT",
       "SKYAIUSDT",
-      "APTUSDT"
+      "ROBOUSDT",
+      "CRVUSDT"
     ]
   }
 }
