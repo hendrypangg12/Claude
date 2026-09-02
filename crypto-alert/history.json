@@ -3434,14 +3434,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T16:46:32+00:00",
+    "time": "2026-09-02T16:48:30+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
-      "MAGMAUSDT",
       "AKEUSDT",
-      "CLOUSDT",
+      "MAGMAUSDT",
       "BULLAUSDT",
+      "CLOUSDT",
       "USELESSUSDT",
       "PYTHUSDT",
       "UAIUSDT",
@@ -3451,8 +3451,8 @@
       "FILUSDT",
       "4USDT",
       "FFUSDT",
-      "ASTERUSDT",
       "POWERUSDT",
+      "ASTERUSDT",
       "BLUAIUSDT"
     ]
   }
