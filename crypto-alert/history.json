@@ -3459,7 +3459,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T18:50:32+00:00",
+    "time": "2026-09-02T18:52:31+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -3475,15 +3475,15 @@
       "SKYAIUSDT",
       "4USDT",
       "USELESSUSDT",
-      "FILUSDT",
       "XMRUSDT",
+      "FILUSDT",
       "TOWNSUSDT",
       "UAIUSDT",
       "ASTERUSDT",
-      "POWERUSDT",
-      "PENDLEUSDT",
       "GRVTUSDT",
-      "BLUAIUSDT"
+      "BLUAIUSDT",
+      "PENDLEUSDT",
+      "POWERUSDT"
     ]
   }
 }
