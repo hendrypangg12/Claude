@@ -3410,12 +3410,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T06:54:24+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-02T06:56:25+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
-      "UAIUSDT",
       "MAGMAUSDT",
+      "UAIUSDT",
       "MARSCOINUSDT",
       "CLOUSDT",
       "ACEUSDT",
@@ -3434,6 +3434,7 @@
       "ICPUSDT",
       "AAVEUSDT",
       "TIAUSDT",
+      "BLUAIUSDT",
       "ETHFIUSDT"
     ]
   }
