@@ -3410,8 +3410,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T07:26:25+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-02T07:28:28+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -3419,11 +3419,11 @@
       "MARSCOINUSDT",
       "FFUSDT",
       "CLOUSDT",
-      "ACEUSDT",
       "USELESSUSDT",
-      "BTWUSDT",
-      "FILUSDT",
+      "ACEUSDT",
       "CHIPUSDT",
+      "FILUSDT",
+      "BTWUSDT",
       "PYTHUSDT",
       "UNIUSDT",
       "MINAUSDT",
@@ -3433,8 +3433,9 @@
       "TIAUSDT",
       "ICPUSDT",
       "龙虾USDT",
+      "BLUAIUSDT",
       "AAVEUSDT",
-      "BLUAIUSDT"
+      "ARUSDT"
     ]
   }
 }
