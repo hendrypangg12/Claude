@@ -3385,7 +3385,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T04:31:29+00:00",
+    "time": "2026-09-02T04:32:13+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -3406,10 +3406,10 @@
       "ROBOUSDT",
       "ARUSDT",
       "BTWUSDT",
-      "TIAUSDT",
       "ENAUSDT",
-      "CRVUSDT",
-      "GALAUSDT"
+      "TIAUSDT",
+      "GALAUSDT",
+      "CRVUSDT"
     ]
   }
 }
