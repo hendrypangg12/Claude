@@ -3410,7 +3410,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T07:06:28+00:00",
+    "time": "2026-09-02T07:08:25+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -3432,11 +3432,11 @@
       "ICPUSDT",
       "AAVEUSDT",
       "BEATUSDT",
-      "ARUSDT",
       "TIAUSDT",
+      "ARUSDT",
+      "ETHFIUSDT",
       "BLUAIUSDT",
-      "ENAUSDT",
-      "ETHFIUSDT"
+      "ENAUSDT"
     ]
   }
 }
