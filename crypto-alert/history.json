@@ -3410,15 +3410,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T05:36:26+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-02T05:38:25+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
       "MARSCOINUSDT",
       "MAGMAUSDT",
-      "ACEUSDT",
       "CLOUSDT",
+      "ACEUSDT",
       "FFUSDT",
       "USELESSUSDT",
       "FILUSDT",
@@ -3429,13 +3429,14 @@
       "ARUSDT",
       "ONGUSDT",
       "ROBOUSDT",
+      "ICPUSDT",
       "AAVEUSDT",
       "BTWUSDT",
-      "ICPUSDT",
-      "CRVUSDT",
       "TIAUSDT",
+      "CRVUSDT",
       "ENAUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "TWTUSDT"
     ]
   }
 }
