@@ -3410,8 +3410,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T09:22:35+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-02T09:24:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -3427,14 +3427,13 @@
       "PYTHUSDT",
       "UNIUSDT",
       "ARBUSDT",
-      "TIAUSDT",
       "MINAUSDT",
-      "CRVUSDT",
       "BLUAIUSDT",
+      "CRVUSDT",
+      "TIAUSDT",
+      "ROBOUSDT",
       "ICPUSDT",
       "ENAUSDT",
-      "APTUSDT",
-      "ROBOUSDT",
       "BEATUSDT"
     ]
   }
