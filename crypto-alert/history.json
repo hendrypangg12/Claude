@@ -3410,21 +3410,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T08:52:31+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-02T08:54:31+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
       "UAIUSDT",
-      "FFUSDT",
       "USELESSUSDT",
+      "FFUSDT",
       "ACEUSDT",
       "CLOUSDT",
       "CHIPUSDT",
-      "FILUSDT",
       "BTWUSDT",
-      "PYTHUSDT",
+      "FILUSDT",
       "龙虾USDT",
+      "PYTHUSDT",
       "ARBUSDT",
       "UNIUSDT",
       "BLUAIUSDT",
@@ -3434,8 +3434,7 @@
       "ICPUSDT",
       "ROBOUSDT",
       "APTUSDT",
-      "ETHFIUSDT",
-      "POWERUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
