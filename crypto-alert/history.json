@@ -58,7 +58,8 @@
     "SKRUSDT": "2026-08-31T13:47:03+00:00",
     "POWERUSDT": "2026-08-31T15:46:31+00:00",
     "USELESSUSDT": "2026-08-31T16:30:35+00:00",
-    "MARSCOINUSDT": "2026-09-02T05:18:26+00:00"
+    "MARSCOINUSDT": "2026-09-02T05:18:26+00:00",
+    "ARBUSDT": "2026-09-02T16:50:33+00:00"
   },
   "alerts": [
     {
@@ -3431,28 +3432,52 @@
       "time": "2026-09-02T16:06:37+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-02T16:14:26+00:00"
+    },
+    {
+      "symbol": "ARBUSDT",
+      "pct": 8.32,
+      "price": 0.12458,
+      "quote_volume": 1796599.5526,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4598466203896644,
+      "retrace_pct": 0.6459845282717962,
+      "wick_ratio": 0.7738095238095144,
+      "rsi": 68.82652427623283,
+      "divergence": true,
+      "vol_spike": 0.4968693383015442,
+      "btc_pct": -0.2879978028794027,
+      "sl": 0.1266439,
+      "tp1": 0.12171134,
+      "tp2": 0.11943866,
+      "tp3": 0.11576,
+      "funding_rate": 0.004,
+      "orderbook_ratio": 1.0619731746922048,
+      "time": "2026-09-02T16:50:33+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-02T16:48:30+00:00",
-    "shortlist_count": 16,
-    "confirmed_count": 0,
+    "time": "2026-09-02T16:50:33+00:00",
+    "shortlist_count": 17,
+    "confirmed_count": 1,
     "symbols": [
       "AKEUSDT",
       "MAGMAUSDT",
-      "BULLAUSDT",
       "CLOUSDT",
+      "BULLAUSDT",
       "USELESSUSDT",
       "PYTHUSDT",
-      "UAIUSDT",
       "ARBUSDT",
       "BTWUSDT",
+      "UAIUSDT",
       "SKYAIUSDT",
       "FILUSDT",
       "4USDT",
       "FFUSDT",
       "POWERUSDT",
       "ASTERUSDT",
+      "SKRUSDT",
       "BLUAIUSDT"
     ]
   }
