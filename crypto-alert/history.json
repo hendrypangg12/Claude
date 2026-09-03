@@ -3527,11 +3527,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.881194025486818,
       "time": "2026-09-03T14:26:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-03T14:32:41+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T14:30:43+00:00",
+    "time": "2026-09-03T14:32:41+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3540,31 +3541,31 @@
       "AKEUSDT",
       "USELESSUSDT",
       "EDGEUSDT",
-      "CHIPUSDT",
       "牛来USDT",
+      "CHIPUSDT",
       "MUBARAKUSDT",
       "ARBUSDT",
-      "HEMIUSDT",
-      "TWTUSDT",
       "4USDT",
+      "TWTUSDT",
+      "HEMIUSDT",
       "XPLUSDT",
-      "ZAMAUSDT",
       "LITUSDT",
+      "ZAMAUSDT",
       "CAKEUSDT",
-      "EGLDUSDT",
       "ADAUSDT",
+      "EGLDUSDT",
       "APTUSDT",
-      "SUIUSDT",
       "AEROUSDT",
-      "LDOUSDT",
-      "KASUSDT",
+      "SUIUSDT",
       "ZROUSDT",
-      "WLDUSDT",
-      "龙虾USDT",
+      "LDOUSDT",
       "PUMPUSDT",
-      "HBARUSDT",
-      "ZECUSDT",
-      "TRUMPUSDT"
+      "KASUSDT",
+      "龙虾USDT",
+      "WLDUSDT",
+      "COLLECTUSDT",
+      "TRUMPUSDT",
+      "ZECUSDT"
     ]
   }
 }
