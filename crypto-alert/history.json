@@ -3532,13 +3532,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T16:10:40+00:00",
+    "time": "2026-09-03T16:12:32+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
-      "EDGEUSDT",
       "BULLAUSDT",
+      "EDGEUSDT",
       "USELESSUSDT",
       "CHIPUSDT",
       "牛来USDT",
@@ -3546,26 +3546,26 @@
       "AKEUSDT",
       "ZECUSDT",
       "ARUSDT",
-      "ARBUSDT",
-      "ADAUSDT",
-      "LITUSDT",
       "XPLUSDT",
       "ENAUSDT",
+      "ADAUSDT",
+      "LITUSDT",
+      "ARBUSDT",
       "DASHUSDT",
-      "TWTUSDT",
-      "ZAMAUSDT",
       "CAKEUSDT",
+      "ZAMAUSDT",
       "ZROUSDT",
-      "4USDT",
+      "TWTUSDT",
       "DOGEUSDT",
-      "AEROUSDT",
+      "4USDT",
       "XRPUSDT",
       "SPXUSDT",
-      "TRUMPUSDT",
-      "WLDUSDT",
-      "SUIUSDT",
       "KASUSDT",
-      "ONDOUSDT"
+      "TRUMPUSDT",
+      "AEROUSDT",
+      "SUIUSDT",
+      "ETHFIUSDT",
+      "WLDUSDT"
     ]
   }
 }
