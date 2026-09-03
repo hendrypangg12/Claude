@@ -3479,11 +3479,12 @@
       "funding_rate": -0.059,
       "orderbook_ratio": 1.1513350787822776,
       "time": "2026-09-03T04:10:32+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-03T05:14:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T05:12:26+00:00",
+    "time": "2026-09-03T05:14:32+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3491,22 +3492,22 @@
       "BULLAUSDT",
       "HEMIUSDT",
       "EDGEUSDT",
-      "USELESSUSDT",
       "EGLDUSDT",
-      "MUBARAKUSDT",
-      "TUSDT",
       "MARSCOINUSDT",
+      "USELESSUSDT",
+      "TUSDT",
+      "MUBARAKUSDT",
       "ARBUSDT",
       "4USDT",
       "CLOUSDT",
       "LITUSDT",
       "FFUSDT",
-      "BTWUSDT",
       "SUIUSDT",
+      "BTWUSDT",
       "APTUSDT",
       "ADAUSDT",
-      "GRVTUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "GRVTUSDT"
     ]
   }
 }
