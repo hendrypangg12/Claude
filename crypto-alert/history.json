@@ -3508,7 +3508,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T14:00:52+00:00",
+    "time": "2026-09-03T14:02:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3526,22 +3526,22 @@
       "HEMIUSDT",
       "TWTUSDT",
       "ZAMAUSDT",
-      "CAKEUSDT",
       "LITUSDT",
+      "CAKEUSDT",
       "APTUSDT",
       "EGLDUSDT",
       "KASUSDT",
       "ADAUSDT",
-      "AEROUSDT",
       "SUIUSDT",
+      "AEROUSDT",
       "ZECUSDT",
       "TRUMPUSDT",
       "ZROUSDT",
       "GIGGLEUSDT",
-      "WLDUSDT",
-      "HBARUSDT",
       "LDOUSDT",
-      "SEIUSDT"
+      "HBARUSDT",
+      "UNIUSDT",
+      "WLDUSDT"
     ]
   }
 }
