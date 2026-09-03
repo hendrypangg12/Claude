@@ -3484,15 +3484,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T07:24:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-03T07:26:27+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
-      "MARSCOINUSDT",
       "EDGEUSDT",
       "BULLAUSDT",
       "USELESSUSDT",
+      "MARSCOINUSDT",
       "MUBARAKUSDT",
       "HEMIUSDT",
       "EGLDUSDT",
@@ -3501,12 +3501,13 @@
       "APTUSDT",
       "LITUSDT",
       "GRVTUSDT",
-      "SUIUSDT",
       "CLOUSDT",
+      "SUIUSDT",
       "CHIPUSDT",
       "OPUSDT",
-      "XPLUSDT",
-      "ADAUSDT"
+      "ADAUSDT",
+      "BTWUSDT",
+      "XPLUSDT"
     ]
   }
 }
