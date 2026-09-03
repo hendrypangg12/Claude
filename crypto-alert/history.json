@@ -3484,8 +3484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T09:18:30+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-03T09:20:34+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
@@ -3503,15 +3503,16 @@
       "APTUSDT",
       "LITUSDT",
       "PYTHUSDT",
-      "XPLUSDT",
-      "SUIUSDT",
-      "ADAUSDT",
       "COLLECTUSDT",
-      "ZROUSDT",
-      "HBARUSDT",
+      "SUIUSDT",
+      "XPLUSDT",
+      "ADAUSDT",
       "KASUSDT",
-      "AEROUSDT",
+      "HBARUSDT",
+      "ZROUSDT",
       "ASTERUSDT",
+      "OPUSDT",
+      "AEROUSDT",
       "LTCUSDT"
     ]
   }
