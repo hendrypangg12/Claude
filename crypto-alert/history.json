@@ -3484,29 +3484,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T06:18:24+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-03T06:20:38+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
       "HEMIUSDT",
-      "BULLAUSDT",
       "USELESSUSDT",
       "EGLDUSDT",
       "EDGEUSDT",
+      "BULLAUSDT",
       "MUBARAKUSDT",
       "MARSCOINUSDT",
       "ARBUSDT",
       "4USDT",
-      "TUSDT",
       "LITUSDT",
+      "TUSDT",
       "APTUSDT",
       "FFUSDT",
       "GRVTUSDT",
       "SUIUSDT",
       "CLOUSDT",
       "BTWUSDT",
-      "CHIPUSDT"
+      "CHIPUSDT",
+      "OPUSDT",
+      "ADAUSDT"
     ]
   }
 }
