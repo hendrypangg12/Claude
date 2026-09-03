@@ -59,7 +59,8 @@
     "POWERUSDT": "2026-08-31T15:46:31+00:00",
     "USELESSUSDT": "2026-08-31T16:30:35+00:00",
     "MARSCOINUSDT": "2026-09-02T05:18:26+00:00",
-    "ARBUSDT": "2026-09-02T16:50:33+00:00"
+    "ARBUSDT": "2026-09-02T16:50:33+00:00",
+    "EGLDUSDT": "2026-09-03T04:10:32+00:00"
   },
   "alerts": [
     {
@@ -3456,12 +3457,35 @@
       "time": "2026-09-02T16:50:33+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-02T16:58:25+00:00"
+    },
+    {
+      "symbol": "EGLDUSDT",
+      "pct": 8.44,
+      "price": 5.2,
+      "quote_volume": 397067.95,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2159221398806705,
+      "retrace_pct": 0.6116207951070342,
+      "wick_ratio": 0.0,
+      "rsi": 76.44997702230485,
+      "divergence": false,
+      "vol_spike": 0.23409071956454422,
+      "btc_pct": 0.1790388329099149,
+      "sl": 5.28432,
+      "tp1": 5.076526,
+      "tp2": 4.980474,
+      "tp3": 4.825,
+      "funding_rate": -0.059,
+      "orderbook_ratio": 1.1513350787822776,
+      "time": "2026-09-03T04:10:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T04:08:29+00:00",
+    "time": "2026-09-03T04:10:32+00:00",
     "shortlist_count": 21,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AKEUSDT",
       "HEMIUSDT",
@@ -3474,13 +3498,13 @@
       "MARSCOINUSDT",
       "LITUSDT",
       "ARBUSDT",
-      "4USDT",
       "CLOUSDT",
       "BTWUSDT",
+      "4USDT",
       "PYTHUSDT",
       "FFUSDT",
-      "SUIUSDT",
       "APTUSDT",
+      "SUIUSDT",
       "GRVTUSDT",
       "KASUSDT",
       "ADAUSDT"
