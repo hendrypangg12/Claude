@@ -3484,8 +3484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-03T09:08:38+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-03T09:10:36+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -3501,15 +3501,17 @@
       "CAKEUSDT",
       "APTUSDT",
       "LITUSDT",
+      "COLLECTUSDT",
       "SUIUSDT",
+      "HEMIUSDT",
       "ADAUSDT",
       "XPLUSDT",
-      "HEMIUSDT",
-      "COLLECTUSDT",
       "PYTHUSDT",
       "ZROUSDT",
       "HBARUSDT",
-      "LTCUSDT"
+      "KASUSDT",
+      "LTCUSDT",
+      "TUSDT"
     ]
   }
 }
