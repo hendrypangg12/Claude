@@ -3701,7 +3701,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T21:52:26+00:00",
+    "time": "2026-09-04T21:54:25+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3713,18 +3713,18 @@
       "DASHUSDT",
       "TRIAUSDT",
       "龙虾USDT",
-      "ZENUSDT",
       "TACUSDT",
       "ZORAUSDT",
+      "ZENUSDT",
       "BICOUSDT",
       "LITUSDT",
       "ZECUSDT",
+      "BTRUSDT",
+      "SKRUSDT",
+      "AZTECUSDT",
       "NEARUSDT",
       "TWTUSDT",
-      "AZTECUSDT",
-      "BTRUSDT",
-      "EPICUSDT",
-      "SKRUSDT"
+      "EPICUSDT"
     ]
   }
 }
