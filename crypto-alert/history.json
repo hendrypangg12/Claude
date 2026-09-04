@@ -3580,7 +3580,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T03:42:25+00:00",
+    "time": "2026-09-04T03:44:23+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3590,11 +3590,11 @@
       "CHIPUSDT",
       "EDGEUSDT",
       "DASHUSDT",
-      "ZENUSDT",
       "ZECUSDT",
+      "ZENUSDT",
       "MUBARAKUSDT",
-      "APRUSDT",
       "牛来USDT",
+      "APRUSDT",
       "TWTUSDT",
       "LITUSDT",
       "UNIUSDT",
@@ -3610,10 +3610,10 @@
       "TRUMPUSDT",
       "MONUSDT",
       "PENDLEUSDT",
+      "ARBUSDT",
       "WIFUSDT",
-      "LDOUSDT",
-      "ARUSDT",
-      "ARBUSDT"
+      "WLDUSDT",
+      "LDOUSDT"
     ]
   }
 }
