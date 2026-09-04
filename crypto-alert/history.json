@@ -3696,11 +3696,12 @@
       "funding_rate": 0.038,
       "orderbook_ratio": 1.6310384067502441,
       "time": "2026-09-04T18:56:26+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-09-04T19:08:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T19:06:25+00:00",
+    "time": "2026-09-04T19:08:32+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3708,22 +3709,22 @@
       "UAIUSDT",
       "FLOCKUSDT",
       "4USDT",
-      "TRIAUSDT",
       "USELESSUSDT",
+      "TRIAUSDT",
       "龙虾USDT",
-      "TACUSDT",
       "DASHUSDT",
-      "ZORAUSDT",
+      "TACUSDT",
       "LITUSDT",
+      "ZORAUSDT",
       "ZENUSDT",
       "SKRUSDT",
       "BICOUSDT",
       "ZECUSDT",
       "GIGGLEUSDT",
-      "FORMUSDT",
       "AZTECUSDT",
-      "TWTUSDT",
-      "BEATUSDT"
+      "FORMUSDT",
+      "BEATUSDT",
+      "TWTUSDT"
     ]
   }
 }
