@@ -21,7 +21,7 @@
     "KOMAUSDT": "2026-08-03T19:36:31+00:00",
     "BEATUSDT": "2026-08-22T00:44:27+00:00",
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
-    "UAIUSDT": "2026-08-01T16:16:28+00:00",
+    "UAIUSDT": "2026-09-04T18:56:26+00:00",
     "IDOLUSDT": "2026-08-01T16:32:38+00:00",
     "BLESSUSDT": "2026-08-05T16:53:35+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
@@ -3674,12 +3674,35 @@
       "time": "2026-09-04T17:58:39+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-04T18:06:33+00:00"
+    },
+    {
+      "symbol": "UAIUSDT",
+      "pct": 8.05,
+      "price": 0.5043,
+      "quote_volume": 539946.3648,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.33705409494858884,
+      "retrace_pct": 1.0982545597176014,
+      "wick_ratio": 0.4107142857142765,
+      "rsi": 69.82064323642315,
+      "divergence": false,
+      "vol_spike": 0.01479011405597323,
+      "btc_pct": 0.04338301014748906,
+      "sl": 0.514999,
+      "tp1": 0.495384,
+      "tp2": 0.486416,
+      "tp3": 0.4719,
+      "funding_rate": 0.038,
+      "orderbook_ratio": 1.6310384067502441,
+      "time": "2026-09-04T18:56:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T18:54:37+00:00",
-    "shortlist_count": 21,
-    "confirmed_count": 0,
+    "time": "2026-09-04T18:56:26+00:00",
+    "shortlist_count": 20,
+    "confirmed_count": 1,
     "symbols": [
       "MARSCOINUSDT",
       "UAIUSDT",
@@ -3690,18 +3713,17 @@
       "龙虾USDT",
       "TACUSDT",
       "DASHUSDT",
-      "ZORAUSDT",
       "LITUSDT",
+      "ZORAUSDT",
       "SKRUSDT",
       "ZENUSDT",
       "BICOUSDT",
       "AZTECUSDT",
       "ZECUSDT",
-      "BEATUSDT",
       "FORMUSDT",
+      "BEATUSDT",
       "GIGGLEUSDT",
-      "TWTUSDT",
-      "EGLDUSDT"
+      "TWTUSDT"
     ]
   }
 }
