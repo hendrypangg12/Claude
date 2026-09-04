@@ -3701,20 +3701,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T23:14:28+00:00",
+    "time": "2026-09-04T23:16:30+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
       "UAIUSDT",
-      "4USDT",
       "FLOCKUSDT",
+      "4USDT",
+      "DASHUSDT",
       "USELESSUSDT",
       "龙虾USDT",
-      "DASHUSDT",
       "TRIAUSDT",
-      "ZENUSDT",
       "TACUSDT",
+      "ZENUSDT",
       "ZORAUSDT",
       "SKRUSDT",
       "BTRUSDT",
@@ -3726,8 +3726,8 @@
       "TWTUSDT",
       "GIGGLEUSDT",
       "BICOUSDT",
-      "TSTUSDT",
-      "ROBOUSDT"
+      "ROBOUSDT",
+      "TSTUSDT"
     ]
   }
 }
