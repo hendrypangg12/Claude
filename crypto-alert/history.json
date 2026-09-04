@@ -3652,7 +3652,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T11:36:32+00:00",
+    "time": "2026-09-04T11:38:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3675,17 +3675,17 @@
       "FARTCOINUSDT",
       "TWTUSDT",
       "ADAUSDT",
-      "LINKUSDT",
-      "PENDLEUSDT",
       "MONUSDT",
       "NEARUSDT",
+      "PENDLEUSDT",
+      "LINKUSDT",
       "XMRUSDT",
       "SKRUSDT",
       "XRPUSDT",
-      "HYPEUSDT",
       "ZROUSDT",
-      "DOGEUSDT",
-      "BTWUSDT"
+      "HYPEUSDT",
+      "PENGUUSDT",
+      "DOGEUSDT"
     ]
   }
 }
