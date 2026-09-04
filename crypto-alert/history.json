@@ -3652,13 +3652,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T15:56:38+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-04T15:58:40+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
       "FLOCKUSDT",
-      "TRIAUSDT",
       "USELESSUSDT",
       "UAIUSDT",
       "TACUSDT",
@@ -3667,10 +3666,10 @@
       "AZTECUSDT",
       "LITUSDT",
       "DASHUSDT",
-      "ZECUSDT",
       "ZENUSDT",
-      "SKRUSDT",
-      "BTRUSDT"
+      "ZECUSDT",
+      "BTRUSDT",
+      "SKRUSDT"
     ]
   }
 }
