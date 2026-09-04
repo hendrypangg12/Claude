@@ -3701,8 +3701,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T23:52:26+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-04T23:54:27+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
@@ -3719,14 +3719,13 @@
       "NEARUSDT",
       "SKRUSDT",
       "GIGGLEUSDT",
+      "LITUSDT",
       "EPICUSDT",
       "ZECUSDT",
-      "LITUSDT",
-      "TWTUSDT",
       "AZTECUSDT",
-      "BICOUSDT",
+      "TWTUSDT",
       "MAGMAUSDT",
-      "TSTUSDT"
+      "BICOUSDT"
     ]
   }
 }
