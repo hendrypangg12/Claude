@@ -57,7 +57,7 @@
     "ZORAUSDT": "2026-08-31T02:52:26+00:00",
     "SKRUSDT": "2026-08-31T13:47:03+00:00",
     "POWERUSDT": "2026-08-31T15:46:31+00:00",
-    "USELESSUSDT": "2026-09-03T14:26:27+00:00",
+    "USELESSUSDT": "2026-09-04T03:18:27+00:00",
     "MARSCOINUSDT": "2026-09-03T19:50:40+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00"
@@ -3553,12 +3553,35 @@
       "time": "2026-09-03T19:50:40+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-03T19:58:34+00:00"
+    },
+    {
+      "symbol": "USELESSUSDT",
+      "pct": 8.69,
+      "price": 0.217,
+      "quote_volume": 4018063.134001,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5992473865645661,
+      "retrace_pct": 1.8845402589886442,
+      "wick_ratio": 0.2440540540540575,
+      "rsi": 65.06808081467483,
+      "divergence": false,
+      "vol_spike": 0.01576942521895569,
+      "btc_pct": 0.3072689539742359,
+      "sl": 0.22337968,
+      "tp1": 0.214413476,
+      "tp2": 0.210240524,
+      "tp3": 0.203486,
+      "funding_rate": 0.012,
+      "orderbook_ratio": 1.0911545840819432,
+      "time": "2026-09-04T03:18:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T03:16:22+00:00",
+    "time": "2026-09-04T03:18:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "MARSCOINUSDT",
       "USELESSUSDT",
@@ -3572,24 +3595,24 @@
       "ZENUSDT",
       "APRUSDT",
       "XPLUSDT",
+      "BTRUSDT",
       "TWTUSDT",
-      "UNIUSDT",
       "ENAUSDT",
+      "UNIUSDT",
       "CAKEUSDT",
       "SPXUSDT",
       "ADAUSDT",
-      "BTRUSDT",
-      "MUBARAKUSDT",
       "ARUSDT",
       "龙虾USDT",
       "WIFUSDT",
-      "PENDLEUSDT",
       "MONUSDT",
-      "LINKUSDT",
       "4USDT",
+      "LINKUSDT",
+      "DOSUSDT",
+      "PENDLEUSDT",
+      "MUBARAKUSDT",
       "FARTCOINUSDT",
-      "ZKCUSDT",
-      "LDOUSDT"
+      "ZKCUSDT"
     ]
   }
 }
