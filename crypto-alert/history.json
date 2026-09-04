@@ -3701,14 +3701,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T21:46:33+00:00",
+    "time": "2026-09-04T21:48:29+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
       "UAIUSDT",
-      "4USDT",
       "FLOCKUSDT",
+      "4USDT",
       "USELESSUSDT",
       "DASHUSDT",
       "TRIAUSDT",
@@ -3718,13 +3718,13 @@
       "ZORAUSDT",
       "BICOUSDT",
       "LITUSDT",
-      "SKRUSDT",
-      "BTRUSDT",
-      "NEARUSDT",
       "ZECUSDT",
+      "NEARUSDT",
+      "BTRUSDT",
+      "SKRUSDT",
       "AZTECUSDT",
-      "EPICUSDT",
-      "TWTUSDT"
+      "TWTUSDT",
+      "EPICUSDT"
     ]
   }
 }
