@@ -3652,8 +3652,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T14:56:29+00:00",
-    "shortlist_count": 14,
+    "time": "2026-09-04T14:58:30+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "MARSCOINUSDT",
@@ -3665,11 +3665,12 @@
       "LITUSDT",
       "ZECUSDT",
       "BULLAUSDT",
-      "ZORAUSDT",
       "UAIUSDT",
       "ZENUSDT",
+      "ZORAUSDT",
       "BTRUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "EDGEUSDT"
     ]
   }
 }
