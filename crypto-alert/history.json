@@ -60,7 +60,8 @@
     "USELESSUSDT": "2026-09-04T08:48:27+00:00",
     "MARSCOINUSDT": "2026-09-03T19:50:40+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
-    "EGLDUSDT": "2026-09-03T04:10:32+00:00"
+    "EGLDUSDT": "2026-09-03T04:10:32+00:00",
+    "4USDT": "2026-09-04T17:58:39+00:00"
   },
   "alerts": [
     {
@@ -3649,29 +3650,53 @@
       "time": "2026-09-04T10:56:26+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-04T11:02:28+00:00"
+    },
+    {
+      "symbol": "4USDT",
+      "pct": 9.08,
+      "price": 0.020992,
+      "quote_volume": 828955.02998,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5327132425209372,
+      "retrace_pct": 0.6906992146844559,
+      "wick_ratio": 0.27816901408450473,
+      "rsi": 70.87118187615259,
+      "divergence": false,
+      "vol_spike": 1.2115847867645448,
+      "btc_pct": -0.08750535833652182,
+      "sl": 0.02134938,
+      "tp1": 0.02046568,
+      "tp2": 0.02005032,
+      "tp3": 0.019378,
+      "funding_rate": 0.039,
+      "orderbook_ratio": 1.481185886030969,
+      "time": "2026-09-04T17:58:39+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T17:56:27+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-09-04T17:58:39+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "MARSCOINUSDT",
       "FLOCKUSDT",
       "UAIUSDT",
       "USELESSUSDT",
       "4USDT",
-      "龙虾USDT",
       "TACUSDT",
+      "龙虾USDT",
       "TRIAUSDT",
       "DASHUSDT",
-      "ZORAUSDT",
       "SKRUSDT",
+      "ZORAUSDT",
       "LITUSDT",
       "BICOUSDT",
       "ZENUSDT",
       "AZTECUSDT",
       "ZECUSDT",
+      "BEATUSDT",
       "TUTUSDT"
     ]
   }
