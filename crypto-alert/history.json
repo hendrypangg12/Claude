@@ -57,7 +57,7 @@
     "ZORAUSDT": "2026-08-31T02:52:26+00:00",
     "SKRUSDT": "2026-08-31T13:47:03+00:00",
     "POWERUSDT": "2026-08-31T15:46:31+00:00",
-    "USELESSUSDT": "2026-09-04T03:18:27+00:00",
+    "USELESSUSDT": "2026-09-04T08:48:27+00:00",
     "MARSCOINUSDT": "2026-09-03T19:50:40+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00"
@@ -3577,12 +3577,35 @@
       "time": "2026-09-04T03:18:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-04T03:26:32+00:00"
+    },
+    {
+      "symbol": "USELESSUSDT",
+      "pct": 8.07,
+      "price": 0.256532,
+      "quote_volume": 6535960.08043,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.47220090743554044,
+      "retrace_pct": 1.8821738515144248,
+      "wick_ratio": 0.7294516799824857,
+      "rsi": 68.14753772670988,
+      "divergence": true,
+      "vol_spike": 0.066818115361155,
+      "btc_pct": 0.3753542995438225,
+      "sl": 0.26406753,
+      "tp1": 0.253997506,
+      "tp2": 0.249391494,
+      "tp3": 0.241936,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.9654282701198491,
+      "time": "2026-09-04T08:48:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T08:46:23+00:00",
+    "time": "2026-09-04T08:48:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "USELESSUSDT",
       "BULLAUSDT",
@@ -3597,23 +3620,23 @@
       "ZKCUSDT",
       "TWTUSDT",
       "ENAUSDT",
-      "SKRUSDT",
+      "牛来USDT",
       "UNIUSDT",
-      "TACUSDT",
       "MUBARAKUSDT",
       "PIPPINUSDT",
-      "牛来USDT",
-      "BTRUSDT",
+      "SKRUSDT",
       "APRUSDT",
       "XPLUSDT",
+      "TACUSDT",
+      "BTRUSDT",
       "LINKUSDT",
       "FARTCOINUSDT",
       "AEROUSDT",
       "TRUMPUSDT",
-      "VVVUSDT",
-      "XRPUSDT",
       "XMRUSDT",
-      "ADAUSDT"
+      "ADAUSDT",
+      "VVVUSDT",
+      "XRPUSDT"
     ]
   }
 }
