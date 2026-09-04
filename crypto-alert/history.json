@@ -3652,7 +3652,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-04T15:24:30+00:00",
+    "time": "2026-09-04T15:26:44+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -3668,10 +3668,10 @@
       "BTRUSDT",
       "ZECUSDT",
       "ZENUSDT",
-      "TWTUSDT",
       "SPXUSDT",
-      "VVVUSDT",
-      "SKRUSDT"
+      "TWTUSDT",
+      "SKRUSDT",
+      "VVVUSDT"
     ]
   }
 }
