@@ -3774,8 +3774,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T11:00:46+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-05T11:02:30+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -3783,17 +3783,17 @@
       "AKEUSDT",
       "BUSDT",
       "FLOCKUSDT",
-      "DASHUSDT",
       "MARSCOINUSDT",
+      "DASHUSDT",
       "牛来USDT",
       "NOMUSDT",
       "TUTUSDT",
+      "TSTUSDT",
       "UAIUSDT",
       "ZORAUSDT",
-      "TSTUSDT",
-      "龙虾USDT",
       "ZENUSDT",
       "GIGGLEUSDT",
+      "龙虾USDT",
       "EPICUSDT",
       "NEARUSDT",
       "BLESSUSDT",
@@ -3802,7 +3802,9 @@
       "FETUSDT",
       "GALAUSDT",
       "MITOUSDT",
-      "BICOUSDT"
+      "CAKEUSDT",
+      "BICOUSDT",
+      "BEATUSDT"
     ]
   }
 }
