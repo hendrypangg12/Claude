@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-09-05_08-20-50",
+      "date": "2026-09-05",
+      "time": "08:20",
+      "label": "STORY KANTOR",
+      "title": "Gaji numpang lewat, cicilan yang tetap setia.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-09-04_23-35-03",
       "date": "2026-09-04",
       "time": "23:35",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-09-01_17-25-42",
-      "date": "2026-09-01",
-      "time": "17:25",
-      "label": "STORY KANTOR",
-      "title": "Kerja tim katanya, giliran gagal yang disorot cuma satu nama.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
