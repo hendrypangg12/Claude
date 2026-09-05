@@ -3798,7 +3798,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T17:54:28+00:00",
+    "time": "2026-09-05T17:56:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3818,20 +3818,20 @@
       "MAGMAUSDT",
       "STRKUSDT",
       "CHIPUSDT",
-      "TSTUSDT",
       "TUTUSDT",
+      "TSTUSDT",
       "EPICUSDT",
-      "UNIUSDT",
-      "LTCUSDT",
-      "ZENUSDT",
-      "BNBUSDT",
-      "FETUSDT",
-      "WIFUSDT",
       "DOGEUSDT",
+      "UNIUSDT",
+      "ZENUSDT",
+      "LTCUSDT",
+      "FETUSDT",
+      "BNBUSDT",
+      "WIFUSDT",
       "FFUSDT",
-      "GIGGLEUSDT",
       "SUIUSDT",
-      "AEROUSDT"
+      "GIGGLEUSDT",
+      "DOTUSDT"
     ]
   }
 }
