@@ -58,7 +58,7 @@
     "SKRUSDT": "2026-09-04T09:24:24+00:00",
     "POWERUSDT": "2026-08-31T15:46:31+00:00",
     "USELESSUSDT": "2026-09-04T08:48:27+00:00",
-    "MARSCOINUSDT": "2026-09-03T19:50:40+00:00",
+    "MARSCOINUSDT": "2026-09-05T10:00:43+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00",
     "4USDT": "2026-09-04T17:58:39+00:00",
@@ -3747,23 +3747,46 @@
       "time": "2026-09-05T09:22:29+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-09-05T09:30:36+00:00"
+    },
+    {
+      "symbol": "MARSCOINUSDT",
+      "pct": 14.94,
+      "price": 0.2269,
+      "quote_volume": 5837944.35887,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.2052558651789542,
+      "retrace_pct": 2.971990592260001,
+      "wick_ratio": 0.8571428571428582,
+      "rsi": 65.92291292208819,
+      "divergence": true,
+      "vol_spike": 0.009026990828905922,
+      "btc_pct": -0.06952581163010045,
+      "sl": 0.2361885,
+      "tp1": 0.22224102,
+      "tp2": 0.21506898,
+      "tp3": 0.20346,
+      "funding_rate": 0.037,
+      "orderbook_ratio": 0.6207317888662351,
+      "time": "2026-09-05T10:00:43+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T09:58:30+00:00",
-    "shortlist_count": 27,
-    "confirmed_count": 0,
+    "time": "2026-09-05T10:00:43+00:00",
+    "shortlist_count": 28,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "MARSCOINUSDT",
       "4USDT",
       "BUSDT",
       "AKEUSDT",
-      "FLOCKUSDT",
       "牛来USDT",
+      "FLOCKUSDT",
+      "NOMUSDT",
       "DASHUSDT",
       "UAIUSDT",
-      "NOMUSDT",
       "龙虾USDT",
       "TSTUSDT",
       "ZENUSDT",
@@ -3780,7 +3803,8 @@
       "BICOUSDT",
       "FETUSDT",
       "KAITOUSDT",
-      "DOTUSDT"
+      "DOTUSDT",
+      "BNBUSDT"
     ]
   }
 }
