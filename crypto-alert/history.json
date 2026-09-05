@@ -3726,17 +3726,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T04:40:35+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-05T04:42:24+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
       "4USDT",
       "MARSCOINUSDT",
       "DASHUSDT",
+      "UAIUSDT",
       "FLOCKUSDT",
       "AKEUSDT",
-      "UAIUSDT",
       "ZENUSDT",
       "ZORAUSDT",
       "TSTUSDT",
@@ -3752,7 +3752,8 @@
       "XMRUSDT",
       "BICOUSDT",
       "BEATUSDT",
-      "AZTECUSDT"
+      "AZTECUSDT",
+      "GALAUSDT"
     ]
   }
 }
