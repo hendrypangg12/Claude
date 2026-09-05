@@ -3701,7 +3701,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T00:06:28+00:00",
+    "time": "2026-09-05T00:08:29+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -3719,14 +3719,14 @@
       "NEARUSDT",
       "SKRUSDT",
       "LITUSDT",
-      "EPICUSDT",
       "ZECUSDT",
-      "MAGMAUSDT",
+      "EPICUSDT",
       "TWTUSDT",
       "GIGGLEUSDT",
+      "MAGMAUSDT",
+      "TSTUSDT",
       "BICOUSDT",
-      "AZTECUSDT",
-      "TSTUSDT"
+      "AZTECUSDT"
     ]
   }
 }
