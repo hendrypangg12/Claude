@@ -61,7 +61,8 @@
     "MARSCOINUSDT": "2026-09-03T19:50:40+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00",
-    "4USDT": "2026-09-04T17:58:39+00:00"
+    "4USDT": "2026-09-04T17:58:39+00:00",
+    "FLOCKUSDT": "2026-09-05T03:40:34+00:00"
   },
   "alerts": [
     {
@@ -3698,37 +3699,61 @@
       "time": "2026-09-04T18:56:26+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-09-04T19:08:32+00:00"
+    },
+    {
+      "symbol": "FLOCKUSDT",
+      "pct": 12.45,
+      "price": 0.05564,
+      "quote_volume": 326864.46631,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3403580163338365,
+      "retrace_pct": 1.6091954022988524,
+      "wick_ratio": 0.0,
+      "rsi": 65.16463613158541,
+      "divergence": true,
+      "vol_spike": 0.30897817010372264,
+      "btc_pct": 0.11387787035429275,
+      "sl": 0.05711550000000001,
+      "tp1": 0.05415868,
+      "tp2": 0.052681320000000004,
+      "tp3": 0.05029,
+      "funding_rate": -0.029,
+      "orderbook_ratio": 2.6195046855852686,
+      "time": "2026-09-05T03:40:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T03:38:26+00:00",
-    "shortlist_count": 24,
-    "confirmed_count": 0,
+    "time": "2026-09-05T03:40:34+00:00",
+    "shortlist_count": 25,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "4USDT",
       "FLOCKUSDT",
       "AKEUSDT",
       "MARSCOINUSDT",
-      "DASHUSDT",
       "UAIUSDT",
+      "DASHUSDT",
       "ZENUSDT",
       "ZORAUSDT",
       "TSTUSDT",
-      "NEARUSDT",
       "USELESSUSDT",
-      "GIGGLEUSDT",
+      "NEARUSDT",
       "龙虾USDT",
+      "GIGGLEUSDT",
       "TWTUSDT",
       "ZECUSDT",
       "TACUSDT",
-      "EPICUSDT",
       "LITUSDT",
+      "EPICUSDT",
       "TRIAUSDT",
       "BICOUSDT",
       "SKRUSDT",
+      "XMRUSDT",
       "BTRUSDT",
-      "XMRUSDT"
+      "AZTECUSDT"
     ]
   }
 }
