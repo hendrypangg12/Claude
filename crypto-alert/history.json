@@ -3798,7 +3798,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T19:44:29+00:00",
+    "time": "2026-09-05T19:46:33+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3825,13 +3825,13 @@
       "AEROUSDT",
       "BNBUSDT",
       "CHIPUSDT",
-      "DOGEUSDT",
       "ICPUSDT",
+      "DOGEUSDT",
       "LTCUSDT",
       "DOGSUSDT",
       "SUIUSDT",
-      "FETUSDT",
-      "MAGMAUSDT"
+      "ASTERUSDT",
+      "FETUSDT"
     ]
   }
 }
