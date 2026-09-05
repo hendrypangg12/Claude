@@ -3798,7 +3798,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T19:46:33+00:00",
+    "time": "2026-09-05T19:48:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3811,8 +3811,9 @@
       "DASHUSDT",
       "NAORISUSDT",
       "VELVETUSDT",
-      "UNIUSDT",
+      "FLOCKUSDT",
       "USELESSUSDT",
+      "UNIUSDT",
       "CAKEUSDT",
       "MARSCOINUSDT",
       "NOMUSDT",
@@ -3821,17 +3822,16 @@
       "FFUSDT",
       "MUBARAKUSDT",
       "STRKUSDT",
-      "FLOCKUSDT",
       "AEROUSDT",
-      "BNBUSDT",
       "CHIPUSDT",
+      "BNBUSDT",
       "ICPUSDT",
-      "DOGEUSDT",
       "LTCUSDT",
+      "DOGEUSDT",
       "DOGSUSDT",
+      "FETUSDT",
       "SUIUSDT",
-      "ASTERUSDT",
-      "FETUSDT"
+      "WIFUSDT"
     ]
   }
 }
