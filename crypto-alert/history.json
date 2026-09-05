@@ -3,7 +3,7 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-20T14:40:37+00:00",
-    "AKEUSDT": "2026-09-05T09:22:29+00:00",
+    "AKEUSDT": "2026-09-05T16:36:28+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-08-08T06:14:26+00:00",
     "ACEUSDT": "2026-08-18T06:58:30+00:00",
@@ -3771,12 +3771,35 @@
       "time": "2026-09-05T10:00:43+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-05T10:14:29+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 9.29,
+      "price": 0.0188544,
+      "quote_volume": 3470837.2568802,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.24405687686220912,
+      "retrace_pct": 1.5302338698726623,
+      "wick_ratio": 0.38647089669638196,
+      "rsi": 65.34689216117911,
+      "divergence": false,
+      "vol_spike": 0.10456426798054198,
+      "btc_pct": 0.16575702851146545,
+      "sl": 0.019338874,
+      "tp1": 0.0185257714,
+      "tp2": 0.0181417286,
+      "tp3": 0.0175201,
+      "funding_rate": -0.119,
+      "orderbook_ratio": 0.9991983269556265,
+      "time": "2026-09-05T16:36:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T16:34:33+00:00",
+    "time": "2026-09-05T16:36:28+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "4USDT",
@@ -3788,13 +3811,13 @@
       "NAORISUSDT",
       "USELESSUSDT",
       "MUBARAKUSDT",
-      "TSTUSDT",
       "NOMUSDT",
+      "TSTUSDT",
       "TUTUSDT",
       "CAKEUSDT",
       "NEARUSDT",
-      "ZENUSDT",
       "CHIPUSDT",
+      "ZENUSDT",
       "GIGGLEUSDT",
       "STRKUSDT",
       "FFUSDT",
@@ -3803,11 +3826,11 @@
       "LTCUSDT",
       "FETUSDT",
       "UAIUSDT",
-      "FORMUSDT",
       "WIFUSDT",
-      "EPICUSDT",
       "DOTUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "TWTUSDT",
+      "GALAUSDT"
     ]
   }
 }
