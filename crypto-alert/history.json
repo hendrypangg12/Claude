@@ -3798,7 +3798,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T17:46:26+00:00",
+    "time": "2026-09-05T17:48:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3817,21 +3817,21 @@
       "TSTUSDT",
       "NEARUSDT",
       "STRKUSDT",
-      "CHIPUSDT",
-      "TUTUSDT",
       "MAGMAUSDT",
-      "UNIUSDT",
+      "TUTUSDT",
+      "CHIPUSDT",
       "EPICUSDT",
-      "ZENUSDT",
+      "UNIUSDT",
       "LTCUSDT",
+      "ZENUSDT",
       "BNBUSDT",
       "FFUSDT",
+      "WIFUSDT",
       "GIGGLEUSDT",
       "FETUSDT",
-      "WIFUSDT",
       "GALAUSDT",
-      "AEROUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "DOTUSDT"
     ]
   }
 }
