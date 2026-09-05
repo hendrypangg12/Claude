@@ -3701,15 +3701,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T01:12:34+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-05T01:16:34+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
-      "MARSCOINUSDT",
       "4USDT",
+      "MARSCOINUSDT",
       "DASHUSDT",
-      "FLOCKUSDT",
       "USELESSUSDT",
+      "FLOCKUSDT",
       "UAIUSDT",
       "TRIAUSDT",
       "ZENUSDT",
@@ -3717,17 +3717,19 @@
       "NEARUSDT",
       "龙虾USDT",
       "TACUSDT",
-      "SKRUSDT",
       "TWTUSDT",
+      "SKRUSDT",
       "LITUSDT",
       "ZECUSDT",
       "TSTUSDT",
       "EPICUSDT",
-      "MAGMAUSDT",
       "GIGGLEUSDT",
-      "ROBOUSDT",
+      "MAGMAUSDT",
       "BICOUSDT",
-      "AZTECUSDT"
+      "ROBOUSDT",
+      "AKEUSDT",
+      "AZTECUSDT",
+      "ASTERUSDT"
     ]
   }
 }
