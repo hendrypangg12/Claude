@@ -3793,11 +3793,12 @@
       "funding_rate": -0.119,
       "orderbook_ratio": 0.9991983269556265,
       "time": "2026-09-05T16:36:28+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-05T17:04:37+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-05T17:02:27+00:00",
+    "time": "2026-09-05T17:04:37+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3807,8 +3808,8 @@
       "AKEUSDT",
       "MARSCOINUSDT",
       "BUSDT",
-      "DASHUSDT",
       "USELESSUSDT",
+      "DASHUSDT",
       "NAORISUSDT",
       "MUBARAKUSDT",
       "TSTUSDT",
@@ -3816,21 +3817,21 @@
       "TUTUSDT",
       "CAKEUSDT",
       "NEARUSDT",
-      "FFUSDT",
       "ZENUSDT",
+      "FFUSDT",
       "STRKUSDT",
       "CHIPUSDT",
       "GIGGLEUSDT",
       "LTCUSDT",
-      "BNBUSDT",
       "FETUSDT",
-      "UNIUSDT",
+      "BNBUSDT",
       "TRUMPUSDT",
+      "UNIUSDT",
       "WIFUSDT",
       "EPICUSDT",
-      "ASTERUSDT",
       "SUIUSDT",
-      "WLDUSDT"
+      "ASTERUSDT",
+      "DOTUSDT"
     ]
   }
 }
