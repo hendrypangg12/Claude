@@ -3895,22 +3895,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T07:38:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-06T07:40:33+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "ARBUSDT",
       "FLOCKUSDT",
+      "EPICUSDT",
+      "MAGMAUSDT",
       "UAIUSDT",
       "SUSHIUSDT",
-      "MAGMAUSDT",
       "ZECUSDT",
-      "EPICUSDT",
       "MARSCOINUSDT",
       "UNIUSDT",
       "牛来USDT",
-      "FFUSDT",
       "PENDLEUSDT",
+      "FFUSDT",
       "CAKEUSDT",
       "TUTUSDT",
       "OPUSDT",
@@ -3919,9 +3919,10 @@
       "ENAUSDT",
       "ASTERUSDT",
       "DOGSUSDT",
-      "CRVUSDT",
       "TIAUSDT",
-      "INJUSDT"
+      "CRVUSDT",
+      "INJUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
