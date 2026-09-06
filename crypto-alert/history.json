@@ -3895,7 +3895,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T11:18:30+00:00",
+    "time": "2026-09-06T11:20:43+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3914,21 +3914,21 @@
       "METUSDT",
       "FARTCOINUSDT",
       "PENDLEUSDT",
-      "ZKUSDT",
       "OPUSDT",
+      "ZKUSDT",
       "DOTUSDT",
       "AEROUSDT",
       "ENAUSDT",
       "STRKUSDT",
       "LDOUSDT",
       "NEARUSDT",
-      "ETHFIUSDT",
-      "BOMEUSDT",
       "MONUSDT",
+      "BOMEUSDT",
+      "ETHFIUSDT",
       "DOGEUSDT",
       "LINKUSDT",
-      "BSBUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "BSBUSDT"
     ]
   }
 }
