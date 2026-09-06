@@ -62,7 +62,7 @@
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00",
     "4USDT": "2026-09-04T17:58:39+00:00",
-    "FLOCKUSDT": "2026-09-05T03:40:34+00:00"
+    "FLOCKUSDT": "2026-09-06T02:52:42+00:00"
   },
   "alerts": [
     {
@@ -3819,12 +3819,35 @@
       "time": "2026-09-06T01:36:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-06T02:18:27+00:00"
+    },
+    {
+      "symbol": "FLOCKUSDT",
+      "pct": 12.72,
+      "price": 0.07238,
+      "quote_volume": 324747.16045,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.248322564942607,
+      "retrace_pct": 0.8493150684931446,
+      "wick_ratio": 0.43478260869564694,
+      "rsi": 79.51602730861329,
+      "divergence": true,
+      "vol_spike": 0.1558406098076337,
+      "btc_pct": -0.07254302261594121,
+      "sl": 0.07372999999999999,
+      "tp1": 0.06985232,
+      "tp2": 0.06790768,
+      "tp3": 0.06476,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.261955084399226,
+      "time": "2026-09-06T02:52:42+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T02:50:33+00:00",
+    "time": "2026-09-06T02:52:42+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "UAIUSDT",
@@ -3843,19 +3866,19 @@
       "STRKUSDT",
       "FARTCOINUSDT",
       "EPICUSDT",
-      "OPUSDT",
       "FILUSDT",
+      "OPUSDT",
       "CRVUSDT",
       "ENAUSDT",
-      "MAGMAUSDT",
       "MUBARAKUSDT",
-      "INJUSDT",
-      "CHIPUSDT",
-      "龙虾USDT",
-      "TIAUSDT",
       "DOGEUSDT",
+      "MAGMAUSDT",
+      "TIAUSDT",
+      "INJUSDT",
       "ASTERUSDT",
-      "USELESSUSDT"
+      "BCHUSDT",
+      "龙虾USDT",
+      "CHIPUSDT"
     ]
   }
 }
