@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T13:06:24+00:00",
+    "time": "2026-09-06T13:08:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3943,16 +3943,16 @@
       "MONUSDT",
       "TIAUSDT",
       "OPUSDT",
-      "DOTUSDT",
       "PENDLEUSDT",
       "STRKUSDT",
+      "IOUSDT",
       "BOMEUSDT",
       "BSBUSDT",
+      "DOTUSDT",
       "NEARUSDT",
-      "IOUSDT",
-      "WLDUSDT",
+      "AEROUSDT",
       "HYPEUSDT",
-      "AEROUSDT"
+      "WUSDT"
     ]
   }
 }
