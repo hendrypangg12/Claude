@@ -3895,7 +3895,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T11:02:29+00:00",
+    "time": "2026-09-06T11:04:38+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3906,9 +3906,9 @@
       "EPICUSDT",
       "SUSHIUSDT",
       "ZECUSDT",
-      "UAIUSDT",
-      "ZAMAUSDT",
       "BULLAUSDT",
+      "ZAMAUSDT",
+      "UAIUSDT",
       "ZKUSDT",
       "UNIUSDT",
       "METUSDT",
@@ -3916,19 +3916,19 @@
       "TIAUSDT",
       "PENDLEUSDT",
       "OPUSDT",
-      "AEROUSDT",
       "DOTUSDT",
+      "AEROUSDT",
       "ENAUSDT",
-      "NEARUSDT",
       "STRKUSDT",
-      "ETHFIUSDT",
-      "MONUSDT",
-      "LDOUSDT",
       "BOMEUSDT",
+      "MONUSDT",
+      "ETHFIUSDT",
+      "NEARUSDT",
+      "LDOUSDT",
       "DOGEUSDT",
-      "CAKEUSDT",
       "LINKUSDT",
-      "BSBUSDT"
+      "CAKEUSDT",
+      "INJUSDT"
     ]
   }
 }
