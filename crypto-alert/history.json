@@ -3919,14 +3919,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T16:50:54+00:00",
+    "time": "2026-09-06T16:52:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "ARBUSDT",
       "FLOCKUSDT",
-      "XANUSDT",
       "COTIUSDT",
+      "XANUSDT",
       "NAORISUSDT",
       "UAIUSDT",
       "ZECUSDT",
@@ -3947,12 +3947,12 @@
       "DOTUSDT",
       "TAOUSDT",
       "INJUSDT",
-      "MONUSDT",
       "PENDLEUSDT",
+      "MONUSDT",
       "WUSDT",
       "BSBUSDT",
       "EPICUSDT",
-      "AEROUSDT"
+      "RENDERUSDT"
     ]
   }
 }
