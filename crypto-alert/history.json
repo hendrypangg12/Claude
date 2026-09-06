@@ -62,7 +62,8 @@
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
     "EGLDUSDT": "2026-09-03T04:10:32+00:00",
     "4USDT": "2026-09-04T17:58:39+00:00",
-    "FLOCKUSDT": "2026-09-06T02:52:42+00:00"
+    "FLOCKUSDT": "2026-09-06T02:52:42+00:00",
+    "METUSDT": "2026-09-06T03:48:22+00:00"
   },
   "alerts": [
     {
@@ -3843,20 +3844,43 @@
       "time": "2026-09-06T02:52:42+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-06T03:12:33+00:00"
+    },
+    {
+      "symbol": "METUSDT",
+      "pct": 8.82,
+      "price": 0.2043,
+      "quote_volume": 232930.4567,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2484328488473463,
+      "retrace_pct": 0.8733624454148452,
+      "wick_ratio": 0.7272727272727112,
+      "rsi": 73.76944156302432,
+      "divergence": false,
+      "vol_spike": 0.06158144235145746,
+      "btc_pct": 0.09118496177260701,
+      "sl": 0.208161,
+      "tp1": 0.1997206,
+      "tp2": 0.19577940000000002,
+      "tp3": 0.1894,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.8081959604248712,
+      "time": "2026-09-06T03:48:22+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T03:47:04+00:00",
+    "time": "2026-09-06T03:48:22+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ARBUSDT",
       "BULLAUSDT",
       "UAIUSDT",
-      "FLOCKUSDT",
-      "MARSCOINUSDT",
       "SUSHIUSDT",
       "BUSDT",
+      "MARSCOINUSDT",
+      "FLOCKUSDT",
       "牛来USDT",
       "NAORISUSDT",
       "TUTUSDT",
@@ -3869,17 +3893,17 @@
       "FFUSDT",
       "OPUSDT",
       "METUSDT",
-      "ENAUSDT",
       "龙虾USDT",
+      "ENAUSDT",
       "DOGEUSDT",
       "CRVUSDT",
-      "MAGMAUSDT",
       "ASTERUSDT",
       "INJUSDT",
       "TIAUSDT",
+      "MAGMAUSDT",
       "PENGUUSDT",
       "ETHFIUSDT",
-      "FILUSDT"
+      "BCHUSDT"
     ]
   }
 }
