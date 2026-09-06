@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T23:34:28+00:00",
+    "time": "2026-09-06T23:36:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3942,17 +3942,17 @@
       "ARXUSDT",
       "IOUSDT",
       "MONUSDT",
-      "STRKUSDT",
-      "ZENUSDT",
-      "FETUSDT",
-      "RENDERUSDT",
       "ARBUSDT",
+      "FETUSDT",
+      "STRKUSDT",
+      "RENDERUSDT",
+      "ZENUSDT",
       "DOTUSDT",
       "DASHUSDT",
       "WLDUSDT",
       "KASUSDT",
       "VIRTUALUSDT",
-      "HEMIUSDT"
+      "FARTCOINUSDT"
     ]
   }
 }
