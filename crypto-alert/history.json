@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T15:14:28+00:00",
-    "shortlist_count": 27,
+    "time": "2026-09-06T15:16:25+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "ARBUSDT",
@@ -3936,20 +3936,21 @@
       "ZKUSDT",
       "UNIUSDT",
       "METUSDT",
-      "BSBUSDT",
       "NEARUSDT",
-      "OPUSDT",
       "TIAUSDT",
+      "OPUSDT",
+      "BSBUSDT",
       "LDOUSDT",
       "FARTCOINUSDT",
+      "PENDLEUSDT",
       "ENAUSDT",
       "BOMEUSDT",
-      "PENDLEUSDT",
       "HYPEUSDT",
       "STRKUSDT",
       "INJUSDT",
       "MONUSDT",
-      "MAGMAUSDT"
+      "ZROUSDT",
+      "DOTUSDT"
     ]
   }
 }
