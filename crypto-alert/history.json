@@ -3798,7 +3798,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T00:11:07+00:00",
+    "time": "2026-09-06T00:12:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3822,16 +3822,16 @@
       "FFUSDT",
       "AEROUSDT",
       "OPUSDT",
-      "ICPUSDT",
-      "CHIPUSDT",
       "TIAUSDT",
-      "CRVUSDT",
+      "ICPUSDT",
       "LTCUSDT",
+      "CHIPUSDT",
+      "CRVUSDT",
       "GALAUSDT",
       "BNBUSDT",
-      "EIGENUSDT",
       "APTUSDT",
-      "DOGEUSDT"
+      "EIGENUSDT",
+      "ENAUSDT"
     ]
   }
 }
