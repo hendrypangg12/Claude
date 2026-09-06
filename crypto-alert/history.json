@@ -3895,8 +3895,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T08:00:38+00:00",
-    "shortlist_count": 28,
+    "time": "2026-09-06T08:02:25+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "ARBUSDT",
@@ -3908,25 +3908,26 @@
       "MARSCOINUSDT",
       "MAGMAUSDT",
       "UNIUSDT",
-      "FFUSDT",
-      "PENDLEUSDT",
       "OPUSDT",
+      "PENDLEUSDT",
+      "FFUSDT",
       "CAKEUSDT",
+      "METUSDT",
       "ENAUSDT",
       "DASHUSDT",
       "TIAUSDT",
-      "METUSDT",
       "DOGEUSDT",
-      "COTIUSDT",
       "ASTERUSDT",
+      "COTIUSDT",
       "FARTCOINUSDT",
-      "APTUSDT",
       "STRKUSDT",
+      "EDGEUSDT",
+      "DOTUSDT",
       "CRVUSDT",
+      "TUTUSDT",
+      "APTUSDT",
       "FILUSDT",
-      "POLUSDT",
-      "AEROUSDT",
-      "EDGEUSDT"
+      "POLUSDT"
     ]
   }
 }
