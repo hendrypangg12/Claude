@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T20:42:28+00:00",
+    "time": "2026-09-06T20:44:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -3940,19 +3940,19 @@
       "FETUSDT",
       "MONUSDT",
       "IOUSDT",
-      "ZENUSDT",
       "LDOUSDT",
-      "EPICUSDT",
+      "ZENUSDT",
       "ENAUSDT",
+      "EPICUSDT",
       "DOTUSDT",
       "LINEAUSDT",
       "RENDERUSDT",
-      "HEMIUSDT",
+      "LINKUSDT",
       "INJUSDT",
-      "OPUSDT",
       "PENDLEUSDT",
+      "HEMIUSDT",
       "DASHUSDT",
-      "LINKUSDT"
+      "OPUSDT"
     ]
   }
 }
