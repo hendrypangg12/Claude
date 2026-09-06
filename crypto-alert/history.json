@@ -3895,8 +3895,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-06T08:46:41+00:00",
-    "shortlist_count": 27,
+    "time": "2026-09-06T08:48:24+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "FLOCKUSDT",
@@ -3920,12 +3920,14 @@
       "TIAUSDT",
       "AEROUSDT",
       "FARTCOINUSDT",
-      "ETHFIUSDT",
       "POLUSDT",
-      "DOTUSDT",
+      "ETHFIUSDT",
       "CAKEUSDT",
+      "DOTUSDT",
       "INJUSDT",
-      "FILUSDT"
+      "FILUSDT",
+      "LDOUSDT",
+      "MARSCOINUSDT"
     ]
   }
 }
