@@ -3919,18 +3919,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T19:28:45+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-07T19:30:40+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
-      "UAIUSDT",
       "SOPHUSDT",
+      "UAIUSDT",
       "ACEUSDT",
       "KASUSDT",
       "INJUSDT",
+      "ICPUSDT",
       "DOTUSDT",
       "AEROUSDT",
-      "ICPUSDT",
       "PUMPUSDT",
       "WLDUSDT",
       "CFGUSDT",
@@ -3944,9 +3944,10 @@
       "XLMUSDT",
       "PENDLEUSDT",
       "ATOMUSDT",
+      "APTUSDT",
       "VIRTUALUSDT",
-      "XANUSDT",
-      "APTUSDT"
+      "LITUSDT",
+      "XANUSDT"
     ]
   }
 }
