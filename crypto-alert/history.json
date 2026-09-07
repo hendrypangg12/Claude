@@ -3919,19 +3919,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T21:04:29+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-07T21:06:37+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
-      "ACEUSDT",
       "UAIUSDT",
-      "INJUSDT",
+      "ACEUSDT",
       "AKEUSDT",
+      "INJUSDT",
       "KASUSDT",
       "ICPUSDT",
-      "CFGUSDT",
       "WLDUSDT",
+      "CFGUSDT",
       "AEROUSDT",
       "PUMPUSDT",
       "DOTUSDT",
@@ -3939,12 +3939,10 @@
       "PENDLEUSDT",
       "FETUSDT",
       "APTUSDT",
-      "LITUSDT",
-      "ATOMUSDT",
       "AVAXUSDT",
-      "FILUSDT",
-      "ZROUSDT",
-      "ARXUSDT"
+      "ATOMUSDT",
+      "ARXUSDT",
+      "FILUSDT"
     ]
   }
 }
