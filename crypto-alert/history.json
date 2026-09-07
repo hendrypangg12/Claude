@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T18:40:38+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-07T18:42:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
@@ -3939,7 +3939,9 @@
       "AVAXUSDT",
       "FILUSDT",
       "CLOUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "ATOMUSDT",
+      "BULLAUSDT"
     ]
   }
 }
