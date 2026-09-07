@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T11:48:32+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-07T11:50:35+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -3931,19 +3931,20 @@
       "PUMPUSDT",
       "CFGUSDT",
       "CLOUSDT",
-      "PLAYUSDT",
-      "INJUSDT",
-      "TAOUSDT",
       "4USDT",
+      "TAOUSDT",
+      "INJUSDT",
+      "PLAYUSDT",
       "ICPUSDT",
-      "NAORISUSDT",
-      "ARXUSDT",
       "LINKUSDT",
+      "ARXUSDT",
+      "NAORISUSDT",
+      "TIAUSDT",
       "WLDUSDT",
       "CHILLGUYUSDT",
-      "TIAUSDT",
       "ZROUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "USELESSUSDT"
     ]
   }
 }
