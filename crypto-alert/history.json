@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T22:36:27+00:00",
+    "time": "2026-09-07T22:38:28+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -3929,15 +3929,15 @@
       "INJUSDT",
       "ACEUSDT",
       "WLDUSDT",
-      "KASUSDT",
       "PUMPUSDT",
+      "KASUSDT",
       "AEROUSDT",
       "ICPUSDT",
       "CFGUSDT",
       "DOTUSDT",
       "BEATUSDT",
-      "LITUSDT",
-      "PENDLEUSDT"
+      "PENDLEUSDT",
+      "LITUSDT"
     ]
   }
 }
