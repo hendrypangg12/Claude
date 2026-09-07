@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T03:06:32+00:00",
+    "time": "2026-09-07T03:08:26+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
@@ -3941,14 +3941,14 @@
       "DOTUSDT",
       "VIRTUALUSDT",
       "KASUSDT",
-      "COTIUSDT",
+      "RENDERUSDT",
       "WLDUSDT",
+      "PHAUSDT",
+      "COTIUSDT",
       "FETUSDT",
       "CRVUSDT",
-      "RENDERUSDT",
-      "PHAUSDT",
-      "WUSDT",
-      "LDOUSDT"
+      "LDOUSDT",
+      "WUSDT"
     ]
   }
 }
