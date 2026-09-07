@@ -3919,14 +3919,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T20:40:39+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-07T20:42:28+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
       "AKEUSDT",
-      "INJUSDT",
       "UAIUSDT",
+      "INJUSDT",
       "ACEUSDT",
       "KASUSDT",
       "ICPUSDT",
@@ -3940,9 +3940,10 @@
       "BEATUSDT",
       "ATOMUSDT",
       "FETUSDT",
-      "APTUSDT",
+      "FILUSDT",
       "XLMUSDT",
-      "FILUSDT"
+      "APTUSDT",
+      "SUIUSDT"
     ]
   }
 }
