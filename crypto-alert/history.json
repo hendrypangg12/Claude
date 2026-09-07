@@ -3919,12 +3919,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T06:54:27+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-07T06:56:27+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
-      "XANUSDT",
       "NAORISUSDT",
+      "XANUSDT",
       "CFGUSDT",
       "CLOUSDT",
       "ARXUSDT",
@@ -3939,14 +3939,16 @@
       "WLDUSDT",
       "ZKUSDT",
       "NEARUSDT",
-      "IOUSDT",
       "GRVTUSDT",
+      "IOUSDT",
       "VIRTUALUSDT",
       "FETUSDT",
       "ZAMAUSDT",
       "ZROUSDT",
+      "AKEUSDT",
+      "DOTUSDT",
       "RENDERUSDT",
-      "METISUSDT"
+      "JASMYUSDT"
     ]
   }
 }
