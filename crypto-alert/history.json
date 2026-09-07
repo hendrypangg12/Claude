@@ -3919,15 +3919,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T17:52:27+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-07T17:54:30+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "UAIUSDT",
       "KASUSDT",
       "PUMPUSDT",
-      "CFGUSDT",
       "WLDUSDT",
+      "CFGUSDT",
       "DOTUSDT",
       "ICPUSDT",
       "INJUSDT",
@@ -3940,14 +3940,13 @@
       "AVAXUSDT",
       "ACEUSDT",
       "AEROUSDT",
-      "BULLAUSDT",
       "LINKUSDT",
-      "VIRTUALUSDT",
       "ZROUSDT",
+      "VIRTUALUSDT",
+      "BULLAUSDT",
       "ATOMUSDT",
       "CLOUSDT",
-      "XLMUSDT",
-      "IOUSDT"
+      "XLMUSDT"
     ]
   }
 }
