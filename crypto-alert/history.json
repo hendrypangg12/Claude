@@ -3919,18 +3919,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T13:50:35+00:00",
+    "time": "2026-09-07T13:52:41+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "KASUSDT",
-      "UAIUSDT",
       "AKEUSDT",
+      "UAIUSDT",
       "CFGUSDT",
       "INJUSDT",
       "WLDUSDT",
-      "TIAUSDT",
       "4USDT",
+      "TIAUSDT",
       "XANUSDT",
       "FILUSDT",
       "TAOUSDT",
@@ -3945,10 +3945,10 @@
       "AVAXUSDT",
       "ATOMUSDT",
       "GRVTUSDT",
-      "ZROUSDT",
-      "PLAYUSDT",
       "BEATUSDT",
-      "CAKEUSDT"
+      "PLAYUSDT",
+      "STRKUSDT",
+      "ZROUSDT"
     ]
   }
 }
