@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-07T01:30:42+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-07T01:32:27+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "NAORISUSDT",
@@ -3934,14 +3934,15 @@
       "ZAMAUSDT",
       "TAOUSDT",
       "METUSDT",
-      "DOTUSDT",
       "INJUSDT",
+      "DOTUSDT",
       "NEARUSDT",
-      "ZKUSDT",
-      "LINKUSDT",
       "MONUSDT",
-      "IOUSDT",
+      "LINKUSDT",
+      "ZKUSDT",
       "COTIUSDT",
+      "IOUSDT",
+      "PHAUSDT",
       "KASUSDT"
     ]
   }
