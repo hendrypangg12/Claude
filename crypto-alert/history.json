@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T05:22:25+00:00",
+    "time": "2026-09-08T05:24:26+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -3929,23 +3929,23 @@
       "AKEUSDT",
       "INJUSDT",
       "WLDUSDT",
+      "USELESSUSDT",
       "DOTUSDT",
       "4USDT",
-      "USELESSUSDT",
       "KAITOUSDT",
-      "CAKEUSDT",
       "ACEUSDT",
-      "ICPUSDT",
       "PENDLEUSDT",
-      "KASUSDT",
+      "ICPUSDT",
       "LITUSDT",
+      "KASUSDT",
+      "CAKEUSDT",
       "BTWUSDT",
       "XPLUSDT",
-      "EDGEUSDT",
       "FILUSDT",
-      "FETUSDT",
+      "EDGEUSDT",
       "PUMPUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "FETUSDT"
     ]
   }
 }
