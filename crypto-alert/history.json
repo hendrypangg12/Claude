@@ -63,7 +63,8 @@
     "EGLDUSDT": "2026-09-03T04:10:32+00:00",
     "4USDT": "2026-09-04T17:58:39+00:00",
     "FLOCKUSDT": "2026-09-06T02:52:42+00:00",
-    "METUSDT": "2026-09-06T03:48:22+00:00"
+    "METUSDT": "2026-09-06T03:48:22+00:00",
+    "ARXUSDT": "2026-09-08T16:36:34+00:00"
   },
   "alerts": [
     {
@@ -3940,38 +3941,61 @@
       "time": "2026-09-08T11:48:35+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-08T12:04:27+00:00"
+    },
+    {
+      "symbol": "ARXUSDT",
+      "pct": 9.7,
+      "price": 0.1542,
+      "quote_volume": 203663.6704,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.23313627270269396,
+      "retrace_pct": 0.4519044544867696,
+      "wick_ratio": 0.0,
+      "rsi": 66.10512891388129,
+      "divergence": false,
+      "vol_spike": 0.02746083642557971,
+      "btc_pct": -0.1255220408505695,
+      "sl": 0.156449,
+      "tp1": 0.1496666,
+      "tp2": 0.1464334,
+      "tp3": 0.1412,
+      "funding_rate": 0.024,
+      "orderbook_ratio": 1.2003674897206256,
+      "time": "2026-09-08T16:36:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T16:34:39+00:00",
+    "time": "2026-09-08T16:36:34+00:00",
     "shortlist_count": 25,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "VVVUSDT",
-      "SOPHUSDT",
       "USELESSUSDT",
+      "SOPHUSDT",
       "AKEUSDT",
+      "BLUAIUSDT",
       "PONSUSDT",
       "牛来USDT",
       "FORMUSDT",
-      "BLUAIUSDT",
       "FFUSDT",
       "INJUSDT",
-      "LITUSDT",
       "AEROUSDT",
       "EPICUSDT",
+      "LITUSDT",
       "ETCUSDT",
       "DOTUSDT",
-      "ATOMUSDT",
       "龙虾USDT",
+      "ATOMUSDT",
       "NAORISUSDT",
       "ARXUSDT",
       "KAITOUSDT",
-      "XPLUSDT",
       "WLDUSDT",
+      "XPLUSDT",
       "ETHFIUSDT",
-      "PENDLEUSDT",
-      "LYNUSDT"
+      "LYNUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
