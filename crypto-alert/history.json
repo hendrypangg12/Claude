@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T05:02:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-08T05:04:27+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
@@ -3933,14 +3933,17 @@
       "ACEUSDT",
       "ICPUSDT",
       "LITUSDT",
+      "4USDT",
       "PUMPUSDT",
       "KASUSDT",
-      "4USDT",
-      "FILUSDT",
       "XPLUSDT",
-      "PENDLEUSDT",
       "FETUSDT",
-      "BEATUSDT"
+      "PENDLEUSDT",
+      "FILUSDT",
+      "BEATUSDT",
+      "KAITOUSDT",
+      "EDGEUSDT",
+      "BTWUSDT"
     ]
   }
 }
