@@ -3943,14 +3943,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T13:38:32+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-08T13:40:33+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
       "BLUAIUSDT",
-      "FORMUSDT",
       "FFUSDT",
+      "FORMUSDT",
       "USELESSUSDT",
       "AEROUSDT",
       "UAIUSDT",
@@ -3959,9 +3959,8 @@
       "VVVUSDT",
       "NAORISUSDT",
       "LITUSDT",
-      "GUSDT",
       "FLOCKUSDT",
-      "KAITOUSDT"
+      "GUSDT"
     ]
   }
 }
