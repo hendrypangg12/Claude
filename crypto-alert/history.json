@@ -3943,8 +3943,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T12:54:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-08T12:56:29+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
@@ -3958,14 +3958,15 @@
       "VVVUSDT",
       "INJUSDT",
       "DOTUSDT",
-      "BICOUSDT",
-      "WLDUSDT",
       "GUSDT",
       "LITUSDT",
+      "BICOUSDT",
+      "WLDUSDT",
       "KAITOUSDT",
-      "ATOMUSDT",
       "NAORISUSDT",
-      "ARBUSDT"
+      "ATOMUSDT",
+      "ARBUSDT",
+      "IOSTUSDT"
     ]
   }
 }
