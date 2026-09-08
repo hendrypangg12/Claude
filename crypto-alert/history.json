@@ -3919,27 +3919,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T07:20:44+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-08T07:22:29+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
-      "AKEUSDT",
       "FORMUSDT",
+      "AKEUSDT",
       "AEROUSDT",
+      "USELESSUSDT",
       "IOSTUSDT",
       "UAIUSDT",
       "INJUSDT",
       "DOTUSDT",
-      "USELESSUSDT",
       "FETUSDT",
-      "KAITOUSDT",
       "PENDLEUSDT",
+      "KAITOUSDT",
       "BEATUSDT",
       "WLDUSDT",
+      "牛来USDT",
       "CAKEUSDT",
-      "LITUSDT",
-      "EDGEUSDT"
+      "EDGEUSDT",
+      "ACEUSDT",
+      "LITUSDT"
     ]
   }
 }
