@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T11:00:50+00:00",
+    "time": "2026-09-08T11:02:28+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -3931,22 +3931,22 @@
       "NAORISUSDT",
       "DOTUSDT",
       "INJUSDT",
-      "IOSTUSDT",
       "BLUAIUSDT",
-      "BICOUSDT",
+      "IOSTUSDT",
       "AKEUSDT",
+      "HEMIUSDT",
       "KAITOUSDT",
       "PENDLEUSDT",
+      "BICOUSDT",
       "XPLUSDT",
-      "HEMIUSDT",
       "LITUSDT",
       "FILUSDT",
       "CAKEUSDT",
       "WLDUSDT",
       "ETCUSDT",
       "ARBUSDT",
-      "APTUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "APTUSDT"
     ]
   }
 }
