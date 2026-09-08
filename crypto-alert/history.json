@@ -3919,7 +3919,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T05:36:24+00:00",
+    "time": "2026-09-08T05:38:29+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -3934,18 +3934,18 @@
       "DOTUSDT",
       "USELESSUSDT",
       "PENDLEUSDT",
+      "HEMIUSDT",
+      "LITUSDT",
       "BEATUSDT",
       "CAKEUSDT",
-      "KASUSDT",
-      "LITUSDT",
-      "ACEUSDT",
       "FILUSDT",
       "XPLUSDT",
       "FETUSDT",
+      "PUMPUSDT",
+      "KASUSDT",
       "ICPUSDT",
-      "BTWUSDT",
-      "HEMIUSDT",
-      "PUMPUSDT"
+      "ACEUSDT",
+      "BTWUSDT"
     ]
   }
 }
