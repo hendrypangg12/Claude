@@ -3943,28 +3943,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T13:12:27+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-08T13:14:25+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
       "FFUSDT",
       "BLUAIUSDT",
-      "AEROUSDT",
       "FORMUSDT",
+      "AEROUSDT",
+      "AKEUSDT",
       "USELESSUSDT",
       "UAIUSDT",
-      "AKEUSDT",
       "VVVUSDT",
       "INJUSDT",
       "GUSDT",
+      "BICOUSDT",
       "KAITOUSDT",
       "NAORISUSDT",
-      "BICOUSDT",
       "DOTUSDT",
       "LITUSDT",
       "WLDUSDT",
-      "ARBUSDT"
+      "ATOMUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
