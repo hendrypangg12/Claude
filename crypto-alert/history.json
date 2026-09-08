@@ -3919,8 +3919,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-08T09:24:24+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-08T09:26:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "SOPHUSDT",
@@ -3936,8 +3936,9 @@
       "LITUSDT",
       "EDGEUSDT",
       "USELESSUSDT",
+      "KAITOUSDT",
       "ETCUSDT",
-      "KAITOUSDT"
+      "ARBUSDT"
     ]
   }
 }
