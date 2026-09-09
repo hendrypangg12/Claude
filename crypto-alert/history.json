@@ -3968,30 +3968,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T00:01:05+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-09T00:02:32+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "VVVUSDT",
       "FORMUSDT",
-      "FFUSDT",
       "USELESSUSDT",
+      "FFUSDT",
       "牛来USDT",
       "DOTUSDT",
       "ATOMUSDT",
       "VETUSDT",
-      "GUSDT",
       "EPICUSDT",
       "PONSUSDT",
       "ETCUSDT",
+      "GUSDT",
       "龙虾USDT",
-      "BLUAIUSDT",
       "DOGSUSDT",
       "XPLUSDT",
-      "FLOCKUSDT",
+      "BLUAIUSDT",
       "ARXUSDT",
       "BULLAUSDT",
-      "TRUTHUSDT"
+      "TRUTHUSDT",
+      "INJUSDT",
+      "FLOCKUSDT"
     ]
   }
 }
