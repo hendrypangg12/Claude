@@ -3968,7 +3968,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T21:56:23+00:00",
+    "time": "2026-09-09T21:58:25+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -3977,14 +3977,14 @@
       "MINAUSDT",
       "PHAUSDT",
       "COTIUSDT",
-      "UAIUSDT",
       "TRUTHUSDT",
+      "UAIUSDT",
+      "BULLAUSDT",
       "NEARUSDT",
       "ZECUSDT",
       "GRASSUSDT",
-      "BULLAUSDT",
-      "ZENUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "ZENUSDT"
     ]
   }
 }
