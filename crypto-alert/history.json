@@ -3968,7 +3968,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T11:58:29+00:00",
+    "time": "2026-09-09T12:00:50+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -3982,16 +3982,16 @@
       "NEARUSDT",
       "ATOMUSDT",
       "MINAUSDT",
-      "DOTUSDT",
       "ZECUSDT",
+      "DOTUSDT",
       "LITUSDT",
       "ZENUSDT",
-      "EPICUSDT",
       "PUMPUSDT",
-      "ETHFIUSDT",
+      "EPICUSDT",
       "PONSUSDT",
-      "KASUSDT",
-      "TAOUSDT"
+      "ETHFIUSDT",
+      "TAOUSDT",
+      "KASUSDT"
     ]
   }
 }
