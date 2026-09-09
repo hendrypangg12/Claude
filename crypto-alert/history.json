@@ -3968,8 +3968,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T04:48:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-09T04:50:32+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "VVVUSDT",
@@ -3980,13 +3980,17 @@
       "DOTUSDT",
       "ATOMUSDT",
       "EPICUSDT",
-      "LITUSDT",
       "ZECUSDT",
+      "LITUSDT",
       "VETUSDT",
       "TRUTHUSDT",
       "ETCUSDT",
       "XPLUSDT",
-      "ARXUSDT"
+      "ARXUSDT",
+      "NAORISUSDT",
+      "SEIUSDT",
+      "ZENUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
