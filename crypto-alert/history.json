@@ -3968,13 +3968,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T10:38:28+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-09T10:40:46+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "VVVUSDT",
-      "IOSTUSDT",
       "USELESSUSDT",
+      "IOSTUSDT",
       "FFUSDT",
       "ATOMUSDT",
       "KATUSDT",
@@ -3983,13 +3983,14 @@
       "MINAUSDT",
       "NEARUSDT",
       "ZECUSDT",
-      "PONSUSDT",
-      "LITUSDT",
       "龙虾USDT",
       "DOTUSDT",
+      "LITUSDT",
+      "PONSUSDT",
       "ETHFIUSDT",
       "ZENUSDT",
-      "EPICUSDT"
+      "EPICUSDT",
+      "DASHUSDT"
     ]
   }
 }
