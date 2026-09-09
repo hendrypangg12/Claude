@@ -3968,8 +3968,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T09:16:30+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-09T09:18:30+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "VVVUSDT",
@@ -3979,23 +3979,22 @@
       "IOSTUSDT",
       "ATOMUSDT",
       "KATUSDT",
-      "PONSUSDT",
       "TRUTHUSDT",
+      "PONSUSDT",
       "DOTUSDT",
       "ZECUSDT",
       "LITUSDT",
-      "EPICUSDT",
       "ZENUSDT",
+      "MARSCOINUSDT",
+      "EPICUSDT",
+      "ETHFIUSDT",
       "BLUAIUSDT",
       "MINAUSDT",
-      "ETHFIUSDT",
       "NEARUSDT",
       "DASHUSDT",
-      "PUMPUSDT",
-      "KASUSDT",
       "BULLAUSDT",
-      "MARSCOINUSDT",
-      "DOGSUSDT"
+      "PUMPUSDT",
+      "KASUSDT"
     ]
   }
 }
