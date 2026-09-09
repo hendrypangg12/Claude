@@ -3968,7 +3968,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T03:44:32+00:00",
+    "time": "2026-09-09T03:46:36+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -3979,16 +3979,16 @@
       "FORMUSDT",
       "ATOMUSDT",
       "DOTUSDT",
-      "VETUSDT",
       "ARXUSDT",
+      "VETUSDT",
       "EPICUSDT",
-      "PONSUSDT",
       "ETCUSDT",
+      "PONSUSDT",
       "LITUSDT",
-      "BLUAIUSDT",
       "TRUTHUSDT",
       "XPLUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "BLUAIUSDT"
     ]
   }
 }
