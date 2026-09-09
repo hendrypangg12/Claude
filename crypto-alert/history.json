@@ -3968,8 +3968,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T14:24:30+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-09T14:26:33+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "IOSTUSDT",
@@ -3983,13 +3983,15 @@
       "ZECUSDT",
       "TRUTHUSDT",
       "龙虾USDT",
-      "FFUSDT",
       "BULLAUSDT",
+      "FFUSDT",
       "PUMPUSDT",
-      "ZENUSDT",
+      "USELESSUSDT",
       "APTUSDT",
       "STRKUSDT",
-      "USELESSUSDT"
+      "ZENUSDT",
+      "LITUSDT",
+      "DOTUSDT"
     ]
   }
 }
