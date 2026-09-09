@@ -3968,25 +3968,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-09T18:20:35+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-09T18:22:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IOSTUSDT",
-      "KATUSDT",
       "BULLAUSDT",
+      "KATUSDT",
       "PHAUSDT",
       "VVVUSDT",
       "TRUTHUSDT",
       "NEARUSDT",
       "EGLDUSDT",
       "GRASSUSDT",
-      "PUMPUSDT",
       "ZENUSDT",
+      "PUMPUSDT",
       "ZECUSDT",
       "STRKUSDT",
       "FFUSDT",
-      "MINAUSDT"
+      "MINAUSDT",
+      "ATOMUSDT"
     ]
   }
 }
