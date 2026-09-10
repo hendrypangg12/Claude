@@ -3993,19 +3993,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T21:26:33+00:00",
-    "shortlist_count": 9,
+    "time": "2026-09-10T21:28:33+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
-      "VTHOUSDT",
       "牛来USDT",
+      "VTHOUSDT",
       "FFUSDT",
       "ETHFIUSDT",
-      "BTWUSDT",
       "MARSCOINUSDT",
+      "BTWUSDT",
       "METUSDT",
       "FOLKSUSDT",
-      "EIGENUSDT"
+      "EIGENUSDT",
+      "HEMIUSDT",
+      "RUNEUSDT"
     ]
   }
 }
