@@ -3988,20 +3988,24 @@
       "funding_rate": -1.59,
       "orderbook_ratio": 0.48590065868171817,
       "time": "2026-09-10T11:28:35+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-10T11:36:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T11:34:26+00:00",
-    "shortlist_count": 6,
+    "time": "2026-09-10T11:36:28+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "VTHOUSDT",
       "REZUSDT",
-      "KASUSDT",
       "EGLDUSDT",
+      "KASUSDT",
       "BULLAUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "HEMIUSDT",
+      "BTRUSDT",
+      "COTIUSDT"
     ]
   }
 }
