@@ -3993,8 +3993,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T20:10:43+00:00",
-    "shortlist_count": 10,
+    "time": "2026-09-10T20:12:49+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "牛来USDT",
@@ -4002,11 +4002,13 @@
       "ETHFIUSDT",
       "FFUSDT",
       "BTWUSDT",
-      "METUSDT",
       "EIGENUSDT",
+      "METUSDT",
       "FOLKSUSDT",
       "VVVUSDT",
-      "SOPHUSDT"
+      "SOPHUSDT",
+      "GRVTUSDT",
+      "RUNEUSDT"
     ]
   }
 }
