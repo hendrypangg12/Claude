@@ -3993,8 +3993,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T18:22:31+00:00",
-    "shortlist_count": 7,
+    "time": "2026-09-10T18:24:37+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "VTHOUSDT",
@@ -4003,7 +4003,9 @@
       "FFUSDT",
       "FOLKSUSDT",
       "BTWUSDT",
-      "METUSDT"
+      "METUSDT",
+      "KASUSDT",
+      "GRVTUSDT"
     ]
   }
 }
