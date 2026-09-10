@@ -3968,7 +3968,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T01:28:38+00:00",
+    "time": "2026-09-10T01:30:34+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -3979,12 +3979,12 @@
       "UAIUSDT",
       "FLOCKUSDT",
       "TRUTHUSDT",
-      "NEARUSDT",
       "PHAUSDT",
+      "NEARUSDT",
       "BULLAUSDT",
-      "FOLKSUSDT",
       "COTIUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
