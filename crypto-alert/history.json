@@ -3993,7 +3993,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T21:42:32+00:00",
+    "time": "2026-09-10T21:44:29+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -4005,11 +4005,11 @@
       "BTWUSDT",
       "METUSDT",
       "FOLKSUSDT",
-      "VVVUSDT",
       "HEMIUSDT",
+      "VVVUSDT",
+      "USELESSUSDT",
       "EIGENUSDT",
-      "RUNEUSDT",
-      "USELESSUSDT"
+      "RUNEUSDT"
     ]
   }
 }
