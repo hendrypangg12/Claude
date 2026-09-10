@@ -3993,14 +3993,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T12:58:33+00:00",
-    "shortlist_count": 4,
+    "time": "2026-09-10T13:00:51+00:00",
+    "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
       "VTHOUSDT",
-      "KASUSDT",
       "EGLDUSDT",
-      "BTWUSDT"
+      "KASUSDT",
+      "BTWUSDT",
+      "REZUSDT"
     ]
   }
 }
