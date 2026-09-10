@@ -3968,7 +3968,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T07:48:29+00:00",
+    "time": "2026-09-10T07:50:41+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -3977,9 +3977,9 @@
       "ARXUSDT",
       "UAIUSDT",
       "KASUSDT",
-      "BULLAUSDT",
       "EGLDUSDT",
-      "COTIUSDT"
+      "COTIUSDT",
+      "BULLAUSDT"
     ]
   }
 }
