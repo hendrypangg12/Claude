@@ -64,7 +64,8 @@
     "4USDT": "2026-09-04T17:58:39+00:00",
     "FLOCKUSDT": "2026-09-06T02:52:42+00:00",
     "METUSDT": "2026-09-06T03:48:22+00:00",
-    "ARXUSDT": "2026-09-08T16:36:34+00:00"
+    "ARXUSDT": "2026-09-08T16:36:34+00:00",
+    "VTHOUSDT": "2026-09-10T11:28:35+00:00"
   },
   "alerts": [
     {
@@ -3965,12 +3966,35 @@
       "time": "2026-09-08T16:36:34+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-08T16:44:26+00:00"
+    },
+    {
+      "symbol": "VTHOUSDT",
+      "pct": 9.4,
+      "price": 0.000663,
+      "quote_volume": 657883.8743164,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.46663871896790016,
+      "retrace_pct": 1.4858841010401227,
+      "wick_ratio": 0.3886138613861386,
+      "rsi": 69.62209697599128,
+      "divergence": false,
+      "vol_spike": 0.576664648773207,
+      "btc_pct": 0.07016053021810101,
+      "sl": 0.00067973,
+      "tp1": 0.0006509204,
+      "tp2": 0.0006372796,
+      "tp3": 0.0006152,
+      "funding_rate": -1.59,
+      "orderbook_ratio": 0.48590065868171817,
+      "time": "2026-09-10T11:28:35+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T11:26:28+00:00",
+    "time": "2026-09-10T11:28:35+00:00",
     "shortlist_count": 6,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "VTHOUSDT",
       "REZUSDT",
