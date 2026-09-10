@@ -3968,8 +3968,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T00:44:31+00:00",
-    "shortlist_count": 9,
+    "time": "2026-09-10T00:46:25+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "IOSTUSDT",
@@ -3977,10 +3977,11 @@
       "MINAUSDT",
       "UAIUSDT",
       "TRUTHUSDT",
-      "PHAUSDT",
       "COTIUSDT",
+      "PHAUSDT",
+      "FOLKSUSDT",
       "NEARUSDT",
-      "FOLKSUSDT"
+      "ZECUSDT"
     ]
   }
 }
