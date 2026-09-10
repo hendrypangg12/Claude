@@ -3992,16 +3992,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T11:28:35+00:00",
-    "shortlist_count": 6,
-    "confirmed_count": 1,
+    "time": "2026-09-10T11:30:41+00:00",
+    "shortlist_count": 8,
+    "confirmed_count": 0,
     "symbols": [
       "VTHOUSDT",
       "REZUSDT",
-      "KASUSDT",
       "EGLDUSDT",
+      "KASUSDT",
       "BULLAUSDT",
-      "COTIUSDT"
+      "COTIUSDT",
+      "FOLKSUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
