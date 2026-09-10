@@ -3993,7 +3993,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T22:22:28+00:00",
+    "time": "2026-09-10T22:24:29+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -4006,13 +4006,13 @@
       "ETHFIUSDT",
       "HEMIUSDT",
       "VVVUSDT",
-      "EIGENUSDT",
       "GRVTUSDT",
+      "EIGENUSDT",
       "SOPHUSDT",
       "FOLKSUSDT",
       "RUNEUSDT",
-      "POWERUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "POWERUSDT"
     ]
   }
 }
