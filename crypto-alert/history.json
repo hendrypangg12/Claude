@@ -3993,8 +3993,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-10T18:40:37+00:00",
-    "shortlist_count": 6,
+    "time": "2026-09-10T18:42:30+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "VTHOUSDT",
@@ -4002,7 +4002,9 @@
       "ETHFIUSDT",
       "FFUSDT",
       "BTWUSDT",
-      "RUNEUSDT"
+      "FOLKSUSDT",
+      "METUSDT",
+      "KASUSDT"
     ]
   }
 }
