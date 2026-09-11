@@ -65,7 +65,8 @@
     "FLOCKUSDT": "2026-09-06T02:52:42+00:00",
     "METUSDT": "2026-09-06T03:48:22+00:00",
     "ARXUSDT": "2026-09-08T16:36:34+00:00",
-    "VTHOUSDT": "2026-09-10T11:28:35+00:00"
+    "VTHOUSDT": "2026-09-10T11:28:35+00:00",
+    "牛来USDT": "2026-09-11T05:48:24+00:00"
   },
   "alerts": [
     {
@@ -4014,20 +4015,43 @@
       "time": "2026-09-11T04:50:32+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-11T05:10:34+00:00"
+    },
+    {
+      "symbol": "牛来USDT",
+      "pct": 8.21,
+      "price": 0.123993,
+      "quote_volume": 1724347.032468,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.37456772175005437,
+      "retrace_pct": 0.4911520404478052,
+      "wick_ratio": 0.46538024971622816,
+      "rsi": 79.99471272523658,
+      "divergence": false,
+      "vol_spike": 0.5159471838497298,
+      "btc_pct": 0.05719928799654167,
+      "sl": 0.12585105,
+      "tp1": 0.120992808,
+      "tp2": 0.118761192,
+      "tp3": 0.115149,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.21482083448666525,
+      "time": "2026-09-11T05:48:24+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T05:46:24+00:00",
+    "time": "2026-09-11T05:48:24+00:00",
     "shortlist_count": 11,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "牛来USDT",
       "哈基米USDT",
       "FFUSDT",
-      "BTWUSDT",
-      "MARSCOINUSDT",
       "METUSDT",
       "龙虾USDT",
+      "MARSCOINUSDT",
+      "BTWUSDT",
       "ETHFIUSDT",
       "RUNEUSDT",
       "EIGENUSDT",
