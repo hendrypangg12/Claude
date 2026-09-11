@@ -4091,8 +4091,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T16:32:27+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-11T16:34:44+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4105,22 +4105,26 @@
       "MINAUSDT",
       "MARSCOINUSDT",
       "EIGENUSDT",
-      "PONSUSDT",
       "AEROUSDT",
-      "BTWUSDT",
-      "BSBUSDT",
       "FARTCOINUSDT",
+      "PONSUSDT",
+      "BSBUSDT",
+      "BTWUSDT",
       "ORCAUSDT",
-      "USELESSUSDT",
       "NEARUSDT",
+      "USELESSUSDT",
       "CAKEUSDT",
       "KAITOUSDT",
       "FETUSDT",
       "ETHUSDT",
       "GRVTUSDT",
+      "VVVUSDT",
       "PENDLEUSDT",
       "REZUSDT",
-      "MONUSDT"
+      "MONUSDT",
+      "ZECUSDT",
+      "ICPUSDT",
+      "LDOUSDT"
     ]
   }
 }
