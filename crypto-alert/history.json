@@ -4091,7 +4091,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T15:56:34+00:00",
+    "time": "2026-09-11T15:58:29+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -4112,11 +4112,11 @@
       "NEARUSDT",
       "ORCAUSDT",
       "ETHUSDT",
-      "REZUSDT",
-      "VVVUSDT",
       "CAKEUSDT",
+      "VVVUSDT",
       "GRVTUSDT",
-      "KAITOUSDT"
+      "KAITOUSDT",
+      "REZUSDT"
     ]
   }
 }
