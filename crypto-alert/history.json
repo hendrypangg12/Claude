@@ -4067,7 +4067,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T13:36:27+00:00",
+    "time": "2026-09-11T13:38:30+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -4082,16 +4082,16 @@
       "FFUSDT",
       "LABUSDT",
       "EIGENUSDT",
-      "BTWUSDT",
-      "GRVTUSDT",
       "TRUTHUSDT",
-      "NEARUSDT",
       "PENDLEUSDT",
-      "AEROUSDT",
-      "USELESSUSDT",
       "SOPHUSDT",
+      "NEARUSDT",
+      "AEROUSDT",
+      "GRVTUSDT",
+      "BTWUSDT",
       "PONSUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "USELESSUSDT"
     ]
   }
 }
