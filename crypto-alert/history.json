@@ -4189,8 +4189,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T23:38:28+00:00",
-    "shortlist_count": 14,
+    "time": "2026-09-11T23:40:33+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4199,14 +4199,16 @@
       "RIVERUSDT",
       "BEATUSDT",
       "4USDT",
-      "MINAUSDT",
       "MITOUSDT",
+      "MINAUSDT",
       "METUSDT",
       "BSBUSDT",
-      "牛来USDT",
       "CYSUSDT",
       "ZECUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "DASHUSDT",
+      "AEROUSDT",
+      "KAITOUSDT"
     ]
   }
 }
