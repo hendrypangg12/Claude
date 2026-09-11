@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-09-11_23-44-40",
+      "date": "2026-09-11",
+      "time": "23:44",
+      "label": "STORY KANTOR",
+      "title": "Senin itu bukti kalau weekend gak pernah cukup.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-09-11_16-59-34",
       "date": "2026-09-11",
       "time": "16:59",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-09-08_13-31-23",
-      "date": "2026-09-08",
-      "time": "13:31",
-      "label": "STORY KANTOR",
-      "title": "Diskusi kerja 30 menit, keputusannya diambil 5 menit terakhir sama satu orang.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
