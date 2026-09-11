@@ -4111,12 +4111,13 @@
       "funding_rate": 0.0,
       "orderbook_ratio": 0.6639727056953103,
       "time": "2026-09-11T17:06:32+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-11T17:18:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T17:16:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-11T17:18:30+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4130,14 +4131,15 @@
       "MARSCOINUSDT",
       "AEROUSDT",
       "EIGENUSDT",
-      "BSBUSDT",
       "PONSUSDT",
-      "FARTCOINUSDT",
+      "BSBUSDT",
       "ORCAUSDT",
-      "BTWUSDT",
+      "FARTCOINUSDT",
       "FETUSDT",
       "ETHUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "BTWUSDT",
+      "NEARUSDT"
     ]
   }
 }
