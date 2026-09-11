@@ -4115,8 +4115,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T17:10:33+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-11T17:12:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4133,14 +4133,13 @@
       "EIGENUSDT",
       "FARTCOINUSDT",
       "ORCAUSDT",
+      "PONSUSDT",
+      "BTWUSDT",
       "ETHUSDT",
       "FETUSDT",
-      "BTWUSDT",
       "CAKEUSDT",
-      "ZECUSDT",
-      "PONSUSDT",
-      "GRVTUSDT",
-      "NEARUSDT"
+      "NEARUSDT",
+      "ZECUSDT"
     ]
   }
 }
