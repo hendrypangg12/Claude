@@ -4115,8 +4115,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T17:08:33+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-11T17:10:33+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4135,13 +4135,12 @@
       "ORCAUSDT",
       "ETHUSDT",
       "FETUSDT",
-      "CAKEUSDT",
       "BTWUSDT",
-      "PONSUSDT",
-      "NEARUSDT",
+      "CAKEUSDT",
       "ZECUSDT",
-      "STRKUSDT",
-      "GRVTUSDT"
+      "PONSUSDT",
+      "GRVTUSDT",
+      "NEARUSDT"
     ]
   }
 }
