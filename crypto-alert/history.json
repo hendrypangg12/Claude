@@ -4091,7 +4091,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T15:24:25+00:00",
+    "time": "2026-09-11T15:26:32+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4110,21 +4110,21 @@
       "AEROUSDT",
       "FARTCOINUSDT",
       "VVVUSDT",
-      "ETHUSDT",
       "BTWUSDT",
       "UNIUSDT",
+      "ETHUSDT",
       "FETUSDT",
       "PENDLEUSDT",
       "SOPHUSDT",
       "REZUSDT",
       "LITUSDT",
-      "BCHUSDT",
-      "INJUSDT",
       "CAKEUSDT",
       "MONUSDT",
+      "BCHUSDT",
+      "INJUSDT",
       "ORCAUSDT",
-      "WLDUSDT",
-      "KAITOUSDT"
+      "KAITOUSDT",
+      "WLDUSDT"
     ]
   }
 }
