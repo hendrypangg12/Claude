@@ -4091,7 +4091,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T14:58:28+00:00",
+    "time": "2026-09-11T15:00:46+00:00",
     "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
@@ -4114,15 +4114,15 @@
       "AEROUSDT",
       "ETHUSDT",
       "UNIUSDT",
-      "LITUSDT",
       "SOPHUSDT",
+      "LITUSDT",
       "FARTCOINUSDT",
-      "FETUSDT",
       "MONUSDT",
-      "WLDUSDT",
+      "FETUSDT",
       "RUNEUSDT",
-      "CAKEUSDT",
-      "ORCAUSDT"
+      "ORCAUSDT",
+      "WLDUSDT",
+      "CAKEUSDT"
     ]
   }
 }
