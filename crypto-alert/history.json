@@ -4188,9 +4188,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T22:22:30+00:00",
-    "shortlist_count": 11,
-    "confirmed_count": 1,
+    "time": "2026-09-11T22:24:26+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
       "龙虾USDT",
@@ -4202,7 +4202,8 @@
       "METUSDT",
       "MITOUSDT",
       "BSBUSDT",
-      "UAIUSDT"
+      "UAIUSDT",
+      "AEROUSDT"
     ]
   }
 }
