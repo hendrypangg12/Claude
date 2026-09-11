@@ -4140,8 +4140,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T19:52:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-11T19:54:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4152,13 +4152,14 @@
       "MINAUSDT",
       "BEATUSDT",
       "BSBUSDT",
-      "MITOUSDT",
       "REZUSDT",
+      "MITOUSDT",
       "UAIUSDT",
       "ORCAUSDT",
       "AEROUSDT",
       "ZECUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "PONSUSDT"
     ]
   }
 }
