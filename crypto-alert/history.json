@@ -67,7 +67,8 @@
     "ARXUSDT": "2026-09-08T16:36:34+00:00",
     "VTHOUSDT": "2026-09-10T11:28:35+00:00",
     "牛来USDT": "2026-09-11T05:48:24+00:00",
-    "SOPHUSDT": "2026-09-11T10:08:26+00:00"
+    "SOPHUSDT": "2026-09-11T10:08:26+00:00",
+    "STORJUSDT": "2026-09-11T17:06:32+00:00"
   },
   "alerts": [
     {
@@ -4088,12 +4089,35 @@
       "time": "2026-09-11T14:16:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-11T14:26:25+00:00"
+    },
+    {
+      "symbol": "STORJUSDT",
+      "pct": 9.04,
+      "price": 0.04764,
+      "quote_volume": 354233.20432,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.41583352545043856,
+      "retrace_pct": 1.2847078325735508,
+      "wick_ratio": 0.0,
+      "rsi": 67.53317502056629,
+      "divergence": false,
+      "vol_spike": 0.2792649371642658,
+      "btc_pct": 0.126801854219806,
+      "sl": 0.0487426,
+      "tp1": 0.046731999999999996,
+      "tp2": 0.045788,
+      "tp3": 0.04426,
+      "funding_rate": 0.0,
+      "orderbook_ratio": 0.6639727056953103,
+      "time": "2026-09-11T17:06:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T17:04:26+00:00",
+    "time": "2026-09-11T17:06:32+00:00",
     "shortlist_count": 24,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "STORJUSDT",
       "龙虾USDT",
@@ -4105,20 +4129,20 @@
       "哈基米USDT",
       "MARSCOINUSDT",
       "AEROUSDT",
-      "BSBUSDT",
       "EIGENUSDT",
+      "BSBUSDT",
       "FARTCOINUSDT",
       "ORCAUSDT",
-      "BTWUSDT",
       "FETUSDT",
-      "CAKEUSDT",
       "ETHUSDT",
+      "CAKEUSDT",
+      "BTWUSDT",
       "NEARUSDT",
-      "STRKUSDT",
-      "PONSUSDT",
       "ZECUSDT",
-      "KAITOUSDT",
-      "GRVTUSDT"
+      "PONSUSDT",
+      "STRKUSDT",
+      "GRVTUSDT",
+      "KAITOUSDT"
     ]
   }
 }
