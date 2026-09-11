@@ -4160,12 +4160,13 @@
       "funding_rate": 0.015,
       "orderbook_ratio": 1.5238322688233976,
       "time": "2026-09-11T20:54:26+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-11T21:02:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T21:00:54+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-11T21:02:27+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4181,8 +4182,9 @@
       "MITOUSDT",
       "REZUSDT",
       "AEROUSDT",
-      "ETHFIUSDT",
-      "ZECUSDT"
+      "哈基米USDT",
+      "ZECUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
