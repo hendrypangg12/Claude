@@ -4135,12 +4135,13 @@
       "funding_rate": 0.061,
       "orderbook_ratio": 1.447459186380072,
       "time": "2026-09-11T18:53:01+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-11T19:00:47+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T18:58:29+00:00",
-    "shortlist_count": 14,
+    "time": "2026-09-11T19:00:47+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4148,15 +4149,14 @@
       "LABUSDT",
       "METUSDT",
       "BEATUSDT",
-      "牛来USDT",
       "4USDT",
       "MINAUSDT",
-      "MARSCOINUSDT",
+      "牛来USDT",
       "BSBUSDT",
+      "MARSCOINUSDT",
       "哈基米USDT",
       "AEROUSDT",
-      "ORCAUSDT",
-      "REZUSDT"
+      "ORCAUSDT"
     ]
   }
 }
