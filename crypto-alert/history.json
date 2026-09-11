@@ -4037,25 +4037,27 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.21482083448666525,
       "time": "2026-09-11T05:48:24+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-11T05:54:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T05:52:25+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-11T05:54:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "牛来USDT",
       "哈基米USDT",
       "龙虾USDT",
       "FFUSDT",
+      "RUNEUSDT",
       "BTWUSDT",
+      "METUSDT",
       "ETHFIUSDT",
       "MARSCOINUSDT",
-      "RUNEUSDT",
-      "METUSDT",
+      "FOLKSUSDT",
       "EIGENUSDT",
-      "FOLKSUSDT"
+      "DOTUSDT"
     ]
   }
 }
