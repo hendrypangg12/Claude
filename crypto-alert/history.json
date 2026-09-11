@@ -4062,11 +4062,12 @@
       "funding_rate": -0.134,
       "orderbook_ratio": 0.9016645925373628,
       "time": "2026-09-11T10:08:26+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-11T10:16:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T10:14:32+00:00",
+    "time": "2026-09-11T10:16:30+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -4076,10 +4077,10 @@
       "LABUSDT",
       "METUSDT",
       "FFUSDT",
-      "SOPHUSDT",
-      "PONSUSDT",
       "4USDT",
+      "PONSUSDT",
       "BTWUSDT",
+      "SOPHUSDT",
       "GRVTUSDT",
       "EIGENUSDT",
       "龙虾USDT",
