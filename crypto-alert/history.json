@@ -4091,7 +4091,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T15:44:28+00:00",
+    "time": "2026-09-11T15:46:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4114,17 +4114,17 @@
       "REZUSDT",
       "UNIUSDT",
       "PENDLEUSDT",
-      "LITUSDT",
-      "CAKEUSDT",
       "ORCAUSDT",
+      "CAKEUSDT",
       "VVVUSDT",
-      "BSBUSDT",
+      "LITUSDT",
       "FETUSDT",
-      "BCHUSDT",
       "KAITOUSDT",
+      "BSBUSDT",
+      "BCHUSDT",
+      "USELESSUSDT",
       "GRVTUSDT",
-      "RUNEUSDT",
-      "BNBUSDT"
+      "WLDUSDT"
     ]
   }
 }
