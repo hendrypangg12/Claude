@@ -4067,7 +4067,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T10:52:25+00:00",
+    "time": "2026-09-11T10:54:23+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -4077,11 +4077,11 @@
       "MARSCOINUSDT",
       "METUSDT",
       "FFUSDT",
-      "PONSUSDT",
       "4USDT",
-      "SOPHUSDT",
       "BTWUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "PONSUSDT",
+      "SOPHUSDT"
     ]
   }
 }
