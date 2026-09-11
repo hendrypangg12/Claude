@@ -66,7 +66,8 @@
     "METUSDT": "2026-09-06T03:48:22+00:00",
     "ARXUSDT": "2026-09-08T16:36:34+00:00",
     "VTHOUSDT": "2026-09-10T11:28:35+00:00",
-    "牛来USDT": "2026-09-11T05:48:24+00:00"
+    "牛来USDT": "2026-09-11T05:48:24+00:00",
+    "SOPHUSDT": "2026-09-11T10:08:26+00:00"
   },
   "alerts": [
     {
@@ -4039,24 +4040,47 @@
       "time": "2026-09-11T05:48:24+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-11T05:54:27+00:00"
+    },
+    {
+      "symbol": "SOPHUSDT",
+      "pct": 8.32,
+      "price": 0.004562,
+      "quote_volume": 239479.057768,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.43633371547756766,
+      "retrace_pct": 1.255411255411253,
+      "wick_ratio": 0.4078947368421041,
+      "rsi": 69.83212149940788,
+      "divergence": false,
+      "vol_spike": 0.5103110996501754,
+      "btc_pct": 0.245049716305064,
+      "sl": 0.0046662,
+      "tp1": 0.0044843899999999996,
+      "tp2": 0.00440061,
+      "tp3": 0.004265,
+      "funding_rate": -0.134,
+      "orderbook_ratio": 0.9016645925373628,
+      "time": "2026-09-11T10:08:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T10:06:31+00:00",
+    "time": "2026-09-11T10:08:26+00:00",
     "shortlist_count": 14,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "牛来USDT",
       "哈基米USDT",
       "MARSCOINUSDT",
       "METUSDT",
       "LABUSDT",
-      "SOPHUSDT",
       "4USDT",
       "FFUSDT",
-      "PONSUSDT",
+      "SOPHUSDT",
       "BTWUSDT",
       "EIGENUSDT",
+      "PONSUSDT",
       "ETHFIUSDT",
       "龙虾USDT",
       "GRVTUSDT"
