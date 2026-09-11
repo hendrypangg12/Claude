@@ -4091,8 +4091,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T17:02:34+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-11T17:04:26+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4105,18 +4105,20 @@
       "哈基米USDT",
       "MARSCOINUSDT",
       "AEROUSDT",
-      "EIGENUSDT",
       "BSBUSDT",
+      "EIGENUSDT",
       "FARTCOINUSDT",
       "ORCAUSDT",
       "BTWUSDT",
       "FETUSDT",
-      "ETHUSDT",
       "CAKEUSDT",
+      "ETHUSDT",
       "NEARUSDT",
-      "ZECUSDT",
       "STRKUSDT",
-      "KAITOUSDT"
+      "PONSUSDT",
+      "ZECUSDT",
+      "KAITOUSDT",
+      "GRVTUSDT"
     ]
   }
 }
