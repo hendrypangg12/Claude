@@ -4091,8 +4091,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T16:20:33+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-11T16:22:28+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4111,16 +4111,15 @@
       "AEROUSDT",
       "ORCAUSDT",
       "BSBUSDT",
-      "NEARUSDT",
       "CAKEUSDT",
+      "NEARUSDT",
       "KAITOUSDT",
-      "VVVUSDT",
-      "GRVTUSDT",
-      "FETUSDT",
-      "ETHUSDT",
       "USELESSUSDT",
-      "REZUSDT",
-      "PENDLEUSDT"
+      "ETHUSDT",
+      "FETUSDT",
+      "GRVTUSDT",
+      "VVVUSDT",
+      "LITUSDT"
     ]
   }
 }
