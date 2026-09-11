@@ -4116,8 +4116,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-11T18:16:28+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-11T18:18:27+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4127,14 +4127,16 @@
       "METUSDT",
       "4USDT",
       "MINAUSDT",
-      "哈基米USDT",
       "BEATUSDT",
+      "哈基米USDT",
       "AEROUSDT",
       "BSBUSDT",
       "MARSCOINUSDT",
-      "RUNEUSDT",
       "ORCAUSDT",
-      "FARTCOINUSDT"
+      "RUNEUSDT",
+      "FARTCOINUSDT",
+      "ZECUSDT",
+      "CAKEUSDT"
     ]
   }
 }
