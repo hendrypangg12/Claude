@@ -4189,7 +4189,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T01:10:40+00:00",
+    "time": "2026-09-12T01:12:29+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -4204,12 +4204,12 @@
       "4USDT",
       "MITOUSDT",
       "VTHOUSDT",
-      "BSBUSDT",
       "METUSDT",
+      "BSBUSDT",
       "ZECUSDT",
-      "CYSUSDT",
       "DOSUSDT",
-      "KAITOUSDT"
+      "KAITOUSDT",
+      "CYSUSDT"
     ]
   }
 }
