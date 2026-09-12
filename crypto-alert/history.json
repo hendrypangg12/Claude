@@ -69,7 +69,7 @@
     "牛来USDT": "2026-09-11T05:48:24+00:00",
     "SOPHUSDT": "2026-09-11T10:08:26+00:00",
     "STORJUSDT": "2026-09-11T22:22:30+00:00",
-    "LABUSDT": "2026-09-11T20:54:26+00:00"
+    "LABUSDT": "2026-09-12T04:04:28+00:00"
   },
   "alerts": [
     {
@@ -4210,35 +4210,58 @@
       "time": "2026-09-12T03:40:34+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-12T03:48:24+00:00"
+    },
+    {
+      "symbol": "LABUSDT",
+      "pct": 8.65,
+      "price": 0.07557,
+      "quote_volume": 1045892.13945,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5455606818824283,
+      "retrace_pct": 0.5657894736842103,
+      "wick_ratio": 0.24166666666666695,
+      "rsi": 77.64693370313725,
+      "divergence": false,
+      "vol_spike": 0.18648748530088224,
+      "btc_pct": 0.03470803194589246,
+      "sl": 0.07676,
+      "tp1": 0.0736889,
+      "tp2": 0.0722611,
+      "tp3": 0.06995,
+      "funding_rate": 0.008,
+      "orderbook_ratio": 0.7147398349295125,
+      "time": "2026-09-12T04:04:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T04:02:25+00:00",
+    "time": "2026-09-12T04:04:28+00:00",
     "shortlist_count": 22,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "龙虾USDT",
       "STORJUSDT",
       "LABUSDT",
       "RIVERUSDT",
-      "MINAUSDT",
       "BEATUSDT",
+      "MINAUSDT",
       "4USDT",
       "VTHOUSDT",
-      "UAIUSDT",
       "CYSUSDT",
+      "UAIUSDT",
       "TRUTHUSDT",
       "MITOUSDT",
       "SOPHUSDT",
-      "ETHFIUSDT",
       "BSBUSDT",
+      "ETHFIUSDT",
       "ZECUSDT",
       "REZUSDT",
       "XMRUSDT",
       "KAITOUSDT",
       "AEROUSDT",
-      "GRVTUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "GRVTUSDT"
     ]
   }
 }
