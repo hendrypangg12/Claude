@@ -4237,8 +4237,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T06:32:33+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-12T06:34:26+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -4255,13 +4255,14 @@
       "TRUTHUSDT",
       "MITOUSDT",
       "UAIUSDT",
-      "XMRUSDT",
       "ETHFIUSDT",
-      "KAITOUSDT",
       "REZUSDT",
-      "GIGGLEUSDT",
+      "KAITOUSDT",
+      "XMRUSDT",
       "DOSUSDT",
-      "POLUSDT"
+      "GIGGLEUSDT",
+      "POLUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
