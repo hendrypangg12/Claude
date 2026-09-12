@@ -4237,18 +4237,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T12:42:27+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-12T12:44:45+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
-      "STORJUSDT",
       "LABUSDT",
+      "STORJUSDT",
       "ETHFIUSDT",
+      "UAIUSDT",
       "VTHOUSDT",
       "MINAUSDT",
       "RIVERUSDT",
-      "UAIUSDT",
       "4USDT",
       "BEATUSDT",
       "MITOUSDT",
@@ -4262,7 +4262,8 @@
       "PENDLEUSDT",
       "UNIUSDT",
       "TRUTHUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "EIGENUSDT"
     ]
   }
 }
