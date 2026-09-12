@@ -4189,8 +4189,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T01:16:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-12T01:18:26+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4207,10 +4207,11 @@
       "METUSDT",
       "BSBUSDT",
       "ZECUSDT",
-      "CYSUSDT",
       "DOSUSDT",
+      "CYSUSDT",
       "KAITOUSDT",
-      "AEROUSDT"
+      "AEROUSDT",
+      "CAKEUSDT"
     ]
   }
 }
