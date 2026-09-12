@@ -4237,7 +4237,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T13:46:30+00:00",
+    "time": "2026-09-12T13:48:30+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -4247,19 +4247,19 @@
       "GRIFFAINUSDT",
       "VTHOUSDT",
       "ETHFIUSDT",
-      "MINAUSDT",
       "BSBUSDT",
       "RIVERUSDT",
+      "MINAUSDT",
+      "REZUSDT",
       "BEATUSDT",
       "BTWUSDT",
-      "REZUSDT",
       "MITOUSDT",
       "AKEUSDT",
       "WLFIUSDT",
       "SOPHUSDT",
-      "PENDLEUSDT",
       "DOSUSDT",
-      "CYSUSDT"
+      "CYSUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
