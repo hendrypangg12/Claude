@@ -4237,8 +4237,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T15:52:27+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-12T15:54:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -4249,16 +4249,18 @@
       "VTHOUSDT",
       "BSBUSDT",
       "BEATUSDT",
+      "ETHFIUSDT",
       "BTWUSDT",
       "SOPHUSDT",
-      "ETHFIUSDT",
-      "BLUAIUSDT",
-      "AKEUSDT",
-      "MINAUSDT",
       "MITOUSDT",
+      "MINAUSDT",
+      "AKEUSDT",
+      "BLUAIUSDT",
       "REZUSDT",
-      "HEIUSDT",
-      "CYSUSDT"
+      "CYSUSDT",
+      "UNIUSDT",
+      "PENDLEUSDT",
+      "HEIUSDT"
     ]
   }
 }
