@@ -4237,21 +4237,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T13:12:36+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-12T13:14:32+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "LABUSDT",
       "STORJUSDT",
-      "GRIFFAINUSDT",
       "VTHOUSDT",
+      "GRIFFAINUSDT",
+      "BSBUSDT",
       "ETHFIUSDT",
       "RIVERUSDT",
+      "MINAUSDT",
       "BEATUSDT",
       "4USDT",
-      "MINAUSDT",
-      "BSBUSDT",
       "BTWUSDT",
       "WLFIUSDT",
       "MITOUSDT",
@@ -4259,9 +4259,8 @@
       "REZUSDT",
       "AKEUSDT",
       "PENDLEUSDT",
-      "CYSUSDT",
-      "UAIUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "CYSUSDT"
     ]
   }
 }
