@@ -4237,7 +4237,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T12:40:32+00:00",
+    "time": "2026-09-12T12:42:27+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -4245,8 +4245,8 @@
       "STORJUSDT",
       "LABUSDT",
       "ETHFIUSDT",
-      "MINAUSDT",
       "VTHOUSDT",
+      "MINAUSDT",
       "RIVERUSDT",
       "UAIUSDT",
       "4USDT",
@@ -4256,13 +4256,13 @@
       "WLFIUSDT",
       "BTWUSDT",
       "CYSUSDT",
-      "REZUSDT",
       "SOPHUSDT",
+      "REZUSDT",
+      "AKEUSDT",
+      "PENDLEUSDT",
       "UNIUSDT",
       "TRUTHUSDT",
-      "PENDLEUSDT",
-      "AKEUSDT",
-      "PONSUSDT"
+      "USELESSUSDT"
     ]
   }
 }
