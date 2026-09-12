@@ -4237,7 +4237,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T18:06:30+00:00",
+    "time": "2026-09-12T18:09:05+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -4251,19 +4251,19 @@
       "BSBUSDT",
       "BTWUSDT",
       "CYSUSDT",
-      "BEATUSDT",
       "BLUAIUSDT",
       "WLFIUSDT",
-      "MITOUSDT",
+      "BEATUSDT",
       "PENDLEUSDT",
+      "MITOUSDT",
       "ETHFIUSDT",
       "PYTHUSDT",
       "PUMPUSDT",
-      "DOSUSDT",
-      "UNIUSDT",
-      "INJUSDT",
       "SOPHUSDT",
-      "XMRUSDT"
+      "UNIUSDT",
+      "DOSUSDT",
+      "XMRUSDT",
+      "INJUSDT"
     ]
   }
 }
