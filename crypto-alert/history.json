@@ -4189,8 +4189,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T01:38:30+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-12T01:40:35+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4208,13 +4208,14 @@
       "BSBUSDT",
       "METUSDT",
       "CYSUSDT",
-      "DOSUSDT",
       "哈基米USDT",
       "REZUSDT",
-      "UAIUSDT",
+      "DOSUSDT",
       "ZECUSDT",
       "KAITOUSDT",
-      "AEROUSDT"
+      "UAIUSDT",
+      "AEROUSDT",
+      "DASHUSDT"
     ]
   }
 }
