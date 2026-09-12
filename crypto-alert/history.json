@@ -4189,8 +4189,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-12T01:46:27+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-12T01:48:29+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "STORJUSDT",
@@ -4213,10 +4213,9 @@
       "DOSUSDT",
       "KAITOUSDT",
       "ZECUSDT",
-      "UAIUSDT",
       "AEROUSDT",
-      "ETHFIUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "UAIUSDT"
     ]
   }
 }
