@@ -4262,21 +4262,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T08:02:33+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-13T08:04:30+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "STEEMUSDT",
-      "FLOCKUSDT",
       "VTHOUSDT",
+      "FLOCKUSDT",
       "REZUSDT",
       "BULLAUSDT",
-      "BTWUSDT",
       "POWERUSDT",
-      "龙虾USDT",
-      "METUSDT",
+      "BTWUSDT",
       "GRIFFAINUSDT",
-      "DOSUSDT"
+      "METUSDT",
+      "DOSUSDT",
+      "龙虾USDT",
+      "AKEUSDT"
     ]
   }
 }
