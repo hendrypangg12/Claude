@@ -4309,23 +4309,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T11:11:09+00:00",
+    "time": "2026-09-13T11:12:27+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 1,
+    "confirmed_count": 0,
     "symbols": [
       "STEEMUSDT",
-      "FLOCKUSDT",
       "VTHOUSDT",
-      "龙虾USDT",
+      "FLOCKUSDT",
       "REZUSDT",
+      "龙虾USDT",
       "ILVUSDT",
       "POWERUSDT",
       "BULLAUSDT",
       "BTWUSDT",
       "DOSUSDT",
       "GRIFFAINUSDT",
-      "CRVUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "CRVUSDT"
     ]
   }
 }
