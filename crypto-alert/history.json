@@ -4310,12 +4310,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T17:14:24+00:00",
+    "time": "2026-09-13T17:16:29+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
-      "FILUSDT",
       "STEEMUSDT",
+      "FILUSDT",
       "VTHOUSDT",
       "BTWUSDT",
       "POWERUSDT",
@@ -4323,8 +4323,8 @@
       "AVAUSDT",
       "BULLAUSDT",
       "龙虾USDT",
-      "CRVUSDT",
-      "CHZUSDT"
+      "CHZUSDT",
+      "CRVUSDT"
     ]
   }
 }
