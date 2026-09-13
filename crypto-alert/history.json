@@ -69,7 +69,8 @@
     "牛来USDT": "2026-09-11T05:48:24+00:00",
     "SOPHUSDT": "2026-09-11T10:08:26+00:00",
     "STORJUSDT": "2026-09-11T22:22:30+00:00",
-    "LABUSDT": "2026-09-12T04:04:28+00:00"
+    "LABUSDT": "2026-09-12T04:04:28+00:00",
+    "REZUSDT": "2026-09-13T07:36:36+00:00"
   },
   "alerts": [
     {
@@ -4234,12 +4235,35 @@
       "time": "2026-09-12T04:04:28+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-12T04:20:38+00:00"
+    },
+    {
+      "symbol": "REZUSDT",
+      "pct": 8.23,
+      "price": 0.003699,
+      "quote_volume": 824360.727803,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.43867025533117576,
+      "retrace_pct": 0.9638554216867472,
+      "wick_ratio": 0.11111111111111378,
+      "rsi": 68.65644893116973,
+      "divergence": true,
+      "vol_spike": 0.04882207663663551,
+      "btc_pct": -0.03237522287128111,
+      "sl": 0.0037723500000000003,
+      "tp1": 0.003626512,
+      "tp2": 0.003559488,
+      "tp3": 0.003451,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.8876434508999121,
+      "time": "2026-09-13T07:36:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T07:34:29+00:00",
+    "time": "2026-09-13T07:36:36+00:00",
     "shortlist_count": 13,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "STEEMUSDT",
       "FLOCKUSDT",
@@ -4248,9 +4272,9 @@
       "BULLAUSDT",
       "BTWUSDT",
       "POWERUSDT",
-      "龙虾USDT",
-      "METUSDT",
       "GRIFFAINUSDT",
+      "METUSDT",
+      "龙虾USDT",
       "DOSUSDT",
       "PUMPUSDT",
       "PYTHUSDT"
