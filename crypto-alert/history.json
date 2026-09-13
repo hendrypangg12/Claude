@@ -56,7 +56,7 @@
     "ZKPUSDT": "2026-08-31T00:34:26+00:00",
     "ZORAUSDT": "2026-08-31T02:52:26+00:00",
     "SKRUSDT": "2026-09-04T09:24:24+00:00",
-    "POWERUSDT": "2026-08-31T15:46:31+00:00",
+    "POWERUSDT": "2026-09-13T22:56:25+00:00",
     "USELESSUSDT": "2026-09-08T11:48:35+00:00",
     "MARSCOINUSDT": "2026-09-05T10:00:43+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
@@ -4331,12 +4331,35 @@
       "time": "2026-09-13T17:24:31+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-13T17:30:37+00:00"
+    },
+    {
+      "symbol": "POWERUSDT",
+      "pct": 12.72,
+      "price": 0.1241,
+      "quote_volume": 708792.30249,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.28832496602795504,
+      "retrace_pct": 0.648466896165232,
+      "wick_ratio": 0.19753086419752494,
+      "rsi": 73.88769743775671,
+      "divergence": false,
+      "vol_spike": 0.1660778164514388,
+      "btc_pct": -0.19459790084655726,
+      "sl": 0.1261591,
+      "tp1": 0.1195238,
+      "tp2": 0.1161962,
+      "tp3": 0.11081,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.9999912387373968,
+      "time": "2026-09-13T22:56:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T22:54:33+00:00",
+    "time": "2026-09-13T22:56:25+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "POWERUSDT",
       "BTWUSDT",
@@ -4346,8 +4369,8 @@
       "REZUSDT",
       "ARUSDT",
       "BULLAUSDT",
-      "AVAUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "AVAUSDT"
     ]
   }
 }
