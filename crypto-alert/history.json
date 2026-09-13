@@ -4237,7 +4237,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T02:08:29+00:00",
+    "time": "2026-09-13T02:10:32+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -4253,13 +4253,13 @@
       "POWERUSDT",
       "BTWUSDT",
       "BLUAIUSDT",
-      "PUMPUSDT",
-      "PYTHUSDT",
       "PENDLEUSDT",
-      "MARSCOINUSDT",
-      "UNIUSDT",
+      "PYTHUSDT",
+      "PUMPUSDT",
       "WLFIUSDT",
-      "METUSDT"
+      "UNIUSDT",
+      "METUSDT",
+      "MARSCOINUSDT"
     ]
   }
 }
