@@ -4334,21 +4334,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T21:16:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-13T21:18:26+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "POWERUSDT",
       "STEEMUSDT",
       "BTWUSDT",
       "FILUSDT",
-      "REZUSDT",
       "VTHOUSDT",
+      "REZUSDT",
       "ARUSDT",
       "ROSEUSDT",
       "BULLAUSDT",
       "AVAUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "PYTHUSDT"
     ]
   }
 }
