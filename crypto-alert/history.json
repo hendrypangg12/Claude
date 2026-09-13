@@ -4281,12 +4281,13 @@
       "funding_rate": 0.025,
       "orderbook_ratio": 1.01554086584613,
       "time": "2026-09-13T09:38:25+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-09-13T09:44:36+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T09:42:28+00:00",
-    "shortlist_count": 10,
+    "time": "2026-09-13T09:44:36+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "STEEMUSDT",
@@ -4298,7 +4299,8 @@
       "POWERUSDT",
       "BULLAUSDT",
       "DOSUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "PUMPUSDT"
     ]
   }
 }
