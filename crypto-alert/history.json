@@ -4310,21 +4310,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T16:24:26+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-13T16:26:25+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "STEEMUSDT",
+      "VTHOUSDT",
       "POWERUSDT",
       "BTWUSDT",
-      "VTHOUSDT",
-      "REZUSDT",
       "FILUSDT",
-      "BULLAUSDT",
+      "REZUSDT",
       "AVAUSDT",
+      "BULLAUSDT",
       "龙虾USDT",
-      "PHAUSDT",
-      "FLOCKUSDT"
+      "PHAUSDT"
     ]
   }
 }
