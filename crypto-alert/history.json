@@ -4310,12 +4310,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T15:46:24+00:00",
-    "shortlist_count": 12,
+    "time": "2026-09-13T15:48:24+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
-      "STEEMUSDT",
       "BTWUSDT",
+      "STEEMUSDT",
       "REZUSDT",
       "VTHOUSDT",
       "FILUSDT",
@@ -4324,8 +4324,7 @@
       "FLOCKUSDT",
       "BULLAUSDT",
       "龙虾USDT",
-      "PHAUSDT",
-      "DOSUSDT"
+      "PHAUSDT"
     ]
   }
 }
