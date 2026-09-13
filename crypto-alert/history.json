@@ -4305,17 +4305,18 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.6743484120713472,
       "time": "2026-09-13T11:11:09+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-13T11:26:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-13T11:24:30+00:00",
+    "time": "2026-09-13T11:26:28+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "STEEMUSDT",
-      "VTHOUSDT",
       "FLOCKUSDT",
+      "VTHOUSDT",
       "REZUSDT",
       "ILVUSDT",
       "龙虾USDT",
@@ -4324,8 +4325,8 @@
       "BTWUSDT",
       "GRIFFAINUSDT",
       "DOSUSDT",
-      "BSBUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "BSBUSDT"
     ]
   }
 }
