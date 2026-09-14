@@ -4406,8 +4406,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T18:11:27+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-14T18:13:24+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4424,9 +4424,10 @@
       "XPINUSDT",
       "XRPUSDT",
       "LITUSDT",
-      "HEMIUSDT",
       "ZECUSDT",
-      "BLUAIUSDT"
+      "PUMPUSDT",
+      "BLUAIUSDT",
+      "HYPEUSDT"
     ]
   }
 }
