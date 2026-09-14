@@ -4358,18 +4358,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T02:20:37+00:00",
-    "shortlist_count": 8,
+    "time": "2026-09-14T02:22:31+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "POWERUSDT",
-      "BTWUSDT",
       "FILUSDT",
+      "BTWUSDT",
       "VTHOUSDT",
       "ARUSDT",
       "REZUSDT",
+      "PYTHUSDT",
       "CRVUSDT",
-      "PYTHUSDT"
+      "ICPUSDT",
+      "DOSUSDT"
     ]
   }
 }
