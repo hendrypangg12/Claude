@@ -4406,8 +4406,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T20:16:36+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-14T20:18:28+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4420,19 +4420,22 @@
       "PENDLEUSDT",
       "ZECUSDT",
       "XPINUSDT",
-      "NEARUSDT",
       "XRPUSDT",
+      "NEARUSDT",
       "XLMUSDT",
-      "UNIUSDT",
       "LITUSDT",
+      "UNIUSDT",
       "XPLUSDT",
-      "CAKEUSDT",
       "ENAUSDT",
+      "CAKEUSDT",
+      "BLUAIUSDT",
       "INJUSDT",
       "AKEUSDT",
-      "BLUAIUSDT",
       "HYPEUSDT",
-      "FARTCOINUSDT"
+      "FARTCOINUSDT",
+      "PUMPUSDT",
+      "HEMIUSDT",
+      "LINKUSDT"
     ]
   }
 }
