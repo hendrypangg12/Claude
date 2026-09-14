@@ -4406,19 +4406,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T20:28:33+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-14T20:32:29+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "BRUSDT",
       "POWERUSDT",
-      "ARKUSDT",
       "4USDT",
+      "ARKUSDT",
       "PONSUSDT",
       "龙虾USDT",
-      "PENDLEUSDT",
       "ZECUSDT",
+      "PENDLEUSDT",
       "XPINUSDT",
       "NEARUSDT",
       "XRPUSDT",
@@ -4426,15 +4426,14 @@
       "XLMUSDT",
       "UNIUSDT",
       "XPLUSDT",
-      "CAKEUSDT",
       "AKEUSDT",
       "ENAUSDT",
+      "CAKEUSDT",
       "BLUAIUSDT",
-      "HYPEUSDT",
-      "AVAXUSDT",
-      "PUMPUSDT",
       "FARTCOINUSDT",
-      "INJUSDT"
+      "HYPEUSDT",
+      "INJUSDT",
+      "AVAXUSDT"
     ]
   }
 }
