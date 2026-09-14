@@ -4382,7 +4382,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T06:24:29+00:00",
+    "time": "2026-09-14T06:26:27+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -4393,12 +4393,12 @@
       "POWERUSDT",
       "LITUSDT",
       "ARUSDT",
-      "CRVUSDT",
       "AKEUSDT",
+      "CRVUSDT",
       "INJUSDT",
       "PYTHUSDT",
-      "NEARUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "NEARUSDT"
     ]
   }
 }
