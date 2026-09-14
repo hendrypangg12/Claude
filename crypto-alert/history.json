@@ -4382,8 +4382,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T06:06:26+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-14T06:08:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4392,11 +4392,13 @@
       "FILUSDT",
       "POWERUSDT",
       "AKEUSDT",
-      "LITUSDT",
       "ARUSDT",
+      "LITUSDT",
       "CRVUSDT",
       "4USDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "PYTHUSDT",
+      "INJUSDT"
     ]
   }
 }
