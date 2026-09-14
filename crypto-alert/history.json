@@ -4406,8 +4406,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T13:16:41+00:00",
-    "shortlist_count": 12,
+    "time": "2026-09-14T13:18:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4416,12 +4416,14 @@
       "POWERUSDT",
       "ARUSDT",
       "LITUSDT",
-      "CAKEUSDT",
-      "XLMUSDT",
       "PENDLEUSDT",
-      "BTWUSDT",
+      "XLMUSDT",
+      "CAKEUSDT",
       "NEARUSDT",
-      "XPINUSDT"
+      "XPINUSDT",
+      "BLUAIUSDT",
+      "ZECUSDT",
+      "XRPUSDT"
     ]
   }
 }
