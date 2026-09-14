@@ -4406,8 +4406,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T23:08:29+00:00",
-    "shortlist_count": 27,
+    "time": "2026-09-14T23:10:37+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4431,12 +4431,13 @@
       "UNIUSDT",
       "KASUSDT",
       "CAKEUSDT",
-      "PUMPUSDT",
       "BLUAIUSDT",
-      "ENAUSDT",
       "ZENUSDT",
+      "PUMPUSDT",
+      "ENAUSDT",
       "AVAXUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
