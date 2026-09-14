@@ -4382,16 +4382,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T10:00:47+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-14T10:02:30+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "BTWUSDT",
-      "REZUSDT",
       "FILUSDT",
-      "AKEUSDT",
+      "REZUSDT",
       "POWERUSDT",
+      "AKEUSDT",
       "ARUSDT",
       "LITUSDT",
       "PENDLEUSDT",
@@ -4399,13 +4399,11 @@
       "4USDT",
       "ZECUSDT",
       "UAIUSDT",
+      "XLMUSDT",
       "INJUSDT",
       "XRPUSDT",
-      "XLMUSDT",
-      "NEARUSDT",
       "PYTHUSDT",
-      "ICPUSDT",
-      "ONDOUSDT"
+      "NEARUSDT"
     ]
   }
 }
