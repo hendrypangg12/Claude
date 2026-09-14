@@ -4358,8 +4358,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T03:46:25+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-14T03:48:33+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "REZUSDT",
@@ -4368,11 +4368,12 @@
       "FILUSDT",
       "LITUSDT",
       "ARUSDT",
+      "4USDT",
       "INJUSDT",
       "CAKEUSDT",
-      "PENDLEUSDT",
-      "4USDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "GRVTUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
