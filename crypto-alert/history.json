@@ -4406,7 +4406,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T13:12:27+00:00",
+    "time": "2026-09-14T13:14:34+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -4415,13 +4415,13 @@
       "REZUSDT",
       "POWERUSDT",
       "ARUSDT",
-      "XLMUSDT",
       "LITUSDT",
-      "PENDLEUSDT",
       "CAKEUSDT",
+      "XLMUSDT",
+      "PENDLEUSDT",
+      "NEARUSDT",
       "BTWUSDT",
-      "XPINUSDT",
-      "NEARUSDT"
+      "XPINUSDT"
     ]
   }
 }
