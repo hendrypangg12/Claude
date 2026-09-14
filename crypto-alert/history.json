@@ -4406,17 +4406,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T14:30:40+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-14T14:32:32+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
       "AINUSDT",
       "REZUSDT",
-      "POWERUSDT",
       "FILUSDT",
-      "XPINUSDT",
+      "POWERUSDT",
       "4USDT",
+      "XPINUSDT",
       "LITUSDT",
       "CAKEUSDT",
       "UAIUSDT",
@@ -4426,7 +4426,8 @@
       "龙虾USDT",
       "ARUSDT",
       "ZECUSDT",
-      "NEARUSDT"
+      "NEARUSDT",
+      "XRPUSDT"
     ]
   }
 }
