@@ -4406,14 +4406,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T23:44:29+00:00",
+    "time": "2026-09-14T23:46:26+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "BRUSDT",
-      "CYSUSDT",
       "ARKUSDT",
+      "CYSUSDT",
       "PONSUSDT",
       "POWERUSDT",
       "4USDT",
@@ -4427,15 +4427,15 @@
       "LITUSDT",
       "INJUSDT",
       "UNIUSDT",
-      "VVVUSDT",
       "XRPUSDT",
-      "CAKEUSDT",
+      "VVVUSDT",
       "BLUAIUSDT",
-      "PUMPUSDT",
+      "CAKEUSDT",
       "KASUSDT",
-      "AKEUSDT",
+      "PUMPUSDT",
       "ENAUSDT",
-      "HEMIUSDT"
+      "HEMIUSDT",
+      "AKEUSDT"
     ]
   }
 }
