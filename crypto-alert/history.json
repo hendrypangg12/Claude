@@ -4377,11 +4377,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.9915239863708647,
       "time": "2026-09-14T05:22:31+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-14T06:06:26+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T06:04:28+00:00",
+    "time": "2026-09-14T06:06:26+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -4394,8 +4395,8 @@
       "LITUSDT",
       "ARUSDT",
       "CRVUSDT",
-      "CAKEUSDT",
-      "4USDT"
+      "4USDT",
+      "CAKEUSDT"
     ]
   }
 }
