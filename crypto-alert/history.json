@@ -4401,12 +4401,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.2960332816017375,
       "time": "2026-09-14T10:08:25+00:00",
-      "outcome": null
+      "outcome": "tp3_hit",
+      "outcome_time": "2026-09-14T10:14:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-14T10:12:28+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-14T10:14:30+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4416,17 +4417,16 @@
       "POWERUSDT",
       "ARUSDT",
       "LITUSDT",
-      "UAIUSDT",
       "PENDLEUSDT",
       "CAKEUSDT",
-      "4USDT",
       "AKEUSDT",
-      "PONSUSDT",
+      "4USDT",
       "XLMUSDT",
-      "ZECUSDT",
+      "PONSUSDT",
       "XRPUSDT",
-      "INJUSDT",
       "NEARUSDT",
+      "ZECUSDT",
+      "INJUSDT",
       "PYTHUSDT"
     ]
   }
