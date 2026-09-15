@@ -4455,23 +4455,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T17:16:33+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-15T17:18:31+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "AINUSDT",
       "AKEUSDT",
+      "AINUSDT",
       "POWERUSDT",
       "SAGAUSDT",
-      "龙虾USDT",
       "ASTRUSDT",
+      "龙虾USDT",
       "FFUSDT",
       "PLAYUSDT",
       "STORJUSDT",
       "VTHOUSDT",
       "ARBUSDT",
-      "PONSUSDT",
-      "ACEUSDT"
+      "PONSUSDT"
     ]
   }
 }
