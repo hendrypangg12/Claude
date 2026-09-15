@@ -56,7 +56,7 @@
     "ZKPUSDT": "2026-08-31T00:34:26+00:00",
     "ZORAUSDT": "2026-08-31T02:52:26+00:00",
     "SKRUSDT": "2026-09-04T09:24:24+00:00",
-    "POWERUSDT": "2026-09-14T05:22:31+00:00",
+    "POWERUSDT": "2026-09-15T05:30:40+00:00",
     "USELESSUSDT": "2026-09-08T11:48:35+00:00",
     "MARSCOINUSDT": "2026-09-05T10:00:43+00:00",
     "ARBUSDT": "2026-09-02T16:50:33+00:00",
@@ -4428,15 +4428,38 @@
       "time": "2026-09-15T01:06:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-15T01:26:35+00:00"
+    },
+    {
+      "symbol": "POWERUSDT",
+      "pct": 9.61,
+      "price": 0.19646,
+      "quote_volume": 798969.00843,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3960418220735147,
+      "retrace_pct": 1.2515707464186943,
+      "wick_ratio": 0.46715328467153017,
+      "rsi": 65.08757722413657,
+      "divergence": false,
+      "vol_spike": 0.2759954166839545,
+      "btc_pct": -0.14282022246699105,
+      "sl": 0.2009395,
+      "tp1": 0.19228792,
+      "tp2": 0.18817208,
+      "tp3": 0.18151,
+      "funding_rate": 0.013,
+      "orderbook_ratio": 1.4842151991485313,
+      "time": "2026-09-15T05:30:40+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T05:28:30+00:00",
+    "time": "2026-09-15T05:30:40+00:00",
     "shortlist_count": 15,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
-      "POWERUSDT",
       "AINUSDT",
+      "POWERUSDT",
       "CAPUSDT",
       "龙虾USDT",
       "PONSUSDT",
@@ -4447,8 +4470,8 @@
       "CYSUSDT",
       "FFUSDT",
       "PENDLEUSDT",
-      "XLMUSDT",
       "HIVEUSDT",
+      "XLMUSDT",
       "UNIUSDT"
     ]
   }
