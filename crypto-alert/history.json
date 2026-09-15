@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T13:54:36+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-15T13:56:29+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4469,11 +4469,13 @@
       "STORJUSDT",
       "ASTRUSDT",
       "VTHOUSDT",
-      "HEMIUSDT",
       "FFUSDT",
+      "HEMIUSDT",
       "ACEUSDT",
       "USELESSUSDT",
-      "牛来USDT"
+      "牛来USDT",
+      "MINAUSDT",
+      "ARBUSDT"
     ]
   }
 }
