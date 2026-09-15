@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T06:02:28+00:00",
-    "shortlist_count": 14,
+    "time": "2026-09-15T06:04:30+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "POWERUSDT",
@@ -4465,14 +4465,15 @@
       "龙虾USDT",
       "PONSUSDT",
       "FFUSDT",
+      "AKEUSDT",
       "ASTRUSDT",
       "CYSUSDT",
-      "AKEUSDT",
       "BRUSDT",
       "XPINUSDT",
       "PENDLEUSDT",
       "XLMUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "KASUSDT"
     ]
   }
 }
