@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T08:42:30+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-15T08:44:32+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4467,9 +4467,11 @@
       "ASTRUSDT",
       "ACEUSDT",
       "CYSUSDT",
+      "FFUSDT",
       "PONSUSDT",
       "PENDLEUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "XLMUSDT"
     ]
   }
 }
