@@ -4455,12 +4455,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T06:40:34+00:00",
+    "time": "2026-09-15T06:42:30+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
-      "AINUSDT",
       "POWERUSDT",
+      "AINUSDT",
       "CAPUSDT",
       "AKEUSDT",
       "龙虾USDT",
@@ -4470,8 +4470,8 @@
       "BRUSDT",
       "CYSUSDT",
       "PENDLEUSDT",
-      "UNIUSDT",
-      "XLMUSDT"
+      "XLMUSDT",
+      "UNIUSDT"
     ]
   }
 }
