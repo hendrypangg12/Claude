@@ -70,7 +70,8 @@
     "SOPHUSDT": "2026-09-11T10:08:26+00:00",
     "STORJUSDT": "2026-09-11T22:22:30+00:00",
     "LABUSDT": "2026-09-12T04:04:28+00:00",
-    "REZUSDT": "2026-09-13T17:24:31+00:00"
+    "REZUSDT": "2026-09-13T17:24:31+00:00",
+    "AINUSDT": "2026-09-15T01:06:29+00:00"
   },
   "alerts": [
     {
@@ -4403,12 +4404,35 @@
       "time": "2026-09-14T10:08:25+00:00",
       "outcome": "tp3_hit",
       "outcome_time": "2026-09-14T10:14:30+00:00"
+    },
+    {
+      "symbol": "AINUSDT",
+      "pct": 12.17,
+      "price": 0.13,
+      "quote_volume": 875783.98072,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3444865938496624,
+      "retrace_pct": 1.7830160169235425,
+      "wick_ratio": 0.4720194647201937,
+      "rsi": 69.99661017470572,
+      "divergence": false,
+      "vol_spike": 0.19372723427463798,
+      "btc_pct": -0.2529780965799923,
+      "sl": 0.1336836,
+      "tp1": 0.12687448,
+      "tp2": 0.12348552,
+      "tp3": 0.118,
+      "funding_rate": 0.039,
+      "orderbook_ratio": 0.44966351744941624,
+      "time": "2026-09-15T01:06:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T01:04:31+00:00",
-    "shortlist_count": 26,
-    "confirmed_count": 0,
+    "time": "2026-09-15T01:06:29+00:00",
+    "shortlist_count": 25,
+    "confirmed_count": 1,
     "symbols": [
       "AINUSDT",
       "BRUSDT",
@@ -4420,19 +4444,18 @@
       "龙虾USDT",
       "PENDLEUSDT",
       "ZECUSDT",
-      "XPINUSDT",
       "4USDT",
+      "XPINUSDT",
+      "UNIUSDT",
       "XLMUSDT",
       "XPLUSDT",
-      "UNIUSDT",
       "AKEUSDT",
       "NEARUSDT",
-      "ARKUSDT",
       "牛来USDT",
-      "XRPUSDT",
-      "LITUSDT",
       "PUMPUSDT",
       "VVVUSDT",
+      "LITUSDT",
+      "XRPUSDT",
       "ENAUSDT",
       "INJUSDT",
       "BLUAIUSDT"
