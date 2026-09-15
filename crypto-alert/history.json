@@ -4455,7 +4455,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T19:34:34+00:00",
+    "time": "2026-09-15T19:36:30+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -4468,11 +4468,11 @@
       "ASTRUSDT",
       "PLAYUSDT",
       "VTHOUSDT",
-      "GUSDT",
-      "BTWUSDT",
       "STORJUSDT",
+      "GUSDT",
       "PONSUSDT",
-      "ARBUSDT"
+      "ARBUSDT",
+      "BTWUSDT"
     ]
   }
 }
