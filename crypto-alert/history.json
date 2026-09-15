@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T21:34:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-15T21:36:34+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -4467,11 +4467,12 @@
       "VTHOUSDT",
       "ASTRUSDT",
       "GUSDT",
-      "FFUSDT",
-      "PLAYUSDT",
       "BTWUSDT",
+      "PLAYUSDT",
+      "FFUSDT",
       "ACEUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "ARBUSDT"
     ]
   }
 }
