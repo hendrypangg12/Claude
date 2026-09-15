@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T11:58:31+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-15T12:00:48+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4466,14 +4466,16 @@
       "ASTRUSDT",
       "PONSUSDT",
       "STORJUSDT",
-      "BTWUSDT",
       "PLAYUSDT",
-      "CAPUSDT",
       "HEMIUSDT",
       "MINAUSDT",
+      "BTWUSDT",
+      "CAPUSDT",
       "ACEUSDT",
       "UNIUSDT",
-      "FFUSDT"
+      "FFUSDT",
+      "CYSUSDT",
+      "VTHOUSDT"
     ]
   }
 }
