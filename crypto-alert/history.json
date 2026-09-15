@@ -4455,7 +4455,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T06:52:25+00:00",
+    "time": "2026-09-15T06:54:27+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -4467,11 +4467,11 @@
       "PONSUSDT",
       "ASTRUSDT",
       "FFUSDT",
-      "BRUSDT",
       "CYSUSDT",
       "PENDLEUSDT",
       "UNIUSDT",
-      "XLMUSDT"
+      "XLMUSDT",
+      "BRUSDT"
     ]
   }
 }
