@@ -4426,11 +4426,12 @@
       "funding_rate": 0.039,
       "orderbook_ratio": 0.44966351744941624,
       "time": "2026-09-15T01:06:29+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-15T01:26:35+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T01:24:29+00:00",
+    "time": "2026-09-15T01:26:35+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -4440,24 +4441,24 @@
       "PONSUSDT",
       "CYSUSDT",
       "HIVEUSDT",
-      "POWERUSDT",
       "龙虾USDT",
       "PENDLEUSDT",
-      "4USDT",
+      "POWERUSDT",
       "XPINUSDT",
+      "4USDT",
       "ZECUSDT",
-      "UNIUSDT",
-      "XPLUSDT",
       "XLMUSDT",
       "AKEUSDT",
+      "XPLUSDT",
+      "UNIUSDT",
       "NEARUSDT",
       "XRPUSDT",
-      "ENAUSDT",
       "VVVUSDT",
+      "ENAUSDT",
       "PUMPUSDT",
-      "BLUAIUSDT",
+      "LITUSDT",
       "INJUSDT",
-      "LITUSDT"
+      "BLUAIUSDT"
     ]
   }
 }
