@@ -4431,8 +4431,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T05:02:31+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-15T05:04:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4443,13 +4443,14 @@
       "ASTRUSDT",
       "AKEUSDT",
       "XPINUSDT",
-      "BRUSDT",
       "CYSUSDT",
+      "BRUSDT",
       "XLMUSDT",
-      "FFUSDT",
       "PENDLEUSDT",
       "HIVEUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "FFUSDT",
+      "KASUSDT"
     ]
   }
 }
