@@ -4455,8 +4455,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-15T14:32:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-15T14:34:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -4465,13 +4465,14 @@
       "PLAYUSDT",
       "龙虾USDT",
       "SAGAUSDT",
-      "FFUSDT",
       "ASTRUSDT",
+      "FFUSDT",
       "VTHOUSDT",
-      "PONSUSDT",
       "STORJUSDT",
       "HEMIUSDT",
-      "ACEUSDT"
+      "PONSUSDT",
+      "ACEUSDT",
+      "MINAUSDT"
     ]
   }
 }
