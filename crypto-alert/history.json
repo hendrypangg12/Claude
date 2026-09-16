@@ -4480,8 +4480,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T23:30:40+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-16T23:32:37+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -4490,11 +4490,11 @@
       "HEIUSDT",
       "ZECUSDT",
       "SKYAIUSDT",
-      "龙虾USDT",
       "LITUSDT",
+      "龙虾USDT",
       "IOSTUSDT",
-      "NEARUSDT",
       "DASHUSDT",
+      "NEARUSDT",
       "ARBUSDT",
       "ZENUSDT",
       "BTWUSDT",
@@ -4502,12 +4502,15 @@
       "VVVUSDT",
       "CCUSDT",
       "DOTUSDT",
-      "REZUSDT",
-      "USELESSUSDT",
       "ENAUSDT",
       "TIAUSDT",
       "MARSCOINUSDT",
-      "ONDOUSDT"
+      "REZUSDT",
+      "AEROUSDT",
+      "CAKEUSDT",
+      "ONDOUSDT",
+      "USELESSUSDT",
+      "STRKUSDT"
     ]
   }
 }
