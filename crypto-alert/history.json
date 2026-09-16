@@ -4480,22 +4480,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T15:22:32+00:00",
-    "shortlist_count": 12,
+    "time": "2026-09-16T15:24:31+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "SYNUSDT",
       "BRUSDT",
-      "HEIUSDT",
       "BULLAUSDT",
+      "HEIUSDT",
       "4USDT",
+      "USELESSUSDT",
       "ARBUSDT",
       "SKYAIUSDT",
-      "USELESSUSDT",
       "ZECUSDT",
-      "IOSTUSDT",
       "龙虾USDT",
-      "BTWUSDT"
+      "IOSTUSDT",
+      "BTWUSDT",
+      "DASHUSDT"
     ]
   }
 }
