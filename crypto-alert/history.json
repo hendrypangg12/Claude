@@ -4480,8 +4480,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T23:26:35+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-16T23:28:26+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -4494,8 +4494,8 @@
       "IOSTUSDT",
       "龙虾USDT",
       "NEARUSDT",
-      "ARBUSDT",
       "DASHUSDT",
+      "ARBUSDT",
       "ZENUSDT",
       "BTWUSDT",
       "SOPHUSDT",
@@ -4504,7 +4504,9 @@
       "CCUSDT",
       "ENAUSDT",
       "REZUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "TIAUSDT",
+      "ONDOUSDT"
     ]
   }
 }
