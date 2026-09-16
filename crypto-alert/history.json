@@ -71,7 +71,8 @@
     "STORJUSDT": "2026-09-11T22:22:30+00:00",
     "LABUSDT": "2026-09-12T04:04:28+00:00",
     "REZUSDT": "2026-09-13T17:24:31+00:00",
-    "AINUSDT": "2026-09-15T01:06:29+00:00"
+    "AINUSDT": "2026-09-15T01:06:29+00:00",
+    "CROSSUSDT": "2026-09-16T07:00:45+00:00"
   },
   "alerts": [
     {
@@ -4452,22 +4453,45 @@
       "time": "2026-09-15T05:30:40+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-15T05:40:42+00:00"
+    },
+    {
+      "symbol": "CROSSUSDT",
+      "pct": 8.45,
+      "price": 0.14078,
+      "quote_volume": 201751.21232,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.10842464010626461,
+      "retrace_pct": 0.8521726882174918,
+      "wick_ratio": 0.8632478632478693,
+      "rsi": 65.2431715396392,
+      "divergence": true,
+      "vol_spike": 0.034050148619059334,
+      "btc_pct": 0.12408616532781876,
+      "sl": 0.1434099,
+      "tp1": 0.13776508,
+      "tp2": 0.13515491999999998,
+      "tp3": 0.13093,
+      "funding_rate": 0.003,
+      "orderbook_ratio": 0.9075820886508358,
+      "time": "2026-09-16T07:00:45+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T06:58:31+00:00",
+    "time": "2026-09-16T07:00:45+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "SYNUSDT",
       "AKEUSDT",
       "龙虾USDT",
       "USELESSUSDT",
-      "CROSSUSDT",
       "MARSCOINUSDT",
+      "CROSSUSDT",
       "ARBUSDT",
-      "GUSDT",
       "BTWUSDT",
+      "GUSDT",
       "SAGAUSDT"
     ]
   }
