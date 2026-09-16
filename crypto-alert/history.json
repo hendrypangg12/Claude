@@ -4480,7 +4480,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T22:28:35+00:00",
+    "time": "2026-09-16T22:30:40+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -4494,16 +4494,16 @@
       "IOSTUSDT",
       "NEARUSDT",
       "LITUSDT",
-      "ARBUSDT",
       "DASHUSDT",
+      "ARBUSDT",
       "ZENUSDT",
       "VVVUSDT",
-      "CCUSDT",
       "BTWUSDT",
+      "CCUSDT",
       "DOTUSDT",
       "USELESSUSDT",
-      "MARSCOINUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "MARSCOINUSDT"
     ]
   }
 }
