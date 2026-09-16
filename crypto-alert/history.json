@@ -4480,8 +4480,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T15:50:46+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-16T15:52:36+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "SYNUSDT",
@@ -4496,10 +4496,9 @@
       "IOSTUSDT",
       "BTWUSDT",
       "ARBUSDT",
-      "NEARUSDT",
       "GUSDT",
-      "DASHUSDT",
-      "ZENUSDT"
+      "NEARUSDT",
+      "DASHUSDT"
     ]
   }
 }
