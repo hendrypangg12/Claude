@@ -4480,15 +4480,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T18:44:33+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-16T18:46:41+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
       "SYNUSDT",
       "BULLAUSDT",
-      "ZECUSDT",
       "HEIUSDT",
+      "ZECUSDT",
       "SKYAIUSDT",
       "龙虾USDT",
       "ARBUSDT",
@@ -4497,14 +4497,16 @@
       "NEARUSDT",
       "ZENUSDT",
       "LITUSDT",
+      "CROSSUSDT",
       "ENAUSDT",
       "IOSTUSDT",
       "BTWUSDT",
-      "CROSSUSDT",
       "PUMPUSDT",
-      "HYPEUSDT",
       "MARSCOINUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "HYPEUSDT",
+      "4USDT",
+      "DOTUSDT"
     ]
   }
 }
