@@ -4475,12 +4475,13 @@
       "funding_rate": 0.003,
       "orderbook_ratio": 0.9075820886508358,
       "time": "2026-09-16T07:00:45+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-16T07:08:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T07:06:28+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-16T07:08:30+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "SYNUSDT",
@@ -4489,11 +4490,12 @@
       "USELESSUSDT",
       "ARBUSDT",
       "MARSCOINUSDT",
-      "CROSSUSDT",
       "SAGAUSDT",
       "GUSDT",
+      "CROSSUSDT",
       "BTWUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "牛来USDT"
     ]
   }
 }
