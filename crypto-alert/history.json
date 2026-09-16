@@ -4480,8 +4480,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T18:02:28+00:00",
-    "shortlist_count": 11,
+    "time": "2026-09-16T18:04:35+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -4493,8 +4493,10 @@
       "ZECUSDT",
       "BTWUSDT",
       "IOSTUSDT",
+      "LITUSDT",
       "USELESSUSDT",
-      "LITUSDT"
+      "ARBUSDT",
+      "PUMPUSDT"
     ]
   }
 }
