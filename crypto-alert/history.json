@@ -4480,8 +4480,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-16T18:48:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-16T18:50:39+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -4494,19 +4494,20 @@
       "ARBUSDT",
       "DASHUSDT",
       "USELESSUSDT",
-      "ZENUSDT",
-      "NEARUSDT",
-      "LITUSDT",
       "IOSTUSDT",
+      "ZENUSDT",
+      "LITUSDT",
       "CROSSUSDT",
+      "NEARUSDT",
       "ENAUSDT",
       "BTWUSDT",
-      "PUMPUSDT",
-      "4USDT",
       "MARSCOINUSDT",
+      "PUMPUSDT",
       "HYPEUSDT",
+      "DOTUSDT",
       "ZROUSDT",
-      "DOTUSDT"
+      "4USDT",
+      "ASTERUSDT"
     ]
   }
 }
