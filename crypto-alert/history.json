@@ -4505,13 +4505,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-17T02:16:24+00:00",
+    "time": "2026-09-17T02:18:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
-      "SYNUSDT",
       "ONEUSDT",
+      "SYNUSDT",
       "BULLAUSDT",
       "ZECUSDT",
       "IOSTUSDT",
@@ -4521,24 +4521,24 @@
       "LITUSDT",
       "龙虾USDT",
       "NEARUSDT",
-      "ZENUSDT",
       "HEIUSDT",
+      "ZENUSDT",
       "VVVUSDT",
-      "ENAUSDT",
       "ONDOUSDT",
-      "ARBUSDT",
-      "PUMPUSDT",
-      "SOPHUSDT",
-      "IOUSDT",
-      "DOTUSDT",
-      "TIAUSDT",
+      "ENAUSDT",
       "BTWUSDT",
+      "PUMPUSDT",
+      "ARBUSDT",
+      "SOPHUSDT",
+      "DOTUSDT",
+      "IOUSDT",
+      "TIAUSDT",
       "CCUSDT",
-      "UNIUSDT",
-      "USELESSUSDT",
-      "STRKUSDT",
       "LDOUSDT",
-      "CAKEUSDT"
+      "UNIUSDT",
+      "ASTERUSDT",
+      "STRKUSDT",
+      "POLUSDT"
     ]
   }
 }
