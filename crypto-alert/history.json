@@ -73,7 +73,8 @@
     "REZUSDT": "2026-09-13T17:24:31+00:00",
     "AINUSDT": "2026-09-15T01:06:29+00:00",
     "CROSSUSDT": "2026-09-16T07:00:45+00:00",
-    "IOUSDT": "2026-09-17T00:18:30+00:00"
+    "IOUSDT": "2026-09-17T00:18:30+00:00",
+    "AVAUSDT": "2026-09-17T11:54:27+00:00"
   },
   "alerts": [
     {
@@ -4526,12 +4527,35 @@
       "time": "2026-09-17T07:10:47+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-17T07:24:28+00:00"
+    },
+    {
+      "symbol": "AVAUSDT",
+      "pct": 14.38,
+      "price": 0.3242,
+      "quote_volume": 574508.7384,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.49642391915653894,
+      "retrace_pct": 1.5786278081360163,
+      "wick_ratio": 0.0,
+      "rsi": 67.66685170028924,
+      "divergence": false,
+      "vol_spike": 0.22644839407847192,
+      "btc_pct": -0.17069522497193984,
+      "sl": 0.33269400000000005,
+      "tp1": 0.3135852,
+      "tp2": 0.3038148,
+      "tp3": 0.288,
+      "funding_rate": -0.983,
+      "orderbook_ratio": 0.3706320513369442,
+      "time": "2026-09-17T11:54:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-17T11:52:28+00:00",
+    "time": "2026-09-17T11:54:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AVAUSDT",
       "ONEUSDT",
@@ -4546,23 +4570,23 @@
       "REZUSDT",
       "CAKEUSDT",
       "ASTERUSDT",
-      "MARSCOINUSDT",
       "PONSUSDT",
+      "MARSCOINUSDT",
       "IOUSDT",
+      "龙虾USDT",
+      "UNIUSDT",
       "APTUSDT",
       "GALAUSDT",
-      "龙虾USDT",
       "DOTUSDT",
-      "UNIUSDT",
       "PUMPUSDT",
-      "ZENUSDT",
-      "LDOUSDT",
-      "ONDOUSDT",
       "DASHUSDT",
-      "KASUSDT",
-      "RENDERUSDT",
+      "ONDOUSDT",
+      "LDOUSDT",
       "LABUSDT",
-      "TIAUSDT"
+      "ZENUSDT",
+      "RENDERUSDT",
+      "KASUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
