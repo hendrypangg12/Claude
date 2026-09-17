@@ -72,7 +72,8 @@
     "LABUSDT": "2026-09-12T04:04:28+00:00",
     "REZUSDT": "2026-09-13T17:24:31+00:00",
     "AINUSDT": "2026-09-15T01:06:29+00:00",
-    "CROSSUSDT": "2026-09-16T07:00:45+00:00"
+    "CROSSUSDT": "2026-09-16T07:00:45+00:00",
+    "IOUSDT": "2026-09-17T00:18:30+00:00"
   },
   "alerts": [
     {
@@ -4477,12 +4478,35 @@
       "time": "2026-09-16T07:00:45+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-16T07:08:30+00:00"
+    },
+    {
+      "symbol": "IOUSDT",
+      "pct": 12.71,
+      "price": 0.13351,
+      "quote_volume": 458893.57278,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5277825100699571,
+      "retrace_pct": 1.9750367107195288,
+      "wick_ratio": 0.8373983739837402,
+      "rsi": 65.84448552402685,
+      "divergence": true,
+      "vol_spike": 0.05080326780080859,
+      "btc_pct": 0.2364531631763197,
+      "sl": 0.137562,
+      "tp1": 0.13033248,
+      "tp2": 0.12670752,
+      "tp3": 0.12084,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 2.0291898807306716,
+      "time": "2026-09-17T00:18:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-17T00:16:29+00:00",
+    "time": "2026-09-17T00:18:30+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BRUSDT",
       "SYNUSDT",
@@ -4490,30 +4514,30 @@
       "ZECUSDT",
       "SKYAIUSDT",
       "LITUSDT",
-      "HEIUSDT",
       "NEARUSDT",
       "CCUSDT",
-      "VVVUSDT",
+      "HEIUSDT",
       "DASHUSDT",
-      "IOSTUSDT",
-      "龙虾USDT",
+      "VVVUSDT",
       "ARBUSDT",
+      "IOSTUSDT",
       "ZENUSDT",
-      "IOUSDT",
-      "DOTUSDT",
-      "BTWUSDT",
       "SOPHUSDT",
+      "IOUSDT",
+      "龙虾USDT",
+      "DOTUSDT",
+      "MARSCOINUSDT",
       "ENAUSDT",
       "ONDOUSDT",
-      "MARSCOINUSDT",
-      "TIAUSDT",
-      "UNIUSDT",
-      "XLMUSDT",
+      "BTWUSDT",
       "USELESSUSDT",
+      "TIAUSDT",
+      "XLMUSDT",
+      "UNIUSDT",
       "STRKUSDT",
-      "AEROUSDT",
       "POLUSDT",
-      "SUIUSDT"
+      "AEROUSDT",
+      "REZUSDT"
     ]
   }
 }
