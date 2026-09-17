@@ -4529,7 +4529,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-17T08:32:25+00:00",
+    "time": "2026-09-17T08:34:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4546,23 +4546,23 @@
       "ZENUSDT",
       "SAGAUSDT",
       "VVVUSDT",
-      "CCUSDT",
       "HEIUSDT",
-      "PUMPUSDT",
-      "ASTERUSDT",
-      "UNIUSDT",
       "PONSUSDT",
-      "ENAUSDT",
+      "CCUSDT",
+      "PUMPUSDT",
+      "UNIUSDT",
       "UAIUSDT",
+      "ASTERUSDT",
+      "ENAUSDT",
       "IOUSDT",
       "DOSUSDT",
-      "ZROUSDT",
-      "ONDOUSDT",
       "TIAUSDT",
-      "LABUSDT",
+      "ONDOUSDT",
+      "ZROUSDT",
       "APTUSDT",
       "PENGUUSDT",
-      "DOTUSDT"
+      "DOTUSDT",
+      "LABUSDT"
     ]
   }
 }
