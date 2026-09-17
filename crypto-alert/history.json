@@ -4505,16 +4505,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-17T02:56:29+00:00",
+    "time": "2026-09-17T02:58:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
-      "SYNUSDT",
       "BULLAUSDT",
+      "SYNUSDT",
       "ONEUSDT",
-      "IOSTUSDT",
       "ZECUSDT",
+      "IOSTUSDT",
       "MARSCOINUSDT",
       "DASHUSDT",
       "SKYAIUSDT",
@@ -4524,21 +4524,21 @@
       "NEARUSDT",
       "VVVUSDT",
       "ZENUSDT",
-      "USELESSUSDT",
       "PUMPUSDT",
-      "ENAUSDT",
-      "ONDOUSDT",
+      "USELESSUSDT",
       "BTWUSDT",
-      "DOTUSDT",
       "ARBUSDT",
+      "ENAUSDT",
+      "DOTUSDT",
+      "ONDOUSDT",
       "SOPHUSDT",
-      "CAPUSDT",
       "UNIUSDT",
+      "CAPUSDT",
       "CCUSDT",
       "IOUSDT",
       "STRKUSDT",
       "TIAUSDT",
-      "FETUSDT"
+      "ASTERUSDT"
     ]
   }
 }
