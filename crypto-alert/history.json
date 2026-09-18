@@ -4629,7 +4629,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T19:34:31+00:00",
+    "time": "2026-09-18T19:36:33+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4637,8 +4637,9 @@
       "GUSDT",
       "STRKUSDT",
       "BRUSDT",
-      "EVAAUSDT",
+      "ARUSDT",
       "MYXUSDT",
+      "EVAAUSDT",
       "ARBUSDT",
       "NEARUSDT",
       "SAGAUSDT",
@@ -4653,16 +4654,15 @@
       "AEROUSDT",
       "TIAUSDT",
       "FARTCOINUSDT",
-      "ZENUSDT",
       "PENDLEUSDT",
+      "ZENUSDT",
       "SOLUSDT",
       "牛来USDT",
       "WIFUSDT",
       "WUSDT",
       "PUMPUSDT",
       "KAITOUSDT",
-      "CCUSDT",
-      "LDOUSDT"
+      "FILUSDT"
     ]
   }
 }
