@@ -4654,7 +4654,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T21:46:32+00:00",
+    "time": "2026-09-18T21:48:38+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4670,12 +4670,14 @@
       "APTUSDT",
       "NEARUSDT",
       "ZAMAUSDT",
+      "EPICUSDT",
       "SUSDT",
       "ZKUSDT",
       "ETHFIUSDT",
       "METUSDT",
-      "SAGAUSDT",
       "INJUSDT",
+      "SAGAUSDT",
+      "SYNUSDT",
       "EIGENUSDT",
       "TIAUSDT",
       "UNIUSDT",
@@ -4683,11 +4685,9 @@
       "WIFUSDT",
       "牛来USDT",
       "ZENUSDT",
-      "KASUSDT",
       "WLDUSDT",
       "FARTCOINUSDT",
-      "SYNUSDT",
-      "PENDLEUSDT"
+      "KASUSDT"
     ]
   }
 }
