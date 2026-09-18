@@ -77,7 +77,8 @@
     "AVAUSDT": "2026-09-17T11:54:27+00:00",
     "ONEUSDT": "2026-09-18T09:18:35+00:00",
     "GUSDT": "2026-09-18T14:22:28+00:00",
-    "MYXUSDT": "2026-09-18T17:28:29+00:00"
+    "MYXUSDT": "2026-09-18T17:28:29+00:00",
+    "MAGMAUSDT": "2026-09-18T21:16:28+00:00"
   },
   "alerts": [
     {
@@ -4626,12 +4627,35 @@
       "time": "2026-09-18T17:28:29+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-18T17:34:34+00:00"
+    },
+    {
+      "symbol": "MAGMAUSDT",
+      "pct": 15.93,
+      "price": 0.25637,
+      "quote_volume": 258264.83751,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.49943492628626734,
+      "retrace_pct": 0.8086357656890953,
+      "wick_ratio": 0.052238805970159764,
+      "rsi": 68.10770563305968,
+      "divergence": true,
+      "vol_spike": 0.02505323957040646,
+      "btc_pct": 0.048125412903965374,
+      "sl": 0.2610446,
+      "tp1": 0.24489518000000002,
+      "tp2": 0.23651482000000001,
+      "tp3": 0.22295,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 12.796479126169672,
+      "time": "2026-09-18T21:16:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T21:14:31+00:00",
+    "time": "2026-09-18T21:16:28+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AKEUSDT",
       "GUSDT",
@@ -4652,15 +4676,15 @@
       "UNIUSDT",
       "AEROUSDT",
       "INJUSDT",
-      "EIGENUSDT",
-      "TIAUSDT",
       "SAGAUSDT",
+      "TIAUSDT",
+      "EIGENUSDT",
       "WIFUSDT",
+      "牛来USDT",
       "FARTCOINUSDT",
       "PENDLEUSDT",
-      "牛来USDT",
-      "USELESSUSDT",
       "WLDUSDT",
+      "USELESSUSDT",
       "SOLUSDT",
       "XMRUSDT"
     ]
