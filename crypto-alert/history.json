@@ -4604,17 +4604,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T14:58:27+00:00",
+    "time": "2026-09-18T15:00:47+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
-      "EVAAUSDT",
       "MYXUSDT",
+      "EVAAUSDT",
       "NEARUSDT",
       "ARBUSDT",
-      "BRUSDT",
       "STRKUSDT",
+      "BRUSDT",
       "AKEUSDT",
       "UNIUSDT",
       "ETHFIUSDT",
@@ -4636,7 +4636,7 @@
       "SUIUSDT",
       "DOTUSDT",
       "WIFUSDT",
-      "FARTCOINUSDT",
+      "AAVEUSDT",
       "WUSDT"
     ]
   }
