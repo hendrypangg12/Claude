@@ -75,7 +75,8 @@
     "CROSSUSDT": "2026-09-16T07:00:45+00:00",
     "IOUSDT": "2026-09-17T00:18:30+00:00",
     "AVAUSDT": "2026-09-17T11:54:27+00:00",
-    "ONEUSDT": "2026-09-18T09:18:35+00:00"
+    "ONEUSDT": "2026-09-18T09:18:35+00:00",
+    "GUSDT": "2026-09-18T14:22:28+00:00"
   },
   "alerts": [
     {
@@ -4576,12 +4577,35 @@
       "time": "2026-09-18T09:18:35+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-18T09:34:26+00:00"
+    },
+    {
+      "symbol": "GUSDT",
+      "pct": 14.21,
+      "price": 0.009465,
+      "quote_volume": 3203968.099472,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5683055611581743,
+      "retrace_pct": 1.0661649419880985,
+      "wick_ratio": 0.384615384615396,
+      "rsi": 74.15054201604396,
+      "divergence": false,
+      "vol_spike": 0.25972211096597014,
+      "btc_pct": 0.5048161514319303,
+      "sl": 0.009662670000000002,
+      "tp1": 0.009112420000000001,
+      "tp2": 0.00883158,
+      "tp3": 0.008377,
+      "funding_rate": 0.071,
+      "orderbook_ratio": 0.6626783330591457,
+      "time": "2026-09-18T14:22:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T14:20:37+00:00",
+    "time": "2026-09-18T14:22:28+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GUSDT",
       "MYXUSDT",
@@ -4591,28 +4615,28 @@
       "STRKUSDT",
       "AKEUSDT",
       "UNIUSDT",
-      "ONEUSDT",
       "METUSDT",
+      "ONEUSDT",
       "APTUSDT",
       "ETHFIUSDT",
       "EIGENUSDT",
       "WLDUSDT",
       "TIAUSDT",
       "INJUSDT",
-      "ZAMAUSDT",
       "FETUSDT",
+      "ZAMAUSDT",
       "PENDLEUSDT",
-      "PONSUSDT",
       "KAITOUSDT",
-      "ICPUSDT",
+      "PONSUSDT",
       "HYPEUSDT",
       "DOTUSDT",
+      "ICPUSDT",
       "SUIUSDT",
-      "TAOUSDT",
       "RENDERUSDT",
+      "TAOUSDT",
       "WUSDT",
-      "MUBARAKUSDT",
-      "AAVEUSDT"
+      "ATOMUSDT",
+      "MUBARAKUSDT"
     ]
   }
 }
