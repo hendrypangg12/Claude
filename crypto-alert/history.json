@@ -74,7 +74,8 @@
     "AINUSDT": "2026-09-15T01:06:29+00:00",
     "CROSSUSDT": "2026-09-16T07:00:45+00:00",
     "IOUSDT": "2026-09-17T00:18:30+00:00",
-    "AVAUSDT": "2026-09-17T11:54:27+00:00"
+    "AVAUSDT": "2026-09-17T11:54:27+00:00",
+    "ONEUSDT": "2026-09-18T09:18:35+00:00"
   },
   "alerts": [
     {
@@ -4551,12 +4552,35 @@
       "time": "2026-09-17T11:54:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-17T12:00:54+00:00"
+    },
+    {
+      "symbol": "ONEUSDT",
+      "pct": 8.26,
+      "price": 0.0015441,
+      "quote_volume": 1474748.0897859,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4263054460846945,
+      "retrace_pct": 0.5218399690761522,
+      "wick_ratio": 0.10989010989012246,
+      "rsi": 75.81978748167157,
+      "divergence": false,
+      "vol_spike": 0.024656301736190545,
+      "btc_pct": 0.4202180025920382,
+      "sl": 0.0015677220000000001,
+      "tp1": 0.0015069712,
+      "tp2": 0.0014790288000000001,
+      "tp3": 0.0014338,
+      "funding_rate": -0.197,
+      "orderbook_ratio": 16.12196134792621,
+      "time": "2026-09-18T09:18:35+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T09:16:31+00:00",
+    "time": "2026-09-18T09:18:35+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GUSDT",
       "ONEUSDT",
@@ -4572,20 +4596,20 @@
       "WLDUSDT",
       "INJUSDT",
       "AEROUSDT",
-      "DOTUSDT",
-      "TIAUSDT",
-      "GENIUSUSDT",
       "ETHFIUSDT",
-      "PYTHUSDT",
+      "TIAUSDT",
+      "DOTUSDT",
+      "GENIUSUSDT",
       "牛来USDT",
+      "PYTHUSDT",
       "BCHUSDT",
-      "ZROUSDT",
       "WUSDT",
-      "PENDLEUSDT",
-      "XMRUSDT",
+      "ZROUSDT",
+      "ENAUSDT",
       "LDOUSDT",
       "HYPEUSDT",
-      "ENAUSDT",
+      "XMRUSDT",
+      "PENDLEUSDT",
       "ONDOUSDT",
       "ROSEUSDT"
     ]
