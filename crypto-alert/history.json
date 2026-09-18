@@ -4579,15 +4579,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T10:48:26+00:00",
+    "time": "2026-09-18T10:50:37+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
       "ONEUSDT",
       "UNIUSDT",
-      "ARBUSDT",
       "NEARUSDT",
+      "ARBUSDT",
       "INJUSDT",
       "STRKUSDT",
       "AKEUSDT",
@@ -4598,20 +4598,20 @@
       "COTIUSDT",
       "TIAUSDT",
       "ETHFIUSDT",
-      "EIGENUSDT",
       "ZAMAUSDT",
       "AEROUSDT",
       "HYPEUSDT",
+      "EIGENUSDT",
       "ZROUSDT",
       "ONDOUSDT",
       "DOTUSDT",
       "WUSDT",
-      "SUIUSDT",
       "AAVEUSDT",
-      "ZECUSDT",
-      "BCHUSDT",
-      "ENAUSDT",
       "PYTHUSDT",
+      "BCHUSDT",
+      "SUIUSDT",
+      "ENAUSDT",
+      "ZECUSDT",
       "TAOUSDT"
     ]
   }
