@@ -76,7 +76,8 @@
     "IOUSDT": "2026-09-17T00:18:30+00:00",
     "AVAUSDT": "2026-09-17T11:54:27+00:00",
     "ONEUSDT": "2026-09-18T09:18:35+00:00",
-    "GUSDT": "2026-09-18T14:22:28+00:00"
+    "GUSDT": "2026-09-18T14:22:28+00:00",
+    "MYXUSDT": "2026-09-18T17:28:29+00:00"
   },
   "alerts": [
     {
@@ -4601,43 +4602,66 @@
       "time": "2026-09-18T14:22:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-18T14:34:31+00:00"
+    },
+    {
+      "symbol": "MYXUSDT",
+      "pct": 9.81,
+      "price": 0.07969,
+      "quote_volume": 1249362.94246,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4722501021490707,
+      "retrace_pct": 1.5443538423523613,
+      "wick_ratio": 0.3874345549738254,
+      "rsi": 65.77894958733842,
+      "divergence": false,
+      "vol_spike": 0.012393575609978882,
+      "btc_pct": -0.18511343898355506,
+      "sl": 0.0817494,
+      "tp1": 0.07817814,
+      "tp2": 0.07647186,
+      "tp3": 0.07371,
+      "funding_rate": 0.032,
+      "orderbook_ratio": 1.336612511313601,
+      "time": "2026-09-18T17:28:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T17:26:29+00:00",
+    "time": "2026-09-18T17:28:29+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GUSDT",
       "AKEUSDT",
       "BRUSDT",
       "STRKUSDT",
-      "SAGAUSDT",
-      "EVAAUSDT",
       "MYXUSDT",
+      "EVAAUSDT",
+      "SAGAUSDT",
       "NEARUSDT",
       "ARBUSDT",
       "APTUSDT",
       "SUSDT",
       "INJUSDT",
-      "ZAMAUSDT",
       "ETHFIUSDT",
+      "ZAMAUSDT",
       "TIAUSDT",
       "UNIUSDT",
-      "METUSDT",
       "EIGENUSDT",
-      "牛来USDT",
+      "METUSDT",
       "WUSDT",
       "BULLAUSDT",
-      "HYPEUSDT",
+      "牛来USDT",
       "KAITOUSDT",
       "PENDLEUSDT",
+      "HYPEUSDT",
+      "SOLUSDT",
       "WLDUSDT",
       "WIFUSDT",
-      "SOLUSDT",
-      "VVVUSDT",
+      "ETCUSDT",
       "AEROUSDT",
-      "ETCUSDT"
+      "XPLUSDT"
     ]
   }
 }
