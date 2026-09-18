@@ -4554,7 +4554,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T03:36:25+00:00",
+    "time": "2026-09-18T03:38:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4563,9 +4563,9 @@
       "ARBUSDT",
       "NEARUSDT",
       "UNIUSDT",
+      "APTUSDT",
       "ONEUSDT",
       "PONSUSDT",
-      "APTUSDT",
       "MARSCOINUSDT",
       "FETUSDT",
       "GENIUSUSDT",
@@ -4576,18 +4576,18 @@
       "GUSDT",
       "BCHUSDT",
       "CCUSDT",
-      "REZUSDT",
-      "AAVEUSDT",
       "DOTUSDT",
-      "WLDUSDT",
+      "AAVEUSDT",
       "AKEUSDT",
       "STRKUSDT",
+      "WLDUSDT",
       "ETHFIUSDT",
       "TIAUSDT",
+      "REZUSDT",
       "ADAUSDT",
       "RENDERUSDT",
       "HYPEUSDT",
-      "AEROUSDT"
+      "EDENUSDT"
     ]
   }
 }
