@@ -4604,7 +4604,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T14:42:36+00:00",
+    "time": "2026-09-18T14:44:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4617,15 +4617,15 @@
       "AKEUSDT",
       "UNIUSDT",
       "ETHFIUSDT",
-      "ONEUSDT",
       "APTUSDT",
       "METUSDT",
       "INJUSDT",
       "EIGENUSDT",
+      "ONEUSDT",
       "WLDUSDT",
       "ZAMAUSDT",
-      "TIAUSDT",
       "FETUSDT",
+      "TIAUSDT",
       "KAITOUSDT",
       "PONSUSDT",
       "PENDLEUSDT",
@@ -4634,10 +4634,10 @@
       "TAOUSDT",
       "DOTUSDT",
       "ICPUSDT",
-      "WUSDT",
       "RENDERUSDT",
+      "SUIUSDT",
       "ATOMUSDT",
-      "SUIUSDT"
+      "PUMPUSDT"
     ]
   }
 }
