@@ -4654,7 +4654,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-18T22:50:43+00:00",
+    "time": "2026-09-18T22:52:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4673,12 +4673,12 @@
       "SUSDT",
       "ZAMAUSDT",
       "EPICUSDT",
-      "EIGENUSDT",
       "4USDT",
-      "SAGAUSDT",
       "ETHFIUSDT",
+      "EIGENUSDT",
       "INJUSDT",
       "TIAUSDT",
+      "SAGAUSDT",
       "METUSDT",
       "UNIUSDT",
       "WIFUSDT",
@@ -4686,8 +4686,8 @@
       "ADAUSDT",
       "BCHUSDT",
       "FILUSDT",
-      "FARTCOINUSDT",
-      "ZENUSDT"
+      "AEROUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
