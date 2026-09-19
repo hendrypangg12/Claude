@@ -4703,7 +4703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T11:10:34+00:00",
+    "time": "2026-09-19T11:12:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4713,12 +4713,12 @@
       "ARUSDT",
       "SYNUSDT",
       "BRUSDT",
-      "ONEUSDT",
       "ZAMAUSDT",
+      "ONEUSDT",
       "SAGAUSDT",
+      "HEIUSDT",
       "EVAAUSDT",
       "STRKUSDT",
-      "HEIUSDT",
       "FUSDT",
       "EPICUSDT",
       "AIAUSDT",
@@ -4730,13 +4730,13 @@
       "FILUSDT",
       "INJUSDT",
       "ZENUSDT",
-      "APTUSDT",
-      "4USDT",
       "PENDLEUSDT",
-      "AEROUSDT",
+      "4USDT",
+      "APTUSDT",
       "TAOUSDT",
       "ZKUSDT",
-      "WIFUSDT"
+      "WIFUSDT",
+      "AEROUSDT"
     ]
   }
 }
