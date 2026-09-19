@@ -4703,8 +4703,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T23:28:25+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-19T23:30:36+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4720,18 +4720,19 @@
       "ENAUSDT",
       "ARUSDT",
       "HEIUSDT",
-      "EPICUSDT",
       "MYXUSDT",
+      "EPICUSDT",
       "LABUSDT",
       "CHILLGUYUSDT",
-      "BULLAUSDT",
+      "ALGOUSDT",
       "TAOUSDT",
       "ONDOUSDT",
+      "BULLAUSDT",
       "SUIUSDT",
       "LDOUSDT",
       "MORPHOUSDT",
-      "AINUSDT",
-      "ALGOUSDT"
+      "FILUSDT",
+      "AINUSDT"
     ]
   }
 }
