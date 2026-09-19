@@ -4654,7 +4654,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T05:06:38+00:00",
+    "time": "2026-09-19T05:08:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4673,21 +4673,21 @@
       "INJUSDT",
       "APTUSDT",
       "EPICUSDT",
-      "SAGAUSDT",
-      "SUSDT",
       "ONEUSDT",
+      "SAGAUSDT",
       "FILUSDT",
-      "OPUSDT",
+      "SUSDT",
       "VVVUSDT",
-      "ETHFIUSDT",
-      "ZKUSDT",
       "KASUSDT",
-      "EIGENUSDT",
+      "OPUSDT",
+      "ETHFIUSDT",
       "ZENUSDT",
+      "EIGENUSDT",
+      "ZKUSDT",
       "AEROUSDT",
       "XMRUSDT",
-      "METUSDT",
-      "WIFUSDT"
+      "WIFUSDT",
+      "METUSDT"
     ]
   }
 }
