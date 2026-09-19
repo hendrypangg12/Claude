@@ -78,7 +78,8 @@
     "ONEUSDT": "2026-09-18T09:18:35+00:00",
     "GUSDT": "2026-09-18T14:22:28+00:00",
     "MYXUSDT": "2026-09-18T17:28:29+00:00",
-    "MAGMAUSDT": "2026-09-18T21:16:28+00:00"
+    "MAGMAUSDT": "2026-09-18T21:16:28+00:00",
+    "STGUSDT": "2026-09-19T09:02:24+00:00"
   },
   "alerts": [
     {
@@ -4675,43 +4676,66 @@
       "time": "2026-09-19T05:16:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-19T05:24:29+00:00"
+    },
+    {
+      "symbol": "STGUSDT",
+      "pct": 12.29,
+      "price": 0.1741,
+      "quote_volume": 201912.8434,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5923244908116853,
+      "retrace_pct": 1.2478729438457217,
+      "wick_ratio": 0.5238095238095276,
+      "rsi": 65.6426261407092,
+      "divergence": false,
+      "vol_spike": 0.12454900613509137,
+      "btc_pct": 0.0005535680412586435,
+      "sl": 0.17806300000000003,
+      "tp1": 0.1689274,
+      "tp2": 0.1643726,
+      "tp3": 0.157,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.3576765741897607,
+      "time": "2026-09-19T09:02:24+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T09:00:40+00:00",
+    "time": "2026-09-19T09:02:24+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AKEUSDT",
       "B2USDT",
       "ARUSDT",
-      "SYNUSDT",
       "MYXUSDT",
-      "ZAMAUSDT",
-      "HEIUSDT",
-      "BRUSDT",
+      "SYNUSDT",
       "STGUSDT",
+      "HEIUSDT",
+      "ZAMAUSDT",
+      "BRUSDT",
       "ONEUSDT",
       "EVAAUSDT",
-      "STRKUSDT",
       "EPICUSDT",
       "SAGAUSDT",
+      "STRKUSDT",
       "INJUSDT",
       "MAGMAUSDT",
       "MORPHOUSDT",
-      "AIAUSDT",
       "ENAUSDT",
+      "AIAUSDT",
       "CUSDT",
       "FILUSDT",
-      "GUSDT",
-      "AVAXUSDT",
       "ZENUSDT",
+      "AVAXUSDT",
       "OPUSDT",
+      "GUSDT",
       "ETHFIUSDT",
-      "APTUSDT",
       "ZKUSDT",
+      "EIGENUSDT",
       "SUSDT",
-      "EIGENUSDT"
+      "AAVEUSDT"
     ]
   }
 }
