@@ -4703,8 +4703,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T23:18:28+00:00",
-    "shortlist_count": 28,
+    "time": "2026-09-19T23:20:33+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4713,8 +4713,8 @@
       "GUSDT",
       "BRUSDT",
       "B2USDT",
-      "INJUSDT",
       "EVAAUSDT",
+      "INJUSDT",
       "XTZUSDT",
       "ENAUSDT",
       "AVAXUSDT",
@@ -4726,15 +4726,13 @@
       "CHILLGUYUSDT",
       "BULLAUSDT",
       "TAOUSDT",
-      "SUIUSDT",
       "ONDOUSDT",
+      "SUIUSDT",
       "LDOUSDT",
       "MORPHOUSDT",
-      "ALGOUSDT",
       "AIAUSDT",
-      "FILUSDT",
-      "TIAUSDT",
-      "龙虾USDT"
+      "ALGOUSDT",
+      "TIAUSDT"
     ]
   }
 }
