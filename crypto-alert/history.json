@@ -4703,20 +4703,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T17:12:24+00:00",
+    "time": "2026-09-19T17:14:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
       "ONEUSDT",
       "ZAMAUSDT",
-      "B2USDT",
       "ARUSDT",
+      "B2USDT",
       "SYNUSDT",
-      "BRUSDT",
+      "EPICUSDT",
       "XTZUSDT",
       "GUSDT",
-      "EPICUSDT",
+      "BRUSDT",
       "ENAUSDT",
       "AVAXUSDT",
       "FILUSDT",
@@ -4732,11 +4732,11 @@
       "ZENUSDT",
       "ONDOUSDT",
       "OPUSDT",
+      "KASUSDT",
       "ZKUSDT",
       "TAOUSDT",
-      "KASUSDT",
-      "EVAAUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "EVAAUSDT"
     ]
   }
 }
