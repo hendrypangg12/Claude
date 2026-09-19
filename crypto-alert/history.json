@@ -4703,8 +4703,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T23:08:35+00:00",
-    "shortlist_count": 28,
+    "time": "2026-09-19T23:10:35+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4724,17 +4724,18 @@
       "EPICUSDT",
       "LABUSDT",
       "CHILLGUYUSDT",
+      "BULLAUSDT",
+      "SUIUSDT",
       "TAOUSDT",
       "ONDOUSDT",
-      "SUIUSDT",
-      "MORPHOUSDT",
       "LDOUSDT",
+      "MORPHOUSDT",
       "TIAUSDT",
-      "BULLAUSDT",
-      "KAITOUSDT",
       "FILUSDT",
+      "KAITOUSDT",
+      "AIAUSDT",
       "ALGOUSDT",
-      "AIAUSDT"
+      "KASUSDT"
     ]
   }
 }
