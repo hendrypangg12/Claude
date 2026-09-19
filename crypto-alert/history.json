@@ -4703,7 +4703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T19:10:33+00:00",
+    "time": "2026-09-19T19:12:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4715,8 +4715,8 @@
       "XTZUSDT",
       "GUSDT",
       "B2USDT",
-      "ARUSDT",
       "BRUSDT",
+      "ARUSDT",
       "ENAUSDT",
       "INJUSDT",
       "AVAXUSDT",
@@ -4727,16 +4727,16 @@
       "MAGMAUSDT",
       "LABUSDT",
       "MYXUSDT",
-      "MORPHOUSDT",
       "ONDOUSDT",
+      "MORPHOUSDT",
       "AIAUSDT",
       "SUIUSDT",
       "KASUSDT",
       "ARXUSDT",
       "OPUSDT",
-      "TAOUSDT",
       "APTUSDT",
-      "ETCUSDT"
+      "ETCUSDT",
+      "TAOUSDT"
     ]
   }
 }
