@@ -4703,7 +4703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T13:14:35+00:00",
+    "time": "2026-09-19T13:16:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4712,15 +4712,16 @@
       "ARUSDT",
       "ZAMAUSDT",
       "SYNUSDT",
-      "STRKUSDT",
       "EVAAUSDT",
-      "HEIUSDT",
       "SAGAUSDT",
+      "HEIUSDT",
+      "STRKUSDT",
       "FUSDT",
       "ONEUSDT",
-      "BRUSDT",
+      "XTZUSDT",
       "ENAUSDT",
       "EPICUSDT",
+      "BRUSDT",
       "CHILLGUYUSDT",
       "INJUSDT",
       "MAGMAUSDT",
@@ -4730,13 +4731,12 @@
       "ZENUSDT",
       "MORPHOUSDT",
       "OPUSDT",
-      "ZKUSDT",
       "AEROUSDT",
+      "USELESSUSDT",
+      "ZKUSDT",
       "WIFUSDT",
       "WUSDT",
-      "USELESSUSDT",
-      "XRPUSDT",
-      "AIAUSDT"
+      "XRPUSDT"
     ]
   }
 }
