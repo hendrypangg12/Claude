@@ -4703,7 +4703,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-19T11:16:25+00:00",
+    "time": "2026-09-19T11:18:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4712,10 +4712,10 @@
       "MYXUSDT",
       "ARUSDT",
       "BRUSDT",
-      "SYNUSDT",
       "ZAMAUSDT",
-      "EVAAUSDT",
+      "SYNUSDT",
       "SAGAUSDT",
+      "EVAAUSDT",
       "STRKUSDT",
       "ONEUSDT",
       "HEIUSDT",
@@ -4726,17 +4726,17 @@
       "ENAUSDT",
       "AVAXUSDT",
       "OPUSDT",
-      "FILUSDT",
       "AIAUSDT",
+      "FILUSDT",
       "ZENUSDT",
       "INJUSDT",
       "APTUSDT",
-      "PENDLEUSDT",
-      "4USDT",
       "TAOUSDT",
+      "4USDT",
       "ZKUSDT",
-      "WIFUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "PENDLEUSDT",
+      "WIFUSDT"
     ]
   }
 }
