@@ -4801,14 +4801,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T19:52:25+00:00",
+    "time": "2026-09-20T19:54:31+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "SAGAUSDT",
-      "BTWUSDT",
-      "SUSDT",
       "CELRUSDT",
+      "SUSDT",
+      "BTWUSDT",
       "NEARUSDT",
       "STRKUSDT",
       "AVAXUSDT",
@@ -4818,13 +4818,13 @@
       "ARUSDT",
       "ALGOUSDT",
       "ENAUSDT",
-      "MINAUSDT",
-      "AVAUSDT",
       "VVVUSDT",
+      "AVAUSDT",
+      "MINAUSDT",
       "ENSOUSDT",
-      "ZKUSDT",
-      "RENDERUSDT",
       "CAKEUSDT",
+      "RENDERUSDT",
+      "ZKUSDT",
       "ZENUSDT"
     ]
   }
