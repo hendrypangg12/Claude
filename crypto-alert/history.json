@@ -4752,8 +4752,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T14:32:26+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-20T14:34:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4765,17 +4765,18 @@
       "BRUSDT",
       "AVAXUSDT",
       "ZAMAUSDT",
-      "CAPUSDT",
       "EVAAUSDT",
+      "HBARUSDT",
       "STARUSDT",
       "ACEUSDT",
-      "SAGAUSDT",
-      "HBARUSDT",
-      "STRKUSDT",
+      "CAPUSDT",
       "GENIUSUSDT",
+      "SAGAUSDT",
       "ALLOUSDT",
+      "SKLUSDT",
       "INJUSDT",
-      "SKLUSDT"
+      "ALGOUSDT",
+      "STRKUSDT"
     ]
   }
 }
