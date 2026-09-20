@@ -75,7 +75,7 @@
     "CROSSUSDT": "2026-09-16T07:00:45+00:00",
     "IOUSDT": "2026-09-17T00:18:30+00:00",
     "AVAUSDT": "2026-09-17T11:54:27+00:00",
-    "ONEUSDT": "2026-09-18T09:18:35+00:00",
+    "ONEUSDT": "2026-09-20T09:48:25+00:00",
     "GUSDT": "2026-09-18T14:22:28+00:00",
     "MYXUSDT": "2026-09-18T17:28:29+00:00",
     "MAGMAUSDT": "2026-09-18T21:16:28+00:00",
@@ -4700,12 +4700,35 @@
       "time": "2026-09-19T09:02:24+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-19T09:40:32+00:00"
+    },
+    {
+      "symbol": "ONEUSDT",
+      "pct": 12.71,
+      "price": 0.0040846,
+      "quote_volume": 2395226.0782853,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4345141817710211,
+      "retrace_pct": 1.099273607748187,
+      "wick_ratio": 0.33829499323409806,
+      "rsi": 65.97209487148176,
+      "divergence": false,
+      "vol_spike": 0.701921916363039,
+      "btc_pct": 0.26147350472408026,
+      "sl": 0.0041713,
+      "tp1": 0.0039521408,
+      "tp2": 0.0038422592,
+      "tp3": 0.0036644,
+      "funding_rate": -0.038,
+      "orderbook_ratio": 0.4586843257407568,
+      "time": "2026-09-20T09:48:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T09:46:37+00:00",
+    "time": "2026-09-20T09:48:25+00:00",
     "shortlist_count": 19,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ONEUSDT",
       "CELRUSDT",
@@ -4714,8 +4737,8 @@
       "BRUSDT",
       "SKLUSDT",
       "EPICUSDT",
-      "龙虾USDT",
       "CUSDT",
+      "龙虾USDT",
       "AVAXUSDT",
       "ZAMAUSDT",
       "STRKUSDT",
@@ -4724,8 +4747,8 @@
       "ZKUSDT",
       "INJUSDT",
       "ALGOUSDT",
-      "GENIUSUSDT",
-      "SAGAUSDT"
+      "SAGAUSDT",
+      "GENIUSUSDT"
     ]
   }
 }
