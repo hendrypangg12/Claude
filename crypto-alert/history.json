@@ -4722,11 +4722,12 @@
       "funding_rate": -0.038,
       "orderbook_ratio": 0.4586843257407568,
       "time": "2026-09-20T09:48:25+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-20T09:56:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T09:54:30+00:00",
+    "time": "2026-09-20T09:56:30+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -4737,17 +4738,17 @@
       "BRUSDT",
       "SKLUSDT",
       "ZAMAUSDT",
-      "CUSDT",
       "EPICUSDT",
-      "AVAXUSDT",
+      "CUSDT",
       "龙虾USDT",
+      "AVAXUSDT",
+      "ENAUSDT",
       "STRKUSDT",
       "ZKUSDT",
-      "ENAUSDT",
       "MUSDT",
+      "INJUSDT",
       "ALGOUSDT",
-      "GENIUSUSDT",
-      "INJUSDT"
+      "GENIUSUSDT"
     ]
   }
 }
