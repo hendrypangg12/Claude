@@ -4727,8 +4727,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T10:56:26+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-20T10:58:50+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4742,11 +4742,12 @@
       "龙虾USDT",
       "MUSDT",
       "CUSDT",
-      "ENAUSDT",
       "EPICUSDT",
-      "AVAXUSDT",
       "ZKUSDT",
-      "ZAMAUSDT"
+      "AVAXUSDT",
+      "ENAUSDT",
+      "ZAMAUSDT",
+      "STRKUSDT"
     ]
   }
 }
