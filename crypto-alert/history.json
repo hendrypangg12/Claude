@@ -4801,8 +4801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T22:58:26+00:00",
-    "shortlist_count": 29,
+    "time": "2026-09-20T23:00:51+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "SAGAUSDT",
@@ -4813,27 +4813,28 @@
       "NEARUSDT",
       "VVVUSDT",
       "GENIUSUSDT",
+      "STRKUSDT",
       "MINAUSDT",
       "RENDERUSDT",
-      "ARUSDT",
-      "STRKUSDT",
       "ALLOUSDT",
+      "ARUSDT",
       "ENAUSDT",
       "ALGOUSDT",
       "CAKEUSDT",
-      "CUSDT",
       "UAIUSDT",
       "SEIUSDT",
-      "WUSDT",
+      "CUSDT",
       "HBARUSDT",
+      "WUSDT",
       "ARBUSDT",
       "ENSOUSDT",
+      "AVAUSDT",
       "ZROUSDT",
       "ZKUSDT",
-      "AVAUSDT",
       "MORPHOUSDT",
-      "OPUSDT",
-      "CRVUSDT"
+      "BRUSDT",
+      "CRVUSDT",
+      "OPUSDT"
     ]
   }
 }
