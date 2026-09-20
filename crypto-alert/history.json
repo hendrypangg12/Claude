@@ -4801,7 +4801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T23:06:36+00:00",
+    "time": "2026-09-20T23:08:28+00:00",
     "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
@@ -4819,11 +4819,11 @@
       "ALLOUSDT",
       "ARUSDT",
       "UAIUSDT",
-      "ENAUSDT",
       "BRUSDT",
-      "ALGOUSDT",
       "CUSDT",
+      "ENAUSDT",
       "CAKEUSDT",
+      "ALGOUSDT",
       "SEIUSDT",
       "ARBUSDT",
       "ZAMAUSDT",
@@ -4831,8 +4831,8 @@
       "HBARUSDT",
       "WUSDT",
       "MORPHOUSDT",
-      "ZROUSDT",
-      "AVAUSDT"
+      "AVAUSDT",
+      "ZROUSDT"
     ]
   }
 }
