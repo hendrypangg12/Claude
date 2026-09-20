@@ -4703,8 +4703,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T08:52:30+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-20T08:54:25+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4720,11 +4720,12 @@
       "EPICUSDT",
       "GENIUSUSDT",
       "STRKUSDT",
-      "ZKUSDT",
       "ZAMAUSDT",
+      "ZKUSDT",
       "ALGOUSDT",
-      "XTZUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "ENAUSDT",
+      "KASUSDT"
     ]
   }
 }
