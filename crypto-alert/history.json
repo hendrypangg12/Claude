@@ -4727,8 +4727,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T12:20:32+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-20T12:22:31+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4736,8 +4736,8 @@
       "BTWUSDT",
       "UBUSDT",
       "BRUSDT",
-      "MUSDT",
       "ZAMAUSDT",
+      "MUSDT",
       "AVAXUSDT",
       "EVAAUSDT",
       "CUSDT",
@@ -4749,7 +4749,8 @@
       "ENAUSDT",
       "ALGOUSDT",
       "VVVUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "CYSUSDT"
     ]
   }
 }
