@@ -4703,14 +4703,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T08:16:29+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-20T08:18:28+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
       "CELRUSDT",
-      "EVAAUSDT",
       "AKEUSDT",
+      "EVAAUSDT",
       "ZAMAUSDT",
       "BRUSDT",
       "SKLUSDT",
@@ -4722,12 +4722,10 @@
       "EPICUSDT",
       "STRKUSDT",
       "ENAUSDT",
-      "GENIUSUSDT",
       "LABUSDT",
+      "GENIUSUSDT",
       "ALGOUSDT",
-      "KASUSDT",
-      "TIAUSDT",
-      "HBARUSDT"
+      "KASUSDT"
     ]
   }
 }
