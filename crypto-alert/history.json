@@ -4801,8 +4801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T18:06:27+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-20T18:09:06+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "CELRUSDT",
@@ -4810,26 +4810,28 @@
       "ONEUSDT",
       "BTWUSDT",
       "CUSDT",
-      "ENAUSDT",
+      "SUSDT",
       "ARUSDT",
       "AVAXUSDT",
-      "SUSDT",
+      "ENAUSDT",
+      "STRKUSDT",
       "NEARUSDT",
       "AVAUSDT",
-      "STRKUSDT",
       "ALGOUSDT",
       "EPICUSDT",
       "SKLUSDT",
       "ZAMAUSDT",
       "OPUSDT",
       "ENSOUSDT",
-      "MUSDT",
       "EVAAUSDT",
-      "HBARUSDT",
       "RENDERUSDT",
-      "VVVUSDT",
+      "MUSDT",
+      "HBARUSDT",
       "ZKUSDT",
-      "MINAUSDT"
+      "MINAUSDT",
+      "VVVUSDT",
+      "GENIUSUSDT",
+      "SEIUSDT"
     ]
   }
 }
