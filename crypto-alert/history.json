@@ -4776,8 +4776,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T16:16:26+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-20T16:18:27+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "CELRUSDT",
@@ -4788,16 +4788,18 @@
       "MUSDT",
       "AVAXUSDT",
       "ALGOUSDT",
-      "CUSDT",
       "NEARUSDT",
+      "CUSDT",
       "ZAMAUSDT",
-      "EVAAUSDT",
       "INJUSDT",
-      "SKLUSDT",
+      "EVAAUSDT",
       "HBARUSDT",
+      "SKLUSDT",
       "BRUSDT",
-      "BULLAUSDT",
       "ALLOUSDT",
+      "BULLAUSDT",
+      "ENAUSDT",
+      "GENIUSUSDT",
       "STRKUSDT"
     ]
   }
