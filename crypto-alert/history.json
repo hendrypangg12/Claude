@@ -4776,8 +4776,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T15:52:39+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-20T15:54:33+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "CELRUSDT",
@@ -4790,13 +4790,11 @@
       "EPICUSDT",
       "ALGOUSDT",
       "SKLUSDT",
-      "HBARUSDT",
       "INJUSDT",
-      "EVAAUSDT",
-      "STARUSDT",
+      "HBARUSDT",
       "NEARUSDT",
-      "ZAMAUSDT",
-      "ACEUSDT"
+      "STARUSDT",
+      "EVAAUSDT"
     ]
   }
 }
