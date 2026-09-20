@@ -4752,16 +4752,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T14:00:59+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-20T14:02:34+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
       "CELRUSDT",
       "EPICUSDT",
-      "BRUSDT",
-      "BTWUSDT",
       "MUSDT",
+      "BTWUSDT",
+      "BRUSDT",
       "CUSDT",
       "AVAXUSDT",
       "ZAMAUSDT",
@@ -4769,11 +4769,12 @@
       "UBUSDT",
       "STRKUSDT",
       "SAGAUSDT",
-      "ACEUSDT",
-      "ALGOUSDT",
-      "SKLUSDT",
       "HBARUSDT",
+      "ALGOUSDT",
+      "ACEUSDT",
+      "SKLUSDT",
       "GENIUSUSDT",
+      "INJUSDT",
       "龙虾USDT"
     ]
   }
