@@ -4703,34 +4703,33 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T06:40:34+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-20T06:43:01+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
       "CELRUSDT",
       "GUSDT",
-      "B2USDT",
       "ZAMAUSDT",
+      "B2USDT",
       "SKLUSDT",
       "AKEUSDT",
       "EVAAUSDT",
       "BRUSDT",
       "AVAXUSDT",
       "LABUSDT",
-      "EPICUSDT",
       "AVAUSDT",
+      "EPICUSDT",
       "SAGAUSDT",
       "ENAUSDT",
       "STRKUSDT",
       "GENIUSUSDT",
       "龙虾USDT",
-      "AINUSDT",
-      "ALGOUSDT",
       "HEIUSDT",
       "ZKUSDT",
-      "SYNUSDT",
-      "LDOUSDT"
+      "AINUSDT",
+      "ALGOUSDT",
+      "INJUSDT"
     ]
   }
 }
