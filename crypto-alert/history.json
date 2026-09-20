@@ -4703,8 +4703,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T02:28:32+00:00",
-    "shortlist_count": 27,
+    "time": "2026-09-20T02:30:41+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
@@ -4718,22 +4718,23 @@
       "INJUSDT",
       "SKLUSDT",
       "HEIUSDT",
-      "ARUSDT",
       "AVAXUSDT",
-      "XTZUSDT",
+      "ARUSDT",
       "EPICUSDT",
+      "XTZUSDT",
       "LABUSDT",
+      "SYNUSDT",
       "ALGOUSDT",
       "CHILLGUYUSDT",
-      "SYNUSDT",
       "LDOUSDT",
-      "AVAUSDT",
       "ZKUSDT",
-      "GRVTUSDT",
+      "STRKUSDT",
       "SAGAUSDT",
+      "AVAUSDT",
+      "GRVTUSDT",
+      "ETHFIUSDT",
       "TIAUSDT",
-      "AINUSDT",
-      "ETHFIUSDT"
+      "AINUSDT"
     ]
   }
 }
