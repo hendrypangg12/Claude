@@ -4727,8 +4727,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-20T12:16:28+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-20T12:18:27+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -4737,19 +4737,20 @@
       "UBUSDT",
       "BRUSDT",
       "MUSDT",
+      "ZAMAUSDT",
       "AVAXUSDT",
       "EVAAUSDT",
-      "ZAMAUSDT",
       "CUSDT",
       "EPICUSDT",
       "SKLUSDT",
-      "ENAUSDT",
       "ACEUSDT",
-      "龙虾USDT",
       "SAGAUSDT",
+      "ENAUSDT",
+      "龙虾USDT",
       "ALGOUSDT",
       "VVVUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "CYSUSDT"
     ]
   }
 }
