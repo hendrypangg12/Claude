@@ -4801,7 +4801,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-21T01:02:19+00:00",
+    "time": "2026-09-21T01:04:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4817,23 +4817,23 @@
       "SEIUSDT",
       "GENIUSUSDT",
       "ARBUSDT",
-      "ENSOUSDT",
       "ARUSDT",
       "STRKUSDT",
-      "FFUSDT",
+      "ENSOUSDT",
       "RENDERUSDT",
       "SUIUSDT",
+      "FFUSDT",
       "CAKEUSDT",
-      "MORPHOUSDT",
       "LDOUSDT",
-      "ENAUSDT",
       "CUSDT",
-      "ALLOUSDT",
+      "ENAUSDT",
+      "MORPHOUSDT",
       "PENDLEUSDT",
       "ONDOUSDT",
-      "ZAMAUSDT",
-      "XMRUSDT",
+      "ALLOUSDT",
       "ZROUSDT",
+      "ZAMAUSDT",
+      "CRVUSDT",
       "OPUSDT"
     ]
   }
