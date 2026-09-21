@@ -4845,7 +4845,8 @@
       "funding_rate": 0.063,
       "orderbook_ratio": 0.6090088546236087,
       "time": "2026-09-21T15:22:31+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-21T16:56:27+00:00"
     },
     {
       "symbol": "SAGAUSDT",
@@ -4872,7 +4873,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-21T16:54:33+00:00",
+    "time": "2026-09-21T16:56:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4883,29 +4884,29 @@
       "PTBUSDT",
       "SEIUSDT",
       "CLANKERUSDT",
-      "FARTCOINUSDT",
       "OPGUSDT",
+      "FARTCOINUSDT",
       "FETUSDT",
       "USELESSUSDT",
       "WIFUSDT",
       "PLAYUSDT",
-      "UAIUSDT",
       "ONEUSDT",
       "SUIUSDT",
       "ZAMAUSDT",
-      "ARXUSDT",
-      "MINAUSDT",
+      "SAGAUSDT",
       "DOGEUSDT",
       "EGLDUSDT",
+      "MINAUSDT",
       "ACEUSDT",
       "PENGUUSDT",
       "SYNUSDT",
-      "SAGAUSDT",
-      "XPLUSDT",
-      "VVVUSDT",
+      "KASUSDT",
       "SPXUSDT",
+      "XPLUSDT",
       "GALAUSDT",
-      "MARSCOINUSDT"
+      "MARSCOINUSDT",
+      "RUNEUSDT",
+      "VVVUSDT"
     ]
   }
 }
