@@ -4801,8 +4801,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-21T02:24:26+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-21T02:26:32+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "PTBUSDT",
@@ -4816,21 +4816,23 @@
       "SUSDT",
       "BRUSDT",
       "SEIUSDT",
-      "SUIUSDT",
       "ARUSDT",
+      "SUIUSDT",
       "STRKUSDT",
-      "ENSOUSDT",
-      "RENDERUSDT",
-      "CAKEUSDT",
       "BULLAUSDT",
-      "GENIUSUSDT",
+      "ENSOUSDT",
+      "CAKEUSDT",
+      "RENDERUSDT",
       "龙虾USDT",
-      "UAIUSDT",
       "HBARUSDT",
+      "ZAMAUSDT",
+      "UAIUSDT",
+      "GENIUSUSDT",
+      "CUSDT",
       "XMRUSDT",
       "ZROUSDT",
-      "CUSDT",
-      "ZAMAUSDT"
+      "PUMPUSDT",
+      "MORPHOUSDT"
     ]
   }
 }
