@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-09-21_08-32-47",
+      "date": "2026-09-21",
+      "time": "08:32",
+      "label": "STORY KANTOR",
+      "title": "Naik gaji 10 persen, kerjaan naik 200 persen.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-09-20_23-27-56",
       "date": "2026-09-20",
       "time": "23:27",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-09-17_17-24-49",
-      "date": "2026-09-17",
-      "time": "17:24",
-      "label": "STORY KANTOR",
-      "title": "Jam pulang kantor cuma formalitas, kerjaan pulang bareng laptop ke rumah.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
