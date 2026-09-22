@@ -5044,7 +5044,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T23:26:29+00:00",
+    "time": "2026-09-22T23:28:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5066,18 +5066,18 @@
       "METUSDT",
       "UNIUSDT",
       "BTWUSDT",
+      "ZECUSDT",
       "SUSDT",
       "AINUSDT",
-      "ZECUSDT",
-      "APEUSDT",
       "QNTUSDT",
       "DASHUSDT",
+      "APEUSDT",
       "GIGGLEUSDT",
       "GRTUSDT",
       "PLUMEUSDT",
       "INUSDT",
-      "FARTCOINUSDT",
-      "EGLDUSDT"
+      "EGLDUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
