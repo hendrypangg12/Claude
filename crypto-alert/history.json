@@ -4971,15 +4971,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T16:28:29+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-22T16:30:42+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "MUBARAKUSDT",
       "FLOCKUSDT",
       "MINAUSDT",
-      "BCHUSDT",
       "NILUSDT",
+      "BCHUSDT",
       "MARSCOINUSDT",
       "AGTUSDT",
       "ZROUSDT",
@@ -4988,13 +4988,16 @@
       "SUSDT",
       "NEARUSDT",
       "EGLDUSDT",
+      "WIFUSDT",
       "INUSDT",
       "RUNEUSDT",
-      "FOLKSUSDT",
-      "TAOUSDT",
       "METUSDT",
-      "WIFUSDT",
-      "GIGGLEUSDT"
+      "TAOUSDT",
+      "FOLKSUSDT",
+      "GIGGLEUSDT",
+      "ETCUSDT",
+      "APEUSDT",
+      "XRPUSDT"
     ]
   }
 }
