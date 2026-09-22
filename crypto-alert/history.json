@@ -83,7 +83,8 @@
     "ZAMAUSDT": "2026-09-20T12:40:35+00:00",
     "SAGAUSDT": "2026-09-21T16:32:29+00:00",
     "MUBARAKUSDT": "2026-09-22T15:02:35+00:00",
-    "ZETAUSDT": "2026-09-22T03:08:33+00:00"
+    "ZETAUSDT": "2026-09-22T03:08:33+00:00",
+    "FOLKSUSDT": "2026-09-22T19:34:34+00:00"
   },
   "alerts": [
     {
@@ -5016,43 +5017,66 @@
       "time": "2026-09-22T18:48:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-22T18:54:41+00:00"
+    },
+    {
+      "symbol": "FOLKSUSDT",
+      "pct": 12.5,
+      "price": 2.5302,
+      "quote_volume": 283477.937,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.43079928679369606,
+      "retrace_pct": 1.7512522812876223,
+      "wick_ratio": 0.6070853462157817,
+      "rsi": 66.97037037232037,
+      "divergence": true,
+      "vol_spike": 0.0652291639289363,
+      "btc_pct": 0.010588726235246293,
+      "sl": 2.601053,
+      "tp1": 2.4659716,
+      "tp2": 2.3984284,
+      "tp3": 2.2891,
+      "funding_rate": 0.039,
+      "orderbook_ratio": 1.0898640087845255,
+      "time": "2026-09-22T19:34:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T19:32:37+00:00",
+    "time": "2026-09-22T19:34:34+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "MUBARAKUSDT",
       "MARSCOINUSDT",
-      "MINAUSDT",
       "BCHUSDT",
-      "NILUSDT",
+      "MINAUSDT",
       "FOLKSUSDT",
+      "NILUSDT",
       "4USDT",
-      "TSTUSDT",
       "GRASSUSDT",
+      "TSTUSDT",
       "PONSUSDT",
       "AGTUSDT",
       "USELESSUSDT",
-      "EGLDUSDT",
       "ZROUSDT",
       "AINUSDT",
       "FLOCKUSDT",
+      "EGLDUSDT",
       "SUSDT",
       "METUSDT",
-      "TIAUSDT",
-      "WIFUSDT",
       "PENGUUSDT",
-      "GIGGLEUSDT",
+      "WIFUSDT",
       "HBARUSDT",
+      "TIAUSDT",
+      "GIGGLEUSDT",
       "INUSDT",
       "APEUSDT",
       "DASHUSDT",
       "牛来USDT",
-      "PLUMEUSDT",
       "KAITOUSDT",
-      "ETCUSDT"
+      "NEARUSDT",
+      "PLUMEUSDT"
     ]
   }
 }
