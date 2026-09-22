@@ -82,7 +82,8 @@
     "STGUSDT": "2026-09-19T09:02:24+00:00",
     "ZAMAUSDT": "2026-09-20T12:40:35+00:00",
     "SAGAUSDT": "2026-09-21T16:32:29+00:00",
-    "MUBARAKUSDT": "2026-09-21T11:30:36+00:00"
+    "MUBARAKUSDT": "2026-09-21T11:30:36+00:00",
+    "ZETAUSDT": "2026-09-22T03:08:33+00:00"
   },
   "alerts": [
     {
@@ -4917,17 +4918,41 @@
       "funding_rate": 0.017,
       "orderbook_ratio": 1.2752424759351773,
       "time": "2026-09-22T03:02:32+00:00",
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-22T03:08:33+00:00"
+    },
+    {
+      "symbol": "ZETAUSDT",
+      "pct": 9.5,
+      "price": 0.0649,
+      "quote_volume": 239146.66108,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.27922950020040527,
+      "retrace_pct": 1.5174506828528085,
+      "wick_ratio": 0.0,
+      "rsi": 67.02683422315172,
+      "divergence": true,
+      "vol_spike": 0.023031698477233718,
+      "btc_pct": -0.17868205292429065,
+      "sl": 0.06655900000000001,
+      "tp1": 0.06371496,
+      "tp2": 0.06236504,
+      "tp3": 0.06018,
+      "funding_rate": -0.071,
+      "orderbook_ratio": 1.0037918989223336,
+      "time": "2026-09-22T03:08:33+00:00",
       "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T03:06:32+00:00",
+    "time": "2026-09-22T03:08:33+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ZETAUSDT",
-      "PHAUSDT",
       "ONEUSDT",
+      "PHAUSDT",
       "MUBARAKUSDT",
       "FORMUSDT",
       "WIFUSDT",
@@ -4939,21 +4964,21 @@
       "FARTCOINUSDT",
       "OPGUSDT",
       "EGLDUSDT",
-      "EPICUSDT",
       "FETUSDT",
       "DOGEUSDT",
       "SUIUSDT",
-      "RUNEUSDT",
-      "AKEUSDT",
       "SEIUSDT",
       "LYNUSDT",
+      "EPICUSDT",
+      "RUNEUSDT",
+      "AKEUSDT",
       "SYNUSDT",
       "BTWUSDT",
       "SAGAUSDT",
       "PENGUUSDT",
       "ARXUSDT",
-      "RENDERUSDT",
       "ACEUSDT",
+      "RENDERUSDT",
       "KASUSDT"
     ]
   }
