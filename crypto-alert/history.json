@@ -4947,7 +4947,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T13:24:28+00:00",
+    "time": "2026-09-22T13:26:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -4961,16 +4961,16 @@
       "WIFUSDT",
       "AINUSDT",
       "SUSDT",
-      "SYNUSDT",
       "MINAUSDT",
-      "USELESSUSDT",
+      "SYNUSDT",
       "SAGAUSDT",
       "TAOUSDT",
+      "USELESSUSDT",
       "FARTCOINUSDT",
       "PENGUUSDT",
       "RUNEUSDT",
-      "NEARUSDT",
       "INUSDT",
+      "NEARUSDT",
       "EGLDUSDT",
       "VTHOUSDT",
       "METUSDT",
@@ -4979,8 +4979,8 @@
       "FETUSDT",
       "GIGGLEUSDT",
       "HBARUSDT",
-      "EVAAUSDT",
-      "SPXUSDT"
+      "SPXUSDT",
+      "EVAAUSDT"
     ]
   }
 }
