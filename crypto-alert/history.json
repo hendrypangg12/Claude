@@ -4947,13 +4947,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-22T10:36:30+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-22T10:38:29+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "MUBARAKUSDT",
-      "GRASSUSDT",
       "AGTUSDT",
+      "GRASSUSDT",
       "WIFUSDT",
       "SUSDT",
       "FORMUSDT",
@@ -4961,22 +4961,21 @@
       "MARSCOINUSDT",
       "TAOUSDT",
       "SAGAUSDT",
+      "FARTCOINUSDT",
       "INUSDT",
       "MINAUSDT",
-      "FARTCOINUSDT",
       "SYNUSDT",
       "METUSDT",
       "FETUSDT",
-      "ARXUSDT",
       "PENGUUSDT",
       "EPICUSDT",
-      "RUNEUSDT",
       "USELESSUSDT",
+      "RUNEUSDT",
+      "ARXUSDT",
       "AINUSDT",
       "DOGEUSDT",
-      "HBARUSDT",
-      "OPGUSDT",
-      "NEARUSDT"
+      "NEARUSDT",
+      "HBARUSDT"
     ]
   }
 }
