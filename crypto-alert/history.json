@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-23T11:44:28+00:00",
+    "time": "2026-09-23T11:46:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5110,22 +5110,22 @@
       "GRTUSDT",
       "PROMUSDT",
       "PENGUUSDT",
-      "FOLKSUSDT",
       "COTIUSDT",
-      "UNIUSDT",
+      "FOLKSUSDT",
       "PLUMEUSDT",
       "APEUSDT",
+      "UNIUSDT",
       "BTWUSDT",
-      "PONSUSDT",
       "MYXUSDT",
-      "MINAUSDT",
-      "OPUSDT",
       "BEATUSDT",
+      "OPUSDT",
+      "MINAUSDT",
       "APTUSDT",
-      "ARBUSDT",
+      "PONSUSDT",
       "LITUSDT",
-      "IOUSDT",
-      "EIGENUSDT"
+      "ARBUSDT",
+      "EIGENUSDT",
+      "IOUSDT"
     ]
   }
 }
