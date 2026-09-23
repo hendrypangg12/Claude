@@ -5063,11 +5063,12 @@
       "funding_rate": 0.03,
       "orderbook_ratio": 0.6885689846512331,
       "time": "2026-09-23T05:20:31+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-09-23T06:06:26+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-23T06:04:30+00:00",
+    "time": "2026-09-23T06:06:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5082,25 +5083,25 @@
       "龙虾USDT",
       "PONSUSDT",
       "BSVUSDT",
+      "TIAUSDT",
       "FLOCKUSDT",
       "PENGUUSDT",
-      "TIAUSDT",
       "UNIUSDT",
-      "ALLOUSDT",
       "PLUMEUSDT",
+      "ALLOUSDT",
       "GRTUSDT",
-      "BTWUSDT",
-      "FOLKSUSDT",
-      "AINUSDT",
-      "ARBUSDT",
-      "APTUSDT",
-      "QNTUSDT",
       "MUBARAKUSDT",
-      "牛来USDT",
+      "FOLKSUSDT",
+      "ARBUSDT",
+      "BTWUSDT",
+      "QNTUSDT",
+      "APTUSDT",
       "APEUSDT",
-      "MINAUSDT",
+      "AINUSDT",
+      "牛来USDT",
       "OPUSDT",
-      "UAIUSDT"
+      "MINAUSDT",
+      "ETCUSDT"
     ]
   }
 }
