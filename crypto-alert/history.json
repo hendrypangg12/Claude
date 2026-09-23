@@ -5092,8 +5092,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-23T20:32:30+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-23T20:34:28+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "TAKEUSDT",
@@ -5107,11 +5107,10 @@
       "METUSDT",
       "ALLOUSDT",
       "ARIAUSDT",
+      "FHEUSDT",
       "ACEUSDT",
       "HANAUSDT",
-      "GRASSUSDT",
-      "FHEUSDT",
-      "COTIUSDT"
+      "GRASSUSDT"
     ]
   }
 }
