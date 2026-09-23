@@ -5092,8 +5092,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-23T14:32:33+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-23T14:34:30+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "TAKEUSDT",
@@ -5103,21 +5103,23 @@
       "SAGAUSDT",
       "ZROUSDT",
       "PROMUSDT",
-      "ARIAUSDT",
       "LITUSDT",
-      "BTWUSDT",
+      "ARIAUSDT",
       "PENGUUSDT",
+      "BTWUSDT",
       "TIAUSDT",
-      "GRTUSDT",
       "PONSUSDT",
-      "UNIUSDT",
+      "GRTUSDT",
       "ZAMAUSDT",
-      "ARBUSDT",
-      "COTIUSDT",
+      "UNIUSDT",
       "PLUMEUSDT",
-      "APEUSDT",
+      "COTIUSDT",
+      "ARBUSDT",
       "BEATUSDT",
-      "ZECUSDT"
+      "BCHUSDT",
+      "APEUSDT",
+      "ZECUSDT",
+      "NILUSDT"
     ]
   }
 }
