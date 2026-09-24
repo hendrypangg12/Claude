@@ -5092,19 +5092,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-24T08:48:29+00:00",
-    "shortlist_count": 9,
+    "time": "2026-09-24T08:50:39+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "NOMUSDT",
       "NILUSDT",
       "AKEUSDT",
-      "FHEUSDT",
-      "CELRUSDT",
       "LTCUSDT",
+      "CELRUSDT",
+      "FHEUSDT",
+      "PLUMEUSDT",
       "BTWUSDT",
-      "XNYUSDT",
-      "PLUMEUSDT"
+      "ZROUSDT",
+      "MORPHOUSDT"
     ]
   }
 }
