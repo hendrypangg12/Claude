@@ -5092,15 +5092,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-24T14:26:32+00:00",
+    "time": "2026-09-24T14:28:35+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "NOMUSDT",
       "NILUSDT",
       "ONDOUSDT",
-      "LTCUSDT",
       "TUTUSDT",
+      "LTCUSDT",
       "TSTUSDT",
       "ARXUSDT",
       "ETCUSDT",
@@ -5108,24 +5108,24 @@
       "MORPHOUSDT",
       "HANAUSDT",
       "FOLKSUSDT",
+      "ENAUSDT",
       "BTWUSDT",
       "GIGGLEUSDT",
       "COMPUSDT",
-      "ENAUSDT",
-      "CELRUSDT",
       "FETUSDT",
+      "CELRUSDT",
       "RENDERUSDT",
-      "PHAUSDT",
-      "XPLUSDT",
-      "APTUSDT",
-      "ICPUSDT",
-      "GRVTUSDT",
       "PYTHUSDT",
-      "WLDUSDT",
-      "MINAUSDT",
-      "4USDT",
+      "XPLUSDT",
+      "ICPUSDT",
+      "PHAUSDT",
+      "APTUSDT",
+      "GRVTUSDT",
       "IOUSDT",
-      "PENDLEUSDT"
+      "4USDT",
+      "WLDUSDT",
+      "SUIUSDT",
+      "LDOUSDT"
     ]
   }
 }
