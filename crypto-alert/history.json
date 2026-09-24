@@ -5092,8 +5092,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-24T11:42:33+00:00",
-    "shortlist_count": 10,
+    "time": "2026-09-24T11:44:36+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "NOMUSDT",
@@ -5105,7 +5105,8 @@
       "BRUSDT",
       "MORPHOUSDT",
       "PLUMEUSDT",
-      "COMPUSDT"
+      "COMPUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
