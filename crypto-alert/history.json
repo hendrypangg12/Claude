@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-24T23:16:26+00:00",
+    "time": "2026-09-24T23:18:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5113,19 +5113,19 @@
       "DASHUSDT",
       "TUTUSDT",
       "MORPHOUSDT",
-      "ALGOUSDT",
       "WLDUSDT",
+      "ENAUSDT",
+      "ALGOUSDT",
       "POLUSDT",
       "FOLKSUSDT",
-      "ENAUSDT",
-      "CAKEUSDT",
-      "RENDERUSDT",
-      "ZKUSDT",
-      "OPUSDT",
-      "4USDT",
       "PYTHUSDT",
-      "PHAUSDT",
-      "ETCUSDT"
+      "ZKUSDT",
+      "ETCUSDT",
+      "OPUSDT",
+      "RENDERUSDT",
+      "CAKEUSDT",
+      "NOMUSDT",
+      "4USDT"
     ]
   }
 }
