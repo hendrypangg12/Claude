@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-24T23:52:31+00:00",
+    "time": "2026-09-24T23:54:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5110,8 +5110,8 @@
       "LDOUSDT",
       "TSTUSDT",
       "DASHUSDT",
-      "TUTUSDT",
       "ARXUSDT",
+      "TUTUSDT",
       "MORPHOUSDT",
       "ENAUSDT",
       "PYTHUSDT",
@@ -5121,11 +5121,11 @@
       "POLUSDT",
       "KAITOUSDT",
       "RENDERUSDT",
-      "OPUSDT",
       "ETCUSDT",
-      "NEARUSDT",
+      "OPUSDT",
       "APTUSDT",
-      "PHAUSDT"
+      "XLMUSDT",
+      "CAKEUSDT"
     ]
   }
 }
