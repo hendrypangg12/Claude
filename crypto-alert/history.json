@@ -5092,8 +5092,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T15:52:29+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-25T15:54:27+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "PHAUSDT",
@@ -5106,21 +5106,22 @@
       "MUBARAKUSDT",
       "NEARUSDT",
       "DEEPUSDT",
-      "ONEUSDT",
-      "NILUSDT",
       "AEROUSDT",
       "SEIUSDT",
       "JTOUSDT",
       "SUIUSDT",
-      "LINKUSDT",
-      "LDOUSDT",
+      "NILUSDT",
+      "ONEUSDT",
       "PLUMEUSDT",
+      "LDOUSDT",
+      "LINKUSDT",
       "POLUSDT",
       "ZROUSDT",
+      "PUMPUSDT",
       "ETHFIUSDT",
       "FETUSDT",
-      "PUMPUSDT",
-      "REZUSDT"
+      "REZUSDT",
+      "XLMUSDT"
     ]
   }
 }
