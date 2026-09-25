@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T10:36:35+00:00",
+    "time": "2026-09-25T10:38:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5111,21 +5111,21 @@
       "LINKUSDT",
       "ENAUSDT",
       "PYTHUSDT",
-      "BULLAUSDT",
       "VIRTUALUSDT",
+      "BULLAUSDT",
       "ALGOUSDT",
       "SUIUSDT",
-      "WLDUSDT",
-      "ARUSDT",
-      "RENDERUSDT",
       "CCUSDT",
+      "ARUSDT",
+      "WLDUSDT",
       "OPUSDT",
       "XLMUSDT",
-      "ICPUSDT",
+      "RENDERUSDT",
       "ONEUSDT",
+      "ICPUSDT",
       "APTUSDT",
       "PENDLEUSDT",
-      "GALAUSDT"
+      "GRVTUSDT"
     ]
   }
 }
