@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T22:48:34+00:00",
+    "time": "2026-09-25T22:50:36+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5104,10 +5104,9 @@
       "SEIUSDT",
       "ENAUSDT",
       "SUIUSDT",
-      "龙虾USDT",
       "GRASSUSDT",
-      "LYNUSDT",
       "DEEPUSDT",
+      "LYNUSDT",
       "HUSDT",
       "JTOUSDT",
       "CCUSDT",
@@ -5119,13 +5118,14 @@
       "OPUSDT",
       "AXSUSDT",
       "PYTHUSDT",
+      "龙虾USDT",
       "EIGENUSDT",
       "QNTUSDT",
       "PLUMEUSDT",
       "GALAUSDT",
       "PUMPUSDT",
       "POLUSDT",
-      "VIRTUALUSDT"
+      "APTUSDT"
     ]
   }
 }
