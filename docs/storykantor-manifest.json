@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-09-26_00-30-57",
+      "date": "2026-09-26",
+      "time": "00:30",
+      "label": "STORY KANTOR",
+      "title": "Gaji numpang lewat, cicilan yang tetap setia.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-09-25_17-32-35",
       "date": "2026-09-25",
       "time": "17:32",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-09-22_13-46-02",
-      "date": "2026-09-22",
-      "time": "13:46",
-      "label": "STORY KANTOR",
-      "title": "Senin itu bukti kalau weekend gak pernah cukup.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
