@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T04:42:30+00:00",
+    "time": "2026-09-25T04:44:32+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5113,19 +5113,19 @@
       "PLUMEUSDT",
       "LINKUSDT",
       "ALGOUSDT",
-      "PENDLEUSDT",
       "MORPHOUSDT",
-      "ENAUSDT",
-      "DASHUSDT",
+      "PENDLEUSDT",
       "BEATUSDT",
-      "CCUSDT",
+      "DASHUSDT",
+      "ENAUSDT",
       "ACEUSDT",
+      "CCUSDT",
       "POLUSDT",
       "BSBUSDT",
-      "WLDUSDT",
       "SUIUSDT",
+      "WLDUSDT",
       "ATOMUSDT",
-      "TRUMPUSDT"
+      "OPUSDT"
     ]
   }
 }
