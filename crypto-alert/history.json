@@ -5092,12 +5092,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T05:18:27+00:00",
+    "time": "2026-09-25T05:20:33+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
-      "ONEUSDT",
       "QNTUSDT",
+      "ONEUSDT",
       "XPLUSDT",
       "ONDOUSDT",
       "HUSDT",
@@ -5114,18 +5114,18 @@
       "BEATUSDT",
       "TSTUSDT",
       "ALGOUSDT",
-      "PHAUSDT",
-      "ACEUSDT",
       "PENDLEUSDT",
       "SYNUSDT",
-      "DASHUSDT",
       "CCUSDT",
+      "PHAUSDT",
+      "ACEUSDT",
       "MORPHOUSDT",
       "POLUSDT",
       "VIRTUALUSDT",
+      "DASHUSDT",
       "BSBUSDT",
-      "SUIUSDT",
-      "WLDUSDT"
+      "LTCUSDT",
+      "SUIUSDT"
     ]
   }
 }
