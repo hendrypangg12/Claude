@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-25T19:20:52+00:00",
+    "time": "2026-09-25T19:23:06+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5115,17 +5115,17 @@
       "REZUSDT",
       "NEARUSDT",
       "XPLUSDT",
-      "ZROUSDT",
       "NILUSDT",
-      "OPUSDT",
+      "ZROUSDT",
       "POWERUSDT",
-      "AAVEUSDT",
+      "OPUSDT",
       "PYTHUSDT",
-      "APTUSDT",
-      "GALAUSDT",
+      "AAVEUSDT",
       "ETHFIUSDT",
-      "POLUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "APTUSDT",
+      "EIGENUSDT",
+      "GALAUSDT"
     ]
   }
 }
