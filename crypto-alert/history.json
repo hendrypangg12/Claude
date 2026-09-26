@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T08:20:35+00:00",
+    "time": "2026-09-26T08:22:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5116,16 +5116,16 @@
       "RUNEUSDT",
       "POLUSDT",
       "ONEUSDT",
+      "FILUSDT",
       "WUSDT",
       "IOUSDT",
       "WLDUSDT",
-      "FILUSDT",
-      "LDOUSDT",
-      "METUSDT",
-      "PYTHUSDT",
       "OPUSDT",
       "AAVEUSDT",
-      "GALAUSDT"
+      "PYTHUSDT",
+      "LDOUSDT",
+      "POWERUSDT",
+      "METUSDT"
     ]
   }
 }
