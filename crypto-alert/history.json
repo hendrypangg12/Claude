@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T02:46:29+00:00",
+    "time": "2026-09-26T02:48:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5104,8 +5104,8 @@
       "ENAUSDT",
       "SEIUSDT",
       "SUIUSDT",
-      "CCUSDT",
       "JTOUSDT",
+      "CCUSDT",
       "GRASSUSDT",
       "LDOUSDT",
       "WLDUSDT",
@@ -5116,15 +5116,15 @@
       "EIGENUSDT",
       "LYNUSDT",
       "NEARUSDT",
+      "POLUSDT",
+      "ZROUSDT",
       "GALAUSDT",
       "FETUSDT",
-      "ZROUSDT",
-      "POLUSDT",
-      "ZKUSDT",
       "APTUSDT",
-      "PLUMEUSDT",
       "PONSUSDT",
-      "PYTHUSDT",
+      "ZKUSDT",
+      "METUSDT",
+      "PLUMEUSDT",
       "ETHFIUSDT"
     ]
   }
