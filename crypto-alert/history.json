@@ -5092,14 +5092,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T06:10:31+00:00",
+    "time": "2026-09-26T06:12:28+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "PHAUSDT",
       "AEROUSDT",
-      "MUBARAKUSDT",
       "ENAUSDT",
+      "MUBARAKUSDT",
       "HUSDT",
       "PUMPUSDT",
       "JTOUSDT",
@@ -5118,14 +5118,14 @@
       "NEARUSDT",
       "ZKUSDT",
       "OPUSDT",
-      "PYTHUSDT",
-      "UNIUSDT",
       "SAGAUSDT",
-      "METUSDT",
+      "PYTHUSDT",
       "FILUSDT",
+      "METUSDT",
+      "UNIUSDT",
       "GALAUSDT",
       "PENGUUSDT",
-      "DOTUSDT"
+      "AAVEUSDT"
     ]
   }
 }
