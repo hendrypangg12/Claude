@@ -5092,7 +5092,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T09:40:30+00:00",
+    "time": "2026-09-26T09:42:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5110,22 +5110,22 @@
       "REZUSDT",
       "JTOUSDT",
       "LDOUSDT",
-      "ONEUSDT",
       "SEIUSDT",
       "RUNEUSDT",
       "QNTUSDT",
-      "POLUSDT",
       "BEATUSDT",
-      "EIGENUSDT",
-      "PYTHUSDT",
+      "ONEUSDT",
+      "POLUSDT",
       "KASUSDT",
-      "FILUSDT",
+      "EIGENUSDT",
       "IOUSDT",
+      "PYTHUSDT",
+      "FILUSDT",
       "WLDUSDT",
-      "WUSDT",
       "METUSDT",
-      "GRASSUSDT",
-      "KAITOUSDT"
+      "WUSDT",
+      "OPUSDT",
+      "GRASSUSDT"
     ]
   }
 }
