@@ -84,7 +84,8 @@
     "SAGAUSDT": "2026-09-21T16:32:29+00:00",
     "MUBARAKUSDT": "2026-09-23T06:27:01+00:00",
     "ZETAUSDT": "2026-09-22T03:08:33+00:00",
-    "FOLKSUSDT": "2026-09-22T19:34:34+00:00"
+    "FOLKSUSDT": "2026-09-22T19:34:34+00:00",
+    "QNTUSDT": "2026-09-26T15:48:31+00:00"
   },
   "alerts": [
     {
@@ -5089,43 +5090,66 @@
       "time": "2026-09-23T06:27:01+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-23T06:40:32+00:00"
+    },
+    {
+      "symbol": "QNTUSDT",
+      "pct": 9.22,
+      "price": 117.58,
+      "quote_volume": 1218314.34,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.24581377272633678,
+      "retrace_pct": 1.7300459674049373,
+      "wick_ratio": 0.3466666666666672,
+      "rsi": 65.88550002953366,
+      "divergence": false,
+      "vol_spike": 0.3656201061423352,
+      "btc_pct": 0.07933554723975275,
+      "sl": 120.8465,
+      "tp1": 115.79180000000001,
+      "tp2": 113.4082,
+      "tp3": 109.55,
+      "funding_rate": 0.008,
+      "orderbook_ratio": 1.1463005156493584,
+      "time": "2026-09-26T15:48:31+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T15:46:28+00:00",
+    "time": "2026-09-26T15:48:31+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "QUSDT",
       "USUSDT",
-      "RAREUSDT",
       "BRUSDT",
+      "RAREUSDT",
       "BEATUSDT",
       "QNTUSDT",
       "FILUSDT",
       "RUNEUSDT",
-      "DASHUSDT",
       "WLDUSDT",
+      "DASHUSDT",
       "EIGENUSDT",
       "KASUSDT",
       "AEROUSDT",
       "JTOUSDT",
       "MUBARAKUSDT",
       "PHAUSDT",
+      "TAOUSDT",
       "MARSCOINUSDT",
       "CLOUSDT",
-      "TAOUSDT",
       "ONEUSDT",
       "SEIUSDT",
-      "AVNTUSDT",
       "CCUSDT",
       "REZUSDT",
+      "AVNTUSDT",
       "PUMPUSDT",
-      "OPUSDT",
       "IOUSDT",
-      "LYNUSDT",
+      "LDOUSDT",
+      "ETHFIUSDT",
       "ENAUSDT",
-      "LDOUSDT"
+      "OPUSDT"
     ]
   }
 }
