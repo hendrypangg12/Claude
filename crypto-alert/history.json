@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-26T21:44:26+00:00",
-    "shortlist_count": 28,
+    "time": "2026-09-26T21:46:25+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "RAREUSDT",
@@ -5138,17 +5138,19 @@
       "ACEUSDT",
       "PYTHUSDT",
       "FILUSDT",
-      "MUBARAKUSDT",
       "JTOUSDT",
       "PUMPUSDT",
-      "WUSDT",
+      "MUBARAKUSDT",
       "AVNTUSDT",
+      "WUSDT",
       "INUSDT",
       "CCUSDT",
-      "ZENUSDT",
       "EIGENUSDT",
+      "ZENUSDT",
       "GALAUSDT",
-      "ATOMUSDT"
+      "ATOMUSDT",
+      "ENAUSDT",
+      "AKEUSDT"
     ]
   }
 }
