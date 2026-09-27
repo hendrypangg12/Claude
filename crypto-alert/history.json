@@ -5117,12 +5117,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T12:50:35+00:00",
-    "shortlist_count": 30,
+    "time": "2026-09-27T12:52:25+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
-      "USUSDT",
       "QNTUSDT",
+      "USUSDT",
       "QUSDT",
       "SOONUSDT",
       "BTWUSDT",
@@ -5132,25 +5132,23 @@
       "WUSDT",
       "PYTHUSDT",
       "GRAMUSDT",
-      "牛来USDT",
       "ZECUSDT",
-      "SUIUSDT",
-      "KASUSDT",
-      "NEARUSDT",
       "FETUSDT",
+      "牛来USDT",
+      "SUIUSDT",
+      "NEARUSDT",
+      "KASUSDT",
       "JTOUSDT",
       "USELESSUSDT",
+      "VIRTUALUSDT",
       "INUSDT",
       "FILUSDT",
-      "VIRTUALUSDT",
-      "RUNEUSDT",
-      "PENGUUSDT",
       "EIGENUSDT",
-      "GALAUSDT",
-      "VVVUSDT",
+      "PENGUUSDT",
       "BULLAUSDT",
-      "ZROUSDT",
-      "RENDERUSDT"
+      "RUNEUSDT",
+      "VVVUSDT",
+      "GALAUSDT"
     ]
   }
 }
