@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T07:38:30+00:00",
-    "shortlist_count": 28,
+    "time": "2026-09-27T07:40:30+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
@@ -5138,17 +5138,18 @@
       "GRAMUSDT",
       "ZECUSDT",
       "SUIUSDT",
-      "FILUSDT",
       "GALAUSDT",
+      "FILUSDT",
       "GRASSUSDT",
       "JTOUSDT",
       "EIGENUSDT",
-      "TAOUSDT",
       "RENDERUSDT",
+      "TAOUSDT",
+      "ZENUSDT",
       "ETHFIUSDT",
       "MUBARAKUSDT",
-      "ZENUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "VIRTUALUSDT"
     ]
   }
 }
