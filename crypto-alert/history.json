@@ -5117,29 +5117,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T18:40:35+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-27T18:42:31+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "QUSDT",
       "QNTUSDT",
+      "QUSDT",
       "SOONUSDT",
       "ARXUSDT",
       "WUSDT",
-      "BULLAUSDT",
       "JASMYUSDT",
-      "GRASSUSDT",
+      "BULLAUSDT",
       "BTWUSDT",
       "NEARUSDT",
-      "PYTHUSDT",
       "PUMPUSDT",
+      "GRASSUSDT",
+      "PYTHUSDT",
       "XVGUSDT",
       "SUIUSDT",
       "GRAMUSDT",
       "ARUSDT",
       "APEUSDT",
+      "WLDUSDT",
       "USELESSUSDT",
-      "WLDUSDT"
+      "POLUSDT",
+      "ENAUSDT"
     ]
   }
 }
