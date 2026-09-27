@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T11:42:25+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-27T11:44:24+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
@@ -5136,10 +5136,11 @@
       "KASUSDT",
       "INUSDT",
       "ZECUSDT",
-      "JTOUSDT",
       "USELESSUSDT",
+      "JTOUSDT",
       "SUIUSDT",
-      "NEARUSDT"
+      "NEARUSDT",
+      "RUNEUSDT"
     ]
   }
 }
