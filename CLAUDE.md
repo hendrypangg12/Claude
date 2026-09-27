@@ -610,3 +610,8 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - Keep the project a single self-contained `index.html`. Don't introduce a build step, framework, or split files unless explicitly asked.
 - Match the existing Nokia/Game Boy aesthetic (LCD green palette, pixelated rendering via `image-rendering: pixelated`, monospace HUD font) when adding UI.
 - `git log` shows feature work lands via PRs from `claude/<feature>-<id>` branches into `main`. Develop on the branch you've been given and push there.
+
+### 27 Sep 2026 — Owner kerja jadi Business Developer di Lumina Group (Lumina lampu hias, Power Electric lampu, Magnum kipas)
+- Demo toko ala Tokopedia (katalog, rating/terjual, filter, keranjang, checkout kurir+bayar DUMMY) = `docs/lumina.html` →
+  https://hendrypangg12.github.io/Claude/lumina.html (noindex, banner "DEMO bukan toko resmi"). Foto asli dari luminalighting.id
+  (di-embed base64). Harga/rating/ulasan = CONTOH. Domain berstock.id BELUM nyambung ke Pages (gak ada CNAME).
