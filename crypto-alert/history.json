@@ -5117,24 +5117,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T03:34:28+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-27T03:36:31+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
       "QUSDT",
-      "RAREUSDT",
       "USUSDT",
-      "RUNEUSDT",
-      "2ZUSDT",
+      "RAREUSDT",
       "INUSDT",
+      "2ZUSDT",
+      "RUNEUSDT",
       "GRASSUSDT",
-      "DASHUSDT",
       "WUSDT",
+      "DASHUSDT",
       "CLOUSDT",
-      "PYTHUSDT",
-      "KASUSDT",
       "JTOUSDT",
+      "KASUSDT",
+      "PYTHUSDT",
       "FILUSDT",
       "BTWUSDT",
       "WLDUSDT",
@@ -5142,8 +5142,7 @@
       "GRAMUSDT",
       "ZECUSDT",
       "GALAUSDT",
-      "BEATUSDT",
-      "NEARUSDT"
+      "BEATUSDT"
     ]
   }
 }
