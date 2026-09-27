@@ -5117,18 +5117,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T04:26:31+00:00",
-    "shortlist_count": 22,
+    "time": "2026-09-27T04:28:28+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
       "USUSDT",
-      "RAREUSDT",
       "RUNEUSDT",
+      "RAREUSDT",
       "2ZUSDT",
       "INUSDT",
-      "WUSDT",
       "GRASSUSDT",
+      "WUSDT",
       "DASHUSDT",
       "BTWUSDT",
       "PYTHUSDT",
@@ -5141,8 +5141,9 @@
       "ZECUSDT",
       "KASUSDT",
       "CCUSDT",
-      "GALAUSDT",
-      "QUSDT"
+      "QUSDT",
+      "RENDERUSDT",
+      "GALAUSDT"
     ]
   }
 }
