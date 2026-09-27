@@ -5117,7 +5117,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T07:50:34+00:00",
+    "time": "2026-09-27T07:52:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5136,21 +5136,21 @@
       "INUSDT",
       "NEARUSDT",
       "GRAMUSDT",
-      "ZECUSDT",
       "SUIUSDT",
+      "ZECUSDT",
       "GRASSUSDT",
       "FILUSDT",
       "GALAUSDT",
       "JTOUSDT",
       "EIGENUSDT",
-      "RENDERUSDT",
-      "MUBARAKUSDT",
-      "ZENUSDT",
       "TAOUSDT",
+      "MUBARAKUSDT",
+      "RENDERUSDT",
+      "ZENUSDT",
       "ETHFIUSDT",
-      "SEIUSDT",
       "VIRTUALUSDT",
-      "ARBUSDT"
+      "SEIUSDT",
+      "DOTUSDT"
     ]
   }
 }
