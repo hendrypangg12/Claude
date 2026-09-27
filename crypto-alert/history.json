@@ -5117,7 +5117,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T21:54:28+00:00",
+    "time": "2026-09-27T21:56:32+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -5127,9 +5127,9 @@
       "WUSDT",
       "PUMPUSDT",
       "BTWUSDT",
+      "ARXUSDT",
       "GRASSUSDT",
       "JASMYUSDT",
-      "ARXUSDT",
       "BULLAUSDT",
       "XVGUSDT",
       "NEARUSDT",
@@ -5139,13 +5139,13 @@
       "XAIUSDT",
       "PYTHUSDT",
       "VIRTUALUSDT",
-      "WLDUSDT",
       "ONDOUSDT",
+      "WLDUSDT",
       "ZROUSDT",
       "MINAUSDT",
       "RENDERUSDT",
-      "INUSDT",
-      "PENGUUSDT"
+      "PENGUUSDT",
+      "INUSDT"
     ]
   }
 }
