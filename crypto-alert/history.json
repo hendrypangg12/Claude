@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T19:08:26+00:00",
-    "shortlist_count": 21,
+    "time": "2026-09-27T19:10:32+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
@@ -5131,17 +5131,19 @@
       "NEARUSDT",
       "PUMPUSDT",
       "JASMYUSDT",
-      "PYTHUSDT",
       "XVGUSDT",
+      "PYTHUSDT",
       "SUIUSDT",
       "USUSDT",
-      "GRASSUSDT",
       "GRAMUSDT",
-      "ENAUSDT",
-      "ARUSDT",
+      "GRASSUSDT",
       "WLDUSDT",
+      "ENAUSDT",
       "USELESSUSDT",
-      "APEUSDT"
+      "ARUSDT",
+      "APEUSDT",
+      "POLUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
