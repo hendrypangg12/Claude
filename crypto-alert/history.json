@@ -5117,7 +5117,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-27T04:38:30+00:00",
+    "time": "2026-09-27T04:40:28+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -5128,9 +5128,9 @@
       "RUNEUSDT",
       "2ZUSDT",
       "GRASSUSDT",
-      "DASHUSDT",
-      "WUSDT",
       "INUSDT",
+      "WUSDT",
+      "DASHUSDT",
       "BTWUSDT",
       "PYTHUSDT",
       "MARSCOINUSDT",
@@ -5139,11 +5139,11 @@
       "FILUSDT",
       "GRAMUSDT",
       "ZECUSDT",
-      "WLDUSDT",
       "KASUSDT",
+      "WLDUSDT",
       "GALAUSDT",
       "EIGENUSDT",
-      "RENDERUSDT"
+      "CCUSDT"
     ]
   }
 }
