@@ -5117,25 +5117,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T14:52:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-28T14:54:47+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
       "HBARUSDT",
       "BTWUSDT",
       "NMRUSDT",
-      "MARSCOINUSDT",
       "ONEUSDT",
+      "MARSCOINUSDT",
       "AZTECUSDT",
-      "ALGOUSDT",
       "SOONUSDT",
+      "ALGOUSDT",
       "GRTUSDT",
       "MUBARAKUSDT",
-      "IOTAUSDT",
       "MONUSDT",
       "PUMPUSDT",
-      "SEIUSDT"
+      "SEIUSDT",
+      "IOTAUSDT",
+      "LYNUSDT"
     ]
   }
 }
