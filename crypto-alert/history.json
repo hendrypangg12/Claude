@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T21:00:43+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-28T21:02:43+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "HBARUSDT",
@@ -5130,14 +5130,15 @@
       "IOTAUSDT",
       "牛来USDT",
       "LINKUSDT",
+      "SOONUSDT",
       "XLMUSDT",
       "USUSDT",
       "AZTECUSDT",
-      "SOONUSDT",
-      "CRVUSDT",
       "4USDT",
-      "RUNEUSDT",
-      "MONUSDT"
+      "CRVUSDT",
+      "MONUSDT",
+      "SEIUSDT",
+      "RUNEUSDT"
     ]
   }
 }
