@@ -5117,7 +5117,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T00:16:35+00:00",
+    "time": "2026-09-28T00:18:33+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -5135,13 +5135,13 @@
       "GRASSUSDT",
       "ONDOUSDT",
       "NEARUSDT",
-      "VIRTUALUSDT",
       "APEUSDT",
-      "USUSDT",
-      "BULLAUSDT",
+      "VIRTUALUSDT",
       "PENGUUSDT",
-      "RAREUSDT",
-      "RENDERUSDT"
+      "BULLAUSDT",
+      "RENDERUSDT",
+      "LDOUSDT",
+      "ZROUSDT"
     ]
   }
 }
