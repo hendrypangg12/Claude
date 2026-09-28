@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T12:40:35+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-28T12:42:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
@@ -5131,11 +5131,12 @@
       "NMRUSDT",
       "ALGOUSDT",
       "MONUSDT",
-      "SOONUSDT",
-      "MUBARAKUSDT",
-      "SEIUSDT",
       "AZTECUSDT",
-      "LYNUSDT"
+      "SOONUSDT",
+      "LYNUSDT",
+      "SEIUSDT",
+      "MUBARAKUSDT",
+      "XLMUSDT"
     ]
   }
 }
