@@ -5117,26 +5117,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T03:10:32+00:00",
-    "shortlist_count": 16,
+    "time": "2026-09-28T03:12:26+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
+      "ONEUSDT",
       "BTWUSDT",
       "IRYSUSDT",
-      "ONEUSDT",
       "GRTUSDT",
       "PUMPUSDT",
       "GRASSUSDT",
-      "SEIUSDT",
       "SOONUSDT",
+      "SEIUSDT",
       "JASMYUSDT",
       "WUSDT",
       "SUIUSDT",
       "CCUSDT",
       "ONDOUSDT",
-      "XVGUSDT",
-      "ZROUSDT"
+      "XVGUSDT"
     ]
   }
 }
