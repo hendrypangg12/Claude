@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-28T15:06:34+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-28T15:08:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "QNTUSDT",
@@ -5134,8 +5134,9 @@
       "GRTUSDT",
       "MONUSDT",
       "IOTAUSDT",
+      "SEIUSDT",
       "PUMPUSDT",
-      "SEIUSDT"
+      "LYNUSDT"
     ]
   }
 }
