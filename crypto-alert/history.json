@@ -5117,15 +5117,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T13:36:27+00:00",
+    "time": "2026-09-29T13:38:31+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "0GUSDT",
-      "CRVUSDT",
       "CELOUSDT",
-      "GRASSUSDT",
+      "CRVUSDT",
       "AAVEUSDT",
+      "GRASSUSDT",
       "NMRUSDT",
       "ICPUSDT",
       "AVAXUSDT",
@@ -5138,13 +5138,13 @@
       "SOONUSDT",
       "GRVTUSDT",
       "AEROUSDT",
-      "CFGUSDT",
-      "AZTECUSDT",
-      "FARTCOINUSDT",
       "BSBUSDT",
+      "CFGUSDT",
       "POLUSDT",
-      "ARXUSDT",
-      "RUNEUSDT"
+      "FARTCOINUSDT",
+      "AZTECUSDT",
+      "RUNEUSDT",
+      "ARXUSDT"
     ]
   }
 }
