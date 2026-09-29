@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T08:48:27+00:00",
-    "shortlist_count": 25,
+    "time": "2026-09-29T08:50:35+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
@@ -5129,23 +5129,25 @@
       "GRASSUSDT",
       "ICPUSDT",
       "AAVEUSDT",
-      "PHAUSDT",
       "LINKUSDT",
-      "IOTAUSDT",
-      "ARXUSDT",
+      "PHAUSDT",
       "XLMUSDT",
-      "AVAXUSDT",
+      "ARXUSDT",
       "STRKUSDT",
-      "RUNEUSDT",
+      "IOTAUSDT",
       "ETHFIUSDT",
+      "AVAXUSDT",
+      "RUNEUSDT",
       "GRVTUSDT",
       "ALGOUSDT",
-      "HBARUSDT",
-      "MINAUSDT",
       "AEROUSDT",
+      "MINAUSDT",
+      "HBARUSDT",
       "GALAUSDT",
       "VIRTUALUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "PLUMEUSDT",
+      "WIFUSDT"
     ]
   }
 }
