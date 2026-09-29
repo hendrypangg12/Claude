@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T18:06:33+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-29T18:08:29+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -5133,7 +5133,9 @@
       "CRVUSDT",
       "ETHFIUSDT",
       "PUMPUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "QNTUSDT",
+      "INJUSDT"
     ]
   }
 }
