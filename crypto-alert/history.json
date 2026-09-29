@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T17:02:26+00:00",
-    "shortlist_count": 15,
+    "time": "2026-09-29T17:04:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
@@ -5126,16 +5126,17 @@
       "SOONUSDT",
       "CRVUSDT",
       "GRASSUSDT",
-      "PHAUSDT",
       "AAVEUSDT",
-      "NMRUSDT",
-      "CELOUSDT",
+      "PHAUSDT",
       "ICPUSDT",
+      "CELOUSDT",
+      "NMRUSDT",
       "ETHFIUSDT",
       "PUMPUSDT",
       "AVAXUSDT",
       "BSBUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
