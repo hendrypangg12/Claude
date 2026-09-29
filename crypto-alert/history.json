@@ -5142,12 +5142,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T23:22:29+00:00",
+    "time": "2026-09-29T23:24:29+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
-      "GRASSUSDT",
       "SOONUSDT",
+      "GRASSUSDT",
       "MOVRUSDT",
       "BTWUSDT",
       "PUMPUSDT",
@@ -5164,8 +5164,8 @@
       "LDOUSDT",
       "PENGUUSDT",
       "CELOUSDT",
-      "INJUSDT",
-      "ARXUSDT"
+      "ARXUSDT",
+      "INJUSDT"
     ]
   }
 }
