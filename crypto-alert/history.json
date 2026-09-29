@@ -5117,7 +5117,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T00:42:33+00:00",
+    "time": "2026-09-29T00:44:31+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -5132,11 +5132,11 @@
       "CRVUSDT",
       "AZTECUSDT",
       "XLMUSDT",
-      "USUSDT",
       "IOTAUSDT",
+      "USUSDT",
+      "ARXUSDT",
       "AKEUSDT",
-      "RUNEUSDT",
-      "ARXUSDT"
+      "RUNEUSDT"
     ]
   }
 }
