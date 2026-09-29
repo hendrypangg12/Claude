@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T15:38:29+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-29T15:40:38+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "0GUSDT",
@@ -5129,18 +5129,19 @@
       "CELOUSDT",
       "ICPUSDT",
       "ETHFIUSDT",
-      "NMRUSDT",
-      "PHAUSDT",
-      "PUMPUSDT",
       "QNTUSDT",
+      "PHAUSDT",
+      "NMRUSDT",
+      "PUMPUSDT",
       "AVAXUSDT",
-      "STRKUSDT",
       "GALAUSDT",
+      "STRKUSDT",
       "BSBUSDT",
       "FILUSDT",
+      "FARTCOINUSDT",
       "CFGUSDT",
-      "MUBARAKUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "WIFUSDT"
     ]
   }
 }
