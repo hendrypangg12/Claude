@@ -5142,8 +5142,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T21:42:28+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-29T21:44:31+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "GRASSUSDT",
@@ -5155,8 +5155,8 @@
       "PHAUSDT",
       "ICPUSDT",
       "AAVEUSDT",
-      "ETHFIUSDT",
       "QNTUSDT",
+      "ETHFIUSDT",
       "AVAXUSDT",
       "FARTCOINUSDT",
       "CELOUSDT",
@@ -5165,13 +5165,12 @@
       "GALAUSDT",
       "PENGUUSDT",
       "INJUSDT",
-      "WIFUSDT",
       "ZROUSDT",
+      "WIFUSDT",
       "BSBUSDT",
-      "MUBARAKUSDT",
-      "STRKUSDT",
       "NEARUSDT",
-      "ARXUSDT"
+      "MUBARAKUSDT",
+      "STRKUSDT"
     ]
   }
 }
