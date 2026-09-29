@@ -5137,11 +5137,12 @@
       "funding_rate": 0.007,
       "orderbook_ratio": 0.4397771844510167,
       "time": "2026-09-29T19:46:30+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-29T19:58:31+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T19:56:33+00:00",
+    "time": "2026-09-29T19:58:31+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -5155,19 +5156,19 @@
       "AAVEUSDT",
       "ETHFIUSDT",
       "NMRUSDT",
-      "AVAXUSDT",
       "QNTUSDT",
+      "AVAXUSDT",
       "CELOUSDT",
       "CRVUSDT",
-      "BSBUSDT",
       "FARTCOINUSDT",
       "PENGUUSDT",
+      "BSBUSDT",
       "ROSEUSDT",
-      "NEARUSDT",
       "GALAUSDT",
+      "NEARUSDT",
       "LDOUSDT",
-      "WIFUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "WIFUSDT"
     ]
   }
 }
