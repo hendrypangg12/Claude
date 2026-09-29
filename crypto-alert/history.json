@@ -5117,15 +5117,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T00:54:26+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-29T00:56:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
       "MARSCOINUSDT",
       "HBARUSDT",
-      "0GUSDT",
       "ALGOUSDT",
+      "0GUSDT",
       "LINKUSDT",
       "牛来USDT",
       "MUBARAKUSDT",
@@ -5133,7 +5133,9 @@
       "CRVUSDT",
       "AKEUSDT",
       "USUSDT",
-      "XLMUSDT"
+      "XLMUSDT",
+      "RUNEUSDT",
+      "IOTAUSDT"
     ]
   }
 }
