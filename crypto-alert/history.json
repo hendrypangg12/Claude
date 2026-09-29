@@ -85,7 +85,8 @@
     "MUBARAKUSDT": "2026-09-23T06:27:01+00:00",
     "ZETAUSDT": "2026-09-22T03:08:33+00:00",
     "FOLKSUSDT": "2026-09-22T19:34:34+00:00",
-    "QNTUSDT": "2026-09-26T15:48:31+00:00"
+    "QNTUSDT": "2026-09-26T15:48:31+00:00",
+    "GRASSUSDT": "2026-09-29T19:46:30+00:00"
   },
   "alerts": [
     {
@@ -5114,36 +5115,59 @@
       "time": "2026-09-26T15:48:31+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-26T15:58:27+00:00"
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "pct": 8.8,
+      "price": 0.7417,
+      "quote_volume": 695026.8032,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5161292444398674,
+      "retrace_pct": 1.0538954108858083,
+      "wick_ratio": 0.35955056179776235,
+      "rsi": 72.72032526347985,
+      "divergence": false,
+      "vol_spike": 0.28251965676239754,
+      "btc_pct": -0.19647105910703438,
+      "sl": 0.7570960000000001,
+      "tp1": 0.7264508000000001,
+      "tp2": 0.7121492,
+      "tp3": 0.689,
+      "funding_rate": 0.007,
+      "orderbook_ratio": 0.4397771844510167,
+      "time": "2026-09-29T19:46:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T19:44:28+00:00",
+    "time": "2026-09-29T19:46:30+00:00",
     "shortlist_count": 24,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTWUSDT",
       "GRASSUSDT",
       "0GUSDT",
       "SOONUSDT",
-      "QNTUSDT",
       "PHAUSDT",
+      "QNTUSDT",
       "PUMPUSDT",
       "ICPUSDT",
       "AAVEUSDT",
-      "ETHFIUSDT",
       "NMRUSDT",
+      "ETHFIUSDT",
       "AVAXUSDT",
       "CELOUSDT",
       "CRVUSDT",
       "FARTCOINUSDT",
-      "NEARUSDT",
       "ROSEUSDT",
       "BSBUSDT",
+      "NEARUSDT",
       "PENGUUSDT",
       "GALAUSDT",
       "LDOUSDT",
-      "WIFUSDT",
       "INJUSDT",
+      "WIFUSDT",
       "STRKUSDT"
     ]
   }
