@@ -5117,15 +5117,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T17:44:55+00:00",
-    "shortlist_count": 13,
+    "time": "2026-09-29T17:46:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
       "0GUSDT",
       "SOONUSDT",
-      "GRASSUSDT",
       "NMRUSDT",
+      "GRASSUSDT",
       "PHAUSDT",
       "AAVEUSDT",
       "CELOUSDT",
@@ -5133,7 +5133,8 @@
       "ICPUSDT",
       "ETHFIUSDT",
       "PUMPUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "BSBUSDT"
     ]
   }
 }
