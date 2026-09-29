@@ -5117,30 +5117,32 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T05:48:30+00:00",
-    "shortlist_count": 20,
+    "time": "2026-09-29T05:50:30+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
-      "MARSCOINUSDT",
       "HBARUSDT",
+      "MARSCOINUSDT",
       "0GUSDT",
       "CRVUSDT",
       "ALGOUSDT",
       "USUSDT",
       "MUBARAKUSDT",
-      "ARXUSDT",
       "IOTAUSDT",
+      "ARXUSDT",
       "ICPUSDT",
       "LINKUSDT",
-      "AKEUSDT",
-      "龙虾USDT",
       "XLMUSDT",
+      "AKEUSDT",
       "STRKUSDT",
       "RUNEUSDT",
-      "GRASSUSDT",
+      "MINAUSDT",
       "PHAUSDT",
-      "MINAUSDT"
+      "GRASSUSDT",
+      "龙虾USDT",
+      "AEROUSDT",
+      "GRVTUSDT"
     ]
   }
 }
