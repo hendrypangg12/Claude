@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T04:02:23+00:00",
-    "shortlist_count": 19,
+    "time": "2026-09-29T04:04:29+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
@@ -5133,13 +5133,12 @@
       "IOTAUSDT",
       "XLMUSDT",
       "ARXUSDT",
-      "LINKUSDT",
       "ICPUSDT",
-      "STRKUSDT",
+      "LINKUSDT",
       "AZTECUSDT",
       "AKEUSDT",
-      "RUNEUSDT",
-      "GRVTUSDT"
+      "STRKUSDT",
+      "RUNEUSDT"
     ]
   }
 }
