@@ -5117,8 +5117,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-29T08:24:30+00:00",
-    "shortlist_count": 26,
+    "time": "2026-09-29T08:26:27+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
@@ -5140,13 +5140,15 @@
       "GRVTUSDT",
       "AVAXUSDT",
       "STRKUSDT",
-      "RUNEUSDT",
-      "AEROUSDT",
       "ETHFIUSDT",
+      "AEROUSDT",
+      "RUNEUSDT",
       "AKEUSDT",
       "GALAUSDT",
       "VIRTUALUSDT",
-      "PLUMEUSDT"
+      "PLUMEUSDT",
+      "ADAUSDT",
+      "POLUSDT"
     ]
   }
 }
