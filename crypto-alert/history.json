@@ -87,7 +87,7 @@
     "FOLKSUSDT": "2026-09-22T19:34:34+00:00",
     "QNTUSDT": "2026-09-26T15:48:31+00:00",
     "GRASSUSDT": "2026-09-29T19:46:30+00:00",
-    "MOVRUSDT": "2026-09-30T05:36:37+00:00"
+    "MOVRUSDT": "2026-09-30T20:52:36+00:00"
   },
   "alerts": [
     {
@@ -5164,12 +5164,35 @@
       "time": "2026-09-30T05:36:37+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-09-30T05:44:28+00:00"
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "pct": 15.0,
+      "price": 1.9761,
+      "quote_volume": 1134553.1119,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5646292349331283,
+      "retrace_pct": 2.1781099945547164,
+      "wick_ratio": 0.7617187499999988,
+      "rsi": 72.65712477952168,
+      "divergence": false,
+      "vol_spike": 0.15320768722255054,
+      "btc_pct": 0.03942121200568971,
+      "sl": 2.040301,
+      "tp1": 1.9194429999999998,
+      "tp2": 1.857257,
+      "tp3": 1.7566,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.1586899731865874,
+      "time": "2026-09-30T20:52:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T20:50:39+00:00",
-    "shortlist_count": 18,
-    "confirmed_count": 0,
+    "time": "2026-09-30T20:52:36+00:00",
+    "shortlist_count": 20,
+    "confirmed_count": 1,
     "symbols": [
       "MOVRUSDT",
       "USUSDT",
@@ -5179,16 +5202,18 @@
       "STXUSDT",
       "WLDUSDT",
       "NEARUSDT",
-      "MONUSDT",
       "ZENUSDT",
+      "MONUSDT",
       "QNTUSDT",
       "ZROUSDT",
       "HBARUSDT",
       "ASTERUSDT",
       "HYPEUSDT",
       "RUNEUSDT",
+      "HUSDT",
       "NILUSDT",
-      "PIPPINUSDT"
+      "PIPPINUSDT",
+      "PLUMEUSDT"
     ]
   }
 }
