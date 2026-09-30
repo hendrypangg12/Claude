@@ -5186,12 +5186,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.1586899731865874,
       "time": "2026-09-30T20:52:36+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-09-30T20:58:53+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T20:56:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-30T20:58:53+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -5202,16 +5203,18 @@
       "STXUSDT",
       "WLDUSDT",
       "NEARUSDT",
-      "QNTUSDT",
-      "ZENUSDT",
       "MONUSDT",
-      "HBARUSDT",
+      "ZENUSDT",
+      "QNTUSDT",
+      "ZROUSDT",
       "NILUSDT",
-      "RUNEUSDT",
-      "ASTERUSDT",
+      "HBARUSDT",
       "HYPEUSDT",
+      "ASTERUSDT",
+      "RUNEUSDT",
       "HUSDT",
-      "ZROUSDT"
+      "BERAUSDT",
+      "ENAUSDT"
     ]
   }
 }
