@@ -5167,14 +5167,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T14:50:34+00:00",
-    "shortlist_count": 14,
+    "time": "2026-09-30T14:52:26+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "SOONUSDT",
       "MOVRUSDT",
-      "ARKUSDT",
       "USUSDT",
+      "ARKUSDT",
       "QNTUSDT",
       "NILUSDT",
       "NIGHTUSDT",
@@ -5182,9 +5182,10 @@
       "AKEUSDT",
       "PHAUSDT",
       "ASTERUSDT",
-      "ZENUSDT",
       "WLDUSDT",
-      "NEARUSDT"
+      "ZENUSDT",
+      "NEARUSDT",
+      "WIFUSDT"
     ]
   }
 }
