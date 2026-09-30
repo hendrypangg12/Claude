@@ -5167,8 +5167,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T20:08:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-30T20:11:10+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -5177,18 +5177,20 @@
       "NIGHTUSDT",
       "PHAUSDT",
       "QNTUSDT",
-      "BERAUSDT",
       "WLDUSDT",
-      "MONUSDT",
+      "BERAUSDT",
       "NEARUSDT",
+      "MONUSDT",
       "NILUSDT",
       "ZAMAUSDT",
-      "ZROUSDT",
       "ZENUSDT",
+      "ZROUSDT",
       "ENAUSDT",
       "HYPEUSDT",
       "ASTERUSDT",
-      "PIPPINUSDT"
+      "RUNEUSDT",
+      "HBARUSDT",
+      "ARXUSDT"
     ]
   }
 }
