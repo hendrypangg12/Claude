@@ -5191,8 +5191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T23:06:42+00:00",
-    "shortlist_count": 23,
+    "time": "2026-09-30T23:08:30+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -5203,21 +5203,18 @@
       "MONUSDT",
       "WLDUSDT",
       "PHAUSDT",
-      "BERAUSDT",
-      "NEARUSDT",
-      "QNTUSDT",
       "NILUSDT",
+      "QNTUSDT",
+      "NEARUSDT",
+      "BERAUSDT",
       "PLUMEUSDT",
       "RUNEUSDT",
-      "ENAUSDT",
       "HYPEUSDT",
+      "ENAUSDT",
       "ZENUSDT",
-      "PIPPINUSDT",
       "ASTERUSDT",
-      "GALAUSDT",
-      "ZROUSDT",
-      "VIRTUALUSDT",
-      "HUSDT"
+      "PIPPINUSDT",
+      "GALAUSDT"
     ]
   }
 }
