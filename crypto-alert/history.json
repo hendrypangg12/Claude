@@ -5167,8 +5167,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T11:22:26+00:00",
-    "shortlist_count": 17,
+    "time": "2026-09-30T11:24:30+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -5181,13 +5181,14 @@
       "PUMPUSDT",
       "NEARUSDT",
       "BERAUSDT",
-      "AKEUSDT",
       "WIFUSDT",
-      "0GUSDT",
+      "AKEUSDT",
       "PONSUSDT",
+      "0GUSDT",
       "PENGUUSDT",
       "GRASSUSDT",
-      "ASTERUSDT"
+      "ASTERUSDT",
+      "WLDUSDT"
     ]
   }
 }
