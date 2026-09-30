@@ -5142,28 +5142,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T00:22:38+00:00",
-    "shortlist_count": 18,
+    "time": "2026-09-30T00:24:41+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "SOONUSDT",
-      "MOVRUSDT",
       "BTWUSDT",
+      "MOVRUSDT",
       "GRASSUSDT",
       "QNTUSDT",
       "PHAUSDT",
       "PUMPUSDT",
       "NIGHTUSDT",
-      "ICPUSDT",
       "ETHFIUSDT",
+      "ICPUSDT",
+      "0GUSDT",
       "AAVEUSDT",
       "AVAXUSDT",
       "ZROUSDT",
-      "MUBARAKUSDT",
       "FARTCOINUSDT",
+      "MUBARAKUSDT",
       "PENGUUSDT",
       "ARXUSDT",
-      "LDOUSDT"
+      "LDOUSDT",
+      "ASTERUSDT"
     ]
   }
 }
