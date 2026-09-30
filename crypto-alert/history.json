@@ -5167,8 +5167,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T13:32:27+00:00",
-    "shortlist_count": 24,
+    "time": "2026-09-30T13:34:31+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "ARKUSDT",
@@ -5178,23 +5178,24 @@
       "USUSDT",
       "QNTUSDT",
       "WLDUSDT",
-      "BERAUSDT",
       "NILUSDT",
-      "PHAUSDT",
       "NEARUSDT",
+      "BERAUSDT",
+      "PHAUSDT",
       "ZROUSDT",
+      "USELESSUSDT",
       "ZENUSDT",
       "ASTERUSDT",
-      "USELESSUSDT",
       "PONSUSDT",
       "WIFUSDT",
       "PENGUUSDT",
       "AKEUSDT",
       "ENAUSDT",
+      "ETHFIUSDT",
+      "DOTUSDT",
       "GRASSUSDT",
       "IOUSDT",
-      "DOTUSDT",
-      "ETHFIUSDT"
+      "KATUSDT"
     ]
   }
 }
