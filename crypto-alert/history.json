@@ -5167,7 +5167,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T20:34:25+00:00",
+    "time": "2026-09-30T20:36:25+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -5179,19 +5179,19 @@
       "STXUSDT",
       "WLDUSDT",
       "MONUSDT",
+      "NEARUSDT",
       "ZENUSDT",
       "QNTUSDT",
-      "NEARUSDT",
       "HBARUSDT",
       "BERAUSDT",
       "ZROUSDT",
       "HYPEUSDT",
-      "ASTERUSDT",
       "NILUSDT",
+      "ASTERUSDT",
       "RUNEUSDT",
       "PIPPINUSDT",
-      "ENAUSDT",
-      "HUSDT"
+      "HUSDT",
+      "ENAUSDT"
     ]
   }
 }
