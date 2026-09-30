@@ -86,7 +86,8 @@
     "ZETAUSDT": "2026-09-22T03:08:33+00:00",
     "FOLKSUSDT": "2026-09-22T19:34:34+00:00",
     "QNTUSDT": "2026-09-26T15:48:31+00:00",
-    "GRASSUSDT": "2026-09-29T19:46:30+00:00"
+    "GRASSUSDT": "2026-09-29T19:46:30+00:00",
+    "MOVRUSDT": "2026-09-30T05:36:37+00:00"
   },
   "alerts": [
     {
@@ -5139,19 +5140,42 @@
       "time": "2026-09-29T19:46:30+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-09-29T19:58:31+00:00"
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "pct": 12.2,
+      "price": 1.4682,
+      "quote_volume": 320598.761,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5723668775121323,
+      "retrace_pct": 1.2642905178211263,
+      "wick_ratio": 0.2842105263157885,
+      "rsi": 69.2064075132048,
+      "divergence": false,
+      "vol_spike": 1.0314605081050143,
+      "btc_pct": 0.22355927400569894,
+      "sl": 1.50187,
+      "tp1": 1.4252306000000001,
+      "tp2": 1.3870694,
+      "tp3": 1.3253,
+      "funding_rate": -0.006,
+      "orderbook_ratio": 0.21521110297496152,
+      "time": "2026-09-30T05:36:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-09-30T05:34:29+00:00",
+    "time": "2026-09-30T05:36:37+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "MOVRUSDT",
       "SOONUSDT",
       "ZROUSDT",
       "BERAUSDT",
-      "PHAUSDT",
       "PUMPUSDT",
+      "PHAUSDT",
       "0GUSDT",
       "QNTUSDT",
       "NIGHTUSDT",
@@ -5160,22 +5184,22 @@
       "LDOUSDT",
       "AAVEUSDT",
       "AVAXUSDT",
-      "GRASSUSDT",
-      "ASTERUSDT",
       "PENGUUSDT",
-      "NEARUSDT",
+      "ASTERUSDT",
       "ROSEUSDT",
-      "BSBUSDT",
+      "GRASSUSDT",
+      "NEARUSDT",
       "ICPUSDT",
       "GALAUSDT",
+      "BSBUSDT",
       "WIFUSDT",
       "USELESSUSDT",
-      "WLDUSDT",
       "INJUSDT",
+      "WLDUSDT",
+      "TRUMPUSDT",
       "DOTUSDT",
       "ZENUSDT",
-      "MORPHOUSDT",
-      "TRUMPUSDT"
+      "PONSUSDT"
     ]
   }
 }
