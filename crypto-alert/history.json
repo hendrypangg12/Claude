@@ -5265,7 +5265,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T12:46:45+00:00",
+    "time": "2026-10-01T12:48:33+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -5274,12 +5274,12 @@
       "NOMUSDT",
       "NIGHTUSDT",
       "MONUSDT",
-      "STXUSDT",
       "BTWUSDT",
+      "STXUSDT",
       "JASMYUSDT",
       "ARXUSDT",
-      "PROMPTUSDT",
-      "MOVEUSDT"
+      "MOVEUSDT",
+      "PROMPTUSDT"
     ]
   }
 }
