@@ -5211,17 +5211,18 @@
       "funding_rate": 0.01,
       "orderbook_ratio": 1.183033974915854,
       "time": "2026-10-01T08:06:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-01T08:12:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T08:10:31+00:00",
+    "time": "2026-10-01T08:12:30+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
-      "NOMUSDT",
       "BTWUSDT",
+      "NOMUSDT",
       "NIGHTUSDT",
       "STXUSDT",
       "MONUSDT",
@@ -5231,9 +5232,9 @@
       "PLUMEUSDT",
       "MOVEUSDT",
       "LITUSDT",
-      "QNTUSDT",
-      "STRKUSDT",
       "ENAUSDT",
+      "STRKUSDT",
+      "QNTUSDT",
       "PENDLEUSDT",
       "ZENUSDT",
       "NEARUSDT",
