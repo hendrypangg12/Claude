@@ -5191,8 +5191,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T05:48:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-01T05:50:31+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
@@ -5204,18 +5204,19 @@
       "ENAUSDT",
       "NEARUSDT",
       "LITUSDT",
-      "SUSDT",
       "FETUSDT",
+      "SUSDT",
       "ORCAUSDT",
       "ZENUSDT",
       "RUNEUSDT",
       "WLDUSDT",
       "EGLDUSDT",
       "PENDLEUSDT",
-      "VIRTUALUSDT",
       "AEROUSDT",
+      "VIRTUALUSDT",
+      "PIPPINUSDT",
       "TRUMPUSDT",
-      "PIPPINUSDT"
+      "KAITOUSDT"
     ]
   }
 }
