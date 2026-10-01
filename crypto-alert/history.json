@@ -5265,8 +5265,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T16:54:34+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-01T16:56:31+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -5274,12 +5274,13 @@
       "USUSDT",
       "ALICEUSDT",
       "MONUSDT",
-      "JASMYUSDT",
       "MOVEUSDT",
-      "NOMUSDT",
-      "NIGHTUSDT",
+      "JASMYUSDT",
       "BTWUSDT",
-      "STXUSDT"
+      "NOMUSDT",
+      "STXUSDT",
+      "NIGHTUSDT",
+      "HEIUSDT"
     ]
   }
 }
