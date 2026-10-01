@@ -5216,8 +5216,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T08:54:34+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-01T08:56:26+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "NOMUSDT",
@@ -5230,11 +5230,13 @@
       "PLUMEUSDT",
       "FETUSDT",
       "MOVEUSDT",
-      "QNTUSDT",
       "PENDLEUSDT",
-      "USUSDT",
       "STRKUSDT",
-      "ZENUSDT"
+      "USUSDT",
+      "ZENUSDT",
+      "QNTUSDT",
+      "LITUSDT",
+      "RUNEUSDT"
     ]
   }
 }
