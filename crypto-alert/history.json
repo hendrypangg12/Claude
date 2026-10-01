@@ -5265,27 +5265,28 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T17:24:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-01T17:26:32+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "MOVRUSDT",
-      "CAPUSDT",
       "USUSDT",
+      "CAPUSDT",
       "MEGAUSDT",
       "ALICEUSDT",
       "MONUSDT",
       "MOVEUSDT",
       "ARKUSDT",
       "JASMYUSDT",
-      "NOMUSDT",
       "UAIUSDT",
+      "NOMUSDT",
       "BTWUSDT",
       "STXUSDT",
       "HEIUSDT",
       "NIGHTUSDT",
-      "AAVEUSDT"
+      "AAVEUSDT",
+      "ARXUSDT"
     ]
   }
 }
