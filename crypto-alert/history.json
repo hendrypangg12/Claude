@@ -5191,7 +5191,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T00:36:28+00:00",
+    "time": "2026-10-01T00:38:40+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -5201,10 +5201,10 @@
       "MONUSDT",
       "STXUSDT",
       "SOONUSDT",
-      "NILUSDT",
       "WLDUSDT",
-      "ARKUSDT",
+      "NILUSDT",
       "QNTUSDT",
+      "ARKUSDT",
       "ENAUSDT",
       "RUNEUSDT",
       "PHAUSDT",
@@ -5212,11 +5212,11 @@
       "ZENUSDT",
       "NEARUSDT",
       "PONSUSDT",
-      "VIRTUALUSDT",
       "PIPPINUSDT",
-      "CRVUSDT",
+      "VIRTUALUSDT",
       "GALAUSDT",
-      "HYPEUSDT"
+      "HYPEUSDT",
+      "CRVUSDT"
     ]
   }
 }
