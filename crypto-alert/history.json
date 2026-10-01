@@ -5191,35 +5191,37 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T00:22:26+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-01T00:24:25+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "MOVRUSDT",
       "USUSDT",
-      "NIGHTUSDT",
       "MONUSDT",
+      "NIGHTUSDT",
       "SOONUSDT",
       "STXUSDT",
       "WLDUSDT",
       "NILUSDT",
+      "ARKUSDT",
       "NEARUSDT",
-      "PHAUSDT",
       "QNTUSDT",
       "ENAUSDT",
       "RUNEUSDT",
-      "ARKUSDT",
-      "PONSUSDT",
       "PLUMEUSDT",
+      "PONSUSDT",
+      "PHAUSDT",
       "ZENUSDT",
       "HYPEUSDT",
       "PIPPINUSDT",
-      "GALAUSDT",
       "CRVUSDT",
       "VIRTUALUSDT",
+      "GALAUSDT",
       "KAITOUSDT",
+      "LITUSDT",
       "IOUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "STRKUSDT"
     ]
   }
 }
