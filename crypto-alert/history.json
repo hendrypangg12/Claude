@@ -5265,21 +5265,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T14:22:41+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-01T14:24:27+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "MOVRUSDT",
       "MONUSDT",
-      "JASMYUSDT",
-      "STXUSDT",
-      "NOMUSDT",
       "BTWUSDT",
+      "STXUSDT",
+      "JASMYUSDT",
+      "NOMUSDT",
       "ARXUSDT",
       "MOVEUSDT",
       "AAVEUSDT",
-      "PHAUSDT"
+      "UNIUSDT",
+      "PHAUSDT",
+      "HYPEUSDT"
     ]
   }
 }
