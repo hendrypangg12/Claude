@@ -5265,7 +5265,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-01T18:02:32+00:00",
+    "time": "2026-10-01T18:04:32+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -5281,15 +5281,15 @@
       "UAIUSDT",
       "NOMUSDT",
       "JASMYUSDT",
-      "ARKUSDT",
-      "BTWUSDT",
-      "HEIUSDT",
-      "AAVEUSDT",
       "STXUSDT",
+      "ARKUSDT",
+      "HEIUSDT",
+      "BTWUSDT",
+      "AAVEUSDT",
       "ZROUSDT",
-      "ARUSDT",
       "FETUSDT",
-      "ARXUSDT"
+      "ARXUSDT",
+      "ARUSDT"
     ]
   }
 }
