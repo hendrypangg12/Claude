@@ -5314,26 +5314,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T06:18:27+00:00",
+    "time": "2026-10-02T06:20:33+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
       "GTCUSDT",
       "MAGMAUSDT",
-      "MEGAUSDT",
       "UAIUSDT",
+      "MEGAUSDT",
       "ALICEUSDT",
       "ZROUSDT",
       "SYNUSDT",
       "AAVEUSDT",
-      "HEIUSDT",
       "WIFUSDT",
+      "HEIUSDT",
+      "ARUSDT",
       "BTWUSDT",
       "LYNUSDT",
-      "ARUSDT",
-      "APTUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "APTUSDT"
     ]
   }
 }
