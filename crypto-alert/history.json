@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T17:54:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-02T17:56:30+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5327,14 +5327,15 @@
       "ENJUSDT",
       "WLDUSDT",
       "GALAUSDT",
-      "APEUSDT",
       "POWERUSDT",
+      "APEUSDT",
       "MAGICUSDT",
       "AAVEUSDT",
       "VVVUSDT",
-      "AKEUSDT",
       "TIAUSDT",
-      "APTUSDT"
+      "AKEUSDT",
+      "APTUSDT",
+      "ALGOUSDT"
     ]
   }
 }
