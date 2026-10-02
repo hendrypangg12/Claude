@@ -5314,7 +5314,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T18:58:30+00:00",
+    "time": "2026-10-02T19:00:44+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5325,13 +5325,13 @@
       "ENJUSDT",
       "SCRUSDT",
       "POWERUSDT",
-      "MANAUSDT",
       "WLDUSDT",
+      "MANAUSDT",
       "APEUSDT",
-      "LYNUSDT",
       "AAVEUSDT",
       "GALAUSDT",
-      "VVVUSDT"
+      "VVVUSDT",
+      "LYNUSDT"
     ]
   }
 }
