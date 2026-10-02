@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T07:22:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-02T07:24:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -5325,17 +5325,18 @@
       "AAVEUSDT",
       "ZROUSDT",
       "ARUSDT",
-      "SYNUSDT",
       "GALAUSDT",
+      "SYNUSDT",
       "APTUSDT",
       "MUBARAKUSDT",
       "BTWUSDT",
-      "TIAUSDT",
+      "WIFUSDT",
+      "USELESSUSDT",
       "LTCUSDT",
       "GRVTUSDT",
-      "USELESSUSDT",
-      "WIFUSDT",
-      "METUSDT"
+      "METUSDT",
+      "TIAUSDT",
+      "FARTCOINUSDT"
     ]
   }
 }
