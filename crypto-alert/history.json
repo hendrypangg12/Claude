@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T23:50:34+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-02T23:52:27+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -5325,8 +5325,8 @@
       "EVAAUSDT",
       "GALAUSDT",
       "MANAUSDT",
-      "POWERUSDT",
       "ENJUSDT",
+      "POWERUSDT",
       "APEUSDT",
       "WLDUSDT",
       "SCRUSDT",
@@ -5334,7 +5334,8 @@
       "VVVUSDT",
       "CAPUSDT",
       "AAVEUSDT",
-      "ALGOUSDT"
+      "ALGOUSDT",
+      "TIAUSDT"
     ]
   }
 }
