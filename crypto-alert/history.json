@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T07:10:33+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-02T07:12:25+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5328,11 +5328,12 @@
       "ARUSDT",
       "MUBARAKUSDT",
       "BTWUSDT",
-      "MEGAUSDT",
-      "ALICEUSDT",
       "APTUSDT",
+      "ALICEUSDT",
+      "MEGAUSDT",
+      "LTCUSDT",
       "GRVTUSDT",
-      "LTCUSDT"
+      "WIFUSDT"
     ]
   }
 }
