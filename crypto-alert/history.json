@@ -5290,8 +5290,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T05:42:25+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-02T05:44:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5300,18 +5300,20 @@
       "MEGAUSDT",
       "UAIUSDT",
       "ALICEUSDT",
-      "SYNUSDT",
       "ZROUSDT",
+      "SYNUSDT",
       "NOMUSDT",
       "AAVEUSDT",
       "HEIUSDT",
-      "ARUSDT",
       "WIFUSDT",
+      "ARUSDT",
       "BTWUSDT",
       "APTUSDT",
-      "GRVTUSDT",
       "PROMPTUSDT",
-      "FARTCOINUSDT"
+      "GRVTUSDT",
+      "FARTCOINUSDT",
+      "LTCUSDT",
+      "JASMYUSDT"
     ]
   }
 }
