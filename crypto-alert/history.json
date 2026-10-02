@@ -5309,12 +5309,13 @@
       "funding_rate": 0.022,
       "orderbook_ratio": 1.1700066681546957,
       "time": "2026-10-02T06:04:24+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-02T06:10:36+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T06:08:25+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-02T06:10:36+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5325,16 +5326,15 @@
       "ALICEUSDT",
       "ZROUSDT",
       "SYNUSDT",
-      "LYNUSDT",
       "AAVEUSDT",
       "WIFUSDT",
+      "LYNUSDT",
       "ARUSDT",
       "HEIUSDT",
       "BTWUSDT",
       "APTUSDT",
-      "GRVTUSDT",
       "FARTCOINUSDT",
-      "LTCUSDT"
+      "GRVTUSDT"
     ]
   }
 }
