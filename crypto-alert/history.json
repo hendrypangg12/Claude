@@ -5314,12 +5314,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T07:20:49+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-02T07:22:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
-      "GTCUSDT",
       "MAGMAUSDT",
+      "GTCUSDT",
       "USUSDT",
       "UAIUSDT",
       "AAVEUSDT",
@@ -5327,12 +5327,15 @@
       "ARUSDT",
       "SYNUSDT",
       "GALAUSDT",
-      "BTWUSDT",
       "APTUSDT",
       "MUBARAKUSDT",
+      "BTWUSDT",
+      "TIAUSDT",
       "LTCUSDT",
       "GRVTUSDT",
-      "TIAUSDT"
+      "USELESSUSDT",
+      "WIFUSDT",
+      "METUSDT"
     ]
   }
 }
