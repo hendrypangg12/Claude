@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T09:44:26+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-02T09:46:24+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
@@ -5331,10 +5331,11 @@
       "FARTCOINUSDT",
       "MUBARAKUSDT",
       "GRVTUSDT",
-      "SYNUSDT",
       "RESOLVUSDT",
+      "SYNUSDT",
       "MEGAUSDT",
-      "LTCUSDT"
+      "LTCUSDT",
+      "MONUSDT"
     ]
   }
 }
