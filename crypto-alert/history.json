@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T09:36:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-02T09:38:29+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
@@ -5328,14 +5328,16 @@
       "AAVEUSDT",
       "USELESSUSDT",
       "APTUSDT",
-      "RESOLVUSDT",
       "FARTCOINUSDT",
+      "RESOLVUSDT",
       "MUBARAKUSDT",
       "MEGAUSDT",
       "GRVTUSDT",
-      "TIAUSDT",
+      "SYNUSDT",
+      "WLDUSDT",
+      "LTCUSDT",
       "APEUSDT",
-      "LTCUSDT"
+      "TIAUSDT"
     ]
   }
 }
