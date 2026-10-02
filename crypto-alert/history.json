@@ -5314,7 +5314,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T06:20:33+00:00",
+    "time": "2026-10-02T06:22:30+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -5329,11 +5329,11 @@
       "AAVEUSDT",
       "WIFUSDT",
       "HEIUSDT",
-      "ARUSDT",
       "BTWUSDT",
-      "LYNUSDT",
+      "ARUSDT",
       "GRVTUSDT",
-      "APTUSDT"
+      "APTUSDT",
+      "LYNUSDT"
     ]
   }
 }
