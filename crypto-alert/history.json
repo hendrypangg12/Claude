@@ -5314,24 +5314,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T19:18:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-02T19:20:45+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
-      "GTCUSDT",
-      "SANDUSDT",
       "MAGMAUSDT",
+      "SANDUSDT",
+      "GTCUSDT",
       "NIGHTUSDT",
-      "SCRUSDT",
       "ENJUSDT",
+      "SCRUSDT",
       "POWERUSDT",
       "MANAUSDT",
-      "VVVUSDT",
       "APEUSDT",
-      "WLDUSDT",
+      "VVVUSDT",
       "GALAUSDT",
-      "AAVEUSDT",
-      "LYNUSDT"
+      "WLDUSDT",
+      "AAVEUSDT"
     ]
   }
 }
