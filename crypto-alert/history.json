@@ -5314,13 +5314,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T18:28:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-02T18:30:41+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
-      "GTCUSDT",
       "SANDUSDT",
+      "GTCUSDT",
       "NIGHTUSDT",
       "SCRUSDT",
       "POWERUSDT",
@@ -5331,7 +5331,9 @@
       "APEUSDT",
       "GALAUSDT",
       "AAVEUSDT",
-      "VVVUSDT"
+      "VVVUSDT",
+      "APTUSDT",
+      "TIAUSDT"
     ]
   }
 }
