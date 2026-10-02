@@ -5265,15 +5265,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T01:20:34+00:00",
+    "time": "2026-10-02T01:22:31+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
-      "龙虾USDT",
       "GTCUSDT",
-      "MOVRUSDT",
-      "UAIUSDT",
+      "龙虾USDT",
       "MEGAUSDT",
+      "UAIUSDT",
+      "MOVRUSDT",
       "ALICEUSDT",
       "SYNUSDT",
       "NOMUSDT",
@@ -5283,9 +5283,9 @@
       "BTWUSDT",
       "HEIUSDT",
       "ZROUSDT",
-      "MOVEUSDT",
       "ARUSDT",
-      "MONUSDT"
+      "MONUSDT",
+      "MOVEUSDT"
     ]
   }
 }
