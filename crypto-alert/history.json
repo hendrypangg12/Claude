@@ -5290,7 +5290,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T05:54:25+00:00",
+    "time": "2026-10-02T05:56:33+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -5303,16 +5303,16 @@
       "ZROUSDT",
       "SYNUSDT",
       "AAVEUSDT",
+      "NOMUSDT",
       "WIFUSDT",
       "HEIUSDT",
       "ARUSDT",
-      "NOMUSDT",
       "GRVTUSDT",
       "BTWUSDT",
       "APTUSDT",
-      "PROMPTUSDT",
       "FARTCOINUSDT",
-      "LTCUSDT"
+      "LTCUSDT",
+      "PROMPTUSDT"
     ]
   }
 }
