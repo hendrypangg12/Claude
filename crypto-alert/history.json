@@ -5290,8 +5290,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T04:24:23+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-02T04:26:26+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5306,15 +5306,17 @@
       "龙虾USDT",
       "JASMYUSDT",
       "PROMPTUSDT",
-      "HEIUSDT",
-      "BTWUSDT",
-      "ZROUSDT",
       "AAVEUSDT",
+      "HEIUSDT",
+      "ZROUSDT",
+      "BTWUSDT",
       "ARUSDT",
-      "USELESSUSDT",
       "LYNUSDT",
+      "USELESSUSDT",
+      "WIFUSDT",
+      "GRAMUSDT",
       "CAPUSDT",
-      "GRAMUSDT"
+      "ORCAUSDT"
     ]
   }
 }
