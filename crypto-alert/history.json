@@ -90,7 +90,7 @@
     "MOVRUSDT": "2026-09-30T20:52:36+00:00",
     "JASMYUSDT": "2026-10-01T08:06:27+00:00",
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
-    "USUSDT": "2026-10-02T02:34:27+00:00"
+    "USUSDT": "2026-10-02T06:04:24+00:00"
   },
   "alerts": [
     {
@@ -5287,12 +5287,35 @@
       "time": "2026-10-02T02:34:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-02T02:40:31+00:00"
+    },
+    {
+      "symbol": "USUSDT",
+      "pct": 12.34,
+      "price": 0.03297,
+      "quote_volume": 2202203.90414,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.1573957376943682,
+      "retrace_pct": 0.8122743682310452,
+      "wick_ratio": 0.5526315789473756,
+      "rsi": 65.03496577473854,
+      "divergence": false,
+      "vol_spike": 0.13625634701763212,
+      "btc_pct": -0.3018882006552387,
+      "sl": 0.0335724,
+      "tp1": 0.0318457,
+      "tp2": 0.0309843,
+      "tp3": 0.02959,
+      "funding_rate": 0.022,
+      "orderbook_ratio": 1.1700066681546957,
+      "time": "2026-10-02T06:04:24+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-02T06:02:23+00:00",
-    "shortlist_count": 17,
-    "confirmed_count": 0,
+    "time": "2026-10-02T06:04:24+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "USUSDT",
       "GTCUSDT",
@@ -5301,14 +5324,15 @@
       "MEGAUSDT",
       "ALICEUSDT",
       "ZROUSDT",
+      "LYNUSDT",
       "SYNUSDT",
       "AAVEUSDT",
-      "WIFUSDT",
       "ARUSDT",
       "HEIUSDT",
-      "GRVTUSDT",
-      "APTUSDT",
+      "WIFUSDT",
       "BTWUSDT",
+      "APTUSDT",
+      "GRVTUSDT",
       "FARTCOINUSDT",
       "LTCUSDT"
     ]
