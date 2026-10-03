@@ -5314,7 +5314,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T20:16:45+00:00",
+    "time": "2026-10-03T20:18:30+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5334,20 +5334,20 @@
       "ARUSDT",
       "USELESSUSDT",
       "AEROUSDT",
+      "STXUSDT",
       "TIAUSDT",
       "MANAUSDT",
-      "STXUSDT",
-      "SYNUSDT",
       "WIFUSDT",
+      "SYNUSDT",
       "CRVUSDT",
       "FILUSDT",
       "IMXUSDT",
       "VIRTUALUSDT",
       "AVAXUSDT",
       "UAIUSDT",
-      "SUIUSDT",
-      "WUSDT",
-      "RENDERUSDT"
+      "RENDERUSDT",
+      "XMRUSDT",
+      "SUIUSDT"
     ]
   }
 }
