@@ -5314,30 +5314,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T01:12:31+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-03T01:14:28+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
       "MAGMAUSDT",
       "NIGHTUSDT",
       "VELVETUSDT",
-      "EVAAUSDT",
       "GALAUSDT",
       "ENJUSDT",
-      "CTUSDT",
+      "EVAAUSDT",
       "MANAUSDT",
       "WLDUSDT",
+      "CTUSDT",
       "APEUSDT",
       "POWERUSDT",
-      "CAPUSDT",
       "AXSUSDT",
+      "CAPUSDT",
       "PYTHUSDT",
       "VVVUSDT",
       "ALGOUSDT",
       "TIAUSDT",
-      "RENDERUSDT",
-      "GRVTUSDT"
+      "RENDERUSDT"
     ]
   }
 }
