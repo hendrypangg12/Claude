@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T15:56:31+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-03T15:58:27+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -5323,12 +5323,11 @@
       "SANDUSDT",
       "VELVETUSDT",
       "STRKUSDT",
+      "NIGHTUSDT",
       "EVAAUSDT",
       "ZROUSDT",
-      "NIGHTUSDT",
       "GRASSUSDT",
-      "TIAUSDT",
-      "WLDUSDT"
+      "TIAUSDT"
     ]
   }
 }
