@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T05:46:31+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-03T05:48:33+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
@@ -5326,15 +5326,17 @@
       "ENJUSDT",
       "GALAUSDT",
       "VELVETUSDT",
+      "RESOLVUSDT",
       "EVAAUSDT",
       "APEUSDT",
       "AXSUSDT",
       "WLDUSDT",
       "CTUSDT",
-      "RESOLVUSDT",
       "AKEUSDT",
       "LYNUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "INJUSDT",
+      "QNTUSDT"
     ]
   }
 }
