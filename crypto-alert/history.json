@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T00:38:28+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-03T00:40:31+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -5328,14 +5328,15 @@
       "APEUSDT",
       "MANAUSDT",
       "WLDUSDT",
-      "PYTHUSDT",
       "POWERUSDT",
+      "PYTHUSDT",
       "VVVUSDT",
       "ALGOUSDT",
-      "NMRUSDT",
-      "RENDERUSDT",
       "TIAUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "RENDERUSDT",
+      "CTUSDT",
+      "NMRUSDT"
     ]
   }
 }
