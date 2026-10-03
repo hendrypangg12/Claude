@@ -5314,20 +5314,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T16:20:42+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-03T16:22:27+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
-      "VELVETUSDT",
       "龙虾USDT",
+      "VELVETUSDT",
       "SANDUSDT",
       "STRKUSDT",
-      "ZROUSDT",
       "GRASSUSDT",
       "EVAAUSDT",
-      "NIGHTUSDT",
-      "IOUSDT"
+      "ZROUSDT",
+      "IOUSDT",
+      "SYNUSDT",
+      "NIGHTUSDT"
     ]
   }
 }
