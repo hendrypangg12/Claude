@@ -615,3 +615,10 @@ The game logic is a single IIFE at the bottom of the file. Key pieces to underst
 - Demo toko ala Tokopedia (katalog, rating/terjual, filter, keranjang, checkout kurir+bayar DUMMY) = `docs/lumina.html` →
   https://hendrypangg12.github.io/Claude/lumina.html (noindex, banner "DEMO bukan toko resmi"). Foto asli dari luminalighting.id
   (di-embed base64). Harga/rating/ulasan = CONTOH. Domain berstock.id BELUM nyambung ke Pages (gak ada CNAME).
+
+### 3 Okt 2026 — Promo app BerUang ke @berstock.id (workflow baru)
+- 6 desain promo app BerUang (krem/coklat, logo asli + badge resmi Google Play, render HTML→PNG via Playwright,
+  font Plus Jakarta Sans) di `berstock-promo/published/<id>/` (post_1.jpg + caption.txt). App BerUang = BERBAYAR
+  (trial pencatatan 2 hari, fitur AI gak termasuk) → JANGAN tulis "gratis" doang.
+- Workflow `berstock-promo.yml` (dropdown pilih post, urutan 06→01) → `publish_ig.py` 1 foto. Butuh Secret
+  **`IG_USER_ID_BS`** (IG User ID @berstock.id, BELUM di-set per 3 Okt) + token IG_ACCESS_TOKEN (harus grant Page yg ke-link berstock.id).
