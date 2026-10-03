@@ -5314,21 +5314,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T12:10:32+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-03T12:12:26+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "VELVETUSDT",
       "EVAAUSDT",
       "WLDUSDT",
-      "LYNUSDT",
       "ZROUSDT",
+      "LYNUSDT",
       "ARUSDT",
       "GRASSUSDT",
       "SANDUSDT",
       "SYNUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "QNTUSDT"
     ]
   }
 }
