@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-03_17-35-38",
+      "date": "2026-10-03",
+      "time": "17:35",
+      "label": "STORY KANTOR",
+      "title": "Karyawan lama dianggap paham semua tanpa pernah diajarin ulang.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-10-03_14-05-11",
       "date": "2026-10-03",
       "time": "14:05",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-09-30_09-19-57",
-      "date": "2026-09-30",
-      "time": "09:19",
-      "label": "STORY KANTOR",
-      "title": "Diskusi kerja 30 menit, keputusannya diambil 5 menit terakhir sama satu orang.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
