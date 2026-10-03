@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T01:00:45+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-03T01:02:29+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
@@ -5325,16 +5325,18 @@
       "EVAAUSDT",
       "GALAUSDT",
       "ENJUSDT",
-      "CTUSDT",
-      "APEUSDT",
       "MANAUSDT",
-      "CAPUSDT",
+      "APEUSDT",
+      "CTUSDT",
       "WLDUSDT",
-      "PYTHUSDT",
+      "CAPUSDT",
       "POWERUSDT",
+      "PYTHUSDT",
       "VVVUSDT",
       "ALGOUSDT",
-      "TIAUSDT"
+      "AAVEUSDT",
+      "TIAUSDT",
+      "NMRUSDT"
     ]
   }
 }
