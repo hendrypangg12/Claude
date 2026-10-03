@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T02:35:01+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-03T02:36:26+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
@@ -5323,16 +5323,18 @@
       "VELVETUSDT",
       "NIGHTUSDT",
       "ENJUSDT",
-      "EVAAUSDT",
       "GALAUSDT",
+      "EVAAUSDT",
       "CTUSDT",
-      "WLDUSDT",
       "MANAUSDT",
+      "WLDUSDT",
       "APEUSDT",
       "POWERUSDT",
       "AXSUSDT",
       "VVVUSDT",
-      "PYTHUSDT"
+      "PYTHUSDT",
+      "AAVEUSDT",
+      "NMRUSDT"
     ]
   }
 }
