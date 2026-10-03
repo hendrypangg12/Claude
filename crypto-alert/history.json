@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-03T08:40:31+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-03T08:43:04+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -5323,13 +5323,14 @@
       "NIGHTUSDT",
       "SANDUSDT",
       "QNTUSDT",
-      "EVAAUSDT",
       "SYNUSDT",
+      "EVAAUSDT",
       "IMXUSDT",
-      "ENJUSDT",
       "ARUSDT",
       "WLDUSDT",
-      "APEUSDT"
+      "ENJUSDT",
+      "APEUSDT",
+      "AKEUSDT"
     ]
   }
 }
