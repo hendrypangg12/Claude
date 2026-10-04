@@ -5314,8 +5314,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T10:54:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-04T10:56:26+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -5324,21 +5324,23 @@
       "AXSUSDT",
       "PUMPUSDT",
       "COAIUSDT",
+      "ATHUSDT",
       "PHAUSDT",
       "IOUSDT",
       "ZAMAUSDT",
-      "ATHUSDT",
       "MUBARAKUSDT",
-      "RUNEUSDT",
       "WUSDT",
+      "RUNEUSDT",
       "MONUSDT",
-      "AKEUSDT",
       "AEROUSDT",
+      "AKEUSDT",
+      "SANDUSDT",
       "ATOMUSDT",
       "LITUSDT",
-      "ETHFIUSDT",
       "FETUSDT",
-      "TAOUSDT"
+      "ETHFIUSDT",
+      "TAOUSDT",
+      "NEARUSDT"
     ]
   }
 }
