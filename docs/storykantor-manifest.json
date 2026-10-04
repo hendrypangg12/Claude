@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-04_14-22-23",
+      "date": "2026-10-04",
+      "time": "14:22",
+      "label": "STORY KANTOR",
+      "title": "Meeting yang harusnya 10 menit, molor jadi 2 jam tanpa keputusan.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-10-04_09-51-21",
       "date": "2026-10-04",
       "time": "09:51",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-01_01-07-29",
-      "date": "2026-10-01",
-      "time": "01:07",
-      "label": "STORY KANTOR",
-      "title": "WFH katanya bebas, tapi laptop nyala lebih lama dari pas ngantor.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
