@@ -5314,7 +5314,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T15:50:31+00:00",
+    "time": "2026-10-04T15:52:26+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -5329,18 +5329,18 @@
       "ATHUSDT",
       "AKEUSDT",
       "IOUSDT",
-      "FETUSDT",
       "RUNEUSDT",
       "AEROUSDT",
+      "FETUSDT",
       "WUSDT",
       "ETHFIUSDT",
       "SUIUSDT",
-      "COAIUSDT",
       "4USDT",
-      "PHAUSDT",
+      "COAIUSDT",
       "SEIUSDT",
-      "STXUSDT",
-      "MONUSDT"
+      "PHAUSDT",
+      "MONUSDT",
+      "STXUSDT"
     ]
   }
 }
