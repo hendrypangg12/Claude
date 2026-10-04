@@ -5314,20 +5314,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T03:18:28+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-04T03:20:30+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "STRKUSDT",
       "ZAMAUSDT",
+      "ONEUSDT",
       "ZROUSDT",
       "PUMPUSDT",
-      "ONEUSDT",
       "IOUSDT",
       "ARKUSDT",
-      "WUSDT",
       "MONUSDT",
+      "WUSDT",
       "USELESSUSDT",
       "QNTUSDT",
       "AEROUSDT",
@@ -5336,7 +5336,9 @@
       "KAITOUSDT",
       "ETHFIUSDT",
       "BSBUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "MARSCOINUSDT",
+      "SYNUSDT"
     ]
   }
 }
