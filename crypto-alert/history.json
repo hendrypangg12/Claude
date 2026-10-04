@@ -5364,8 +5364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T22:20:39+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-04T22:22:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5380,14 +5380,15 @@
       "ATHUSDT",
       "WUSDT",
       "VIRTUALUSDT",
-      "BULLAUSDT",
       "ADAUSDT",
-      "NEARUSDT",
+      "BULLAUSDT",
+      "CCUSDT",
       "COAIUSDT",
-      "FARTCOINUSDT",
+      "NEARUSDT",
       "DOGEUSDT",
-      "PENGUUSDT",
-      "CCUSDT"
+      "FARTCOINUSDT",
+      "ZECUSDT",
+      "PENGUUSDT"
     ]
   }
 }
