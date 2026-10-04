@@ -5364,7 +5364,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T22:42:29+00:00",
+    "time": "2026-10-04T22:44:26+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -5377,16 +5377,16 @@
       "STRKUSDT",
       "PHAUSDT",
       "ADAUSDT",
-      "AINUSDT",
       "ATHUSDT",
+      "AINUSDT",
       "RUNEUSDT",
-      "VIRTUALUSDT",
       "WUSDT",
+      "VIRTUALUSDT",
       "BULLAUSDT",
       "CCUSDT",
       "COAIUSDT",
-      "ZECUSDT",
-      "FARTCOINUSDT"
+      "FARTCOINUSDT",
+      "ZECUSDT"
     ]
   }
 }
