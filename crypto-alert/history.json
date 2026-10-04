@@ -5335,7 +5335,8 @@
       "funding_rate": -0.814,
       "orderbook_ratio": 0.1587802683863848,
       "time": "2026-10-04T17:52:28+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-04T18:04:39+00:00"
     },
     {
       "symbol": "LYNUSDT",
@@ -5362,35 +5363,35 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T18:02:30+00:00",
+    "time": "2026-10-04T18:04:39+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
-      "LYNUSDT",
       "BEAMXUSDT",
+      "LYNUSDT",
       "MUBARAKUSDT",
       "AXSUSDT",
-      "AINUSDT",
       "PHAUSDT",
-      "ATHUSDT",
+      "AINUSDT",
       "RUNEUSDT",
       "PUMPUSDT",
+      "COLLECTUSDT",
+      "ATHUSDT",
       "COAIUSDT",
       "4USDT",
-      "FETUSDT",
       "VIRTUALUSDT",
       "BULLAUSDT",
-      "COLLECTUSDT",
+      "FETUSDT",
       "MONUSDT",
-      "NEARUSDT",
       "AEROUSDT",
-      "AKEUSDT",
-      "STRKUSDT",
+      "NEARUSDT",
       "SEIUSDT",
+      "STRKUSDT",
+      "AKEUSDT",
       "WUSDT",
       "ETHFIUSDT",
-      "IOUSDT",
+      "SUIUSDT",
       "CCUSDT"
     ]
   }
