@@ -5314,7 +5314,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T01:30:34+00:00",
+    "time": "2026-10-04T01:32:32+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -5329,16 +5329,16 @@
       "ARKUSDT",
       "IOUSDT",
       "MONUSDT",
-      "AEROUSDT",
       "SANDUSDT",
       "USELESSUSDT",
       "WLDUSDT",
-      "WUSDT",
+      "AEROUSDT",
       "CCUSDT",
       "BSBUSDT",
+      "WUSDT",
       "SYNUSDT",
-      "TIAUSDT",
-      "KAITOUSDT"
+      "KAITOUSDT",
+      "TIAUSDT"
     ]
   }
 }
