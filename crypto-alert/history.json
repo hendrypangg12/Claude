@@ -90,7 +90,8 @@
     "MOVRUSDT": "2026-09-30T20:52:36+00:00",
     "JASMYUSDT": "2026-10-01T08:06:27+00:00",
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
-    "USUSDT": "2026-10-02T06:04:24+00:00"
+    "USUSDT": "2026-10-02T06:04:24+00:00",
+    "GTCUSDT": "2026-10-04T17:52:28+00:00"
   },
   "alerts": [
     {
@@ -5311,37 +5312,61 @@
       "time": "2026-10-02T06:04:24+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-02T06:10:36+00:00"
+    },
+    {
+      "symbol": "GTCUSDT",
+      "pct": 9.18,
+      "price": 0.14884,
+      "quote_volume": 347149.25381,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4607702380444441,
+      "retrace_pct": 1.6778966838419784,
+      "wick_ratio": 0.1727416798732144,
+      "rsi": 67.77354931895002,
+      "divergence": false,
+      "vol_spike": 0.0935205030015541,
+      "btc_pct": 0.06473906102690466,
+      "sl": 0.1528938,
+      "tp1": 0.14651714,
+      "tp2": 0.14351286,
+      "tp3": 0.13865,
+      "funding_rate": -0.814,
+      "orderbook_ratio": 0.1587802683863848,
+      "time": "2026-10-04T17:52:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T17:50:31+00:00",
-    "shortlist_count": 24,
-    "confirmed_count": 0,
+    "time": "2026-10-04T17:52:28+00:00",
+    "shortlist_count": 25,
+    "confirmed_count": 1,
     "symbols": [
       "GTCUSDT",
-      "BEAMXUSDT",
       "LYNUSDT",
+      "BEAMXUSDT",
       "COLLECTUSDT",
-      "MUBARAKUSDT",
       "AINUSDT",
+      "MUBARAKUSDT",
       "AXSUSDT",
-      "RUNEUSDT",
       "PUMPUSDT",
+      "RUNEUSDT",
       "ATHUSDT",
       "PHAUSDT",
       "VIRTUALUSDT",
       "COAIUSDT",
       "FETUSDT",
-      "NEARUSDT",
       "4USDT",
+      "NEARUSDT",
       "BULLAUSDT",
       "AKEUSDT",
+      "MONUSDT",
       "AEROUSDT",
       "ETHFIUSDT",
-      "SEIUSDT",
+      "STRKUSDT",
       "WUSDT",
       "IOUSDT",
-      "STRKUSDT"
+      "SEIUSDT"
     ]
   }
 }
