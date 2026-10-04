@@ -91,7 +91,8 @@
     "JASMYUSDT": "2026-10-01T08:06:27+00:00",
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
     "USUSDT": "2026-10-02T06:04:24+00:00",
-    "GTCUSDT": "2026-10-04T17:52:28+00:00"
+    "GTCUSDT": "2026-10-04T17:52:28+00:00",
+    "LYNUSDT": "2026-10-04T17:54:29+00:00"
   },
   "alerts": [
     {
@@ -5335,38 +5336,61 @@
       "orderbook_ratio": 0.1587802683863848,
       "time": "2026-10-04T17:52:28+00:00",
       "outcome": null
+    },
+    {
+      "symbol": "LYNUSDT",
+      "pct": 14.54,
+      "price": 0.03273,
+      "quote_volume": 2333417.71508,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3008348755316332,
+      "retrace_pct": 0.8181818181818163,
+      "wick_ratio": 0.5918367346938694,
+      "rsi": 71.58619631144941,
+      "divergence": false,
+      "vol_spike": 1.848637512912601,
+      "btc_pct": 0.004817096825990971,
+      "sl": 0.03333,
+      "tp1": 0.03139942,
+      "tp2": 0.03041058,
+      "tp3": 0.02881,
+      "funding_rate": -0.239,
+      "orderbook_ratio": 0.8515463586987393,
+      "time": "2026-10-04T17:54:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T17:52:28+00:00",
+    "time": "2026-10-04T17:54:29+00:00",
     "shortlist_count": 25,
     "confirmed_count": 1,
     "symbols": [
       "GTCUSDT",
       "LYNUSDT",
       "BEAMXUSDT",
-      "COLLECTUSDT",
       "AINUSDT",
       "MUBARAKUSDT",
       "AXSUSDT",
+      "COLLECTUSDT",
       "PUMPUSDT",
       "RUNEUSDT",
       "ATHUSDT",
       "PHAUSDT",
-      "VIRTUALUSDT",
       "COAIUSDT",
       "FETUSDT",
+      "VIRTUALUSDT",
       "4USDT",
+      "AKEUSDT",
       "NEARUSDT",
       "BULLAUSDT",
-      "AKEUSDT",
-      "MONUSDT",
       "AEROUSDT",
-      "ETHFIUSDT",
       "STRKUSDT",
-      "WUSDT",
+      "MONUSDT",
+      "ETHFIUSDT",
       "IOUSDT",
-      "SEIUSDT"
+      "SEIUSDT",
+      "WUSDT"
     ]
   }
 }
