@@ -5364,13 +5364,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T22:12:32+00:00",
+    "time": "2026-10-04T22:14:25+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
-      "LYNUSDT",
       "AINUSDT",
+      "LYNUSDT",
       "BEAMXUSDT",
       "STRKUSDT",
       "AXSUSDT",
@@ -5385,8 +5385,8 @@
       "CCUSDT",
       "BTWUSDT",
       "COAIUSDT",
-      "PENGUUSDT",
-      "ADAUSDT"
+      "ADAUSDT",
+      "PENGUUSDT"
     ]
   }
 }
