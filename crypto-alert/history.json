@@ -5314,31 +5314,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T02:50:29+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-04T02:52:25+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "STRKUSDT",
       "ZAMAUSDT",
       "ZROUSDT",
-      "PUMPUSDT",
       "ONEUSDT",
+      "PUMPUSDT",
       "IOUSDT",
       "ARKUSDT",
       "USELESSUSDT",
-      "WUSDT",
-      "MARSCOINUSDT",
       "MONUSDT",
+      "MARSCOINUSDT",
+      "WUSDT",
       "CCUSDT",
       "QNTUSDT",
+      "BSBUSDT",
       "KAITOUSDT",
       "AKEUSDT",
-      "BSBUSDT",
-      "WLDUSDT",
       "TAOUSDT",
       "AEROUSDT",
-      "TIAUSDT"
+      "WLDUSDT"
     ]
   }
 }
