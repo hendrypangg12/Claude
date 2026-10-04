@@ -5314,12 +5314,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T16:22:31+00:00",
+    "time": "2026-10-04T16:24:30+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
-      "MUBARAKUSDT",
       "COLLECTUSDT",
+      "MUBARAKUSDT",
       "BEAMXUSDT",
       "AINUSDT",
       "LYNUSDT",
@@ -5331,18 +5331,18 @@
       "ATHUSDT",
       "FETUSDT",
       "AEROUSDT",
-      "AKEUSDT",
       "GTCUSDT",
+      "AKEUSDT",
       "ETHFIUSDT",
       "SUIUSDT",
+      "SEIUSDT",
       "COAIUSDT",
       "PHAUSDT",
-      "SEIUSDT",
       "WUSDT",
       "NEARUSDT",
-      "IOUSDT",
       "MONUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "IOUSDT"
     ]
   }
 }
