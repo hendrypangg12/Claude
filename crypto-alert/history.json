@@ -5364,8 +5364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T19:16:28+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-04T19:18:27+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5373,24 +5373,26 @@
       "LYNUSDT",
       "AXSUSDT",
       "FETUSDT",
-      "MUBARAKUSDT",
       "RUNEUSDT",
-      "AINUSDT",
+      "MUBARAKUSDT",
       "PHAUSDT",
-      "ATHUSDT",
       "VIRTUALUSDT",
-      "COAIUSDT",
-      "NEARUSDT",
-      "IOUSDT",
+      "AINUSDT",
+      "ATHUSDT",
       "STRKUSDT",
-      "BULLAUSDT",
+      "IOUSDT",
+      "COAIUSDT",
       "GRVTUSDT",
-      "AEROUSDT",
+      "BULLAUSDT",
+      "NEARUSDT",
       "WUSDT",
       "CCUSDT",
-      "AKEUSDT",
+      "AEROUSDT",
       "SEIUSDT",
-      "SUIUSDT"
+      "AKEUSDT",
+      "SUIUSDT",
+      "MONUSDT",
+      "ADAUSDT"
     ]
   }
 }
