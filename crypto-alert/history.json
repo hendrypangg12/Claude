@@ -5364,7 +5364,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T21:24:33+00:00",
+    "time": "2026-10-04T21:26:26+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -5379,15 +5379,15 @@
       "ATHUSDT",
       "PHAUSDT",
       "VIRTUALUSDT",
-      "COLLECTUSDT",
       "WUSDT",
+      "COLLECTUSDT",
       "CCUSDT",
       "AEROUSDT",
       "GRVTUSDT",
-      "MUBARAKUSDT",
-      "BULLAUSDT",
       "COAIUSDT",
-      "DOGEUSDT"
+      "DOGEUSDT",
+      "BULLAUSDT",
+      "MUBARAKUSDT"
     ]
   }
 }
