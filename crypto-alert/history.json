@@ -5359,41 +5359,43 @@
       "funding_rate": -0.239,
       "orderbook_ratio": 0.8515463586987393,
       "time": "2026-10-04T17:54:29+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-04T18:18:26+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-04T18:16:26+00:00",
-    "shortlist_count": 27,
+    "time": "2026-10-04T18:18:26+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "BEAMXUSDT",
       "LYNUSDT",
       "MUBARAKUSDT",
-      "AXSUSDT",
       "AINUSDT",
-      "COLLECTUSDT",
-      "RUNEUSDT",
+      "AXSUSDT",
       "PUMPUSDT",
-      "PHAUSDT",
       "FETUSDT",
-      "COAIUSDT",
+      "RUNEUSDT",
+      "COLLECTUSDT",
       "VIRTUALUSDT",
-      "ATHUSDT",
+      "PHAUSDT",
       "NEARUSDT",
-      "STRKUSDT",
-      "BULLAUSDT",
-      "4USDT",
+      "ATHUSDT",
+      "COAIUSDT",
       "MONUSDT",
+      "4USDT",
+      "BULLAUSDT",
+      "STRKUSDT",
       "AEROUSDT",
       "IOUSDT",
-      "SEIUSDT",
       "ETHFIUSDT",
+      "SEIUSDT",
       "WUSDT",
-      "CCUSDT",
       "SUIUSDT",
-      "AKEUSDT"
+      "CCUSDT",
+      "AKEUSDT",
+      "GRVTUSDT"
     ]
   }
 }
