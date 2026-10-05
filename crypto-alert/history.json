@@ -5436,19 +5436,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T16:04:32+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-05T16:06:35+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "RLCUSDT",
-      "MOVRUSDT",
       "NILUSDT",
+      "MOVRUSDT",
       "ORCAUSDT",
       "LITUSDT",
-      "AINUSDT",
       "ADAUSDT",
       "PLUMEUSDT",
+      "SKYAIUSDT",
+      "AINUSDT",
       "ENAUSDT"
     ]
   }
