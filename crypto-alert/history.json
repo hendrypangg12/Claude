@@ -5436,28 +5436,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T13:38:28+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-05T13:40:48+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "RLCUSDT",
-      "NILUSDT",
       "ADAUSDT",
+      "NILUSDT",
       "MOVRUSDT",
-      "VIRTUALUSDT",
       "龙虾USDT",
-      "LITUSDT",
+      "VIRTUALUSDT",
       "ORCAUSDT",
+      "LITUSDT",
       "FETUSDT",
       "ENAUSDT",
-      "PENGUUSDT",
-      "WIFUSDT",
-      "FARTCOINUSDT",
-      "PHAUSDT",
       "AINUSDT",
-      "MUBARAKUSDT",
-      "KASUSDT"
+      "PENGUUSDT",
+      "FARTCOINUSDT",
+      "WIFUSDT",
+      "PHAUSDT",
+      "KASUSDT",
+      "PENDLEUSDT",
+      "FILUSDT",
+      "VVVUSDT"
     ]
   }
 }
