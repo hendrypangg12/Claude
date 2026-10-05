@@ -5456,28 +5456,35 @@
       "funding_rate": -0.037,
       "orderbook_ratio": 3.2455910060989224,
       "time": "2026-10-05T19:30:06+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-10-05T20:36:14+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T19:30:06+00:00",
-    "shortlist_count": 14,
-    "confirmed_count": 1,
+    "time": "2026-10-05T20:36:14+00:00",
+    "shortlist_count": 20,
+    "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
       "NILUSDT",
+      "ORCAUSDT",
       "GTCUSDT",
       "MOVRUSDT",
+      "FILUSDT",
+      "NIGHTUSDT",
       "LITUSDT",
       "GRASSUSDT",
-      "AINUSDT",
-      "FILUSDT",
       "MUBARAKUSDT",
-      "ORCAUSDT",
+      "ADAUSDT",
+      "AINUSDT",
+      "ZROUSDT",
       "PLUMEUSDT",
-      "ASTERUSDT",
+      "ATOMUSDT",
       "NEARUSDT",
-      "ADAUSDT"
+      "ICPUSDT",
+      "HYPEUSDT",
+      "ENAUSDT",
+      "SPXUSDT"
     ]
   }
 }
