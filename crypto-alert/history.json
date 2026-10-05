@@ -13,7 +13,7 @@
     "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
-    "BTWUSDT": "2026-09-23T05:20:31+00:00",
+    "BTWUSDT": "2026-10-05T04:06:30+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-08-06T06:24:41+00:00",
     "EPICUSDT": "2026-09-20T15:18:27+00:00",
@@ -5409,12 +5409,35 @@
       "time": "2026-10-05T03:24:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-05T03:30:36+00:00"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "pct": 9.31,
+      "price": 1.218069,
+      "quote_volume": 1918421.245673,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4696316852087077,
+      "retrace_pct": 0.5736688605065585,
+      "wick_ratio": 0.5650409253872647,
+      "rsi": 70.9994212902483,
+      "divergence": true,
+      "vol_spike": 0.019976039033646607,
+      "btc_pct": -0.2874428105076518,
+      "sl": 1.23734797,
+      "tp1": 1.18523339,
+      "tp2": 1.16060561,
+      "tp3": 1.120742,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.8961243763792576,
+      "time": "2026-10-05T04:06:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T04:04:27+00:00",
+    "time": "2026-10-05T04:06:30+00:00",
     "shortlist_count": 19,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GTCUSDT",
       "PUMPBTCUSDT",
@@ -5422,19 +5445,19 @@
       "FETUSDT",
       "AINUSDT",
       "STRKUSDT",
-      "BEAMXUSDT",
       "ADAUSDT",
+      "BEAMXUSDT",
       "VIRTUALUSDT",
       "PENGUUSDT",
       "COLLECTUSDT",
       "BULLAUSDT",
-      "MUBARAKUSDT",
       "VVVUSDT",
-      "FARTCOINUSDT",
+      "MUBARAKUSDT",
       "RUNEUSDT",
+      "FARTCOINUSDT",
       "SUIUSDT",
-      "XLMUSDT",
-      "ATHUSDT"
+      "ATHUSDT",
+      "XLMUSDT"
     ]
   }
 }
