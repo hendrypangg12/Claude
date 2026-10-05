@@ -5436,7 +5436,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T18:16:28+00:00",
+    "time": "2026-10-05T18:18:28+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -5444,15 +5444,15 @@
       "GTCUSDT",
       "NILUSDT",
       "MOVRUSDT",
-      "ADAUSDT",
-      "LITUSDT",
-      "GRASSUSDT",
       "AINUSDT",
+      "LITUSDT",
+      "ADAUSDT",
       "ORCAUSDT",
-      "MUBARAKUSDT",
+      "GRASSUSDT",
+      "ICPUSDT",
       "FILUSDT",
-      "ENAUSDT",
-      "ICPUSDT"
+      "MUBARAKUSDT",
+      "ENAUSDT"
     ]
   }
 }
