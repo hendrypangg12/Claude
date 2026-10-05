@@ -92,7 +92,8 @@
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
     "USUSDT": "2026-10-02T06:04:24+00:00",
     "GTCUSDT": "2026-10-04T17:52:28+00:00",
-    "LYNUSDT": "2026-10-05T02:28:29+00:00"
+    "LYNUSDT": "2026-10-05T02:28:29+00:00",
+    "RLCUSDT": "2026-10-05T19:30:06+00:00"
   },
   "alerts": [
     {
@@ -5433,12 +5434,35 @@
       "time": "2026-10-05T04:06:30+00:00",
       "outcome": "tp3_hit",
       "outcome_time": "2026-10-05T04:14:36+00:00"
+    },
+    {
+      "symbol": "RLCUSDT",
+      "pct": 8.1,
+      "price": 0.7254,
+      "quote_volume": 499725.1311,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4378721622627465,
+      "retrace_pct": 2.025931928687183,
+      "wick_ratio": 0.605405405405406,
+      "rsi": 67.18865290280996,
+      "divergence": false,
+      "vol_spike": 0.19758593951925563,
+      "btc_pct": 0.07601485552799454,
+      "sl": 0.7478039999999999,
+      "tp1": 0.7191989999999999,
+      "tp2": 0.706101,
+      "tp3": 0.6849,
+      "funding_rate": -0.037,
+      "orderbook_ratio": 3.2455910060989224,
+      "time": "2026-10-05T19:30:06+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T19:22:40+00:00",
-    "shortlist_count": 13,
-    "confirmed_count": 0,
+    "time": "2026-10-05T19:30:06+00:00",
+    "shortlist_count": 14,
+    "confirmed_count": 1,
     "symbols": [
       "RLCUSDT",
       "NILUSDT",
@@ -5446,13 +5470,14 @@
       "MOVRUSDT",
       "LITUSDT",
       "GRASSUSDT",
-      "FILUSDT",
       "AINUSDT",
+      "FILUSDT",
       "MUBARAKUSDT",
       "ORCAUSDT",
       "PLUMEUSDT",
       "ASTERUSDT",
-      "ENAUSDT"
+      "NEARUSDT",
+      "ADAUSDT"
     ]
   }
 }
