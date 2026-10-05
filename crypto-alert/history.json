@@ -5388,11 +5388,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T03:18:27+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-05T03:20:39+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
+      "PUMPBTCUSDT",
       "AINUSDT",
       "FETUSDT",
       "BTWUSDT",
@@ -5400,21 +5401,19 @@
       "ADAUSDT",
       "VIRTUALUSDT",
       "STRKUSDT",
-      "PENGUUSDT",
       "LYNUSDT",
-      "BULLAUSDT",
+      "PENGUUSDT",
       "FARTCOINUSDT",
+      "BULLAUSDT",
       "VVVUSDT",
-      "COLLECTUSDT",
       "RUNEUSDT",
+      "COLLECTUSDT",
       "PLUMEUSDT",
       "PHAUSDT",
       "SUIUSDT",
       "GRVTUSDT",
-      "ATHUSDT",
-      "AEROUSDT",
-      "AXSUSDT",
-      "XLMUSDT"
+      "MUBARAKUSDT",
+      "AEROUSDT"
     ]
   }
 }
