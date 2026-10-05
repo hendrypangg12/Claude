@@ -5431,35 +5431,37 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.8961243763792576,
       "time": "2026-10-05T04:06:30+00:00",
-      "outcome": null
+      "outcome": "tp3_hit",
+      "outcome_time": "2026-10-05T04:14:36+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T04:11:09+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-05T04:14:36+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "PUMPBTCUSDT",
       "BTWUSDT",
       "FETUSDT",
-      "STRKUSDT",
       "AINUSDT",
+      "STRKUSDT",
       "ADAUSDT",
       "BEAMXUSDT",
-      "COLLECTUSDT",
       "VIRTUALUSDT",
+      "COLLECTUSDT",
       "PENGUUSDT",
+      "MUBARAKUSDT",
       "BULLAUSDT",
       "VVVUSDT",
-      "MUBARAKUSDT",
       "RUNEUSDT",
-      "FARTCOINUSDT",
-      "SUIUSDT",
-      "LYNUSDT",
       "ATHUSDT",
+      "SUIUSDT",
+      "FARTCOINUSDT",
+      "LYNUSDT",
+      "GRVTUSDT",
       "XLMUSDT",
-      "PLUMEUSDT"
+      "DOTUSDT"
     ]
   }
 }
