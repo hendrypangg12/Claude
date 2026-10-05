@@ -5436,7 +5436,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T06:54:26+00:00",
+    "time": "2026-10-05T06:56:28+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -5448,20 +5448,20 @@
       "ADAUSDT",
       "VIRTUALUSDT",
       "AIOUSDT",
+      "STRKUSDT",
       "VVVUSDT",
       "PENGUUSDT",
-      "STRKUSDT",
-      "BULLAUSDT",
-      "NEARUSDT",
-      "4USDT",
-      "RUNEUSDT",
       "AINUSDT",
-      "FARTCOINUSDT",
-      "PLUMEUSDT",
-      "SUIUSDT",
-      "ETHFIUSDT",
+      "NEARUSDT",
       "LYNUSDT",
-      "LITUSDT"
+      "BULLAUSDT",
+      "4USDT",
+      "SUIUSDT",
+      "PLUMEUSDT",
+      "ETHFIUSDT",
+      "LITUSDT",
+      "FARTCOINUSDT",
+      "RUNEUSDT"
     ]
   }
 }
