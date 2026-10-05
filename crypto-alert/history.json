@@ -5436,13 +5436,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T12:28:37+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-05T12:30:43+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
-      "MOVRUSDT",
+      "RLCUSDT",
       "MUBARAKUSDT",
+      "MOVRUSDT",
       "ADAUSDT",
       "NILUSDT",
       "VIRTUALUSDT",
@@ -5451,14 +5452,15 @@
       "LITUSDT",
       "PENGUUSDT",
       "FARTCOINUSDT",
+      "PENDLEUSDT",
       "KASUSDT",
       "PLUMEUSDT",
       "COLLECTUSDT",
-      "PENDLEUSDT",
       "VVVUSDT",
       "WIFUSDT",
       "BTWUSDT",
-      "GRVTUSDT"
+      "AINUSDT",
+      "APEUSDT"
     ]
   }
 }
