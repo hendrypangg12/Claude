@@ -5436,30 +5436,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T12:02:27+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-05T12:04:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
-      "MOVRUSDT",
       "MUBARAKUSDT",
+      "MOVRUSDT",
       "FETUSDT",
-      "NILUSDT",
       "ADAUSDT",
-      "VIRTUALUSDT",
+      "NILUSDT",
       "ENAUSDT",
+      "VIRTUALUSDT",
       "COLLECTUSDT",
-      "LITUSDT",
       "PENGUUSDT",
       "PLUMEUSDT",
+      "LITUSDT",
       "FARTCOINUSDT",
       "KASUSDT",
-      "BTWUSDT",
-      "VVVUSDT",
+      "PENDLEUSDT",
       "SUIUSDT",
+      "VVVUSDT",
+      "BTWUSDT",
       "WIFUSDT",
-      "GRVTUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "GRVTUSDT"
     ]
   }
 }
