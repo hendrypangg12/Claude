@@ -5364,8 +5364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T01:38:32+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-05T01:40:32+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5374,22 +5374,24 @@
       "BEAMXUSDT",
       "FETUSDT",
       "PHAUSDT",
-      "STRKUSDT",
       "COLLECTUSDT",
-      "ADAUSDT",
+      "STRKUSDT",
       "ATHUSDT",
-      "RUNEUSDT",
+      "ADAUSDT",
       "VIRTUALUSDT",
+      "RUNEUSDT",
       "BULLAUSDT",
       "PENGUUSDT",
-      "VVVUSDT",
       "PLUMEUSDT",
+      "VVVUSDT",
       "AXSUSDT",
       "MUBARAKUSDT",
       "FARTCOINUSDT",
       "GRVTUSDT",
-      "IOUSDT",
-      "XLMUSDT"
+      "LITUSDT",
+      "XLMUSDT",
+      "ETHFIUSDT",
+      "IOUSDT"
     ]
   }
 }
