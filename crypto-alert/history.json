@@ -5407,11 +5407,12 @@
       "funding_rate": 0.154,
       "orderbook_ratio": 1.4746117332256623,
       "time": "2026-10-05T03:24:27+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-05T03:30:36+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T03:28:31+00:00",
+    "time": "2026-10-05T03:30:36+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -5421,22 +5422,22 @@
       "FETUSDT",
       "BTWUSDT",
       "BEAMXUSDT",
-      "ADAUSDT",
       "STRKUSDT",
+      "ADAUSDT",
       "VIRTUALUSDT",
-      "PENGUUSDT",
       "COLLECTUSDT",
+      "PENGUUSDT",
       "BULLAUSDT",
       "VVVUSDT",
       "FARTCOINUSDT",
-      "RUNEUSDT",
-      "PHAUSDT",
       "LYNUSDT",
+      "RUNEUSDT",
       "MUBARAKUSDT",
-      "PLUMEUSDT",
-      "GRVTUSDT",
+      "PHAUSDT",
       "ATHUSDT",
       "SUIUSDT",
+      "GRVTUSDT",
+      "PLUMEUSDT",
       "XLMUSDT"
     ]
   }
