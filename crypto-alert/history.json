@@ -5436,23 +5436,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T18:12:32+00:00",
+    "time": "2026-10-05T18:14:33+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
-      "NILUSDT",
       "GTCUSDT",
+      "NILUSDT",
       "MOVRUSDT",
       "LITUSDT",
       "ADAUSDT",
-      "ORCAUSDT",
-      "GRASSUSDT",
-      "MUBARAKUSDT",
       "AINUSDT",
-      "ICPUSDT",
+      "GRASSUSDT",
+      "ORCAUSDT",
+      "MUBARAKUSDT",
       "FILUSDT",
-      "ACNUSDT"
+      "ENAUSDT",
+      "ICPUSDT"
     ]
   }
 }
