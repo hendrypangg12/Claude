@@ -5461,30 +5461,33 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T20:36:14+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-05T20:53:43+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
       "NILUSDT",
-      "ORCAUSDT",
       "GTCUSDT",
+      "ORCAUSDT",
       "MOVRUSDT",
-      "FILUSDT",
       "NIGHTUSDT",
+      "FILUSDT",
+      "MUBARAKUSDT",
       "LITUSDT",
       "GRASSUSDT",
-      "MUBARAKUSDT",
-      "ADAUSDT",
       "AINUSDT",
+      "ADAUSDT",
       "ZROUSDT",
       "PLUMEUSDT",
-      "ATOMUSDT",
+      "ENAUSDT",
       "NEARUSDT",
+      "RENDERUSDT",
       "ICPUSDT",
       "HYPEUSDT",
-      "ENAUSDT",
-      "SPXUSDT"
+      "APTUSDT",
+      "ASTERUSDT",
+      "SPXUSDT",
+      "ATOMUSDT"
     ]
   }
 }
