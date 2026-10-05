@@ -5436,8 +5436,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T19:18:49+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-05T19:21:03+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
@@ -5446,12 +5446,15 @@
       "MOVRUSDT",
       "LITUSDT",
       "AINUSDT",
-      "MUBARAKUSDT",
       "GRASSUSDT",
+      "MUBARAKUSDT",
       "FILUSDT",
       "ORCAUSDT",
+      "ASTERUSDT",
       "PLUMEUSDT",
-      "ASTERUSDT"
+      "ENAUSDT",
+      "INJUSDT",
+      "ICPUSDT"
     ]
   }
 }
