@@ -5436,8 +5436,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T14:06:32+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-05T14:08:33+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5448,18 +5448,22 @@
       "LITUSDT",
       "龙虾USDT",
       "ORCAUSDT",
-      "VIRTUALUSDT",
-      "ENAUSDT",
-      "AINUSDT",
       "PENGUUSDT",
       "FETUSDT",
+      "VIRTUALUSDT",
+      "ENAUSDT",
       "PHAUSDT",
       "FARTCOINUSDT",
+      "AINUSDT",
       "WIFUSDT",
       "FILUSDT",
       "VVVUSDT",
       "PLUMEUSDT",
-      "PENDLEUSDT"
+      "ARBUSDT",
+      "NEARUSDT",
+      "PENDLEUSDT",
+      "GRASSUSDT",
+      "KASUSDT"
     ]
   }
 }
