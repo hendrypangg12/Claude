@@ -5436,7 +5436,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T15:36:34+00:00",
+    "time": "2026-10-05T15:38:32+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -5447,9 +5447,9 @@
       "LITUSDT",
       "ORCAUSDT",
       "ADAUSDT",
-      "SKYAIUSDT",
       "PLUMEUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "SKYAIUSDT"
     ]
   }
 }
