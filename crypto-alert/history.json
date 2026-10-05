@@ -5435,9 +5435,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T04:06:30+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 1,
+    "time": "2026-10-05T04:08:32+00:00",
+    "shortlist_count": 20,
+    "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "PUMPBTCUSDT",
@@ -5447,17 +5447,18 @@
       "STRKUSDT",
       "ADAUSDT",
       "BEAMXUSDT",
+      "COLLECTUSDT",
       "VIRTUALUSDT",
       "PENGUUSDT",
-      "COLLECTUSDT",
       "BULLAUSDT",
       "VVVUSDT",
       "MUBARAKUSDT",
       "RUNEUSDT",
       "FARTCOINUSDT",
       "SUIUSDT",
-      "ATHUSDT",
-      "XLMUSDT"
+      "XLMUSDT",
+      "LYNUSDT",
+      "ATHUSDT"
     ]
   }
 }
