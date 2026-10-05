@@ -5436,31 +5436,33 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T08:30:38+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-05T08:32:31+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "PUMPBTCUSDT",
       "GTCUSDT",
       "FETUSDT",
       "MUBARAKUSDT",
-      "ADAUSDT",
       "VIRTUALUSDT",
+      "ADAUSDT",
       "MOVRUSDT",
       "ENAUSDT",
       "PENGUUSDT",
       "NEARUSDT",
       "BULLAUSDT",
       "STRKUSDT",
-      "LITUSDT",
+      "AINUSDT",
       "FARTCOINUSDT",
       "ETHFIUSDT",
-      "BTWUSDT",
       "VVVUSDT",
-      "4USDT",
       "SUIUSDT",
+      "4USDT",
+      "LITUSDT",
       "WIFUSDT",
-      "AINUSDT"
+      "BTWUSDT",
+      "RENDERUSDT",
+      "GRVTUSDT"
     ]
   }
 }
