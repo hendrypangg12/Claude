@@ -5383,12 +5383,13 @@
       "funding_rate": 0.419,
       "orderbook_ratio": 3.328772607024359,
       "time": "2026-10-05T02:28:29+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-05T02:43:09+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T02:40:33+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-05T02:43:09+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5399,22 +5400,23 @@
       "STRKUSDT",
       "ADAUSDT",
       "LYNUSDT",
+      "VIRTUALUSDT",
       "COLLECTUSDT",
       "PHAUSDT",
-      "VIRTUALUSDT",
       "ATHUSDT",
+      "PENGUUSDT",
       "VVVUSDT",
       "RUNEUSDT",
-      "PENGUUSDT",
       "FARTCOINUSDT",
       "BULLAUSDT",
       "AXSUSDT",
       "SUIUSDT",
       "PLUMEUSDT",
-      "GRVTUSDT",
-      "APEUSDT",
       "XLMUSDT",
-      "TIAUSDT"
+      "GRVTUSDT",
+      "TIAUSDT",
+      "APEUSDT",
+      "DOGEUSDT"
     ]
   }
 }
