@@ -5436,8 +5436,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T15:47:06+00:00",
-    "shortlist_count": 9,
+    "time": "2026-10-05T15:48:32+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5448,7 +5448,9 @@
       "ORCAUSDT",
       "ADAUSDT",
       "PLUMEUSDT",
-      "ENAUSDT"
+      "ENAUSDT",
+      "ZROUSDT",
+      "NEARUSDT"
     ]
   }
 }
