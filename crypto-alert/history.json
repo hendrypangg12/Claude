@@ -5436,7 +5436,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T18:24:34+00:00",
+    "time": "2026-10-05T18:26:27+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5445,15 +5445,15 @@
       "NILUSDT",
       "MOVRUSDT",
       "LITUSDT",
-      "ADAUSDT",
       "AINUSDT",
-      "ORCAUSDT",
+      "ADAUSDT",
       "MUBARAKUSDT",
       "FILUSDT",
-      "ICPUSDT",
+      "ORCAUSDT",
       "GRASSUSDT",
-      "ENAUSDT",
-      "ACNUSDT"
+      "ICPUSDT",
+      "ACNUSDT",
+      "ENAUSDT"
     ]
   }
 }
