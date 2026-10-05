@@ -5461,7 +5461,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T21:50:34+00:00",
+    "time": "2026-10-05T21:52:28+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -5478,15 +5478,15 @@
       "NEARUSDT",
       "ICPUSDT",
       "PLUMEUSDT",
-      "ADAUSDT",
       "RENDERUSDT",
-      "APTUSDT",
+      "ADAUSDT",
       "AINUSDT",
-      "ZROUSDT",
-      "HYPEUSDT",
+      "APTUSDT",
       "ENAUSDT",
-      "ASTERUSDT",
-      "ATOMUSDT"
+      "HYPEUSDT",
+      "ZROUSDT",
+      "ATOMUSDT",
+      "ASTERUSDT"
     ]
   }
 }
