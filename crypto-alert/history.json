@@ -92,7 +92,7 @@
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
     "USUSDT": "2026-10-02T06:04:24+00:00",
     "GTCUSDT": "2026-10-04T17:52:28+00:00",
-    "LYNUSDT": "2026-10-04T17:54:29+00:00"
+    "LYNUSDT": "2026-10-05T02:28:29+00:00"
   },
   "alerts": [
     {
@@ -5361,12 +5361,35 @@
       "time": "2026-10-04T17:54:29+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-04T18:18:26+00:00"
+    },
+    {
+      "symbol": "LYNUSDT",
+      "pct": 8.94,
+      "price": 0.02841,
+      "quote_volume": 4772839.67038,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5738671552700775,
+      "retrace_pct": 0.7684247293049179,
+      "wick_ratio": 0.8333333333333381,
+      "rsi": 71.19696335730313,
+      "divergence": true,
+      "vol_spike": 0.39442771159459233,
+      "btc_pct": -0.08898511592023851,
+      "sl": 0.0289163,
+      "tp1": 0.0277323,
+      "tp2": 0.0271777,
+      "tp3": 0.02628,
+      "funding_rate": 0.419,
+      "orderbook_ratio": 3.328772607024359,
+      "time": "2026-10-05T02:28:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T02:26:26+00:00",
+    "time": "2026-10-05T02:28:29+00:00",
     "shortlist_count": 27,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GTCUSDT",
       "AINUSDT",
@@ -5391,10 +5414,10 @@
       "4USDT",
       "GRVTUSDT",
       "XLMUSDT",
-      "APEUSDT",
+      "CLOUSDT",
       "TIAUSDT",
-      "COAIUSDT",
-      "CLOUSDT"
+      "APEUSDT",
+      "COAIUSDT"
     ]
   }
 }
