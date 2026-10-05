@@ -5436,8 +5436,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T08:02:31+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-05T08:04:34+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "PUMPBTCUSDT",
@@ -5453,13 +5453,16 @@
       "FARTCOINUSDT",
       "LITUSDT",
       "BULLAUSDT",
-      "ETHFIUSDT",
       "SUIUSDT",
-      "AINUSDT",
-      "4USDT",
-      "BEAMXUSDT",
+      "ETHFIUSDT",
       "GRVTUSDT",
-      "SEIUSDT"
+      "AINUSDT",
+      "BEAMXUSDT",
+      "4USDT",
+      "MOVRUSDT",
+      "SEIUSDT",
+      "RUNEUSDT",
+      "WIFUSDT"
     ]
   }
 }
