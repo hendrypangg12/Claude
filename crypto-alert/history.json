@@ -5436,8 +5436,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-05T08:10:32+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-05T08:12:29+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "PUMPBTCUSDT",
@@ -5450,19 +5450,20 @@
       "NEARUSDT",
       "VVVUSDT",
       "ETHFIUSDT",
-      "ENAUSDT",
-      "FARTCOINUSDT",
-      "BULLAUSDT",
-      "SUIUSDT",
       "LITUSDT",
+      "FARTCOINUSDT",
+      "ENAUSDT",
+      "BULLAUSDT",
       "WIFUSDT",
       "GRVTUSDT",
-      "SEIUSDT",
-      "RUNEUSDT",
+      "SUIUSDT",
       "4USDT",
-      "RENDERUSDT",
+      "RUNEUSDT",
+      "SEIUSDT",
+      "MOVRUSDT",
       "LDOUSDT",
-      "MOVRUSDT"
+      "AINUSDT",
+      "RENDERUSDT"
     ]
   }
 }
