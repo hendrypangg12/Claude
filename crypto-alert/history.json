@@ -5485,13 +5485,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T14:16:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-06T14:18:31+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
-      "BRUSDT",
       "NMRUSDT",
+      "BRUSDT",
       "ORCAUSDT",
       "CAPUSDT",
       "USUSDT",
@@ -5502,11 +5502,9 @@
       "龙虾USDT",
       "RENDERUSDT",
       "POWERUSDT",
-      "METUSDT",
       "ALICEUSDT",
-      "NIGHTUSDT",
-      "MUBARAKUSDT",
-      "AVAXUSDT"
+      "METUSDT",
+      "NIGHTUSDT"
     ]
   }
 }
