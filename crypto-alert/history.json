@@ -5461,7 +5461,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T00:30:39+00:00",
+    "time": "2026-10-06T00:32:29+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
@@ -5471,8 +5471,8 @@
       "NIGHTUSDT",
       "MUBARAKUSDT",
       "FILUSDT",
-      "ZROUSDT",
       "ORCAUSDT",
+      "ZROUSDT",
       "NEARUSDT",
       "LITUSDT",
       "LYNUSDT",
@@ -5481,11 +5481,11 @@
       "APTUSDT",
       "ADAUSDT",
       "QNTUSDT",
-      "AAVEUSDT",
-      "HYPEUSDT",
-      "PLUMEUSDT",
       "ENAUSDT",
-      "RENDERUSDT"
+      "HYPEUSDT",
+      "AAVEUSDT",
+      "RENDERUSDT",
+      "PLUMEUSDT"
     ]
   }
 }
