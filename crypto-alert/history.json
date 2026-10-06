@@ -5509,8 +5509,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T20:10:39+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-06T20:12:29+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -5520,17 +5520,19 @@
       "ORCAUSDT",
       "GRIFFAINUSDT",
       "CAPUSDT",
-      "METUSDT",
       "RLCUSDT",
+      "METUSDT",
       "PONSUSDT",
       "ZROUSDT",
       "API3USDT",
-      "MARSCOINUSDT",
       "POWERUSDT",
+      "MARSCOINUSDT",
       "RENDERUSDT",
-      "AVAXUSDT",
       "INJUSDT",
-      "AIAUSDT"
+      "AVAXUSDT",
+      "C98USDT",
+      "AIAUSDT",
+      "MUBARAKUSDT"
     ]
   }
 }
