@@ -5461,24 +5461,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T03:18:29+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-06T03:20:35+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
-      "龙虾USDT",
-      "MOVRUSDT",
-      "ZROUSDT",
       "ORCAUSDT",
+      "ZROUSDT",
+      "MOVRUSDT",
+      "龙虾USDT",
       "FILUSDT",
       "LITUSDT",
       "NIGHTUSDT",
-      "BTWUSDT",
       "MUBARAKUSDT",
       "NEARUSDT",
       "GRASSUSDT",
-      "QNTUSDT",
-      "ICPUSDT"
+      "QNTUSDT"
     ]
   }
 }
