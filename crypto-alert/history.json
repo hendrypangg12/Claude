@@ -5534,25 +5534,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T22:18:31+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-06T22:20:47+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
       "BRUSDT",
-      "ORCAUSDT",
       "USUSDT",
-      "GRIFFAINUSDT",
       "NMRUSDT",
+      "GRIFFAINUSDT",
+      "ORCAUSDT",
       "CAPUSDT",
       "METUSDT",
       "API3USDT",
-      "POWERUSDT",
       "4USDT",
       "INJUSDT",
+      "POWERUSDT",
       "ZROUSDT",
       "AIAUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
