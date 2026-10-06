@@ -5485,8 +5485,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T13:32:33+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-06T13:34:31+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
@@ -5502,15 +5502,17 @@
       "AIAUSDT",
       "POWERUSDT",
       "FILUSDT",
-      "ARUSDT",
-      "UMAUSDT",
-      "NILUSDT",
-      "SUSDT",
       "METUSDT",
-      "NIGHTUSDT",
+      "NILUSDT",
+      "UMAUSDT",
       "GRASSUSDT",
-      "ALICEUSDT",
-      "AVAXUSDT"
+      "SUSDT",
+      "ARUSDT",
+      "PONSUSDT",
+      "AVAXUSDT",
+      "NIGHTUSDT",
+      "ETHFIUSDT",
+      "ALICEUSDT"
     ]
   }
 }
