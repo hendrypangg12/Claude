@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-06_10-18-05",
+      "date": "2026-10-06",
+      "time": "10:18",
+      "label": "STORY KANTOR",
+      "title": "Cuti sakit diambil, tetap ditanyain kapan bisa online.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-10-06_03-54-00",
       "date": "2026-10-06",
       "time": "03:54",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-10-02_18-20-20",
-      "date": "2026-10-02",
-      "time": "18:20",
-      "label": "STORY KANTOR",
-      "title": "THR cair, abis buat nutup utang bulan lalu.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
