@@ -93,7 +93,7 @@
     "USUSDT": "2026-10-02T06:04:24+00:00",
     "GTCUSDT": "2026-10-04T17:52:28+00:00",
     "LYNUSDT": "2026-10-05T02:28:29+00:00",
-    "RLCUSDT": "2026-10-05T19:30:06+00:00"
+    "RLCUSDT": "2026-10-06T05:10:31+00:00"
   },
   "alerts": [
     {
@@ -5458,27 +5458,50 @@
       "time": "2026-10-05T19:30:06+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-10-05T20:36:14+00:00"
+    },
+    {
+      "symbol": "RLCUSDT",
+      "pct": 12.02,
+      "price": 0.7804,
+      "quote_volume": 709085.5686,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3887903516571318,
+      "retrace_pct": 0.7503497392852622,
+      "wick_ratio": 0.2000000000000033,
+      "rsi": 71.4158230028415,
+      "divergence": true,
+      "vol_spike": 0.31134065705866903,
+      "btc_pct": 0.08645925633826719,
+      "sl": 0.794163,
+      "tp1": 0.7540591999999999,
+      "tp2": 0.7341408,
+      "tp3": 0.7019,
+      "funding_rate": -0.046,
+      "orderbook_ratio": 2.121975121738572,
+      "time": "2026-10-06T05:10:31+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T05:08:28+00:00",
+    "time": "2026-10-06T05:10:31+00:00",
     "shortlist_count": 16,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "RLCUSDT",
       "ORCAUSDT",
-      "ZROUSDT",
       "FILUSDT",
+      "ZROUSDT",
       "NIGHTUSDT",
       "龙虾USDT",
-      "BTWUSDT",
       "MOVRUSDT",
+      "BTWUSDT",
       "LITUSDT",
       "ICPUSDT",
       "GRASSUSDT",
       "NEARUSDT",
-      "GTCUSDT",
       "XMRUSDT",
+      "GTCUSDT",
       "ASTERUSDT",
       "ATOMUSDT"
     ]
