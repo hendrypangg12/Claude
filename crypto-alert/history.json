@@ -5509,30 +5509,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T19:18:27+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-06T19:20:35+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
-      "ORCAUSDT",
       "BRUSDT",
-      "NMRUSDT",
+      "ORCAUSDT",
       "龙虾USDT",
+      "NMRUSDT",
       "GRIFFAINUSDT",
-      "METUSDT",
       "CAPUSDT",
-      "PONSUSDT",
+      "METUSDT",
       "API3USDT",
+      "PONSUSDT",
       "MARSCOINUSDT",
       "RLCUSDT",
       "ZROUSDT",
       "RENDERUSDT",
       "POWERUSDT",
       "AIAUSDT",
-      "AVAXUSDT",
-      "NIGHTUSDT",
       "C98USDT",
-      "PHAUSDT"
+      "NIGHTUSDT",
+      "AVAXUSDT"
     ]
   }
 }
