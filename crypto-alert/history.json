@@ -5485,8 +5485,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T10:10:37+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-06T10:12:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
@@ -5494,16 +5494,17 @@
       "ORCAUSDT",
       "API3USDT",
       "UMAUSDT",
-      "USUSDT",
       "ZROUSDT",
       "龙虾USDT",
+      "USUSDT",
       "FILUSDT",
       "PARTIUSDT",
-      "NIGHTUSDT",
       "RENDERUSDT",
-      "NEARUSDT",
+      "NIGHTUSDT",
       "NILUSDT",
-      "ICPUSDT"
+      "NEARUSDT",
+      "ICPUSDT",
+      "ZECUSDT"
     ]
   }
 }
