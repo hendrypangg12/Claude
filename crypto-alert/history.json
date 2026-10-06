@@ -5504,12 +5504,13 @@
       "funding_rate": 0.016,
       "orderbook_ratio": 0.9666963719441132,
       "time": "2026-10-06T15:40:41+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-06T15:49:38+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T15:46:26+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-06T15:49:38+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -5526,17 +5527,14 @@
       "ZROUSDT",
       "RENDERUSDT",
       "POWERUSDT",
-      "AIAUSDT",
       "PONSUSDT",
+      "AIAUSDT",
       "ALICEUSDT",
       "FILUSDT",
-      "AVAXUSDT",
       "MARSCOINUSDT",
-      "ARUSDT",
+      "AVAXUSDT",
       "ZECUSDT",
-      "CLOUSDT",
-      "ONDOUSDT",
-      "INJUSDT"
+      "ARUSDT"
     ]
   }
 }
