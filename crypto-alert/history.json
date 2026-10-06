@@ -5509,12 +5509,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T16:48:31+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-06T16:50:37+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "RLCUSDT",
       "BRUSDT",
+      "RLCUSDT",
       "NMRUSDT",
       "ORCAUSDT",
       "USUSDT",
@@ -5522,20 +5522,18 @@
       "C98USDT",
       "METUSDT",
       "龙虾USDT",
+      "UMAUSDT",
       "API3USDT",
       "PONSUSDT",
-      "MARSCOINUSDT",
       "RENDERUSDT",
-      "AIAUSDT",
+      "MARSCOINUSDT",
       "ZROUSDT",
+      "AIAUSDT",
       "FILUSDT",
       "ALICEUSDT",
-      "BULLAUSDT",
       "POWERUSDT",
       "AVAXUSDT",
-      "ZECUSDT",
-      "CCUSDT",
-      "QNTUSDT"
+      "ZECUSDT"
     ]
   }
 }
