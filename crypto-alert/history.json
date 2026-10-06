@@ -5509,20 +5509,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T18:18:31+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-06T18:20:39+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
-      "ORCAUSDT",
       "BRUSDT",
+      "ORCAUSDT",
       "USUSDT",
       "NMRUSDT",
       "GRIFFAINUSDT",
       "龙虾USDT",
       "METUSDT",
       "CAPUSDT",
-      "RLCUSDT",
       "PONSUSDT",
+      "RLCUSDT",
       "API3USDT",
       "MARSCOINUSDT",
       "ZROUSDT",
@@ -5532,9 +5532,7 @@
       "FILUSDT",
       "NIGHTUSDT",
       "AVAXUSDT",
-      "UMAUSDT",
-      "C98USDT",
-      "ALICEUSDT"
+      "UMAUSDT"
     ]
   }
 }
