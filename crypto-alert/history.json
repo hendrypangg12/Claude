@@ -5534,8 +5534,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T22:08:31+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-06T22:10:30+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -5547,12 +5547,14 @@
       "CAPUSDT",
       "METUSDT",
       "ZROUSDT",
+      "INJUSDT",
       "API3USDT",
       "POWERUSDT",
-      "INJUSDT",
       "4USDT",
       "AVAXUSDT",
-      "AIAUSDT"
+      "RLCUSDT",
+      "AIAUSDT",
+      "ALICEUSDT"
     ]
   }
 }
