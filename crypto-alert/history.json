@@ -5529,11 +5529,12 @@
       "funding_rate": 0.045,
       "orderbook_ratio": 1.0790129299129811,
       "time": "2026-10-06T20:28:33+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-06T20:36:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T20:34:31+00:00",
+    "time": "2026-10-06T20:36:28+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -5547,16 +5548,16 @@
       "RLCUSDT",
       "METUSDT",
       "PONSUSDT",
-      "ZROUSDT",
       "API3USDT",
+      "ZROUSDT",
       "POWERUSDT",
       "4USDT",
+      "INJUSDT",
       "RENDERUSDT",
       "C98USDT",
-      "AIAUSDT",
       "MUBARAKUSDT",
-      "AVAXUSDT",
-      "INJUSDT"
+      "AIAUSDT",
+      "AVAXUSDT"
     ]
   }
 }
