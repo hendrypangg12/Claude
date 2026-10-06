@@ -5534,13 +5534,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T21:30:50+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-06T21:32:28+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
-      "BRUSDT",
       "ORCAUSDT",
+      "BRUSDT",
       "USUSDT",
       "NMRUSDT",
       "GRIFFAINUSDT",
@@ -5551,9 +5551,10 @@
       "ZROUSDT",
       "POWERUSDT",
       "INJUSDT",
-      "AVAXUSDT",
       "API3USDT",
-      "PONSUSDT"
+      "AVAXUSDT",
+      "PONSUSDT",
+      "C98USDT"
     ]
   }
 }
