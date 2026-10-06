@@ -93,7 +93,8 @@
     "USUSDT": "2026-10-06T15:40:41+00:00",
     "GTCUSDT": "2026-10-04T17:52:28+00:00",
     "LYNUSDT": "2026-10-05T02:28:29+00:00",
-    "RLCUSDT": "2026-10-06T05:10:31+00:00"
+    "RLCUSDT": "2026-10-06T05:10:31+00:00",
+    "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00"
   },
   "alerts": [
     {
@@ -5506,22 +5507,45 @@
       "time": "2026-10-06T15:40:41+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-06T15:49:38+00:00"
+    },
+    {
+      "symbol": "GRIFFAINUSDT",
+      "pct": 8.7,
+      "price": 0.024914,
+      "quote_volume": 226029.154101,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4164553766912018,
+      "retrace_pct": 1.4750662395697465,
+      "wick_ratio": 0.3329596412556076,
+      "rsi": 72.25148596828181,
+      "divergence": true,
+      "vol_spike": 0.033233512367778086,
+      "btc_pct": 0.01896171579343381,
+      "sl": 0.02553987,
+      "tp1": 0.024514214,
+      "tp2": 0.024036786,
+      "tp3": 0.023264,
+      "funding_rate": 0.045,
+      "orderbook_ratio": 1.0790129299129811,
+      "time": "2026-10-06T20:28:33+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T20:26:29+00:00",
+    "time": "2026-10-06T20:28:33+00:00",
     "shortlist_count": 20,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "龙虾USDT",
       "BRUSDT",
       "USUSDT",
-      "NMRUSDT",
       "ORCAUSDT",
+      "NMRUSDT",
       "GRIFFAINUSDT",
       "CAPUSDT",
-      "METUSDT",
       "RLCUSDT",
+      "METUSDT",
       "PONSUSDT",
       "API3USDT",
       "MARSCOINUSDT",
