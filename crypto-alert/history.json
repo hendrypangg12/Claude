@@ -5509,8 +5509,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T17:34:38+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-06T17:36:34+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "ORCAUSDT",
@@ -5523,17 +5523,18 @@
       "METUSDT",
       "C98USDT",
       "API3USDT",
-      "MARSCOINUSDT",
-      "PONSUSDT",
       "RENDERUSDT",
+      "PONSUSDT",
+      "MARSCOINUSDT",
       "FILUSDT",
-      "UMAUSDT",
       "ZROUSDT",
       "POWERUSDT",
+      "UMAUSDT",
       "ALICEUSDT",
       "AIAUSDT",
       "AVAXUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "ARUSDT"
     ]
   }
 }
