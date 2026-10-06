@@ -5485,11 +5485,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T11:38:32+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-06T11:40:35+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
+      "NMRUSDT",
       "ORCAUSDT",
       "API3USDT",
       "BRUSDT",
@@ -5499,8 +5500,8 @@
       "RENDERUSDT",
       "FILUSDT",
       "USUSDT",
-      "PARTIUSDT",
       "NIGHTUSDT",
+      "PARTIUSDT",
       "NEARUSDT",
       "SUSDT",
       "AVAXUSDT"
