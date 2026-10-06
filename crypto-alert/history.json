@@ -5480,12 +5480,13 @@
       "funding_rate": -0.046,
       "orderbook_ratio": 2.121975121738572,
       "time": "2026-10-06T05:10:31+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-06T05:18:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-06T05:16:23+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-06T05:18:27+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "RLCUSDT",
@@ -5498,12 +5499,13 @@
       "MOVRUSDT",
       "LITUSDT",
       "ICPUSDT",
-      "XMRUSDT",
       "NEARUSDT",
-      "GRASSUSDT",
+      "GTCUSDT",
       "RENDERUSDT",
+      "XMRUSDT",
+      "ATOMUSDT",
       "ASTERUSDT",
-      "ATOMUSDT"
+      "GRASSUSDT"
     ]
   }
 }
