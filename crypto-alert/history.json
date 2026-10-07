@@ -5559,16 +5559,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T17:52:32+00:00",
-    "shortlist_count": 6,
+    "time": "2026-10-07T17:54:27+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "SANDUSDT",
       "METUSDT",
-      "HEMIUSDT",
       "USUSDT",
+      "HEMIUSDT",
       "GTCUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "BEAMXUSDT"
     ]
   }
 }
