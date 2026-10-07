@@ -5534,15 +5534,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T01:18:28+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-07T01:20:45+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
-      "USUSDT",
       "NMRUSDT",
-      "BRUSDT",
+      "USUSDT",
       "ORCAUSDT",
+      "BRUSDT",
       "GRIFFAINUSDT",
       "CAPUSDT",
       "API3USDT",
@@ -5552,8 +5552,10 @@
       "4USDT",
       "RENDERUSDT",
       "ETHFIUSDT",
+      "PONSUSDT",
       "AIAUSDT",
-      "PONSUSDT"
+      "ALICEUSDT",
+      "INJUSDT"
     ]
   }
 }
