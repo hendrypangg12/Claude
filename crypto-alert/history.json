@@ -5534,8 +5534,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T09:24:30+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-07T09:26:50+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
@@ -5548,9 +5548,11 @@
       "ORCAUSDT",
       "RESOLVUSDT",
       "BEATUSDT",
-      "ZROUSDT",
       "SYNUSDT",
-      "BTWUSDT"
+      "ZROUSDT",
+      "BTWUSDT",
+      "PONSUSDT",
+      "MOVRUSDT"
     ]
   }
 }
