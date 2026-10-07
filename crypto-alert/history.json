@@ -5534,7 +5534,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T03:34:35+00:00",
+    "time": "2026-10-07T03:36:26+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5546,12 +5546,12 @@
       "ORCAUSDT",
       "CAPUSDT",
       "METUSDT",
-      "AIAUSDT",
       "API3USDT",
+      "AIAUSDT",
       "PONSUSDT",
       "POWERUSDT",
-      "BTWUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "BTWUSDT"
     ]
   }
 }
