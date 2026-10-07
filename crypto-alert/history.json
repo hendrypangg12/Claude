@@ -5578,19 +5578,20 @@
       "funding_rate": -0.218,
       "orderbook_ratio": 1.7528989880872112,
       "time": "2026-10-07T18:04:33+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-07T18:10:37+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T18:08:36+00:00",
+    "time": "2026-10-07T18:10:37+00:00",
     "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "METUSDT",
       "SANDUSDT",
       "USUSDT",
-      "GTCUSDT",
       "HEMIUSDT",
+      "GTCUSDT",
       "BTWUSDT",
       "BEAMXUSDT"
     ]
