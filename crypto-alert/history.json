@@ -5534,8 +5534,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T06:02:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-07T06:04:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -5544,18 +5544,16 @@
       "USUSDT",
       "GRIFFAINUSDT",
       "ORCAUSDT",
-      "SANDUSDT",
       "RESOLVUSDT",
-      "CAPUSDT",
-      "METUSDT",
+      "SANDUSDT",
       "PONSUSDT",
+      "METUSDT",
+      "CAPUSDT",
       "AIAUSDT",
       "ZROUSDT",
       "BEATUSDT",
-      "BTWUSDT",
       "ETHFIUSDT",
-      "MARSCOINUSDT",
-      "MUBARAKUSDT"
+      "CTUSDT"
     ]
   }
 }
