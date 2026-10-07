@@ -5559,14 +5559,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T13:58:32+00:00",
-    "shortlist_count": 4,
+    "time": "2026-10-07T14:00:43+00:00",
+    "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
-      "SYNUSDT",
       "SANDUSDT",
-      "GTCUSDT",
-      "BEAMXUSDT"
+      "SYNUSDT",
+      "ORCAUSDT",
+      "BEAMXUSDT",
+      "GTCUSDT"
     ]
   }
 }
