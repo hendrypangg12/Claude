@@ -5534,12 +5534,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T05:36:30+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-07T05:38:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "龙虾USDT",
       "BRUSDT",
+      "龙虾USDT",
       "NMRUSDT",
       "USUSDT",
       "GRIFFAINUSDT",
@@ -5547,10 +5547,9 @@
       "RESOLVUSDT",
       "SANDUSDT",
       "CAPUSDT",
-      "PONSUSDT",
       "METUSDT",
-      "AIAUSDT",
-      "BTWUSDT"
+      "PONSUSDT",
+      "AIAUSDT"
     ]
   }
 }
