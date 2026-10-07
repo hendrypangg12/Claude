@@ -5534,7 +5534,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T02:48:27+00:00",
+    "time": "2026-10-07T02:50:32+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -5548,11 +5548,11 @@
       "METUSDT",
       "AIAUSDT",
       "API3USDT",
-      "SANDUSDT",
-      "BTWUSDT",
       "ETHFIUSDT",
+      "SANDUSDT",
       "PONSUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "BTWUSDT"
     ]
   }
 }
