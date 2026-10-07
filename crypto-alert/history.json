@@ -94,7 +94,8 @@
     "GTCUSDT": "2026-10-04T17:52:28+00:00",
     "LYNUSDT": "2026-10-05T02:28:29+00:00",
     "RLCUSDT": "2026-10-06T05:10:31+00:00",
-    "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00"
+    "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00",
+    "BRUSDT": "2026-10-07T12:02:29+00:00"
   },
   "alerts": [
     {
@@ -5531,12 +5532,35 @@
       "time": "2026-10-06T20:28:33+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-06T20:36:28+00:00"
+    },
+    {
+      "symbol": "BRUSDT",
+      "pct": 8.14,
+      "price": 0.5853,
+      "quote_volume": 298771.0192,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3952784783715773,
+      "retrace_pct": 0.5606523955147756,
+      "wick_ratio": 0.0,
+      "rsi": 67.25602623933972,
+      "divergence": true,
+      "vol_spike": 0.30181001914816546,
+      "btc_pct": -0.03173975693751221,
+      "sl": 0.5944860000000001,
+      "tp1": 0.5716774,
+      "tp2": 0.5612226,
+      "tp3": 0.5443,
+      "funding_rate": -0.318,
+      "orderbook_ratio": 0.14478525054662156,
+      "time": "2026-10-07T12:02:29+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T12:01:02+00:00",
+    "time": "2026-10-07T12:02:29+00:00",
     "shortlist_count": 7,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GRIFFAINUSDT",
       "BRUSDT",
