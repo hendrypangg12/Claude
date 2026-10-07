@@ -5559,18 +5559,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T12:34:30+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-07T12:36:31+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "ORCAUSDT",
       "SANDUSDT",
-      "BRUSDT",
       "SYNUSDT",
       "GRIFFAINUSDT",
+      "METUSDT",
+      "STXUSDT",
       "AIAUSDT",
-      "METUSDT"
+      "BRUSDT"
     ]
   }
 }
