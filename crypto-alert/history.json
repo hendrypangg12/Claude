@@ -5534,12 +5534,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T06:54:29+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-07T06:56:29+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
-      "龙虾USDT",
       "NMRUSDT",
+      "龙虾USDT",
       "BRUSDT",
       "USUSDT",
       "GRIFFAINUSDT",
@@ -5551,9 +5551,10 @@
       "METUSDT",
       "ZROUSDT",
       "AIAUSDT",
-      "4USDT",
       "ETHFIUSDT",
-      "BTWUSDT"
+      "4USDT",
+      "BTWUSDT",
+      "MARSCOINUSDT"
     ]
   }
 }
