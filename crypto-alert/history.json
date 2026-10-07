@@ -5534,8 +5534,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T03:00:46+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-07T03:02:27+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "龙虾USDT",
@@ -5547,11 +5547,12 @@
       "CAPUSDT",
       "METUSDT",
       "AIAUSDT",
-      "BTWUSDT",
       "PONSUSDT",
       "ETHFIUSDT",
       "SANDUSDT",
-      "POWERUSDT"
+      "API3USDT",
+      "POWERUSDT",
+      "BTWUSDT"
     ]
   }
 }
