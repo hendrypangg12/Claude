@@ -5534,21 +5534,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-07T09:48:31+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-07T09:50:32+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "NMRUSDT",
       "龙虾USDT",
       "GRIFFAINUSDT",
       "CAPUSDT",
-      "GTCUSDT",
-      "USUSDT",
       "ORCAUSDT",
+      "GTCUSDT",
       "SANDUSDT",
+      "USUSDT",
+      "AIAUSDT",
       "RESOLVUSDT",
-      "BTWUSDT",
-      "SYNUSDT"
+      "SYNUSDT",
+      "BEATUSDT"
     ]
   }
 }
