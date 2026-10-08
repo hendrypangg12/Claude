@@ -5608,8 +5608,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T08:14:36+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-08T08:16:30+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "METUSDT",
@@ -5619,12 +5619,13 @@
       "BTWUSDT",
       "CRVUSDT",
       "UAIUSDT",
-      "DOSUSDT",
       "RLCUSDT",
+      "DOSUSDT",
       "BSBUSDT",
-      "ALGOUSDT",
       "HEMIUSDT",
-      "TIAUSDT"
+      "TIAUSDT",
+      "NEARUSDT",
+      "ALGOUSDT"
     ]
   }
 }
