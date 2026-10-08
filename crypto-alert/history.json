@@ -5651,12 +5651,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.8969007253950956,
       "time": "2026-10-08T17:56:32+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-08T18:16:33+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T18:14:26+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-08T18:16:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "OGNUSDT",
@@ -5669,8 +5670,9 @@
       "WUSDT",
       "AKEUSDT",
       "龙虾USDT",
+      "TIAUSDT",
       "PYTHUSDT",
-      "TIAUSDT"
+      "MUBARAKUSDT"
     ]
   }
 }
