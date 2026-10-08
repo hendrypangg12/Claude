@@ -5583,7 +5583,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T02:16:28+00:00",
+    "time": "2026-10-08T02:19:02+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5598,9 +5598,9 @@
       "SANDUSDT",
       "NEARUSDT",
       "PARTIUSDT",
+      "SYNUSDT",
       "TIAUSDT",
-      "LDOUSDT",
-      "SYNUSDT"
+      "LDOUSDT"
     ]
   }
 }
