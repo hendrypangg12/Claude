@@ -5603,11 +5603,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.9178932905885047,
       "time": "2026-10-08T03:00:44+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-08T03:08:23+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T03:06:26+00:00",
+    "time": "2026-10-08T03:08:23+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5617,8 +5618,8 @@
       "GTCUSDT",
       "HEMIUSDT",
       "CLOUSDT",
-      "CRVUSDT",
       "BTWUSDT",
+      "CRVUSDT",
       "SANDUSDT",
       "PARTIUSDT",
       "NEARUSDT",
