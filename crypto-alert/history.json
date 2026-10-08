@@ -5583,7 +5583,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T02:34:29+00:00",
+    "time": "2026-10-08T02:36:26+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5593,14 +5593,14 @@
       "GTCUSDT",
       "WUSDT",
       "HEMIUSDT",
-      "BTWUSDT",
       "CRVUSDT",
-      "PARTIUSDT",
+      "BTWUSDT",
       "NEARUSDT",
+      "PARTIUSDT",
       "SANDUSDT",
       "TIAUSDT",
-      "SYNUSDT",
-      "LDOUSDT"
+      "LDOUSDT",
+      "SYNUSDT"
     ]
   }
 }
