@@ -5627,12 +5627,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.1770951296746377,
       "time": "2026-10-08T11:34:29+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-08T11:42:24+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T11:40:30+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-08T11:42:24+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "OGNUSDT",
@@ -5643,8 +5644,8 @@
       "BTWUSDT",
       "UAIUSDT",
       "AKEUSDT",
-      "CRVUSDT",
       "SYNUSDT",
+      "CRVUSDT",
       "TIAUSDT",
       "ATOMUSDT",
       "BSBUSDT",
@@ -5652,7 +5653,9 @@
       "HEMIUSDT",
       "GRVTUSDT",
       "AIAUSDT",
-      "SANDUSDT"
+      "C98USDT",
+      "SANDUSDT",
+      "ONDOUSDT"
     ]
   }
 }
