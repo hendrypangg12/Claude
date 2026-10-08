@@ -5680,11 +5680,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T23:52:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-08T23:54:26+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "OGNUSDT",
+      "JCTUSDT",
       "RLCUSDT",
       "龙虾USDT",
       "USUSDT",
@@ -5696,8 +5697,8 @@
       "BTWUSDT",
       "TIAUSDT",
       "AINUSDT",
-      "AEROUSDT",
-      "GRIFFAINUSDT"
+      "GRIFFAINUSDT",
+      "AEROUSDT"
     ]
   }
 }
