@@ -5632,7 +5632,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T13:12:30+00:00",
+    "time": "2026-10-08T13:14:54+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -5645,7 +5645,6 @@
       "TIAUSDT",
       "ALGOUSDT",
       "CRVUSDT",
-      "GRIFFAINUSDT",
       "ATOMUSDT",
       "BSBUSDT",
       "SYNUSDT",
@@ -5653,7 +5652,8 @@
       "ONDOUSDT",
       "AKEUSDT",
       "GRVTUSDT",
-      "HEMIUSDT"
+      "GRIFFAINUSDT",
+      "APTUSDT"
     ]
   }
 }
