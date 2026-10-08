@@ -5632,7 +5632,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T16:32:26+00:00",
+    "time": "2026-10-08T16:34:26+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -5643,11 +5643,11 @@
       "RLCUSDT",
       "BTWUSDT",
       "DOSUSDT",
-      "USUSDT",
       "WUSDT",
-      "AKEUSDT",
       "MUBARAKUSDT",
-      "PYTHUSDT"
+      "USUSDT",
+      "PYTHUSDT",
+      "AKEUSDT"
     ]
   }
 }
