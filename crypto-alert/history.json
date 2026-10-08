@@ -5583,8 +5583,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T02:00:40+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-08T02:02:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "METUSDT",
@@ -5592,11 +5592,15 @@
       "AIAUSDT",
       "WUSDT",
       "HEMIUSDT",
+      "CLOUSDT",
       "BTWUSDT",
       "CRVUSDT",
       "SANDUSDT",
       "NEARUSDT",
-      "PARTIUSDT"
+      "PARTIUSDT",
+      "C98USDT",
+      "BEAMXUSDT",
+      "DOSUSDT"
     ]
   }
 }
