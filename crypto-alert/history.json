@@ -5656,7 +5656,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T20:10:42+00:00",
+    "time": "2026-10-08T20:12:32+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -5665,16 +5665,16 @@
       "TIAUSDT",
       "UAIUSDT",
       "PYTHUSDT",
-      "GTCUSDT",
-      "STRKUSDT",
       "USUSDT",
+      "STRKUSDT",
+      "GTCUSDT",
       "龙虾USDT",
       "BTWUSDT",
-      "WUSDT",
       "MUBARAKUSDT",
-      "ONDOUSDT",
+      "WUSDT",
       "DOSUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "ONDOUSDT"
     ]
   }
 }
