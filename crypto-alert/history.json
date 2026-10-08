@@ -5608,7 +5608,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T11:08:29+00:00",
+    "time": "2026-10-08T11:10:35+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -5625,10 +5625,10 @@
       "BSBUSDT",
       "HEMIUSDT",
       "ATOMUSDT",
-      "GRVTUSDT",
-      "PYTHUSDT",
       "SYNUSDT",
-      "DOSUSDT"
+      "GRVTUSDT",
+      "DOSUSDT",
+      "PYTHUSDT"
     ]
   }
 }
