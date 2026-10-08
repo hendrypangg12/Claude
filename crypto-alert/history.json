@@ -95,7 +95,8 @@
     "LYNUSDT": "2026-10-05T02:28:29+00:00",
     "RLCUSDT": "2026-10-06T05:10:31+00:00",
     "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00",
-    "BRUSDT": "2026-10-07T12:02:29+00:00"
+    "BRUSDT": "2026-10-07T12:02:29+00:00",
+    "PONSUSDT": "2026-10-08T03:00:44+00:00"
   },
   "alerts": [
     {
@@ -5580,28 +5581,51 @@
       "time": "2026-10-07T18:04:33+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-07T18:10:37+00:00"
+    },
+    {
+      "symbol": "PONSUSDT",
+      "pct": 15.56,
+      "price": 0.424149,
+      "quote_volume": 1058395.766113,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.19234606294676077,
+      "retrace_pct": 3.861418679238867,
+      "wick_ratio": 0.555828241916661,
+      "rsi": 71.55029863510828,
+      "divergence": true,
+      "vol_spike": 0.21074198707310757,
+      "btc_pct": 0.061302634077261185,
+      "sl": 0.44559685,
+      "tp1": 0.418493436,
+      "tp2": 0.404474564,
+      "tp3": 0.381783,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.9178932905885047,
+      "time": "2026-10-08T03:00:44+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-08T02:58:24+00:00",
+    "time": "2026-10-08T03:00:44+00:00",
     "shortlist_count": 15,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "METUSDT",
       "WUSDT",
       "AIAUSDT",
-      "CLOUSDT",
       "GTCUSDT",
+      "CLOUSDT",
       "HEMIUSDT",
       "CRVUSDT",
       "BTWUSDT",
-      "NEARUSDT",
       "PARTIUSDT",
+      "NEARUSDT",
       "SANDUSDT",
       "TIAUSDT",
       "LDOUSDT",
-      "SYNUSDT",
-      "PONSUSDT"
+      "PONSUSDT",
+      "SYNUSDT"
     ]
   }
 }
