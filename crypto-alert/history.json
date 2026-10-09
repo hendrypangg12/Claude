@@ -98,7 +98,8 @@
     "BRUSDT": "2026-10-07T12:02:29+00:00",
     "PONSUSDT": "2026-10-08T03:00:44+00:00",
     "OGNUSDT": "2026-10-09T04:10:34+00:00",
-    "KAIAUSDT": "2026-10-09T09:26:30+00:00"
+    "KAIAUSDT": "2026-10-09T09:26:30+00:00",
+    "MAGICUSDT": "2026-10-09T17:18:33+00:00"
   },
   "alerts": [
     {
@@ -5751,12 +5752,35 @@
       "time": "2026-10-09T13:06:31+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-09T13:14:27+00:00"
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "pct": 8.96,
+      "price": 0.10507,
+      "quote_volume": 316301.29237,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.10780073990734092,
+      "retrace_pct": 0.8212195582405225,
+      "wick_ratio": 0.21610169491525466,
+      "rsi": 67.7154278261152,
+      "divergence": true,
+      "vol_spike": 0.2754429337192401,
+      "btc_pct": -0.145714355418381,
+      "sl": 0.10699940000000001,
+      "tp1": 0.10261278,
+      "tp2": 0.10055722,
+      "tp3": 0.09723,
+      "funding_rate": -0.007,
+      "orderbook_ratio": 0.8769203017745143,
+      "time": "2026-10-09T17:18:33+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T17:16:26+00:00",
+    "time": "2026-10-09T17:18:33+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "USUSDT",
       "JCTUSDT",
@@ -5774,20 +5798,20 @@
       "FARTCOINUSDT",
       "4USDT",
       "SKLUSDT",
-      "KASUSDT",
       "ARBUSDT",
+      "KASUSDT",
       "BSBUSDT",
-      "QNTUSDT",
       "FILUSDT",
+      "QNTUSDT",
       "GRAMUSDT",
-      "PYTHUSDT",
-      "NIGHTUSDT",
-      "FOLKSUSDT",
       "UAIUSDT",
+      "NIGHTUSDT",
+      "PYTHUSDT",
+      "FOLKSUSDT",
       "CRVUSDT",
+      "ENAUSDT",
       "ONDOUSDT",
-      "ZECUSDT",
-      "ENAUSDT"
+      "ZECUSDT"
     ]
   }
 }
