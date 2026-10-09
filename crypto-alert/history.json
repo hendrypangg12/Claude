@@ -5803,7 +5803,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T19:42:25+00:00",
+    "time": "2026-10-09T19:44:31+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -5814,12 +5814,11 @@
       "STRKUSDT",
       "JCTUSDT",
       "ATOMUSDT",
-      "RLCUSDT",
       "QUSDT",
+      "RLCUSDT",
       "DOTUSDT",
-      "WUSDT",
       "BTWUSDT",
-      "GRASSUSDT",
+      "WUSDT",
       "LABUSDT",
       "APTUSDT",
       "4USDT",
@@ -5829,11 +5828,12 @@
       "LYNUSDT",
       "CRVUSDT",
       "KASUSDT",
-      "GRAMUSDT",
       "FARTCOINUSDT",
+      "GRAMUSDT",
+      "ARBUSDT",
       "QNTUSDT",
       "CCUSDT",
-      "ARBUSDT"
+      "ZECUSDT"
     ]
   }
 }
