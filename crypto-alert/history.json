@@ -97,7 +97,8 @@
     "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00",
     "BRUSDT": "2026-10-07T12:02:29+00:00",
     "PONSUSDT": "2026-10-08T03:00:44+00:00",
-    "OGNUSDT": "2026-10-09T04:10:34+00:00"
+    "OGNUSDT": "2026-10-09T04:10:34+00:00",
+    "KAIAUSDT": "2026-10-09T09:26:30+00:00"
   },
   "alerts": [
     {
@@ -5702,12 +5703,35 @@
       "time": "2026-10-09T04:10:34+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-09T04:20:35+00:00"
+    },
+    {
+      "symbol": "KAIAUSDT",
+      "pct": 8.81,
+      "price": 0.05414,
+      "quote_volume": 353308.07273,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2643951044027421,
+      "retrace_pct": 1.059941520467831,
+      "wick_ratio": 0.263157894736837,
+      "rsi": 65.89365694401954,
+      "divergence": false,
+      "vol_spike": 0.0034730577810599805,
+      "btc_pct": -0.04262582842239451,
+      "sl": 0.055267199999999995,
+      "tp1": 0.05302774,
+      "tp2": 0.05198226,
+      "tp3": 0.05029,
+      "funding_rate": -0.83,
+      "orderbook_ratio": 0.6709067399126795,
+      "time": "2026-10-09T09:26:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T09:25:01+00:00",
+    "time": "2026-10-09T09:26:30+00:00",
     "shortlist_count": 25,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "USUSDT",
       "OGNUSDT",
@@ -5717,23 +5741,23 @@
       "KAIAUSDT",
       "QUSDT",
       "AINUSDT",
-      "WUSDT",
       "PYTHUSDT",
       "GTCUSDT",
       "SKLUSDT",
+      "WUSDT",
       "GRIFFAINUSDT",
-      "龙虾USDT",
       "ATOMUSDT",
       "BTWUSDT",
+      "龙虾USDT",
       "DOTUSDT",
       "MUBARAKUSDT",
-      "AEROUSDT",
       "APTUSDT",
+      "AEROUSDT",
       "TIAUSDT",
-      "KASUSDT",
       "GRASSUSDT",
-      "ZROUSDT",
-      "AKEUSDT"
+      "KASUSDT",
+      "AKEUSDT",
+      "ZROUSDT"
     ]
   }
 }
