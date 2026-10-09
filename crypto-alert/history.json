@@ -5730,8 +5730,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T09:40:31+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-09T09:42:40+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5740,10 +5740,10 @@
       "KAIAUSDT",
       "RLCUSDT",
       "STRKUSDT",
+      "QUSDT",
       "AINUSDT",
       "GTCUSDT",
       "SKLUSDT",
-      "QUSDT",
       "PYTHUSDT",
       "WUSDT",
       "BTWUSDT",
@@ -5752,7 +5752,9 @@
       "龙虾USDT",
       "MUBARAKUSDT",
       "DOTUSDT",
-      "AEROUSDT"
+      "AEROUSDT",
+      "ZROUSDT",
+      "APTUSDT"
     ]
   }
 }
