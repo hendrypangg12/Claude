@@ -5705,14 +5705,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T08:24:28+00:00",
+    "time": "2026-10-09T08:26:31+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
-      "OGNUSDT",
       "USUSDT",
-      "JCTUSDT",
+      "OGNUSDT",
       "STRKUSDT",
+      "JCTUSDT",
       "RLCUSDT",
       "QUSDT",
       "AINUSDT",
@@ -5723,15 +5723,15 @@
       "BTWUSDT",
       "GTCUSDT",
       "ATOMUSDT",
-      "DOTUSDT",
       "WUSDT",
+      "DOTUSDT",
       "APTUSDT",
       "TIAUSDT",
-      "MUBARAKUSDT",
       "UAIUSDT",
+      "MUBARAKUSDT",
+      "AKEUSDT",
       "AEROUSDT",
-      "KASUSDT",
-      "AKEUSDT"
+      "KASUSDT"
     ]
   }
 }
