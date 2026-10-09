@@ -5705,7 +5705,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T05:40:34+00:00",
+    "time": "2026-10-09T05:42:27+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -5723,9 +5723,9 @@
       "TIAUSDT",
       "ATOMUSDT",
       "BTWUSDT",
-      "UAIUSDT",
       "AEROUSDT",
-      "DOTUSDT"
+      "DOTUSDT",
+      "UAIUSDT"
     ]
   }
 }
