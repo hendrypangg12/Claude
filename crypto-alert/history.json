@@ -5730,8 +5730,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T12:55:00+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-09T12:56:33+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5746,17 +5746,16 @@
       "PYTHUSDT",
       "龙虾USDT",
       "ATOMUSDT",
-      "DOTUSDT",
       "AINUSDT",
+      "DOTUSDT",
       "GRASSUSDT",
-      "CCUSDT",
-      "GRAMUSDT",
-      "MUBARAKUSDT",
-      "KASUSDT",
       "WUSDT",
+      "GRAMUSDT",
+      "CCUSDT",
       "UAIUSDT",
-      "MARSCOINUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "KASUSDT",
+      "MUBARAKUSDT"
     ]
   }
 }
