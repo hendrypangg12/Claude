@@ -5754,8 +5754,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T15:04:47+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-09T15:06:29+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5770,13 +5770,14 @@
       "PYTHUSDT",
       "LABUSDT",
       "龙虾USDT",
-      "GTCUSDT",
       "DOTUSDT",
       "GRASSUSDT",
       "GRAMUSDT",
+      "GTCUSDT",
+      "KASUSDT",
       "QNTUSDT",
-      "UAIUSDT",
-      "KASUSDT"
+      "AINUSDT",
+      "MUBARAKUSDT"
     ]
   }
 }
