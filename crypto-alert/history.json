@@ -96,7 +96,8 @@
     "RLCUSDT": "2026-10-06T05:10:31+00:00",
     "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00",
     "BRUSDT": "2026-10-07T12:02:29+00:00",
-    "PONSUSDT": "2026-10-08T03:00:44+00:00"
+    "PONSUSDT": "2026-10-08T03:00:44+00:00",
+    "OGNUSDT": "2026-10-09T04:10:34+00:00"
   },
   "alerts": [
     {
@@ -5677,12 +5678,35 @@
       "time": "2026-10-08T23:26:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-08T23:42:30+00:00"
+    },
+    {
+      "symbol": "OGNUSDT",
+      "pct": 8.04,
+      "price": 0.04672,
+      "quote_volume": 804039.42214,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5087563027831854,
+      "retrace_pct": 1.2679628064243518,
+      "wick_ratio": 0.2857142857142881,
+      "rsi": 69.18581167620059,
+      "divergence": false,
+      "vol_spike": 0.09048280831927506,
+      "btc_pct": 0.2694680549614157,
+      "sl": 0.0477932,
+      "tp1": 0.04597536,
+      "tp2": 0.04514464,
+      "tp3": 0.0438,
+      "funding_rate": -0.033,
+      "orderbook_ratio": 81.30921407633186,
+      "time": "2026-10-09T04:10:34+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T04:08:28+00:00",
+    "time": "2026-10-09T04:10:34+00:00",
     "shortlist_count": 17,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "OGNUSDT",
       "JCTUSDT",
@@ -5696,10 +5720,10 @@
       "GRIFFAINUSDT",
       "GTCUSDT",
       "AINUSDT",
-      "TIAUSDT",
-      "AEROUSDT",
-      "ATOMUSDT",
       "BTWUSDT",
+      "ATOMUSDT",
+      "AEROUSDT",
+      "TIAUSDT",
       "LITUSDT"
     ]
   }
