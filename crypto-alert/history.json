@@ -5705,7 +5705,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T08:38:30+00:00",
+    "time": "2026-10-09T08:40:35+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -5723,15 +5723,15 @@
       "BTWUSDT",
       "ATOMUSDT",
       "SKLUSDT",
-      "WUSDT",
       "DOTUSDT",
+      "WUSDT",
       "APTUSDT",
       "AKEUSDT",
+      "KASUSDT",
       "UAIUSDT",
       "TIAUSDT",
       "AEROUSDT",
-      "ONDOUSDT",
-      "KASUSDT"
+      "ONDOUSDT"
     ]
   }
 }
