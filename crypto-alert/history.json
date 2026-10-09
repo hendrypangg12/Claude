@@ -5754,8 +5754,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-09T13:26:37+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-09T13:28:29+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5773,10 +5773,12 @@
       "SKLUSDT",
       "DOTUSDT",
       "GRASSUSDT",
+      "AINUSDT",
       "GRAMUSDT",
-      "CCUSDT",
       "UAIUSDT",
-      "MUBARAKUSDT"
+      "CCUSDT",
+      "MUBARAKUSDT",
+      "KASUSDT"
     ]
   }
 }
