@@ -5803,7 +5803,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T01:04:26+00:00",
+    "time": "2026-10-10T01:06:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5827,16 +5827,16 @@
       "APEUSDT",
       "ARBUSDT",
       "GALAUSDT",
-      "DOSUSDT",
       "AKEUSDT",
+      "DOSUSDT",
       "WLDUSDT",
       "GRAMUSDT",
       "KASUSDT",
-      "ADAUSDT",
       "BSBUSDT",
+      "ADAUSDT",
       "WIFUSDT",
-      "LDOUSDT",
-      "ICPUSDT"
+      "CCUSDT",
+      "LDOUSDT"
     ]
   }
 }
