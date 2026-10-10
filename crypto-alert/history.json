@@ -99,7 +99,8 @@
     "PONSUSDT": "2026-10-08T03:00:44+00:00",
     "OGNUSDT": "2026-10-09T04:10:34+00:00",
     "KAIAUSDT": "2026-10-09T09:26:30+00:00",
-    "MAGICUSDT": "2026-10-09T17:18:33+00:00"
+    "MAGICUSDT": "2026-10-09T17:18:33+00:00",
+    "JCTUSDT": "2026-10-10T06:02:26+00:00"
   },
   "alerts": [
     {
@@ -5800,12 +5801,35 @@
       "time": "2026-10-09T19:24:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-09T19:34:26+00:00"
+    },
+    {
+      "symbol": "JCTUSDT",
+      "pct": 12.42,
+      "price": 0.002941,
+      "quote_volume": 294680.311637,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5040451007795048,
+      "retrace_pct": 1.2092710782667115,
+      "wick_ratio": 0.0,
+      "rsi": 81.18969781318783,
+      "divergence": false,
+      "vol_spike": 0.9214137799278161,
+      "btc_pct": 0.11046563654085455,
+      "sl": 0.00300677,
+      "tp1": 0.002851322,
+      "tp2": 0.002773678,
+      "tp3": 0.002648,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.1738190534381623,
+      "time": "2026-10-10T06:02:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T06:00:40+00:00",
+    "time": "2026-10-10T06:02:26+00:00",
     "shortlist_count": 26,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "MAGICUSDT",
       "KAIAUSDT",
@@ -5816,22 +5840,22 @@
       "ZKUSDT",
       "MINAUSDT",
       "XAIUSDT",
-      "FOLKSUSDT",
       "WLDUSDT",
+      "FOLKSUSDT",
       "BTWUSDT",
       "DOTUSDT",
-      "GALAUSDT",
-      "NIGHTUSDT",
       "FILUSDT",
-      "ATOMUSDT",
+      "NIGHTUSDT",
+      "GALAUSDT",
       "IMXUSDT",
-      "STABLEUSDT",
-      "ADAUSDT",
+      "ATOMUSDT",
       "NEARUSDT",
       "APEUSDT",
+      "ADAUSDT",
+      "STABLEUSDT",
       "BSBUSDT",
-      "CRVUSDT",
       "GRAMUSDT",
+      "CRVUSDT",
       "ARBUSDT"
     ]
   }
