@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T07:14:34+00:00",
-    "shortlist_count": 26,
+    "time": "2026-10-10T07:16:25+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "MAGICUSDT",
@@ -5843,11 +5843,11 @@
       "MINAUSDT",
       "WLDUSDT",
       "FOLKSUSDT",
-      "GALAUSDT",
-      "XAIUSDT",
       "STABLEUSDT",
-      "BTWUSDT",
+      "XAIUSDT",
+      "GALAUSDT",
       "NIGHTUSDT",
+      "BTWUSDT",
       "NEARUSDT",
       "DOTUSDT",
       "ADAUSDT",
@@ -5857,7 +5857,8 @@
       "ICPUSDT",
       "FILUSDT",
       "GRAMUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "AAVEUSDT"
     ]
   }
 }
