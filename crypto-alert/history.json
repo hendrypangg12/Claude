@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T23:16:25+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-10T23:18:26+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
@@ -5850,11 +5850,9 @@
       "APTUSDT",
       "NEARUSDT",
       "OPUSDT",
-      "UNIUSDT",
       "METUSDT",
-      "SUIUSDT",
-      "SEIUSDT",
-      "PENDLEUSDT"
+      "UNIUSDT",
+      "SUIUSDT"
     ]
   }
 }
