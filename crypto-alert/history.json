@@ -5803,8 +5803,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T01:14:40+00:00",
-    "shortlist_count": 30,
+    "time": "2026-10-10T01:16:26+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "USUSDT",
@@ -5824,19 +5824,18 @@
       "LABUSDT",
       "CRVUSDT",
       "FOLKSUSDT",
-      "ARBUSDT",
       "APEUSDT",
+      "ARBUSDT",
       "DOSUSDT",
       "ADAUSDT",
-      "GRAMUSDT",
       "GALAUSDT",
-      "BSBUSDT",
       "AKEUSDT",
-      "WLDUSDT",
+      "GRAMUSDT",
+      "BSBUSDT",
       "KASUSDT",
+      "WLDUSDT",
       "WIFUSDT",
-      "LDOUSDT",
-      "STABLEUSDT"
+      "LDOUSDT"
     ]
   }
 }
