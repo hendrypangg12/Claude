@@ -5828,25 +5828,25 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T10:12:26+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-10T10:14:26+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "MAGICUSDT",
       "ERAUSDT",
       "JCTUSDT",
       "C98USDT",
+      "MINAUSDT",
       "PIXELUSDT",
-      "OPUSDT",
       "龙虾USDT",
+      "OPUSDT",
       "WLDUSDT",
       "NEARUSDT",
-      "MINAUSDT",
       "STABLEUSDT",
       "GALAUSDT",
-      "ZKUSDT",
       "NIGHTUSDT",
       "DOTUSDT",
+      "ZKUSDT",
       "APEUSDT",
       "ADAUSDT",
       "XAIUSDT",
@@ -5854,7 +5854,6 @@
       "BTWUSDT",
       "AAVEUSDT",
       "SUIUSDT",
-      "FETUSDT",
       "AEROUSDT",
       "ICPUSDT"
     ]
