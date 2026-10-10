@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T07:48:26+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-10T07:50:29+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "KAIAUSDT",
@@ -5847,13 +5847,15 @@
       "NEARUSDT",
       "GALAUSDT",
       "BSBUSDT",
-      "APEUSDT",
-      "DOTUSDT",
-      "ADAUSDT",
       "FOLKSUSDT",
+      "APEUSDT",
+      "ADAUSDT",
+      "DOTUSDT",
       "GRAMUSDT",
-      "XAIUSDT",
-      "IMXUSDT"
+      "IMXUSDT",
+      "CRVUSDT",
+      "ICPUSDT",
+      "FILUSDT"
     ]
   }
 }
