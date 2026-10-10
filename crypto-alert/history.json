@@ -5823,21 +5823,22 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.1738190534381623,
       "time": "2026-10-10T06:02:26+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-10T06:08:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-10T06:06:23+00:00",
-    "shortlist_count": 26,
+    "time": "2026-10-10T06:08:28+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "MAGICUSDT",
       "KAIAUSDT",
       "USUSDT",
       "JCTUSDT",
-      "MINAUSDT",
       "OPUSDT",
       "ZKUSDT",
+      "MINAUSDT",
       "C98USDT",
       "FOLKSUSDT",
       "WLDUSDT",
@@ -5848,14 +5849,15 @@
       "IMXUSDT",
       "GALAUSDT",
       "NIGHTUSDT",
-      "FILUSDT",
       "NEARUSDT",
+      "FILUSDT",
       "APEUSDT",
-      "ADAUSDT",
       "BSBUSDT",
       "ATOMUSDT",
-      "GRAMUSDT",
+      "ADAUSDT",
       "CRVUSDT",
+      "GRAMUSDT",
+      "AAVEUSDT",
       "ARBUSDT"
     ]
   }
