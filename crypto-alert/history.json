@@ -5853,18 +5853,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T09:06:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-11T09:08:25+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
       "LUMIAUSDT",
       "CFXUSDT",
-      "MAGICUSDT",
       "CHIPUSDT",
       "TIAUSDT",
-      "DOSUSDT",
+      "MAGICUSDT",
       "AEROUSDT",
+      "DOSUSDT",
       "ZKUSDT",
       "GRASSUSDT",
       "EIGENUSDT",
@@ -5874,7 +5874,8 @@
       "ETHFIUSDT",
       "WALUSDT",
       "CTUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "WUSDT"
     ]
   }
 }
