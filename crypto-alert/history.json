@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T03:00:44+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-11T03:02:28+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
@@ -5840,8 +5840,8 @@
       "CFXUSDT",
       "ERAUSDT",
       "ZKUSDT",
-      "INJUSDT",
       "DOSUSDT",
+      "INJUSDT",
       "WLDUSDT",
       "WALUSDT",
       "NEARUSDT",
@@ -5850,8 +5850,7 @@
       "GRVTUSDT",
       "PLUMEUSDT",
       "PONSUSDT",
-      "ETHFIUSDT",
-      "UNIUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
