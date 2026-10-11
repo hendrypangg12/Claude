@@ -5848,18 +5848,19 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 0.7447149324300645,
       "time": "2026-10-11T08:04:28+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-11T08:18:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T08:16:31+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-11T08:18:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
       "CFXUSDT",
-      "LUMIAUSDT",
       "TIAUSDT",
+      "LUMIAUSDT",
       "CHIPUSDT",
       "ERAUSDT",
       "DOSUSDT",
@@ -5873,6 +5874,7 @@
       "GRASSUSDT",
       "ARBUSDT",
       "GRVTUSDT",
+      "CTUSDT",
       "ETHFIUSDT"
     ]
   }
