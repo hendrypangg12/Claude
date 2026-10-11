@@ -5853,7 +5853,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T09:24:36+00:00",
+    "time": "2026-10-11T09:26:25+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -5863,10 +5863,11 @@
       "CHIPUSDT",
       "TIAUSDT",
       "DOSUSDT",
-      "MAGICUSDT",
       "AEROUSDT",
+      "MAGICUSDT",
       "ZKUSDT",
       "GRASSUSDT",
+      "SUSDT",
       "RLCUSDT",
       "EIGENUSDT",
       "ARBUSDT",
@@ -5875,8 +5876,7 @@
       "ETHFIUSDT",
       "CTUSDT",
       "WALUSDT",
-      "ERAUSDT",
-      "OPUSDT"
+      "ERAUSDT"
     ]
   }
 }
