@@ -5828,14 +5828,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T07:50:35+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-11T07:52:31+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
       "CFXUSDT",
-      "LUMIAUSDT",
       "ERAUSDT",
+      "LUMIAUSDT",
       "TIAUSDT",
       "CHIPUSDT",
       "ZKUSDT",
@@ -5849,8 +5849,7 @@
       "ARBUSDT",
       "GRVTUSDT",
       "GRASSUSDT",
-      "APEUSDT",
-      "WUSDT"
+      "APEUSDT"
     ]
   }
 }
