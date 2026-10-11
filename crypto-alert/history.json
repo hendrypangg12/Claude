@@ -5828,7 +5828,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T04:22:28+00:00",
+    "time": "2026-10-11T04:24:30+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -5837,17 +5837,17 @@
       "TIAUSDT",
       "ERAUSDT",
       "CHIPUSDT",
-      "AEROUSDT",
       "CFXUSDT",
+      "AEROUSDT",
       "DOSUSDT",
       "ZKUSDT",
       "INJUSDT",
       "NIGHTUSDT",
-      "WALUSDT",
       "ARBUSDT",
       "BATUSDT",
-      "ETHFIUSDT",
-      "WLDUSDT"
+      "WLDUSDT",
+      "NEARUSDT",
+      "WALUSDT"
     ]
   }
 }
