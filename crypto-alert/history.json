@@ -5853,8 +5853,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T21:24:23+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-11T21:26:31+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "CKBUSDT",
@@ -5875,12 +5875,11 @@
       "ACNUSDT",
       "CFXUSDT",
       "MONUSDT",
-      "ENAUSDT",
       "USELESSUSDT",
-      "CCUSDT",
+      "ENAUSDT",
       "ALGOUSDT",
-      "TRUTHUSDT",
-      "NEARUSDT"
+      "CCUSDT",
+      "TRUTHUSDT"
     ]
   }
 }
