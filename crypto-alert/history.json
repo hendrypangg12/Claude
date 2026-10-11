@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T06:40:31+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-11T06:42:25+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "LUMIAUSDT",
@@ -5842,13 +5842,12 @@
       "DOSUSDT",
       "ZKUSDT",
       "BATUSDT",
-      "EIGENUSDT",
       "INJUSDT",
+      "EIGENUSDT",
       "WALUSDT",
       "USELESSUSDT",
       "ARBUSDT",
-      "GRVTUSDT",
-      "CTUSDT"
+      "GRVTUSDT"
     ]
   }
 }
