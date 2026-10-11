@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T07:00:40+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-11T07:02:26+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "LUMIAUSDT",
@@ -5844,12 +5844,13 @@
       "INJUSDT",
       "EIGENUSDT",
       "WALUSDT",
-      "BATUSDT",
       "ARBUSDT",
+      "BATUSDT",
+      "龙虾USDT",
       "USELESSUSDT",
+      "GRVTUSDT",
       "APEUSDT",
-      "ETHFIUSDT",
-      "ORCAUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
