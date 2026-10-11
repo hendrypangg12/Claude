@@ -5853,8 +5853,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T19:52:30+00:00",
-    "shortlist_count": 29,
+    "time": "2026-10-11T19:54:30+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "SUSDT",
@@ -5871,20 +5871,21 @@
       "C98USDT",
       "ENAUSDT",
       "VVVUSDT",
-      "NEARUSDT",
-      "CCUSDT",
       "USELESSUSDT",
+      "CCUSDT",
+      "NEARUSDT",
+      "RLCUSDT",
       "MONUSDT",
       "ALGOUSDT",
-      "ARBUSDT",
-      "FILUSDT",
       "APTUSDT",
+      "ARBUSDT",
       "ICPUSDT",
-      "FETUSDT",
       "DOSUSDT",
-      "RLCUSDT",
-      "TRUTHUSDT",
+      "FILUSDT",
+      "FETUSDT",
       "CRVUSDT",
+      "TRUTHUSDT",
+      "ZKUSDT",
       "CHIPUSDT"
     ]
   }
