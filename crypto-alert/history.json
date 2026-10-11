@@ -5853,15 +5853,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T21:44:33+00:00",
-    "shortlist_count": 28,
+    "time": "2026-10-11T21:46:24+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "CKBUSDT",
-      "MAGICUSDT",
       "SUSDT",
-      "GRASSUSDT",
+      "MAGICUSDT",
       "LUMIAUSDT",
+      "GRASSUSDT",
       "WUSDT",
       "PLUMEUSDT",
       "IOUSDT",
@@ -5870,21 +5870,20 @@
       "EIGENUSDT",
       "ICPUSDT",
       "RLCUSDT",
+      "NEARUSDT",
+      "CFXUSDT",
       "ETHFIUSDT",
       "DOSUSDT",
-      "CFXUSDT",
-      "NEARUSDT",
-      "USELESSUSDT",
-      "ENAUSDT",
       "MONUSDT",
       "ACNUSDT",
+      "USELESSUSDT",
+      "ENAUSDT",
       "ALGOUSDT",
+      "CCUSDT",
       "APTUSDT",
       "FETUSDT",
-      "CCUSDT",
-      "ARBUSDT",
       "TRUTHUSDT",
-      "ZROUSDT"
+      "ARBUSDT"
     ]
   }
 }
