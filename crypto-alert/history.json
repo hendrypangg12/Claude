@@ -5853,7 +5853,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T22:34:25+00:00",
+    "time": "2026-10-11T22:36:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5870,23 +5870,23 @@
       "ICPUSDT",
       "ETHFIUSDT",
       "NEARUSDT",
-      "MONUSDT",
       "STRKUSDT",
+      "MONUSDT",
       "RLCUSDT",
-      "ACNUSDT",
-      "ENAUSDT",
       "DOSUSDT",
+      "ENAUSDT",
+      "ACNUSDT",
       "USELESSUSDT",
-      "CCUSDT",
       "FETUSDT",
+      "CCUSDT",
       "CFXUSDT",
       "TRUTHUSDT",
       "ARBUSDT",
-      "WALUSDT",
-      "AVAXUSDT",
       "ALGOUSDT",
+      "ZROUSDT",
       "VVVUSDT",
-      "LITUSDT"
+      "WALUSDT",
+      "AVAXUSDT"
     ]
   }
 }
