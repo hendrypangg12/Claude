@@ -5853,8 +5853,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T09:52:27+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-11T09:54:27+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
@@ -5869,16 +5869,17 @@
       "DOSUSDT",
       "GRASSUSDT",
       "EIGENUSDT",
+      "ARBUSDT",
       "BATUSDT",
       "CTUSDT",
       "RLCUSDT",
-      "ARBUSDT",
       "USELESSUSDT",
       "ZROUSDT",
       "WALUSDT",
       "INJUSDT",
       "OPUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "IOUSDT"
     ]
   }
 }
