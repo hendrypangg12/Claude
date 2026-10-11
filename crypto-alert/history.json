@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T00:52:30+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-11T00:54:26+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "STRKUSDT",
@@ -5839,8 +5839,8 @@
       "CFXUSDT",
       "AEROUSDT",
       "ERAUSDT",
-      "WALUSDT",
       "INJUSDT",
+      "WALUSDT",
       "NIGHTUSDT",
       "MINAUSDT",
       "WLDUSDT",
@@ -5848,7 +5848,9 @@
       "NEARUSDT",
       "DOSUSDT",
       "APTUSDT",
-      "ORCAUSDT"
+      "ORCAUSDT",
+      "FETUSDT",
+      "GRVTUSDT"
     ]
   }
 }
