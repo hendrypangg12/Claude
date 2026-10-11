@@ -100,7 +100,8 @@
     "OGNUSDT": "2026-10-09T04:10:34+00:00",
     "KAIAUSDT": "2026-10-09T09:26:30+00:00",
     "MAGICUSDT": "2026-10-09T17:18:33+00:00",
-    "JCTUSDT": "2026-10-10T06:02:26+00:00"
+    "JCTUSDT": "2026-10-10T06:02:26+00:00",
+    "LUMIAUSDT": "2026-10-11T08:04:28+00:00"
   },
   "alerts": [
     {
@@ -5825,32 +5826,54 @@
       "time": "2026-10-10T06:02:26+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-10T06:08:28+00:00"
+    },
+    {
+      "symbol": "LUMIAUSDT",
+      "pct": 8.53,
+      "price": 0.16874,
+      "quote_volume": 434782.36828,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.27973464839722995,
+      "retrace_pct": 1.3562492692622405,
+      "wick_ratio": 0.38647342995169065,
+      "rsi": 65.28975605367872,
+      "divergence": true,
+      "vol_spike": 0.375537694711406,
+      "btc_pct": -0.03550815357481044,
+      "sl": 0.1727706,
+      "tp1": 0.1659221,
+      "tp2": 0.1627479,
+      "tp3": 0.15761,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.7447149324300645,
+      "time": "2026-10-11T08:04:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T08:02:31+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 0,
+    "time": "2026-10-11T08:04:28+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "STRKUSDT",
-      "CFXUSDT",
       "LUMIAUSDT",
+      "CFXUSDT",
       "ERAUSDT",
       "TIAUSDT",
       "CHIPUSDT",
-      "ZKUSDT",
       "DOSUSDT",
-      "AEROUSDT",
+      "ZKUSDT",
       "MAGICUSDT",
+      "AEROUSDT",
       "BATUSDT",
       "EIGENUSDT",
       "WALUSDT",
       "INJUSDT",
-      "ARBUSDT",
-      "GRVTUSDT",
       "GRASSUSDT",
-      "RLCUSDT",
-      "OPUSDT"
+      "GRVTUSDT",
+      "ARBUSDT",
+      "RLCUSDT"
     ]
   }
 }
