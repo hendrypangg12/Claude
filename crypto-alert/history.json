@@ -5828,8 +5828,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T06:18:30+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-11T06:20:32+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "LUMIAUSDT",
@@ -5844,7 +5844,9 @@
       "INJUSDT",
       "WALUSDT",
       "EIGENUSDT",
-      "BATUSDT"
+      "BATUSDT",
+      "APEUSDT",
+      "CTUSDT"
     ]
   }
 }
