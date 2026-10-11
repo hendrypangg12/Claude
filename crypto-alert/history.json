@@ -5853,12 +5853,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T08:40:34+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-11T08:42:30+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
-      "STRKUSDT",
       "LUMIAUSDT",
+      "STRKUSDT",
       "CFXUSDT",
       "MAGICUSDT",
       "CHIPUSDT",
@@ -5871,9 +5871,11 @@
       "GRASSUSDT",
       "ARBUSDT",
       "CTUSDT",
+      "BATUSDT",
       "ETHFIUSDT",
-      "OPUSDT",
-      "BATUSDT"
+      "RLCUSDT",
+      "WUSDT",
+      "OPUSDT"
     ]
   }
 }
