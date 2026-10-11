@@ -5853,8 +5853,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T20:08:32+00:00",
-    "shortlist_count": 30,
+    "time": "2026-10-11T20:10:32+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "SUSDT",
@@ -5874,19 +5874,18 @@
       "APTUSDT",
       "ALGOUSDT",
       "CCUSDT",
-      "ARBUSDT",
       "MONUSDT",
-      "NEARUSDT",
+      "CHIPUSDT",
       "USELESSUSDT",
+      "NEARUSDT",
+      "ARBUSDT",
+      "FILUSDT",
       "DOSUSDT",
       "ICPUSDT",
-      "FILUSDT",
       "C98USDT",
-      "CHIPUSDT",
       "FETUSDT",
-      "TRUTHUSDT",
       "CRVUSDT",
-      "ZECUSDT"
+      "TRUTHUSDT"
     ]
   }
 }
