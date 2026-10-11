@@ -5828,25 +5828,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T06:26:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-11T06:28:26+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "LUMIAUSDT",
       "STRKUSDT",
       "ERAUSDT",
-      "TIAUSDT",
       "CFXUSDT",
+      "TIAUSDT",
       "CHIPUSDT",
-      "ZKUSDT",
       "AEROUSDT",
+      "ZKUSDT",
       "DOSUSDT",
       "INJUSDT",
       "EIGENUSDT",
       "WALUSDT",
       "BATUSDT",
+      "USELESSUSDT",
       "CTUSDT",
-      "GRVTUSDT"
+      "ARBUSDT",
+      "APEUSDT"
     ]
   }
 }
