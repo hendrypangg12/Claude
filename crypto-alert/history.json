@@ -5828,7 +5828,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T03:40:57+00:00",
+    "time": "2026-10-11T03:42:29+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -5843,10 +5843,10 @@
       "DOSUSDT",
       "INJUSDT",
       "WLDUSDT",
-      "NEARUSDT",
       "ARBUSDT",
-      "WALUSDT",
-      "NIGHTUSDT"
+      "NEARUSDT",
+      "NIGHTUSDT",
+      "WALUSDT"
     ]
   }
 }
