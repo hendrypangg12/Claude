@@ -5853,8 +5853,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-11T16:06:31+00:00",
-    "shortlist_count": 29,
+    "time": "2026-10-11T16:08:32+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "CHIPUSDT",
@@ -5865,27 +5865,28 @@
       "TIAUSDT",
       "CFXUSDT",
       "APTUSDT",
-      "LUMIAUSDT",
       "RLCUSDT",
-      "IOUSDT",
+      "LUMIAUSDT",
       "DOSUSDT",
-      "USELESSUSDT",
-      "ETHFIUSDT",
+      "IOUSDT",
       "EIGENUSDT",
-      "ARBUSDT",
+      "ETHFIUSDT",
+      "USELESSUSDT",
       "ALGOUSDT",
-      "PLUMEUSDT",
-      "CTUSDT",
+      "ARBUSDT",
       "NEARUSDT",
+      "CTUSDT",
+      "PLUMEUSDT",
+      "ZKUSDT",
       "AEROUSDT",
       "INJUSDT",
-      "ZKUSDT",
       "CRVUSDT",
-      "APEUSDT",
-      "CAKEUSDT",
-      "FETUSDT",
       "TRUTHUSDT",
-      "CCUSDT"
+      "CAKEUSDT",
+      "APEUSDT",
+      "CCUSDT",
+      "FETUSDT",
+      "ENAUSDT"
     ]
   }
 }
