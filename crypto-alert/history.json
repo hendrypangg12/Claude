@@ -5878,7 +5878,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T13:40:31+00:00",
+    "time": "2026-10-12T13:42:27+00:00",
     "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
@@ -5888,16 +5888,16 @@
       "SUSDT",
       "ZROUSDT",
       "DOSUSDT",
-      "ACNUSDT",
       "PYTHUSDT",
+      "ACNUSDT",
       "UAIUSDT",
       "FILUSDT",
       "RENDERUSDT",
-      "METISUSDT",
       "CYBERUSDT",
+      "METISUSDT",
       "PLUMEUSDT",
-      "ICPUSDT",
       "GRASSUSDT",
+      "ICPUSDT",
       "AZTECUSDT",
       "IOUSDT",
       "DYMUSDT",
@@ -5906,8 +5906,8 @@
       "BTWUSDT",
       "VVVUSDT",
       "NEARUSDT",
-      "ZECUSDT",
-      "POLUSDT"
+      "CAPUSDT",
+      "ZECUSDT"
     ]
   }
 }
