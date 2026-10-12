@@ -101,7 +101,8 @@
     "KAIAUSDT": "2026-10-09T09:26:30+00:00",
     "MAGICUSDT": "2026-10-09T17:18:33+00:00",
     "JCTUSDT": "2026-10-10T06:02:26+00:00",
-    "LUMIAUSDT": "2026-10-11T08:04:28+00:00"
+    "LUMIAUSDT": "2026-10-11T08:04:28+00:00",
+    "RSRUSDT": "2026-10-12T11:18:26+00:00"
   },
   "alerts": [
     {
@@ -5850,12 +5851,35 @@
       "time": "2026-10-11T08:04:28+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-11T08:18:30+00:00"
+    },
+    {
+      "symbol": "RSRUSDT",
+      "pct": 8.34,
+      "price": 0.002358,
+      "quote_volume": 1455783.317071,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2120967331741521,
+      "retrace_pct": 0.7575757575757669,
+      "wick_ratio": 0.6153846153846141,
+      "rsi": 66.95415175922155,
+      "divergence": true,
+      "vol_spike": 0.0569168238804745,
+      "btc_pct": -0.19220093394724835,
+      "sl": 0.00239976,
+      "tp1": 0.002306094,
+      "tp2": 0.0022629060000000003,
+      "tp3": 0.002193,
+      "funding_rate": -2.0,
+      "orderbook_ratio": 0.7698606323541594,
+      "time": "2026-10-12T11:18:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T11:16:36+00:00",
+    "time": "2026-10-12T11:18:26+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "GTCUSDT",
       "WUSDT",
@@ -5866,27 +5890,27 @@
       "PLUMEUSDT",
       "ACNUSDT",
       "DOSUSDT",
-      "GRASSUSDT",
       "FILUSDT",
       "IOUSDT",
+      "GRASSUSDT",
       "ICPUSDT",
       "EIGENUSDT",
       "RENDERUSDT",
-      "AZTECUSDT",
-      "NEARUSDT",
-      "DYMUSDT",
-      "ALGOUSDT",
-      "ARXUSDT",
-      "VVVUSDT",
       "UAIUSDT",
+      "NEARUSDT",
+      "AZTECUSDT",
+      "ARXUSDT",
+      "ALGOUSDT",
+      "DYMUSDT",
       "CKBUSDT",
+      "VVVUSDT",
       "MAGICUSDT",
       "AVAXUSDT",
       "ZECUSDT",
       "CAKEUSDT",
       "LINEAUSDT",
       "USELESSUSDT",
-      "BTWUSDT"
+      "ENAUSDT"
     ]
   }
 }
