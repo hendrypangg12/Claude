@@ -5878,14 +5878,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T15:40:35+00:00",
+    "time": "2026-10-12T15:42:29+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "RSRUSDT",
-      "WUSDT",
       "CTKUSDT",
+      "WUSDT",
       "PYTHUSDT",
       "ACNUSDT",
       "METISUSDT",
@@ -5894,10 +5894,10 @@
       "DOSUSDT",
       "AZTECUSDT",
       "FILUSDT",
-      "CYBERUSDT",
       "BTWUSDT",
-      "RENDERUSDT",
-      "ICPUSDT"
+      "CYBERUSDT",
+      "ICPUSDT",
+      "RENDERUSDT"
     ]
   }
 }
