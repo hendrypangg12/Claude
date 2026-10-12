@@ -5878,8 +5878,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T13:32:25+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-12T13:34:28+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5892,21 +5892,23 @@
       "ACNUSDT",
       "UAIUSDT",
       "FILUSDT",
-      "PLUMEUSDT",
       "RENDERUSDT",
-      "CYBERUSDT",
-      "GRASSUSDT",
-      "IOUSDT",
+      "PLUMEUSDT",
       "METISUSDT",
+      "CYBERUSDT",
+      "IOUSDT",
+      "GRASSUSDT",
       "ICPUSDT",
-      "EIGENUSDT",
       "BTWUSDT",
-      "ALGOUSDT",
       "AZTECUSDT",
-      "VVVUSDT",
+      "ALGOUSDT",
+      "EIGENUSDT",
       "DYMUSDT",
+      "VVVUSDT",
       "NEARUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "CAPUSDT",
+      "LINEAUSDT"
     ]
   }
 }
