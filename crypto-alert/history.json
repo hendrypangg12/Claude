@@ -5878,8 +5878,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T19:34:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-12T19:36:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5893,10 +5893,11 @@
       "CYBERUSDT",
       "SKLUSDT",
       "CAPUSDT",
-      "AZTECUSDT",
-      "CTKUSDT",
       "PYTHUSDT",
-      "ZROUSDT"
+      "AZTECUSDT",
+      "ZROUSDT",
+      "CTKUSDT",
+      "BTWUSDT"
     ]
   }
 }
