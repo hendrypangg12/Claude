@@ -5853,7 +5853,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T07:58:36+00:00",
+    "time": "2026-10-12T08:00:40+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5862,8 +5862,8 @@
       "SUSDT",
       "IOUSDT",
       "ZROUSDT",
-      "AZTECUSDT",
       "GRASSUSDT",
+      "AZTECUSDT",
       "PLUMEUSDT",
       "CKBUSDT",
       "BTWUSDT",
@@ -5877,16 +5877,16 @@
       "ACNUSDT",
       "DYMUSDT",
       "USELESSUSDT",
-      "CFGUSDT",
       "RENDERUSDT",
       "LITUSDT",
+      "CFGUSDT",
       "ZECUSDT",
       "PUMPUSDT",
-      "LABUSDT",
-      "ENAUSDT",
       "FETUSDT",
+      "ENAUSDT",
       "AVAXUSDT",
-      "LINEAUSDT"
+      "LINEAUSDT",
+      "LABUSDT"
     ]
   }
 }
