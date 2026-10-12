@@ -5853,13 +5853,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T01:22:28+00:00",
+    "time": "2026-10-12T01:24:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "MAGICUSDT",
-      "CKBUSDT",
       "GRASSUSDT",
+      "CKBUSDT",
       "WUSDT",
       "SUSDT",
       "PLUMEUSDT",
@@ -5876,17 +5876,17 @@
       "ONDOUSDT",
       "VVVUSDT",
       "ALGOUSDT",
-      "DOSUSDT",
       "MONUSDT",
-      "ETHFIUSDT",
-      "CFXUSDT",
       "ZROUSDT",
+      "ETHFIUSDT",
+      "DOSUSDT",
+      "CFXUSDT",
       "CCUSDT",
       "FETUSDT",
-      "TRUTHUSDT",
-      "RLCUSDT",
       "LITUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "TRUTHUSDT",
+      "RLCUSDT"
     ]
   }
 }
