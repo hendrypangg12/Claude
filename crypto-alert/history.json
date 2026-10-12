@@ -5878,7 +5878,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T15:16:23+00:00",
+    "time": "2026-10-12T15:18:27+00:00",
     "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
@@ -5892,18 +5892,18 @@
       "METISUSDT",
       "DOSUSDT",
       "AZTECUSDT",
-      "FILUSDT",
-      "SUSDT",
-      "REDUSDT",
       "PLUMEUSDT",
+      "FILUSDT",
+      "REDUSDT",
       "RENDERUSDT",
       "GRASSUSDT",
+      "SUSDT",
       "BTWUSDT",
-      "NEARUSDT",
-      "ICPUSDT",
       "DYMUSDT",
-      "EIGENUSDT",
-      "ARXUSDT"
+      "ICPUSDT",
+      "NEARUSDT",
+      "ARXUSDT",
+      "EIGENUSDT"
     ]
   }
 }
