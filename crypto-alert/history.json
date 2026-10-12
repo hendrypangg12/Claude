@@ -5878,7 +5878,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T17:12:26+00:00",
+    "time": "2026-10-12T17:14:30+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -5890,12 +5890,12 @@
       "ACNUSDT",
       "CYBERUSDT",
       "CTUSDT",
-      "OGNUSDT",
-      "DOSUSDT",
-      "CAPUSDT",
       "ZROUSDT",
-      "TRUTHUSDT",
-      "AZTECUSDT"
+      "DOSUSDT",
+      "OGNUSDT",
+      "CAPUSDT",
+      "AZTECUSDT",
+      "TRUTHUSDT"
     ]
   }
 }
