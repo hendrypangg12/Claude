@@ -5878,8 +5878,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-12T15:14:30+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-12T15:16:23+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -5891,10 +5891,10 @@
       "PYTHUSDT",
       "METISUSDT",
       "DOSUSDT",
-      "REDUSDT",
       "AZTECUSDT",
       "FILUSDT",
       "SUSDT",
+      "REDUSDT",
       "PLUMEUSDT",
       "RENDERUSDT",
       "GRASSUSDT",
@@ -5902,7 +5902,8 @@
       "NEARUSDT",
       "ICPUSDT",
       "DYMUSDT",
-      "EIGENUSDT"
+      "EIGENUSDT",
+      "ARXUSDT"
     ]
   }
 }
