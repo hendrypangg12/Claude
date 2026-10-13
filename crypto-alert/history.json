@@ -5903,13 +5903,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T23:28:27+00:00",
+    "time": "2026-10-13T23:30:36+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
-      "TRUTHUSDT",
       "BATUSDT",
+      "TRUTHUSDT",
       "ACNUSDT",
       "OPUSDT",
       "龙虾USDT",
@@ -5924,12 +5924,12 @@
       "UNIUSDT",
       "PONSUSDT",
       "STXUSDT",
-      "ARBUSDT",
       "AKEUSDT",
+      "ARBUSDT",
       "CCUSDT",
       "FILUSDT",
-      "APTUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "APTUSDT"
     ]
   }
 }
