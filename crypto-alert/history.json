@@ -5878,18 +5878,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T09:32:29+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-13T09:34:29+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "OGNUSDT",
       "CTUSDT",
-      "CTKUSDT",
       "ACNUSDT",
+      "CTKUSDT",
       "STXUSDT",
       "TRUTHUSDT",
-      "BTWUSDT"
+      "BTWUSDT",
+      "龙虾USDT",
+      "AZTECUSDT"
     ]
   }
 }
