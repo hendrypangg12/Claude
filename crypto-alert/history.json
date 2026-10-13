@@ -102,7 +102,8 @@
     "MAGICUSDT": "2026-10-09T17:18:33+00:00",
     "JCTUSDT": "2026-10-10T06:02:26+00:00",
     "LUMIAUSDT": "2026-10-11T08:04:28+00:00",
-    "RSRUSDT": "2026-10-12T11:18:26+00:00"
+    "RSRUSDT": "2026-10-12T11:18:26+00:00",
+    "SUSDT": "2026-10-13T12:00:45+00:00"
   },
   "alerts": [
     {
@@ -5875,21 +5876,44 @@
       "time": "2026-10-12T11:18:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-12T11:24:30+00:00"
+    },
+    {
+      "symbol": "SUSDT",
+      "pct": 8.06,
+      "price": 0.06146,
+      "quote_volume": 469701.62565,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.35339211526392705,
+      "retrace_pct": 0.5823358136525384,
+      "wick_ratio": 0.0,
+      "rsi": 68.071371176469,
+      "divergence": false,
+      "vol_spike": 0.02368144704519546,
+      "btc_pct": -0.21551089442169413,
+      "sl": 0.0624382,
+      "tp1": 0.06005898,
+      "tp2": 0.05897102,
+      "tp3": 0.05721,
+      "funding_rate": 0.004,
+      "orderbook_ratio": 0.21068384556939818,
+      "time": "2026-10-13T12:00:45+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T11:58:26+00:00",
+    "time": "2026-10-13T12:00:45+00:00",
     "shortlist_count": 11,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "OGNUSDT",
       "QUSDT",
       "ACNUSDT",
       "CTUSDT",
       "CTKUSDT",
+      "SUSDT",
       "BTWUSDT",
       "TRUTHUSDT",
-      "SUSDT",
       "STXUSDT",
       "龙虾USDT",
       "DUSKUSDT"
