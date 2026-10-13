@@ -5903,8 +5903,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T23:10:38+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-13T23:12:25+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
@@ -5916,17 +5916,19 @@
       "BTWUSDT",
       "BLUAIUSDT",
       "DUSKUSDT",
-      "INJUSDT",
       "ZKUSDT",
+      "INJUSDT",
       "AZTECUSDT",
       "LDOUSDT",
       "UNIUSDT",
       "TIAUSDT",
       "AKEUSDT",
       "PONSUSDT",
+      "STXUSDT",
       "ARBUSDT",
       "CCUSDT",
-      "STXUSDT"
+      "FILUSDT",
+      "APTUSDT"
     ]
   }
 }
