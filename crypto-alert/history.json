@@ -5878,22 +5878,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T10:22:29+00:00",
+    "time": "2026-10-13T10:24:29+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "QUSDT",
       "OGNUSDT",
+      "QUSDT",
+      "CTKUSDT",
       "CTUSDT",
       "ACNUSDT",
-      "CTKUSDT",
       "STXUSDT",
       "TRUTHUSDT",
       "BTWUSDT",
       "DUSKUSDT",
+      "SKLUSDT",
       "龙虾USDT",
-      "AZTECUSDT",
-      "SKLUSDT"
+      "AZTECUSDT"
     ]
   }
 }
