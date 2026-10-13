@@ -5903,7 +5903,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-13T21:20:35+00:00",
+    "time": "2026-10-13T21:22:30+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -5919,9 +5919,9 @@
       "DUSKUSDT",
       "INJUSDT",
       "TIAUSDT",
-      "AZTECUSDT",
       "AKEUSDT",
-      "CCUSDT"
+      "CCUSDT",
+      "AZTECUSDT"
     ]
   }
 }
