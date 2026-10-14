@@ -5903,7 +5903,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T01:12:25+00:00",
+    "time": "2026-10-14T01:14:22+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5922,21 +5922,21 @@
       "LDOUSDT",
       "UNIUSDT",
       "TIAUSDT",
-      "POWERUSDT",
       "AKEUSDT",
+      "POWERUSDT",
       "BLUAIUSDT",
-      "ARBUSDT",
-      "APTUSDT",
       "ZECUSDT",
-      "LUMIAUSDT",
-      "FILUSDT",
-      "CCUSDT",
-      "PENDLEUSDT",
+      "ARBUSDT",
       "AZTECUSDT",
-      "STXUSDT",
+      "APTUSDT",
       "METISUSDT",
+      "WLDUSDT",
+      "FILUSDT",
       "BCHUSDT",
-      "WLDUSDT"
+      "LUMIAUSDT",
+      "PENDLEUSDT",
+      "STXUSDT",
+      "CCUSDT"
     ]
   }
 }
