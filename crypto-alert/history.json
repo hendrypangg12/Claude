@@ -5903,7 +5903,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T00:22:26+00:00",
+    "time": "2026-10-14T00:24:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5920,12 +5920,12 @@
       "UNIUSDT",
       "TIAUSDT",
       "LDOUSDT",
-      "AZTECUSDT",
       "BLUAIUSDT",
       "PONSUSDT",
+      "AZTECUSDT",
       "ARBUSDT",
-      "STXUSDT",
       "LYNUSDT",
+      "STXUSDT",
       "AKEUSDT",
       "APTUSDT",
       "ZECUSDT",
@@ -5934,9 +5934,9 @@
       "CCUSDT",
       "WLDUSDT",
       "VIRTUALUSDT",
-      "FARTCOINUSDT",
-      "SEIUSDT",
-      "FILUSDT"
+      "FILUSDT",
+      "XMRUSDT",
+      "SEIUSDT"
     ]
   }
 }
