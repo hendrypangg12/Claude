@@ -5928,8 +5928,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T12:10:35+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-14T12:12:25+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "TRUTHUSDT",
@@ -5942,20 +5942,21 @@
       "OPUSDT",
       "PENDLEUSDT",
       "LYNUSDT",
-      "BATUSDT",
       "ACNUSDT",
+      "BATUSDT",
+      "ZECUSDT",
       "USELESSUSDT",
       "AKEUSDT",
-      "ZECUSDT",
-      "BLUAIUSDT",
       "GUAUSDT",
+      "BLUAIUSDT",
+      "XMRUSDT",
       "POWERUSDT",
       "SEIUSDT",
-      "XMRUSDT",
-      "PUMPUSDT",
-      "BSBUSDT",
       "ALGOUSDT",
-      "BCHUSDT"
+      "PUMPUSDT",
+      "AEROUSDT",
+      "BSBUSDT",
+      "ZKUSDT"
     ]
   }
 }
