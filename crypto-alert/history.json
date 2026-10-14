@@ -5928,22 +5928,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T10:12:28+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-14T10:14:28+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "TRUTHUSDT",
-      "BTWUSDT",
       "WALUSDT",
+      "BTWUSDT",
       "QUSDT",
-      "PONSUSDT",
       "AVAUSDT",
+      "PONSUSDT",
       "ACNUSDT",
       "OPUSDT",
-      "DUSKUSDT",
       "LYNUSDT",
+      "DUSKUSDT",
       "BATUSDT",
-      "PENDLEUSDT"
+      "PENDLEUSDT",
+      "ZKUSDT"
     ]
   }
 }
