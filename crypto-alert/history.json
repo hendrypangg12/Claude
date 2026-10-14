@@ -5928,8 +5928,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T11:34:29+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-14T11:36:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "TRUTHUSDT",
@@ -5942,13 +5942,14 @@
       "ACNUSDT",
       "BATUSDT",
       "OPUSDT",
-      "PENDLEUSDT",
       "LYNUSDT",
+      "PENDLEUSDT",
       "BLUAIUSDT",
       "MARSCOINUSDT",
       "POWERUSDT",
       "ARXUSDT",
-      "AKEUSDT"
+      "AKEUSDT",
+      "USELESSUSDT"
     ]
   }
 }
