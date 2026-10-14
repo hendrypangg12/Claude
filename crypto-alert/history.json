@@ -5928,7 +5928,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T11:00:46+00:00",
+    "time": "2026-10-14T11:02:26+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -5941,12 +5941,12 @@
       "ACNUSDT",
       "OPUSDT",
       "BATUSDT",
-      "LYNUSDT",
       "DUSKUSDT",
+      "LYNUSDT",
       "PENDLEUSDT",
       "ZKUSDT",
-      "BLUAIUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "BLUAIUSDT"
     ]
   }
 }
