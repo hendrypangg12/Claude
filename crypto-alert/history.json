@@ -5903,8 +5903,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T00:02:26+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-14T00:04:33+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
@@ -5914,8 +5914,8 @@
       "龙虾USDT",
       "BTWUSDT",
       "ACNUSDT",
-      "ZKUSDT",
       "DUSKUSDT",
+      "ZKUSDT",
       "INJUSDT",
       "BLUAIUSDT",
       "AZTECUSDT",
@@ -5923,15 +5923,16 @@
       "UNIUSDT",
       "LDOUSDT",
       "ARBUSDT",
-      "PONSUSDT",
       "AKEUSDT",
-      "FILUSDT",
-      "STXUSDT",
+      "PONSUSDT",
       "APTUSDT",
+      "FILUSDT",
+      "LYNUSDT",
+      "STXUSDT",
+      "PENDLEUSDT",
       "POWERUSDT",
       "ZECUSDT",
-      "PENDLEUSDT",
-      "LYNUSDT"
+      "CCUSDT"
     ]
   }
 }
