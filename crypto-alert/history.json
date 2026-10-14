@@ -5903,7 +5903,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T01:02:29+00:00",
+    "time": "2026-10-14T01:04:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -5926,17 +5926,17 @@
       "LUMIAUSDT",
       "POWERUSDT",
       "AKEUSDT",
-      "ARBUSDT",
-      "AZTECUSDT",
       "APTUSDT",
-      "ZECUSDT",
-      "PENDLEUSDT",
+      "ARBUSDT",
       "STXUSDT",
+      "ZECUSDT",
+      "AZTECUSDT",
+      "PENDLEUSDT",
+      "WLDUSDT",
       "METISUSDT",
       "FILUSDT",
-      "WLDUSDT",
       "BCHUSDT",
-      "CCUSDT"
+      "APEUSDT"
     ]
   }
 }
