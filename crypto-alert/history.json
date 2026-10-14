@@ -103,7 +103,8 @@
     "JCTUSDT": "2026-10-10T06:02:26+00:00",
     "LUMIAUSDT": "2026-10-11T08:04:28+00:00",
     "RSRUSDT": "2026-10-12T11:18:26+00:00",
-    "SUSDT": "2026-10-13T12:00:45+00:00"
+    "SUSDT": "2026-10-13T12:00:45+00:00",
+    "TRUTHUSDT": "2026-10-14T03:56:26+00:00"
   },
   "alerts": [
     {
@@ -5900,28 +5901,51 @@
       "time": "2026-10-13T12:00:45+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-13T12:08:29+00:00"
+    },
+    {
+      "symbol": "TRUTHUSDT",
+      "pct": 15.38,
+      "price": 0.017654,
+      "quote_volume": 851110.776895,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.47133599649368424,
+      "retrace_pct": 2.0636857871962766,
+      "wick_ratio": 0.7930107526881707,
+      "rsi": 77.05025022922035,
+      "divergence": false,
+      "vol_spike": 1.4432013205873049,
+      "btc_pct": -0.04520181428095636,
+      "sl": 0.018206260000000002,
+      "tp1": 0.017108054,
+      "tp2": 0.016540946,
+      "tp3": 0.015623,
+      "funding_rate": 0.02,
+      "orderbook_ratio": 0.9995211463917075,
+      "time": "2026-10-14T03:56:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T03:54:23+00:00",
+    "time": "2026-10-14T03:56:26+00:00",
     "shortlist_count": 18,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BTWUSDT",
       "QUSDT",
+      "TRUTHUSDT",
       "PONSUSDT",
       "OPUSDT",
       "CTUSDT",
       "ACNUSDT",
+      "BATUSDT",
       "AKEUSDT",
-      "TRUTHUSDT",
       "ZKUSDT",
       "LYNUSDT",
       "INJUSDT",
-      "PENDLEUSDT",
       "POWERUSDT",
+      "PENDLEUSDT",
       "MARSCOINUSDT",
-      "BATUSDT",
       "XMRUSDT",
       "LDOUSDT",
       "ZECUSDT"
