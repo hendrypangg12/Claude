@@ -5928,7 +5928,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-14T17:56:52+00:00",
+    "time": "2026-10-14T17:58:26+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -5939,9 +5939,9 @@
       "PONSUSDT",
       "BTWUSDT",
       "DUSKUSDT",
-      "CTUSDT",
       "XMRUSDT",
-      "PYTHUSDT"
+      "PYTHUSDT",
+      "CTUSDT"
     ]
   }
 }
