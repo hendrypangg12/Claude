@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-15_17-17-11",
+      "date": "2026-10-15",
+      "time": "17:17",
+      "label": "STORY KANTOR",
+      "title": "Karyawan lama dianggap paham semua tanpa pernah diajarin ulang.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-10-15_13-24-26",
       "date": "2026-10-15",
       "time": "13:24",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-10-12_09-37-23",
-      "date": "2026-10-12",
-      "time": "09:37",
-      "label": "STORY KANTOR",
-      "title": "Yang penting bukan seberapa lama di kantor, tapi seberapa dihargai.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
