@@ -5948,22 +5948,23 @@
       "funding_rate": -0.371,
       "orderbook_ratio": 1.4773886055763614,
       "time": "2026-10-15T02:20:41+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-10-15T02:28:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T02:26:25+00:00",
+    "time": "2026-10-15T02:28:27+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
-      "WALUSDT",
       "ZEREBROUSDT",
-      "QUSDT",
+      "WALUSDT",
       "DEEPUSDT",
+      "QUSDT",
       "NILUSDT",
+      "AVAUSDT",
       "DUSKUSDT",
       "PYTHUSDT",
-      "AVAUSDT",
       "AKEUSDT"
     ]
   }
