@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-15_08-45-21",
+      "date": "2026-10-15",
+      "time": "08:45",
+      "label": "STORY KANTOR",
+      "title": "THR cair, abis buat nutup utang bulan lalu.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-10-15_00-34-32",
       "date": "2026-10-15",
       "time": "00:34",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-11_18-35-29",
-      "date": "2026-10-11",
-      "time": "18:35",
-      "label": "STORY KANTOR",
-      "title": "WFH katanya bebas, tapi laptop nyala lebih lama dari pas ngantor.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
