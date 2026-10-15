@@ -6026,8 +6026,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T23:20:37+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-15T23:22:25+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6041,20 +6041,22 @@
       "ZROUSDT",
       "CRVUSDT",
       "DUSKUSDT",
-      "METISUSDT",
-      "NEARUSDT",
       "GRVTUSDT",
+      "METISUSDT",
       "ARBUSDT",
+      "NEARUSDT",
       "ZEREBROUSDT",
       "TIAUSDT",
+      "ZECUSDT",
       "XPLUSDT",
       "VVVUSDT",
-      "ZECUSDT",
       "FILUSDT",
       "ETHFIUSDT",
-      "SUSDT",
       "PLUMEUSDT",
-      "CTUSDT"
+      "SUSDT",
+      "CTUSDT",
+      "GRASSUSDT",
+      "FETUSDT"
     ]
   }
 }
