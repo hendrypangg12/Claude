@@ -5953,18 +5953,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T06:14:32+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-15T06:16:32+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "ZEREBROUSDT",
-      "WALUSDT",
       "NILUSDT",
       "ZKUSDT",
+      "WALUSDT",
       "DUSKUSDT",
       "QUSDT",
       "AKEUSDT",
-      "PYTHUSDT"
+      "PYTHUSDT",
+      "DEEPUSDT"
     ]
   }
 }
