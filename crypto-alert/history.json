@@ -5953,7 +5953,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T05:42:29+00:00",
+    "time": "2026-10-15T05:44:24+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
@@ -5962,10 +5962,10 @@
       "ZKUSDT",
       "NILUSDT",
       "DUSKUSDT",
-      "DEEPUSDT",
-      "QUSDT",
       "PYTHUSDT",
-      "AKEUSDT"
+      "DEEPUSDT",
+      "AKEUSDT",
+      "QUSDT"
     ]
   }
 }
