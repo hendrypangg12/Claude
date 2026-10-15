@@ -104,7 +104,8 @@
     "LUMIAUSDT": "2026-10-11T08:04:28+00:00",
     "RSRUSDT": "2026-10-12T11:18:26+00:00",
     "SUSDT": "2026-10-13T12:00:45+00:00",
-    "TRUTHUSDT": "2026-10-14T03:56:26+00:00"
+    "TRUTHUSDT": "2026-10-14T03:56:26+00:00",
+    "WALUSDT": "2026-10-15T02:20:41+00:00"
   },
   "alerts": [
     {
@@ -5925,12 +5926,35 @@
       "time": "2026-10-14T03:56:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-14T04:02:27+00:00"
+    },
+    {
+      "symbol": "WALUSDT",
+      "pct": 9.3,
+      "price": 0.06508,
+      "quote_volume": 1319181.28072,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5385990899008213,
+      "retrace_pct": 1.139298192313536,
+      "wick_ratio": 0.47058823529412314,
+      "rsi": 69.24663957634756,
+      "divergence": false,
+      "vol_spike": 0.34710395257295334,
+      "btc_pct": -0.01820660978243671,
+      "sl": 0.0664883,
+      "tp1": 0.0636908,
+      "tp2": 0.0623692,
+      "tp3": 0.06023,
+      "funding_rate": -0.371,
+      "orderbook_ratio": 1.4773886055763614,
+      "time": "2026-10-15T02:20:41+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T02:18:31+00:00",
+    "time": "2026-10-15T02:20:41+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "WALUSDT",
       "ZEREBROUSDT",
