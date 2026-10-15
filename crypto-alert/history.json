@@ -6026,8 +6026,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T18:24:25+00:00",
-    "shortlist_count": 26,
+    "time": "2026-10-15T18:26:25+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6040,22 +6040,23 @@
       "BLURUSDT",
       "METISUSDT",
       "VVVUSDT",
-      "NEARUSDT",
-      "ZAMAUSDT",
       "ZROUSDT",
+      "ZAMAUSDT",
+      "NEARUSDT",
       "DUSKUSDT",
       "CRVUSDT",
-      "MUBARAKUSDT",
       "INJUSDT",
-      "TIAUSDT",
+      "MUBARAKUSDT",
       "EIGENUSDT",
-      "ETHFIUSDT",
       "GRASSUSDT",
+      "TIAUSDT",
+      "ETHFIUSDT",
       "XPLUSDT",
       "ZECUSDT",
       "ARBUSDT",
       "RLCUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "UNIUSDT"
     ]
   }
 }
