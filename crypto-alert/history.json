@@ -105,7 +105,8 @@
     "RSRUSDT": "2026-10-12T11:18:26+00:00",
     "SUSDT": "2026-10-13T12:00:45+00:00",
     "TRUTHUSDT": "2026-10-14T03:56:26+00:00",
-    "WALUSDT": "2026-10-15T02:20:41+00:00"
+    "WALUSDT": "2026-10-15T02:20:41+00:00",
+    "ZEREBROUSDT": "2026-10-15T10:34:27+00:00"
   },
   "alerts": [
     {
@@ -5950,12 +5951,35 @@
       "time": "2026-10-15T02:20:41+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-10-15T02:28:27+00:00"
+    },
+    {
+      "symbol": "ZEREBROUSDT",
+      "pct": 12.69,
+      "price": 0.053298,
+      "quote_volume": 533616.039361,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.4150940463563132,
+      "retrace_pct": 2.3846153846153926,
+      "wick_ratio": 0.6343001261034031,
+      "rsi": 66.47965154852619,
+      "divergence": false,
+      "vol_spike": 1.009113953576998,
+      "btc_pct": -0.16411882759327048,
+      "sl": 0.055146,
+      "tp1": 0.052250700000000004,
+      "tp2": 0.0507993,
+      "tp3": 0.04845,
+      "funding_rate": 0.01,
+      "orderbook_ratio": 0.9210905754813019,
+      "time": "2026-10-15T10:34:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T10:32:29+00:00",
+    "time": "2026-10-15T10:34:27+00:00",
     "shortlist_count": 8,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ZEREBROUSDT",
       "AKEUSDT",
