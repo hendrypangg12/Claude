@@ -5973,11 +5973,12 @@
       "funding_rate": 0.01,
       "orderbook_ratio": 0.9210905754813019,
       "time": "2026-10-15T10:34:27+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-15T10:40:34+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T10:38:28+00:00",
+    "time": "2026-10-15T10:40:34+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
