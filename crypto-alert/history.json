@@ -6001,8 +6001,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-15T15:34:32+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-15T15:36:27+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "ZEREBROUSDT",
@@ -6011,17 +6011,19 @@
       "NILUSDT",
       "ZKUSDT",
       "METISUSDT",
-      "DUSKUSDT",
       "STRKUSDT",
-      "ZROUSDT",
-      "CRVUSDT",
+      "DUSKUSDT",
       "ZAMAUSDT",
+      "ZROUSDT",
       "TIAUSDT",
       "RLCUSDT",
+      "CRVUSDT",
       "MUBARAKUSDT",
       "XPLUSDT",
       "GRVTUSDT",
-      "WALUSDT"
+      "WALUSDT",
+      "UNIUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
