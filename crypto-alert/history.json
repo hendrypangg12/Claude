@@ -6050,8 +6050,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T16:08:28+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-16T16:10:36+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6061,14 +6061,13 @@
       "TIAUSDT",
       "INJUSDT",
       "FILUSDT",
-      "APEUSDT",
       "FOLKSUSDT",
-      "DOTUSDT",
-      "CTUSDT",
+      "APEUSDT",
       "TRUTHUSDT",
-      "SEIUSDT",
-      "BATUSDT",
-      "ETHFIUSDT"
+      "DOTUSDT",
+      "ETHFIUSDT",
+      "CTUSDT",
+      "SEIUSDT"
     ]
   }
 }
