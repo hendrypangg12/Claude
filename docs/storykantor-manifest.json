@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-16_17-05-31",
+      "date": "2026-10-16",
+      "time": "17:05",
+      "label": "STORY KANTOR",
+      "title": "Yang cari muka naik duluan, yang kerja beneran cuma jadi penonton.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-10-16_13-20-03",
       "date": "2026-10-16",
       "time": "13:20",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-13_10-47-54",
-      "date": "2026-10-13",
-      "time": "10:47",
-      "label": "STORY KANTOR",
-      "title": "Yang bikin lembur bukan kerjaan, tapi keputusan yang gonta-ganti.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
