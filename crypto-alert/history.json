@@ -6050,8 +6050,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T15:12:48+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-16T15:14:30+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6059,22 +6059,24 @@
       "RIVERUSDT",
       "TIAUSDT",
       "INJUSDT",
-      "STBLUSDT",
       "BATUSDT",
+      "STBLUSDT",
       "FILUSDT",
       "APEUSDT",
-      "FOLKSUSDT",
       "CTUSDT",
+      "FOLKSUSDT",
       "DOTUSDT",
-      "SEIUSDT",
       "ETHFIUSDT",
+      "SEIUSDT",
       "ARBUSDT",
       "APTUSDT",
-      "TAOUSDT",
-      "WLDUSDT",
       "ZROUSDT",
+      "WLDUSDT",
+      "TAOUSDT",
+      "ZECUSDT",
+      "DUSKUSDT",
       "ALGOUSDT",
-      "ZECUSDT"
+      "EIGENUSDT"
     ]
   }
 }
