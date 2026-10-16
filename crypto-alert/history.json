@@ -6050,7 +6050,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T13:18:30+00:00",
+    "time": "2026-10-16T13:20:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6068,22 +6068,22 @@
       "FILUSDT",
       "APEUSDT",
       "NEARUSDT",
-      "EIGENUSDT",
       "BATUSDT",
-      "USELESSUSDT",
-      "SEIUSDT",
+      "EIGENUSDT",
       "PENDLEUSDT",
+      "SEIUSDT",
+      "USELESSUSDT",
       "ZECUSDT",
       "LITUSDT",
       "TAOUSDT",
       "ENAUSDT",
       "PONSUSDT",
-      "DUSKUSDT",
-      "ALGOUSDT",
       "ONDOUSDT",
       "MARSCOINUSDT",
       "DOTUSDT",
-      "AEROUSDT"
+      "ALGOUSDT",
+      "AEROUSDT",
+      "AAVEUSDT"
     ]
   }
 }
