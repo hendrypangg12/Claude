@@ -6073,22 +6073,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T17:32:34+00:00",
-    "shortlist_count": 13,
-    "confirmed_count": 1,
+    "time": "2026-10-16T17:34:28+00:00",
+    "shortlist_count": 14,
+    "confirmed_count": 0,
     "symbols": [
-      "AGTUSDT",
       "SIRENUSDT",
+      "AGTUSDT",
       "TIAUSDT",
-      "STBLUSDT",
       "BRUSDT",
+      "STBLUSDT",
       "INJUSDT",
       "CTUSDT",
-      "BATUSDT",
-      "FILUSDT",
-      "FOLKSUSDT",
-      "APEUSDT",
       "DUSKUSDT",
+      "APEUSDT",
+      "BATUSDT",
+      "FOLKSUSDT",
+      "FILUSDT",
+      "TRUTHUSDT",
       "ETHFIUSDT"
     ]
   }
