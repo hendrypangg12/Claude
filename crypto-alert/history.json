@@ -6069,12 +6069,13 @@
       "funding_rate": -0.063,
       "orderbook_ratio": 0.4475122231809031,
       "time": "2026-10-16T17:32:34+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-16T17:40:37+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T17:38:31+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-16T17:40:37+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "SIRENUSDT",
@@ -6086,13 +6087,12 @@
       "DUSKUSDT",
       "CTUSDT",
       "FILUSDT",
-      "BATUSDT",
       "APEUSDT",
-      "FOLKSUSDT",
+      "BATUSDT",
       "DOTUSDT",
       "TRUTHUSDT",
-      "ETHFIUSDT",
-      "SEIUSDT"
+      "FOLKSUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
