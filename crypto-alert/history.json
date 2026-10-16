@@ -6050,7 +6050,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T12:28:29+00:00",
+    "time": "2026-10-16T12:30:39+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6067,23 +6067,23 @@
       "APTUSDT",
       "NEARUSDT",
       "EIGENUSDT",
-      "FILUSDT",
-      "ZECUSDT",
-      "APEUSDT",
       "BATUSDT",
+      "ZECUSDT",
+      "FILUSDT",
+      "APEUSDT",
       "USELESSUSDT",
       "PENDLEUSDT",
       "LITUSDT",
       "SEIUSDT",
       "XPLUSDT",
-      "AAVEUSDT",
-      "ENAUSDT",
       "PONSUSDT",
+      "ENAUSDT",
+      "AAVEUSDT",
       "ONDOUSDT",
-      "AEROUSDT",
       "TAOUSDT",
-      "CTUSDT",
-      "VVVUSDT"
+      "AEROUSDT",
+      "MARSCOINUSDT",
+      "CTUSDT"
     ]
   }
 }
