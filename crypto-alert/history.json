@@ -6050,8 +6050,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T17:26:26+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-16T17:28:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "SIRENUSDT",
@@ -6061,10 +6061,12 @@
       "BRUSDT",
       "CTUSDT",
       "INJUSDT",
-      "FOLKSUSDT",
       "BATUSDT",
+      "FOLKSUSDT",
+      "FILUSDT",
+      "APEUSDT",
       "DUSKUSDT",
-      "FILUSDT"
+      "TRUTHUSDT"
     ]
   }
 }
