@@ -6050,7 +6050,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T05:52:30+00:00",
+    "time": "2026-10-16T05:54:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6069,21 +6069,21 @@
       "RIVERUSDT",
       "USELESSUSDT",
       "ETHFIUSDT",
-      "NEARUSDT",
-      "ZECUSDT",
-      "ARBUSDT",
       "ELSAUSDT",
+      "NEARUSDT",
+      "ARBUSDT",
       "PYTHUSDT",
+      "ZECUSDT",
       "FILUSDT",
       "EIGENUSDT",
-      "APTUSDT",
-      "XPLUSDT",
-      "TAOUSDT",
       "METISUSDT",
+      "XPLUSDT",
+      "APTUSDT",
+      "TAOUSDT",
       "ENAUSDT",
       "AEROUSDT",
-      "ONDOUSDT",
-      "CTUSDT"
+      "CTUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
