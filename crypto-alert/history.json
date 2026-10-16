@@ -106,7 +106,7 @@
     "SUSDT": "2026-10-13T12:00:45+00:00",
     "TRUTHUSDT": "2026-10-14T03:56:26+00:00",
     "WALUSDT": "2026-10-15T02:20:41+00:00",
-    "ZEREBROUSDT": "2026-10-15T15:32:38+00:00"
+    "ZEREBROUSDT": "2026-10-16T03:02:25+00:00"
   },
   "alerts": [
     {
@@ -6023,43 +6023,66 @@
       "time": "2026-10-15T18:04:25+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-15T18:10:36+00:00"
+    },
+    {
+      "symbol": "ZEREBROUSDT",
+      "pct": 8.79,
+      "price": 0.0513,
+      "quote_volume": 791087.603516,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.16296533340853456,
+      "retrace_pct": 1.5846218777577414,
+      "wick_ratio": 0.011618695537363466,
+      "rsi": 66.4214515120642,
+      "divergence": false,
+      "vol_spike": 0.4174370934828499,
+      "btc_pct": -0.023731249206618444,
+      "sl": 0.05264726,
+      "tp1": 0.050517398,
+      "tp2": 0.049523602,
+      "tp3": 0.047915,
+      "funding_rate": 0.017,
+      "orderbook_ratio": 1.0636197645025771,
+      "time": "2026-10-16T03:02:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T03:00:49+00:00",
+    "time": "2026-10-16T03:02:25+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
-      "SIRENUSDT",
       "AGTUSDT",
+      "SIRENUSDT",
       "STBLUSDT",
       "ZEREBROUSDT",
       "INJUSDT",
       "ZROUSDT",
       "AKEUSDT",
       "ELSAUSDT",
-      "ZAMAUSDT",
-      "TIAUSDT",
-      "RIVERUSDT",
       "PONSUSDT",
+      "TIAUSDT",
+      "ZAMAUSDT",
       "PYTHUSDT",
+      "RIVERUSDT",
       "NEARUSDT",
       "ETHFIUSDT",
-      "ARBUSDT",
       "ZECUSDT",
       "XPLUSDT",
+      "ARBUSDT",
       "USELESSUSDT",
       "METISUSDT",
-      "FILUSDT",
       "CRVUSDT",
+      "FILUSDT",
       "APTUSDT",
-      "CTUSDT",
       "EIGENUSDT",
-      "TAOUSDT",
+      "ZKUSDT",
       "ONDOUSDT",
       "ALGOUSDT",
+      "TAOUSDT",
       "STRKUSDT",
-      "GRVTUSDT"
+      "AEROUSDT"
     ]
   }
 }
