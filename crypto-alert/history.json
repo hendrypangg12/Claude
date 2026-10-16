@@ -6050,8 +6050,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T16:56:29+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-16T16:58:33+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "SIRENUSDT",
@@ -6059,16 +6059,17 @@
       "TIAUSDT",
       "STBLUSDT",
       "FILUSDT",
-      "CTUSDT",
-      "INJUSDT",
       "BATUSDT",
+      "CTUSDT",
       "ETHFIUSDT",
+      "INJUSDT",
       "DUSKUSDT",
-      "FOLKSUSDT",
       "APEUSDT",
+      "FOLKSUSDT",
       "DOTUSDT",
       "TRUTHUSDT",
-      "SEIUSDT"
+      "SEIUSDT",
+      "APTUSDT"
     ]
   }
 }
