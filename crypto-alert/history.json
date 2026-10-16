@@ -6050,7 +6050,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-16T11:28:26+00:00",
+    "time": "2026-10-16T11:30:36+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6065,13 +6065,13 @@
       "ARBUSDT",
       "WLDUSDT",
       "RIVERUSDT",
-      "ZECUSDT",
       "EIGENUSDT",
-      "APEUSDT",
+      "ZECUSDT",
       "APTUSDT",
+      "APEUSDT",
+      "USELESSUSDT",
       "DUSKUSDT",
       "PENDLEUSDT",
-      "USELESSUSDT",
       "ENAUSDT",
       "FILUSDT",
       "SEIUSDT",
@@ -6079,10 +6079,10 @@
       "VVVUSDT",
       "ONDOUSDT",
       "AAVEUSDT",
-      "AEROUSDT",
-      "XPLUSDT",
       "MARSCOINUSDT",
       "ALGOUSDT",
+      "AEROUSDT",
+      "XPLUSDT",
       "ELSAUSDT"
     ]
   }
