@@ -6098,23 +6098,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T07:58:27+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-17T08:00:44+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
-      "QUSDT",
       "EPICUSDT",
-      "GTCUSDT",
+      "QUSDT",
       "FOLKSUSDT",
+      "GTCUSDT",
       "BASEDUSDT",
       "BRUSDT",
       "TIAUSDT",
       "EIGENUSDT",
       "LITUSDT",
       "TRUTHUSDT",
-      "WLDUSDT",
-      "BTWUSDT"
+      "WLDUSDT"
     ]
   }
 }
