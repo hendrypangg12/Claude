@@ -6118,12 +6118,13 @@
       "funding_rate": -0.787,
       "orderbook_ratio": 1.1988537911675299,
       "time": "2026-10-17T14:22:25+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-17T15:18:26+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T15:16:25+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-17T15:18:26+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6135,8 +6136,7 @@
       "龙虾USDT",
       "TRUTHUSDT",
       "NMRUSDT",
-      "FOLKSUSDT",
-      "PUMPUSDT"
+      "FOLKSUSDT"
     ]
   }
 }
