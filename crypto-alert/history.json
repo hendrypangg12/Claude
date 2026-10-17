@@ -106,7 +106,8 @@
     "SUSDT": "2026-10-13T12:00:45+00:00",
     "TRUTHUSDT": "2026-10-14T03:56:26+00:00",
     "WALUSDT": "2026-10-15T02:20:41+00:00",
-    "ZEREBROUSDT": "2026-10-16T03:02:25+00:00"
+    "ZEREBROUSDT": "2026-10-16T03:02:25+00:00",
+    "SANDUSDT": "2026-10-17T14:22:25+00:00"
   },
   "alerts": [
     {
@@ -6095,12 +6096,35 @@
       "time": "2026-10-17T05:34:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-17T05:40:31+00:00"
+    },
+    {
+      "symbol": "SANDUSDT",
+      "pct": 8.32,
+      "price": 0.064,
+      "quote_volume": 329171.64533,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.48876941072654495,
+      "retrace_pct": 0.4665629860031022,
+      "wick_ratio": 0.0,
+      "rsi": 80.10247578146307,
+      "divergence": true,
+      "vol_spike": 0.016906135238598883,
+      "btc_pct": 0.012145735577041728,
+      "sl": 0.064943,
+      "tp1": 0.06241292,
+      "tp2": 0.06124708,
+      "tp3": 0.05936,
+      "funding_rate": -0.787,
+      "orderbook_ratio": 1.1988537911675299,
+      "time": "2026-10-17T14:22:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T14:20:31+00:00",
+    "time": "2026-10-17T14:22:25+00:00",
     "shortlist_count": 9,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AGTUSDT",
       "QUSDT",
