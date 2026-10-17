@@ -91,7 +91,7 @@
     "JASMYUSDT": "2026-10-01T08:06:27+00:00",
     "NOMUSDT": "2026-10-01T09:08:30+00:00",
     "USUSDT": "2026-10-09T13:06:31+00:00",
-    "GTCUSDT": "2026-10-04T17:52:28+00:00",
+    "GTCUSDT": "2026-10-17T05:34:28+00:00",
     "LYNUSDT": "2026-10-05T02:28:29+00:00",
     "RLCUSDT": "2026-10-09T19:24:26+00:00",
     "GRIFFAINUSDT": "2026-10-06T20:28:33+00:00",
@@ -6071,12 +6071,35 @@
       "time": "2026-10-16T17:32:34+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-16T17:40:37+00:00"
+    },
+    {
+      "symbol": "GTCUSDT",
+      "pct": 14.05,
+      "price": 0.23797,
+      "quote_volume": 233342.23238,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5056812583445135,
+      "retrace_pct": 0.6346820326527293,
+      "wick_ratio": 0.25570776255708016,
+      "rsi": 73.67135640621477,
+      "divergence": true,
+      "vol_spike": 0.03876488525781665,
+      "btc_pct": -0.01869711036526234,
+      "sl": 0.2418849,
+      "tp1": 0.22821718000000002,
+      "tp2": 0.22125282000000002,
+      "tp3": 0.20998,
+      "funding_rate": -0.155,
+      "orderbook_ratio": 0.06159130982951586,
+      "time": "2026-10-17T05:34:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T05:32:35+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-10-17T05:34:28+00:00",
+    "shortlist_count": 11,
+    "confirmed_count": 1,
     "symbols": [
       "AGTUSDT",
       "FOLKSUSDT",
@@ -6088,8 +6111,7 @@
       "BASEDUSDT",
       "LITUSDT",
       "WLDUSDT",
-      "METISUSDT",
-      "TRUTHUSDT"
+      "METISUSDT"
     ]
   }
 }
