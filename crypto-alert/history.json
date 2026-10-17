@@ -6098,14 +6098,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T07:32:27+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-17T07:34:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
       "QUSDT",
-      "EPICUSDT",
       "GTCUSDT",
+      "EPICUSDT",
       "FOLKSUSDT",
       "BASEDUSDT",
       "BTWUSDT",
@@ -6114,9 +6114,8 @@
       "EIGENUSDT",
       "LITUSDT",
       "TRUTHUSDT",
-      "DUSKUSDT",
       "WLDUSDT",
-      "METISUSDT"
+      "DUSKUSDT"
     ]
   }
 }
