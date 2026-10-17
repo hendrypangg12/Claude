@@ -6146,18 +6146,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T16:22:25+00:00",
+    "time": "2026-10-17T16:24:25+00:00",
     "shortlist_count": 9,
-    "confirmed_count": 1,
+    "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "AGTUSDT",
       "EPICUSDT",
-      "SANDUSDT",
       "BTWUSDT",
+      "SANDUSDT",
       "GTCUSDT",
-      "NMRUSDT",
       "TRUTHUSDT",
+      "NMRUSDT",
       "FOLKSUSDT"
     ]
   }
