@@ -6074,8 +6074,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T02:08:26+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-17T02:10:35+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6087,7 +6087,9 @@
       "ELSAUSDT",
       "BTWUSDT",
       "BRUSDT",
-      "APEUSDT"
+      "APEUSDT",
+      "LITUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
