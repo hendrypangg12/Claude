@@ -6074,8 +6074,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T04:08:34+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-17T04:10:34+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6083,12 +6083,15 @@
       "FOLKSUSDT",
       "DUSKUSDT",
       "EIGENUSDT",
-      "BASEDUSDT",
       "BTWUSDT",
-      "METISUSDT",
+      "BASEDUSDT",
       "WLDUSDT",
+      "METISUSDT",
       "LITUSDT",
-      "APEUSDT"
+      "BRUSDT",
+      "APEUSDT",
+      "PENDLEUSDT",
+      "DOTUSDT"
     ]
   }
 }
