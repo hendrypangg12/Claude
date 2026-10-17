@@ -6074,8 +6074,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-17T04:34:28+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-17T04:36:26+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6083,13 +6083,14 @@
       "TIAUSDT",
       "DUSKUSDT",
       "EIGENUSDT",
-      "GTCUSDT",
-      "TRUTHUSDT",
       "BRUSDT",
+      "GTCUSDT",
       "WLDUSDT",
+      "TRUTHUSDT",
       "BASEDUSDT",
       "METISUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "DOTUSDT"
     ]
   }
 }
