@@ -6172,17 +6172,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-18T15:18:33+00:00",
-    "shortlist_count": 7,
+    "time": "2026-10-18T15:20:32+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "GTCUSDT",
-      "AVAUSDT",
       "BTWUSDT",
+      "AVAUSDT",
       "DUSKUSDT",
       "XMRUSDT",
-      "HBARUSDT"
+      "HBARUSDT",
+      "GRVTUSDT"
     ]
   }
 }
