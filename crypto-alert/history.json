@@ -6167,11 +6167,12 @@
       "funding_rate": -0.207,
       "orderbook_ratio": 0.4531066915450011,
       "time": "2026-10-18T08:12:29+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-18T08:20:31+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-18T08:18:29+00:00",
+    "time": "2026-10-18T08:20:31+00:00",
     "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
@@ -6181,7 +6182,7 @@
       "BTWUSDT",
       "AGTUSDT",
       "SANDUSDT",
-      "GTCUSDT"
+      "HBARUSDT"
     ]
   }
 }
