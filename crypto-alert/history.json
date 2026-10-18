@@ -6147,17 +6147,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-18T07:30:36+00:00",
-    "shortlist_count": 7,
+    "time": "2026-10-18T07:37:27+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
-      "AVAUSDT",
       "ERAUSDT",
+      "AVAUSDT",
       "AGTUSDT",
       "BTWUSDT",
       "SANDUSDT",
-      "GTCUSDT"
+      "GTCUSDT",
+      "DUSKUSDT"
     ]
   }
 }
