@@ -6192,7 +6192,8 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 4.429336224829705,
       "time": "2026-10-19T03:38:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-19T03:44:27+00:00"
     },
     {
       "symbol": "ZEREBROUSDT",
@@ -6219,14 +6220,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T03:42:27+00:00",
+    "time": "2026-10-19T03:44:27+00:00",
     "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
-      "ARIAUSDT",
       "QUSDT",
-      "GTCUSDT",
+      "ARIAUSDT",
       "ELSAUSDT",
+      "GTCUSDT",
       "ZEREBROUSDT"
     ]
   }
