@@ -6270,8 +6270,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T18:18:28+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-19T18:20:30+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6280,23 +6280,24 @@
       "CTRUSDT",
       "AVAUSDT",
       "CTUSDT",
-      "APRUSDT",
       "SUSDT",
       "WLDUSDT",
       "4USDT",
       "CRVUSDT",
       "FOLKSUSDT",
       "ARBUSDT",
+      "APRUSDT",
       "ZROUSDT",
-      "QUSDT",
-      "KATUSDT",
-      "PUMPUSDT",
       "LITUSDT",
+      "KATUSDT",
+      "QUSDT",
+      "PUMPUSDT",
       "DOTUSDT",
       "INJUSDT",
       "GRVTUSDT",
       "ATOMUSDT",
-      "CCUSDT"
+      "CCUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
