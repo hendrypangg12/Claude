@@ -6246,22 +6246,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T13:14:25+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-19T13:16:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
       "QUSDT",
       "ZEREBROUSDT",
       "ARBUSDT",
-      "PUMPUSDT",
-      "BULLAUSDT",
       "CTUSDT",
+      "BULLAUSDT",
+      "PUMPUSDT",
       "ETHFIUSDT",
       "KATUSDT",
-      "PENDLEUSDT",
+      "4USDT",
       "MARSCOINUSDT",
-      "ATOMUSDT"
+      "GRVTUSDT",
+      "PENDLEUSDT",
+      "APEUSDT"
     ]
   }
 }
