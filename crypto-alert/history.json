@@ -6221,8 +6221,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T07:24:46+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-19T07:26:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ARIAUSDT",
@@ -6231,11 +6231,14 @@
       "GTCUSDT",
       "ARBUSDT",
       "ETHFIUSDT",
-      "ELSAUSDT",
       "ZEREBROUSDT",
-      "DOSUSDT",
       "PUMPUSDT",
-      "KASUSDT"
+      "DOSUSDT",
+      "ELSAUSDT",
+      "KASUSDT",
+      "XMRUSDT",
+      "APRUSDT",
+      "CRVUSDT"
     ]
   }
 }
