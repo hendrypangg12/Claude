@@ -6246,8 +6246,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T17:30:39+00:00",
-    "shortlist_count": 25,
+    "time": "2026-10-19T17:32:27+00:00",
+    "shortlist_count": 26,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6260,21 +6260,22 @@
       "ARBUSDT",
       "4USDT",
       "ZROUSDT",
+      "WLDUSDT",
       "PUMPUSDT",
       "DOTUSDT",
-      "WLDUSDT",
       "SUSDT",
       "LITUSDT",
-      "INJUSDT",
-      "ETHFIUSDT",
       "ZEREBROUSDT",
+      "INJUSDT",
       "KATUSDT",
-      "APEUSDT",
       "GRVTUSDT",
-      "CCUSDT",
+      "ETHFIUSDT",
+      "APEUSDT",
       "ATOMUSDT",
+      "CCUSDT",
+      "PENDLEUSDT",
       "UNIUSDT",
-      "PENDLEUSDT"
+      "MARSCOINUSDT"
     ]
   }
 }
