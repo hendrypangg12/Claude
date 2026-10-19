@@ -6271,8 +6271,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T19:10:44+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-19T19:12:47+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6291,14 +6291,17 @@
       "ARBUSDT",
       "GRVTUSDT",
       "KATUSDT",
-      "ZROUSDT",
       "DOTUSDT",
+      "ZROUSDT",
       "PUMPUSDT",
       "INJUSDT",
       "LITUSDT",
       "ATOMUSDT",
       "CCUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "ZECUSDT",
+      "NEARUSDT",
+      "PONSUSDT"
     ]
   }
 }
