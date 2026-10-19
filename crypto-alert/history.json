@@ -6172,16 +6172,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T03:04:32+00:00",
-    "shortlist_count": 6,
+    "time": "2026-10-19T03:06:28+00:00",
+    "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
-      "GTCUSDT",
       "ARIAUSDT",
+      "GTCUSDT",
       "ELSAUSDT",
       "4USDT",
-      "ARBUSDT",
-      "ETHFIUSDT"
+      "ARBUSDT"
     ]
   }
 }
