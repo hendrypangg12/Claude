@@ -6246,8 +6246,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T13:18:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-19T13:20:36+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GTCUSDT",
@@ -6255,15 +6255,17 @@
       "ZEREBROUSDT",
       "ARBUSDT",
       "CTUSDT",
-      "PUMPUSDT",
       "BULLAUSDT",
       "ETHFIUSDT",
-      "GRVTUSDT",
-      "MARSCOINUSDT",
-      "KATUSDT",
+      "PUMPUSDT",
       "4USDT",
+      "GRVTUSDT",
+      "KATUSDT",
       "PENDLEUSDT",
-      "ATOMUSDT"
+      "MARSCOINUSDT",
+      "ATOMUSDT",
+      "CCUSDT",
+      "APEUSDT"
     ]
   }
 }
