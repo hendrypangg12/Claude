@@ -6246,14 +6246,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T16:26:24+00:00",
-    "shortlist_count": 28,
+    "time": "2026-10-19T16:28:49+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
       "GTCUSDT",
-      "AGTUSDT",
       "AVAUSDT",
+      "AGTUSDT",
       "CTRUSDT",
       "ZEREBROUSDT",
       "FOLKSUSDT",
@@ -6262,22 +6262,24 @@
       "PUMPUSDT",
       "DOTUSDT",
       "ZROUSDT",
-      "INJUSDT",
-      "ETHFIUSDT",
       "WLDUSDT",
-      "4USDT",
+      "INJUSDT",
       "SUSDT",
       "ATOMUSDT",
+      "ETHFIUSDT",
       "APEUSDT",
-      "CTUSDT",
+      "4USDT",
       "ZECUSDT",
-      "NEARUSDT",
+      "CTUSDT",
       "PENDLEUSDT",
-      "CCUSDT",
+      "NEARUSDT",
       "UNIUSDT",
       "LDOUSDT",
       "LITUSDT",
-      "MARSCOINUSDT"
+      "CCUSDT",
+      "MARSCOINUSDT",
+      "WIFUSDT",
+      "ENAUSDT"
     ]
   }
 }
