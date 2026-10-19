@@ -6221,23 +6221,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T06:04:58+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-19T06:06:29+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "ARIAUSDT",
-      "ZEREBROUSDT",
-      "EPICUSDT",
-      "GTCUSDT",
       "AGTUSDT",
-      "ELSAUSDT",
+      "EPICUSDT",
+      "ZEREBROUSDT",
+      "GTCUSDT",
       "ARBUSDT",
+      "ELSAUSDT",
       "ETHFIUSDT",
       "KASUSDT",
-      "4USDT",
-      "LITUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "LITUSDT"
     ]
   }
 }
