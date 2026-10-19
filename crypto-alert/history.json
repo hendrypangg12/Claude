@@ -109,7 +109,8 @@
     "ZEREBROUSDT": "2026-10-19T03:40:51+00:00",
     "SANDUSDT": "2026-10-17T14:22:25+00:00",
     "ERAUSDT": "2026-10-18T08:12:29+00:00",
-    "QUSDT": "2026-10-19T03:38:27+00:00"
+    "QUSDT": "2026-10-19T03:38:27+00:00",
+    "AGTUSDT": "2026-10-19T08:20:36+00:00"
   },
   "alerts": [
     {
@@ -6218,12 +6219,35 @@
       "time": "2026-10-19T03:40:51+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-19T03:56:28+00:00"
+    },
+    {
+      "symbol": "AGTUSDT",
+      "pct": 13.4,
+      "price": 0.0962,
+      "quote_volume": 1046038.687004,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3458129323877665,
+      "retrace_pct": 1.1518582834126352,
+      "wick_ratio": 0.24643423137876855,
+      "rsi": 76.04125789270304,
+      "divergence": false,
+      "vol_spike": 0.6991604229339078,
+      "btc_pct": 0.1496705374272492,
+      "sl": 0.09829421,
+      "tp1": 0.09292723600000001,
+      "tp2": 0.090212764,
+      "tp3": 0.085819,
+      "funding_rate": 0.048,
+      "orderbook_ratio": 0.5357170403072047,
+      "time": "2026-10-19T08:20:36+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T08:18:28+00:00",
-    "shortlist_count": 14,
-    "confirmed_count": 0,
+    "time": "2026-10-19T08:20:36+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 1,
     "symbols": [
       "AGTUSDT",
       "CTUSDT",
@@ -6233,12 +6257,10 @@
       "EPICUSDT",
       "ARIAUSDT",
       "ETHFIUSDT",
-      "ZROUSDT",
-      "CRVUSDT",
-      "PUMPUSDT",
       "APRUSDT",
-      "KASUSDT",
-      "ELSAUSDT"
+      "CRVUSDT",
+      "ZROUSDT",
+      "PUMPUSDT"
     ]
   }
 }
