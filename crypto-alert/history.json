@@ -6295,13 +6295,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T23:44:27+00:00",
+    "time": "2026-10-19T23:46:29+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
-      "AGTUSDT",
       "AVAUSDT",
+      "AGTUSDT",
       "GTCUSDT",
       "PHAUSDT",
       "CTRUSDT",
@@ -6317,8 +6317,8 @@
       "METISUSDT",
       "CRVUSDT",
       "KATUSDT",
-      "CCUSDT",
-      "BULLAUSDT"
+      "BULLAUSDT",
+      "CCUSDT"
     ]
   }
 }
