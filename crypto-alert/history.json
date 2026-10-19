@@ -6219,16 +6219,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T03:40:51+00:00",
-    "shortlist_count": 6,
-    "confirmed_count": 1,
+    "time": "2026-10-19T03:42:27+00:00",
+    "shortlist_count": 5,
+    "confirmed_count": 0,
     "symbols": [
       "ARIAUSDT",
       "QUSDT",
       "GTCUSDT",
       "ELSAUSDT",
-      "ZEREBROUSDT",
-      "ARBUSDT"
+      "ZEREBROUSDT"
     ]
   }
 }
