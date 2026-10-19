@@ -6271,7 +6271,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T20:46:31+00:00",
+    "time": "2026-10-19T20:48:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6296,15 +6296,15 @@
       "METISUSDT",
       "DOTUSDT",
       "KATUSDT",
-      "CCUSDT",
-      "ZROUSDT",
       "ATOMUSDT",
+      "ZROUSDT",
+      "CCUSDT",
       "ZECUSDT",
       "DASHUSDT",
-      "WIFUSDT",
       "PENDLEUSDT",
-      "QNTUSDT",
-      "IOUSDT"
+      "WIFUSDT",
+      "LDOUSDT",
+      "ENAUSDT"
     ]
   }
 }
