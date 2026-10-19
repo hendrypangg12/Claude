@@ -110,7 +110,8 @@
     "SANDUSDT": "2026-10-17T14:22:25+00:00",
     "ERAUSDT": "2026-10-18T08:12:29+00:00",
     "QUSDT": "2026-10-19T03:38:27+00:00",
-    "AGTUSDT": "2026-10-19T08:20:36+00:00"
+    "AGTUSDT": "2026-10-19T08:20:36+00:00",
+    "CTRUSDT": "2026-10-19T18:08:51+00:00"
   },
   "alerts": [
     {
@@ -6243,12 +6244,35 @@
       "time": "2026-10-19T08:20:36+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-19T08:32:28+00:00"
+    },
+    {
+      "symbol": "CTRUSDT",
+      "pct": 8.58,
+      "price": 0.016936,
+      "quote_volume": 365535.292817,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3969318281200489,
+      "retrace_pct": 0.7152069410247425,
+      "wick_ratio": 0.703448275862082,
+      "rsi": 73.82309372133642,
+      "divergence": false,
+      "vol_spike": 2.222399799130039,
+      "btc_pct": 0.2542209926741867,
+      "sl": 0.01722858,
+      "tp1": 0.016543064,
+      "tp2": 0.016224936,
+      "tp3": 0.01571,
+      "funding_rate": 0.037,
+      "orderbook_ratio": 0.8645652631324733,
+      "time": "2026-10-19T18:08:51+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T18:06:32+00:00",
+    "time": "2026-10-19T18:08:51+00:00",
     "shortlist_count": 28,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BRUSDT",
       "GTCUSDT",
@@ -6257,27 +6281,27 @@
       "AVAUSDT",
       "CTUSDT",
       "CRVUSDT",
+      "APRUSDT",
       "WLDUSDT",
       "FOLKSUSDT",
-      "APRUSDT",
       "ARBUSDT",
       "ZROUSDT",
       "4USDT",
       "SUSDT",
       "PUMPUSDT",
       "INJUSDT",
-      "DOTUSDT",
-      "KATUSDT",
       "LITUSDT",
+      "KATUSDT",
+      "DOTUSDT",
       "GRVTUSDT",
       "APEUSDT",
       "QUSDT",
-      "CCUSDT",
       "ATOMUSDT",
-      "ZEREBROUSDT",
+      "CCUSDT",
       "PENDLEUSDT",
-      "UNIUSDT",
-      "ETHFIUSDT"
+      "PONSUSDT",
+      "ETHFIUSDT",
+      "UNIUSDT"
     ]
   }
 }
