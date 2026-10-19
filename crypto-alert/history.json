@@ -6246,8 +6246,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T12:04:25+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-19T12:06:28+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
@@ -6257,9 +6257,11 @@
       "ARBUSDT",
       "BULLAUSDT",
       "4USDT",
-      "KATUSDT",
       "ETHFIUSDT",
-      "AVAUSDT"
+      "PUMPUSDT",
+      "AVAUSDT",
+      "MARSCOINUSDT",
+      "KATUSDT"
     ]
   }
 }
