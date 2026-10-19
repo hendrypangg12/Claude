@@ -6241,11 +6241,12 @@
       "funding_rate": 0.048,
       "orderbook_ratio": 0.5357170403072047,
       "time": "2026-10-19T08:20:36+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-19T08:32:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T08:30:41+00:00",
+    "time": "2026-10-19T08:32:28+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -6253,15 +6254,15 @@
       "CTUSDT",
       "ARBUSDT",
       "EPICUSDT",
-      "ZEREBROUSDT",
-      "MARSCOINUSDT",
-      "GTCUSDT",
       "ARIAUSDT",
+      "ZEREBROUSDT",
+      "GTCUSDT",
+      "MARSCOINUSDT",
       "ETHFIUSDT",
       "PUMPUSDT",
       "CRVUSDT",
-      "ELSAUSDT",
-      "APRUSDT"
+      "APRUSDT",
+      "ELSAUSDT"
     ]
   }
 }
