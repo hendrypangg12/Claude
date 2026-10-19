@@ -6246,8 +6246,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-19T09:02:30+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-19T09:04:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -6256,12 +6256,13 @@
       "ZEREBROUSDT",
       "MARSCOINUSDT",
       "GTCUSDT",
-      "EPICUSDT",
       "ARIAUSDT",
+      "EPICUSDT",
       "ELSAUSDT",
-      "CRVUSDT",
       "ETHFIUSDT",
-      "PUMPUSDT"
+      "CRVUSDT",
+      "PUMPUSDT",
+      "4USDT"
     ]
   }
 }
