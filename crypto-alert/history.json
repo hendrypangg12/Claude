@@ -6368,7 +6368,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T22:10:34+00:00",
+    "time": "2026-10-20T22:12:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6387,21 +6387,21 @@
       "DOSUSDT",
       "ZECUSDT",
       "PYTHUSDT",
-      "APTUSDT",
       "ZROUSDT",
+      "APTUSDT",
       "LYNUSDT",
-      "CHIPUSDT",
       "ENSOUSDT",
-      "PUMPUSDT",
-      "KASUSDT",
+      "CHIPUSDT",
       "IOUSDT",
-      "ETHFIUSDT",
       "CRVUSDT",
+      "KASUSDT",
+      "PUMPUSDT",
+      "ETHFIUSDT",
       "PENGUUSDT",
-      "ENAUSDT",
       "INJUSDT",
-      "POWERUSDT",
-      "OPUSDT"
+      "ENAUSDT",
+      "CTRUSDT",
+      "POWERUSDT"
     ]
   }
 }
