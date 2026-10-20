@@ -6343,31 +6343,33 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T15:16:34+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-20T15:18:30+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
-      "BRUSDT",
       "APRUSDT",
+      "BRUSDT",
       "PHAUSDT",
       "USELESSUSDT",
-      "DOSUSDT",
       "METISUSDT",
-      "GRVTUSDT",
+      "DOSUSDT",
       "ERAUSDT",
       "WLDUSDT",
+      "GRVTUSDT",
       "AEROUSDT",
       "IOUSDT",
-      "CTRUSDT",
       "LITUSDT",
       "ENSOUSDT",
+      "LYNUSDT",
+      "CTRUSDT",
+      "龙虾USDT",
       "ZECUSDT",
       "PONSUSDT",
-      "龙虾USDT",
       "GTCUSDT",
+      "APTUSDT",
       "GALAUSDT",
-      "APTUSDT"
+      "OPUSDT"
     ]
   }
 }
