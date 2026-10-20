@@ -6295,8 +6295,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T01:16:24+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-20T01:18:27+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6311,8 +6311,9 @@
       "WLDUSDT",
       "GRVTUSDT",
       "FOLKSUSDT",
+      "ARBUSDT",
       "STABLEUSDT",
-      "ARBUSDT"
+      "DOSUSDT"
     ]
   }
 }
