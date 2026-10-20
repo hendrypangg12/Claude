@@ -6343,7 +6343,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T13:24:32+00:00",
+    "time": "2026-10-20T13:26:35+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -6353,13 +6353,13 @@
       "ERAUSDT",
       "CTRUSDT",
       "METISUSDT",
+      "GTCUSDT",
       "WLDUSDT",
       "IOUSDT",
-      "DOSUSDT",
       "GRVTUSDT",
-      "GTCUSDT",
-      "CRVUSDT",
-      "TIAUSDT"
+      "DOSUSDT",
+      "TIAUSDT",
+      "CRVUSDT"
     ]
   }
 }
