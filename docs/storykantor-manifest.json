@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-20_09-02-14",
+      "date": "2026-10-20",
+      "time": "09:02",
+      "label": "STORY KANTOR",
+      "title": "Diawasin ketat tiap 10 menit, katanya biar kerjaan lebih rapi.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-10-20_01-49-45",
       "date": "2026-10-20",
       "time": "01:49",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-16_17-05-31",
-      "date": "2026-10-16",
-      "time": "17:05",
-      "label": "STORY KANTOR",
-      "title": "Yang cari muka naik duluan, yang kerja beneran cuma jadi penonton.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
