@@ -6343,8 +6343,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T07:50:42+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-20T07:52:28+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6358,7 +6358,8 @@
       "IOUSDT",
       "SUSDT",
       "CTRUSDT",
-      "STABLEUSDT"
+      "STABLEUSDT",
+      "ELSAUSDT"
     ]
   }
 }
