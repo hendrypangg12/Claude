@@ -6368,8 +6368,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T19:42:31+00:00",
-    "shortlist_count": 29,
+    "time": "2026-10-20T19:44:30+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -6387,20 +6387,21 @@
       "APTUSDT",
       "IOUSDT",
       "DOSUSDT",
-      "LYNUSDT",
       "ENSOUSDT",
+      "LYNUSDT",
       "KASUSDT",
       "LITUSDT",
       "PUMPUSDT",
+      "ETHFIUSDT",
       "ZECUSDT",
       "CHIPUSDT",
-      "ETHFIUSDT",
       "TRUMPUSDT",
-      "PENDLEUSDT",
       "ONDOUSDT",
+      "PENDLEUSDT",
       "XMRUSDT",
       "OPUSDT",
-      "GALAUSDT"
+      "GALAUSDT",
+      "POWERUSDT"
     ]
   }
 }
