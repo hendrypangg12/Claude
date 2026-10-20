@@ -6368,7 +6368,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T22:26:27+00:00",
+    "time": "2026-10-20T22:28:32+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6392,16 +6392,16 @@
       "LYNUSDT",
       "KASUSDT",
       "IOUSDT",
-      "CHIPUSDT",
       "PUMPUSDT",
+      "CHIPUSDT",
       "AKEUSDT",
-      "CTRUSDT",
-      "ENSOUSDT",
       "ETHFIUSDT",
       "PENGUUSDT",
+      "CTRUSDT",
+      "ENSOUSDT",
       "CRVUSDT",
-      "RUNEUSDT",
-      "OPUSDT"
+      "POWERUSDT",
+      "RUNEUSDT"
     ]
   }
 }
