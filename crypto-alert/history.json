@@ -111,7 +111,8 @@
     "ERAUSDT": "2026-10-18T08:12:29+00:00",
     "QUSDT": "2026-10-19T22:06:26+00:00",
     "AGTUSDT": "2026-10-19T08:20:36+00:00",
-    "CTRUSDT": "2026-10-19T18:08:51+00:00"
+    "CTRUSDT": "2026-10-19T18:08:51+00:00",
+    "ARIAUSDT": "2026-10-20T16:58:30+00:00"
   },
   "alerts": [
     {
@@ -6340,37 +6341,62 @@
       "time": "2026-10-20T07:13:08+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-20T07:24:30+00:00"
+    },
+    {
+      "symbol": "ARIAUSDT",
+      "pct": 8.12,
+      "price": 0.05467,
+      "quote_volume": 281382.6447,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.04454752572992879,
+      "retrace_pct": 0.8703535811423289,
+      "wick_ratio": 0.0,
+      "rsi": 65.78242158937718,
+      "divergence": false,
+      "vol_spike": 0.024817168602629596,
+      "btc_pct": 0.3684132240842475,
+      "sl": 0.0557015,
+      "tp1": 0.05356852,
+      "tp2": 0.052591479999999996,
+      "tp3": 0.05101,
+      "funding_rate": 0.012,
+      "orderbook_ratio": 1.362851046206694,
+      "time": "2026-10-20T16:58:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T16:56:29+00:00",
-    "shortlist_count": 24,
-    "confirmed_count": 0,
+    "time": "2026-10-20T16:58:30+00:00",
+    "shortlist_count": 26,
+    "confirmed_count": 1,
     "symbols": [
       "JCTUSDT",
-      "APRUSDT",
       "COMPUSDT",
+      "APRUSDT",
       "ARIAUSDT",
       "CLOUSDT",
+      "LYNUSDT",
       "USELESSUSDT",
-      "ERAUSDT",
       "WLDUSDT",
+      "ERAUSDT",
       "AEROUSDT",
       "IOUSDT",
-      "DOSUSDT",
-      "BRUSDT",
       "METISUSDT",
+      "DOSUSDT",
       "ENSOUSDT",
-      "龙虾USDT",
-      "PHAUSDT",
+      "BRUSDT",
       "ZECUSDT",
+      "龙虾USDT",
       "APTUSDT",
-      "GRVTUSDT",
       "PONSUSDT",
       "GALAUSDT",
+      "GRVTUSDT",
       "KASUSDT",
-      "LYNUSDT",
-      "OPUSDT"
+      "OPUSDT",
+      "PHAUSDT",
+      "PENDLEUSDT",
+      "XMRUSDT"
     ]
   }
 }
