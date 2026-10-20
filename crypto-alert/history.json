@@ -6319,22 +6319,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T06:58:30+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-20T07:00:42+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
-      "PHAUSDT",
       "GTCUSDT",
+      "PHAUSDT",
       "GRVTUSDT",
       "WLDUSDT",
       "METISUSDT",
-      "CTRUSDT",
       "LYNUSDT",
+      "CTRUSDT",
       "SUSDT",
-      "STABLEUSDT",
-      "IOUSDT",
-      "AVAUSDT"
+      "STABLEUSDT"
     ]
   }
 }
