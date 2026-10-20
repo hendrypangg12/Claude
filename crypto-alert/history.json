@@ -6338,12 +6338,13 @@
       "funding_rate": -0.086,
       "orderbook_ratio": 3.08199960427439,
       "time": "2026-10-20T07:13:08+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-20T07:24:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T07:22:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-20T07:24:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6353,13 +6354,12 @@
       "AKEUSDT",
       "METISUSDT",
       "CTRUSDT",
-      "AVAUSDT",
       "WLDUSDT",
+      "AVAUSDT",
       "SUSDT",
-      "IOUSDT",
       "STABLEUSDT",
-      "TIAUSDT",
-      "CTUSDT"
+      "IOUSDT",
+      "TIAUSDT"
     ]
   }
 }
