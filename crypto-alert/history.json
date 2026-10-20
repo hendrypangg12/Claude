@@ -6342,8 +6342,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T07:20:33+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-20T07:22:26+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BRUSDT",
@@ -6353,10 +6353,13 @@
       "AKEUSDT",
       "METISUSDT",
       "CTRUSDT",
-      "WLDUSDT",
       "AVAUSDT",
+      "WLDUSDT",
       "SUSDT",
-      "STABLEUSDT"
+      "IOUSDT",
+      "STABLEUSDT",
+      "TIAUSDT",
+      "CTUSDT"
     ]
   }
 }
