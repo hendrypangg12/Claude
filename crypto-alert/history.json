@@ -6343,7 +6343,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T09:18:32+00:00",
+    "time": "2026-10-20T09:20:34+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -6351,16 +6351,16 @@
       "GRVTUSDT",
       "PHAUSDT",
       "GTCUSDT",
-      "AKEUSDT",
       "ERAUSDT",
+      "AKEUSDT",
       "METISUSDT",
       "CTRUSDT",
       "IOUSDT",
-      "WLDUSDT",
       "STABLEUSDT",
+      "WLDUSDT",
       "XMRUSDT",
-      "TIAUSDT",
-      "SUSDT"
+      "SUSDT",
+      "TIAUSDT"
     ]
   }
 }
