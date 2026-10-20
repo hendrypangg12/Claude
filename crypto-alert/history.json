@@ -6343,19 +6343,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-20T15:38:35+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-20T15:40:41+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
       "APRUSDT",
-      "BRUSDT",
       "DOSUSDT",
+      "BRUSDT",
       "PHAUSDT",
       "METISUSDT",
       "ERAUSDT",
-      "GRVTUSDT",
       "AEROUSDT",
+      "GRVTUSDT",
       "WLDUSDT",
       "USELESSUSDT",
       "龙虾USDT",
@@ -6363,7 +6363,10 @@
       "ENSOUSDT",
       "LYNUSDT",
       "ZECUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "GALAUSDT",
+      "BSBUSDT",
+      "GTCUSDT"
     ]
   }
 }
