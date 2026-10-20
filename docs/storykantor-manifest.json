@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-10-20_17-23-56",
+      "date": "2026-10-20",
+      "time": "17:23",
+      "label": "STORY KANTOR",
+      "title": "Rekan kerja toxic bikin senin makin berat.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-10-20_13-34-16",
       "date": "2026-10-20",
       "time": "13:34",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-17_08-29-37",
-      "date": "2026-10-17",
-      "time": "08:29",
-      "label": "STORY KANTOR",
-      "title": "Cuti diambil, tapi laptop tetap dibawa.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
