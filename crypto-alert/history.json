@@ -114,7 +114,8 @@
     "CTRUSDT": "2026-10-19T18:08:51+00:00",
     "ARIAUSDT": "2026-10-20T16:58:30+00:00",
     "DOODUSDT": "2026-10-21T01:00:44+00:00",
-    "LITUSDT": "2026-10-21T18:38:27+00:00"
+    "LITUSDT": "2026-10-21T18:38:27+00:00",
+    "IOSTUSDT": "2026-10-21T19:46:27+00:00"
   },
   "alerts": [
     {
@@ -6487,12 +6488,35 @@
       "time": "2026-10-21T18:58:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-21T19:14:29+00:00"
+    },
+    {
+      "symbol": "IOSTUSDT",
+      "pct": 12.43,
+      "price": 0.0018286,
+      "quote_volume": 982875.3920728,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.14060035812454225,
+      "retrace_pct": 1.049783549783546,
+      "wick_ratio": 0.13467048710601878,
+      "rsi": 66.41890514610502,
+      "divergence": true,
+      "vol_spike": 0.15752670511056102,
+      "btc_pct": 0.2060921449606795,
+      "sl": 0.00186648,
+      "tp1": 0.0017699574,
+      "tp2": 0.0017217425999999998,
+      "tp3": 0.0016437,
+      "funding_rate": -2.0,
+      "orderbook_ratio": 16.762444185031615,
+      "time": "2026-10-21T19:46:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T19:44:29+00:00",
+    "time": "2026-10-21T19:46:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "IOSTUSDT",
       "IRYSUSDT",
@@ -6506,24 +6530,24 @@
       "ZECUSDT",
       "CHIPUSDT",
       "STRKUSDT",
-      "USELESSUSDT",
       "BMTUSDT",
+      "USELESSUSDT",
       "NEARUSDT",
+      "SKYAIUSDT",
       "PUMPUSDT",
       "QNTUSDT",
       "XPLUSDT",
-      "SKYAIUSDT",
       "CCUSDT",
-      "GRVTUSDT",
       "DOODUSDT",
+      "GRVTUSDT",
       "FARTCOINUSDT",
       "DASHUSDT",
       "METISUSDT",
       "MARSCOINUSDT",
-      "PONSUSDT",
-      "AVAUSDT",
       "TRUMPUSDT",
-      "ZROUSDT"
+      "PONSUSDT",
+      "XRPUSDT",
+      "RENDERUSDT"
     ]
   }
 }
