@@ -6515,27 +6515,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T20:38:38+00:00",
-    "shortlist_count": 28,
+    "time": "2026-10-21T20:40:39+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
-      "IRYSUSDT",
       "IOSTUSDT",
+      "IRYSUSDT",
       "BULLAUSDT",
       "LITUSDT",
       "MAGMAUSDT",
-      "ENAUSDT",
       "BMTUSDT",
+      "ENAUSDT",
       "WUSDT",
       "BSBUSDT",
-      "CVXUSDT",
       "ZECUSDT",
       "PUMPUSDT",
+      "CVXUSDT",
       "CCUSDT",
       "CHIPUSDT",
       "USELESSUSDT",
-      "DOODUSDT",
       "QNTUSDT",
+      "DOODUSDT",
       "NEARUSDT",
       "XPLUSDT",
       "SKYAIUSDT",
@@ -6543,10 +6543,12 @@
       "STRKUSDT",
       "MARSCOINUSDT",
       "PONSUSDT",
-      "ZROUSDT",
       "DASHUSDT",
+      "ZROUSDT",
+      "KASUSDT",
       "XRPUSDT",
-      "RENDERUSDT"
+      "RENDERUSDT",
+      "TRUMPUSDT"
     ]
   }
 }
