@@ -113,7 +113,8 @@
     "AGTUSDT": "2026-10-19T08:20:36+00:00",
     "CTRUSDT": "2026-10-19T18:08:51+00:00",
     "ARIAUSDT": "2026-10-20T16:58:30+00:00",
-    "DOODUSDT": "2026-10-21T01:00:44+00:00"
+    "DOODUSDT": "2026-10-21T01:00:44+00:00",
+    "LITUSDT": "2026-10-21T18:38:27+00:00"
   },
   "alerts": [
     {
@@ -6438,43 +6439,66 @@
       "time": "2026-10-21T11:38:24+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-10-21T11:48:26+00:00"
+    },
+    {
+      "symbol": "LITUSDT",
+      "pct": 10.0,
+      "price": 3.8492,
+      "quote_volume": 10632970.5665,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.38383214736022003,
+      "retrace_pct": 0.962280656615033,
+      "wick_ratio": 0.27982954545454836,
+      "rsi": 70.2825519182102,
+      "divergence": false,
+      "vol_spike": 0.2241703680532663,
+      "btc_pct": 0.04768649669498841,
+      "sl": 3.925466,
+      "tp1": 3.7516394,
+      "tp2": 3.6682606,
+      "tp3": 3.5333,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.2211535145137804,
+      "time": "2026-10-21T18:38:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T18:36:26+00:00",
+    "time": "2026-10-21T18:38:27+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "IOSTUSDT",
       "IRYSUSDT",
       "BULLAUSDT",
       "LITUSDT",
       "GRVTUSDT",
+      "CVXUSDT",
       "ENAUSDT",
       "MAGMAUSDT",
-      "CVXUSDT",
       "BSBUSDT",
-      "STRKUSDT",
       "WUSDT",
       "USELESSUSDT",
+      "STRKUSDT",
       "ZECUSDT",
-      "XPLUSDT",
       "CHIPUSDT",
+      "XPLUSDT",
       "PUMPUSDT",
       "NEARUSDT",
-      "BMTUSDT",
-      "QNTUSDT",
       "ZROUSDT",
       "FARTCOINUSDT",
+      "BMTUSDT",
+      "QNTUSDT",
       "CCUSDT",
-      "PONSUSDT",
       "MARSCOINUSDT",
       "SKYAIUSDT",
+      "PONSUSDT",
       "DASHUSDT",
-      "TRUMPUSDT",
       "CRVUSDT",
-      "POWERUSDT",
-      "FILUSDT"
+      "TRUMPUSDT",
+      "FILUSDT",
+      "ONDOUSDT"
     ]
   }
 }
