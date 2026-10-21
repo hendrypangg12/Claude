@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T22:54:25+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-21T22:58:11+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -6530,19 +6530,20 @@
       "BSBUSDT",
       "ENAUSDT",
       "WUSDT",
+      "PUMPUSDT",
       "CHIPUSDT",
       "AVAUSDT",
-      "PUMPUSDT",
       "NEARUSDT",
       "CCUSDT",
       "QNTUSDT",
-      "SKYAIUSDT",
       "PHAUSDT",
-      "ZECUSDT",
       "USELESSUSDT",
-      "ZEREBROUSDT",
+      "SKYAIUSDT",
+      "ZECUSDT",
       "XPLUSDT",
-      "FARTCOINUSDT"
+      "ZEREBROUSDT",
+      "FARTCOINUSDT",
+      "KASUSDT"
     ]
   }
 }
