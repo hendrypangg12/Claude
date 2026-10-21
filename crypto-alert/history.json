@@ -6417,7 +6417,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T09:46:28+00:00",
+    "time": "2026-10-21T09:48:31+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6441,16 +6441,16 @@
       "ENAUSDT",
       "WUSDT",
       "PYTHUSDT",
-      "WLDUSDT",
       "BSBUSDT",
+      "WLDUSDT",
       "PUMPUSDT",
       "PENGUUSDT",
-      "DOSUSDT",
       "ZEREBROUSDT",
       "APTUSDT",
       "TRUMPUSDT",
       "PONSUSDT",
-      "MARSCOINUSDT"
+      "MARSCOINUSDT",
+      "DOSUSDT"
     ]
   }
 }
