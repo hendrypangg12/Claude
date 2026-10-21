@@ -6441,33 +6441,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T14:26:28+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-21T14:29:25+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "DOODUSDT",
       "IOSTUSDT",
       "IRYSUSDT",
-      "ARIAUSDT",
       "MAGMAUSDT",
+      "ARIAUSDT",
       "CVXUSDT",
       "BULLAUSDT",
       "WUSDT",
       "GRVTUSDT",
-      "BSBUSDT",
-      "SKYAIUSDT",
-      "ZEREBROUSDT",
-      "LYNUSDT",
-      "CLOUSDT",
       "BMTUSDT",
+      "SKYAIUSDT",
+      "BSBUSDT",
+      "LYNUSDT",
+      "ZEREBROUSDT",
+      "CLOUSDT",
       "ZECUSDT",
       "DOSUSDT",
       "POWERUSDT",
       "COMPUSDT",
       "TRUMPUSDT",
-      "NEARUSDT",
-      "PYTHUSDT",
-      "KASUSDT"
+      "NEARUSDT"
     ]
   }
 }
