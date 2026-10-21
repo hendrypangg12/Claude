@@ -6461,11 +6461,12 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 1.2211535145137804,
       "time": "2026-10-21T18:38:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-21T18:46:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T18:44:48+00:00",
+    "time": "2026-10-21T18:46:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6478,26 +6479,26 @@
       "MAGMAUSDT",
       "ENAUSDT",
       "USELESSUSDT",
-      "WUSDT",
       "BSBUSDT",
-      "ZECUSDT",
+      "WUSDT",
       "STRKUSDT",
-      "XPLUSDT",
+      "ZECUSDT",
       "CHIPUSDT",
+      "XPLUSDT",
       "PUMPUSDT",
+      "BMTUSDT",
       "NEARUSDT",
       "SKYAIUSDT",
-      "BMTUSDT",
       "FARTCOINUSDT",
       "CCUSDT",
       "QNTUSDT",
       "PONSUSDT",
-      "ZROUSDT",
       "MARSCOINUSDT",
-      "CRVUSDT",
+      "ZROUSDT",
       "DASHUSDT",
-      "AAVEUSDT",
+      "CRVUSDT",
       "TRUMPUSDT",
+      "AAVEUSDT",
       "XRPUSDT"
     ]
   }
