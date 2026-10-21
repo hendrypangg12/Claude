@@ -6417,7 +6417,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T09:52:31+00:00",
+    "time": "2026-10-21T09:54:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6433,13 +6433,13 @@
       "COMPUSDT",
       "POWERUSDT",
       "AKEUSDT",
-      "BULLAUSDT",
       "USELESSUSDT",
+      "BULLAUSDT",
       "ZECUSDT",
       "KASUSDT",
       "NEARUSDT",
-      "ZEREBROUSDT",
       "PYTHUSDT",
+      "ZEREBROUSDT",
       "ENAUSDT",
       "WLDUSDT",
       "BSBUSDT",
@@ -6448,9 +6448,9 @@
       "PENGUUSDT",
       "APTUSDT",
       "TRUMPUSDT",
-      "PONSUSDT",
       "DOSUSDT",
-      "MARSCOINUSDT"
+      "APRUSDT",
+      "PONSUSDT"
     ]
   }
 }
