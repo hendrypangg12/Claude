@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T20:50:33+00:00",
-    "shortlist_count": 27,
+    "time": "2026-10-21T20:52:30+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "IOSTUSDT",
@@ -6524,13 +6524,13 @@
       "BULLAUSDT",
       "LITUSDT",
       "MAGMAUSDT",
-      "BMTUSDT",
       "WUSDT",
+      "BMTUSDT",
       "ENAUSDT",
       "CVXUSDT",
       "BSBUSDT",
-      "DOODUSDT",
       "CCUSDT",
+      "DOODUSDT",
       "ZECUSDT",
       "CHIPUSDT",
       "USELESSUSDT",
@@ -6539,13 +6539,14 @@
       "NEARUSDT",
       "QNTUSDT",
       "XPLUSDT",
-      "STRKUSDT",
       "FARTCOINUSDT",
+      "STRKUSDT",
       "MARSCOINUSDT",
       "PONSUSDT",
       "KASUSDT",
       "DASHUSDT",
-      "RENDERUSDT"
+      "RENDERUSDT",
+      "CRVUSDT"
     ]
   }
 }
