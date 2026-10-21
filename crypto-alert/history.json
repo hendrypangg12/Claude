@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T23:56:26+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-21T23:58:25+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -6528,21 +6528,20 @@
       "BSBUSDT",
       "CVXUSDT",
       "AVAUSDT",
-      "IOSTUSDT",
       "ENAUSDT",
       "WUSDT",
       "CHIPUSDT",
       "NEARUSDT",
-      "USELESSUSDT",
       "CCUSDT",
-      "PUMPUSDT",
-      "ZEREBROUSDT",
-      "QNTUSDT",
+      "USELESSUSDT",
+      "IOSTUSDT",
       "PHAUSDT",
+      "PUMPUSDT",
+      "QNTUSDT",
       "XPLUSDT",
       "FARTCOINUSDT",
-      "ZECUSDT",
-      "ARIAUSDT"
+      "ARIAUSDT",
+      "ZECUSDT"
     ]
   }
 }
