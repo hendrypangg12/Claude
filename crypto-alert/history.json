@@ -6388,11 +6388,12 @@
       "funding_rate": 0.012,
       "orderbook_ratio": 0.8353490142179893,
       "time": "2026-10-21T01:00:44+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-10-21T01:08:38+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-21T01:06:26+00:00",
+    "time": "2026-10-21T01:08:38+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6404,28 +6405,28 @@
       "ZEREBROUSDT",
       "USELESSUSDT",
       "ZECUSDT",
-      "PYTHUSDT",
       "AEROUSDT",
+      "PYTHUSDT",
       "GRVTUSDT",
       "BMTUSDT",
       "APRUSDT",
       "ZROUSDT",
-      "PUMPUSDT",
-      "LITUSDT",
-      "LYNUSDT",
       "WLDUSDT",
-      "AKEUSDT",
+      "LITUSDT",
+      "PUMPUSDT",
+      "LYNUSDT",
+      "ENSOUSDT",
       "KASUSDT",
       "DOSUSDT",
-      "ENSOUSDT",
       "APTUSDT",
+      "AKEUSDT",
       "IOUSDT",
       "TRUMPUSDT",
       "CHIPUSDT",
       "CRVUSDT",
+      "PENGUUSDT",
       "INJUSDT",
-      "龙虾USDT",
-      "PENGUUSDT"
+      "ONDOUSDT"
     ]
   }
 }
