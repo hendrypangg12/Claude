@@ -6515,7 +6515,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T00:24:26+00:00",
+    "time": "2026-10-22T00:26:31+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -6529,20 +6529,20 @@
       "BSBUSDT",
       "ARIAUSDT",
       "CVXUSDT",
-      "CHIPUSDT",
       "ENAUSDT",
+      "CHIPUSDT",
       "WUSDT",
       "PHAUSDT",
-      "USELESSUSDT",
-      "CCUSDT",
-      "NEARUSDT",
       "XMRUSDT",
+      "USELESSUSDT",
+      "NEARUSDT",
+      "CCUSDT",
       "QNTUSDT",
-      "CRVUSDT",
       "FARTCOINUSDT",
-      "XPLUSDT",
       "ZECUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "XPLUSDT",
+      "CRVUSDT"
     ]
   }
 }
