@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T04:00:49+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-22T04:02:28+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6525,15 +6525,16 @@
       "PHAUSDT",
       "BULLAUSDT",
       "LITUSDT",
-      "AVAUSDT",
       "BSBUSDT",
-      "CLOUSDT",
+      "AVAUSDT",
       "CHIPUSDT",
+      "CLOUSDT",
       "XMRUSDT",
       "BMTUSDT",
+      "WUSDT",
       "ZEREBROUSDT",
       "PUMPUSDT",
-      "WUSDT"
+      "ENAUSDT"
     ]
   }
 }
