@@ -6539,18 +6539,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T18:12:48+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-22T18:14:27+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
       "BMTUSDT",
-      "PTBUSDT",
       "AGTUSDT",
       "AKEUSDT",
+      "PTBUSDT",
+      "IRYSUSDT",
       "BILLUSDT",
       "GTCUSDT",
-      "IRYSUSDT"
+      "BTWUSDT"
     ]
   }
 }
