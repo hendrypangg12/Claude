@@ -6515,14 +6515,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T02:02:32+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-22T02:04:29+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "BULLAUSDT",
-      "BMTUSDT",
       "BILLUSDT",
+      "BMTUSDT",
       "MAGMAUSDT",
       "AVAUSDT",
       "LITUSDT",
@@ -6531,11 +6531,10 @@
       "PHAUSDT",
       "CHIPUSDT",
       "BSBUSDT",
-      "WUSDT",
       "PUMPUSDT",
-      "ENAUSDT",
+      "WUSDT",
       "XMRUSDT",
-      "NEARUSDT"
+      "ENAUSDT"
     ]
   }
 }
