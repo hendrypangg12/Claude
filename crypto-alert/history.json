@@ -6515,7 +6515,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T11:34:30+00:00",
+    "time": "2026-10-22T11:36:26+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -6528,11 +6528,11 @@
       "LITUSDT",
       "XMRUSDT",
       "QUSDT",
-      "JCTUSDT",
       "VVVUSDT",
-      "PHAUSDT",
       "BULLAUSDT",
-      "RIVERUSDT"
+      "JCTUSDT",
+      "RIVERUSDT",
+      "PHAUSDT"
     ]
   }
 }
