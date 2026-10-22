@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T11:12:33+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-22T11:14:26+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "PTBUSDT",
@@ -6529,9 +6529,10 @@
       "BULLAUSDT",
       "XMRUSDT",
       "VVVUSDT",
+      "MITOUSDT",
       "PHAUSDT",
-      "QUSDT",
-      "RIVERUSDT"
+      "RIVERUSDT",
+      "QUSDT"
     ]
   }
 }
