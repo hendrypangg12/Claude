@@ -6515,8 +6515,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T12:06:29+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-22T12:08:32+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -6524,13 +6524,12 @@
       "AGTUSDT",
       "IRYSUSDT",
       "BILLUSDT",
-      "CLOUSDT",
       "LITUSDT",
-      "XMRUSDT",
+      "CLOUSDT",
       "QUSDT",
-      "RIVERUSDT",
-      "VVVUSDT",
-      "BTWUSDT"
+      "XMRUSDT",
+      "BTWUSDT",
+      "RIVERUSDT"
     ]
   }
 }
