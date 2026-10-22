@@ -6539,8 +6539,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T18:46:31+00:00",
-    "shortlist_count": 10,
+    "time": "2026-10-22T18:48:38+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "MAGMAUSDT",
@@ -6548,11 +6548,10 @@
       "AGTUSDT",
       "AKEUSDT",
       "GTCUSDT",
-      "IRYSUSDT",
       "PHAUSDT",
-      "PTBUSDT",
       "DOSUSDT",
-      "BILLUSDT"
+      "BILLUSDT",
+      "IRYSUSDT"
     ]
   }
 }
