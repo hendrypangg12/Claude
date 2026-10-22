@@ -6515,22 +6515,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T06:34:25+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-22T06:36:28+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
-      "MAGMAUSDT",
       "AGTUSDT",
+      "MAGMAUSDT",
       "PHAUSDT",
       "XMRUSDT",
       "AVAUSDT",
       "ZEREBROUSDT",
       "BILLUSDT",
       "VVVUSDT",
-      "LITUSDT",
       "ELSAUSDT",
-      "BULLAUSDT"
+      "LITUSDT",
+      "BULLAUSDT",
+      "RUNEUSDT"
     ]
   }
 }
