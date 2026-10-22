@@ -6515,14 +6515,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-22T01:30:41+00:00",
-    "shortlist_count": 24,
+    "time": "2026-10-22T01:32:28+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "BULLAUSDT",
-      "BILLUSDT",
       "BMTUSDT",
+      "BILLUSDT",
       "MAGMAUSDT",
       "LITUSDT",
       "AVAUSDT",
@@ -6536,13 +6536,11 @@
       "XMRUSDT",
       "NEARUSDT",
       "QNTUSDT",
-      "CVXUSDT",
       "CCUSDT",
+      "CVXUSDT",
       "USELESSUSDT",
       "FARTCOINUSDT",
-      "ZECUSDT",
-      "KASUSDT",
-      "XPLUSDT"
+      "ZECUSDT"
     ]
   }
 }
