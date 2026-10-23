@@ -6587,14 +6587,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T07:58:32+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-23T08:01:03+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "BTRUSDT",
-      "BMTUSDT",
       "AKEUSDT",
+      "BMTUSDT",
       "AGTUSDT",
       "GTCUSDT",
       "DOSUSDT",
@@ -6602,8 +6602,7 @@
       "DASHUSDT",
       "ATOMUSDT",
       "PHAUSDT",
-      "AVAUSDT",
-      "MUSDT"
+      "AVAUSDT"
     ]
   }
 }
