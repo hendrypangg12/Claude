@@ -6582,11 +6582,12 @@
       "funding_rate": 0.014,
       "orderbook_ratio": 2.898520224560501,
       "time": "2026-10-23T07:48:30+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-23T07:56:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T07:54:24+00:00",
+    "time": "2026-10-23T07:56:30+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -6600,9 +6601,9 @@
       "DOTUSDT",
       "ATOMUSDT",
       "DASHUSDT",
-      "MUSDT",
       "PHAUSDT",
       "AVAUSDT",
+      "MUSDT",
       "BSBUSDT"
     ]
   }
