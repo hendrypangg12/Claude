@@ -6563,7 +6563,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T05:24:24+00:00",
+    "time": "2026-10-23T05:26:27+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -6574,13 +6574,13 @@
       "BMTUSDT",
       "IRYSUSDT",
       "MUSDT",
-      "DOSUSDT",
       "GTCUSDT",
+      "DOSUSDT",
       "DASHUSDT",
       "BTWUSDT",
       "BSBUSDT",
-      "DOTUSDT",
-      "BILLUSDT"
+      "BILLUSDT",
+      "DOTUSDT"
     ]
   }
 }
