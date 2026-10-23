@@ -6587,17 +6587,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T08:20:36+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-23T08:23:00+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "BTRUSDT",
       "AKEUSDT",
       "BMTUSDT",
+      "EDGEUSDT",
       "GTCUSDT",
       "AGTUSDT",
-      "EDGEUSDT",
       "DOSUSDT",
       "DASHUSDT",
       "AVAUSDT",
@@ -6605,6 +6605,8 @@
       "BSBUSDT",
       "ATOMUSDT",
       "BCHUSDT",
+      "4USDT",
+      "BILLUSDT",
       "POWERUSDT"
     ]
   }
