@@ -6611,7 +6611,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T17:32:28+00:00",
+    "time": "2026-10-23T17:34:25+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -6620,19 +6620,19 @@
       "AKEUSDT",
       "AGTUSDT",
       "AVAUSDT",
-      "USELESSUSDT",
       "JCTUSDT",
-      "EDGEUSDT",
+      "USELESSUSDT",
       "ARIAUSDT",
+      "EDGEUSDT",
       "ENAUSDT",
-      "BTRUSDT",
       "SOPHUSDT",
-      "DASHUSDT",
       "JASMYUSDT",
-      "BTWUSDT",
+      "DASHUSDT",
       "POWERUSDT",
       "BCHUSDT",
-      "ZECUSDT"
+      "BTWUSDT",
+      "ZECUSDT",
+      "BTRUSDT"
     ]
   }
 }
