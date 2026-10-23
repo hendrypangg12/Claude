@@ -6606,12 +6606,13 @@
       "funding_rate": -0.231,
       "orderbook_ratio": 1.6263411340796992,
       "time": "2026-10-23T10:24:25+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-23T10:34:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T10:32:25+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-23T10:34:25+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6625,11 +6626,12 @@
       "BMTUSDT",
       "GTCUSDT",
       "AVAUSDT",
-      "BSBUSDT",
       "DOTUSDT",
-      "PHAUSDT",
+      "BSBUSDT",
       "ATOMUSDT",
-      "POWERUSDT"
+      "PHAUSDT",
+      "POWERUSDT",
+      "4USDT"
     ]
   }
 }
