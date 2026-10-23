@@ -6587,8 +6587,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T08:08:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-23T08:10:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6602,10 +6602,11 @@
       "DASHUSDT",
       "DOTUSDT",
       "ATOMUSDT",
-      "MUSDT",
       "BSBUSDT",
+      "MUSDT",
       "PHAUSDT",
-      "BCHUSDT"
+      "BCHUSDT",
+      "POWERUSDT"
     ]
   }
 }
