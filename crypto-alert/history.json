@@ -6611,8 +6611,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T20:40:34+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-23T20:42:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6620,19 +6620,20 @@
       "AGTUSDT",
       "AKEUSDT",
       "INUSDT",
+      "BTWUSDT",
       "AVAUSDT",
       "USELESSUSDT",
-      "ARIAUSDT",
       "XNYUSDT",
-      "BTWUSDT",
-      "DOSUSDT",
+      "ARIAUSDT",
       "SLXUSDT",
+      "DOSUSDT",
       "EDGEUSDT",
       "DASHUSDT",
       "STABLEUSDT",
-      "MUSDT",
       "JASMYUSDT",
-      "ENAUSDT"
+      "MUSDT",
+      "ENAUSDT",
+      "BCHUSDT"
     ]
   }
 }
