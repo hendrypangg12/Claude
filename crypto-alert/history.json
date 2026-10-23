@@ -3,7 +3,7 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-20T14:40:37+00:00",
-    "AKEUSDT": "2026-10-15T18:04:25+00:00",
+    "AKEUSDT": "2026-10-23T07:48:30+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-08-08T06:14:26+00:00",
     "ACEUSDT": "2026-08-18T06:58:30+00:00",
@@ -6560,12 +6560,35 @@
       "time": "2026-10-23T03:44:24+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-23T04:20:31+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 9.53,
+      "price": 0.0336445,
+      "quote_volume": 888761.4117993,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3707762643040918,
+      "retrace_pct": 1.718527260405225,
+      "wick_ratio": 0.9756216479765978,
+      "rsi": 66.00497403832593,
+      "divergence": true,
+      "vol_spike": 0.24123605824003577,
+      "btc_pct": -0.05499920241370949,
+      "sl": 0.034575128000000004,
+      "tp1": 0.0330947074,
+      "tp2": 0.0323915926,
+      "tp3": 0.0312535,
+      "funding_rate": 0.014,
+      "orderbook_ratio": 2.898520224560501,
+      "time": "2026-10-23T07:48:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T07:46:29+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-10-23T07:48:30+00:00",
+    "shortlist_count": 13,
+    "confirmed_count": 1,
     "symbols": [
       "IRYSUSDT",
       "AKEUSDT",
@@ -6574,11 +6597,12 @@
       "AGTUSDT",
       "GTCUSDT",
       "DOSUSDT",
-      "DASHUSDT",
       "DOTUSDT",
-      "PHAUSDT",
+      "DASHUSDT",
+      "ATOMUSDT",
       "AVAUSDT",
-      "ATOMUSDT"
+      "PHAUSDT",
+      "MUSDT"
     ]
   }
 }
