@@ -6558,12 +6558,13 @@
       "funding_rate": 0.035,
       "orderbook_ratio": 1.1594507760590542,
       "time": "2026-10-23T03:44:24+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-23T04:20:31+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T04:18:24+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-23T04:20:31+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -6573,12 +6574,13 @@
       "BMTUSDT",
       "GTCUSDT",
       "IRYSUSDT",
-      "DOSUSDT",
       "MUSDT",
+      "DOSUSDT",
       "BTWUSDT",
       "DASHUSDT",
+      "BSBUSDT",
       "ATOMUSDT",
-      "BSBUSDT"
+      "DOTUSDT"
     ]
   }
 }
