@@ -6611,27 +6611,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T21:20:32+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-23T21:22:26+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
-      "AGTUSDT",
       "BIRBUSDT",
+      "AGTUSDT",
       "AKEUSDT",
       "INUSDT",
-      "AVAUSDT",
       "BTWUSDT",
+      "AVAUSDT",
       "DOSUSDT",
       "USELESSUSDT",
-      "ARIAUSDT",
       "XNYUSDT",
+      "ARIAUSDT",
       "SLXUSDT",
       "EDGEUSDT",
-      "MUSDT",
       "STABLEUSDT",
-      "JASMYUSDT",
-      "DASHUSDT"
+      "DASHUSDT",
+      "MUSDT"
     ]
   }
 }
