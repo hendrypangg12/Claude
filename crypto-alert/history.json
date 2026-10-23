@@ -6611,8 +6611,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T16:44:26+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-23T16:46:38+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6623,15 +6623,16 @@
       "USELESSUSDT",
       "SOPHUSDT",
       "EDGEUSDT",
+      "DASHUSDT",
       "AGTUSDT",
       "AVAUSDT",
-      "DASHUSDT",
-      "PHAUSDT",
       "JASMYUSDT",
       "ENAUSDT",
       "POWERUSDT",
+      "FARTCOINUSDT",
       "BCHUSDT",
-      "FARTCOINUSDT"
+      "PENDLEUSDT",
+      "BULLAUSDT"
     ]
   }
 }
