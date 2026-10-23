@@ -6587,8 +6587,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T09:04:27+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-23T09:06:24+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6605,8 +6605,9 @@
       "BILLUSDT",
       "ATOMUSDT",
       "BCHUSDT",
-      "AVAUSDT",
-      "POWERUSDT"
+      "BTWUSDT",
+      "POWERUSDT",
+      "AVAUSDT"
     ]
   }
 }
