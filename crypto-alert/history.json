@@ -6563,24 +6563,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T04:20:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-23T04:22:24+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
       "MAGMAUSDT",
       "AKEUSDT",
-      "BTRUSDT",
       "BMTUSDT",
-      "GTCUSDT",
+      "BTRUSDT",
       "IRYSUSDT",
+      "GTCUSDT",
       "MUSDT",
       "DOSUSDT",
-      "BTWUSDT",
       "DASHUSDT",
+      "BTWUSDT",
       "BSBUSDT",
-      "ATOMUSDT",
-      "DOTUSDT"
+      "ATOMUSDT"
     ]
   }
 }
