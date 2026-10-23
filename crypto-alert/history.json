@@ -6611,15 +6611,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T17:44:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-23T17:46:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "DOSUSDT",
+      "JCTUSDT",
       "AKEUSDT",
       "AGTUSDT",
-      "JCTUSDT",
       "AVAUSDT",
       "USELESSUSDT",
       "EDGEUSDT",
@@ -6628,12 +6628,9 @@
       "JASMYUSDT",
       "ARIAUSDT",
       "DASHUSDT",
-      "POWERUSDT",
-      "BULLAUSDT",
-      "BTRUSDT",
-      "BCHUSDT",
       "BTWUSDT",
-      "ZECUSDT"
+      "BCHUSDT",
+      "POWERUSDT"
     ]
   }
 }
