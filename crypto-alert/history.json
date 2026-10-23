@@ -6611,8 +6611,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T11:32:28+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-23T11:34:26+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6623,13 +6623,14 @@
       "DOSUSDT",
       "EDGEUSDT",
       "ARIAUSDT",
-      "AVAUSDT",
       "BMTUSDT",
+      "AVAUSDT",
       "BSBUSDT",
-      "GTCUSDT",
-      "POWERUSDT",
       "PHAUSDT",
-      "4USDT"
+      "POWERUSDT",
+      "4USDT",
+      "DOTUSDT",
+      "GTCUSDT"
     ]
   }
 }
