@@ -6611,13 +6611,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-23T20:24:30+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-23T20:26:29+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
-      "BIRBUSDT",
       "AGTUSDT",
+      "BIRBUSDT",
       "AKEUSDT",
       "INUSDT",
       "AVAUSDT",
@@ -6628,8 +6628,7 @@
       "SLXUSDT",
       "STABLEUSDT",
       "EDGEUSDT",
-      "DASHUSDT",
-      "JASMYUSDT"
+      "DASHUSDT"
     ]
   }
 }
