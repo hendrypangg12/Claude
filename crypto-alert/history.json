@@ -6660,22 +6660,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T09:12:25+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-24T09:14:28+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "BIRBUSDT",
       "IRYSUSDT",
       "BMTUSDT",
       "INUSDT",
+      "DOSUSDT",
       "MUSDT",
       "ERAUSDT",
       "AGTUSDT",
-      "DOSUSDT",
-      "BLUAIUSDT",
       "ZORAUSDT",
-      "AVAUSDT",
-      "BTWUSDT"
+      "BLUAIUSDT",
+      "AVAUSDT"
     ]
   }
 }
