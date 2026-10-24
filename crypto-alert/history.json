@@ -6708,8 +6708,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T14:12:31+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-24T14:14:32+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ORDERUSDT",
@@ -6717,15 +6717,14 @@
       "BIRBUSDT",
       "IRYSUSDT",
       "LIGHTUSDT",
-      "INUSDT",
       "JCTUSDT",
+      "INUSDT",
       "ERAUSDT",
       "MUSDT",
       "ARIAUSDT",
       "KATUSDT",
       "BLUAIUSDT",
-      "ZORAUSDT",
-      "ELSAUSDT"
+      "ZORAUSDT"
     ]
   }
 }
