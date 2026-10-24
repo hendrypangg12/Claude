@@ -6684,7 +6684,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T12:46:29+00:00",
+    "time": "2026-10-24T12:48:25+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -6694,15 +6694,15 @@
       "BMTUSDT",
       "MUSDT",
       "LIGHTUSDT",
-      "INUSDT",
       "ERAUSDT",
+      "INUSDT",
       "KATUSDT",
       "BLUAIUSDT",
       "ZORAUSDT",
       "ARIAUSDT",
-      "AVAUSDT",
       "JCTUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "AVAUSDT"
     ]
   }
 }
