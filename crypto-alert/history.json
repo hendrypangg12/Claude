@@ -116,7 +116,8 @@
     "DOODUSDT": "2026-10-21T01:00:44+00:00",
     "LITUSDT": "2026-10-21T18:38:27+00:00",
     "IOSTUSDT": "2026-10-21T19:46:27+00:00",
-    "IRYSUSDT": "2026-10-24T04:38:26+00:00"
+    "IRYSUSDT": "2026-10-24T04:38:26+00:00",
+    "LIGHTUSDT": "2026-10-24T16:02:22+00:00"
   },
   "alerts": [
     {
@@ -6705,12 +6706,35 @@
       "time": "2026-10-24T13:36:29+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-24T13:44:27+00:00"
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "pct": 13.51,
+      "price": 0.2667,
+      "quote_volume": 643111.9771,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.22061624766823096,
+      "retrace_pct": 0.8181480104127854,
+      "wick_ratio": 0.0,
+      "rsi": 69.11506628956036,
+      "divergence": true,
+      "vol_spike": 0.062245576324151015,
+      "btc_pct": 0.2884488374111791,
+      "sl": 0.27158899999999997,
+      "tp1": 0.25667599999999996,
+      "tp2": 0.24912399999999998,
+      "tp3": 0.2369,
+      "funding_rate": 0.026,
+      "orderbook_ratio": 1.0359652292538744,
+      "time": "2026-10-24T16:02:22+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T16:00:41+00:00",
+    "time": "2026-10-24T16:02:22+00:00",
     "shortlist_count": 11,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ORDERUSDT",
       "BMTUSDT",
@@ -6720,8 +6744,8 @@
       "ARIAUSDT",
       "MUSDT",
       "ELSAUSDT",
-      "TREEUSDT",
       "INUSDT",
+      "TREEUSDT",
       "KATUSDT"
     ]
   }
