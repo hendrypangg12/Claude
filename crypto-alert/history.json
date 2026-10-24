@@ -6655,11 +6655,12 @@
       "funding_rate": 0.021,
       "orderbook_ratio": 1.0435115984417394,
       "time": "2026-10-24T04:38:26+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-10-24T04:44:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T04:42:26+00:00",
+    "time": "2026-10-24T04:44:27+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -6668,8 +6669,8 @@
       "INUSDT",
       "BMTUSDT",
       "AVAUSDT",
-      "BLUAIUSDT",
       "AKEUSDT",
+      "BLUAIUSDT",
       "DOSUSDT",
       "ARIAUSDT",
       "MUSDT"
