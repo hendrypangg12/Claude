@@ -6635,21 +6635,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T03:00:45+00:00",
+    "time": "2026-10-24T03:02:27+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
       "BIRBUSDT",
-      "BMTUSDT",
       "INUSDT",
+      "BMTUSDT",
       "AVAUSDT",
       "MUSDT",
       "DOSUSDT",
-      "AKEUSDT",
       "ARIAUSDT",
-      "MITOUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "AKEUSDT",
+      "MITOUSDT"
     ]
   }
 }
