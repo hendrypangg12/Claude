@@ -108,7 +108,7 @@
     "WALUSDT": "2026-10-15T02:20:41+00:00",
     "ZEREBROUSDT": "2026-10-19T03:40:51+00:00",
     "SANDUSDT": "2026-10-17T14:22:25+00:00",
-    "ERAUSDT": "2026-10-18T08:12:29+00:00",
+    "ERAUSDT": "2026-10-24T11:48:27+00:00",
     "QUSDT": "2026-10-19T22:06:26+00:00",
     "AGTUSDT": "2026-10-23T03:44:24+00:00",
     "CTRUSDT": "2026-10-19T18:08:51+00:00",
@@ -6657,25 +6657,49 @@
       "time": "2026-10-24T04:38:26+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-10-24T04:44:27+00:00"
+    },
+    {
+      "symbol": "ERAUSDT",
+      "pct": 8.44,
+      "price": 0.08476,
+      "quote_volume": 252706.55625,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.5632803975878548,
+      "retrace_pct": 2.0228875274534754,
+      "wick_ratio": 0.8715083798882715,
+      "rsi": 76.4795121679773,
+      "divergence": false,
+      "vol_spike": 1.7383561770679903,
+      "btc_pct": -0.02405668648159822,
+      "sl": 0.08737510000000001,
+      "tp1": 0.08393914000000001,
+      "tp2": 0.08235086,
+      "tp3": 0.07978,
+      "funding_rate": -0.128,
+      "orderbook_ratio": 0.3854263205968811,
+      "time": "2026-10-24T11:48:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T11:46:28+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-10-24T11:48:27+00:00",
+    "shortlist_count": 13,
+    "confirmed_count": 1,
     "symbols": [
       "ORDERUSDT",
       "IRYSUSDT",
       "BIRBUSDT",
       "BMTUSDT",
       "MUSDT",
+      "KATUSDT",
       "LIGHTUSDT",
       "INUSDT",
-      "KATUSDT",
       "ERAUSDT",
       "ZORAUSDT",
       "BLUAIUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "ELSAUSDT"
     ]
   }
 }
