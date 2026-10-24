@@ -115,7 +115,8 @@
     "ARIAUSDT": "2026-10-20T16:58:30+00:00",
     "DOODUSDT": "2026-10-21T01:00:44+00:00",
     "LITUSDT": "2026-10-21T18:38:27+00:00",
-    "IOSTUSDT": "2026-10-21T19:46:27+00:00"
+    "IOSTUSDT": "2026-10-21T19:46:27+00:00",
+    "IRYSUSDT": "2026-10-24T04:38:26+00:00"
   },
   "alerts": [
     {
@@ -6632,12 +6633,35 @@
       "time": "2026-10-24T02:14:30+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-10-24T02:20:38+00:00"
+    },
+    {
+      "symbol": "IRYSUSDT",
+      "pct": 15.77,
+      "price": 0.09934,
+      "quote_volume": 12238427.12094,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5143770863922823,
+      "retrace_pct": 2.79843444227006,
+      "wick_ratio": 0.11566771819137783,
+      "rsi": 73.45594747491835,
+      "divergence": false,
+      "vol_spike": 0.9913381609742633,
+      "btc_pct": -0.05791024826022164,
+      "sl": 0.103222,
+      "tp1": 0.09688255999999999,
+      "tp2": 0.09359744,
+      "tp3": 0.08828,
+      "funding_rate": 0.021,
+      "orderbook_ratio": 1.0435115984417394,
+      "time": "2026-10-24T04:38:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T04:36:27+00:00",
+    "time": "2026-10-24T04:38:26+00:00",
     "shortlist_count": 10,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "IRYSUSDT",
       "BIRBUSDT",
@@ -6647,8 +6671,8 @@
       "AVAUSDT",
       "BLUAIUSDT",
       "DOSUSDT",
-      "ARIAUSDT",
-      "MUSDT"
+      "MUSDT",
+      "ARIAUSDT"
     ]
   }
 }
