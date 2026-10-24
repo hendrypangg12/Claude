@@ -6635,7 +6635,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T02:28:24+00:00",
+    "time": "2026-10-24T02:30:40+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -6644,11 +6644,11 @@
       "INUSDT",
       "AVAUSDT",
       "DOSUSDT",
-      "ARIAUSDT",
       "MUSDT",
+      "ARIAUSDT",
       "AKEUSDT",
-      "SLXUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "SLXUSDT"
     ]
   }
 }
