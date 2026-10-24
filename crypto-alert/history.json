@@ -6733,7 +6733,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T22:48:30+00:00",
+    "time": "2026-10-24T22:50:31+00:00",
     "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
@@ -6744,14 +6744,14 @@
       "APRUSDT",
       "EPICUSDT",
       "DOSUSDT",
-      "PROMPTUSDT",
       "KATUSDT",
       "ZORAUSDT",
+      "PROMPTUSDT",
       "ARIAUSDT",
       "BIRBUSDT",
       "TREEUSDT",
-      "XMRUSDT",
-      "ELSAUSDT"
+      "ELSAUSDT",
+      "XMRUSDT"
     ]
   }
 }
