@@ -74,7 +74,7 @@
     "AINUSDT": "2026-10-05T03:24:27+00:00",
     "CROSSUSDT": "2026-09-16T07:00:45+00:00",
     "IOUSDT": "2026-09-17T00:18:30+00:00",
-    "AVAUSDT": "2026-09-17T11:54:27+00:00",
+    "AVAUSDT": "2026-10-24T02:14:30+00:00",
     "ONEUSDT": "2026-09-22T02:26:38+00:00",
     "GUSDT": "2026-09-18T14:22:28+00:00",
     "MYXUSDT": "2026-09-18T17:28:29+00:00",
@@ -6608,12 +6608,35 @@
       "time": "2026-10-23T10:24:25+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-23T10:34:25+00:00"
+    },
+    {
+      "symbol": "AVAUSDT",
+      "pct": 8.37,
+      "price": 0.4771,
+      "quote_volume": 469251.8807,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4127194145248655,
+      "retrace_pct": 1.2215320910973004,
+      "wick_ratio": 0.71014492753623,
+      "rsi": 73.68592993701526,
+      "divergence": false,
+      "vol_spike": 0.019850473091516094,
+      "btc_pct": 0.11132653482801164,
+      "sl": 0.48783,
+      "tp1": 0.4687514,
+      "tp2": 0.4599486,
+      "tp3": 0.4457,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.5901009452895931,
+      "time": "2026-10-24T02:14:30+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T02:12:30+00:00",
-    "shortlist_count": 12,
-    "confirmed_count": 0,
+    "time": "2026-10-24T02:14:30+00:00",
+    "shortlist_count": 11,
+    "confirmed_count": 1,
     "symbols": [
       "IRYSUSDT",
       "BIRBUSDT",
@@ -6623,10 +6646,9 @@
       "AGTUSDT",
       "ARIAUSDT",
       "MUSDT",
-      "AKEUSDT",
       "SLXUSDT",
       "USELESSUSDT",
-      "BSBUSDT"
+      "AKEUSDT"
     ]
   }
 }
