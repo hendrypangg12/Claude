@@ -6611,7 +6611,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T00:24:25+00:00",
+    "time": "2026-10-24T00:26:25+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -6623,8 +6623,8 @@
       "DOSUSDT",
       "AKEUSDT",
       "ARIAUSDT",
-      "MUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "MUSDT"
     ]
   }
 }
