@@ -6635,8 +6635,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T02:42:27+00:00",
-    "shortlist_count": 9,
+    "time": "2026-10-24T02:44:26+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "IRYSUSDT",
@@ -6645,9 +6645,10 @@
       "INUSDT",
       "AVAUSDT",
       "DOSUSDT",
-      "ARIAUSDT",
       "MUSDT",
-      "AKEUSDT"
+      "ARIAUSDT",
+      "AKEUSDT",
+      "USELESSUSDT"
     ]
   }
 }
