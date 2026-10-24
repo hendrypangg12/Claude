@@ -6728,12 +6728,13 @@
       "funding_rate": 0.026,
       "orderbook_ratio": 1.0359652292538744,
       "time": "2026-10-24T16:02:22+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-24T16:08:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T16:06:24+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-24T16:08:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "ORDERUSDT",
@@ -6746,6 +6747,7 @@
       "TREEUSDT",
       "ELSAUSDT",
       "INUSDT",
+      "AVAUSDT",
       "KATUSDT"
     ]
   }
