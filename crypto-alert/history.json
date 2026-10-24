@@ -6733,23 +6733,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-24T17:16:24+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-24T17:18:25+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ORDERUSDT",
       "BMTUSDT",
       "JCTUSDT",
+      "EPICUSDT",
       "LIGHTUSDT",
       "ARIAUSDT",
       "ERAUSDT",
       "BIRBUSDT",
+      "TREEUSDT",
       "MUSDT",
       "KATUSDT",
-      "TREEUSDT",
       "ZORAUSDT",
-      "AVAUSDT",
-      "ELSAUSDT"
+      "ELSAUSDT",
+      "AVAUSDT"
     ]
   }
 }
