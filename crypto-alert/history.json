@@ -6757,8 +6757,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T05:08:26+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-25T05:10:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -6768,11 +6768,12 @@
       "MAGMAUSDT",
       "ARIAUSDT",
       "USELESSUSDT",
-      "EPICUSDT",
       "AGTUSDT",
       "PROMPTUSDT",
+      "EPICUSDT",
+      "ELSAUSDT",
       "XMRUSDT",
-      "ELSAUSDT"
+      "ZECUSDT"
     ]
   }
 }
