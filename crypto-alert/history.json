@@ -6781,8 +6781,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T18:04:24+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-25T18:06:23+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -6793,15 +6793,16 @@
       "QNTUSDT",
       "ENAUSDT",
       "USELESSUSDT",
-      "PONSUSDT",
       "PYTHUSDT",
+      "PONSUSDT",
       "INJUSDT",
       "CTUSDT",
       "ZECUSDT",
-      "DASHUSDT",
       "NEARUSDT",
+      "DASHUSDT",
       "PUMPUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "AKEUSDT"
     ]
   }
 }
