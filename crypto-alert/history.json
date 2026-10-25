@@ -117,7 +117,7 @@
     "LITUSDT": "2026-10-21T18:38:27+00:00",
     "IOSTUSDT": "2026-10-21T19:46:27+00:00",
     "IRYSUSDT": "2026-10-24T04:38:26+00:00",
-    "LIGHTUSDT": "2026-10-24T16:02:22+00:00"
+    "LIGHTUSDT": "2026-10-25T03:16:23+00:00"
   },
   "alerts": [
     {
@@ -6730,22 +6730,46 @@
       "time": "2026-10-24T16:02:22+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-24T16:08:27+00:00"
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "pct": 15.63,
+      "price": 0.288,
+      "quote_volume": 942130.1921,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.28871686303932237,
+      "retrace_pct": 1.4373716632443658,
+      "wick_ratio": 0.21428571428571663,
+      "rsi": 65.82426998352844,
+      "divergence": true,
+      "vol_spike": 1.1609348325494353,
+      "btc_pct": 0.035912014452772284,
+      "sl": 0.295122,
+      "tp1": 0.277111,
+      "tp2": 0.267789,
+      "tp3": 0.2527,
+      "funding_rate": 0.02,
+      "orderbook_ratio": 0.9549082220501857,
+      "time": "2026-10-25T03:16:23+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T03:14:27+00:00",
-    "shortlist_count": 9,
-    "confirmed_count": 0,
+    "time": "2026-10-25T03:16:23+00:00",
+    "shortlist_count": 10,
+    "confirmed_count": 1,
     "symbols": [
       "JCTUSDT",
       "ORDERUSDT",
-      "EPICUSDT",
       "LIGHTUSDT",
+      "EPICUSDT",
       "USELESSUSDT",
       "APRUSDT",
       "ARIAUSDT",
       "XMRUSDT",
-      "PROMPTUSDT"
+      "PROMPTUSDT",
+      "AGTUSDT"
     ]
   }
 }
