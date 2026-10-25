@@ -6733,8 +6733,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T02:32:25+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-25T02:34:26+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -6745,12 +6745,10 @@
       "APRUSDT",
       "USELESSUSDT",
       "XMRUSDT",
-      "AGTUSDT",
       "PROMPTUSDT",
       "ARIAUSDT",
-      "BULLAUSDT",
-      "LITUSDT",
-      "ZECUSDT"
+      "AGTUSDT",
+      "BULLAUSDT"
     ]
   }
 }
