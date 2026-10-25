@@ -6733,8 +6733,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T00:00:41+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-25T00:02:36+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -6743,17 +6743,15 @@
       "LIGHTUSDT",
       "EPICUSDT",
       "BIRBUSDT",
-      "APRUSDT",
-      "PROMPTUSDT",
-      "ZORAUSDT",
-      "USELESSUSDT",
       "KATUSDT",
-      "TREEUSDT",
+      "APRUSDT",
+      "USELESSUSDT",
+      "ZORAUSDT",
+      "PROMPTUSDT",
       "ARIAUSDT",
       "DOSUSDT",
-      "XMRUSDT",
-      "INUSDT",
-      "ELSAUSDT"
+      "TREEUSDT",
+      "XMRUSDT"
     ]
   }
 }
