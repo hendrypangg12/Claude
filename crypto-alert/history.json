@@ -6757,8 +6757,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T11:10:29+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-25T11:12:25+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -6768,7 +6768,8 @@
       "BULLAUSDT",
       "AVAUSDT",
       "MAGMAUSDT",
-      "USELESSUSDT"
+      "USELESSUSDT",
+      "PROMPTUSDT"
     ]
   }
 }
