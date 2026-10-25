@@ -6757,23 +6757,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T12:04:26+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-25T12:06:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
       "APRUSDT",
-      "ARIAUSDT",
-      "SKYAIUSDT",
       "MAGMAUSDT",
+      "SKYAIUSDT",
       "QUSDT",
+      "ARIAUSDT",
       "USELESSUSDT",
       "BULLAUSDT",
-      "ZECUSDT",
       "ELSAUSDT",
       "AVAUSDT",
+      "ZECUSDT",
       "BSBUSDT",
-      "PONSUSDT"
+      "PONSUSDT",
+      "LITUSDT"
     ]
   }
 }
