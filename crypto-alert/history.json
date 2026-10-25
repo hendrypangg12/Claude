@@ -6776,12 +6776,13 @@
       "funding_rate": 0.102,
       "orderbook_ratio": 1.0895577018526945,
       "time": "2026-10-25T17:18:25+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-25T17:32:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T17:30:37+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-25T17:32:25+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -6796,13 +6797,14 @@
       "PYTHUSDT",
       "PONSUSDT",
       "NEARUSDT",
-      "JCTUSDT",
       "DASHUSDT",
-      "CTUSDT",
       "PUMPUSDT",
-      "BULLAUSDT",
+      "CTUSDT",
       "INJUSDT",
-      "UNIUSDT"
+      "JCTUSDT",
+      "BULLAUSDT",
+      "UNIUSDT",
+      "ELSAUSDT"
     ]
   }
 }
