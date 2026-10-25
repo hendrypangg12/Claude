@@ -6781,12 +6781,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T21:44:47+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-25T21:46:25+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
-      "APRUSDT",
       "CAPUSDT",
+      "APRUSDT",
       "TUSDT",
       "ARIAUSDT",
       "GRASSUSDT",
@@ -6794,11 +6794,9 @@
       "SKYAIUSDT",
       "ENAUSDT",
       "PYTHUSDT",
-      "BULLAUSDT",
       "QNTUSDT",
-      "PONSUSDT",
-      "DOSUSDT",
-      "INJUSDT"
+      "BULLAUSDT",
+      "PONSUSDT"
     ]
   }
 }
