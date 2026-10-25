@@ -6757,8 +6757,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T15:46:26+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-25T15:48:23+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "APRUSDT",
@@ -6769,16 +6769,19 @@
       "CTUSDT",
       "ENAUSDT",
       "PONSUSDT",
-      "DASHUSDT",
       "QNTUSDT",
+      "DASHUSDT",
       "ZECUSDT",
       "PYTHUSDT",
-      "ZROUSDT",
       "BULLAUSDT",
+      "ZROUSDT",
       "FOLKSUSDT",
       "UNIUSDT",
       "LITUSDT",
-      "AVAUSDT"
+      "AVAUSDT",
+      "DOSUSDT",
+      "NEARUSDT",
+      "PUMPUSDT"
     ]
   }
 }
