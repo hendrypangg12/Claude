@@ -6752,11 +6752,12 @@
       "funding_rate": 0.02,
       "orderbook_ratio": 0.9549082220501857,
       "time": "2026-10-25T03:16:23+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-10-25T03:46:25+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-25T03:44:23+00:00",
+    "time": "2026-10-25T03:46:25+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -6766,10 +6767,10 @@
       "APRUSDT",
       "USELESSUSDT",
       "ARIAUSDT",
-      "EPICUSDT",
       "AGTUSDT",
-      "XMRUSDT",
       "MAGMAUSDT",
+      "EPICUSDT",
+      "XMRUSDT",
       "PROMPTUSDT",
       "LITUSDT"
     ]
