@@ -6805,22 +6805,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T21:44:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-10-26T21:46:27+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "AINUSDT",
       "BULLAUSDT",
       "DOODUSDT",
-      "LIGHTUSDT",
       "CHIPUSDT",
+      "LIGHTUSDT",
       "KATUSDT",
       "BEATUSDT",
       "ERAUSDT",
       "ARIAUSDT",
       "QNTUSDT",
-      "TRUTHUSDT"
+      "TRUTHUSDT",
+      "TIAUSDT"
     ]
   }
 }
