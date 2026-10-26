@@ -112,7 +112,7 @@
     "QUSDT": "2026-10-19T22:06:26+00:00",
     "AGTUSDT": "2026-10-23T03:44:24+00:00",
     "CTRUSDT": "2026-10-19T18:08:51+00:00",
-    "ARIAUSDT": "2026-10-20T16:58:30+00:00",
+    "ARIAUSDT": "2026-10-26T15:50:43+00:00",
     "DOODUSDT": "2026-10-21T01:00:44+00:00",
     "LITUSDT": "2026-10-21T18:38:27+00:00",
     "IOSTUSDT": "2026-10-21T19:46:27+00:00",
@@ -6778,12 +6778,35 @@
       "time": "2026-10-25T17:18:25+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-25T17:32:25+00:00"
+    },
+    {
+      "symbol": "ARIAUSDT",
+      "pct": 8.67,
+      "price": 0.07636,
+      "quote_volume": 567536.5338,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3798818532926076,
+      "retrace_pct": 0.6117402056488328,
+      "wick_ratio": 0.24305555555554859,
+      "rsi": 72.04138825794581,
+      "divergence": true,
+      "vol_spike": 0.31880538404469017,
+      "btc_pct": 0.02183422365689232,
+      "sl": 0.0775983,
+      "tp1": 0.07448834,
+      "tp2": 0.07304166,
+      "tp3": 0.0707,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.4459989584865036,
+      "time": "2026-10-26T15:50:43+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T15:48:24+00:00",
-    "shortlist_count": 11,
-    "confirmed_count": 0,
+    "time": "2026-10-26T15:50:43+00:00",
+    "shortlist_count": 10,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "DOODUSDT",
@@ -6793,8 +6816,7 @@
       "AKEUSDT",
       "KATUSDT",
       "PYTHUSDT",
-      "QUSDT",
-      "PONSUSDT",
+      "ARIAUSDT",
       "PHAUSDT"
     ]
   }
