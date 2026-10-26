@@ -6781,8 +6781,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T08:54:37+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-26T08:56:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "DOODUSDT",
@@ -6792,20 +6792,19 @@
       "DOSUSDT",
       "LIGHTUSDT",
       "APRUSDT",
-      "AKEUSDT",
-      "ENAUSDT",
       "QNTUSDT",
+      "ENAUSDT",
+      "AKEUSDT",
       "NILUSDT",
-      "PHAUSDT",
       "BABYUSDT",
-      "PONSUSDT",
+      "PHAUSDT",
       "PYTHUSDT",
-      "UNIUSDT",
-      "ARBUSDT",
-      "GRASSUSDT",
-      "ETHFIUSDT",
+      "PONSUSDT",
       "ELSAUSDT",
-      "NEARUSDT"
+      "ARBUSDT",
+      "UNIUSDT",
+      "GRASSUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
