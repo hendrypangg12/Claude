@@ -6781,24 +6781,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T14:22:37+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-26T14:24:27+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "DOODUSDT",
       "BULLAUSDT",
       "QNTUSDT",
-      "ERAUSDT",
       "KATUSDT",
+      "ERAUSDT",
       "AKEUSDT",
-      "LIGHTUSDT",
       "PHAUSDT",
+      "LIGHTUSDT",
       "ENAUSDT",
       "PYTHUSDT",
       "GRASSUSDT",
       "UNIUSDT",
-      "PUMPUSDT",
-      "ETHFIUSDT"
+      "ONDOUSDT"
     ]
   }
 }
