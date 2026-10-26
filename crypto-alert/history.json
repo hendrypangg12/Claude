@@ -6781,7 +6781,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T06:38:23+00:00",
+    "time": "2026-10-26T06:40:34+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -6791,10 +6791,10 @@
       "DOSUSDT",
       "BABYUSDT",
       "ENAUSDT",
-      "QNTUSDT",
-      "ELSAUSDT",
       "PONSUSDT",
-      "AKEUSDT"
+      "ELSAUSDT",
+      "AKEUSDT",
+      "QNTUSDT"
     ]
   }
 }
