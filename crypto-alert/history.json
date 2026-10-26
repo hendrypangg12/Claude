@@ -6781,8 +6781,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-26T08:34:26+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-26T08:36:25+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "DOODUSDT",
@@ -6794,13 +6794,12 @@
       "AKEUSDT",
       "ENAUSDT",
       "QNTUSDT",
-      "BABYUSDT",
       "PHAUSDT",
+      "BABYUSDT",
       "PONSUSDT",
-      "ELSAUSDT",
       "PYTHUSDT",
-      "UNIUSDT",
-      "ARBUSDT"
+      "ELSAUSDT",
+      "UNIUSDT"
     ]
   }
 }
