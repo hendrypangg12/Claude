@@ -6829,8 +6829,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T23:46:26+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-27T23:49:08+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6846,14 +6846,15 @@
       "GRASSUSDT",
       "LIGHTUSDT",
       "CTUSDT",
-      "JCTUSDT",
       "PONSUSDT",
-      "HUMAUSDT",
-      "ZECUSDT",
       "DOODUSDT",
+      "HUMAUSDT",
+      "JCTUSDT",
+      "ZECUSDT",
       "INITUSDT",
       "BCHUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "NEARUSDT"
     ]
   }
 }
