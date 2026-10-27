@@ -6805,8 +6805,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T13:34:26+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-27T13:36:24+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6814,20 +6814,23 @@
       "HUMAUSDT",
       "QUSDT",
       "REZUSDT",
-      "JCTUSDT",
       "ELSAUSDT",
+      "JCTUSDT",
       "USUSDT",
       "CTUSDT",
       "TRUTHUSDT",
+      "CHIPUSDT",
       "CAPUSDT",
       "WUSDT",
-      "CHIPUSDT",
       "POWERUSDT",
-      "ARIAUSDT",
       "GRVTUSDT",
       "PONSUSDT",
       "ETHFIUSDT",
-      "AVAUSDT"
+      "STRKUSDT",
+      "DASHUSDT",
+      "ZECUSDT",
+      "AVAUSDT",
+      "ARIAUSDT"
     ]
   }
 }
