@@ -6805,8 +6805,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T08:56:37+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-27T08:58:23+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6819,13 +6819,14 @@
       "GRVTUSDT",
       "TRUTHUSDT",
       "NILUSDT",
-      "USUSDT",
-      "CTUSDT",
       "POWERUSDT",
       "DASHUSDT",
-      "WUSDT",
-      "QNTUSDT",
+      "CTUSDT",
+      "USUSDT",
+      "LIGHTUSDT",
       "ELSAUSDT",
+      "QNTUSDT",
+      "WUSDT",
       "WETUSDT"
     ]
   }
