@@ -6805,7 +6805,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T04:38:37+00:00",
+    "time": "2026-10-27T04:40:32+00:00",
     "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
@@ -6820,14 +6820,14 @@
       "LIGHTUSDT",
       "CHIPUSDT",
       "KATUSDT",
-      "ARIAUSDT",
       "TRUTHUSDT",
+      "ARIAUSDT",
       "DASHUSDT",
       "QNTUSDT",
       "WETUSDT",
       "ELSAUSDT",
-      "ETHFIUSDT",
-      "WUSDT"
+      "WUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
