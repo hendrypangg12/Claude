@@ -6805,18 +6805,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T03:10:30+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-27T03:12:26+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "AINUSDT",
       "DOODUSDT",
-      "JCTUSDT",
       "BULLAUSDT",
+      "JCTUSDT",
       "KATUSDT",
-      "CHIPUSDT",
       "USUSDT",
+      "CHIPUSDT",
       "GRVTUSDT",
       "LIGHTUSDT",
       "BEATUSDT",
@@ -6827,9 +6827,7 @@
       "ELSAUSDT",
       "WETUSDT",
       "TRUTHUSDT",
-      "LYNUSDT",
-      "COMPUSDT",
-      "ETHFIUSDT"
+      "LYNUSDT"
     ]
   }
 }
