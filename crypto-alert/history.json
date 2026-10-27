@@ -6829,7 +6829,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T17:06:30+00:00",
+    "time": "2026-10-27T17:08:55+00:00",
     "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
@@ -6847,9 +6847,9 @@
       "CTUSDT",
       "AVAUSDT",
       "ZECUSDT",
-      "JCTUSDT",
       "DASHUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "JCTUSDT"
     ]
   }
 }
