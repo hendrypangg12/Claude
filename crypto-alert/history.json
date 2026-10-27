@@ -6805,8 +6805,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T12:28:29+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-27T12:30:33+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6818,14 +6818,15 @@
       "REZUSDT",
       "ELSAUSDT",
       "TRUTHUSDT",
-      "USUSDT",
-      "CTUSDT",
       "CHIPUSDT",
+      "CTUSDT",
+      "USUSDT",
       "WUSDT",
       "POWERUSDT",
       "DASHUSDT",
+      "GRVTUSDT",
       "STRKUSDT",
-      "GRVTUSDT"
+      "ETHFIUSDT"
     ]
   }
 }
