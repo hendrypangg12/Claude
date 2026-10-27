@@ -6829,31 +6829,32 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T18:36:56+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-27T18:38:56+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "EVAAUSDT",
+      "BTWUSDT",
       "APRUSDT",
       "INITUSDT",
-      "BTWUSDT",
       "HAEDALUSDT",
       "GRVTUSDT",
-      "USUSDT",
-      "REZUSDT",
       "CTUSDT",
-      "AVAUSDT",
-      "BEATUSDT",
+      "REZUSDT",
       "HUMAUSDT",
-      "ELSAUSDT",
+      "AVAUSDT",
+      "USUSDT",
       "LIGHTUSDT",
+      "ELSAUSDT",
+      "BEATUSDT",
       "DOSUSDT",
       "NILUSDT",
       "ZECUSDT",
       "DOODUSDT",
+      "FETUSDT",
       "POWERUSDT",
-      "FETUSDT"
+      "PONSUSDT"
     ]
   }
 }
