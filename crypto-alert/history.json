@@ -6829,8 +6829,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T19:06:56+00:00",
-    "shortlist_count": 23,
+    "time": "2026-10-27T19:11:37+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6842,20 +6842,22 @@
       "GRVTUSDT",
       "BEATUSDT",
       "REZUSDT",
-      "CTUSDT",
       "DOSUSDT",
+      "CTUSDT",
       "AVAUSDT",
       "USUSDT",
-      "ELSAUSDT",
       "LIGHTUSDT",
+      "ELSAUSDT",
       "HUMAUSDT",
       "PONSUSDT",
-      "NILUSDT",
       "ZECUSDT",
-      "DOODUSDT",
+      "NILUSDT",
       "FETUSDT",
-      "POWERUSDT",
-      "NEARUSDT"
+      "ZROUSDT",
+      "WUSDT",
+      "DOODUSDT",
+      "NEARUSDT",
+      "POWERUSDT"
     ]
   }
 }
