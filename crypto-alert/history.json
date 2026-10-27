@@ -6829,18 +6829,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-27T23:38:27+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-27T23:40:37+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "EVAAUSDT",
       "AINUSDT",
-      "APRUSDT",
+      "EVAAUSDT",
       "BTWUSDT",
+      "APRUSDT",
       "HAEDALUSDT",
       "BEATUSDT",
-      "DOSUSDT",
       "JCTUSDT",
+      "DOSUSDT",
       "REZUSDT",
       "ONUSDT",
       "GRVTUSDT",
@@ -6850,9 +6850,10 @@
       "PONSUSDT",
       "INITUSDT",
       "HUMAUSDT",
-      "DOODUSDT",
       "ZECUSDT",
-      "BCHUSDT"
+      "DOODUSDT",
+      "BCHUSDT",
+      "FETUSDT"
     ]
   }
 }
