@@ -6926,8 +6926,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T19:54:46+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-28T19:56:43+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -6940,11 +6940,13 @@
       "ONUSDT",
       "BTWUSDT",
       "LYNUSDT",
-      "APRUSDT",
       "XPLUSDT",
+      "APRUSDT",
       "LTCUSDT",
       "POWERUSDT",
-      "ZROUSDT"
+      "PUMPUSDT",
+      "ZROUSDT",
+      "AKEUSDT"
     ]
   }
 }
