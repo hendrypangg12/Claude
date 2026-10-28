@@ -6878,8 +6878,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T12:42:25+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-28T12:44:24+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -6889,17 +6889,18 @@
       "APRUSDT",
       "ONUSDT",
       "DOSUSDT",
-      "HAEDALUSDT",
       "BTWUSDT",
+      "HAEDALUSDT",
       "PONSUSDT",
       "LABUSDT",
       "LYNUSDT",
       "JCTUSDT",
       "POWERUSDT",
       "GRVTUSDT",
-      "BSBUSDT",
+      "IOUSDT",
       "BCHUSDT",
-      "IOUSDT"
+      "BSBUSDT",
+      "USELESSUSDT"
     ]
   }
 }
