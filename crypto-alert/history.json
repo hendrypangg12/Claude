@@ -6926,7 +6926,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T22:06:28+00:00",
+    "time": "2026-10-28T22:08:25+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -6940,12 +6940,12 @@
       "PONSUSDT",
       "BULLAUSDT",
       "LYNUSDT",
-      "APRUSDT",
       "PUMPUSDT",
+      "APRUSDT",
       "XPLUSDT",
-      "LTCUSDT",
       "ARBUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "LTCUSDT"
     ]
   }
 }
