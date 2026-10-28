@@ -6926,14 +6926,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T23:10:56+00:00",
-    "shortlist_count": 14,
+    "time": "2026-10-28T23:12:25+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "INITUSDT",
-      "QUSDT",
       "XANUSDT",
+      "QUSDT",
       "BLESSUSDT",
       "NAORISUSDT",
       "ONUSDT",
@@ -6942,8 +6942,9 @@
       "KASUSDT",
       "POWERUSDT",
       "PUMPUSDT",
+      "KATUSDT",
       "XPLUSDT",
-      "KATUSDT"
+      "LYNUSDT"
     ]
   }
 }
