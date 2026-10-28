@@ -6897,12 +6897,13 @@
       "funding_rate": 0.024,
       "orderbook_ratio": 0.7986393713367791,
       "time": "2026-10-28T13:00:48+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-28T13:18:27+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T13:16:24+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-28T13:18:27+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -6912,15 +6913,13 @@
       "APRUSDT",
       "ONUSDT",
       "DOSUSDT",
-      "BTWUSDT",
       "HAEDALUSDT",
+      "BTWUSDT",
       "LYNUSDT",
       "PONSUSDT",
-      "AINUSDT",
-      "JCTUSDT",
       "LABUSDT",
+      "JCTUSDT",
       "POWERUSDT",
-      "XPLUSDT",
       "BCHUSDT"
     ]
   }
