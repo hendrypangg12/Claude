@@ -6926,7 +6926,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T19:36:47+00:00",
+    "time": "2026-10-28T19:42:22+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -6935,15 +6935,15 @@
       "QUSDT",
       "XANUSDT",
       "NAORISUSDT",
+      "INITUSDT",
       "PONSUSDT",
       "ONUSDT",
-      "INITUSDT",
       "BTWUSDT",
-      "LYNUSDT",
       "APRUSDT",
+      "LYNUSDT",
       "XPLUSDT",
-      "LTCUSDT",
-      "POWERUSDT"
+      "POWERUSDT",
+      "LTCUSDT"
     ]
   }
 }
