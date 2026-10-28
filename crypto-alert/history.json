@@ -6878,7 +6878,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T03:42:27+00:00",
+    "time": "2026-10-28T03:44:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -6890,9 +6890,9 @@
       "PONSUSDT",
       "BEATUSDT",
       "HUMAUSDT",
-      "INITUSDT",
       "ONUSDT",
       "DOSUSDT",
+      "INITUSDT",
       "LABUSDT",
       "GRVTUSDT",
       "GRASSUSDT",
@@ -6903,15 +6903,15 @@
       "FETUSDT",
       "NEARUSDT",
       "LIGHTUSDT",
-      "PUMPUSDT",
       "BCHUSDT",
       "POWERUSDT",
+      "PUMPUSDT",
+      "CTUSDT",
+      "AEROUSDT",
       "HYPEUSDT",
       "XPLUSDT",
-      "GALAUSDT",
-      "AEROUSDT",
-      "CTUSDT",
-      "WUSDT"
+      "WUSDT",
+      "GALAUSDT"
     ]
   }
 }
