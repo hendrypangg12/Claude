@@ -6854,8 +6854,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-28T02:04:28+00:00",
-    "shortlist_count": 26,
+    "time": "2026-10-28T02:06:26+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -6874,16 +6874,17 @@
       "REZUSDT",
       "USELESSUSDT",
       "LIGHTUSDT",
+      "JCTUSDT",
       "AVAUSDT",
       "ZECUSDT",
-      "JCTUSDT",
-      "NEARUSDT",
-      "ZROUSDT",
       "INITUSDT",
+      "ZROUSDT",
+      "NEARUSDT",
       "FETUSDT",
       "HYPEUSDT",
       "BCHUSDT",
-      "WUSDT"
+      "WUSDT",
+      "AEROUSDT"
     ]
   }
 }
