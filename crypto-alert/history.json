@@ -6926,8 +6926,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T00:50:31+00:00",
-    "shortlist_count": 13,
+    "time": "2026-10-29T00:51:24+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -6939,10 +6939,11 @@
       "QUSDT",
       "BLESSUSDT",
       "LYNUSDT",
-      "KASUSDT",
-      "POWERUSDT",
       "KATUSDT",
-      "APRUSDT"
+      "POWERUSDT",
+      "KASUSDT",
+      "APRUSDT",
+      "LTCUSDT"
     ]
   }
 }
