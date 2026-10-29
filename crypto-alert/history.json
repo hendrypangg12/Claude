@@ -109,7 +109,7 @@
     "ZEREBROUSDT": "2026-10-19T03:40:51+00:00",
     "SANDUSDT": "2026-10-17T14:22:25+00:00",
     "ERAUSDT": "2026-10-24T11:48:27+00:00",
-    "QUSDT": "2026-10-19T22:06:26+00:00",
+    "QUSDT": "2026-10-29T02:16:26+00:00",
     "AGTUSDT": "2026-10-23T03:44:24+00:00",
     "CTRUSDT": "2026-10-19T18:08:51+00:00",
     "ARIAUSDT": "2026-10-26T15:50:43+00:00",
@@ -6923,23 +6923,47 @@
       "time": "2026-10-28T14:16:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-28T14:36:42+00:00"
+    },
+    {
+      "symbol": "QUSDT",
+      "pct": 8.41,
+      "price": 0.068828,
+      "quote_volume": 3280655.331894,
+      "risk": "🟠 MODERATE (tetep leverage — gak ada yang beneran 'aman')",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.592582499019628,
+      "retrace_pct": 0.3936324167872569,
+      "wick_ratio": 0.7602339181286553,
+      "rsi": 66.77456231914668,
+      "divergence": false,
+      "vol_spike": 0.11829199412388283,
+      "btc_pct": -0.6913831837839677,
+      "sl": 0.06979099999999999,
+      "tp1": 0.067051334,
+      "tp2": 0.06578566599999999,
+      "tp3": 0.063737,
+      "funding_rate": -0.05,
+      "orderbook_ratio": 0.1794476528944195,
+      "time": "2026-10-29T02:16:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T02:14:27+00:00",
-    "shortlist_count": 10,
-    "confirmed_count": 0,
+    "time": "2026-10-29T02:16:26+00:00",
+    "shortlist_count": 11,
+    "confirmed_count": 1,
     "symbols": [
-      "IDOLUSDT",
       "EVAAUSDT",
+      "IDOLUSDT",
       "INITUSDT",
       "QUSDT",
       "ONUSDT",
       "NAORISUSDT",
-      "XANUSDT",
       "BLESSUSDT",
+      "XANUSDT",
       "APRUSDT",
-      "AGTUSDT"
+      "AGTUSDT",
+      "LYNUSDT"
     ]
   }
 }
