@@ -6926,8 +6926,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T00:18:25+00:00",
-    "shortlist_count": 17,
+    "time": "2026-10-29T00:20:32+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "INITUSDT",
@@ -6938,15 +6938,14 @@
       "ONUSDT",
       "XANUSDT",
       "APRUSDT",
-      "PONSUSDT",
-      "KASUSDT",
       "POWERUSDT",
+      "KASUSDT",
+      "PONSUSDT",
       "KATUSDT",
       "PUMPUSDT",
       "XPLUSDT",
       "LTCUSDT",
-      "BSBUSDT",
-      "LYNUSDT"
+      "BSBUSDT"
     ]
   }
 }
