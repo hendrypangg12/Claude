@@ -6974,16 +6974,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T10:54:28+00:00",
-    "shortlist_count": 6,
-    "confirmed_count": 1,
+    "time": "2026-10-29T10:56:26+00:00",
+    "shortlist_count": 5,
+    "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
+      "INITUSDT",
       "BEATUSDT",
       "APRUSDT",
-      "INITUSDT",
-      "NAORISUSDT",
-      "HYPEUSDT"
+      "NAORISUSDT"
     ]
   }
 }
