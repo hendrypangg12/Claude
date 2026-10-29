@@ -6975,8 +6975,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T16:08:29+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-29T16:10:54+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -6987,17 +6987,21 @@
       "LITUSDT",
       "BULLAUSDT",
       "ENAUSDT",
-      "UAIUSDT",
       "PUMPUSDT",
-      "INITUSDT",
       "ZECUSDT",
+      "UAIUSDT",
+      "INITUSDT",
       "PENGUUSDT",
       "UNIUSDT",
-      "ARBUSDT",
       "ETHFIUSDT",
-      "INJUSDT",
+      "ARBUSDT",
       "USELESSUSDT",
-      "KASUSDT"
+      "INJUSDT",
+      "KASUSDT",
+      "CCUSDT",
+      "ZROUSDT",
+      "WIFUSDT",
+      "ONDOUSDT"
     ]
   }
 }
