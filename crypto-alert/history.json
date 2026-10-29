@@ -118,7 +118,8 @@
     "IOSTUSDT": "2026-10-21T19:46:27+00:00",
     "IRYSUSDT": "2026-10-24T04:38:26+00:00",
     "LIGHTUSDT": "2026-10-25T03:16:23+00:00",
-    "APRUSDT": "2026-10-28T01:44:26+00:00"
+    "APRUSDT": "2026-10-28T01:44:26+00:00",
+    "HYPEUSDT": "2026-10-29T10:54:28+00:00"
   },
   "alerts": [
     {
@@ -6947,12 +6948,35 @@
       "time": "2026-10-29T02:16:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-29T02:22:42+00:00"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "pct": 8.55,
+      "price": 85.76,
+      "quote_volume": 1167287.91,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4011803528087516,
+      "retrace_pct": 0.4873520538408002,
+      "wick_ratio": 0.043478260869586706,
+      "rsi": 77.02158407850169,
+      "divergence": false,
+      "vol_spike": 0.04543718976708667,
+      "btc_pct": 0.2664264490299471,
+      "sl": 87.04180000000001,
+      "tp1": 83.58622,
+      "tp2": 81.98378,
+      "tp3": 79.39,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 7.238864740475581,
+      "time": "2026-10-29T10:54:28+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T10:52:31+00:00",
+    "time": "2026-10-29T10:54:28+00:00",
     "shortlist_count": 6,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "IDOLUSDT",
       "BEATUSDT",
