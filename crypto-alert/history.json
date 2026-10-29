@@ -6975,7 +6975,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T15:24:44+00:00",
+    "time": "2026-10-29T15:26:33+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -6983,9 +6983,9 @@
       "BEATUSDT",
       "APRUSDT",
       "HYPEUSDT",
+      "INITUSDT",
       "UAIUSDT",
       "AKEUSDT",
-      "INITUSDT",
       "ENAUSDT",
       "LITUSDT",
       "BASEDUSDT",
@@ -6993,8 +6993,8 @@
       "CCUSDT",
       "INJUSDT",
       "UNIUSDT",
-      "ETHFIUSDT",
-      "LABUSDT"
+      "LABUSDT",
+      "ETHFIUSDT"
     ]
   }
 }
