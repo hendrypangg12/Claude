@@ -6975,14 +6975,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T15:30:48+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-29T15:32:31+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "BEATUSDT",
-      "APRUSDT",
       "INITUSDT",
+      "APRUSDT",
       "HYPEUSDT",
       "UAIUSDT",
       "ENAUSDT",
@@ -6990,10 +6990,12 @@
       "LITUSDT",
       "PUMPUSDT",
       "BASEDUSDT",
+      "INJUSDT",
       "BULLAUSDT",
       "ETHFIUSDT",
-      "INJUSDT",
-      "LABUSDT"
+      "UNIUSDT",
+      "ZECUSDT",
+      "ARBUSDT"
     ]
   }
 }
