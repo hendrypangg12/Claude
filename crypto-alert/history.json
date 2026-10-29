@@ -6975,7 +6975,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T14:38:26+00:00",
+    "time": "2026-10-29T14:40:32+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -6986,15 +6986,15 @@
       "AKEUSDT",
       "ENAUSDT",
       "PUMPUSDT",
-      "LITUSDT",
       "ARBUSDT",
-      "CCUSDT",
+      "LITUSDT",
+      "BULLAUSDT",
       "LABUSDT",
+      "CCUSDT",
       "ETHFIUSDT",
-      "INJUSDT",
+      "UNIUSDT",
       "FILUSDT",
-      "PYTHUSDT",
-      "UNIUSDT"
+      "INJUSDT"
     ]
   }
 }
