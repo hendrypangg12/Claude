@@ -6975,7 +6975,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T15:04:28+00:00",
+    "time": "2026-10-29T15:06:28+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -6987,9 +6987,9 @@
       "ENAUSDT",
       "LITUSDT",
       "PUMPUSDT",
+      "CCUSDT",
       "INITUSDT",
-      "LABUSDT",
-      "CCUSDT"
+      "LABUSDT"
     ]
   }
 }
