@@ -6975,21 +6975,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T14:16:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-10-29T14:18:26+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "BEATUSDT",
       "APRUSDT",
       "HYPEUSDT",
-      "BULLAUSDT",
       "AKEUSDT",
+      "AINUSDT",
       "ENAUSDT",
       "CCUSDT",
-      "AINUSDT",
+      "BULLAUSDT",
       "PUMPUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "LABUSDT",
+      "ARBUSDT"
     ]
   }
 }
