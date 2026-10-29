@@ -6975,16 +6975,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T11:32:28+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-29T11:34:34+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "BEATUSDT",
       "APRUSDT",
-      "AINUSDT",
+      "BEATUSDT",
       "NAORISUSDT",
       "BULLAUSDT",
+      "AINUSDT",
+      "INITUSDT",
       "HYPEUSDT",
       "BTWUSDT"
     ]
