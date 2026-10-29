@@ -6950,19 +6950,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T02:26:25+00:00",
-    "shortlist_count": 9,
+    "time": "2026-10-29T02:28:26+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "EVAAUSDT",
       "INITUSDT",
-      "ONUSDT",
       "QUSDT",
+      "ONUSDT",
       "NAORISUSDT",
       "XANUSDT",
       "BLESSUSDT",
-      "AGTUSDT"
+      "AGTUSDT",
+      "POWERUSDT"
     ]
   }
 }
