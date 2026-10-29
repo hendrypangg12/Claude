@@ -6975,13 +6975,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T16:38:50+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-29T16:40:38+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "BEATUSDT",
       "APRUSDT",
+      "BEATUSDT",
       "HYPEUSDT",
       "BULLAUSDT",
       "LITUSDT",
@@ -6989,12 +6989,10 @@
       "PUMPUSDT",
       "UAIUSDT",
       "ZECUSDT",
-      "BLESSUSDT",
       "LABUSDT",
       "UNIUSDT",
       "INJUSDT",
-      "ARBUSDT",
-      "ZROUSDT"
+      "ARBUSDT"
     ]
   }
 }
