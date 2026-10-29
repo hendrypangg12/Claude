@@ -6975,8 +6975,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-29T14:34:27+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-29T14:36:29+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -6987,13 +6987,14 @@
       "ENAUSDT",
       "PUMPUSDT",
       "CCUSDT",
-      "LITUSDT",
       "BULLAUSDT",
       "LABUSDT",
+      "LITUSDT",
       "ARBUSDT",
-      "PYTHUSDT",
+      "ETHFIUSDT",
       "INJUSDT",
-      "ETHFIUSDT"
+      "PYTHUSDT",
+      "FILUSDT"
     ]
   }
 }
