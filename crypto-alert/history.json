@@ -7000,16 +7000,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T21:10:45+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-30T21:12:25+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "BIRBUSDT",
       "SOPHUSDT",
+      "BIRBUSDT",
       "BEAMXUSDT",
-      "AINUSDT",
       "BLURUSDT",
+      "AINUSDT",
       "XPLUSDT",
       "ONUSDT",
       "NILUSDT",
@@ -7021,7 +7021,8 @@
       "BCHUSDT",
       "DOTUSDT",
       "IRYSUSDT",
-      "POLUSDT"
+      "ALPINEUSDT",
+      "ARBUSDT"
     ]
   }
 }
