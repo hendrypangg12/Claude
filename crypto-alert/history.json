@@ -7000,18 +7000,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T16:22:34+00:00",
-    "shortlist_count": 8,
+    "time": "2026-10-30T16:24:24+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
-      "BEAMXUSDT",
       "PARTIUSDT",
+      "BEAMXUSDT",
       "QUSDT",
       "AINUSDT",
       "EVAAUSDT",
       "ONUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "AVAUSDT"
     ]
   }
 }
