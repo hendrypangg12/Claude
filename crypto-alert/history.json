@@ -6975,7 +6975,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T01:28:34+00:00",
+    "time": "2026-10-30T01:30:38+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
@@ -6985,9 +6985,9 @@
       "HYPEUSDT",
       "APRUSDT",
       "TRXUSDT",
-      "BULLAUSDT",
       "XMRUSDT",
-      "SUNUSDT"
+      "SUNUSDT",
+      "BULLAUSDT"
     ]
   }
 }
