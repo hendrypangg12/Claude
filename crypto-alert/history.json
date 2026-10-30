@@ -119,7 +119,8 @@
     "IRYSUSDT": "2026-10-24T04:38:26+00:00",
     "LIGHTUSDT": "2026-10-25T03:16:23+00:00",
     "APRUSDT": "2026-10-28T01:44:26+00:00",
-    "HYPEUSDT": "2026-10-29T10:54:28+00:00"
+    "HYPEUSDT": "2026-10-29T10:54:28+00:00",
+    "ALPINEUSDT": "2026-10-30T13:22:40+00:00"
   },
   "alerts": [
     {
@@ -6972,15 +6973,38 @@
       "time": "2026-10-29T10:54:28+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-10-29T11:16:28+00:00"
+    },
+    {
+      "symbol": "ALPINEUSDT",
+      "pct": 8.3,
+      "price": 0.3298,
+      "quote_volume": 707945.0685,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2815593700700015,
+      "retrace_pct": 0.5428226779252182,
+      "wick_ratio": 0.7777777777777743,
+      "rsi": 67.10968750032109,
+      "divergence": false,
+      "vol_spike": 0.04793574727696227,
+      "btc_pct": -0.009960595573841862,
+      "sl": 0.334916,
+      "tp1": 0.3218972,
+      "tp2": 0.31590280000000004,
+      "tp3": 0.3062,
+      "funding_rate": -0.402,
+      "orderbook_ratio": 1.563285699961114,
+      "time": "2026-10-30T13:22:40+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T13:20:31+00:00",
-    "shortlist_count": 13,
-    "confirmed_count": 0,
+    "time": "2026-10-30T13:22:40+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 1,
     "symbols": [
-      "BLESSUSDT",
       "BEAMXUSDT",
+      "BLESSUSDT",
       "PARTIUSDT",
       "IDOLUSDT",
       "AINUSDT",
@@ -6990,8 +7014,7 @@
       "ONUSDT",
       "RUNEUSDT",
       "EVAAUSDT",
-      "BULLAUSDT",
-      "BEATUSDT"
+      "BULLAUSDT"
     ]
   }
 }
