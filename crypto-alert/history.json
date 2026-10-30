@@ -6975,12 +6975,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T09:56:30+00:00",
-    "shortlist_count": 16,
+    "time": "2026-10-30T09:58:28+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
-      "PARTIUSDT",
       "BEAMXUSDT",
+      "PARTIUSDT",
       "BLESSUSDT",
       "EVAAUSDT",
       "ALPINEUSDT",
@@ -6991,10 +6991,9 @@
       "JCTUSDT",
       "RUNEUSDT",
       "APRUSDT",
-      "QUSDT",
       "BEATUSDT",
-      "龙虾USDT",
-      "BULLAUSDT"
+      "QUSDT",
+      "龙虾USDT"
     ]
   }
 }
