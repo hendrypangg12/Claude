@@ -6995,11 +6995,12 @@
       "funding_rate": -0.402,
       "orderbook_ratio": 1.563285699961114,
       "time": "2026-10-30T13:22:40+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-10-30T13:44:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T13:42:24+00:00",
+    "time": "2026-10-30T13:44:28+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -7009,11 +7010,11 @@
       "IDOLUSDT",
       "AINUSDT",
       "QUSDT",
-      "ALPINEUSDT",
       "ONUSDT",
+      "ALPINEUSDT",
+      "BULLAUSDT",
       "JCTUSDT",
       "RUNEUSDT",
-      "BULLAUSDT",
       "BEATUSDT"
     ]
   }
