@@ -7000,8 +7000,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T21:42:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-10-30T21:44:23+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
@@ -7012,19 +7012,23 @@
       "BLURUSDT",
       "XPLUSDT",
       "NILUSDT",
-      "QUSDT",
-      "AVAUSDT",
       "DOSUSDT",
+      "AVAUSDT",
       "ONUSDT",
       "ZROUSDT",
-      "ALPINEUSDT",
       "POLUSDT",
+      "ALPINEUSDT",
       "DOTUSDT",
       "IRYSUSDT",
+      "ONDOUSDT",
+      "UNIUSDT",
+      "RUNEUSDT",
+      "FILUSDT",
+      "VIRTUALUSDT",
       "BCHUSDT",
       "ICPUSDT",
-      "UNIUSDT",
-      "ONDOUSDT"
+      "WIFUSDT",
+      "BEATUSDT"
     ]
   }
 }
