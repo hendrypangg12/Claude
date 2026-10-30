@@ -7024,14 +7024,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T22:22:25+00:00",
-    "shortlist_count": 26,
+    "time": "2026-10-30T22:24:27+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "SOPHUSDT",
-      "BEAMXUSDT",
       "BIRBUSDT",
+      "BEAMXUSDT",
       "AINUSDT",
       "BLURUSDT",
       "NILUSDT",
@@ -7039,21 +7039,23 @@
       "ONUSDT",
       "AVAUSDT",
       "UNIUSDT",
-      "DOSUSDT",
       "ZROUSDT",
-      "POLUSDT",
+      "DOSUSDT",
       "ALPINEUSDT",
-      "ONDOUSDT",
-      "龙虾USDT",
+      "POLUSDT",
       "IRYSUSDT",
-      "EIGENUSDT",
-      "WIFUSDT",
-      "ICPUSDT",
+      "ONDOUSDT",
       "QUSDT",
-      "DOTUSDT",
-      "GALAUSDT",
+      "龙虾USDT",
+      "EIGENUSDT",
+      "ICPUSDT",
+      "WIFUSDT",
       "FILUSDT",
-      "BCHUSDT"
+      "BCHUSDT",
+      "NEARUSDT",
+      "ARBUSDT",
+      "DOTUSDT",
+      "GALAUSDT"
     ]
   }
 }
