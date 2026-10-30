@@ -7000,7 +7000,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-30T21:44:23+00:00",
+    "time": "2026-10-30T21:46:28+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -7018,17 +7018,17 @@
       "ZROUSDT",
       "POLUSDT",
       "ALPINEUSDT",
-      "DOTUSDT",
       "IRYSUSDT",
+      "DOTUSDT",
       "ONDOUSDT",
       "UNIUSDT",
-      "RUNEUSDT",
       "FILUSDT",
-      "VIRTUALUSDT",
-      "BCHUSDT",
-      "ICPUSDT",
       "WIFUSDT",
-      "BEATUSDT"
+      "ICPUSDT",
+      "BCHUSDT",
+      "BEATUSDT",
+      "VIRTUALUSDT",
+      "RUNEUSDT"
     ]
   }
 }
