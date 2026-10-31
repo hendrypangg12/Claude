@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T04:12:27+00:00",
-    "shortlist_count": 28,
+    "time": "2026-10-31T04:14:26+00:00",
+    "shortlist_count": 29,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7033,17 +7033,17 @@
       "BEAMXUSDT",
       "SOPHUSDT",
       "BIRBUSDT",
-      "NILUSDT",
       "GTCUSDT",
       "BLURUSDT",
+      "NILUSDT",
       "ONUSDT",
       "EIGENUSDT",
       "AVAUSDT",
       "ALPINEUSDT",
-      "DOSUSDT",
-      "ZROUSDT",
       "PENDLEUSDT",
+      "ZROUSDT",
       "CAPUSDT",
+      "DOSUSDT",
       "PYTHUSDT",
       "XPLUSDT",
       "POLUSDT",
@@ -7052,10 +7052,11 @@
       "ONDOUSDT",
       "AAVEUSDT",
       "QNTUSDT",
-      "GALAUSDT",
-      "APEUSDT",
+      "IOUSDT",
+      "CRVUSDT",
       "LINKUSDT",
-      "IOUSDT"
+      "APEUSDT",
+      "GALAUSDT"
     ]
   }
 }
