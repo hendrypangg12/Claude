@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T04:04:24+00:00",
+    "time": "2026-10-31T04:06:25+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7047,17 +7047,17 @@
       "PYTHUSDT",
       "XPLUSDT",
       "JASMYUSDT",
+      "ONDOUSDT",
+      "POLUSDT",
+      "QNTUSDT",
       "APEUSDT",
       "AAVEUSDT",
-      "POLUSDT",
-      "ONDOUSDT",
-      "QNTUSDT",
       "CTUSDT",
       "PHAUSDT",
-      "IOUSDT",
-      "LINKUSDT",
+      "GALAUSDT",
       "ENAUSDT",
-      "GALAUSDT"
+      "IOUSDT",
+      "LINKUSDT"
     ]
   }
 }
