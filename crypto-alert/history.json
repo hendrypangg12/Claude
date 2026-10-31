@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T21:20:32+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-31T21:22:25+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7040,13 +7040,12 @@
       "ZROUSDT",
       "NMRUSDT",
       "POWERUSDT",
-      "LINKUSDT",
       "RUNEUSDT",
       "QNTUSDT",
-      "ETHFIUSDT",
+      "LINKUSDT",
       "GTCUSDT",
-      "AAVEUSDT",
-      "PYTHUSDT"
+      "ETHFIUSDT",
+      "AAVEUSDT"
     ]
   }
 }
