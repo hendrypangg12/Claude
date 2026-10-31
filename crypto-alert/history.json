@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T05:00:39+00:00",
+    "time": "2026-10-31T05:02:23+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -7043,14 +7043,14 @@
       "ALPINEUSDT",
       "ONUSDT",
       "PENDLEUSDT",
-      "XPLUSDT",
       "DOSUSDT",
+      "XPLUSDT",
       "CRVUSDT",
-      "PYTHUSDT",
-      "EVAAUSDT",
-      "POLUSDT",
       "PHAUSDT",
-      "CTUSDT"
+      "PYTHUSDT",
+      "POLUSDT",
+      "CTUSDT",
+      "IRYSUSDT"
     ]
   }
 }
