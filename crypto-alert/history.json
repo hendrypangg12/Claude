@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T15:08:22+00:00",
+    "time": "2026-10-31T15:10:33+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -7033,15 +7033,15 @@
       "WETUSDT",
       "IDOLUSDT",
       "LYNUSDT",
-      "GTCUSDT",
       "RSRUSDT",
+      "GTCUSDT",
       "RUNEUSDT",
       "PENDLEUSDT",
       "AAVEUSDT",
       "HOTUSDT",
-      "IRYSUSDT",
       "PYTHUSDT",
-      "TIAUSDT"
+      "TIAUSDT",
+      "IRYSUSDT"
     ]
   }
 }
