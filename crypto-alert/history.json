@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T05:36:23+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-31T05:38:23+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7033,8 +7033,8 @@
       "BEAMXUSDT",
       "GTCUSDT",
       "AVAUSDT",
-      "BIRBUSDT",
       "BULLAUSDT",
+      "BIRBUSDT",
       "BLURUSDT",
       "LYNUSDT",
       "ONUSDT",
@@ -7042,11 +7042,12 @@
       "ALPINEUSDT",
       "EIGENUSDT",
       "PENDLEUSDT",
-      "IRYSUSDT",
       "EVAAUSDT",
+      "IRYSUSDT",
       "CTUSDT",
       "XPLUSDT",
-      "NILUSDT"
+      "CAPUSDT",
+      "ONDOUSDT"
     ]
   }
 }
