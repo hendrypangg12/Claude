@@ -7024,14 +7024,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T10:52:23+00:00",
-    "shortlist_count": 18,
+    "time": "2026-10-31T10:54:24+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "IDOLUSDT",
-      "BEAMXUSDT",
       "BIRBUSDT",
+      "BEAMXUSDT",
       "LYNUSDT",
       "DOSUSDT",
       "RSRUSDT",
@@ -7042,10 +7042,8 @@
       "XPLUSDT",
       "HOTUSDT",
       "CAKEUSDT",
-      "ONDOUSDT",
       "IRYSUSDT",
-      "PYTHUSDT",
-      "LINKUSDT"
+      "ONDOUSDT"
     ]
   }
 }
