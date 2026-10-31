@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T20:14:23+00:00",
+    "time": "2026-10-31T20:16:40+00:00",
     "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
@@ -7038,16 +7038,16 @@
       "RSRUSDT",
       "LINKUSDT",
       "CTUSDT",
-      "POWERUSDT",
       "PYTHUSDT",
       "QNTUSDT",
+      "POWERUSDT",
       "GTCUSDT",
-      "AAVEUSDT",
-      "NMRUSDT",
       "ZROUSDT",
+      "NMRUSDT",
+      "AAVEUSDT",
       "ETHFIUSDT",
-      "AEROUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "AEROUSDT"
     ]
   }
 }
