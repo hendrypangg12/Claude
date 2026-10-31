@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T16:20:28+00:00",
-    "shortlist_count": 20,
+    "time": "2026-10-31T16:22:23+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7034,20 +7034,23 @@
       "WETUSDT",
       "GTCUSDT",
       "PYTHUSDT",
-      "AAVEUSDT",
-      "CTUSDT",
-      "PENDLEUSDT",
-      "RUNEUSDT",
+      "LYNUSDT",
       "BLESSUSDT",
+      "AAVEUSDT",
+      "PENDLEUSDT",
+      "CTUSDT",
+      "BEAMXUSDT",
+      "RUNEUSDT",
       "MARSCOINUSDT",
       "TIAUSDT",
-      "LYNUSDT",
-      "GRAMUSDT",
       "ETHFIUSDT",
-      "BEAMXUSDT",
+      "GRAMUSDT",
       "INJUSDT",
       "HOTUSDT",
-      "XPLUSDT"
+      "XPLUSDT",
+      "ZECUSDT",
+      "QNTUSDT",
+      "IRYSUSDT"
     ]
   }
 }
