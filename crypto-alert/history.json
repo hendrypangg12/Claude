@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T14:06:28+00:00",
-    "shortlist_count": 19,
+    "time": "2026-10-31T14:08:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7039,14 +7039,15 @@
       "AAVEUSDT",
       "RUNEUSDT",
       "PYTHUSDT",
-      "TIAUSDT",
       "LINKUSDT",
+      "TIAUSDT",
       "ONDOUSDT",
       "ZECUSDT",
       "ETHFIUSDT",
-      "CAKEUSDT",
       "RSRUSDT",
-      "DOSUSDT"
+      "CAKEUSDT",
+      "DOSUSDT",
+      "CTUSDT"
     ]
   }
 }
