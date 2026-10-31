@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T06:46:27+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-31T06:48:24+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7037,10 +7037,10 @@
       "DOSUSDT",
       "NILUSDT",
       "LYNUSDT",
-      "GTCUSDT",
       "EIGENUSDT",
-      "ONUSDT",
+      "GTCUSDT",
       "CAPUSDT",
+      "ONUSDT",
       "PENDLEUSDT",
       "CTUSDT",
       "ONDOUSDT",
@@ -7049,7 +7049,10 @@
       "ACNUSDT",
       "JASMYUSDT",
       "AAVEUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "IRYSUSDT",
+      "TIAUSDT",
+      "POLUSDT"
     ]
   }
 }
