@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T04:44:22+00:00",
-    "shortlist_count": 22,
+    "time": "2026-10-31T04:46:26+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7037,19 +7037,17 @@
       "BIRBUSDT",
       "GTCUSDT",
       "BULLAUSDT",
-      "NILUSDT",
       "ONUSDT",
+      "NILUSDT",
       "EIGENUSDT",
       "ALPINEUSDT",
+      "LYNUSDT",
       "PENDLEUSDT",
       "DOSUSDT",
-      "LYNUSDT",
       "PYTHUSDT",
-      "XPLUSDT",
-      "POLUSDT",
-      "IRYSUSDT",
       "CRVUSDT",
-      "CTUSDT"
+      "XPLUSDT",
+      "POLUSDT"
     ]
   }
 }
