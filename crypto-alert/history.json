@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T03:26:24+00:00",
+    "time": "2026-10-31T03:28:22+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7045,19 +7045,19 @@
       "PHAUSDT",
       "CAPUSDT",
       "PYTHUSDT",
-      "POLUSDT",
-      "XPLUSDT",
       "EVAAUSDT",
+      "XPLUSDT",
+      "POLUSDT",
+      "DOSUSDT",
       "ETHFIUSDT",
       "ONDOUSDT",
-      "DOSUSDT",
       "AAVEUSDT",
-      "LINKUSDT",
       "USELESSUSDT",
+      "LINKUSDT",
       "CCUSDT",
       "QNTUSDT",
       "CTUSDT",
-      "JASMYUSDT"
+      "ENAUSDT"
     ]
   }
 }
