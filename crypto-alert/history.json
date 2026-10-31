@@ -7024,8 +7024,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-10-31T12:22:23+00:00",
-    "shortlist_count": 15,
+    "time": "2026-10-31T12:24:29+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
@@ -7033,8 +7033,8 @@
       "BIRBUSDT",
       "IDOLUSDT",
       "GTCUSDT",
-      "PENDLEUSDT",
       "LYNUSDT",
+      "PENDLEUSDT",
       "IRYSUSDT",
       "XPLUSDT",
       "BEAMXUSDT",
@@ -7042,7 +7042,8 @@
       "PYTHUSDT",
       "DOSUSDT",
       "RUNEUSDT",
-      "ONDOUSDT"
+      "ONDOUSDT",
+      "TIAUSDT"
     ]
   }
 }
