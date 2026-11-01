@@ -7092,11 +7092,12 @@
       "funding_rate": 0.049,
       "orderbook_ratio": 1.5874606905521866,
       "time": "2026-11-01T20:54:25+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-11-01T21:10:32+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T21:08:25+00:00",
+    "time": "2026-11-01T21:10:32+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -7106,10 +7107,10 @@
       "GUSDT",
       "TRUMPUSDT",
       "APRUSDT",
-      "GTCUSDT",
       "MARSCOINUSDT",
-      "BEAMXUSDT",
-      "BEATUSDT"
+      "GTCUSDT",
+      "BEATUSDT",
+      "BEAMXUSDT"
     ]
   }
 }
