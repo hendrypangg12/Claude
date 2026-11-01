@@ -7073,21 +7073,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T12:00:55+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-01T12:02:23+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "AINUSDT",
       "GUSDT",
       "LITUSDT",
       "MARSCOINUSDT",
-      "PONSUSDT",
       "IDOLUSDT",
+      "PONSUSDT",
       "ZROUSDT",
       "CTUSDT",
-      "PYTHUSDT",
-      "BEAMXUSDT",
-      "LYNUSDT"
+      "LYNUSDT",
+      "PYTHUSDT"
     ]
   }
 }
