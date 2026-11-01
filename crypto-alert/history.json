@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T06:26:45+00:00",
+    "time": "2026-11-01T06:28:23+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -7037,10 +7037,10 @@
       "PONSUSDT",
       "ZROUSDT",
       "NMRUSDT",
-      "AVAXUSDT",
       "AAVEUSDT",
-      "UNIUSDT",
-      "CTUSDT"
+      "AVAXUSDT",
+      "CTUSDT",
+      "UNIUSDT"
     ]
   }
 }
