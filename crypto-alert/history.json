@@ -7068,12 +7068,13 @@
       "funding_rate": -0.119,
       "orderbook_ratio": 0.13478910330051844,
       "time": "2026-11-01T08:16:26+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-11-01T08:42:30+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T08:40:30+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-01T08:42:30+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
@@ -7085,11 +7086,12 @@
       "CTUSDT",
       "ZROUSDT",
       "NMRUSDT",
-      "AAVEUSDT",
       "JCTUSDT",
+      "AAVEUSDT",
       "UNIUSDT",
       "PUMPUSDT",
       "AVAXUSDT",
+      "LINKUSDT",
       "QNTUSDT"
     ]
   }
