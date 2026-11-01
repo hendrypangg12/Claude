@@ -7048,9 +7048,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T07:02:25+00:00",
-    "shortlist_count": 11,
-    "confirmed_count": 1,
+    "time": "2026-11-01T07:04:34+00:00",
+    "shortlist_count": 12,
+    "confirmed_count": 0,
     "symbols": [
       "BEAMXUSDT",
       "EVAAUSDT",
@@ -7062,7 +7062,8 @@
       "PONSUSDT",
       "AAVEUSDT",
       "AVAXUSDT",
-      "RSRUSDT"
+      "RSRUSDT",
+      "QNTUSDT"
     ]
   }
 }
