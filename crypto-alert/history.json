@@ -7049,8 +7049,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T07:29:37+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-01T07:30:33+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -7059,11 +7059,13 @@
       "LITUSDT",
       "MARSCOINUSDT",
       "ZROUSDT",
-      "NMRUSDT",
       "CTUSDT",
+      "NMRUSDT",
       "PONSUSDT",
+      "JCTUSDT",
       "AVAXUSDT",
-      "AAVEUSDT"
+      "AAVEUSDT",
+      "QNTUSDT"
     ]
   }
 }
