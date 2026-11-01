@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-11-01_19-00-24",
+      "date": "2026-11-01",
+      "time": "19:00",
+      "label": "STORY KANTOR",
+      "title": "Jam pulang kantor cuma formalitas, kerjaan pulang bareng laptop ke rumah.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-11-01_15-06-24",
       "date": "2026-11-01",
       "time": "15:06",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-10-29_09-46-03",
-      "date": "2026-10-29",
-      "time": "09:46",
-      "label": "STORY KANTOR",
-      "title": "Target kerja naik tiap kuartal, alasan naiknya gak pernah dijelasin sedetail targetnya.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
