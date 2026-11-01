@@ -7024,7 +7024,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T03:32:29+00:00",
+    "time": "2026-11-01T03:34:26+00:00",
     "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
@@ -7036,9 +7036,9 @@
       "ZROUSDT",
       "EVAAUSDT",
       "NMRUSDT",
-      "AINUSDT",
       "AAVEUSDT",
-      "QNTUSDT"
+      "AINUSDT",
+      "MARSCOINUSDT"
     ]
   }
 }
