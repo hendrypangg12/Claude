@@ -7073,8 +7073,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T09:52:22+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-01T09:54:21+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
@@ -7082,14 +7082,13 @@
       "MARSCOINUSDT",
       "PONSUSDT",
       "BEAMXUSDT",
-      "IDOLUSDT",
       "ZROUSDT",
-      "CTUSDT",
-      "EVAAUSDT",
-      "NMRUSDT",
-      "PUMPUSDT",
       "AVAXUSDT",
-      "GRAMUSDT"
+      "PUMPUSDT",
+      "CTUSDT",
+      "NMRUSDT",
+      "GRAMUSDT",
+      "IDOLUSDT"
     ]
   }
 }
