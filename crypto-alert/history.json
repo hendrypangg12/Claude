@@ -7024,25 +7024,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T05:48:23+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-01T05:50:31+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "LITUSDT",
-      "GUSDT",
       "BEAMXUSDT",
+      "GUSDT",
       "EVAAUSDT",
       "RSRUSDT",
       "ZROUSDT",
       "NMRUSDT",
-      "CTUSDT",
       "MARSCOINUSDT",
       "AAVEUSDT",
+      "CTUSDT",
       "PONSUSDT",
-      "QUSDT",
       "AVAXUSDT",
+      "QUSDT",
       "TIAUSDT",
-      "AEROUSDT"
+      "AEROUSDT",
+      "INJUSDT"
     ]
   }
 }
