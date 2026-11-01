@@ -7024,15 +7024,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T06:06:24+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-01T06:08:25+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BEAMXUSDT",
       "LITUSDT",
       "EVAAUSDT",
-      "GUSDT",
       "MARSCOINUSDT",
+      "GUSDT",
       "RSRUSDT",
       "ZROUSDT",
       "PONSUSDT",
@@ -7040,7 +7040,8 @@
       "AAVEUSDT",
       "CTUSDT",
       "AVAXUSDT",
-      "PYTHUSDT"
+      "PYTHUSDT",
+      "UNIUSDT"
     ]
   }
 }
