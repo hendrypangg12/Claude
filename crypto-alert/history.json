@@ -7072,8 +7072,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-01T08:20:31+00:00",
-    "shortlist_count": 12,
+    "time": "2026-11-01T08:22:31+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "GUSDT",
@@ -7084,10 +7084,11 @@
       "BEAMXUSDT",
       "PONSUSDT",
       "ZROUSDT",
-      "NMRUSDT",
       "CTUSDT",
+      "NMRUSDT",
       "AAVEUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "QNTUSDT"
     ]
   }
 }
