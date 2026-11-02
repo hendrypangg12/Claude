@@ -7097,16 +7097,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-02T04:30:37+00:00",
-    "shortlist_count": 6,
+    "time": "2026-11-02T04:32:24+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
-      "IDOLUSDT",
       "LYNUSDT",
+      "IDOLUSDT",
       "SOPHUSDT",
       "TRUMPUSDT",
-      "BEAMXUSDT",
-      "BEATUSDT"
+      "BEATUSDT",
+      "MARSCOINUSDT",
+      "BEAMXUSDT"
     ]
   }
 }
