@@ -7140,11 +7140,12 @@
       "funding_rate": 0.058,
       "orderbook_ratio": 1.1065893150492616,
       "time": "2026-11-03T15:34:04+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-11-03T15:41:06+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-03T15:39:04+00:00",
+    "time": "2026-11-03T15:41:06+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -7158,8 +7159,8 @@
       "NIGHTUSDT",
       "QUSDT",
       "STRKUSDT",
-      "ZROUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "ZROUSDT"
     ]
   }
 }
