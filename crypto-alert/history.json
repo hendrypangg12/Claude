@@ -7120,16 +7120,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-03T07:30:37+00:00",
-    "shortlist_count": 6,
+    "time": "2026-11-03T07:32:23+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "ARIAUSDT",
       "HOTUSDT",
-      "JCTUSDT",
       "RUNEUSDT",
+      "JCTUSDT",
       "EVAAUSDT",
-      "AGTUSDT"
+      "AGTUSDT",
+      "BEATUSDT"
     ]
   }
 }
