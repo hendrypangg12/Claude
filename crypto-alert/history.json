@@ -7121,7 +7121,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-03T15:14:39+00:00",
+    "time": "2026-11-03T15:16:39+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -7133,10 +7133,10 @@
       "RUNEUSDT",
       "IRYSUSDT",
       "JCTUSDT",
-      "QUSDT",
-      "STRKUSDT",
       "LITUSDT",
-      "ZROUSDT"
+      "ZROUSDT",
+      "STRKUSDT",
+      "QUSDT"
     ]
   }
 }
