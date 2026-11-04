@@ -7243,8 +7243,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T20:32:27+00:00",
-    "shortlist_count": 27,
+    "time": "2026-11-04T20:34:25+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "CLANKERUSDT",
@@ -7258,22 +7258,25 @@
       "INJUSDT",
       "BMTUSDT",
       "CAKEUSDT",
-      "ZECUSDT",
-      "CRVUSDT",
-      "DASHUSDT",
       "BTWUSDT",
-      "QNTUSDT",
+      "ZECUSDT",
+      "DASHUSDT",
+      "CRVUSDT",
       "FARTCOINUSDT",
+      "QNTUSDT",
       "ETHUSDT",
       "UNIUSDT",
       "NEARUSDT",
-      "ONDOUSDT",
-      "APEUSDT",
       "ICPUSDT",
-      "TIAUSDT",
+      "APEUSDT",
       "AINUSDT",
+      "ONDOUSDT",
+      "TIAUSDT",
       "ENAUSDT",
-      "HBARUSDT"
+      "ETHFIUSDT",
+      "HBARUSDT",
+      "ARBUSDT",
+      "FETUSDT"
     ]
   }
 }
