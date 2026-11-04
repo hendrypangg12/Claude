@@ -121,7 +121,8 @@
     "APRUSDT": "2026-10-28T01:44:26+00:00",
     "HYPEUSDT": "2026-10-29T10:54:28+00:00",
     "ALPINEUSDT": "2026-10-30T13:22:40+00:00",
-    "BEAMXUSDT": "2026-11-01T07:02:25+00:00"
+    "BEAMXUSDT": "2026-11-01T07:02:25+00:00",
+    "HOTUSDT": "2026-11-04T07:08:26+00:00"
   },
   "alerts": [
     {
@@ -7142,12 +7143,35 @@
       "time": "2026-11-03T15:34:04+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-11-03T15:41:06+00:00"
+    },
+    {
+      "symbol": "HOTUSDT",
+      "pct": 9.47,
+      "price": 0.0005535,
+      "quote_volume": 337589.710185,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4982753248319602,
+      "retrace_pct": 1.4423076923076985,
+      "wick_ratio": 0.7794117647058832,
+      "rsi": 68.61463290530112,
+      "divergence": false,
+      "vol_spike": 0.2922392854214939,
+      "btc_pct": -0.08852809257282371,
+      "sl": 0.0005672159999999999,
+      "tp1": 0.0005430348,
+      "tp2": 0.0005315652,
+      "tp3": 0.000513,
+      "funding_rate": -0.051,
+      "orderbook_ratio": 0.6735674638618643,
+      "time": "2026-11-04T07:08:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T07:06:25+00:00",
+    "time": "2026-11-04T07:08:26+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "CLANKERUSDT",
       "BMTUSDT",
@@ -7162,23 +7186,23 @@
       "PUMPUSDT",
       "VVVUSDT",
       "PONSUSDT",
-      "ENAUSDT",
       "LITUSDT",
-      "RUNEUSDT",
-      "EVAAUSDT",
-      "STRKUSDT",
+      "ENAUSDT",
       "INJUSDT",
       "CTUSDT",
+      "EVAAUSDT",
+      "STRKUSDT",
+      "RUNEUSDT",
       "AEROUSDT",
-      "NIGHTUSDT",
       "PYTHUSDT",
-      "ARIAUSDT",
+      "NIGHTUSDT",
       "CCUSDT",
-      "UNIUSDT",
-      "GRVTUSDT",
       "BSBUSDT",
+      "UNIUSDT",
+      "ARIAUSDT",
       "WLDUSDT",
-      "NEARUSDT"
+      "GRVTUSDT",
+      "ONDOUSDT"
     ]
   }
 }
