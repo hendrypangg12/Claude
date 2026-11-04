@@ -123,7 +123,8 @@
     "ALPINEUSDT": "2026-10-30T13:22:40+00:00",
     "BEAMXUSDT": "2026-11-01T07:02:25+00:00",
     "HOTUSDT": "2026-11-04T07:08:26+00:00",
-    "CLANKERUSDT": "2026-11-04T18:58:24+00:00"
+    "CLANKERUSDT": "2026-11-04T18:58:24+00:00",
+    "ELSAUSDT": "2026-11-04T22:04:26+00:00"
   },
   "alerts": [
     {
@@ -7240,38 +7241,60 @@
       "time": "2026-11-04T19:06:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-04T19:12:28+00:00"
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "pct": 14.55,
+      "price": 0.11043,
+      "quote_volume": 450905.26461,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5308218014811119,
+      "retrace_pct": 1.9010393532912881,
+      "wick_ratio": 0.8401826484018312,
+      "rsi": 67.70041010036252,
+      "divergence": true,
+      "vol_spike": 0.4488759492788396,
+      "btc_pct": 0.19778848877236332,
+      "sl": 0.11369570000000001,
+      "tp1": 0.1071074,
+      "tp2": 0.1037326,
+      "tp3": 0.09827,
+      "funding_rate": 0.029,
+      "orderbook_ratio": 0.8998867372200712,
+      "time": "2026-11-04T22:04:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T22:02:26+00:00",
-    "shortlist_count": 25,
-    "confirmed_count": 0,
+    "time": "2026-11-04T22:04:26+00:00",
+    "shortlist_count": 24,
+    "confirmed_count": 1,
     "symbols": [
       "ELSAUSDT",
       "CLANKERUSDT",
       "CAPUSDT",
       "JCTUSDT",
       "FOLKSUSDT",
-      "USELESSUSDT",
       "INJUSDT",
+      "USELESSUSDT",
       "PONSUSDT",
-      "BMTUSDT",
       "BTWUSDT",
+      "BMTUSDT",
       "ARIAUSDT",
       "UNIUSDT",
       "AINUSDT",
+      "ZECUSDT",
       "CAKEUSDT",
       "ETHUSDT",
       "EVAAUSDT",
-      "ZECUSDT",
       "BSBUSDT",
-      "QNTUSDT",
-      "ONDOUSDT",
       "FARTCOINUSDT",
       "DASHUSDT",
-      "TIAUSDT",
+      "ONDOUSDT",
+      "QNTUSDT",
       "APEUSDT",
-      "CRVUSDT"
+      "TIAUSDT"
     ]
   }
 }
