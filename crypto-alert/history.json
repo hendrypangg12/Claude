@@ -7243,8 +7243,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T21:44:26+00:00",
-    "shortlist_count": 21,
+    "time": "2026-11-04T21:46:27+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "CLANKERUSDT",
@@ -7262,12 +7262,13 @@
       "ARIAUSDT",
       "UNIUSDT",
       "ETHUSDT",
-      "CRVUSDT",
       "QNTUSDT",
-      "BSBUSDT",
       "ZECUSDT",
+      "BSBUSDT",
       "FARTCOINUSDT",
-      "ONDOUSDT"
+      "CRVUSDT",
+      "AINUSDT",
+      "DASHUSDT"
     ]
   }
 }
