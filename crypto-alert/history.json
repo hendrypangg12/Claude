@@ -7268,8 +7268,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T23:34:27+00:00",
-    "shortlist_count": 26,
+    "time": "2026-11-04T23:36:24+00:00",
+    "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
       "ELSAUSDT",
@@ -7282,22 +7282,23 @@
       "INJUSDT",
       "BMTUSDT",
       "EVAAUSDT",
-      "QNTUSDT",
       "BTWUSDT",
+      "QNTUSDT",
       "ETHUSDT",
       "CAKEUSDT",
-      "UNIUSDT",
       "ZECUSDT",
+      "UNIUSDT",
       "DASHUSDT",
       "BSBUSDT",
+      "ATOMUSDT",
       "CRVUSDT",
       "TIAUSDT",
-      "ATOMUSDT",
       "ARIAUSDT",
+      "ONDOUSDT",
       "NEARUSDT",
-      "APEUSDT",
       "FARTCOINUSDT",
-      "ONDOUSDT"
+      "APEUSDT",
+      "HBARUSDT"
     ]
   }
 }
