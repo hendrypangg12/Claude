@@ -7218,9 +7218,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T18:58:24+00:00",
-    "shortlist_count": 28,
-    "confirmed_count": 1,
+    "time": "2026-11-04T19:00:46+00:00",
+    "shortlist_count": 29,
+    "confirmed_count": 0,
     "symbols": [
       "CLANKERUSDT",
       "ELSAUSDT",
@@ -7232,24 +7232,25 @@
       "USELESSUSDT",
       "INJUSDT",
       "EVAAUSDT",
+      "AINUSDT",
       "ALGOUSDT",
       "BEATUSDT",
       "QNTUSDT",
-      "AINUSDT",
       "ZECUSDT",
       "ENAUSDT",
       "ETHUSDT",
       "ONDOUSDT",
+      "NEARUSDT",
       "UNIUSDT",
       "FARTCOINUSDT",
-      "CRVUSDT",
-      "NEARUSDT",
       "DASHUSDT",
+      "CRVUSDT",
       "TIAUSDT",
       "APEUSDT",
       "AEROUSDT",
       "BTWUSDT",
-      "FETUSDT"
+      "FETUSDT",
+      "ICPUSDT"
     ]
   }
 }
