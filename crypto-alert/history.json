@@ -7263,11 +7263,12 @@
       "funding_rate": 0.029,
       "orderbook_ratio": 0.8998867372200712,
       "time": "2026-11-04T22:04:26+00:00",
-      "outcome": null
+      "outcome": "tp2_hit",
+      "outcome_time": "2026-11-04T22:38:24+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T22:36:24+00:00",
+    "time": "2026-11-04T22:38:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7283,24 +7284,24 @@
       "EVAAUSDT",
       "UNIUSDT",
       "ZECUSDT",
-      "ARIAUSDT",
       "BTWUSDT",
-      "FARTCOINUSDT",
+      "ARIAUSDT",
       "CRVUSDT",
       "ETHUSDT",
       "DASHUSDT",
       "CAKEUSDT",
-      "ONDOUSDT",
+      "FARTCOINUSDT",
       "TIAUSDT",
       "NEARUSDT",
       "QNTUSDT",
+      "ONDOUSDT",
       "APEUSDT",
-      "ARBUSDT",
-      "HBARUSDT",
       "FETUSDT",
+      "ETHFIUSDT",
+      "ARBUSDT",
       "ICPUSDT",
-      "BSBUSDT",
-      "ETHFIUSDT"
+      "HBARUSDT",
+      "AAVEUSDT"
     ]
   }
 }
