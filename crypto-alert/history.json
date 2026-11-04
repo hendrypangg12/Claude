@@ -7194,7 +7194,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T11:46:25+00:00",
+    "time": "2026-11-04T11:48:23+00:00",
     "shortlist_count": 27,
     "confirmed_count": 0,
     "symbols": [
@@ -7207,24 +7207,24 @@
       "PONSUSDT",
       "ZECUSDT",
       "NIGHTUSDT",
-      "AINUSDT",
       "RUNEUSDT",
-      "ENAUSDT",
       "CTUSDT",
+      "AINUSDT",
+      "ENAUSDT",
       "POWERUSDT",
       "ZROUSDT",
       "MONUSDT",
-      "NEARUSDT",
       "JCTUSDT",
-      "PUMPUSDT",
       "EVAAUSDT",
+      "NEARUSDT",
+      "PUMPUSDT",
       "AEROUSDT",
-      "INJUSDT",
       "BSBUSDT",
+      "INJUSDT",
       "ONDOUSDT",
-      "CAKEUSDT",
       "WLDUSDT",
-      "ALGOUSDT"
+      "ALGOUSDT",
+      "CAKEUSDT"
     ]
   }
 }
