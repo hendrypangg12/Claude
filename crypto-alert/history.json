@@ -7243,7 +7243,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T22:00:39+00:00",
+    "time": "2026-11-04T22:02:26+00:00",
     "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
@@ -7258,20 +7258,20 @@
       "BMTUSDT",
       "BTWUSDT",
       "ARIAUSDT",
-      "AINUSDT",
       "UNIUSDT",
+      "AINUSDT",
       "CAKEUSDT",
-      "EVAAUSDT",
       "ETHUSDT",
+      "EVAAUSDT",
       "ZECUSDT",
-      "QNTUSDT",
-      "DASHUSDT",
       "BSBUSDT",
-      "FARTCOINUSDT",
+      "QNTUSDT",
       "ONDOUSDT",
-      "CRVUSDT",
+      "FARTCOINUSDT",
+      "DASHUSDT",
       "TIAUSDT",
-      "APEUSDT"
+      "APEUSDT",
+      "CRVUSDT"
     ]
   }
 }
