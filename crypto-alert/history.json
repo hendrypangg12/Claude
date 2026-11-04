@@ -7194,7 +7194,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T08:24:27+00:00",
+    "time": "2026-11-04T08:26:27+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7211,23 +7211,23 @@
       "CTUSDT",
       "BTWUSDT",
       "MONUSDT",
-      "RUNEUSDT",
       "INJUSDT",
+      "RUNEUSDT",
       "STRKUSDT",
       "ENAUSDT",
       "WLDUSDT",
-      "LITUSDT",
       "NEARUSDT",
+      "LITUSDT",
       "NIGHTUSDT",
       "PYTHUSDT",
       "UNIUSDT",
-      "AEROUSDT",
-      "CCUSDT",
       "ONDOUSDT",
+      "CCUSDT",
+      "AEROUSDT",
       "BSBUSDT",
-      "EVAAUSDT",
       "SUIUSDT",
-      "ARBUSDT"
+      "ARBUSDT",
+      "CAKEUSDT"
     ]
   }
 }
