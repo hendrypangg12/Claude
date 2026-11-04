@@ -7169,7 +7169,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T07:14:28+00:00",
+    "time": "2026-11-04T07:16:24+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7179,11 +7179,10 @@
       "HOTUSDT",
       "IDOLUSDT",
       "BTWUSDT",
-      "PONSUSDT",
       "ZECUSDT",
-      "ZROUSDT",
+      "PONSUSDT",
       "VVVUSDT",
-      "EVAAUSDT",
+      "ZROUSDT",
       "MONUSDT",
       "PUMPUSDT",
       "AINUSDT",
@@ -7195,14 +7194,15 @@
       "STRKUSDT",
       "AEROUSDT",
       "NIGHTUSDT",
+      "UNIUSDT",
       "PYTHUSDT",
       "CCUSDT",
-      "UNIUSDT",
-      "ARIAUSDT",
       "BSBUSDT",
+      "ARIAUSDT",
+      "EVAAUSDT",
       "NEARUSDT",
       "WLDUSDT",
-      "ONDOUSDT"
+      "ARBUSDT"
     ]
   }
 }
