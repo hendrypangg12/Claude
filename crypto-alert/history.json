@@ -7145,8 +7145,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T05:28:30+00:00",
-    "shortlist_count": 16,
+    "time": "2026-11-04T05:30:39+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "CLANKERUSDT",
@@ -7155,16 +7155,17 @@
       "HOTUSDT",
       "RUNEUSDT",
       "PUMPUSDT",
-      "AINUSDT",
-      "PLAYUSDT",
       "ZECUSDT",
+      "AINUSDT",
       "ZROUSDT",
+      "PLAYUSDT",
       "LITUSDT",
       "STRKUSDT",
       "NIGHTUSDT",
       "XMRUSDT",
       "INJUSDT",
-      "AEROUSDT"
+      "BSBUSDT",
+      "CCUSDT"
     ]
   }
 }
