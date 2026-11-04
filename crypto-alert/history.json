@@ -122,7 +122,8 @@
     "HYPEUSDT": "2026-10-29T10:54:28+00:00",
     "ALPINEUSDT": "2026-10-30T13:22:40+00:00",
     "BEAMXUSDT": "2026-11-01T07:02:25+00:00",
-    "HOTUSDT": "2026-11-04T07:08:26+00:00"
+    "HOTUSDT": "2026-11-04T07:08:26+00:00",
+    "CLANKERUSDT": "2026-11-04T18:58:24+00:00"
   },
   "alerts": [
     {
@@ -7191,12 +7192,35 @@
       "time": "2026-11-04T07:42:24+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-11-04T07:48:29+00:00"
+    },
+    {
+      "symbol": "CLANKERUSDT",
+      "pct": 15.32,
+      "price": 23.72,
+      "quote_volume": 1037372.11,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5061772719571053,
+      "retrace_pct": 1.2078300708038427,
+      "wick_ratio": 0.19480519480519679,
+      "rsi": 66.15061533957108,
+      "divergence": true,
+      "vol_spike": 0.255158371469,
+      "btc_pct": -0.40719825754949657,
+      "sl": 24.250100000000003,
+      "tp1": 22.791420000000002,
+      "tp2": 22.03858,
+      "tp3": 20.82,
+      "funding_rate": 0.043,
+      "orderbook_ratio": 1.0194306319548916,
+      "time": "2026-11-04T18:58:24+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-04T18:56:29+00:00",
+    "time": "2026-11-04T18:58:24+00:00",
     "shortlist_count": 28,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "CLANKERUSDT",
       "ELSAUSDT",
@@ -7208,23 +7232,23 @@
       "USELESSUSDT",
       "INJUSDT",
       "EVAAUSDT",
-      "AINUSDT",
       "ALGOUSDT",
-      "QNTUSDT",
       "BEATUSDT",
+      "QNTUSDT",
+      "AINUSDT",
       "ZECUSDT",
       "ENAUSDT",
       "ETHUSDT",
+      "ONDOUSDT",
       "UNIUSDT",
+      "FARTCOINUSDT",
       "CRVUSDT",
       "NEARUSDT",
-      "ONDOUSDT",
-      "FARTCOINUSDT",
-      "TIAUSDT",
       "DASHUSDT",
-      "BTWUSDT",
+      "TIAUSDT",
       "APEUSDT",
       "AEROUSDT",
+      "BTWUSDT",
       "FETUSDT"
     ]
   }
