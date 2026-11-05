@@ -21,7 +21,7 @@
     "KOMAUSDT": "2026-08-03T19:36:31+00:00",
     "BEATUSDT": "2026-10-27T14:30:41+00:00",
     "GIGGLEUSDT": "2026-08-01T03:18:36+00:00",
-    "UAIUSDT": "2026-09-06T01:36:29+00:00",
+    "UAIUSDT": "2026-11-05T08:30:37+00:00",
     "IDOLUSDT": "2026-11-01T20:54:25+00:00",
     "BLESSUSDT": "2026-10-28T13:00:48+00:00",
     "HOMEUSDT": "2026-08-05T01:08:28+00:00",
@@ -7289,12 +7289,35 @@
       "time": "2026-11-05T03:56:25+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-11-05T04:36:31+00:00"
+    },
+    {
+      "symbol": "UAIUSDT",
+      "pct": 9.08,
+      "price": 0.1095,
+      "quote_volume": 483761.6335,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4349228579311796,
+      "retrace_pct": 0.9049773755656116,
+      "wick_ratio": 0.6000000000000028,
+      "rsi": 71.79609211537179,
+      "divergence": true,
+      "vol_spike": 0.12378471455449909,
+      "btc_pct": 0.22387158109972047,
+      "sl": 0.111605,
+      "tp1": 0.1069856,
+      "tp2": 0.1048144,
+      "tp3": 0.1013,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 1.001248579955459,
+      "time": "2026-11-05T08:30:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T08:28:27+00:00",
-    "shortlist_count": 19,
-    "confirmed_count": 0,
+    "time": "2026-11-05T08:30:37+00:00",
+    "shortlist_count": 18,
+    "confirmed_count": 1,
     "symbols": [
       "ELSAUSDT",
       "JCTUSDT",
@@ -7308,13 +7331,12 @@
       "QNTUSDT",
       "ATOMUSDT",
       "LITUSDT",
-      "AEROUSDT",
       "CAKEUSDT",
+      "AEROUSDT",
       "CRVUSDT",
       "ETHUSDT",
-      "ICPUSDT",
       "DOSUSDT",
-      "LINKUSDT"
+      "ICPUSDT"
     ]
   }
 }
