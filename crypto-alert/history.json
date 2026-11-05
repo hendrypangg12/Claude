@@ -7316,29 +7316,30 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T09:50:42+00:00",
-    "shortlist_count": 19,
+    "time": "2026-11-05T09:52:37+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "ELSAUSDT",
       "CAPUSDT",
       "JCTUSDT",
-      "UAIUSDT",
       "LYNUSDT",
       "CLANKERUSDT",
+      "UAIUSDT",
       "INJUSDT",
       "ATOMUSDT",
       "ARIAUSDT",
-      "QNTUSDT",
       "AEROUSDT",
+      "QNTUSDT",
       "BCHUSDT",
-      "CRVUSDT",
       "CCUSDT",
       "CAKEUSDT",
+      "CRVUSDT",
       "USELESSUSDT",
-      "LINKUSDT",
       "ICPUSDT",
-      "TIAUSDT"
+      "LINKUSDT",
+      "ETHUSDT",
+      "ADAUSDT"
     ]
   }
 }
