@@ -7268,8 +7268,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T00:14:25+00:00",
-    "shortlist_count": 27,
+    "time": "2026-11-05T00:16:24+00:00",
+    "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
       "ELSAUSDT",
@@ -7284,21 +7284,24 @@
       "CAKEUSDT",
       "ZECUSDT",
       "ETHUSDT",
-      "DASHUSDT",
-      "EVAAUSDT",
       "UNIUSDT",
+      "DASHUSDT",
       "CRVUSDT",
       "QNTUSDT",
-      "APEUSDT",
+      "EVAAUSDT",
       "ONDOUSDT",
-      "HBARUSDT",
+      "APEUSDT",
       "TIAUSDT",
-      "ATOMUSDT",
+      "HBARUSDT",
       "FARTCOINUSDT",
-      "NEARUSDT",
-      "BTCUSDT",
+      "ATOMUSDT",
       "IOUSDT",
-      "KASUSDT"
+      "KASUSDT",
+      "PYTHUSDT",
+      "ENAUSDT",
+      "XLMUSDT",
+      "BTCUSDT",
+      "AAVEUSDT"
     ]
   }
 }
