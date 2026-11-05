@@ -7316,7 +7316,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T09:00:41+00:00",
+    "time": "2026-11-05T09:02:26+00:00",
     "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
@@ -7331,18 +7331,18 @@
       "FOLKSUSDT",
       "AEROUSDT",
       "AINUSDT",
-      "USELESSUSDT",
       "CRVUSDT",
+      "LITUSDT",
       "ARIAUSDT",
       "CAKEUSDT",
-      "LITUSDT",
       "QNTUSDT",
-      "BCHUSDT",
+      "USELESSUSDT",
       "ICPUSDT",
-      "ETHUSDT",
+      "BCHUSDT",
       "CCUSDT",
-      "LINKUSDT",
-      "DOSUSDT"
+      "ETHUSDT",
+      "DOSUSDT",
+      "LINKUSDT"
     ]
   }
 }
