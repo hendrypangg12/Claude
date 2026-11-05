@@ -7316,8 +7316,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T10:16:28+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-05T10:18:25+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ELSAUSDT",
@@ -7330,9 +7330,12 @@
       "ARIAUSDT",
       "ATOMUSDT",
       "AEROUSDT",
-      "CAKEUSDT",
       "BCHUSDT",
-      "ICPUSDT"
+      "CAKEUSDT",
+      "ICPUSDT",
+      "USELESSUSDT",
+      "ETHUSDT",
+      "CCUSDT"
     ]
   }
 }
