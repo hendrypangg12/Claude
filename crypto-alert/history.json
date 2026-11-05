@@ -7316,18 +7316,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T14:40:32+00:00",
-    "shortlist_count": 8,
+    "time": "2026-11-05T14:42:28+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
+      "COINDEPOUSDT",
       "LYNUSDT",
+      "ZANOUSDT",
       "ARIAUSDT",
+      "MCNUSDT",
+      "CHOMPUSDT",
       "AIOUSDT",
       "CAPUSDT",
       "ELSAUSDT",
       "UAIUSDT",
+      "CARDSUSDT",
+      "CTMUSDT",
       "INJUSDT",
-      "ATOMUSDT"
+      "CNPYUSDT",
+      "COCAUSDT",
+      "ULTIMAUSDT",
+      "MEYUSDT"
     ]
   }
 }
