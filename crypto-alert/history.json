@@ -7316,8 +7316,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T09:18:24+00:00",
-    "shortlist_count": 20,
+    "time": "2026-11-05T09:21:13+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -7330,16 +7330,18 @@
       "ATOMUSDT",
       "AEROUSDT",
       "FOLKSUSDT",
-      "CRVUSDT",
-      "ARIAUSDT",
       "LITUSDT",
+      "CRVUSDT",
       "QNTUSDT",
+      "ARIAUSDT",
       "CAKEUSDT",
+      "USELESSUSDT",
       "DOSUSDT",
       "CCUSDT",
-      "USELESSUSDT",
       "BCHUSDT",
-      "ETHUSDT"
+      "ICPUSDT",
+      "ETHUSDT",
+      "ADAUSDT"
     ]
   }
 }
