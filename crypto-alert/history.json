@@ -7292,7 +7292,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T07:40:31+00:00",
+    "time": "2026-11-05T07:42:24+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -7310,10 +7310,10 @@
       "QNTUSDT",
       "LITUSDT",
       "ETHUSDT",
-      "DOSUSDT",
       "CRVUSDT",
-      "CAKEUSDT",
-      "ICPUSDT"
+      "DOSUSDT",
+      "ICPUSDT",
+      "CAKEUSDT"
     ]
   }
 }
