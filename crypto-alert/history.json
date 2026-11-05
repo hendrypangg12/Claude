@@ -7292,8 +7292,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T06:00:44+00:00",
-    "shortlist_count": 24,
+    "time": "2026-11-05T06:02:25+00:00",
+    "shortlist_count": 23,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -7309,17 +7309,16 @@
       "ATOMUSDT",
       "CAKEUSDT",
       "DOSUSDT",
-      "ZECUSDT",
       "ETHUSDT",
-      "CLANKERUSDT",
-      "DASHUSDT",
-      "BTWUSDT",
+      "ZECUSDT",
       "QNTUSDT",
-      "PONSUSDT",
-      "CRVUSDT",
+      "BTWUSDT",
+      "DASHUSDT",
       "LINKUSDT",
       "HBARUSDT",
-      "POWERUSDT"
+      "CRVUSDT",
+      "CLANKERUSDT",
+      "ICPUSDT"
     ]
   }
 }
