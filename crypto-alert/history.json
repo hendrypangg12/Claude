@@ -124,7 +124,7 @@
     "BEAMXUSDT": "2026-11-01T07:02:25+00:00",
     "HOTUSDT": "2026-11-04T07:08:26+00:00",
     "CLANKERUSDT": "2026-11-04T18:58:24+00:00",
-    "ELSAUSDT": "2026-11-04T22:04:26+00:00"
+    "ELSAUSDT": "2026-11-05T03:56:25+00:00"
   },
   "alerts": [
     {
@@ -7265,12 +7265,35 @@
       "time": "2026-11-04T22:04:26+00:00",
       "outcome": "tp2_hit",
       "outcome_time": "2026-11-04T22:38:24+00:00"
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "pct": 15.88,
+      "price": 0.10471,
+      "quote_volume": 817049.09062,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.3441949527175568,
+      "retrace_pct": 2.640632264063235,
+      "wick_ratio": 0.1791304347826091,
+      "rsi": 72.04483212844761,
+      "divergence": false,
+      "vol_spike": 1.3307289552581167,
+      "btc_pct": -0.15189007397437376,
+      "sl": 0.10862550000000001,
+      "tp1": 0.10191932000000001,
+      "tp2": 0.09844068,
+      "tp3": 0.09281,
+      "funding_rate": 0.061,
+      "orderbook_ratio": 1.4565313988287314,
+      "time": "2026-11-05T03:56:25+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T03:54:24+00:00",
+    "time": "2026-11-05T03:56:25+00:00",
     "shortlist_count": 30,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "ELSAUSDT",
       "JCTUSDT",
@@ -7283,24 +7306,24 @@
       "INJUSDT",
       "ZECUSDT",
       "DASHUSDT",
-      "CRVUSDT",
       "EVAAUSDT",
+      "CRVUSDT",
       "QNTUSDT",
       "UNIUSDT",
-      "TIAUSDT",
-      "CLANKERUSDT",
-      "CAKEUSDT",
       "POWERUSDT",
+      "CAKEUSDT",
+      "TIAUSDT",
       "ATOMUSDT",
       "NEARUSDT",
       "ONDOUSDT",
-      "FARTCOINUSDT",
+      "ETHUSDT",
       "ENAUSDT",
       "FETUSDT",
-      "ETHUSDT",
+      "FARTCOINUSDT",
       "LINKUSDT",
       "XPLUSDT",
       "TAOUSDT",
+      "CCUSDT",
       "ADAUSDT"
     ]
   }
