@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-11-05_10-41-08",
+      "date": "2026-11-05",
+      "time": "10:41",
+      "label": "STORY KANTOR",
+      "title": "Jam istirahat makan siang, chat kerjaan tetap masuk kayak gak kenal waktu.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-11-05_02-59-48",
       "date": "2026-11-05",
       "time": "02:59",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-11-01_19-00-24",
-      "date": "2026-11-01",
-      "time": "19:00",
-      "label": "STORY KANTOR",
-      "title": "Jam pulang kantor cuma formalitas, kerjaan pulang bareng laptop ke rumah.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
