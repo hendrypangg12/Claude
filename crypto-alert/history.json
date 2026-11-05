@@ -7315,15 +7315,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T08:38:23+00:00",
-    "shortlist_count": 21,
+    "time": "2026-11-05T08:40:32+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
       "ELSAUSDT",
       "CAPUSDT",
-      "UAIUSDT",
       "LYNUSDT",
+      "UAIUSDT",
       "CLANKERUSDT",
       "INJUSDT",
       "FOLKSUSDT",
@@ -7331,15 +7331,13 @@
       "ATOMUSDT",
       "QNTUSDT",
       "LITUSDT",
+      "CRVUSDT",
       "AEROUSDT",
       "CAKEUSDT",
-      "CRVUSDT",
-      "USELESSUSDT",
       "ICPUSDT",
       "BCHUSDT",
-      "DOSUSDT",
       "ETHUSDT",
-      "AINUSDT"
+      "DOSUSDT"
     ]
   }
 }
