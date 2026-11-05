@@ -7316,22 +7316,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T14:14:42+00:00",
-    "shortlist_count": 12,
+    "time": "2026-11-05T14:16:50+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "LYNUSDT",
       "AIOUSDT",
       "ARIAUSDT",
       "ELSAUSDT",
-      "UAIUSDT",
       "CAPUSDT",
+      "UAIUSDT",
       "INJUSDT",
-      "CLANKERUSDT",
       "ATOMUSDT",
       "BCHUSDT",
-      "DASHUSDT",
-      "DOSUSDT"
+      "CLANKERUSDT",
+      "DASHUSDT"
     ]
   }
 }
