@@ -7292,8 +7292,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T06:30:42+00:00",
-    "shortlist_count": 22,
+    "time": "2026-11-05T06:32:23+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
@@ -7311,13 +7311,12 @@
       "ETHUSDT",
       "DOSUSDT",
       "CCUSDT",
+      "CRVUSDT",
       "DASHUSDT",
       "LINKUSDT",
-      "CRVUSDT",
-      "PONSUSDT",
-      "CLANKERUSDT",
       "POWERUSDT",
-      "HBARUSDT"
+      "HBARUSDT",
+      "PONSUSDT"
     ]
   }
 }
