@@ -7268,7 +7268,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-05T03:50:43+00:00",
+    "time": "2026-11-05T03:52:26+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7283,12 +7283,12 @@
       "INJUSDT",
       "ZECUSDT",
       "DASHUSDT",
-      "QNTUSDT",
-      "CLANKERUSDT",
-      "CRVUSDT",
       "EVAAUSDT",
-      "UNIUSDT",
+      "CLANKERUSDT",
+      "QNTUSDT",
+      "CRVUSDT",
       "TIAUSDT",
+      "UNIUSDT",
       "CAKEUSDT",
       "POWERUSDT",
       "ATOMUSDT",
@@ -7300,8 +7300,8 @@
       "FETUSDT",
       "LINKUSDT",
       "XPLUSDT",
-      "ADAUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "ADAUSDT"
     ]
   }
 }
