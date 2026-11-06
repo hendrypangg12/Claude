@@ -7364,22 +7364,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T18:38:27+00:00",
+    "time": "2026-11-06T18:40:31+00:00",
     "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
-      "UAIUSDT",
       "AKEUSDT",
+      "UAIUSDT",
       "CYBERUSDT",
       "ONEUSDT",
       "LYNUSDT",
-      "JCTUSDT",
-      "BIRBUSDT",
       "ETHFIUSDT",
-      "BTWUSDT",
+      "JCTUSDT",
       "WUSDT",
-      "ZECUSDT",
+      "BIRBUSDT",
+      "BTWUSDT",
       "BSBUSDT",
+      "ZECUSDT",
       "BEATUSDT",
       "DASHUSDT",
       "ARBUSDT",
@@ -7387,8 +7387,8 @@
       "DOSUSDT",
       "PYTHUSDT",
       "龙虾USDT",
-      "GALAUSDT",
-      "KAITOUSDT"
+      "KAITOUSDT",
+      "EVAAUSDT"
     ]
   }
 }
