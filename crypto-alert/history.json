@@ -7364,8 +7364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T21:50:31+00:00",
-    "shortlist_count": 19,
+    "time": "2026-11-06T21:52:24+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7379,14 +7379,15 @@
       "BIRBUSDT",
       "ETHFIUSDT",
       "BTWUSDT",
-      "DOSUSDT",
       "BSBUSDT",
-      "DASHUSDT",
+      "DOSUSDT",
       "ZECUSDT",
+      "DASHUSDT",
       "TIAUSDT",
-      "CTUSDT",
       "ARBUSDT",
-      "CRVUSDT"
+      "CRVUSDT",
+      "CTUSDT",
+      "KAITOUSDT"
     ]
   }
 }
