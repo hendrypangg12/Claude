@@ -7364,8 +7364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T20:42:24+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-06T20:44:23+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7379,10 +7379,11 @@
       "WUSDT",
       "ZECUSDT",
       "BSBUSDT",
-      "DOSUSDT",
       "JCTUSDT",
+      "DOSUSDT",
       "DASHUSDT",
-      "TIAUSDT"
+      "TIAUSDT",
+      "EVAAUSDT"
     ]
   }
 }
