@@ -7339,9 +7339,9 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T15:24:39+00:00",
-    "shortlist_count": 27,
-    "confirmed_count": 1,
+    "time": "2026-11-06T15:26:34+00:00",
+    "shortlist_count": 30,
+    "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
       "UAIUSDT",
@@ -7351,25 +7351,28 @@
       "LYNUSDT",
       "WUSDT",
       "BSBUSDT",
-      "龙虾USDT",
       "MERLUSDT",
-      "ARBUSDT",
       "ZECUSDT",
-      "ERAUSDT",
-      "BIRBUSDT",
-      "ETHFIUSDT",
-      "BEATUSDT",
+      "ARBUSDT",
       "PYTHUSDT",
+      "BIRBUSDT",
+      "ERAUSDT",
+      "龙虾USDT",
+      "BEATUSDT",
       "PLAYUSDT",
-      "TRUMPUSDT",
+      "ETHFIUSDT",
       "TIAUSDT",
-      "INJUSDT",
+      "TRUMPUSDT",
       "KAITOUSDT",
-      "DOSUSDT",
+      "INJUSDT",
       "USELESSUSDT",
       "FARTCOINUSDT",
+      "DASHUSDT",
+      "DOSUSDT",
+      "STRKUSDT",
       "WLFIUSDT",
-      "DASHUSDT"
+      "GALAUSDT",
+      "CRVUSDT"
     ]
   }
 }
