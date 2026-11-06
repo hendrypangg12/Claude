@@ -7335,12 +7335,13 @@
       "funding_rate": 0.005,
       "orderbook_ratio": 4.016940859605113,
       "time": "2026-11-06T15:24:39+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-11-06T15:32:24+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T15:30:35+00:00",
-    "shortlist_count": 29,
+    "time": "2026-11-06T15:32:24+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7352,26 +7353,21 @@
       "BSBUSDT",
       "WUSDT",
       "MERLUSDT",
-      "龙虾USDT",
+      "BEATUSDT",
       "ARBUSDT",
       "BIRBUSDT",
       "ZECUSDT",
       "ERAUSDT",
       "PYTHUSDT",
-      "BEATUSDT",
-      "PLAYUSDT",
       "ETHFIUSDT",
-      "TIAUSDT",
+      "龙虾USDT",
+      "PLAYUSDT",
       "TRUMPUSDT",
-      "KAITOUSDT",
       "WLFIUSDT",
-      "DASHUSDT",
+      "TIAUSDT",
       "DOSUSDT",
-      "FARTCOINUSDT",
-      "USELESSUSDT",
-      "GALAUSDT",
-      "STRKUSDT",
-      "INJUSDT"
+      "KAITOUSDT",
+      "DASHUSDT"
     ]
   }
 }
