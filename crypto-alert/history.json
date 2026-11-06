@@ -7364,7 +7364,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T20:20:34+00:00",
+    "time": "2026-11-06T20:22:26+00:00",
     "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
@@ -7378,12 +7378,12 @@
       "ZECUSDT",
       "WUSDT",
       "BSBUSDT",
-      "JCTUSDT",
-      "DOSUSDT",
       "DASHUSDT",
-      "ARBUSDT",
       "BTWUSDT",
-      "TIAUSDT"
+      "DOSUSDT",
+      "JCTUSDT",
+      "EVAAUSDT",
+      "ARBUSDT"
     ]
   }
 }
