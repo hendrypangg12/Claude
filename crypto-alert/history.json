@@ -7316,13 +7316,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T03:04:26+00:00",
-    "shortlist_count": 3,
+    "time": "2026-11-06T03:06:26+00:00",
+    "shortlist_count": 4,
     "confirmed_count": 0,
     "symbols": [
       "CAPUSDT",
       "BTWUSDT",
-      "INJUSDT"
+      "INJUSDT",
+      "CLANKERUSDT"
     ]
   }
 }
