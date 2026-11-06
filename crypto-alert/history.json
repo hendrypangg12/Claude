@@ -7316,26 +7316,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T14:39:03+00:00",
-    "shortlist_count": 16,
+    "time": "2026-11-06T14:40:29+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
-      "AKEUSDT",
       "UAIUSDT",
+      "AKEUSDT",
       "CYBERUSDT",
       "ONEUSDT",
       "BTWUSDT",
-      "龙虾USDT",
       "BIRBUSDT",
+      "龙虾USDT",
       "WUSDT",
       "ERAUSDT",
-      "MERLUSDT",
       "BSBUSDT",
-      "QUSDT",
       "BEATUSDT",
-      "ARBUSDT",
+      "QUSDT",
+      "MERLUSDT",
       "ZECUSDT",
-      "DOSUSDT"
+      "ARBUSDT",
+      "DOSUSDT",
+      "PYTHUSDT"
     ]
   }
 }
