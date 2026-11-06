@@ -7316,8 +7316,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T14:12:42+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-06T14:14:29+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7330,7 +7330,11 @@
       "BEATUSDT",
       "ERAUSDT",
       "QUSDT",
-      "MERLUSDT"
+      "MERLUSDT",
+      "CAPUSDT",
+      "BSBUSDT",
+      "ARBUSDT",
+      "WUSDT"
     ]
   }
 }
