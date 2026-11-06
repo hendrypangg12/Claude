@@ -7316,12 +7316,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T15:04:24+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-06T15:06:28+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
-      "AKEUSDT",
       "UAIUSDT",
+      "AKEUSDT",
       "CYBERUSDT",
       "ONEUSDT",
       "BTWUSDT",
@@ -7330,13 +7330,14 @@
       "LYNUSDT",
       "WUSDT",
       "ERAUSDT",
-      "ZECUSDT",
       "ARBUSDT",
+      "ZECUSDT",
+      "MERLUSDT",
       "BSBUSDT",
       "BEATUSDT",
-      "MERLUSDT",
-      "TRUMPUSDT",
       "PYTHUSDT",
+      "TRUMPUSDT",
+      "INJUSDT",
       "DOSUSDT"
     ]
   }
