@@ -7364,8 +7364,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-06T23:18:24+00:00",
-    "shortlist_count": 27,
+    "time": "2026-11-06T23:20:29+00:00",
+    "shortlist_count": 28,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -7375,26 +7375,27 @@
       "BIRBUSDT",
       "BEATUSDT",
       "WUSDT",
-      "BTWUSDT",
       "ETHFIUSDT",
+      "BTWUSDT",
       "LYNUSDT",
       "BSBUSDT",
       "PONSUSDT",
-      "JCTUSDT",
       "PYTHUSDT",
-      "TIAUSDT",
       "POWERUSDT",
+      "TIAUSDT",
+      "JCTUSDT",
+      "CRVUSDT",
       "DASHUSDT",
       "ARBUSDT",
-      "CRVUSDT",
       "ZECUSDT",
       "CTUSDT",
-      "DOSUSDT",
       "QUSDT",
-      "STRKUSDT",
       "KAITOUSDT",
       "TAOUSDT",
-      "FILUSDT"
+      "DOSUSDT",
+      "STRKUSDT",
+      "FILUSDT",
+      "AEROUSDT"
     ]
   }
 }
