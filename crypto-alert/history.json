@@ -7412,25 +7412,24 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T08:36:25+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-07T08:38:38+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
       "AINUSDT",
-      "AKEUSDT",
       "LYNUSDT",
+      "AKEUSDT",
       "CTUSDT",
       "LITUSDT",
       "DASHUSDT",
-      "TIAUSDT",
       "QNTUSDT",
+      "TIAUSDT",
+      "FOLKSUSDT",
       "ARIAUSDT",
       "BTWUSDT",
-      "FOLKSUSDT",
       "ZECUSDT",
-      "STRKUSDT",
-      "PONSUSDT"
+      "STRKUSDT"
     ]
   }
 }
