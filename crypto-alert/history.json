@@ -7460,8 +7460,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T23:24:25+00:00",
-    "shortlist_count": 6,
+    "time": "2026-11-07T23:26:25+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7469,7 +7469,9 @@
       "IDOLUSDT",
       "LYNUSDT",
       "ARIAUSDT",
-      "GRVTUSDT"
+      "ONEUSDT",
+      "GRVTUSDT",
+      "UNIUSDT"
     ]
   }
 }
