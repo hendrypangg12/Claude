@@ -7412,8 +7412,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T06:14:23+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-07T06:16:23+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -7424,16 +7424,14 @@
       "CTUSDT",
       "ARIAUSDT",
       "QUSDT",
-      "STRKUSDT",
-      "DASHUSDT",
       "QNTUSDT",
+      "DASHUSDT",
       "TIAUSDT",
-      "PONSUSDT",
+      "STRKUSDT",
       "BEATUSDT",
+      "PONSUSDT",
       "AEROUSDT",
-      "WUSDT",
-      "BSBUSDT",
-      "ZECUSDT"
+      "WUSDT"
     ]
   }
 }
