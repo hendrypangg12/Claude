@@ -7388,7 +7388,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T02:26:28+00:00",
+    "time": "2026-11-07T02:28:26+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -7399,13 +7399,13 @@
       "QUSDT",
       "SLXUSDT",
       "PONSUSDT",
-      "BTWUSDT",
       "BSBUSDT",
-      "POWERUSDT",
+      "BTWUSDT",
       "DASHUSDT",
-      "BEATUSDT",
       "WUSDT",
-      "CTUSDT"
+      "POWERUSDT",
+      "CTUSDT",
+      "BEATUSDT"
     ]
   }
 }
