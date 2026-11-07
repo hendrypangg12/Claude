@@ -7411,25 +7411,23 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T04:44:24+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-07T04:46:24+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
       "LYNUSDT",
       "AKEUSDT",
-      "AINUSDT",
       "BTWUSDT",
-      "ARIAUSDT",
+      "AINUSDT",
       "CTUSDT",
+      "ARIAUSDT",
+      "POWERUSDT",
       "DASHUSDT",
       "SLXUSDT",
-      "QUSDT",
       "BSBUSDT",
-      "POWERUSDT",
-      "BEATUSDT",
-      "PONSUSDT",
-      "TIAUSDT"
+      "QUSDT",
+      "BEATUSDT"
     ]
   }
 }
