@@ -7412,8 +7412,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T09:16:24+00:00",
-    "shortlist_count": 12,
+    "time": "2026-11-07T09:18:25+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -7421,13 +7421,14 @@
       "LYNUSDT",
       "AKEUSDT",
       "CTUSDT",
-      "ARIAUSDT",
-      "QNTUSDT",
       "TIAUSDT",
-      "DASHUSDT",
+      "ARIAUSDT",
       "BTWUSDT",
+      "STABLEUSDT",
+      "DASHUSDT",
       "STRKUSDT",
-      "STABLEUSDT"
+      "QNTUSDT",
+      "FOLKSUSDT"
     ]
   }
 }
