@@ -7412,8 +7412,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T05:56:25+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-07T05:58:24+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -7426,9 +7426,11 @@
       "CTUSDT",
       "STRKUSDT",
       "DASHUSDT",
-      "QNTUSDT",
+      "POWERUSDT",
       "BSBUSDT",
-      "TIAUSDT"
+      "TIAUSDT",
+      "QNTUSDT",
+      "BEATUSDT"
     ]
   }
 }
