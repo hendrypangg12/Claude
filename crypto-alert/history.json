@@ -3,7 +3,7 @@
     "TENDIESUSDT": "2026-07-18T15:19:13+00:00",
     "NKNUSDT": "2026-07-18T15:28:21+00:00",
     "BUSDT": "2026-07-20T14:40:37+00:00",
-    "AKEUSDT": "2026-10-23T07:48:30+00:00",
+    "AKEUSDT": "2026-11-07T02:00:44+00:00",
     "BANKUSDT": "2026-07-19T02:52:39+00:00",
     "SYNUSDT": "2026-08-08T06:14:26+00:00",
     "ACEUSDT": "2026-08-18T06:58:30+00:00",
@@ -7361,12 +7361,35 @@
       "time": "2026-11-06T17:04:34+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-11-06T17:16:26+00:00"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "pct": 15.92,
+      "price": 0.0055177,
+      "quote_volume": 2686737.9267406,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM-HIGH (historis ~62% win rate dari backtest, n=13)",
+      "vol_ratio": 0.5934076074615388,
+      "retrace_pct": 1.8028118882363318,
+      "wick_ratio": 0.5293637846655782,
+      "rsi": 65.55322756503007,
+      "divergence": false,
+      "vol_spike": 0.2298404639870434,
+      "btc_pct": 0.19146868855212984,
+      "sl": 0.00567519,
+      "tp1": 0.0053242870000000005,
+      "tp2": 0.005142213,
+      "tp3": 0.0048475,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 0.7125389355070482,
+      "time": "2026-11-07T02:00:44+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T01:58:28+00:00",
+    "time": "2026-11-07T02:00:44+00:00",
     "shortlist_count": 16,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "AKEUSDT",
       "ONEUSDT",
@@ -7376,13 +7399,13 @@
       "BTWUSDT",
       "SLXUSDT",
       "BEATUSDT",
-      "PONSUSDT",
       "BIRBUSDT",
+      "PONSUSDT",
       "WUSDT",
-      "POWERUSDT",
       "BSBUSDT",
+      "POWERUSDT",
       "DOSUSDT",
-      "CTUSDT",
+      "DASHUSDT",
       "AEROUSDT"
     ]
   }
