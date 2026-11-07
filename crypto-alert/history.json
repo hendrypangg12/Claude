@@ -7364,7 +7364,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T01:44:21+00:00",
+    "time": "2026-11-07T01:46:23+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -7378,14 +7378,14 @@
       "BIRBUSDT",
       "BEATUSDT",
       "PONSUSDT",
-      "WUSDT",
-      "DOSUSDT",
       "POWERUSDT",
+      "DOSUSDT",
+      "WUSDT",
       "BSBUSDT",
-      "CYBERUSDT",
       "AEROUSDT",
       "CTUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "DASHUSDT"
     ]
   }
 }
