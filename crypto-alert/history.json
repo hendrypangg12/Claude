@@ -7412,7 +7412,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-07T05:16:25+00:00",
+    "time": "2026-11-07T05:18:24+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -7420,16 +7420,16 @@
       "AINUSDT",
       "LYNUSDT",
       "AKEUSDT",
-      "ARIAUSDT",
       "BTWUSDT",
       "CTUSDT",
-      "POWERUSDT",
+      "ARIAUSDT",
       "DASHUSDT",
       "BSBUSDT",
-      "DOSUSDT",
-      "TIAUSDT",
       "JCTUSDT",
-      "BEATUSDT"
+      "POWERUSDT",
+      "BEATUSDT",
+      "DOSUSDT",
+      "TIAUSDT"
     ]
   }
 }
