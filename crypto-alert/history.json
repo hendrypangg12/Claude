@@ -7484,12 +7484,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-08T14:14:23+00:00",
-    "shortlist_count": 2,
+    "time": "2026-11-08T14:16:24+00:00",
+    "shortlist_count": 4,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
-      "IDOLUSDT"
+      "IDOLUSDT",
+      "QUSDT",
+      "BTWUSDT"
     ]
   }
 }
