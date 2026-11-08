@@ -7479,19 +7479,20 @@
       "funding_rate": 0.008,
       "orderbook_ratio": 0.9476678776116092,
       "time": "2026-11-08T08:16:27+00:00",
-      "outcome": null
+      "outcome": "sl_hit",
+      "outcome_time": "2026-11-08T08:22:28+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-08T08:20:31+00:00",
+    "time": "2026-11-08T08:22:28+00:00",
     "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
       "IDOLUSDT",
       "ONEUSDT",
       "JCTUSDT",
-      "ARIAUSDT",
-      "AINUSDT"
+      "AINUSDT",
+      "ARIAUSDT"
     ]
   }
 }
