@@ -100,7 +100,7 @@
     "OGNUSDT": "2026-10-09T04:10:34+00:00",
     "KAIAUSDT": "2026-10-09T09:26:30+00:00",
     "MAGICUSDT": "2026-10-09T17:18:33+00:00",
-    "JCTUSDT": "2026-10-22T14:32:28+00:00",
+    "JCTUSDT": "2026-11-08T08:16:27+00:00",
     "LUMIAUSDT": "2026-10-11T08:04:28+00:00",
     "RSRUSDT": "2026-10-12T11:18:26+00:00",
     "SUSDT": "2026-10-13T12:00:45+00:00",
@@ -7457,17 +7457,41 @@
       "time": "2026-11-07T15:56:38+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-07T16:04:29+00:00"
+    },
+    {
+      "symbol": "JCTUSDT",
+      "pct": 8.5,
+      "price": 0.003307,
+      "quote_volume": 489189.0628,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.4425609834299745,
+      "retrace_pct": 1.1655708308427966,
+      "wick_ratio": 0.40625000000000083,
+      "rsi": 65.60670949063169,
+      "divergence": false,
+      "vol_spike": 0.5783406448164795,
+      "btc_pct": -0.02030035835863434,
+      "sl": 0.00337946,
+      "tp1": 0.003245916,
+      "tp2": 0.003184084,
+      "tp3": 0.003084,
+      "funding_rate": 0.008,
+      "orderbook_ratio": 0.9476678776116092,
+      "time": "2026-11-08T08:16:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-08T08:14:23+00:00",
-    "shortlist_count": 4,
-    "confirmed_count": 0,
+    "time": "2026-11-08T08:16:27+00:00",
+    "shortlist_count": 5,
+    "confirmed_count": 1,
     "symbols": [
       "IDOLUSDT",
       "ONEUSDT",
+      "JCTUSDT",
       "AINUSDT",
-      "JCTUSDT"
+      "ARIAUSDT"
     ]
   }
 }
