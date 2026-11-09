@@ -7484,17 +7484,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-09T18:40:34+00:00",
+    "time": "2026-11-09T18:42:26+00:00",
     "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "PYTHUSDT",
-      "USELESSUSDT",
       "ETHFIUSDT",
       "TRUTHUSDT",
+      "USELESSUSDT",
       "AVAXUSDT",
-      "ARBUSDT",
-      "ONDOUSDT"
+      "ONDOUSDT",
+      "ARBUSDT"
     ]
   }
 }
