@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-09T21:50:35+00:00",
-    "shortlist_count": 8,
+    "time": "2026-11-09T21:52:35+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
@@ -7494,8 +7494,9 @@
       "PYTHUSDT",
       "ARBUSDT",
       "ONDOUSDT",
+      "LITUSDT",
       "GRVTUSDT",
-      "LITUSDT"
+      "ATOMUSDT"
     ]
   }
 }
