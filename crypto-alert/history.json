@@ -7484,14 +7484,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-09T09:42:25+00:00",
-    "shortlist_count": 4,
+    "time": "2026-11-09T09:44:23+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "JCTUSDT",
       "HOTUSDT",
       "HANAUSDT",
-      "ARXUSDT"
+      "ARXUSDT",
+      "IDOLUSDT",
+      "AIOUSDT"
     ]
   }
 }
