@@ -7484,19 +7484,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-09T17:30:38+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-09T17:32:28+00:00",
+    "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
-      "ETHFIUSDT",
       "ARBUSDT",
-      "TRUTHUSDT",
       "USELESSUSDT",
+      "ETHFIUSDT",
+      "TRUTHUSDT",
       "AVAXUSDT",
       "FOLKSUSDT",
       "4USDT",
-      "LITUSDT",
-      "ONDOUSDT"
+      "LITUSDT"
     ]
   }
 }
