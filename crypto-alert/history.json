@@ -7484,19 +7484,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-09T15:26:24+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-09T15:28:24+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
+      "JCTUSDT",
+      "TRUTHUSDT",
+      "龙虾USDT",
       "AVAXUSDT",
       "USELESSUSDT",
       "FOLKSUSDT",
       "ARBUSDT",
-      "龙虾USDT",
-      "AIOTUSDT",
       "ETHFIUSDT",
-      "TRUTHUSDT",
-      "JCTUSDT"
+      "AIOTUSDT",
+      "ONDOUSDT"
     ]
   }
 }
