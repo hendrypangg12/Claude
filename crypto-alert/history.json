@@ -7484,10 +7484,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T08:44:26+00:00",
-    "shortlist_count": 14,
+    "time": "2026-11-10T08:46:25+00:00",
+    "shortlist_count": 15,
     "confirmed_count": 0,
     "symbols": [
+      "PIEVERSEUSDT",
       "PYTHUSDT",
       "BULLAUSDT",
       "ETHFIUSDT",
@@ -7496,12 +7497,12 @@
       "ONDOUSDT",
       "ATOMUSDT",
       "BSBUSDT",
-      "NAORISUSDT",
       "TIAUSDT",
+      "BLUAIUSDT",
       "KASUSDT",
+      "NAORISUSDT",
       "FETUSDT",
-      "WUSDT",
-      "BLUAIUSDT"
+      "WUSDT"
     ]
   }
 }
