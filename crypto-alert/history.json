@@ -7484,16 +7484,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T14:56:32+00:00",
-    "shortlist_count": 6,
+    "time": "2026-11-10T14:58:30+00:00",
+    "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
-      "ONDOUSDT",
-      "GRAMUSDT",
-      "LITUSDT",
       "PYTHUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "LITUSDT",
+      "ONDOUSDT"
     ]
   }
 }
