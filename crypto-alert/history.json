@@ -7484,33 +7484,29 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T07:38:40+00:00",
-    "shortlist_count": 23,
+    "time": "2026-11-10T07:40:34+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
       "PYTHUSDT",
-      "GRAMUSDT",
       "ETHFIUSDT",
+      "GRAMUSDT",
       "AVAXUSDT",
       "KASUSDT",
       "ATOMUSDT",
       "ONDOUSDT",
+      "FETUSDT",
+      "TIAUSDT",
       "NAORISUSDT",
       "BLUAIUSDT",
-      "TIAUSDT",
-      "FETUSDT",
-      "RUNEUSDT",
       "WUSDT",
-      "NEARUSDT",
+      "RUNEUSDT",
       "TAOUSDT",
-      "SUIUSDT",
       "STRKUSDT",
-      "ENAUSDT",
-      "BROCCOLIF3BUSDT",
       "ASTERUSDT",
-      "POWERUSDT",
-      "LITUSDT"
+      "NEARUSDT",
+      "SUIUSDT"
     ]
   }
 }
