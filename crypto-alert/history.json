@@ -7484,15 +7484,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T18:52:27+00:00",
+    "time": "2026-11-10T18:54:33+00:00",
     "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
-      "ARIAUSDT",
       "BTWUSDT",
+      "ARIAUSDT",
       "ONEUSDT",
-      "GRAMUSDT",
-      "BULLAUSDT"
+      "BULLAUSDT",
+      "GRAMUSDT"
     ]
   }
 }
