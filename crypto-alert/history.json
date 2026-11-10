@@ -7484,18 +7484,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T10:12:35+00:00",
-    "shortlist_count": 8,
+    "time": "2026-11-10T10:14:28+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
-      "BSBUSDT",
       "AINUSDT",
+      "BSBUSDT",
       "ETHFIUSDT",
       "PYTHUSDT",
       "GRAMUSDT",
       "ONDOUSDT",
-      "AVAXUSDT",
-      "LITUSDT"
+      "AVAXUSDT"
     ]
   }
 }
