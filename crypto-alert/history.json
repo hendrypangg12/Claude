@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T00:02:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-11-10T00:04:25+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "USELESSUSDT",
@@ -7498,8 +7498,10 @@
       "ARBUSDT",
       "ATOMUSDT",
       "DASHUSDT",
+      "TACUSDT",
       "TIAUSDT",
-      "TACUSDT"
+      "STRKUSDT",
+      "FETUSDT"
     ]
   }
 }
