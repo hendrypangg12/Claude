@@ -7484,7 +7484,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-10T09:22:25+00:00",
+    "time": "2026-11-10T09:24:24+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
@@ -7492,11 +7492,11 @@
       "PYTHUSDT",
       "ETHFIUSDT",
       "GRAMUSDT",
-      "KASUSDT",
       "AVAXUSDT",
+      "KASUSDT",
       "ONDOUSDT",
-      "WUSDT",
-      "ATOMUSDT"
+      "ATOMUSDT",
+      "WUSDT"
     ]
   }
 }
