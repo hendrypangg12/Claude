@@ -7484,18 +7484,18 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T21:04:23+00:00",
+    "time": "2026-11-11T21:06:29+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
       "QUSDT",
       "ARIAUSDT",
-      "DOSUSDT",
       "ZROUSDT",
-      "IOUSDT",
+      "DOSUSDT",
       "GRAMUSDT",
-      "ASTERUSDT"
+      "ASTERUSDT",
+      "IOUSDT"
     ]
   }
 }
