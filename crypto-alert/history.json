@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T19:26:32+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-11T19:28:25+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -7495,9 +7495,11 @@
       "GRAMUSDT",
       "ZROUSDT",
       "ASTERUSDT",
-      "CTUSDT",
       "XMRUSDT",
-      "AVAXUSDT"
+      "AVAXUSDT",
+      "XLMUSDT",
+      "CTUSDT",
+      "NEARUSDT"
     ]
   }
 }
