@@ -7484,7 +7484,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T17:48:27+00:00",
+    "time": "2026-11-11T17:50:31+00:00",
     "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
@@ -7495,17 +7495,17 @@
       "FETUSDT",
       "NEARUSDT",
       "CTUSDT",
-      "PUMPUSDT",
       "XMRUSDT",
+      "PUMPUSDT",
       "XLMUSDT",
       "ASTERUSDT",
       "PYTHUSDT",
-      "HYPEUSDT",
-      "ADAUSDT",
-      "TAOUSDT",
-      "SUIUSDT",
       "FILUSDT",
-      "ENAUSDT"
+      "AEROUSDT",
+      "TAOUSDT",
+      "ADAUSDT",
+      "ENAUSDT",
+      "HYPEUSDT"
     ]
   }
 }
