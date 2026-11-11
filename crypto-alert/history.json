@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T02:44:25+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-11T02:46:22+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "ONEUSDT",
@@ -7495,8 +7495,9 @@
       "LITUSDT",
       "UAIUSDT",
       "ZROUSDT",
+      "PYTHUSDT",
       "BSBUSDT",
-      "PYTHUSDT"
+      "INJUSDT"
     ]
   }
 }
