@@ -7484,7 +7484,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T11:52:28+00:00",
+    "time": "2026-11-11T11:54:24+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -7493,9 +7493,9 @@
       "BTWUSDT",
       "GRAMUSDT",
       "LITUSDT",
-      "XMRUSDT",
       "XPLUSDT",
-      "DOSUSDT"
+      "DOSUSDT",
+      "XMRUSDT"
     ]
   }
 }
