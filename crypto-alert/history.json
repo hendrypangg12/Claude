@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T17:04:26+00:00",
-    "shortlist_count": 21,
+    "time": "2026-11-11T17:06:26+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -7495,20 +7495,21 @@
       "NEARUSDT",
       "FETUSDT",
       "PUMPUSDT",
+      "PYTHUSDT",
       "XLMUSDT",
       "XMRUSDT",
-      "PYTHUSDT",
-      "ENAUSDT",
-      "ASTERUSDT",
       "AEROUSDT",
-      "HYPEUSDT",
-      "SUIUSDT",
+      "ASTERUSDT",
+      "ENAUSDT",
       "CTUSDT",
+      "SUIUSDT",
       "TIAUSDT",
+      "HYPEUSDT",
+      "TAOUSDT",
       "ATOMUSDT",
       "STRKUSDT",
-      "TAOUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "FILUSDT"
     ]
   }
 }
