@@ -7484,23 +7484,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T16:26:25+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-11T16:28:26+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
-      "ARIAUSDT",
       "GRAMUSDT",
       "ZROUSDT",
+      "ARIAUSDT",
       "NEARUSDT",
-      "PUMPUSDT",
       "XMRUSDT",
+      "PUMPUSDT",
       "XLMUSDT",
-      "AVAXUSDT",
       "PYTHUSDT",
+      "SUIUSDT",
       "ATOMUSDT",
-      "ASTERUSDT",
-      "ENAUSDT"
+      "ASTERUSDT"
     ]
   }
 }
