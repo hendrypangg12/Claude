@@ -7484,8 +7484,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T17:37:02+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-11T17:38:24+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "AGTUSDT",
@@ -7495,17 +7495,20 @@
       "NEARUSDT",
       "FETUSDT",
       "XMRUSDT",
-      "PUMPUSDT",
       "CTUSDT",
+      "PUMPUSDT",
       "XLMUSDT",
       "ASTERUSDT",
       "PYTHUSDT",
-      "FILUSDT",
-      "TAOUSDT",
+      "AEROUSDT",
       "SUIUSDT",
       "HYPEUSDT",
-      "AEROUSDT",
-      "BSBUSDT"
+      "FILUSDT",
+      "TAOUSDT",
+      "ENAUSDT",
+      "BSBUSDT",
+      "ADAUSDT",
+      "SOLUSDT"
     ]
   }
 }
