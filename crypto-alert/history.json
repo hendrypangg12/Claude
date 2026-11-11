@@ -7484,7 +7484,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-11T22:00:46+00:00",
+    "time": "2026-11-11T22:02:25+00:00",
     "shortlist_count": 8,
     "confirmed_count": 0,
     "symbols": [
@@ -7492,10 +7492,10 @@
       "QUSDT",
       "ARIAUSDT",
       "DOSUSDT",
-      "IOUSDT",
       "XMRUSDT",
-      "ZROUSDT",
-      "ASTERUSDT"
+      "IOUSDT",
+      "ASTERUSDT",
+      "ZROUSDT"
     ]
   }
 }
