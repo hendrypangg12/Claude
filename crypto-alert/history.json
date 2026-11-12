@@ -7508,13 +7508,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-12T16:14:25+00:00",
-    "shortlist_count": 3,
+    "time": "2026-11-12T16:16:25+00:00",
+    "shortlist_count": 4,
     "confirmed_count": 0,
     "symbols": [
       "QUSDT",
       "AKEUSDT",
-      "GRAMUSDT"
+      "GRAMUSDT",
+      "AGTUSDT"
     ]
   }
 }
