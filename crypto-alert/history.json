@@ -7508,9 +7508,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-12T18:54:25+00:00",
-    "shortlist_count": 0,
+    "time": "2026-11-12T18:56:34+00:00",
+    "shortlist_count": 1,
     "confirmed_count": 0,
-    "symbols": []
+    "symbols": [
+      "AKEUSDT"
+    ]
   }
 }
