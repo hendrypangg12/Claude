@@ -7532,7 +7532,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-13T15:00:49+00:00",
+    "time": "2026-11-13T15:02:28+00:00",
     "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
@@ -7540,12 +7540,12 @@
       "ARIAUSDT",
       "INJUSDT",
       "CTUSDT",
-      "LITUSDT",
       "GRVTUSDT",
-      "ZROUSDT",
+      "LITUSDT",
       "PENDLEUSDT",
-      "HYPEUSDT",
-      "NEARUSDT"
+      "ZROUSDT",
+      "NEARUSDT",
+      "HYPEUSDT"
     ]
   }
 }
