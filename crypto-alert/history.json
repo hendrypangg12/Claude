@@ -7532,8 +7532,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-13T14:22:28+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-13T14:24:41+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
@@ -7541,19 +7541,20 @@
       "LITUSDT",
       "INJUSDT",
       "GRVTUSDT",
+      "HYPEUSDT",
       "CTUSDT",
       "NEARUSDT",
-      "HYPEUSDT",
       "ZROUSDT",
       "PYTHUSDT",
       "STRKUSDT",
       "PUMPUSDT",
       "PENDLEUSDT",
-      "TAOUSDT",
       "FETUSDT",
       "APEUSDT",
       "TIAUSDT",
-      "SUIUSDT"
+      "SUIUSDT",
+      "XPLUSDT",
+      "TAOUSDT"
     ]
   }
 }
