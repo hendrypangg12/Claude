@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-11-14_10-30-53",
+      "date": "2026-11-14",
+      "time": "10:30",
+      "label": "STORY KANTOR",
+      "title": "Yang penting bukan seberapa lama di kantor, tapi seberapa dihargai.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": true
+    },
+    {
       "id": "2026-11-14_02-59-43",
       "date": "2026-11-14",
       "time": "02:59",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": true
-    },
-    {
-      "id": "2026-11-10_20-54-20",
-      "date": "2026-11-10",
-      "time": "20:54",
-      "label": "STORY KANTOR",
-      "title": "Yang bikin lembur bukan kerjaan, tapi keputusan yang gonta-ganti.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": false
     }
   ]
 }
