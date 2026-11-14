@@ -7556,14 +7556,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-14T04:52:29+00:00",
-    "shortlist_count": 4,
+    "time": "2026-11-14T04:54:27+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "AKEUSDT",
       "INJUSDT",
       "ZROUSDT",
-      "PUMPUSDT"
+      "TAOUSDT",
+      "PUMPUSDT",
+      "CTUSDT"
     ]
   }
 }
