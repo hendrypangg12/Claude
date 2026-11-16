@@ -7556,8 +7556,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-16T00:00:44+00:00",
-    "shortlist_count": 22,
+    "time": "2026-11-16T00:02:41+00:00",
+    "shortlist_count": 21,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -7566,22 +7566,21 @@
       "XMRUSDT",
       "XRPUSDT",
       "PENDLEUSDT",
-      "NEARUSDT",
       "ZECUSDT",
+      "NEARUSDT",
       "HYPEUSDT",
       "TAOUSDT",
-      "SUIUSDT",
-      "ENAUSDT",
       "ADAUSDT",
+      "NIGHTUSDT",
+      "ENAUSDT",
+      "SUIUSDT",
       "LINKUSDT",
       "BCHUSDT",
       "TIAUSDT",
-      "NIGHTUSDT",
-      "STRKUSDT",
-      "DOTUSDT",
       "DOGEUSDT",
+      "STRKUSDT",
       "KASUSDT",
-      "ATOMUSDT"
+      "DOTUSDT"
     ]
   }
 }
