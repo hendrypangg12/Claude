@@ -7580,14 +7580,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-16T20:32:24+00:00",
-    "shortlist_count": 4,
+    "time": "2026-11-16T20:34:25+00:00",
+    "shortlist_count": 5,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
       "EVAAUSDT",
-      "KAITOUSDT",
-      "JCTUSDT"
+      "BSBUSDT",
+      "JCTUSDT",
+      "KAITOUSDT"
     ]
   }
 }
