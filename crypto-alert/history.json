@@ -7579,15 +7579,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-16T17:22:29+00:00",
-    "shortlist_count": 5,
+    "time": "2026-11-16T17:24:28+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
       "EVAAUSDT",
-      "ZROUSDT",
       "ASTERUSDT",
-      "KAITOUSDT"
+      "ZROUSDT",
+      "KAITOUSDT",
+      "BSBUSDT"
     ]
   }
 }
