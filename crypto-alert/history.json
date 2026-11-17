@@ -7580,16 +7580,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T05:32:27+00:00",
-    "shortlist_count": 16,
+    "time": "2026-11-17T05:34:32+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "BLESSUSDT",
-      "AKEUSDT",
       "BULLAUSDT",
       "LITUSDT",
       "ICPUSDT",
+      "AKEUSDT",
       "ZROUSDT",
       "INJUSDT",
       "JCTUSDT",
@@ -7597,9 +7597,10 @@
       "HYPEUSDT",
       "CTUSDT",
       "AEROUSDT",
-      "NIGHTUSDT",
       "XPLUSDT",
-      "ZECUSDT"
+      "NIGHTUSDT",
+      "ZECUSDT",
+      "BSBUSDT"
     ]
   }
 }
