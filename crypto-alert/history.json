@@ -7580,8 +7580,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T01:20:56+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-17T01:22:53+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -7590,9 +7590,10 @@
       "ZROUSDT",
       "LITUSDT",
       "CTUSDT",
-      "XPLUSDT",
       "AEROUSDT",
-      "BSBUSDT"
+      "XPLUSDT",
+      "BSBUSDT",
+      "HYPEUSDT"
     ]
   }
 }
