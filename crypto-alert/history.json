@@ -7604,8 +7604,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T11:42:24+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-17T11:44:25+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "LITUSDT",
@@ -7613,12 +7613,14 @@
       "NIGHTUSDT",
       "ICPUSDT",
       "ASTERUSDT",
-      "CTUSDT",
-      "AEROUSDT",
       "RUNEUSDT",
+      "AEROUSDT",
+      "CTUSDT",
       "ZECUSDT",
+      "EVAAUSDT",
       "ZROUSDT",
-      "XPLUSDT"
+      "XPLUSDT",
+      "CAKEUSDT"
     ]
   }
 }
