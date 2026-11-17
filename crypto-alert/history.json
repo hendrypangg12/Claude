@@ -7604,13 +7604,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T13:06:24+00:00",
-    "shortlist_count": 21,
+    "time": "2026-11-17T13:08:27+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "LITUSDT",
-      "INJUSDT",
       "EVAAUSDT",
+      "INJUSDT",
       "CTUSDT",
       "ZECUSDT",
       "RUNEUSDT",
@@ -7623,12 +7623,10 @@
       "CAKEUSDT",
       "XPLUSDT",
       "CRVUSDT",
-      "NEARUSDT",
-      "TAOUSDT",
       "KASUSDT",
-      "SOLUSDT",
-      "PYTHUSDT",
-      "STRKUSDT"
+      "TAOUSDT",
+      "NEARUSDT",
+      "SOLUSDT"
     ]
   }
 }
