@@ -7580,12 +7580,12 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T04:12:28+00:00",
+    "time": "2026-11-17T04:14:28+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
-      "BULLAUSDT",
       "EVAAUSDT",
+      "BULLAUSDT",
       "BLESSUSDT",
       "AKEUSDT",
       "ZROUSDT",
@@ -7596,8 +7596,8 @@
       "INJUSDT",
       "CTUSDT",
       "AEROUSDT",
-      "BSBUSDT",
-      "XPLUSDT"
+      "XPLUSDT",
+      "BSBUSDT"
     ]
   }
 }
