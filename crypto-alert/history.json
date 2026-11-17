@@ -7604,30 +7604,31 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T13:12:28+00:00",
-    "shortlist_count": 21,
+    "time": "2026-11-17T13:14:06+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "LITUSDT",
       "INJUSDT",
-      "EVAAUSDT",
       "CTUSDT",
+      "EVAAUSDT",
       "ZECUSDT",
       "AEROUSDT",
       "RUNEUSDT",
-      "ICPUSDT",
       "ZROUSDT",
+      "ICPUSDT",
       "HYPEUSDT",
       "ASTERUSDT",
       "TRUMPUSDT",
-      "CAKEUSDT",
       "XPLUSDT",
+      "CAKEUSDT",
       "CRVUSDT",
       "KASUSDT",
-      "PYTHUSDT",
       "NEARUSDT",
       "TAOUSDT",
+      "STRKUSDT",
       "SOLUSDT",
+      "PYTHUSDT",
       "BCHUSDT"
     ]
   }
