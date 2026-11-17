@@ -7580,19 +7580,20 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T01:40:44+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-17T01:42:32+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
       "EVAAUSDT",
       "ASTERUSDT",
       "ZROUSDT",
-      "CTUSDT",
       "LITUSDT",
-      "BSBUSDT",
+      "CTUSDT",
       "XPLUSDT",
-      "AEROUSDT"
+      "AEROUSDT",
+      "BSBUSDT",
+      "CAKEUSDT"
     ]
   }
 }
