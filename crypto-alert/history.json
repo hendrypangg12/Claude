@@ -7580,13 +7580,13 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T03:42:25+00:00",
+    "time": "2026-11-17T03:44:27+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
-      "BULLAUSDT",
       "EVAAUSDT",
+      "BULLAUSDT",
       "ZROUSDT",
       "AKEUSDT",
       "LITUSDT",
@@ -7596,8 +7596,8 @@
       "INJUSDT",
       "AEROUSDT",
       "HYPEUSDT",
-      "XPLUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "XPLUSDT"
     ]
   }
 }
