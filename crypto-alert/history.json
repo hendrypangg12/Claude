@@ -7628,21 +7628,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T15:16:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-17T15:18:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "LITUSDT",
       "INJUSDT",
-      "BTWUSDT",
       "ZECUSDT",
+      "BTWUSDT",
       "CTUSDT",
       "RUNEUSDT",
-      "AEROUSDT",
-      "HYPEUSDT",
       "TRUMPUSDT",
-      "KAITOUSDT",
-      "SOLUSDT"
+      "HYPEUSDT",
+      "PYTHUSDT",
+      "AEROUSDT",
+      "SOLUSDT",
+      "CAKEUSDT"
     ]
   }
 }
