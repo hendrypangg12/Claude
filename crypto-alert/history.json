@@ -13,7 +13,7 @@
     "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
-    "BTWUSDT": "2026-10-17T16:22:25+00:00",
+    "BTWUSDT": "2026-11-17T14:02:26+00:00",
     "BROCCOLIF3BUSDT": "2026-07-28T08:16:41+00:00",
     "COTIUSDT": "2026-08-06T06:24:41+00:00",
     "EPICUSDT": "2026-09-20T15:18:27+00:00",
@@ -7601,28 +7601,50 @@
       "time": "2026-11-17T08:48:43+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-17T08:58:26+00:00"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "pct": 8.94,
+      "price": 0.466307,
+      "quote_volume": 436069.961673,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.2637754236505731,
+      "retrace_pct": 2.0196714146734958,
+      "wick_ratio": 0.9054196370706403,
+      "rsi": 67.49670616434295,
+      "divergence": false,
+      "vol_spike": 0.026868246312322163,
+      "btc_pct": 0.218051672348058,
+      "sl": 0.48067819,
+      "tp1": 0.461002664,
+      "tp2": 0.451787336,
+      "tp3": 0.436871,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 2.3747623959909725,
+      "time": "2026-11-17T14:02:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-17T14:00:51+00:00",
-    "shortlist_count": 15,
-    "confirmed_count": 0,
+    "time": "2026-11-17T14:02:26+00:00",
+    "shortlist_count": 14,
+    "confirmed_count": 1,
     "symbols": [
       "LITUSDT",
+      "BTWUSDT",
       "CTUSDT",
       "INJUSDT",
-      "BTWUSDT",
       "ZECUSDT",
-      "EVAAUSDT",
       "RUNEUSDT",
+      "EVAAUSDT",
       "HYPEUSDT",
       "AEROUSDT",
       "TRUMPUSDT",
-      "ZROUSDT",
       "CRVUSDT",
       "KASUSDT",
-      "SOLUSDT",
-      "CAKEUSDT"
+      "CAKEUSDT",
+      "ZROUSDT"
     ]
   }
 }
