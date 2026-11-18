@@ -7652,17 +7652,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T14:48:36+00:00",
-    "shortlist_count": 7,
+    "time": "2026-11-18T14:50:46+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "PIPPINUSDT",
       "PIEVERSEUSDT",
       "EVAAUSDT",
       "BULLAUSDT",
-      "BTWUSDT",
       "CTUSDT",
-      "BSBUSDT"
+      "BTWUSDT",
+      "BSBUSDT",
+      "BLESSUSDT",
+      "DOSUSDT"
     ]
   }
 }
