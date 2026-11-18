@@ -7671,23 +7671,24 @@
       "funding_rate": 0.021,
       "orderbook_ratio": 0.811610536593218,
       "time": "2026-11-18T16:54:27+00:00",
-      "outcome": null
+      "outcome": "tp1_hit",
+      "outcome_time": "2026-11-18T17:01:01+00:00"
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T16:58:29+00:00",
+    "time": "2026-11-18T17:01:01+00:00",
     "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "PIPPINUSDT",
       "PIEVERSEUSDT",
-      "BULLAUSDT",
       "EVAAUSDT",
+      "BULLAUSDT",
       "BLESSUSDT",
       "CTUSDT",
       "DOSUSDT",
-      "BTWUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "BTWUSDT"
     ]
   }
 }
