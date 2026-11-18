@@ -124,7 +124,8 @@
     "BEAMXUSDT": "2026-11-01T07:02:25+00:00",
     "HOTUSDT": "2026-11-04T07:08:26+00:00",
     "CLANKERUSDT": "2026-11-04T18:58:24+00:00",
-    "ELSAUSDT": "2026-11-05T03:56:25+00:00"
+    "ELSAUSDT": "2026-11-05T03:56:25+00:00",
+    "PIPPINUSDT": "2026-11-18T18:18:26+00:00"
   },
   "alerts": [
     {
@@ -7673,12 +7674,35 @@
       "time": "2026-11-18T16:54:27+00:00",
       "outcome": "tp1_hit",
       "outcome_time": "2026-11-18T17:01:01+00:00"
+    },
+    {
+      "symbol": "PIPPINUSDT",
+      "pct": 9.06,
+      "price": 0.02098,
+      "quote_volume": 476231.382273,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.15280273236460923,
+      "retrace_pct": 0.8506616257088992,
+      "wick_ratio": 0.3184079601990103,
+      "rsi": 66.68140900882658,
+      "divergence": false,
+      "vol_spike": 0.016894599082084183,
+      "btc_pct": -0.08884225751752738,
+      "sl": 0.0213716,
+      "tp1": 0.020488826,
+      "tp2": 0.020074174,
+      "tp3": 0.019403,
+      "funding_rate": 0.02,
+      "orderbook_ratio": 1.9369643472205402,
+      "time": "2026-11-18T18:18:26+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T18:16:31+00:00",
+    "time": "2026-11-18T18:18:26+00:00",
     "shortlist_count": 11,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "PIPPINUSDT",
       "PIEVERSEUSDT",
@@ -7689,8 +7713,8 @@
       "CTUSDT",
       "IOUSDT",
       "BULLAUSDT",
-      "WUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "WUSDT"
     ]
   }
 }
