@@ -7628,16 +7628,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T06:26:30+00:00",
+    "time": "2026-11-18T06:28:29+00:00",
     "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "BTWUSDT",
-      "AKEUSDT",
       "RUNEUSDT",
+      "AKEUSDT",
       "NEARUSDT",
-      "GRVTUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "GRVTUSDT"
     ]
   }
 }
