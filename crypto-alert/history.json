@@ -7628,17 +7628,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T09:08:34+00:00",
+    "time": "2026-11-18T09:10:36+00:00",
     "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "RUNEUSDT",
-      "BULLAUSDT",
-      "GRVTUSDT",
       "XRPUSDT",
+      "GRVTUSDT",
+      "BULLAUSDT",
       "BSBUSDT",
-      "WUSDT",
-      "NEARUSDT"
+      "CTUSDT",
+      "WUSDT"
     ]
   }
 }
