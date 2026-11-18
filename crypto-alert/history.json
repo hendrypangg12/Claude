@@ -7628,14 +7628,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-18T08:44:29+00:00",
+    "time": "2026-11-18T08:46:25+00:00",
     "shortlist_count": 4,
     "confirmed_count": 0,
     "symbols": [
       "RUNEUSDT",
-      "CTUSDT",
       "XRPUSDT",
-      "GRVTUSDT"
+      "GRVTUSDT",
+      "CTUSDT"
     ]
   }
 }
