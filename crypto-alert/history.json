@@ -125,7 +125,7 @@
     "HOTUSDT": "2026-11-04T07:08:26+00:00",
     "CLANKERUSDT": "2026-11-04T18:58:24+00:00",
     "ELSAUSDT": "2026-11-05T03:56:25+00:00",
-    "PIPPINUSDT": "2026-11-18T18:18:26+00:00"
+    "PIPPINUSDT": "2026-11-19T02:06:32+00:00"
   },
   "alerts": [
     {
@@ -7698,20 +7698,43 @@
       "time": "2026-11-18T18:18:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-18T18:24:29+00:00"
+    },
+    {
+      "symbol": "PIPPINUSDT",
+      "pct": 8.19,
+      "price": 0.017756,
+      "quote_volume": 597365.510574,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.40579386075524176,
+      "retrace_pct": 1.3171789029066727,
+      "wick_ratio": 0.8397626112759674,
+      "rsi": 77.65662616173596,
+      "divergence": false,
+      "vol_spike": 0.14751357907398915,
+      "btc_pct": 0.5720761114971653,
+      "sl": 0.01817293,
+      "tp1": 0.017472716,
+      "tp2": 0.017151284,
+      "tp3": 0.016631,
+      "funding_rate": 0.006,
+      "orderbook_ratio": 0.8230702309951847,
+      "time": "2026-11-19T02:06:32+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-19T02:04:44+00:00",
+    "time": "2026-11-19T02:06:32+00:00",
     "shortlist_count": 8,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "PIPPINUSDT",
       "PIEVERSEUSDT",
       "EVAAUSDT",
       "BULLAUSDT",
-      "BTWUSDT",
-      "BLESSUSDT",
       "DOSUSDT",
+      "BLESSUSDT",
+      "BTWUSDT",
       "CTUSDT"
     ]
   }
