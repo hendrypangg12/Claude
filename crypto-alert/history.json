@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-19T16:38:27+00:00",
-    "shortlist_count": 12,
+    "time": "2026-11-19T16:40:34+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "NAORISUSDT",
@@ -7758,13 +7758,14 @@
       "IRYSUSDT",
       "VELVETUSDT",
       "BTWUSDT",
-      "DOSUSDT",
       "ETHFIUSDT",
+      "DOSUSDT",
       "ZROUSDT",
       "PYTHUSDT",
       "CTUSDT",
       "GRVTUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "LITUSDT"
     ]
   }
 }
