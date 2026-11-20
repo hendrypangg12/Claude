@@ -7749,14 +7749,15 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-20T05:48:37+00:00",
-    "shortlist_count": 5,
+    "time": "2026-11-20T05:50:31+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "NAORISUSDT",
-      "DOSUSDT",
       "BTWUSDT",
+      "DOSUSDT",
+      "CTUSDT",
       "GRVTUSDT"
     ]
   }
