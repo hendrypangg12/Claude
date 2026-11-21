@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-21T20:02:39+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-21T20:04:28+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7759,10 +7759,14 @@
       "NIGHTUSDT",
       "UNIUSDT",
       "ETHFIUSDT",
-      "TAOUSDT",
       "ETHUSDT",
+      "TAOUSDT",
+      "TRUMPUSDT",
       "XRPUSDT",
-      "TRUMPUSDT"
+      "ZECUSDT",
+      "QNTUSDT",
+      "BCHUSDT",
+      "ADAUSDT"
     ]
   }
 }
