@@ -7749,16 +7749,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-21T23:32:34+00:00",
-    "shortlist_count": 6,
+    "time": "2026-11-21T23:34:40+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
-      "BTWUSDT",
       "CTUSDT",
+      "BTWUSDT",
       "ETHFIUSDT",
       "UNIUSDT",
-      "NIGHTUSDT"
+      "NIGHTUSDT",
+      "EVAAUSDT"
     ]
   }
 }
