@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-22T07:40:56+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-22T07:42:26+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "PIEVERSEUSDT",
@@ -7762,7 +7762,9 @@
       "BULLAUSDT",
       "TRUMPUSDT",
       "STRKUSDT",
-      "CTUSDT"
+      "CTUSDT",
+      "PYTHUSDT",
+      "BSBUSDT"
     ]
   }
 }
