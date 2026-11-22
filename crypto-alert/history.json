@@ -7749,7 +7749,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-22T17:02:29+00:00",
+    "time": "2026-11-22T17:04:24+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -7761,10 +7761,10 @@
       "ETHFIUSDT",
       "AEROUSDT",
       "PYTHUSDT",
-      "BTWUSDT",
       "BSBUSDT",
-      "IOUSDT",
-      "NEARUSDT"
+      "BTWUSDT",
+      "NEARUSDT",
+      "IOUSDT"
     ]
   }
 }
