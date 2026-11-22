@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-22T05:26:26+00:00",
-    "shortlist_count": 23,
+    "time": "2026-11-22T05:28:26+00:00",
+    "shortlist_count": 25,
     "confirmed_count": 0,
     "symbols": [
       "PIEVERSEUSDT",
@@ -7759,23 +7759,25 @@
       "NIGHTUSDT",
       "NEARUSDT",
       "ZECUSDT",
-      "ZROUSDT",
       "TRUMPUSDT",
+      "ZROUSDT",
       "AEROUSDT",
       "TAOUSDT",
       "AVAXUSDT",
       "SUIUSDT",
       "ETHUSDT",
       "BCHUSDT",
-      "ENAUSDT",
       "BTCUSDT",
+      "ENAUSDT",
       "WUSDT",
-      "CRVUSDT",
       "STRKUSDT",
+      "CRVUSDT",
       "HYPEUSDT",
       "XRPUSDT",
-      "SOLUSDT",
-      "BULLAUSDT"
+      "BULLAUSDT",
+      "BNBUSDT",
+      "PYTHUSDT",
+      "SOLUSDT"
     ]
   }
 }
