@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-22T02:58:25+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-22T03:00:46+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "CTUSDT",
@@ -7759,9 +7759,10 @@
       "ETHFIUSDT",
       "BULLAUSDT",
       "NIGHTUSDT",
-      "ZROUSDT",
       "UNIUSDT",
-      "NEARUSDT"
+      "NEARUSDT",
+      "ZROUSDT",
+      "TAOUSDT"
     ]
   }
 }
