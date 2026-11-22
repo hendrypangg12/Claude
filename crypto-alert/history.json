@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-22T15:14:28+00:00",
-    "shortlist_count": 8,
+    "time": "2026-11-22T15:16:24+00:00",
+    "shortlist_count": 10,
     "confirmed_count": 0,
     "symbols": [
       "BLESSUSDT",
@@ -7760,7 +7760,9 @@
       "NIGHTUSDT",
       "ETHFIUSDT",
       "AEROUSDT",
-      "PUMPUSDT"
+      "PUMPUSDT",
+      "PYTHUSDT",
+      "NEARUSDT"
     ]
   }
 }
