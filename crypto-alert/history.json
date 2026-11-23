@@ -7749,15 +7749,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T19:16:33+00:00",
-    "shortlist_count": 17,
+    "time": "2026-11-23T19:18:26+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
+      "BULLAUSDT",
       "QNTUSDT",
       "KASUSDT",
-      "LITUSDT",
       "ARIAUSDT",
+      "LITUSDT",
       "ATOMUSDT",
       "INJUSDT",
       "GALAUSDT",
@@ -7765,10 +7766,8 @@
       "WIFUSDT",
       "UNIUSDT",
       "LTCUSDT",
-      "BULLAUSDT",
-      "HYPEUSDT",
       "SUIUSDT",
-      "KAITOUSDT",
+      "HYPEUSDT",
       "SOLUSDT"
     ]
   }
