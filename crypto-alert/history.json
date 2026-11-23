@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T18:18:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-11-23T18:20:38+00:00",
+    "shortlist_count": 20,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -7761,17 +7761,18 @@
       "KASUSDT",
       "FILUSDT",
       "GALAUSDT",
-      "INJUSDT",
       "WIFUSDT",
+      "INJUSDT",
       "LTCUSDT",
       "DOTUSDT",
       "HBARUSDT",
-      "KAITOUSDT",
-      "UNIUSDT",
-      "ADAUSDT",
       "BTWUSDT",
+      "ADAUSDT",
+      "KAITOUSDT",
       "SUIUSDT",
-      "SOLUSDT"
+      "UNIUSDT",
+      "SOLUSDT",
+      "CAKEUSDT"
     ]
   }
 }
