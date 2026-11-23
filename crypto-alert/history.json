@@ -7749,15 +7749,16 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T12:52:28+00:00",
-    "shortlist_count": 5,
+    "time": "2026-11-23T12:54:31+00:00",
+    "shortlist_count": 6,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
-      "ARIAUSDT",
       "BLESSUSDT",
+      "ARIAUSDT",
       "PIEVERSEUSDT",
-      "LITUSDT"
+      "LITUSDT",
+      "NIGHTUSDT"
     ]
   }
 }
