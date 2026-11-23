@@ -7749,15 +7749,19 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T12:22:40+00:00",
-    "shortlist_count": 5,
+    "time": "2026-11-23T12:24:31+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
-      "ARIAUSDT",
       "BULLAUSDT",
+      "ARIAUSDT",
       "BLESSUSDT",
       "LITUSDT",
-      "ETHFIUSDT"
+      "ETHFIUSDT",
+      "ZROUSDT",
+      "NIGHTUSDT",
+      "AEROUSDT",
+      "XPLUSDT"
     ]
   }
 }
