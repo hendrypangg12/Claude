@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T21:24:32+00:00",
-    "shortlist_count": 7,
+    "time": "2026-11-23T21:26:26+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -7759,7 +7759,9 @@
       "ATOMUSDT",
       "KASUSDT",
       "GALAUSDT",
-      "BULLAUSDT"
+      "BULLAUSDT",
+      "INJUSDT",
+      "WIFUSDT"
     ]
   }
 }
