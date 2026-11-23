@@ -7749,7 +7749,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T18:24:27+00:00",
+    "time": "2026-11-23T18:26:25+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -7765,18 +7765,18 @@
       "INJUSDT",
       "LTCUSDT",
       "KAITOUSDT",
-      "DOTUSDT",
       "BTWUSDT",
-      "UNIUSDT",
-      "ADAUSDT",
-      "HBARUSDT",
+      "DOTUSDT",
       "SUIUSDT",
-      "XPLUSDT",
+      "UNIUSDT",
+      "HBARUSDT",
       "SOLUSDT",
+      "ADAUSDT",
+      "XPLUSDT",
       "HYPEUSDT",
       "WUSDT",
-      "DOGEUSDT",
-      "CAKEUSDT"
+      "FETUSDT",
+      "DOGEUSDT"
     ]
   }
 }
