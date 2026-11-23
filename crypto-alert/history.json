@@ -7749,14 +7749,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T13:54:28+00:00",
-    "shortlist_count": 4,
+    "time": "2026-11-23T13:56:40+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
       "ARIAUSDT",
       "BLESSUSDT",
-      "PIEVERSEUSDT"
+      "PIEVERSEUSDT",
+      "LITUSDT",
+      "GALAUSDT",
+      "SOLUSDT",
+      "BTWUSDT",
+      "ENAUSDT",
+      "XRPUSDT",
+      "LTCUSDT",
+      "SUIUSDT"
     ]
   }
 }
