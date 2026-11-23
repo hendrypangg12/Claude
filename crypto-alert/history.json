@@ -7749,7 +7749,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T16:26:34+00:00",
+    "time": "2026-11-23T16:28:34+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7762,27 +7762,27 @@
       "WIFUSDT",
       "GALAUSDT",
       "FILUSDT",
-      "SUIUSDT",
       "ATOMUSDT",
+      "SUIUSDT",
       "HBARUSDT",
       "ARIAUSDT",
-      "BLESSUSDT",
       "UNIUSDT",
       "LTCUSDT",
       "SOLUSDT",
       "FETUSDT",
-      "ZECUSDT",
       "DOTUSDT",
-      "WUSDT",
-      "WLDUSDT",
       "ADAUSDT",
+      "WUSDT",
+      "ZECUSDT",
       "RUNEUSDT",
       "XRPUSDT",
-      "KAITOUSDT",
-      "DOGEUSDT",
       "ENAUSDT",
-      "PENDLEUSDT",
-      "XLMUSDT"
+      "WLDUSDT",
+      "DOGEUSDT",
+      "XLMUSDT",
+      "KAITOUSDT",
+      "BLESSUSDT",
+      "PENDLEUSDT"
     ]
   }
 }
