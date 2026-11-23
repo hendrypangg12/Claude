@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T18:22:27+00:00",
-    "shortlist_count": 19,
+    "time": "2026-11-23T18:24:27+00:00",
+    "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
@@ -7771,7 +7771,12 @@
       "ADAUSDT",
       "HBARUSDT",
       "SUIUSDT",
-      "SOLUSDT"
+      "XPLUSDT",
+      "SOLUSDT",
+      "HYPEUSDT",
+      "WUSDT",
+      "DOGEUSDT",
+      "CAKEUSDT"
     ]
   }
 }
