@@ -7749,26 +7749,27 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T17:42:27+00:00",
-    "shortlist_count": 17,
+    "time": "2026-11-23T17:44:33+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "QNTUSDT",
       "LITUSDT",
       "ATOMUSDT",
-      "INJUSDT",
       "KASUSDT",
-      "FILUSDT",
-      "BULLAUSDT",
+      "INJUSDT",
       "GALAUSDT",
+      "FILUSDT",
       "WIFUSDT",
       "BTWUSDT",
+      "BULLAUSDT",
       "HBARUSDT",
-      "KAITOUSDT",
       "LTCUSDT",
-      "UNIUSDT",
+      "KAITOUSDT",
       "SUIUSDT",
+      "ZROUSDT",
+      "UNIUSDT",
       "SOLUSDT"
     ]
   }
