@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T09:00:57+00:00",
-    "shortlist_count": 15,
+    "time": "2026-11-23T09:02:28+00:00",
+    "shortlist_count": 17,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7761,13 +7761,15 @@
       "WUSDT",
       "KAITOUSDT",
       "LITUSDT",
-      "CAKEUSDT",
       "STRKUSDT",
+      "CAKEUSDT",
       "ZROUSDT",
-      "RUNEUSDT",
+      "ENAUSDT",
+      "AEROUSDT",
       "ETHFIUSDT",
+      "RUNEUSDT",
       "GRAMUSDT",
-      "ENAUSDT"
+      "HYPEUSDT"
     ]
   }
 }
