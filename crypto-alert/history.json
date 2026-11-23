@@ -7749,7 +7749,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T20:26:25+00:00",
+    "time": "2026-11-23T20:28:26+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -7759,14 +7759,14 @@
       "ATOMUSDT",
       "KASUSDT",
       "GALAUSDT",
-      "WIFUSDT",
-      "FILUSDT",
       "LITUSDT",
       "INJUSDT",
+      "WIFUSDT",
+      "FILUSDT",
       "SOLUSDT",
       "LTCUSDT",
-      "CAKEUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "CAKEUSDT"
     ]
   }
 }
