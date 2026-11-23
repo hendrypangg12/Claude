@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-23T10:06:29+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-23T10:08:28+00:00",
+    "shortlist_count": 9,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7758,11 +7758,10 @@
       "NIGHTUSDT",
       "ZROUSDT",
       "LITUSDT",
-      "INJUSDT",
       "KAITOUSDT",
-      "PUMPUSDT",
       "WUSDT",
-      "PYTHUSDT"
+      "INJUSDT",
+      "PUMPUSDT"
     ]
   }
 }
