@@ -7749,14 +7749,14 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-24T01:42:29+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-24T01:44:27+00:00",
+    "shortlist_count": 19,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "ARIAUSDT",
-      "ATOMUSDT",
       "BULLAUSDT",
+      "ATOMUSDT",
       "QNTUSDT",
       "ELSAUSDT",
       "FILUSDT",
@@ -7764,13 +7764,14 @@
       "GALAUSDT",
       "ADAUSDT",
       "LTCUSDT",
-      "UNIUSDT",
       "CAKEUSDT",
+      "UNIUSDT",
       "SUIUSDT",
       "IOUSDT",
+      "KASUSDT",
       "DOTUSDT",
-      "DOGEUSDT",
-      "KASUSDT"
+      "XLMUSDT",
+      "DOGEUSDT"
     ]
   }
 }
