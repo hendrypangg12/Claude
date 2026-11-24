@@ -7749,24 +7749,26 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-24T02:12:28+00:00",
-    "shortlist_count": 14,
+    "time": "2026-11-24T02:14:33+00:00",
+    "shortlist_count": 16,
     "confirmed_count": 0,
     "symbols": [
       "ARIAUSDT",
-      "ATOMUSDT",
       "EVAAUSDT",
       "BULLAUSDT",
+      "ATOMUSDT",
       "QNTUSDT",
       "ICPUSDT",
       "FILUSDT",
       "GALAUSDT",
       "WIFUSDT",
-      "KASUSDT",
       "ADAUSDT",
+      "KASUSDT",
       "LTCUSDT",
       "CAKEUSDT",
-      "UNIUSDT"
+      "UNIUSDT",
+      "XLMUSDT",
+      "SUIUSDT"
     ]
   }
 }
