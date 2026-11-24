@@ -7749,8 +7749,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-24T02:24:39+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-24T02:26:27+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "ARIAUSDT",
@@ -7763,7 +7763,10 @@
       "GALAUSDT",
       "WIFUSDT",
       "ADAUSDT",
-      "KASUSDT"
+      "CAKEUSDT",
+      "KASUSDT",
+      "LTCUSDT",
+      "UNIUSDT"
     ]
   }
 }
