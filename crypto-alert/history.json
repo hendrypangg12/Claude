@@ -7749,9 +7749,11 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-24T15:30:41+00:00",
-    "shortlist_count": 0,
+    "time": "2026-11-24T15:32:47+00:00",
+    "shortlist_count": 1,
     "confirmed_count": 0,
-    "symbols": []
+    "symbols": [
+      "ARIAUSDT"
+    ]
   }
 }
