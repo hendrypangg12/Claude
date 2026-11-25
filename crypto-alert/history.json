@@ -9,7 +9,7 @@
     "ACEUSDT": "2026-08-18T06:58:30+00:00",
     "RIFUSDT": "2026-07-24T12:44:37+00:00",
     "ONUSDT": "2026-09-22T18:48:29+00:00",
-    "EVAAUSDT": "2026-11-19T13:32:26+00:00",
+    "EVAAUSDT": "2026-11-25T04:24:27+00:00",
     "DEXEUSDT": "2026-07-28T08:32:35+00:00",
     "EULUSDT": "2026-07-25T18:10:34+00:00",
     "NILUSDT": "2026-07-27T12:14:29+00:00",
@@ -7746,18 +7746,41 @@
       "time": "2026-11-19T13:32:26+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-19T13:50:48+00:00"
+    },
+    {
+      "symbol": "EVAAUSDT",
+      "pct": 8.13,
+      "price": 2.2706,
+      "quote_volume": 719100.7296,
+      "risk": "🟡 MEDIUM RISK",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.3096269145577749,
+      "retrace_pct": 0.48211781206171633,
+      "wick_ratio": 0.0,
+      "rsi": 70.7623045464847,
+      "divergence": true,
+      "vol_spike": 0.06990895807093245,
+      "btc_pct": -0.16476507330865725,
+      "sl": 2.3044160000000002,
+      "tp1": 2.2160488,
+      "tp2": 2.1755512,
+      "tp3": 2.11,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 3.6783042731343087,
+      "time": "2026-11-25T04:24:27+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-25T04:22:27+00:00",
+    "time": "2026-11-25T04:24:27+00:00",
     "shortlist_count": 5,
-    "confirmed_count": 0,
+    "confirmed_count": 1,
     "symbols": [
       "BULLAUSDT",
       "BLESSUSDT",
       "BTWUSDT",
-      "CTUSDT",
-      "EVAAUSDT"
+      "EVAAUSDT",
+      "CTUSDT"
     ]
   }
 }
