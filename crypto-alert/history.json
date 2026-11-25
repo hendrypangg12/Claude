@@ -7773,8 +7773,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-25T19:56:37+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-25T19:58:30+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7783,10 +7783,11 @@
       "XPLUSDT",
       "CTUSDT",
       "BCHUSDT",
-      "KASUSDT",
+      "LTCUSDT",
       "PUMPUSDT",
-      "ZECUSDT",
-      "LTCUSDT"
+      "KASUSDT",
+      "RUNEUSDT",
+      "ZECUSDT"
     ]
   }
 }
