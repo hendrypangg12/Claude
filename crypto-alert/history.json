@@ -7773,15 +7773,17 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-25T19:08:39+00:00",
-    "shortlist_count": 5,
+    "time": "2026-11-25T19:10:38+00:00",
+    "shortlist_count": 7,
     "confirmed_count": 0,
     "symbols": [
       "EVAAUSDT",
       "BULLAUSDT",
       "BTWUSDT",
       "XPLUSDT",
-      "CTUSDT"
+      "CTUSDT",
+      "ZECUSDT",
+      "BCHUSDT"
     ]
   }
 }
