@@ -7773,7 +7773,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T12:32:41+00:00",
+    "time": "2026-11-26T12:34:29+00:00",
     "shortlist_count": 30,
     "confirmed_count": 0,
     "symbols": [
@@ -7784,10 +7784,10 @@
       "ZROUSDT",
       "VVVUSDT",
       "WIFUSDT",
-      "RUNEUSDT",
       "FETUSDT",
       "WUSDT",
       "NEARUSDT",
+      "RUNEUSDT",
       "HBARUSDT",
       "ENAUSDT",
       "INJUSDT",
@@ -7801,12 +7801,12 @@
       "BCHUSDT",
       "ADAUSDT",
       "GALAUSDT",
-      "STRKUSDT",
-      "SUIUSDT",
       "DOTUSDT",
+      "SUIUSDT",
       "CAKEUSDT",
       "DOGEUSDT",
-      "TAOUSDT"
+      "TAOUSDT",
+      "STRKUSDT"
     ]
   }
 }
