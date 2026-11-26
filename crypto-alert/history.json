@@ -7797,7 +7797,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T19:58:25+00:00",
+    "time": "2026-11-26T20:00:43+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -7808,12 +7808,12 @@
       "PIEVERSEUSDT",
       "WUSDT",
       "HBARUSDT",
-      "RUNEUSDT",
       "NEARUSDT",
-      "INJUSDT",
       "TIAUSDT",
+      "RUNEUSDT",
       "LITUSDT",
-      "GALAUSDT"
+      "GALAUSDT",
+      "INJUSDT"
     ]
   }
 }
