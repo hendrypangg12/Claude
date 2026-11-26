@@ -7797,19 +7797,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T23:26:24+00:00",
-    "shortlist_count": 9,
+    "time": "2026-11-26T23:28:27+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
+      "VERITYUSDT",
       "BULLAUSDT",
+      "MCNUSDT",
+      "FOXSYUSDT",
       "FETUSDT",
-      "BTWUSDT",
       "ZROUSDT",
+      "BTWUSDT",
       "WIFUSDT",
       "PIEVERSEUSDT",
       "WUSDT",
-      "GALAUSDT",
-      "INJUSDT"
+      "SOXLONUSDT",
+      "GALAUSDT"
     ]
   }
 }
