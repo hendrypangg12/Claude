@@ -2,6 +2,17 @@
   "brand": "storykantor",
   "posts": [
     {
+      "id": "2026-11-26_22-45-19",
+      "date": "2026-11-26",
+      "time": "22:45",
+      "label": "STORY KANTOR",
+      "title": "Kerja giat bertahun-tahun, jabatan gitu-gitu aja.",
+      "tanggal_berita": "",
+      "sumber": "",
+      "slides": 1,
+      "reel": false
+    },
+    {
       "id": "2026-11-26_17-01-23",
       "date": "2026-11-26",
       "time": "17:01",
@@ -143,17 +154,6 @@
       "sumber": "",
       "slides": 1,
       "reel": false
-    },
-    {
-      "id": "2026-11-23_10-57-03",
-      "date": "2026-11-23",
-      "time": "10:57",
-      "label": "STORY KANTOR",
-      "title": "Rekan kerja toxic bikin senin makin berat.",
-      "tanggal_berita": "",
-      "sumber": "",
-      "slides": 1,
-      "reel": true
     }
   ]
 }
