@@ -7797,8 +7797,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T18:30:42+00:00",
-    "shortlist_count": 18,
+    "time": "2026-11-26T18:32:40+00:00",
+    "shortlist_count": 22,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7807,8 +7807,8 @@
       "FETUSDT",
       "BTWUSDT",
       "ZROUSDT",
-      "NEARUSDT",
       "WUSDT",
+      "NEARUSDT",
       "HBARUSDT",
       "GALAUSDT",
       "RUNEUSDT",
@@ -7818,7 +7818,11 @@
       "BCHUSDT",
       "TRUMPUSDT",
       "LITUSDT",
-      "ADAUSDT"
+      "INJUSDT",
+      "ADAUSDT",
+      "LTCUSDT",
+      "LINKUSDT",
+      "ENAUSDT"
     ]
   }
 }
