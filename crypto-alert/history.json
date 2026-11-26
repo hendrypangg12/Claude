@@ -7797,20 +7797,21 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T20:30:42+00:00",
-    "shortlist_count": 10,
+    "time": "2026-11-26T20:32:26+00:00",
+    "shortlist_count": 11,
     "confirmed_count": 0,
     "symbols": [
       "WIFUSDT",
-      "BTWUSDT",
       "FETUSDT",
-      "PIEVERSEUSDT",
+      "BTWUSDT",
       "ZROUSDT",
+      "PIEVERSEUSDT",
       "HBARUSDT",
       "WUSDT",
       "LITUSDT",
-      "GRVTUSDT",
-      "RUNEUSDT"
+      "RUNEUSDT",
+      "AKEUSDT",
+      "GRVTUSDT"
     ]
   }
 }
