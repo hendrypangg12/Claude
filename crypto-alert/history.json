@@ -7773,7 +7773,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T07:14:27+00:00",
+    "time": "2026-11-26T07:16:29+00:00",
     "shortlist_count": 24,
     "confirmed_count": 0,
     "symbols": [
@@ -7784,13 +7784,12 @@
       "VVVUSDT",
       "PUMPUSDT",
       "RUNEUSDT",
-      "WIFUSDT",
-      "LTCUSDT",
-      "WUSDT",
       "NEARUSDT",
+      "WIFUSDT",
+      "WUSDT",
       "ZROUSDT",
+      "LTCUSDT",
       "ENAUSDT",
-      "BTWUSDT",
       "BCHUSDT",
       "HBARUSDT",
       "TIAUSDT",
@@ -7798,9 +7797,10 @@
       "GRAMUSDT",
       "LINKUSDT",
       "INJUSDT",
-      "ASTERUSDT",
       "CAKEUSDT",
-      "FETUSDT"
+      "ASTERUSDT",
+      "FETUSDT",
+      "TRUMPUSDT"
     ]
   }
 }
