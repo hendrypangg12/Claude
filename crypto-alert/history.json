@@ -7773,7 +7773,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-26T00:00:46+00:00",
+    "time": "2026-11-26T00:02:30+00:00",
     "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
@@ -7783,14 +7783,14 @@
       "RUNEUSDT",
       "XPLUSDT",
       "NEARUSDT",
+      "PUMPUSDT",
       "TRUMPUSDT",
       "CTUSDT",
-      "PUMPUSDT",
-      "LTCUSDT",
-      "BCHUSDT",
       "ZECUSDT",
-      "STRKUSDT",
-      "TIAUSDT"
+      "LTCUSDT",
+      "TIAUSDT",
+      "BCHUSDT",
+      "STRKUSDT"
     ]
   }
 }
