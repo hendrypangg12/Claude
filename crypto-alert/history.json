@@ -125,7 +125,8 @@
     "HOTUSDT": "2026-11-04T07:08:26+00:00",
     "CLANKERUSDT": "2026-11-04T18:58:24+00:00",
     "ELSAUSDT": "2026-11-05T03:56:25+00:00",
-    "PIPPINUSDT": "2026-11-19T02:06:32+00:00"
+    "PIPPINUSDT": "2026-11-19T02:06:32+00:00",
+    "PIEVERSEUSDT": "2026-11-27T18:20:37+00:00"
   },
   "alerts": [
     {
@@ -7842,12 +7843,35 @@
       "time": "2026-11-27T16:20:30+00:00",
       "outcome": "sl_hit",
       "outcome_time": "2026-11-27T16:30:41+00:00"
+    },
+    {
+      "symbol": "PIEVERSEUSDT",
+      "pct": 9.9,
+      "price": 4.2734,
+      "quote_volume": 208110.4918,
+      "risk": "🔴 HIGH RISK (likuiditas tipis / pump ekstrem — rawan slippage & manipulasi)",
+      "confidence": "MEDIUM (historis ~55% win rate dari backtest, n=51)",
+      "vol_ratio": 0.35316264064471764,
+      "retrace_pct": 1.1816394958954777,
+      "wick_ratio": 0.45596868884539943,
+      "rsi": 80.27681921010313,
+      "divergence": true,
+      "vol_spike": 1.8752533423349622,
+      "btc_pct": 0.43393992901452416,
+      "sl": 4.367744999999999,
+      "tp1": 4.175711,
+      "tp2": 4.0837889999999994,
+      "tp3": 3.935,
+      "funding_rate": 0.005,
+      "orderbook_ratio": 2.798868636077939,
+      "time": "2026-11-27T18:20:37+00:00",
+      "outcome": null
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T18:18:38+00:00",
-    "shortlist_count": 14,
-    "confirmed_count": 0,
+    "time": "2026-11-27T18:20:37+00:00",
+    "shortlist_count": 13,
+    "confirmed_count": 1,
     "symbols": [
       "PORTALUSDT",
       "BULLAUSDT",
@@ -7857,12 +7881,11 @@
       "GRVTUSDT",
       "BSBUSDT",
       "ZECUSDT",
-      "FETUSDT",
       "PIEVERSEUSDT",
+      "FETUSDT",
       "LITUSDT",
       "WUSDT",
-      "HYPEUSDT",
-      "UNIUSDT"
+      "HYPEUSDT"
     ]
   }
 }
