@@ -7821,23 +7821,22 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T10:14:25+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-27T10:16:23+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
       "FETUSDT",
       "BSBUSDT",
-      "WUSDT",
       "GRVTUSDT",
+      "WUSDT",
       "LITUSDT",
       "HYPEUSDT",
       "RUNEUSDT",
       "GALAUSDT",
-      "INJUSDT",
       "WIFUSDT",
-      "CTUSDT",
-      "ZROUSDT"
+      "INJUSDT",
+      "CTUSDT"
     ]
   }
 }
