@@ -7845,8 +7845,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T16:48:35+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-27T16:50:34+00:00",
+    "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
       "PORTALUSDT",
@@ -7856,10 +7856,11 @@
       "FETUSDT",
       "BSBUSDT",
       "ZECUSDT",
-      "HYPEUSDT",
       "DOSUSDT",
+      "HYPEUSDT",
       "LITUSDT",
-      "WUSDT"
+      "WUSDT",
+      "BULLAUSDT"
     ]
   }
 }
