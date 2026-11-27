@@ -7870,8 +7870,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T22:56:27+00:00",
-    "shortlist_count": 11,
+    "time": "2026-11-27T22:58:30+00:00",
+    "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
       "PORTALUSDT",
@@ -7880,11 +7880,13 @@
       "BULLAUSDT",
       "LITUSDT",
       "DOSUSDT",
-      "FETUSDT",
       "GALAUSDT",
+      "FETUSDT",
       "ZECUSDT",
       "WIFUSDT",
-      "BSBUSDT"
+      "BSBUSDT",
+      "GRVTUSDT",
+      "WUSDT"
     ]
   }
 }
