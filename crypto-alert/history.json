@@ -7821,8 +7821,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T13:20:42+00:00",
-    "shortlist_count": 17,
+    "time": "2026-11-27T13:22:26+00:00",
+    "shortlist_count": 18,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7839,9 +7839,10 @@
       "STRKUSDT",
       "GALAUSDT",
       "GRAMUSDT",
-      "CTUSDT",
       "INJUSDT",
-      "ZECUSDT"
+      "ZECUSDT",
+      "ENAUSDT",
+      "CTUSDT"
     ]
   }
 }
