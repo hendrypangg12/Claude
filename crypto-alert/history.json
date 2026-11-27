@@ -7870,7 +7870,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T19:34:25+00:00",
+    "time": "2026-11-27T19:36:26+00:00",
     "shortlist_count": 12,
     "confirmed_count": 0,
     "symbols": [
@@ -7880,12 +7880,12 @@
       "BTWUSDT",
       "DOSUSDT",
       "GRVTUSDT",
-      "LITUSDT",
-      "BSBUSDT",
-      "PIEVERSEUSDT",
       "FETUSDT",
-      "WUSDT",
-      "ZECUSDT"
+      "LITUSDT",
+      "PIEVERSEUSDT",
+      "BSBUSDT",
+      "ZECUSDT",
+      "WUSDT"
     ]
   }
 }
