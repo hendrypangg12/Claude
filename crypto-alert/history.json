@@ -7821,8 +7821,8 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-27T12:06:27+00:00",
-    "shortlist_count": 13,
+    "time": "2026-11-27T12:08:26+00:00",
+    "shortlist_count": 14,
     "confirmed_count": 0,
     "symbols": [
       "BULLAUSDT",
@@ -7835,8 +7835,9 @@
       "WUSDT",
       "ENAUSDT",
       "WIFUSDT",
-      "CTUSDT",
       "STRKUSDT",
+      "CTUSDT",
+      "INJUSDT",
       "GRAMUSDT"
     ]
   }
