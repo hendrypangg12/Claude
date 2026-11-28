@@ -7870,7 +7870,7 @@
     }
   ],
   "last_scan": {
-    "time": "2026-11-28T00:00:41+00:00",
+    "time": "2026-11-28T00:02:34+00:00",
     "shortlist_count": 13,
     "confirmed_count": 0,
     "symbols": [
@@ -7882,11 +7882,11 @@
       "ZECUSDT",
       "GALAUSDT",
       "WIFUSDT",
-      "FETUSDT",
       "DOSUSDT",
-      "GRVTUSDT",
+      "FETUSDT",
       "BSBUSDT",
-      "WUSDT"
+      "WUSDT",
+      "GRVTUSDT"
     ]
   }
 }
